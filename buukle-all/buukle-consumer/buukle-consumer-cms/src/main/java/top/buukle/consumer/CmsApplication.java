@@ -8,8 +8,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication(scanBasePackages={"top.buukle.common","top.buukle.consumer.cms","top.buukle.plugin.security"})
-@ImportResource(locations = {"classpath:config/spring/springBootContext.xml"})
-@EnableEurekaClient
 @EnableFeignClients(basePackages = {"top.buukle.consumer.cms.invoker","top.buukle.plugin.security.invoker"})
 public class CmsApplication {
     private static volatile boolean RUNNING = true;

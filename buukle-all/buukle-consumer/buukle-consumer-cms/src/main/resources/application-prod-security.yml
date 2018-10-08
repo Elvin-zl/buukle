@@ -33,7 +33,7 @@ security:
   ## 指定 :超时页面视图名ViewName
   outOfTimeViewName: outOfTime
   ## 指定 :越权页面路径path
-  noPermissionPath: /noPermissions
+  noPermissionPath: /noPermission
   ## 指定 :越权页面视图名ViewName
   noPermissionViewName: noPermissions
   ## 指定 :错误页面路径path

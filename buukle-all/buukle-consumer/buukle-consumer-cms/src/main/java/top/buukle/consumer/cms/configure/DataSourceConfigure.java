@@ -1,4 +1,4 @@
-package top.buukle.provider.security.configure;
+package top.buukle.consumer.cms.configure;
 import com.alibaba.druid.pool.DruidDataSource;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import javax.sql.DataSource;
  */
 
 @Configuration
-@MapperScan(basePackages = "top.buukle.provider.security.dao")
+@MapperScan(basePackages = "top.buukle.consumer.cms.dao")
 class DataSourceConfigure {
 
     @Autowired
@@ -39,7 +39,7 @@ class DataSourceConfigure {
         //最小连接池数量
         dataSource.setMinIdle(NumberUtil.INTEGER_ZERO);
         //最大连接池数量
-        dataSource.setMaxActive(NumberUtil.INTEGER_NINE * NumberUtil.INTEGER_TWO);
+        dataSource.setMaxActive(NumberUtil.INTEGER_THOUSAND * NumberUtil.INTEGER_TWO);
         //获取连接时最大等待时间，单位毫秒。
         dataSource.setMaxWait(60000);
         //用来检测连接是否有效的sql

@@ -10,6 +10,6 @@
     <!--扫描配置文件-->
     <context:property-placeholder location="classpath:config/properties/jdbc.properties" />
 
-    <!--引入dataSources配置-->
+    <!--引入 DataSource 配置-->
     <import resource="springBootContext-DataSource.xml"/>
 </beans>

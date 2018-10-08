@@ -11,6 +11,8 @@ public class NumberUtil extends NumberUtils {
 
     /** 空值*/
     public static final Integer EMPTY = null;
+    /** 0*/
+    public static final Integer INTEGER_ZERO = 0;
     /** 1*/
     public static final Integer INTEGER_ONE = 1;
     /** 2*/
@@ -35,6 +37,8 @@ public class NumberUtil extends NumberUtils {
     public static final Integer INTEGER_HUNDRED = 100;
     /** 1000*/
     public static final Integer INTEGER_THOUSAND = 1000;
+    /** 1分钟秒数*/
+    public static final Integer LONG_ONE_MINUTES_SECOND = 60;
     /** 5分钟秒数*/
     public static final Integer LONG_FIVE_MINUTES_SECOND = 300;
     /** 一天秒数*/

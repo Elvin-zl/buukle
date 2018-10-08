@@ -1,0 +1,1533 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>Logback Log Messages</title>
+<style  type="text/css">
+table { margin-left: 2em; margin-right: 2em; border-left: 2px solid #AAA; }
+TR.even { background: #FFFFFF; }
+TR.odd { background: #EAEAEA; }
+TR.warn TD.Level, TR.error TD.Level, TR.fatal TD.Level {font-weight: bold; color: #FF4040 }
+TD { padding-right: 1ex; padding-left: 1ex; border-right: 2px solid #AAA; }
+TD.Time, TD.Date { text-align: right; font-family: courier, monospace; font-size: smaller; }
+TD.Thread { text-align: left; }
+TD.Level { text-align: right; }
+TD.Logger { text-align: left; }
+TR.header { background: #596ED5; color: #FFF; font-weight: bold; font-size: larger; }
+TD.Exception { background: #A2AEE8; font-family: courier, monospace;}
+</style>
+
+  </head>
+<body>
+<hr/>
+<p>Log session start time Mon Oct 08 09:57:29 CST 2018</p><p></p>
+
+<table cellspacing="0">
+<tr class="header">
+<td class="Level">Level</td>
+<td class="Date">Date</td>
+<td class="Message">Message</td>
+<td class="MethodOfCaller">MethodOfCaller</td>
+<td class="FileOfCaller">FileOfCaller</td>
+<td class="LineOfCaller">LineOfCaller</td>
+</tr>
+
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:57:29,319</td>
+<td class="Message">The following profiles are active: dev,dev-security</td>
+<td class="MethodOfCaller">logStartupProfileInfo</td>
+<td class="FileOfCaller">SpringApplication.java</td>
+<td class="LineOfCaller">684</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:57:31,361</td>
+<td class="Message">Create JedisConnectionFactory successful</td>
+<td class="MethodOfCaller">jedisConnectionFactory</td>
+<td class="FileOfCaller">RedisConfigure.java</td>
+<td class="LineOfCaller">166</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-08 09:57:32,862</td>
+<td class="Message">No URLs will be polled as dynamic configuration sources.</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">URLConfigurationSource.java</td>
+<td class="LineOfCaller">121</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:57:32,868</td>
+<td class="Message">To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">URLConfigurationSource.java</td>
+<td class="LineOfCaller">122</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:57:32,899</td>
+<td class="Message">DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@c7877a</td>
+<td class="MethodOfCaller">getInstance</td>
+<td class="FileOfCaller">DynamicPropertyFactory.java</td>
+<td class="LineOfCaller">281</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:57:35,141</td>
+<td class="Message">JedisPool init successful，host -&gt; [47.95.13.7]；port -&gt; [4376]</td>
+<td class="MethodOfCaller">redisPoolFactory</td>
+<td class="FileOfCaller">RedisConfigure.java</td>
+<td class="LineOfCaller">176</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-08 09:57:35,268</td>
+<td class="Message">No URLs will be polled as dynamic configuration sources.</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">URLConfigurationSource.java</td>
+<td class="LineOfCaller">121</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:57:35,269</td>
+<td class="Message">To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">URLConfigurationSource.java</td>
+<td class="LineOfCaller">122</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:57:38,343</td>
+<td class="Message">Initializing Eureka in region us-east-1</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">349</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:57:38,643</td>
+<td class="Message">Using JSON encoding codec LegacyJacksonJson</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryJerseyProvider.java</td>
+<td class="LineOfCaller">70</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:57:38,649</td>
+<td class="Message">Using JSON decoding codec LegacyJacksonJson</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryJerseyProvider.java</td>
+<td class="LineOfCaller">71</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:57:38,792</td>
+<td class="Message">Using XML encoding codec XStreamXml</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryJerseyProvider.java</td>
+<td class="LineOfCaller">80</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:57:38,799</td>
+<td class="Message">Using XML decoding codec XStreamXml</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryJerseyProvider.java</td>
+<td class="LineOfCaller">81</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:57:39,141</td>
+<td class="Message">Disable delta property : false</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">958</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:57:39,148</td>
+<td class="Message">Single vip registry refresh property : null</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">959</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:57:39,148</td>
+<td class="Message">Force full registry fetch : false</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">960</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:57:39,154</td>
+<td class="Message">Application is null : false</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">961</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:57:39,154</td>
+<td class="Message">Registered Applications size is zero : true</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">962</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:57:39,155</td>
+<td class="Message">Application version is -1: true</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">964</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:57:39,155</td>
+<td class="Message">Getting all instance registry info from the eureka server</td>
+<td class="MethodOfCaller">getAndStoreFullRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">1047</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:57:39,471</td>
+<td class="Message">The response status is 200</td>
+<td class="MethodOfCaller">getAndStoreFullRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">1056</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:57:39,473</td>
+<td class="Message">Starting heartbeat executor: renew interval is: 30</td>
+<td class="MethodOfCaller">initScheduledTasks</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">1264</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:57:39,476</td>
+<td class="Message">InstanceInfoReplicator onDemand update allowed rate per min is 4</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">InstanceInfoReplicator.java</td>
+<td class="LineOfCaller">60</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:57:39,481</td>
+<td class="Message">Discovery Client initialized at timestamp 1538963859480 with initial instances count: 0</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">449</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:57:39,510</td>
+<td class="Message">Saw local status change event StatusChangeEvent [timestamp=1538963859510, current=UP, previous=STARTING]</td>
+<td class="MethodOfCaller">notify</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">1299</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:57:39,513</td>
+<td class="Message">DiscoveryClient_BUUKLE-SECURITY/ELVIN-WORK-PC:buukle-security:9500: registering service...</td>
+<td class="MethodOfCaller">register</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">826</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:57:39,583</td>
+<td class="Message">Started SecurityApplication in 11.652 seconds (JVM running for 12.241)</td>
+<td class="MethodOfCaller">logStarted</td>
+<td class="FileOfCaller">StartupInfoLogger.java</td>
+<td class="LineOfCaller">59</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:57:39,663</td>
+<td class="Message">DiscoveryClient_BUUKLE-SECURITY/ELVIN-WORK-PC:buukle-security:9500 - registration status: 204</td>
+<td class="MethodOfCaller">register</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">835</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:58:09,475</td>
+<td class="Message">Disable delta property : false</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">958</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:58:09,495</td>
+<td class="Message">Single vip registry refresh property : null</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">959</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:58:09,509</td>
+<td class="Message">Force full registry fetch : false</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">960</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:58:09,510</td>
+<td class="Message">Application is null : false</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">961</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:58:09,520</td>
+<td class="Message">Registered Applications size is zero : true</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">962</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:58:09,520</td>
+<td class="Message">Application version is -1: false</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">964</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:58:09,521</td>
+<td class="Message">Getting all instance registry info from the eureka server</td>
+<td class="MethodOfCaller">getAndStoreFullRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">1047</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 09:58:09,572</td>
+<td class="Message">The response status is 200</td>
+<td class="MethodOfCaller">getAndStoreFullRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">1056</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 10:00:00,336</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:43)[sid:283E13D878490E67395F489E6290B3CA] 来源 :127.0.0.1,请求接口方法:/api/security/user/doLogin开始</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 10:00:00,343</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:44)[sid:283E13D878490E67395F489E6290B3CA] 请求参数 :{&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:&quot;2018-10-08T01:59:59.530+0000&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;,&quot;operationName&quot;:null,&quot;operationId&quot;:&quot;-1&quot;},&quot;info&quot;:{&quot;id&quot;:null,&quot;username&quot;:&quot;1&quot;,&quot;password&quot;:&quot;c4ca4238a0b923820dcc509a6f75849b&quot;,&quot;userId&quot;:null,&quot;fansNumber&quot;:null,&quot;phone&quot;:null,&quot;gender&quot;:null,&quot;age&quot;:null,&quot;slogen&quot;:null,&quot;loginStrategy&quot;:0,&quot;headImageUrl&quot;:null,&quot;headImageId&quot;:null,&quot;theme&quot;:null,&quot;themeId&quot;:null,&quot;creator&quot;:null,&quot;creatorCode&quot;:null,&quot;gmtCreated&quot;:null,&quot;modifier&quot;:null,&quot;modifierCode&quot;:null,&quot;gmtModified&quot;:null,&quot;nameCn&quot;:null,&quot;fullNameCn&quot;:null,&quot;nameEn&quot;:null,&quot;fullNameEn&quot;:null,&quot;status&quot;:null,&quot;bak01&quot;:null,&quot;bak02&quot;:null,&quot;bak03&quot;:null,&quot;bak04&quot;:null,&quot;bak05&quot;:null},&quot;expandParameterString&quot;:&quot;300&quot;,&quot;expandParameterInteger&quot;:null}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 10:00:00,630</td>
+<td class="Message">{dataSource-1} inited</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">Log4j2Impl.java</td>
+<td class="LineOfCaller">106</td>
+</tr>
+
+<tr class="debug odd">
+<td class="Level">DEBUG</td>
+<td class="Date">2018-10-08 10:00:00,639</td>
+<td class="Message">==&gt;  Preparing: select id,username,password,user_id,fans_number,phone,gender,age,slogen,login_strategy,head_image_url,head_image_id,theme,theme_id,creator,creator_code,gmt_created,modifier,modifier_code,gmt_modified,name_cn,full_name_cn,name_en,full_name_en,status,bak01,bak02,bak03,bak04,bak05 from user where 1=1 and username=? AND password = ? </td>
+<td class="MethodOfCaller">debug</td>
+<td class="FileOfCaller">BaseJdbcLogger.java</td>
+<td class="LineOfCaller">159</td>
+</tr>
+
+<tr class="debug even">
+<td class="Level">DEBUG</td>
+<td class="Date">2018-10-08 10:00:00,662</td>
+<td class="Message">==&gt; Parameters: 1(String), c4ca4238a0b923820dcc509a6f75849b(String)</td>
+<td class="MethodOfCaller">debug</td>
+<td class="FileOfCaller">BaseJdbcLogger.java</td>
+<td class="LineOfCaller">159</td>
+</tr>
+
+<tr class="debug odd">
+<td class="Level">DEBUG</td>
+<td class="Date">2018-10-08 10:00:00,678</td>
+<td class="Message">&lt;==      Total: 0</td>
+<td class="MethodOfCaller">debug</td>
+<td class="FileOfCaller">BaseJdbcLogger.java</td>
+<td class="LineOfCaller">159</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 10:00:00,703</td>
+<td class="Message">top.buukle.provider.security.util.ResponseHandler.doHandle(ResponseHandler.java:33)[sid:283E13D878490E67395F489E6290B3CA] 返回值没有处理.. .. </td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>Logback Log Messages</title>
+<style  type="text/css">
+table { margin-left: 2em; margin-right: 2em; border-left: 2px solid #AAA; }
+TR.even { background: #FFFFFF; }
+TR.odd { background: #EAEAEA; }
+TR.warn TD.Level, TR.error TD.Level, TR.fatal TD.Level {font-weight: bold; color: #FF4040 }
+TD { padding-right: 1ex; padding-left: 1ex; border-right: 2px solid #AAA; }
+TD.Time, TD.Date { text-align: right; font-family: courier, monospace; font-size: smaller; }
+TD.Thread { text-align: left; }
+TD.Level { text-align: right; }
+TD.Logger { text-align: left; }
+TR.header { background: #596ED5; color: #FFF; font-weight: bold; font-size: larger; }
+TD.Exception { background: #A2AEE8; font-family: courier, monospace;}
+</style>
+
+  </head>
+<body>
+<hr/>
+<p>Log session start time Mon Oct 08 11:28:33 CST 2018</p><p></p>
+
+<table cellspacing="0">
+<tr class="header">
+<td class="Level">Level</td>
+<td class="Date">Date</td>
+<td class="Message">Message</td>
+<td class="MethodOfCaller">MethodOfCaller</td>
+<td class="FileOfCaller">FileOfCaller</td>
+<td class="LineOfCaller">LineOfCaller</td>
+</tr>
+
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:28:33,350</td>
+<td class="Message">The following profiles are active: dev,dev-security</td>
+<td class="MethodOfCaller">logStartupProfileInfo</td>
+<td class="FileOfCaller">SpringApplication.java</td>
+<td class="LineOfCaller">684</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:28:36,155</td>
+<td class="Message">Create JedisConnectionFactory successful</td>
+<td class="MethodOfCaller">jedisConnectionFactory</td>
+<td class="FileOfCaller">RedisConfigure.java</td>
+<td class="LineOfCaller">166</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-08 11:28:37,747</td>
+<td class="Message">No URLs will be polled as dynamic configuration sources.</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">URLConfigurationSource.java</td>
+<td class="LineOfCaller">121</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:28:37,753</td>
+<td class="Message">To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">URLConfigurationSource.java</td>
+<td class="LineOfCaller">122</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:28:37,776</td>
+<td class="Message">DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@1268a13</td>
+<td class="MethodOfCaller">getInstance</td>
+<td class="FileOfCaller">DynamicPropertyFactory.java</td>
+<td class="LineOfCaller">281</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:28:40,189</td>
+<td class="Message">JedisPool init successful，host -&gt; [47.95.13.7]；port -&gt; [4376]</td>
+<td class="MethodOfCaller">redisPoolFactory</td>
+<td class="FileOfCaller">RedisConfigure.java</td>
+<td class="LineOfCaller">176</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-08 11:28:40,322</td>
+<td class="Message">No URLs will be polled as dynamic configuration sources.</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">URLConfigurationSource.java</td>
+<td class="LineOfCaller">121</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:28:40,330</td>
+<td class="Message">To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">URLConfigurationSource.java</td>
+<td class="LineOfCaller">122</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:28:43,630</td>
+<td class="Message">Initializing Eureka in region us-east-1</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">349</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:28:43,868</td>
+<td class="Message">Using JSON encoding codec LegacyJacksonJson</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryJerseyProvider.java</td>
+<td class="LineOfCaller">70</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:28:43,874</td>
+<td class="Message">Using JSON decoding codec LegacyJacksonJson</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryJerseyProvider.java</td>
+<td class="LineOfCaller">71</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:28:44,034</td>
+<td class="Message">Using XML encoding codec XStreamXml</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryJerseyProvider.java</td>
+<td class="LineOfCaller">80</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:28:44,041</td>
+<td class="Message">Using XML decoding codec XStreamXml</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryJerseyProvider.java</td>
+<td class="LineOfCaller">81</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:28:44,398</td>
+<td class="Message">Disable delta property : false</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">958</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:28:44,404</td>
+<td class="Message">Single vip registry refresh property : null</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">959</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:28:44,405</td>
+<td class="Message">Force full registry fetch : false</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">960</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:28:44,411</td>
+<td class="Message">Application is null : false</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">961</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:28:44,412</td>
+<td class="Message">Registered Applications size is zero : true</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">962</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:28:44,412</td>
+<td class="Message">Application version is -1: true</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">964</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:28:44,413</td>
+<td class="Message">Getting all instance registry info from the eureka server</td>
+<td class="MethodOfCaller">getAndStoreFullRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">1047</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:28:44,647</td>
+<td class="Message">The response status is 200</td>
+<td class="MethodOfCaller">getAndStoreFullRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">1056</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:28:44,651</td>
+<td class="Message">Starting heartbeat executor: renew interval is: 30</td>
+<td class="MethodOfCaller">initScheduledTasks</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">1264</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:28:44,653</td>
+<td class="Message">InstanceInfoReplicator onDemand update allowed rate per min is 4</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">InstanceInfoReplicator.java</td>
+<td class="LineOfCaller">60</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:28:44,657</td>
+<td class="Message">Discovery Client initialized at timestamp 1538969324656 with initial instances count: 2</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">449</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:28:44,687</td>
+<td class="Message">Saw local status change event StatusChangeEvent [timestamp=1538969324687, current=UP, previous=STARTING]</td>
+<td class="MethodOfCaller">notify</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">1299</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:28:44,690</td>
+<td class="Message">DiscoveryClient_BUUKLE-SECURITY/ELVIN-WORK-PC:buukle-security:9500: registering service...</td>
+<td class="MethodOfCaller">register</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">826</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:28:44,725</td>
+<td class="Message">DiscoveryClient_BUUKLE-SECURITY/ELVIN-WORK-PC:buukle-security:9500 - registration status: 204</td>
+<td class="MethodOfCaller">register</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">835</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:28:44,746</td>
+<td class="Message">Started SecurityApplication in 12.966 seconds (JVM running for 13.472)</td>
+<td class="MethodOfCaller">logStarted</td>
+<td class="FileOfCaller">StartupInfoLogger.java</td>
+<td class="LineOfCaller">59</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:29:05,351</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:43)[sid:C370BEF35F03F45A9752CE8578244C89] 来源 :127.0.0.1,请求接口方法:/api/security/user/doLogin开始</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:29:05,357</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:44)[sid:C370BEF35F03F45A9752CE8578244C89] 请求参数 :{&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:&quot;2018-10-08T03:29:04.558+0000&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;,&quot;operationName&quot;:null,&quot;operationId&quot;:&quot;-1&quot;},&quot;info&quot;:{&quot;id&quot;:null,&quot;username&quot;:&quot;1&quot;,&quot;password&quot;:&quot;c4ca4238a0b923820dcc509a6f75849b&quot;,&quot;userId&quot;:null,&quot;fansNumber&quot;:null,&quot;phone&quot;:null,&quot;gender&quot;:null,&quot;age&quot;:null,&quot;slogen&quot;:null,&quot;loginStrategy&quot;:0,&quot;headImageUrl&quot;:null,&quot;headImageId&quot;:null,&quot;theme&quot;:null,&quot;themeId&quot;:null,&quot;creator&quot;:null,&quot;creatorCode&quot;:null,&quot;gmtCreated&quot;:null,&quot;modifier&quot;:null,&quot;modifierCode&quot;:null,&quot;gmtModified&quot;:null,&quot;nameCn&quot;:null,&quot;fullNameCn&quot;:null,&quot;nameEn&quot;:null,&quot;fullNameEn&quot;:null,&quot;status&quot;:null,&quot;bak01&quot;:null,&quot;bak02&quot;:null,&quot;bak03&quot;:null,&quot;bak04&quot;:null,&quot;bak05&quot;:null},&quot;expandParameterString&quot;:&quot;300&quot;,&quot;expandParameterInteger&quot;:null}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:29:05,592</td>
+<td class="Message">{dataSource-1} inited</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">Log4j2Impl.java</td>
+<td class="LineOfCaller">106</td>
+</tr>
+
+<tr class="debug odd">
+<td class="Level">DEBUG</td>
+<td class="Date">2018-10-08 11:29:05,662</td>
+<td class="Message">==&gt;  Preparing: select id,username,password,user_id,fans_number,phone,gender,age,slogen,login_strategy,head_image_url,head_image_id,theme,theme_id,creator,creator_code,gmt_created,modifier,modifier_code,gmt_modified,name_cn,full_name_cn,name_en,full_name_en,status,bak01,bak02,bak03,bak04,bak05 from user where 1=1 and username=? AND password = ? </td>
+<td class="MethodOfCaller">debug</td>
+<td class="FileOfCaller">BaseJdbcLogger.java</td>
+<td class="LineOfCaller">159</td>
+</tr>
+
+<tr class="debug even">
+<td class="Level">DEBUG</td>
+<td class="Date">2018-10-08 11:29:05,687</td>
+<td class="Message">==&gt; Parameters: 1(String), c4ca4238a0b923820dcc509a6f75849b(String)</td>
+<td class="MethodOfCaller">debug</td>
+<td class="FileOfCaller">BaseJdbcLogger.java</td>
+<td class="LineOfCaller">159</td>
+</tr>
+
+<tr class="debug odd">
+<td class="Level">DEBUG</td>
+<td class="Date">2018-10-08 11:29:05,740</td>
+<td class="Message">&lt;==      Total: 0</td>
+<td class="MethodOfCaller">debug</td>
+<td class="FileOfCaller">BaseJdbcLogger.java</td>
+<td class="LineOfCaller">159</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:29:05,793</td>
+<td class="Message">top.buukle.provider.security.util.ResponseHandler.doHandle(ResponseHandler.java:33)[sid:C370BEF35F03F45A9752CE8578244C89] 返回值没有处理.. .. </td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,182</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:43)[sid:A241BE82ADF0F4DC3AD1B9A8E4F9886C] 来源 :127.0.0.1,请求接口方法:/api/security/user/doLogin开始</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,189</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:44)[sid:A241BE82ADF0F4DC3AD1B9A8E4F9886C] 请求参数 :{&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:&quot;2018-10-08T03:30:32.166+0000&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;,&quot;operationName&quot;:null,&quot;operationId&quot;:&quot;-1&quot;},&quot;info&quot;:{&quot;id&quot;:null,&quot;username&quot;:&quot;1&quot;,&quot;password&quot;:&quot;c4ca4238a0b923820dcc509a6f75849b&quot;,&quot;userId&quot;:null,&quot;fansNumber&quot;:null,&quot;phone&quot;:null,&quot;gender&quot;:null,&quot;age&quot;:null,&quot;slogen&quot;:null,&quot;loginStrategy&quot;:0,&quot;headImageUrl&quot;:null,&quot;headImageId&quot;:null,&quot;theme&quot;:null,&quot;themeId&quot;:null,&quot;creator&quot;:null,&quot;creatorCode&quot;:null,&quot;gmtCreated&quot;:null,&quot;modifier&quot;:null,&quot;modifierCode&quot;:null,&quot;gmtModified&quot;:null,&quot;nameCn&quot;:null,&quot;fullNameCn&quot;:null,&quot;nameEn&quot;:null,&quot;fullNameEn&quot;:null,&quot;status&quot;:null,&quot;bak01&quot;:null,&quot;bak02&quot;:null,&quot;bak03&quot;:null,&quot;bak04&quot;:null,&quot;bak05&quot;:null},&quot;expandParameterString&quot;:&quot;300&quot;,&quot;expandParameterInteger&quot;:null}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="debug odd">
+<td class="Level">DEBUG</td>
+<td class="Date">2018-10-08 11:30:32,218</td>
+<td class="Message">==&gt;  Preparing: select id,username,password,user_id,fans_number,phone,gender,age,slogen,login_strategy,head_image_url,head_image_id,theme,theme_id,creator,creator_code,gmt_created,modifier,modifier_code,gmt_modified,name_cn,full_name_cn,name_en,full_name_en,status,bak01,bak02,bak03,bak04,bak05 from user where 1=1 and username=? AND password = ? </td>
+<td class="MethodOfCaller">debug</td>
+<td class="FileOfCaller">BaseJdbcLogger.java</td>
+<td class="LineOfCaller">159</td>
+</tr>
+
+<tr class="debug even">
+<td class="Level">DEBUG</td>
+<td class="Date">2018-10-08 11:30:32,220</td>
+<td class="Message">==&gt; Parameters: 1(String), c4ca4238a0b923820dcc509a6f75849b(String)</td>
+<td class="MethodOfCaller">debug</td>
+<td class="FileOfCaller">BaseJdbcLogger.java</td>
+<td class="LineOfCaller">159</td>
+</tr>
+
+<tr class="debug odd">
+<td class="Level">DEBUG</td>
+<td class="Date">2018-10-08 11:30:32,228</td>
+<td class="Message">&lt;==      Total: 1</td>
+<td class="MethodOfCaller">debug</td>
+<td class="FileOfCaller">BaseJdbcLogger.java</td>
+<td class="LineOfCaller">159</td>
+</tr>
+
+<tr class="debug even">
+<td class="Level">DEBUG</td>
+<td class="Date">2018-10-08 11:30:32,235</td>
+<td class="Message">==&gt;  Preparing: select id,user_id,user_qq,user_wechat,creator,creator_code,gmt_created,modifier,modifier_code,gmt_modified,status,bak01,bak02,bak03,bak04,bak05 from user_exp where user_id = ? </td>
+<td class="MethodOfCaller">debug</td>
+<td class="FileOfCaller">BaseJdbcLogger.java</td>
+<td class="LineOfCaller">159</td>
+</tr>
+
+<tr class="debug odd">
+<td class="Level">DEBUG</td>
+<td class="Date">2018-10-08 11:30:32,235</td>
+<td class="Message">==&gt; Parameters: 1(String)</td>
+<td class="MethodOfCaller">debug</td>
+<td class="FileOfCaller">BaseJdbcLogger.java</td>
+<td class="LineOfCaller">159</td>
+</tr>
+
+<tr class="debug even">
+<td class="Level">DEBUG</td>
+<td class="Date">2018-10-08 11:30:32,240</td>
+<td class="Message">&lt;==      Total: 0</td>
+<td class="MethodOfCaller">debug</td>
+<td class="FileOfCaller">BaseJdbcLogger.java</td>
+<td class="LineOfCaller">159</td>
+</tr>
+
+<tr class="debug odd">
+<td class="Level">DEBUG</td>
+<td class="Date">2018-10-08 11:30:32,242</td>
+<td class="Message">==&gt;  Preparing: select g.* from groups g,user_group ug where g.id = ug.group_id and ug.user_id = ? and ug.type = 1; </td>
+<td class="MethodOfCaller">debug</td>
+<td class="FileOfCaller">BaseJdbcLogger.java</td>
+<td class="LineOfCaller">159</td>
+</tr>
+
+<tr class="debug even">
+<td class="Level">DEBUG</td>
+<td class="Date">2018-10-08 11:30:32,242</td>
+<td class="Message">==&gt; Parameters: 1(String)</td>
+<td class="MethodOfCaller">debug</td>
+<td class="FileOfCaller">BaseJdbcLogger.java</td>
+<td class="LineOfCaller">159</td>
+</tr>
+
+<tr class="debug odd">
+<td class="Level">DEBUG</td>
+<td class="Date">2018-10-08 11:30:32,259</td>
+<td class="Message">&lt;==      Total: 0</td>
+<td class="MethodOfCaller">debug</td>
+<td class="FileOfCaller">BaseJdbcLogger.java</td>
+<td class="LineOfCaller">159</td>
+</tr>
+
+<tr class="debug even">
+<td class="Level">DEBUG</td>
+<td class="Date">2018-10-08 11:30:32,281</td>
+<td class="Message">==&gt;  Preparing: select u.* from user u ,user_group ug where u.status = 1 and ug.type = 0 and u.user_id = ug.user_id; </td>
+<td class="MethodOfCaller">debug</td>
+<td class="FileOfCaller">BaseJdbcLogger.java</td>
+<td class="LineOfCaller">159</td>
+</tr>
+
+<tr class="debug odd">
+<td class="Level">DEBUG</td>
+<td class="Date">2018-10-08 11:30:32,282</td>
+<td class="Message">==&gt; Parameters: </td>
+<td class="MethodOfCaller">debug</td>
+<td class="FileOfCaller">BaseJdbcLogger.java</td>
+<td class="LineOfCaller">159</td>
+</tr>
+
+<tr class="debug even">
+<td class="Level">DEBUG</td>
+<td class="Date">2018-10-08 11:30:32,294</td>
+<td class="Message">&lt;==      Total: 0</td>
+<td class="MethodOfCaller">debug</td>
+<td class="FileOfCaller">BaseJdbcLogger.java</td>
+<td class="LineOfCaller">159</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,431</td>
+<td class="Message">top.buukle.provider.security.service.impl.UserBusinessImpl.doLogin(UserBusinessImpl.java:71)[sid:A241BE82ADF0F4DC3AD1B9A8E4F9886C] 用户 : 1 security-sso 签入成功!</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,450</td>
+<td class="Message">top.buukle.provider.security.util.ResponseHandler.doHandle(ResponseHandler.java:33)[sid:A241BE82ADF0F4DC3AD1B9A8E4F9886C] 返回值没有处理.. .. </td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,541</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:43)[sid:A13F5A05C12879FBEC459CAE18DEF4A9] 来源 :127.0.0.1,请求接口方法:/api/security/user/authentication开始</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,541</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:44)[sid:A13F5A05C12879FBEC459CAE18DEF4A9] 请求参数 :{&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:&quot;2018-10-08T03:30:32.532+0000&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;,&quot;operationName&quot;:null,&quot;operationId&quot;:&quot;-1&quot;},&quot;info&quot;:&quot;dddab03efbf24f6e860428cb0d826c81&quot;,&quot;expandParameterString&quot;:&quot;300&quot;,&quot;expandParameterInteger&quot;:null}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,579</td>
+<td class="Message">top.buukle.provider.security.util.ResponseHandler.doHandle(ResponseHandler.java:33)[sid:A13F5A05C12879FBEC459CAE18DEF4A9] 返回值没有处理.. .. </td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,608</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:43)[sid:CEA04DB11C3C283610EDD7EF73B0EC20] 来源 :127.0.0.1,请求接口方法:/api/security/user/setPermission开始</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,609</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:44)[sid:CEA04DB11C3C283610EDD7EF73B0EC20] 请求参数 :{&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:&quot;2018-10-08T03:30:32.602+0000&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;,&quot;operationName&quot;:null,&quot;operationId&quot;:&quot;-1&quot;},&quot;info&quot;:{&quot;userCookie&quot;:&quot;dddab03efbf24f6e860428cb0d826c81&quot;,&quot;url&quot;:&quot;/index&quot;,&quot;user&quot;:{&quot;id&quot;:1,&quot;username&quot;:&quot;1&quot;,&quot;password&quot;:&quot;c4ca4238a0b923820dcc509a6f75849b&quot;,&quot;userId&quot;:&quot;1&quot;,&quot;fansNumber&quot;:null,&quot;phone&quot;:null,&quot;gender&quot;:null,&quot;age&quot;:null,&quot;slogen&quot;:null,&quot;loginStrategy&quot;:null,&quot;headImageUrl&quot;:null,&quot;headImageId&quot;:null,&quot;theme&quot;:null,&quot;themeId&quot;:null,&quot;creator&quot;:null,&quot;creatorCode&quot;:null,&quot;gmtCreated&quot;:&quot;2018-09-13T20:28:26.000+0000&quot;,&quot;modifier&quot;:null,&quot;modifierCode&quot;:null,&quot;gmtModified&quot;:null,&quot;nameCn&quot;:null,&quot;fullNameCn&quot;:null,&quot;nameEn&quot;:&quot;张召忠&quot;,&quot;fullNameEn&quot;:null,&quot;status&quot;:null,&quot;bak01&quot;:null,&quot;bak02&quot;:null,&quot;bak03&quot;:null,&quot;bak04&quot;:null,&quot;bak05&quot;:null}},&quot;expandParameterString&quot;:null,&quot;expandParameterInteger&quot;:null}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,634</td>
+<td class="Message">top.buukle.provider.security.util.ResponseHandler.doHandle(ResponseHandler.java:33)[sid:CEA04DB11C3C283610EDD7EF73B0EC20] 返回值没有处理.. .. </td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,690</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:43)[sid:3A614A126F4A71D4A14DF9EE34F9A0AB] 来源 :127.0.0.1,请求接口方法:/api/security/user/authentication开始</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,691</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:44)[sid:3A614A126F4A71D4A14DF9EE34F9A0AB] 请求参数 :{&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:&quot;2018-10-08T03:30:32.687+0000&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;,&quot;operationName&quot;:null,&quot;operationId&quot;:&quot;-1&quot;},&quot;info&quot;:&quot;dddab03efbf24f6e860428cb0d826c81&quot;,&quot;expandParameterString&quot;:&quot;300&quot;,&quot;expandParameterInteger&quot;:null}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,726</td>
+<td class="Message">top.buukle.provider.security.util.ResponseHandler.doHandle(ResponseHandler.java:33)[sid:3A614A126F4A71D4A14DF9EE34F9A0AB] 返回值没有处理.. .. </td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,733</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:43)[sid:AA301BDE165CB832C50CC461B0795868] 来源 :127.0.0.1,请求接口方法:/api/security/user/authentication开始</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,733</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:43)[sid:A300F846D57F3BB3BF03218D9D42D531] 来源 :127.0.0.1,请求接口方法:/api/security/user/setPermission开始</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,733</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:44)[sid:AA301BDE165CB832C50CC461B0795868] 请求参数 :{&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:&quot;2018-10-08T03:30:32.728+0000&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;,&quot;operationName&quot;:null,&quot;operationId&quot;:&quot;-1&quot;},&quot;info&quot;:&quot;dddab03efbf24f6e860428cb0d826c81&quot;,&quot;expandParameterString&quot;:&quot;300&quot;,&quot;expandParameterInteger&quot;:null}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,733</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:44)[sid:A300F846D57F3BB3BF03218D9D42D531] 请求参数 :{&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:&quot;2018-10-08T03:30:32.729+0000&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;,&quot;operationName&quot;:null,&quot;operationId&quot;:&quot;-1&quot;},&quot;info&quot;:{&quot;userCookie&quot;:&quot;dddab03efbf24f6e860428cb0d826c81&quot;,&quot;url&quot;:&quot;/toMain/explain/explain&quot;,&quot;user&quot;:{&quot;id&quot;:1,&quot;username&quot;:&quot;1&quot;,&quot;password&quot;:&quot;c4ca4238a0b923820dcc509a6f75849b&quot;,&quot;userId&quot;:&quot;1&quot;,&quot;fansNumber&quot;:null,&quot;phone&quot;:null,&quot;gender&quot;:null,&quot;age&quot;:null,&quot;slogen&quot;:null,&quot;loginStrategy&quot;:null,&quot;headImageUrl&quot;:null,&quot;headImageId&quot;:null,&quot;theme&quot;:null,&quot;themeId&quot;:null,&quot;creator&quot;:null,&quot;creatorCode&quot;:null,&quot;gmtCreated&quot;:&quot;2018-09-13T20:28:26.000+0000&quot;,&quot;modifier&quot;:null,&quot;modifierCode&quot;:null,&quot;gmtModified&quot;:null,&quot;nameCn&quot;:null,&quot;fullNameCn&quot;:null,&quot;nameEn&quot;:&quot;张召忠&quot;,&quot;fullNameEn&quot;:null,&quot;status&quot;:null,&quot;bak01&quot;:null,&quot;bak02&quot;:null,&quot;bak03&quot;:null,&quot;bak04&quot;:null,&quot;bak05&quot;:null}},&quot;expandParameterString&quot;:null,&quot;expandParameterInteger&quot;:null}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,757</td>
+<td class="Message">top.buukle.provider.security.util.ResponseHandler.doHandle(ResponseHandler.java:33)[sid:A300F846D57F3BB3BF03218D9D42D531] 返回值没有处理.. .. </td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,761</td>
+<td class="Message">top.buukle.provider.security.util.ResponseHandler.doHandle(ResponseHandler.java:33)[sid:AA301BDE165CB832C50CC461B0795868] 返回值没有处理.. .. </td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,767</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:43)[sid:9AA91C8688BE4E7CBDF6824BE4079A5C] 来源 :127.0.0.1,请求接口方法:/api/security/user/setPermission开始</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,768</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:44)[sid:9AA91C8688BE4E7CBDF6824BE4079A5C] 请求参数 :{&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:&quot;2018-10-08T03:30:32.764+0000&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;,&quot;operationName&quot;:null,&quot;operationId&quot;:&quot;-1&quot;},&quot;info&quot;:{&quot;userCookie&quot;:&quot;dddab03efbf24f6e860428cb0d826c81&quot;,&quot;url&quot;:&quot;/module/getSideModuleTree&quot;,&quot;user&quot;:{&quot;id&quot;:1,&quot;username&quot;:&quot;1&quot;,&quot;password&quot;:&quot;c4ca4238a0b923820dcc509a6f75849b&quot;,&quot;userId&quot;:&quot;1&quot;,&quot;fansNumber&quot;:null,&quot;phone&quot;:null,&quot;gender&quot;:null,&quot;age&quot;:null,&quot;slogen&quot;:null,&quot;loginStrategy&quot;:null,&quot;headImageUrl&quot;:null,&quot;headImageId&quot;:null,&quot;theme&quot;:null,&quot;themeId&quot;:null,&quot;creator&quot;:null,&quot;creatorCode&quot;:null,&quot;gmtCreated&quot;:&quot;2018-09-13T20:28:26.000+0000&quot;,&quot;modifier&quot;:null,&quot;modifierCode&quot;:null,&quot;gmtModified&quot;:null,&quot;nameCn&quot;:null,&quot;fullNameCn&quot;:null,&quot;nameEn&quot;:&quot;张召忠&quot;,&quot;fullNameEn&quot;:null,&quot;status&quot;:null,&quot;bak01&quot;:null,&quot;bak02&quot;:null,&quot;bak03&quot;:null,&quot;bak04&quot;:null,&quot;bak05&quot;:null}},&quot;expandParameterString&quot;:null,&quot;expandParameterInteger&quot;:null}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,787</td>
+<td class="Message">top.buukle.provider.security.util.ResponseHandler.doHandle(ResponseHandler.java:33)[sid:9AA91C8688BE4E7CBDF6824BE4079A5C] 返回值没有处理.. .. </td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,806</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:43)[sid:40E8817B31A0CED6C984BA682A707CFD] 来源 :127.0.0.1,请求接口方法:/api/security/user/authentication开始</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,806</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:44)[sid:40E8817B31A0CED6C984BA682A707CFD] 请求参数 :{&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:&quot;2018-10-08T03:30:32.802+0000&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;,&quot;operationName&quot;:null,&quot;operationId&quot;:&quot;-1&quot;},&quot;info&quot;:&quot;dddab03efbf24f6e860428cb0d826c81&quot;,&quot;expandParameterString&quot;:&quot;300&quot;,&quot;expandParameterInteger&quot;:null}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,836</td>
+<td class="Message">top.buukle.provider.security.util.ResponseHandler.doHandle(ResponseHandler.java:33)[sid:40E8817B31A0CED6C984BA682A707CFD] 返回值没有处理.. .. </td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,842</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:43)[sid:13664C38BD3E49141329A20269FD42A8] 来源 :127.0.0.1,请求接口方法:/api/security/user/setPermission开始</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,843</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:44)[sid:13664C38BD3E49141329A20269FD42A8] 请求参数 :{&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:&quot;2018-10-08T03:30:32.838+0000&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;,&quot;operationName&quot;:null,&quot;operationId&quot;:&quot;-1&quot;},&quot;info&quot;:{&quot;userCookie&quot;:&quot;dddab03efbf24f6e860428cb0d826c81&quot;,&quot;url&quot;:&quot;/user/getUserInfo&quot;,&quot;user&quot;:{&quot;id&quot;:1,&quot;username&quot;:&quot;1&quot;,&quot;password&quot;:&quot;c4ca4238a0b923820dcc509a6f75849b&quot;,&quot;userId&quot;:&quot;1&quot;,&quot;fansNumber&quot;:null,&quot;phone&quot;:null,&quot;gender&quot;:null,&quot;age&quot;:null,&quot;slogen&quot;:null,&quot;loginStrategy&quot;:null,&quot;headImageUrl&quot;:null,&quot;headImageId&quot;:null,&quot;theme&quot;:null,&quot;themeId&quot;:null,&quot;creator&quot;:null,&quot;creatorCode&quot;:null,&quot;gmtCreated&quot;:&quot;2018-09-13T20:28:26.000+0000&quot;,&quot;modifier&quot;:null,&quot;modifierCode&quot;:null,&quot;gmtModified&quot;:null,&quot;nameCn&quot;:null,&quot;fullNameCn&quot;:null,&quot;nameEn&quot;:&quot;张召忠&quot;,&quot;fullNameEn&quot;:null,&quot;status&quot;:null,&quot;bak01&quot;:null,&quot;bak02&quot;:null,&quot;bak03&quot;:null,&quot;bak04&quot;:null,&quot;bak05&quot;:null}},&quot;expandParameterString&quot;:null,&quot;expandParameterInteger&quot;:null}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,857</td>
+<td class="Message">top.buukle.provider.security.util.ResponseHandler.doHandle(ResponseHandler.java:33)[sid:13664C38BD3E49141329A20269FD42A8] 返回值没有处理.. .. </td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,874</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:43)[sid:6ADA89DD6C0A715D0BD4FB631CC2C907] 来源 :127.0.0.1,请求接口方法:/api/security/user/authentication开始</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,875</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:44)[sid:6ADA89DD6C0A715D0BD4FB631CC2C907] 请求参数 :{&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:&quot;2018-10-08T03:30:32.870+0000&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;,&quot;operationName&quot;:null,&quot;operationId&quot;:&quot;-1&quot;},&quot;info&quot;:&quot;dddab03efbf24f6e860428cb0d826c81&quot;,&quot;expandParameterString&quot;:&quot;300&quot;,&quot;expandParameterInteger&quot;:null}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,892</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:43)[sid:B5D2DA4C8990D429A3A88C8BF31FF3EF] 来源 :127.0.0.1,请求接口方法:/api/security/user/authentication开始</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,893</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:44)[sid:B5D2DA4C8990D429A3A88C8BF31FF3EF] 请求参数 :{&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:&quot;2018-10-08T03:30:32.887+0000&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;,&quot;operationName&quot;:null,&quot;operationId&quot;:&quot;-1&quot;},&quot;info&quot;:&quot;dddab03efbf24f6e860428cb0d826c81&quot;,&quot;expandParameterString&quot;:&quot;300&quot;,&quot;expandParameterInteger&quot;:null}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,903</td>
+<td class="Message">top.buukle.provider.security.util.ResponseHandler.doHandle(ResponseHandler.java:33)[sid:6ADA89DD6C0A715D0BD4FB631CC2C907] 返回值没有处理.. .. </td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,918</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:43)[sid:B195D9334EC676BB8DD7FA703F8062D8] 来源 :127.0.0.1,请求接口方法:/api/security/user/setPermission开始</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,918</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:44)[sid:B195D9334EC676BB8DD7FA703F8062D8] 请求参数 :{&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:&quot;2018-10-08T03:30:32.914+0000&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;,&quot;operationName&quot;:null,&quot;operationId&quot;:&quot;-1&quot;},&quot;info&quot;:{&quot;userCookie&quot;:&quot;dddab03efbf24f6e860428cb0d826c81&quot;,&quot;url&quot;:&quot;/module/getBtnTypes&quot;,&quot;user&quot;:{&quot;id&quot;:1,&quot;username&quot;:&quot;1&quot;,&quot;password&quot;:&quot;c4ca4238a0b923820dcc509a6f75849b&quot;,&quot;userId&quot;:&quot;1&quot;,&quot;fansNumber&quot;:null,&quot;phone&quot;:null,&quot;gender&quot;:null,&quot;age&quot;:null,&quot;slogen&quot;:null,&quot;loginStrategy&quot;:null,&quot;headImageUrl&quot;:null,&quot;headImageId&quot;:null,&quot;theme&quot;:null,&quot;themeId&quot;:null,&quot;creator&quot;:null,&quot;creatorCode&quot;:null,&quot;gmtCreated&quot;:&quot;2018-09-13T20:28:26.000+0000&quot;,&quot;modifier&quot;:null,&quot;modifierCode&quot;:null,&quot;gmtModified&quot;:null,&quot;nameCn&quot;:null,&quot;fullNameCn&quot;:null,&quot;nameEn&quot;:&quot;张召忠&quot;,&quot;fullNameEn&quot;:null,&quot;status&quot;:null,&quot;bak01&quot;:null,&quot;bak02&quot;:null,&quot;bak03&quot;:null,&quot;bak04&quot;:null,&quot;bak05&quot;:null}},&quot;expandParameterString&quot;:null,&quot;expandParameterInteger&quot;:null}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,922</td>
+<td class="Message">top.buukle.provider.security.util.ResponseHandler.doHandle(ResponseHandler.java:33)[sid:B5D2DA4C8990D429A3A88C8BF31FF3EF] 返回值没有处理.. .. </td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,926</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:43)[sid:95DCD0089961A55E38048DA53BA770F9] 来源 :127.0.0.1,请求接口方法:/api/security/user/setPermission开始</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,928</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:44)[sid:95DCD0089961A55E38048DA53BA770F9] 请求参数 :{&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:&quot;2018-10-08T03:30:32.924+0000&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;,&quot;operationName&quot;:null,&quot;operationId&quot;:&quot;-1&quot;},&quot;info&quot;:{&quot;userCookie&quot;:&quot;dddab03efbf24f6e860428cb0d826c81&quot;,&quot;url&quot;:&quot;/js/navbar.js&quot;,&quot;user&quot;:{&quot;id&quot;:1,&quot;username&quot;:&quot;1&quot;,&quot;password&quot;:&quot;c4ca4238a0b923820dcc509a6f75849b&quot;,&quot;userId&quot;:&quot;1&quot;,&quot;fansNumber&quot;:null,&quot;phone&quot;:null,&quot;gender&quot;:null,&quot;age&quot;:null,&quot;slogen&quot;:null,&quot;loginStrategy&quot;:null,&quot;headImageUrl&quot;:null,&quot;headImageId&quot;:null,&quot;theme&quot;:null,&quot;themeId&quot;:null,&quot;creator&quot;:null,&quot;creatorCode&quot;:null,&quot;gmtCreated&quot;:&quot;2018-09-13T20:28:26.000+0000&quot;,&quot;modifier&quot;:null,&quot;modifierCode&quot;:null,&quot;gmtModified&quot;:null,&quot;nameCn&quot;:null,&quot;fullNameCn&quot;:null,&quot;nameEn&quot;:&quot;张召忠&quot;,&quot;fullNameEn&quot;:null,&quot;status&quot;:null,&quot;bak01&quot;:null,&quot;bak02&quot;:null,&quot;bak03&quot;:null,&quot;bak04&quot;:null,&quot;bak05&quot;:null}},&quot;expandParameterString&quot;:null,&quot;expandParameterInteger&quot;:null}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,929</td>
+<td class="Message">top.buukle.provider.security.util.ResponseHandler.doHandle(ResponseHandler.java:33)[sid:B195D9334EC676BB8DD7FA703F8062D8] 返回值没有处理.. .. </td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:32,939</td>
+<td class="Message">top.buukle.provider.security.util.ResponseHandler.doHandle(ResponseHandler.java:33)[sid:95DCD0089961A55E38048DA53BA770F9] 返回值没有处理.. .. </td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:34,876</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:43)[sid:31B36FD389FBF152B11B216596D2595A] 来源 :127.0.0.1,请求接口方法:/api/security/user/authentication开始</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:34,884</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:44)[sid:31B36FD389FBF152B11B216596D2595A] 请求参数 :{&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:&quot;2018-10-08T03:30:34.872+0000&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;,&quot;operationName&quot;:null,&quot;operationId&quot;:&quot;-1&quot;},&quot;info&quot;:&quot;dddab03efbf24f6e860428cb0d826c81&quot;,&quot;expandParameterString&quot;:&quot;300&quot;,&quot;expandParameterInteger&quot;:null}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:34,903</td>
+<td class="Message">top.buukle.provider.security.util.ResponseHandler.doHandle(ResponseHandler.java:33)[sid:31B36FD389FBF152B11B216596D2595A] 返回值没有处理.. .. </td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:34,912</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:43)[sid:91E584181DD1081672BB737F3B0E3F7C] 来源 :127.0.0.1,请求接口方法:/api/security/user/setPermission开始</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:34,912</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:44)[sid:91E584181DD1081672BB737F3B0E3F7C] 请求参数 :{&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:&quot;2018-10-08T03:30:34.905+0000&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;,&quot;operationName&quot;:null,&quot;operationId&quot;:&quot;-1&quot;},&quot;info&quot;:{&quot;userCookie&quot;:&quot;dddab03efbf24f6e860428cb0d826c81&quot;,&quot;url&quot;:&quot;/index&quot;,&quot;user&quot;:{&quot;id&quot;:1,&quot;username&quot;:&quot;1&quot;,&quot;password&quot;:&quot;c4ca4238a0b923820dcc509a6f75849b&quot;,&quot;userId&quot;:&quot;1&quot;,&quot;fansNumber&quot;:null,&quot;phone&quot;:null,&quot;gender&quot;:null,&quot;age&quot;:null,&quot;slogen&quot;:null,&quot;loginStrategy&quot;:null,&quot;headImageUrl&quot;:null,&quot;headImageId&quot;:null,&quot;theme&quot;:null,&quot;themeId&quot;:null,&quot;creator&quot;:null,&quot;creatorCode&quot;:null,&quot;gmtCreated&quot;:&quot;2018-09-13T20:28:26.000+0000&quot;,&quot;modifier&quot;:null,&quot;modifierCode&quot;:null,&quot;gmtModified&quot;:null,&quot;nameCn&quot;:null,&quot;fullNameCn&quot;:null,&quot;nameEn&quot;:&quot;张召忠&quot;,&quot;fullNameEn&quot;:null,&quot;status&quot;:null,&quot;bak01&quot;:null,&quot;bak02&quot;:null,&quot;bak03&quot;:null,&quot;bak04&quot;:null,&quot;bak05&quot;:null}},&quot;expandParameterString&quot;:null,&quot;expandParameterInteger&quot;:null}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:34,947</td>
+<td class="Message">top.buukle.provider.security.util.ResponseHandler.doHandle(ResponseHandler.java:33)[sid:91E584181DD1081672BB737F3B0E3F7C] 返回值没有处理.. .. </td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:35,249</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:43)[sid:D5C254669A3E24AA788579E3C035A3F5] 来源 :127.0.0.1,请求接口方法:/api/security/user/authentication开始</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:35,251</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:44)[sid:D5C254669A3E24AA788579E3C035A3F5] 请求参数 :{&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:&quot;2018-10-08T03:30:35.240+0000&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;,&quot;operationName&quot;:null,&quot;operationId&quot;:&quot;-1&quot;},&quot;info&quot;:&quot;dddab03efbf24f6e860428cb0d826c81&quot;,&quot;expandParameterString&quot;:&quot;300&quot;,&quot;expandParameterInteger&quot;:null}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:35,276</td>
+<td class="Message">top.buukle.provider.security.util.ResponseHandler.doHandle(ResponseHandler.java:33)[sid:D5C254669A3E24AA788579E3C035A3F5] 返回值没有处理.. .. </td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:35,283</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:43)[sid:4FD76224E468F74425C81BFB2B807E36] 来源 :127.0.0.1,请求接口方法:/api/security/user/authentication开始</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:35,286</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:44)[sid:4FD76224E468F74425C81BFB2B807E36] 请求参数 :{&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:&quot;2018-10-08T03:30:35.279+0000&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;,&quot;operationName&quot;:null,&quot;operationId&quot;:&quot;-1&quot;},&quot;info&quot;:&quot;dddab03efbf24f6e860428cb0d826c81&quot;,&quot;expandParameterString&quot;:&quot;300&quot;,&quot;expandParameterInteger&quot;:null}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:35,292</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:43)[sid:81CA9B04CBA58CE010CF01CC880887B0] 来源 :127.0.0.1,请求接口方法:/api/security/user/setPermission开始</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:35,292</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:44)[sid:81CA9B04CBA58CE010CF01CC880887B0] 请求参数 :{&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:&quot;2018-10-08T03:30:35.288+0000&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;,&quot;operationName&quot;:null,&quot;operationId&quot;:&quot;-1&quot;},&quot;info&quot;:{&quot;userCookie&quot;:&quot;dddab03efbf24f6e860428cb0d826c81&quot;,&quot;url&quot;:&quot;/toMain/explain/explain&quot;,&quot;user&quot;:{&quot;id&quot;:1,&quot;username&quot;:&quot;1&quot;,&quot;password&quot;:&quot;c4ca4238a0b923820dcc509a6f75849b&quot;,&quot;userId&quot;:&quot;1&quot;,&quot;fansNumber&quot;:null,&quot;phone&quot;:null,&quot;gender&quot;:null,&quot;age&quot;:null,&quot;slogen&quot;:null,&quot;loginStrategy&quot;:null,&quot;headImageUrl&quot;:null,&quot;headImageId&quot;:null,&quot;theme&quot;:null,&quot;themeId&quot;:null,&quot;creator&quot;:null,&quot;creatorCode&quot;:null,&quot;gmtCreated&quot;:&quot;2018-09-13T20:28:26.000+0000&quot;,&quot;modifier&quot;:null,&quot;modifierCode&quot;:null,&quot;gmtModified&quot;:null,&quot;nameCn&quot;:null,&quot;fullNameCn&quot;:null,&quot;nameEn&quot;:&quot;张召忠&quot;,&quot;fullNameEn&quot;:null,&quot;status&quot;:null,&quot;bak01&quot;:null,&quot;bak02&quot;:null,&quot;bak03&quot;:null,&quot;bak04&quot;:null,&quot;bak05&quot;:null}},&quot;expandParameterString&quot;:null,&quot;expandParameterInteger&quot;:null}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:35,306</td>
+<td class="Message">top.buukle.provider.security.util.ResponseHandler.doHandle(ResponseHandler.java:33)[sid:81CA9B04CBA58CE010CF01CC880887B0] 返回值没有处理.. .. </td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:35,306</td>
+<td class="Message">top.buukle.provider.security.util.ResponseHandler.doHandle(ResponseHandler.java:33)[sid:4FD76224E468F74425C81BFB2B807E36] 返回值没有处理.. .. </td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:35,312</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:43)[sid:F8722254A7284587808E465CECB0D3C5] 来源 :127.0.0.1,请求接口方法:/api/security/user/setPermission开始</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:35,313</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:44)[sid:F8722254A7284587808E465CECB0D3C5] 请求参数 :{&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:&quot;2018-10-08T03:30:35.308+0000&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;,&quot;operationName&quot;:null,&quot;operationId&quot;:&quot;-1&quot;},&quot;info&quot;:{&quot;userCookie&quot;:&quot;dddab03efbf24f6e860428cb0d826c81&quot;,&quot;url&quot;:&quot;/module/getSideModuleTree&quot;,&quot;user&quot;:{&quot;id&quot;:1,&quot;username&quot;:&quot;1&quot;,&quot;password&quot;:&quot;c4ca4238a0b923820dcc509a6f75849b&quot;,&quot;userId&quot;:&quot;1&quot;,&quot;fansNumber&quot;:null,&quot;phone&quot;:null,&quot;gender&quot;:null,&quot;age&quot;:null,&quot;slogen&quot;:null,&quot;loginStrategy&quot;:null,&quot;headImageUrl&quot;:null,&quot;headImageId&quot;:null,&quot;theme&quot;:null,&quot;themeId&quot;:null,&quot;creator&quot;:null,&quot;creatorCode&quot;:null,&quot;gmtCreated&quot;:&quot;2018-09-13T20:28:26.000+0000&quot;,&quot;modifier&quot;:null,&quot;modifierCode&quot;:null,&quot;gmtModified&quot;:null,&quot;nameCn&quot;:null,&quot;fullNameCn&quot;:null,&quot;nameEn&quot;:&quot;张召忠&quot;,&quot;fullNameEn&quot;:null,&quot;status&quot;:null,&quot;bak01&quot;:null,&quot;bak02&quot;:null,&quot;bak03&quot;:null,&quot;bak04&quot;:null,&quot;bak05&quot;:null}},&quot;expandParameterString&quot;:null,&quot;expandParameterInteger&quot;:null}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:35,330</td>
+<td class="Message">top.buukle.provider.security.util.ResponseHandler.doHandle(ResponseHandler.java:33)[sid:F8722254A7284587808E465CECB0D3C5] 返回值没有处理.. .. </td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:35,344</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:43)[sid:A20FCF260F608B175D2652EB0ABF0893] 来源 :127.0.0.1,请求接口方法:/api/security/user/authentication开始</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:35,345</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:44)[sid:A20FCF260F608B175D2652EB0ABF0893] 请求参数 :{&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:&quot;2018-10-08T03:30:35.341+0000&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;,&quot;operationName&quot;:null,&quot;operationId&quot;:&quot;-1&quot;},&quot;info&quot;:&quot;dddab03efbf24f6e860428cb0d826c81&quot;,&quot;expandParameterString&quot;:&quot;300&quot;,&quot;expandParameterInteger&quot;:null}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:35,364</td>
+<td class="Message">top.buukle.provider.security.util.ResponseHandler.doHandle(ResponseHandler.java:33)[sid:A20FCF260F608B175D2652EB0ABF0893] 返回值没有处理.. .. </td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:35,370</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:43)[sid:519FF404E43859EAD26B07B8E4D54791] 来源 :127.0.0.1,请求接口方法:/api/security/user/setPermission开始</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:35,370</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:44)[sid:519FF404E43859EAD26B07B8E4D54791] 请求参数 :{&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:&quot;2018-10-08T03:30:35.367+0000&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;,&quot;operationName&quot;:null,&quot;operationId&quot;:&quot;-1&quot;},&quot;info&quot;:{&quot;userCookie&quot;:&quot;dddab03efbf24f6e860428cb0d826c81&quot;,&quot;url&quot;:&quot;/user/getUserInfo&quot;,&quot;user&quot;:{&quot;id&quot;:1,&quot;username&quot;:&quot;1&quot;,&quot;password&quot;:&quot;c4ca4238a0b923820dcc509a6f75849b&quot;,&quot;userId&quot;:&quot;1&quot;,&quot;fansNumber&quot;:null,&quot;phone&quot;:null,&quot;gender&quot;:null,&quot;age&quot;:null,&quot;slogen&quot;:null,&quot;loginStrategy&quot;:null,&quot;headImageUrl&quot;:null,&quot;headImageId&quot;:null,&quot;theme&quot;:null,&quot;themeId&quot;:null,&quot;creator&quot;:null,&quot;creatorCode&quot;:null,&quot;gmtCreated&quot;:&quot;2018-09-13T20:28:26.000+0000&quot;,&quot;modifier&quot;:null,&quot;modifierCode&quot;:null,&quot;gmtModified&quot;:null,&quot;nameCn&quot;:null,&quot;fullNameCn&quot;:null,&quot;nameEn&quot;:&quot;张召忠&quot;,&quot;fullNameEn&quot;:null,&quot;status&quot;:null,&quot;bak01&quot;:null,&quot;bak02&quot;:null,&quot;bak03&quot;:null,&quot;bak04&quot;:null,&quot;bak05&quot;:null}},&quot;expandParameterString&quot;:null,&quot;expandParameterInteger&quot;:null}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:35,381</td>
+<td class="Message">top.buukle.provider.security.util.ResponseHandler.doHandle(ResponseHandler.java:33)[sid:519FF404E43859EAD26B07B8E4D54791] 返回值没有处理.. .. </td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:35,396</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:43)[sid:BA38E61C31D999AB922D2768B7CBE6EF] 来源 :127.0.0.1,请求接口方法:/api/security/user/authentication开始</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:35,404</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:44)[sid:BA38E61C31D999AB922D2768B7CBE6EF] 请求参数 :{&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:&quot;2018-10-08T03:30:35.392+0000&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;,&quot;operationName&quot;:null,&quot;operationId&quot;:&quot;-1&quot;},&quot;info&quot;:&quot;dddab03efbf24f6e860428cb0d826c81&quot;,&quot;expandParameterString&quot;:&quot;300&quot;,&quot;expandParameterInteger&quot;:null}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:35,426</td>
+<td class="Message">top.buukle.provider.security.util.ResponseHandler.doHandle(ResponseHandler.java:33)[sid:BA38E61C31D999AB922D2768B7CBE6EF] 返回值没有处理.. .. </td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:35,432</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:43)[sid:DCA9FD63A24550671EE362DDEEDAE178] 来源 :127.0.0.1,请求接口方法:/api/security/user/setPermission开始</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:35,432</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:44)[sid:DCA9FD63A24550671EE362DDEEDAE178] 请求参数 :{&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:&quot;2018-10-08T03:30:35.428+0000&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;,&quot;operationName&quot;:null,&quot;operationId&quot;:&quot;-1&quot;},&quot;info&quot;:{&quot;userCookie&quot;:&quot;dddab03efbf24f6e860428cb0d826c81&quot;,&quot;url&quot;:&quot;/module/getBtnTypes&quot;,&quot;user&quot;:{&quot;id&quot;:1,&quot;username&quot;:&quot;1&quot;,&quot;password&quot;:&quot;c4ca4238a0b923820dcc509a6f75849b&quot;,&quot;userId&quot;:&quot;1&quot;,&quot;fansNumber&quot;:null,&quot;phone&quot;:null,&quot;gender&quot;:null,&quot;age&quot;:null,&quot;slogen&quot;:null,&quot;loginStrategy&quot;:null,&quot;headImageUrl&quot;:null,&quot;headImageId&quot;:null,&quot;theme&quot;:null,&quot;themeId&quot;:null,&quot;creator&quot;:null,&quot;creatorCode&quot;:null,&quot;gmtCreated&quot;:&quot;2018-09-13T20:28:26.000+0000&quot;,&quot;modifier&quot;:null,&quot;modifierCode&quot;:null,&quot;gmtModified&quot;:null,&quot;nameCn&quot;:null,&quot;fullNameCn&quot;:null,&quot;nameEn&quot;:&quot;张召忠&quot;,&quot;fullNameEn&quot;:null,&quot;status&quot;:null,&quot;bak01&quot;:null,&quot;bak02&quot;:null,&quot;bak03&quot;:null,&quot;bak04&quot;:null,&quot;bak05&quot;:null}},&quot;expandParameterString&quot;:null,&quot;expandParameterInteger&quot;:null}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:30:35,442</td>
+<td class="Message">top.buukle.provider.security.util.ResponseHandler.doHandle(ResponseHandler.java:33)[sid:DCA9FD63A24550671EE362DDEEDAE178] 返回值没有处理.. .. </td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:43:14,315</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:43)[sid:D829BE15AB6E9131E412A78581E739C7] 来源 :127.0.0.1,请求接口方法:/api/security/user/authentication开始</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:43:14,323</td>
+<td class="Message">top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator.preValidate(BaseRequestValidator.java:44)[sid:D829BE15AB6E9131E412A78581E739C7] 请求参数 :{&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:&quot;2018-10-08T03:43:14.311+0000&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;,&quot;operationName&quot;:null,&quot;operationId&quot;:&quot;-1&quot;},&quot;info&quot;:&quot;dddab03efbf24f6e860428cb0d826c81&quot;,&quot;expandParameterString&quot;:&quot;300&quot;,&quot;expandParameterInteger&quot;:null}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-08 11:43:15,550</td>
+<td class="Message">top.buukle.provider.security.util.ResponseHandler.doHandle(ResponseHandler.java:33)[sid:D829BE15AB6E9131E412A78581E739C7] 返回值没有处理.. .. </td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>

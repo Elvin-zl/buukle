@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>top.buukle.generator</groupId>
+    <artifactId>buukle-generator-all</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>buukle-generator-mtbatis</module>
+        <module>buukle-generator-html</module>
+        <module>buukle-generator-entityToDataBase</module>
+    </modules>
+    <name>buukle-generators-all</name>
+    <description>buukle project</description>
+
+    <!--======================================================集中定义版本号=================================================-->
+    <properties>
+        <!--entityToDataBase-->
+        <version.junit>4.12</version.junit>
+        <version.hibernate-core>4.3.6.Final</version.hibernate-core>
+    </properties>
+    <!--======================================================集中管理版本号=================================================-->
+    <dependencyManagement>
+        <dependencies>
+            <!--entityToDataBase-->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${version.junit}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <version>${version.hibernate-core}</version>
+            </dependency>
+            <!---->
+        </dependencies>
+    </dependencyManagement>
+    <!--===================================================公共依赖=========================================================-->
+    <dependencies>
+
+    </dependencies>
+</project>

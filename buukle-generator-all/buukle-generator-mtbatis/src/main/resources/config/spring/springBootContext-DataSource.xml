@@ -21,7 +21,7 @@
 
     <!-- 配置映射 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="mapperLocations" value="classpath*:config/mapper"/>
+        <property name="mapperLocations" value="classpath*:config/mapper/*.xml"/>
         <property name="dataSource" ref="dataSource"/>
         <property name="plugins">
             <bean id="miemiedev" class="com.github.miemiedev.mybatis.paginator.OffsetLimitInterceptor">
@@ -63,7 +63,8 @@
     <!-- 事务配置,切换数据源要比持久层代码更先执行,事务属于持久层 -->
     <aop:config>
         <aop:pointcut id="dataSourcePointCut" expression="(
-        execution(* *..*provider.mc.service..*(..)))
+        execution(* *..*consumer.cms.service..*(..)))
+        or execution(* *..*consumer.cms.business..*(..)))
         )"/>
         <aop:advisor pointcut-ref="dataSourcePointCut" advice-ref="txAdvice" order="1"/>
     </aop:config>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="top.buukle.generator.hibernate.targetEntity.Task" table="task" lazy="false">
+<id name="id" column="id">
+<generator class="native"></generator>
+</id>
+
+<property name="className" column="class_name"></property>
+<property name="methodName" column="method_name"></property>
+<property name="parameter" column="parameter"></property>
+<property name="description" column="description"></property>
+<property name="alarmMail" column="alarm_mail"></property>
+<property name="startAlarm" column="start_alarm"></property>
+<property name="stopAlarm" column="stop_alarm"></property>
+<property name="errorAlarm" column="error_alarm"></property>
+<property name="cronExpression" column="cron_expression"></property>
+<property name="startDate" column="start_date"></property>
+<property name="type" column="type"></property>
+<property name="status" column="status"></property>
+<property name="creator" column="creator"></property>
+<property name="creatorNo" column="creator_no"></property>
+<property name="creatorType" column="creator_type"></property>
+<property name="gmtCreated" column="gmt_created"></property>
+<property name="modifier" column="modifier"></property>
+<property name="modifierNo" column="modifier_no"></property>
+<property name="modifierType" column="modifier_type"></property>
+<property name="gmtModified" column="gmt_modified"></property>
+
+</class>
+
+</hibernate-mapping>

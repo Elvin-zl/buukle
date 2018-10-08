@@ -40,8 +40,6 @@ public class SpringEnvironmentUtil implements EnvironmentAware {
         }
         ssoPropertyPropertySource = m.get(SSO_PROPERTIES);
         Hashtable<String,String> table = (Hashtable<String, String>) ssoPropertyPropertySource.getSource();
-        Properties p = new Properties();
         table.put(key, value);
-        p.put(key,value);
     }
 }
