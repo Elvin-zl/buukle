@@ -10,9 +10,9 @@ package top.buukle.provider.security.dao;
 import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import com.github.miemiedev.mybatis.paginator.domain.PageList;
 import org.apache.ibatis.annotations.Param;
-import top.buukle.common.request.BaseRequest;
 import top.buukle.provider.security.entity.Module;
 import top.buukle.provider.security.entity.Role;
+import top.buukle.provider.security.entity.User;
 
 import java.util.List;
 
@@ -86,7 +86,23 @@ public interface ModuleMapper {
 	 */
 	public PageList<Module> getModulesByParasNoPage(Module module) throws Exception;
 
-    List<Module> getUserModuleListByUserRoleList(@Param("userRoleList") List<Role> userRoleList);
+	/**
+	 * 根据用户角色列表查询用户菜单列表
+	 * @param userRoleList
+	 * @return
+	 */
+	List<Module> getUserModuleListByUserRoleList(@Param("userRoleList") List<Role> userRoleList);
 
+	/**
+	 * 获取全局角色列表
+	 * @return
+	 */
 	List<Module> getGlobalModuleList();
+
+	/**
+	 * 根据用户user_id获取用户权限列表
+	 * @param user
+	 * @return
+	 */
+    List<Module> getUserModuleListByUserId(User user);
 }

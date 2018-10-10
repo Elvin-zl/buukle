@@ -3,7 +3,7 @@ security:
   server:
     name: buukle-security
   ## 指定 : 当前系统名称
-  applicationName: security
+  applicationName: buukle-security
   ## 指定 : 用户登录是否关闭验证码验证 1 : 关闭 无 : 开启
   closeVerification: 0
   ## 指定 :获取验证码path

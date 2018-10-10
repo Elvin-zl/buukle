@@ -1,4 +1,4 @@
-package top.buukle.provider.security.controller;
+package top.buukle.provider.security.controller.user;
 
 import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +17,8 @@ import java.util.List;
  * @Description :
  */
 @Controller
-@RequestMapping("/users")
-public class UserControllers {
+@RequestMapping("/user")
+public class UserController {
 
     @Autowired
     UserService userService;

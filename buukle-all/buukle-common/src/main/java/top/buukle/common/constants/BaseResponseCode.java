@@ -44,6 +44,7 @@ public enum BaseResponseCode {
     USER_PERMISSION_USER_MODULE_LIST_NULL(BaseResponseCode.FAILURES, "010005", "用户授权失败!用户菜单列表为空!"),
     USER_PERMISSION_USER_NO_PERMISSION(BaseResponseCode.FAILURES, "010006", "请求失败!当前用户无此权限!" ),
     USER_PERMISSION_USER_ROLE_LIST_NULL(BaseResponseCode.FAILURES, "010007","用户授权失败!用户角色为空!"),
+    USER_COOKIE_NULL(BaseResponseCode.FAILURES, "010008","操作失败,获取用户信息为空!" ),
 
     /*----------------------------------------------MC--00{*}{*}{*}{*}--------------------------------------------------------------------*/
     /** 登录,认证,授权 --0000{*}{*}*/
@@ -59,7 +60,8 @@ public enum BaseResponseCode {
     USER_PERMISSION_OPEN_AUTH_NULL(BaseResponseCode.FAILURES, "060002", "授权失败! 请指定授权策略!"),
     USER_LOGIN_USERNAME_PASSWORD_NULL_SSO_PLUGIN(BaseResponseCode.FAILURES, "060003","登录失败!用户名或密码为空!"),
     USER_AUTHENTICATION_FAILED_COOKIE_NULL(BaseResponseCode.FAILURES, "060004","认证失败!客户端标识信息为空!"),
-    USER_AUTHENTICATION_FAILED_REQUEST_WRONG(BaseResponseCode.FAILURES, "060005","认证失败!buukle-security配置security.host请求失败!");
+    USER_AUTHENTICATION_FAILED_REQUEST_WRONG(BaseResponseCode.FAILURES, "060005","认证失败!buukle-security配置security.host请求失败!"),
+    ;
 
     private static final String SUCCESSFUL = "S";
     private static final String FAILURES = "F";

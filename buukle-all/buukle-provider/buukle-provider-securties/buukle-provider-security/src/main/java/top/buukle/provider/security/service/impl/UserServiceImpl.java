@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import top.buukle.common.constants.BaseResponseCode;
 import top.buukle.common.exception.BaseException;
 import top.buukle.common.request.BaseRequest;
+import top.buukle.common.request.RequestHead;
 import top.buukle.common.response.BaseResponse;
 import top.buukle.common.util.common.StringUtil;
 import top.buukle.common.util.common.ThreadLocalUtil;
@@ -102,7 +103,7 @@ public class UserServiceImpl implements UserService {
 	public BaseResponse setPermission(BaseRequest request) throws Exception {
 		UserLoginPermissionQuery userLoginPermissionQuery = (UserLoginPermissionQuery)request.getInfo(UserLoginPermissionQuery.class);
 		//参数检验
-		this.validatePermissionParam(userLoginPermissionQuery);
+		this.validatePermissionParam(userLoginPermissionQuery,request.getRequestHead());
 		//初始化认证参数
 		String url = userLoginPermissionQuery.getUrl();
 		String userCookie = userLoginPermissionQuery.getUserCookie();
@@ -277,9 +278,18 @@ public class UserServiceImpl implements UserService {
 	/**
 	 * 校验授权参数
 	 * @param userLoginPermissionQuery
+	 * @param requestHead
 	 * @return
 	 */
-	private void validatePermissionParam(UserLoginPermissionQuery userLoginPermissionQuery) {
+	private void validatePermissionParam(UserLoginPermissionQuery userLoginPermissionQuery, RequestHead requestHead) {
+		if(null == requestHead){
+			throw new BaseException(BaseResponseCode.BASE_REQUEST_NULL);
+		}
+
+		if(StringUtil.isEmpty(requestHead.getApplicationName())){
+			throw new BaseException(BaseResponseCode.BASE_REQUEST_APPLICATION_NAME_NULL);
+		}
+
 		if(null == userLoginPermissionQuery || (StringUtil.isEmpty(userLoginPermissionQuery.getUserCookie()) && null == userLoginPermissionQuery.getUrl()) || StringUtil.isEmpty(userLoginPermissionQuery.getUrl())){
 			throw new BaseException(BaseResponseCode.USER_PERMISSION_PARAM_WRONG);
 		}

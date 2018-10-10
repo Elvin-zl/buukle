@@ -9,7 +9,9 @@ package top.buukle.provider.security.service;
 
 import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import top.buukle.provider.security.entity.Module;
+import top.buukle.provider.security.vo.result.ModuleNavigationVo;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -81,6 +83,7 @@ public interface ModuleService {
 	 * @Date	2015年6月12日 上午10:30:13 
 	 */
 	public List<Module> getModulesByParasNoPage(Module module) throws Exception;
-	
 
+
+    List<ModuleNavigationVo> getUserModuleTree(HttpServletRequest httpServletRequest, String applicationName);
 }

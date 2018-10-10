@@ -195,7 +195,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!--start -->
 
-	<select id="getGlobalModuleList" resultMap="resultModule">
+	<select id="getGlobalModuleList" resultMap="resultModule" >
 		select m.* from module m where m.status = 1;
 	</select>
 
@@ -209,5 +209,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</foreach>
 		</if>
 		rm.module_id = m.id;
+	</select>
+
+	<select id="getUserModuleListByUserId" resultMap="resultModule" parameterType="java.util.Map">
+		SELECT DISTINCT
+          m.*
+        FROM
+          module m,
+          USER u,
+          role r,
+          user_role ur,
+          role_module rm
+        WHERE
+          u.user_id = #{userId}
+          AND ur.`user_id` = u.`user_id`
+          AND ur.`role_id` = r.`id`
+          AND rm.`role_id` = r.`id`
+          AND rm.`module_id` = m.`id`;
 	</select>
 </mapper>

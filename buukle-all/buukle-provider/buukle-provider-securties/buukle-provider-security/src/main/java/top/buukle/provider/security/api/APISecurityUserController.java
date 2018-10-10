@@ -16,7 +16,7 @@ import top.buukle.provider.security.service.UserService;
  */
 @RestController
 @RequestMapping(value = "/api/security/user",produces = SecurityConstants.PRODUCES_CONTENT_TYPE_JSON_UTF_8)
-public class UserController {
+public class APISecurityUserController {
 
     @Autowired
     private UserBusiness userBusiness;

@@ -13,7 +13,7 @@ security:
 #  ## 指定 : 自动登录策略参数名 key
 #  caCheStrategyKey:
 #  ## 指定 : 缺醒自动登录时长(秒)
-#  defaultMaxAge:
+  defaultMaxAge: 300000
 #  ## 指定 : 是否开启授权
 #  openAuth:
 #  ## 指定 :sso domain

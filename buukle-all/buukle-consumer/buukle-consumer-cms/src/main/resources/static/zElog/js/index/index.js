@@ -5,7 +5,7 @@ $(function () {
     /*初始化layUI配置*/
     initLayUIconfig();
     /*获取左侧菜单树*/
-    getSideModuleTree();
+    getUserModuleTree();
     /*获取用户信息*/
     getUserInfo();
     /*渲染用户信息菜单*/
@@ -51,10 +51,10 @@ function setThemeAppearance(userInfo) {
     }
 }
 /*获取左侧菜单树*/
-function getSideModuleTree() {
+function getUserModuleTree() {
     $.ajax({
         async:false,
-        url:'/module/getSideModuleTree',
+        url:'/module/getUserModuleTree',
         type:'post',
         dataType:'json',
         success:function (data) {

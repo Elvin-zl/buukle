@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @Description :
  */
 @Controller
-public class SecurityController {
+public class PluginSecurityController {
 
     /**
      * 去往登陆页面

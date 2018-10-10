@@ -113,6 +113,9 @@ public class SecurityInterceptor implements HandlerInterceptor {
      * @throws Exception
      */
     private Boolean permissionHandle(HttpServletRequest request, HttpServletResponse response, String uri) throws Exception {
+
+        //接口验签
+
         //开启授权
         if(StringUtil.isNotEmpty(OPEN_AUTH) && OPEN_AUTH.equals(SecurityConstants.OPEN_AUTH_TRUE)){
             //免授权 uri

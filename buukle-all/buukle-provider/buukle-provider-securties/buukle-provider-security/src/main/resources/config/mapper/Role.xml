@@ -170,7 +170,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<!--start-->
 
-	<select id="getuserRoleListByUserId" resultMap="resultRole" parameterType="java.lang.String">
-		select r.* from role r,user_role ur where r.id = ur.role_id and ur.user_id = #{userId};
+	<select id="getUserRoleListByUserId" resultMap="resultRole" parameterType="java.lang.String">
+		select r.* from role r,user_role ur where r.id = ur.role_id and ur.user_id = #{userId} and r.status =1;
 	</select>
 </mapper>

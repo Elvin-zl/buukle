@@ -19,7 +19,7 @@ public class ResponseHandler extends BaseResponseParamHandler {
 
     @Override
     public void handle(BaseResponseWrapper baseResponseWrapper) throws IOException {
-//        super.handle(baseResponseWrapper);
+        super.preHandle(baseResponseWrapper);
         this.doHandle(baseResponseWrapper);
     }
 
