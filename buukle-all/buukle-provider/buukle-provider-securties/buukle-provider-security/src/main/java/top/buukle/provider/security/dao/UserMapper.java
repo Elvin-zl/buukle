@@ -7,10 +7,7 @@
 
 package top.buukle.provider.security.dao;
 
-import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
-import com.github.miemiedev.mybatis.paginator.domain.PageList;
 import org.apache.ibatis.annotations.Param;
-import top.buukle.common.request.BaseRequest;
 import top.buukle.provider.security.entity.Groups;
 import top.buukle.provider.security.entity.User;
 
@@ -23,19 +20,9 @@ import java.util.List;
  */
 
 public interface UserMapper {
-	/** 
-	 * @Description:	分页获取User
-	 * @param user
-	 * @param pageBounds
-	 * @return
-	 * @return	PageList<User>
-	 * @Date	2015年6月12日 上午10:29:17 
-	 */
-	public PageList<User> getUserByParas(User user, PageBounds pageBounds) throws Exception;
-	
-	/** 
+
+	/**
 	 * @Description:	根据id获取User
-	 * @param user
 	 * @return
 	 * @throws Exception
 	 * @return	User
@@ -43,16 +30,7 @@ public interface UserMapper {
 	 */
 	public User getUserById(Integer id) throws Exception;
 	
-	/** 
-	 * @Description:	根据条件获取User
-	 * @param user
-	 * @return
-	 * @throws Exception
-	 * @return	User
-	 * @Date	2015年6月12日 上午10:29:35 
-	 */
-	public PageList<User> getUserByParas(User user) throws Exception;
-	/** 
+	/**
 	 * @Description:	添加User
 	 * @param user
 	 * @throws Exception
@@ -76,15 +54,6 @@ public interface UserMapper {
 	 * @Date	2015年6月12日 上午10:30:05 
 	 */
 	public Integer delete(User user) throws Exception;
-	/** 
-	 * @Description:	获取User信息 不带分页
-	 * @param user
-	 * @return
-	 * @throws Exception
-	 * @return	PageList<User>
-	 * @Date	2015年6月12日 上午10:30:13 
-	 */
-	public PageList<User> getUsersByParasNoPage(User user) throws Exception;
 
 	/**
 	 * 为用户登录获取用户信息

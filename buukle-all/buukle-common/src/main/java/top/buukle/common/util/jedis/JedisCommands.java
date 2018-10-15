@@ -40,4 +40,13 @@ public class JedisCommands {
             }
         });
     }
+
+    public static boolean delete(String key) {
+        return (boolean) TEMPLATE.excecute(new JedisCallable<Boolean>() {
+            @Override
+            Boolean call() {
+                return JedisCallable.stringRedisTemplate.delete(key);
+            }
+        });
+    }
 }

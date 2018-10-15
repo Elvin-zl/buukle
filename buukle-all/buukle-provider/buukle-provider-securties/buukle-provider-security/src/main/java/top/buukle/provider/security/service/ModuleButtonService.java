@@ -7,7 +7,6 @@
 
 package top.buukle.provider.security.service;
 
-import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import top.buukle.provider.security.entity.ModuleButton;
 
 import java.util.List;
@@ -19,19 +18,8 @@ import java.util.List;
  */
 public interface ModuleButtonService {
 	
-	/** 
-	 * @Description:	分页获取ModuleButton
-	 * @param moduleButton
-	 * @param pageBounds
-	 * @return
-	 * @return	List<ModuleButton>
-	 * @Date	2015年6月12日 上午10:29:17 
-	 */
-	public List<ModuleButton> getModuleButtonByParas(ModuleButton moduleButton, PageBounds pageBounds) throws Exception;
-	
-	/** 
+	/**
 	 * @Description:	根据id获取ModuleButton
-	 * @param moduleButton
 	 * @return
 	 * @throws Exception
 	 * @return	ModuleButton

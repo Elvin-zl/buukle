@@ -16,7 +16,12 @@ public  class DefaultRequestValidator extends BaseRequestValidator {
     private static final BaseLogger LOGGER = BaseLogger.getLogger(DefaultRequestValidator.class);
 
     @Override
-    public void doValidate(HttpServletRequest httpServletRequest, String uri, String requestBody, ServletResponse servletResponse) {
+    public void verify(String requestBody, HttpServletRequest httpServletRequest) {
+        LOGGER.debug("没有设置验签规则~");
+    }
 
+    @Override
+    public void doValidate(HttpServletRequest httpServletRequest, String uri, String requestBody, ServletResponse servletResponse) {
+        LOGGER.debug("参数没有校验~");
     }
 }

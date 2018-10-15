@@ -1,14 +1,18 @@
 package top.buukle.plugin.security.plugins;
 
 import com.alibaba.fastjson.JSON;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import top.buukle.common.constants.BaseResponseCode;
 import top.buukle.common.exception.BaseException;
 import top.buukle.common.response.BaseResponse;
+import top.buukle.common.util.RSA.SignUtil;
 import top.buukle.common.util.common.SpringEnvironmentUtil;
 import top.buukle.common.util.common.StringUtil;
 import top.buukle.common.util.logger.BaseLogger;
 import top.buukle.plugin.security.business.SecurityBusiness;
 import top.buukle.plugin.security.constants.SecurityConstants;
+import top.buukle.plugin.security.util.RandomUtil;
 import top.buukle.plugin.security.util.VerificationCodeImageUtil;
 import top.buukle.plugin.security.vo.LoginParameters;
 import top.buukle.plugin.security.util.CookieUtil;
@@ -33,6 +37,10 @@ public class SecurityInterceptor implements HandlerInterceptor {
     /** 请求头来源 常量*/
     final public static String REQUEST_HEADER_REFEREE = "Referer";
     public static final String NO_AUTHENTICATION_PATH = "/noAuthentication";
+    private static final String API_URI_PREFIX = "/api/security/";
+
+    @Autowired
+    private Environment env;
 
     @Autowired
     private SecurityBusiness authAndPermBusiness;
@@ -93,6 +101,10 @@ public class SecurityInterceptor implements HandlerInterceptor {
         if(uri.equals(LOGIN_PATH) || uri.equals(ERROR_PAGE_PATH) || uri.equals(OUT_OF_TIME_PATH) || uri.equals(NO_PERMISSION_PATH) || uri.equals(SecurityConstants.NO_REEFER_PATH)){
             return true;
         }
+        //放行api外放接口(已经通过验签)
+        if(uri.startsWith(API_URI_PREFIX)){
+            return true;
+        }
         //执行登录
         if(uri.equals(DO_LOGIN_PATH)){
             this.isSuccess(request, response, authAndPermBusiness.doLogin(request,response),true);
@@ -113,8 +125,6 @@ public class SecurityInterceptor implements HandlerInterceptor {
      * @throws Exception
      */
     private Boolean permissionHandle(HttpServletRequest request, HttpServletResponse response, String uri) throws Exception {
-
-        //接口验签
 
         //开启授权
         if(StringUtil.isNotEmpty(OPEN_AUTH) && OPEN_AUTH.equals(SecurityConstants.OPEN_AUTH_TRUE)){
@@ -248,7 +258,7 @@ public class SecurityInterceptor implements HandlerInterceptor {
 
     /*---------------------------------------------设置应用相关--------------------------------------------*/
     /** 应用名*/
-    public static String APPLICATION_NAME ;
+    public static String APPLICATION_NAME  ;
     /** 默认超时时间*/
     public static String SSO_DEFAULT_AGE ;
     /** cookie跨域的domain*/
@@ -327,8 +337,8 @@ public class SecurityInterceptor implements HandlerInterceptor {
         //应用名
         SecurityInterceptor.APPLICATION_NAME =
                 StringUtil.isEmpty(
-                loginParameters.getApplicationName()) ? getDefaultValueAndPrintLog("ApplicationName","default applicationName"):
-                loginParameters.getApplicationName();
+                        env.getProperty("spring.application.name")) ? getDefaultValueAndPrintLog("ApplicationName","default applicationName"+ RandomUtil.getRandomTimePlusNumber()):
+                        env.getProperty("spring.application.name");
         //默认超时时间
         SecurityInterceptor.SSO_DEFAULT_AGE =
                 StringUtil.isEmpty(

@@ -7,7 +7,7 @@
 
 package top.buukle.provider.security.service.impl;
 
-import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
+import com.github.pagehelper.PageHelper;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Service;
 import top.buukle.common.constants.BaseResponseCode;
@@ -18,6 +18,7 @@ import top.buukle.common.response.BaseResponse;
 import top.buukle.common.util.common.StringUtil;
 import top.buukle.common.util.common.ThreadLocalUtil;
 import top.buukle.common.vo.ThreadParam;
+import top.buukle.provider.security.vo.query.PageBounds;
 import top.buukle.provider.security.vo.query.UserLoginPermissionQuery;
 import top.buukle.provider.security.dao.*;
 import top.buukle.provider.security.entity.Button;
@@ -26,6 +27,8 @@ import top.buukle.provider.security.entity.Role;
 import top.buukle.provider.security.entity.User;
 import top.buukle.provider.security.invoker.UserInvoker;
 import top.buukle.provider.security.service.UserService;
+import top.buukle.provider.security.vo.query.UserQuery;
+import top.buukle.provider.security.vo.response.PageResponse;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -47,19 +50,16 @@ public class UserServiceImpl implements UserService {
 	private static final String AUTHENTICATION_WRONG = "认证失败";
 
 	@Override
-	public List<User> getUserByParas(User user, PageBounds pageBounds) throws Exception {
-		return userMapper.getUserByParas(user, pageBounds);
-	}
-	@Override
 	public User getUserById(Integer id) throws Exception{
 		return userMapper.getUserById(id);
 	}
-	
-	@Override
-	public List<User> getUserByParas(User user) throws Exception {
-		return userMapper.getUserByParas(user);
-	}
-	@Override
+
+    @Override
+    public List<User> getUserByParas(User user) throws Exception {
+        return null;
+    }
+
+    @Override
 	public void save(User user) throws Exception {
 		userMapper.save(user);
 	}
@@ -171,7 +171,8 @@ public class UserServiceImpl implements UserService {
 	 * @param userModuleList
 	 *@param request  @return
 	 */
-	private List<Button> getUserButton(String userCookie, List<Module> userModuleList, BaseRequest request) throws Exception {
+	@Override
+    public List<Button> getUserButton(String userCookie, List<Module> userModuleList, BaseRequest request) throws Exception {
 		List<Button> userButtonList =  UserInvoker.getUserButton(userCookie);
 		if(CollectionUtils.isEmpty(userButtonList)){
 			userButtonList = buttonMapper.getUserButtonListByUserModuleList(userModuleList);
@@ -182,13 +183,30 @@ public class UserServiceImpl implements UserService {
 		}
 		return userButtonList;
 	}
+
+    /**
+     * 分页查询用户列表
+     * @param userQuery
+     * @param pageBounds
+     * @return
+     */
+    @Override
+    public PageResponse<User> getUserList(UserQuery userQuery, PageBounds pageBounds) {
+        /*PageHelper.startPage(pageNum, pageSize);
+        List<UserMo> list = userMapper.();
+        PageInfo pageInfo = new PageInfo(list);
+        Page page = (Page) list;*/
+        return null;
+    }
+
 	/**
 	 * 获取用户菜单列表缓存
 	 * @param userCookie
 	 * @param userRoleList
 	 *@param request  @return
 	 */
-	private List<Module> getUserModule(String userCookie, List<Role> userRoleList, BaseRequest request) throws Exception {
+    @Override
+    public List<Module> getUserModule(String userCookie, List<Role> userRoleList, BaseRequest request) throws Exception {
 		List<Module> userModuleList =  UserInvoker.getUserModule(userCookie);
 		request.setInfo(userRoleList);
 		if(CollectionUtils.isEmpty(userModuleList)){
@@ -201,6 +219,7 @@ public class UserServiceImpl implements UserService {
 		return userModuleList;
 	}
 
+
 	/**
 	 * 获取用户角色列表缓存
 	 * @param userCookie
@@ -208,7 +227,8 @@ public class UserServiceImpl implements UserService {
 	 * @param request
 	 * @return
 	 */
-	private List<Role> getUserRole(String userCookie, User user, BaseRequest request) throws Exception {
+    @Override
+	public List<Role> getUserRole(String userCookie, User user, BaseRequest request) throws Exception {
 		List<Role> userRoleList =  UserInvoker.getUserRole(userCookie);
 		if(CollectionUtils.isEmpty(userRoleList)){
 			userRoleList = roleMapper.getUserRoleListByUserId(user.getUserId());
@@ -222,7 +242,8 @@ public class UserServiceImpl implements UserService {
 		return userRoleList;
 	}
 
-	/**
+
+    /**
 	 * 获取全局按钮缓存
 	 * @return
 	 */

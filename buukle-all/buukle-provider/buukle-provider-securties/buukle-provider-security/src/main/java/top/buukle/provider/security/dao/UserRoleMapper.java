@@ -7,8 +7,6 @@
 
 package top.buukle.provider.security.dao;
 
-import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
-import com.github.miemiedev.mybatis.paginator.domain.PageList;
 import top.buukle.provider.security.entity.UserRole;
 
 /**
@@ -18,19 +16,9 @@ import top.buukle.provider.security.entity.UserRole;
  */
 
 public interface UserRoleMapper {
-	/** 
-	 * @Description:	分页获取UserRole
-	 * @param userRole
-	 * @param pageBounds
-	 * @return
-	 * @return	PageList<UserRole>
-	 * @Date	2015年6月12日 上午10:29:17 
-	 */
-	public PageList<UserRole> getUserRoleByParas(UserRole userRole, PageBounds pageBounds) throws Exception;
-	
+
 	/** 
 	 * @Description:	根据id获取UserRole
-	 * @param userRole
 	 * @return
 	 * @throws Exception
 	 * @return	UserRole
@@ -38,16 +26,7 @@ public interface UserRoleMapper {
 	 */
 	public UserRole getUserRoleById(Integer id) throws Exception;
 	
-	/** 
-	 * @Description:	根据条件获取UserRole
-	 * @param userRole
-	 * @return
-	 * @throws Exception
-	 * @return	UserRole
-	 * @Date	2015年6月12日 上午10:29:35 
-	 */
-	public PageList<UserRole> getUserRoleByParas(UserRole userRole) throws Exception;
-	/** 
+	/**
 	 * @Description:	添加UserRole
 	 * @param userRole
 	 * @throws Exception
@@ -71,13 +50,4 @@ public interface UserRoleMapper {
 	 * @Date	2015年6月12日 上午10:30:05 
 	 */
 	public Integer delete(UserRole userRole) throws Exception;
-	/** 
-	 * @Description:	获取UserRole信息 不带分页
-	 * @param userRole
-	 * @return
-	 * @throws Exception
-	 * @return	PageList<UserRole>
-	 * @Date	2015年6月12日 上午10:30:13 
-	 */
-	public PageList<UserRole> getUserRolesByParasNoPage(UserRole userRole) throws Exception;
 }

@@ -52,4 +52,5 @@ class DataSourceConfigure {
         dataSource.setPoolPreparedStatements(false);
         return dataSource;
     }
+
 }

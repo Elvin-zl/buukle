@@ -209,13 +209,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="getUserButtonListByUserModuleList" resultMap="resultButton" parameterType="java.util.List">
 		select b.* from button b , module_button mb where
-		and b.status = 1
+		 b.status = 1
 		<if test="userModuleList != null and userModuleList.size() > 0">
 			and mb.module_id in
-			<foreach collection="#{userModuleList}" item="module" separator="," open="(" close=")">
+			<foreach collection="userModuleList" item="module" separator="," open="(" close=")">
 				#{module.id}
 			</foreach>
 		</if>
-		mb.button_id = b.id;
+		and mb.button_id = b.id;
 	</select>
 </mapper>

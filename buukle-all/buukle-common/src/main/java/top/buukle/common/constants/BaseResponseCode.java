@@ -33,6 +33,9 @@ public enum BaseResponseCode {
     BASE_REQUEST_APPLICATION_NAME_NULL(BaseResponseCode.FAILURES, "999995", "参数错误!调用方应用名为空!"),
     BASE_REQUEST_FORMAT_INFO_LIST_WRONG(BaseResponseCode.FAILURES, "999994", "请求转换异常!"),
     BASE_REQUEST_PARSE_INFO_LIST_WRONG(BaseResponseCode.FAILURES, "999993", "参数解析异常!"),
+    BASE_REQUEST_SIGN_WRONG(BaseResponseCode.FAILURES, "999992", "签名错误!"),
+    BASE_REQUEST_SIGN_EXCEPTION(BaseResponseCode.FAILURES, "999991", "验签异常!"),
+    BASE_REQUEST_SIGN_PUBLIC_KEY_NULL(BaseResponseCode.FAILURES, "999990", "验签异常,该机构公钥不存在!"),
 
     /*----------------------------------------------SSO--01{*}{*}{*}{*}--------------------------------------------------------------------*/
     /** 登录,认证,授权 --0100{*}{*}*/

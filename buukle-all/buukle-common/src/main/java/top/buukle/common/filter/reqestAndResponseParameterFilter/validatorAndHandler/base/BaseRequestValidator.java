@@ -29,10 +29,18 @@ public abstract class BaseRequestValidator {
      * @throws IOException
      */
     public BaseResponse doValidate(HttpServletRequest httpServletRequest, String requestBody, ServletResponse servletResponse) throws IOException {
+        this.verify(requestBody,httpServletRequest);
         this.preValidate(httpServletRequest,requestBody);
         this.doValidate(httpServletRequest,httpServletRequest.getRequestURI(), requestBody, servletResponse);
         return null;
     }
+
+    /**
+     * 验签
+     * @param requestBody
+     * @param httpServletRequest
+     */
+    public abstract void verify(String requestBody, HttpServletRequest httpServletRequest);
 
     /**
      * 参数校验预处理(可重写)

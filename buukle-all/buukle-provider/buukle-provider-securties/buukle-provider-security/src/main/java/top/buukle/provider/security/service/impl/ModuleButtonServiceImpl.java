@@ -7,7 +7,6 @@
 
 package top.buukle.provider.security.service.impl;
 
-import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import org.springframework.stereotype.Service;
 import top.buukle.provider.security.service.ModuleButtonService;
 import top.buukle.provider.security.dao.ModuleButtonMapper;
@@ -26,18 +25,15 @@ public class ModuleButtonServiceImpl implements ModuleButtonService {
 	@Resource
 	ModuleButtonMapper moduleButtonMapper;
 	@Override
-	public List<ModuleButton> getModuleButtonByParas(ModuleButton moduleButton, PageBounds pageBounds) throws Exception {
-		return moduleButtonMapper.getModuleButtonByParas(moduleButton, pageBounds);
-	}
-	@Override
 	public ModuleButton getModuleButtonById(Integer id) throws Exception{
 		return moduleButtonMapper.getModuleButtonById(id);
 	}
-	
+
 	@Override
 	public List<ModuleButton> getModuleButtonByParas(ModuleButton moduleButton) throws Exception {
-		return moduleButtonMapper.getModuleButtonByParas(moduleButton);
+		return null;
 	}
+
 	@Override
 	public void save(ModuleButton moduleButton) throws Exception {
 		moduleButtonMapper.save(moduleButton);

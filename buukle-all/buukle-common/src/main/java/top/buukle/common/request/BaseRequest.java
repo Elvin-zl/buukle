@@ -91,10 +91,10 @@ public class BaseRequest<T>{
             return this;
         }
         /** 基础build*/
-        public BaseRequest build(String applicationName) {
+        public BaseRequest build(String applicationName, String operationId) {
             this.setOperationLoginName(DEFAULT_LOGIN_NAME);
             this.setOperationName(DEFAULT_OPERATION_NAME);
-            this.setOperationId(DEFAULT_OPERATION_ID);
+            this.setOperationId(operationId);
             baseRequest.requestHead = headBuilder.build(applicationName);
             return baseRequest;
         }

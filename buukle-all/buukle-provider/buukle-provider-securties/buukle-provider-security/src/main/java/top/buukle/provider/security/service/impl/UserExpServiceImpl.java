@@ -7,7 +7,6 @@
 
 package top.buukle.provider.security.service.impl;
 
-import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import org.springframework.stereotype.Service;
 import top.buukle.provider.security.service.UserExpService;
 import top.buukle.provider.security.dao.UserExpMapper;
@@ -26,18 +25,15 @@ public class UserExpServiceImpl implements UserExpService {
 	@Resource
 	UserExpMapper userExpMapper;
 	@Override
-	public List<UserExp> getUserExpByParas(UserExp userExp, PageBounds pageBounds) throws Exception {
-		return userExpMapper.getUserExpByParas(userExp, pageBounds);
-	}
-	@Override
 	public UserExp getUserExpById(Integer id) throws Exception{
 		return userExpMapper.getUserExpById(id);
 	}
-	
+
 	@Override
 	public List<UserExp> getUserExpByParas(UserExp userExp) throws Exception {
-		return userExpMapper.getUserExpByParas(userExp);
+		return null;
 	}
+
 	@Override
 	public void save(UserExp userExp) throws Exception {
 		userExpMapper.save(userExp);

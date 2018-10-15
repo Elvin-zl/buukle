@@ -3,6 +3,7 @@ package top.buukle.provider.security.controller.module;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import top.buukle.provider.security.service.ModuleService;
@@ -35,4 +36,5 @@ public class ModuleController {
     public List<ModuleNavigationVo> getUserModuleTree(HttpServletRequest httpServletRequest) {
         return moduleService.getUserModuleTree(httpServletRequest,applicationName);
     }
+
 }

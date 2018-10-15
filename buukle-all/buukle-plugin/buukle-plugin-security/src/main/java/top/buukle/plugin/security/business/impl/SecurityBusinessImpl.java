@@ -27,8 +27,8 @@ import javax.servlet.http.HttpServletResponse;
 @Component()
 public class SecurityBusinessImpl implements SecurityBusiness {
 
-
     private static final BaseLogger LOGGER = BaseLogger.getLogger(SecurityBusinessImpl.class);
+
     @Autowired
     private  SecurityInvoker securityInvoker;
     /**
@@ -78,7 +78,7 @@ public class SecurityBusinessImpl implements SecurityBusiness {
     private BaseResponse doLogin(HttpServletRequest request, String cacheCategoryKey, String ssoDefaultAge, HttpServletResponse response, String ssoDomain, String loginOutStrategy, String applicationName) throws Exception {
         //校验参数
         User user = this.validateLoginParam(request,cacheCategoryKey);
-        BaseRequest baseRequest = new BaseRequest.Builder().build(applicationName);
+        BaseRequest baseRequest = new BaseRequest.Builder().build(applicationName,SecurityInterceptor.APPLICATION_NAME);
         baseRequest.setInfo(user);
         baseRequest.setExpandParameterString(ssoDefaultAge);
         BaseResponse baseResponse = securityInvoker.doLogin(baseRequest);
@@ -139,7 +139,7 @@ public class SecurityBusinessImpl implements SecurityBusiness {
     private BaseResponse authentication(HttpServletRequest httpServletRequest, String ssoDefaultAge, String applicationName) throws Exception {
         //校验参数
         String userCookie = this.validateAuthenticationParam(httpServletRequest,applicationName);
-        BaseRequest baseRequest = new BaseRequest.Builder().build(applicationName);
+        BaseRequest baseRequest = new BaseRequest.Builder().build(applicationName, SecurityInterceptor.APPLICATION_NAME);
         baseRequest.setInfo(userCookie);
         baseRequest.setExpandParameterString(ssoDefaultAge);
         return securityInvoker.authentication(baseRequest);
@@ -155,7 +155,7 @@ public class SecurityBusinessImpl implements SecurityBusiness {
      */
     private BaseResponse setPermission(String uri, HttpServletRequest request, String applicationName, BaseResponse authResponse) throws Exception {
         User user = (User) authResponse.getDataWithIndex(User.class, 0);
-        BaseRequest baseRequest = new BaseRequest.Builder().setOperationId(user.getUserId()).setOperationLoginName(user.getUsername()).setOperationName(user.getNameCn()).build(applicationName);
+        BaseRequest baseRequest = new BaseRequest.Builder().setOperationId(user.getUserId()).setOperationLoginName(user.getUsername()).setOperationName(user.getNameCn()).build(applicationName, SecurityInterceptor.APPLICATION_NAME);
         UserLoginPermissionQuery userLoginPermissionQuery = new UserLoginPermissionQuery();
         userLoginPermissionQuery.setUrl(uri);
         userLoginPermissionQuery.setUser(user);

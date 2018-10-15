@@ -7,7 +7,6 @@
 
 package top.buukle.provider.security.service.impl;
 
-import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import org.springframework.stereotype.Service;
 import top.buukle.provider.security.service.RoleService;
 import top.buukle.provider.security.dao.RoleMapper;
@@ -26,18 +25,15 @@ public class RoleServiceImpl implements RoleService {
 	@Resource
 	RoleMapper roleMapper;
 	@Override
-	public List<Role> getRoleByParas(Role role, PageBounds pageBounds) throws Exception {
-		return roleMapper.getRoleByParas(role, pageBounds);
-	}
-	@Override
 	public Role getRoleById(Integer id) throws Exception{
 		return roleMapper.getRoleById(id);
 	}
-	
+
 	@Override
 	public List<Role> getRoleByParas(Role role) throws Exception {
-		return roleMapper.getRoleByParas(role);
+		return null;
 	}
+
 	@Override
 	public void save(Role role) throws Exception {
 		roleMapper.save(role);

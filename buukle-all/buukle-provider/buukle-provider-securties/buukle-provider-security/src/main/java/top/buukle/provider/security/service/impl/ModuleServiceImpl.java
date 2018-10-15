@@ -7,7 +7,6 @@
 
 package top.buukle.provider.security.service.impl;
 
-import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Service;
 import top.buukle.common.constants.BaseResponseCode;
@@ -38,20 +37,16 @@ public class ModuleServiceImpl implements ModuleService {
 	@Resource
 	ModuleMapper moduleMapper;
 	@Override
-	public List<Module> getModuleByParas(Module module, PageBounds pageBounds) throws Exception {
-		return moduleMapper.getModuleByParas(module, pageBounds);
-	}
-	@Override
 	public Module getModuleById(Integer id) throws Exception{
 		return moduleMapper.getModuleById(id);
 	}
-	
-	@Override
-	public List<Module> getModuleByParas(Module module) throws Exception {
-		return moduleMapper.getModuleByParas(module);
-	}
-	@Override
-	public void save(Module module) throws Exception {
+
+    @Override
+    public List<Module> getModuleByParas(Module module) throws Exception {
+        return null;
+    }
+
+    public void save(Module module) throws Exception {
 		moduleMapper.save(module);
 	}
 	@Override

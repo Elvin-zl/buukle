@@ -11,6 +11,7 @@ import top.buukle.provider.security.entity.*;
 import top.buukle.provider.security.util.StringGeneratorUtil;
 import top.buukle.common.util.common.ThreadLocalUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -166,7 +167,20 @@ public class UserInvoker {
      */
     public static List<Button> getUserButton(String userCookie) {
         String userModuleListStr = RedisString.get(UserInfoCacheConstants.USER_BUTTON_LIST_KEY_PREFIX + userCookie);
-        return null == userModuleListStr ? null : JSON.parseArray(userModuleListStr,Button.class);
+        return null == userModuleListStr ? new ArrayList<>() : JSON.parseArray(userModuleListStr,Button.class);
+    }
+
+    /**
+     * 清除用户的权限信息
+     * @param userCookie
+     */
+    public static void clearUserSecurityInfo(String userCookie) {
+        //清除角色缓存
+        RedisString.delete(UserInfoCacheConstants.USER_ROLE_LIST_KEY_PREFIX + userCookie);
+        //清除菜单缓存
+        RedisString.delete(UserInfoCacheConstants.USER_MODULE_LIST_KEY_PREFIX + userCookie);
+        //清除按钮缓存
+        RedisString.delete(UserInfoCacheConstants.USER_BUTTON_LIST_KEY_PREFIX + userCookie);
     }
 
     /**
@@ -182,15 +196,16 @@ public class UserInvoker {
         // defaultMaxAge处理
         String defaultMaxAge = StringUtil.isEmpty(RedisString.get(UserInfoCacheConstants.APPLICATION_DEFAULT_MAX_AGE_PREFIX + applicationName)) ? NumberUtil.LONG_FIVE_MINUTES_SECOND.toString() : RedisString.get(UserInfoCacheConstants.APPLICATION_DEFAULT_MAX_AGE_PREFIX + applicationName);
 
-        if(null != ThreadLocalUtil.get().getLoginStrategy() &&  ThreadLocalUtil.get().getLoginStrategy().equals(UserInfoCacheConstants.USER_LOGIN_CACHE_STRATEGY_ONE_WEEK)){
+        if(null!= ThreadLocalUtil.get() && null != ThreadLocalUtil.get().getLoginStrategy() &&  ThreadLocalUtil.get().getLoginStrategy().equals(UserInfoCacheConstants.USER_LOGIN_CACHE_STRATEGY_ONE_WEEK)){
             RedisString.setWithExpire(prefix + userCookie,value, NumberUtil.LONG_ONE_WEEK_SECOND);
             return userCookie;
         }
-        if(null !=  ThreadLocalUtil.get().getLoginStrategy() &&  ThreadLocalUtil.get().getLoginStrategy().equals(UserInfoCacheConstants.USER_LOGIN_CACHE_STRATEGY_FIVE_MINUTES)){
+        if(null!= ThreadLocalUtil.get() && null !=  ThreadLocalUtil.get().getLoginStrategy() &&  ThreadLocalUtil.get().getLoginStrategy().equals(UserInfoCacheConstants.USER_LOGIN_CACHE_STRATEGY_FIVE_MINUTES)){
             RedisString.setWithExpire(prefix + userCookie, value, NumberUtil.LONG_FIVE_MINUTES_SECOND);
             return userCookie;
         }
         RedisString.setWithExpire(prefix + userCookie, value, Long.parseLong(defaultMaxAge));
         return userCookie;
     }
+
 }

@@ -7,7 +7,6 @@
 
 package top.buukle.provider.security.service.impl;
 
-import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import org.springframework.stereotype.Service;
 import top.buukle.provider.security.service.UserRoleService;
 import top.buukle.provider.security.dao.UserRoleMapper;
@@ -26,18 +25,15 @@ public class UserRoleServiceImpl implements UserRoleService {
 	@Resource
 	UserRoleMapper userRoleMapper;
 	@Override
-	public List<UserRole> getUserRoleByParas(UserRole userRole, PageBounds pageBounds) throws Exception {
-		return userRoleMapper.getUserRoleByParas(userRole, pageBounds);
-	}
-	@Override
 	public UserRole getUserRoleById(Integer id) throws Exception{
 		return userRoleMapper.getUserRoleById(id);
 	}
-	
+
 	@Override
 	public List<UserRole> getUserRoleByParas(UserRole userRole) throws Exception {
-		return userRoleMapper.getUserRoleByParas(userRole);
+		return null;
 	}
+
 	@Override
 	public void save(UserRole userRole) throws Exception {
 		userRoleMapper.save(userRole);

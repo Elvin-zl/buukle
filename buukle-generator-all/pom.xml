@@ -3,44 +3,241 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>top.buukle.generator</groupId>
     <artifactId>buukle-generator-all</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>buukle-generator-mtbatis</module>
+        <module>buukle-generator-mybatis</module>
         <module>buukle-generator-html</module>
         <module>buukle-generator-entityToDataBase</module>
+        <module>buukle-generator-artificial</module>
     </modules>
     <name>buukle-generators-all</name>
     <description>buukle project</description>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.5.RELEASE</version>
+        <relativePath/>
+    </parent>
+
     <!--======================================================集中定义版本号=================================================-->
     <properties>
-        <!--entityToDataBase-->
-        <version.junit>4.12</version.junit>
-        <version.hibernate-core>4.3.6.Final</version.hibernate-core>
+        <!--______________________________________________ Encodeing  _________________________________________________-->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <!--______________________________________________ dataSource _________________________________________________-->
+        <mybatis.springboot.starter>1.3.1</mybatis.springboot.starter>
+        <org.springframework.cloud>Finchley.RELEASE</org.springframework.cloud>
+        <mysql.connector.java>5.1.38</mysql.connector.java>
+        <druid>1.0.28</druid>
+        <mybatis-paginator>1.2.17</mybatis-paginator>
+        <!--_______________________________________________ cache _____________________________________________________-->
+        <fastjson>1.2.47</fastjson>
+        <!--_______________________________________________ message ___________________________________________________-->
+        <javax.mail>1.4.7</javax.mail>
+        <!--_______________________________________________ commons ___________________________________________________-->
+        <commons.lang>2.6</commons.lang>
+        <commons.collections>3.2.1</commons.collections>
+        <commons.io>2.4</commons.io>
+        <commons.codec>1.10</commons.codec>
+        <commons.httpclient>3.0.1</commons.httpclient>
+        <commons.beanutils>1.9.2</commons.beanutils>
+        <commons.fileupload>1.3.2</commons.fileupload>
+        <commons.configuration>1.10</commons.configuration>
     </properties>
+
     <!--======================================================集中管理版本号=================================================-->
     <dependencyManagement>
         <dependencies>
-            <!--entityToDataBase-->
+            <!--______________________________________________ boot cloud _____________________________________________-->
             <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${version.junit}</version>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${org.springframework.cloud}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--______________________________________________ dataSource _____________________________________________-->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.springboot.starter}</version>
             </dependency>
             <dependency>
-                <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-core</artifactId>
-                <version>${version.hibernate-core}</version>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.connector.java}</version>
             </dependency>
-            <!---->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.miemiedev</groupId>
+                <artifactId>mybatis-paginator</artifactId>
+                <version>${mybatis-paginator}</version>
+            </dependency>
+            <!--_______________________________________________ cache ________________________________________________-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson}</version>
+            </dependency>
+            <!--_______________________________________________ message ______________________________________________-->
+            <dependency>
+                <groupId>javax.mail</groupId>
+                <artifactId>mail</artifactId>
+                <version>${javax.mail}</version>
+            </dependency>
+            <!--______________________________________________ commons _______________________________________________-->
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${commons.lang}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>${commons.collections}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-httpclient</groupId>
+                <artifactId>commons-httpclient</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons.io}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${commons.codec}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${commons.beanutils}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-fileupload</groupId>
+                <artifactId>commons-fileupload</artifactId>
+                <version>${commons.fileupload}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-configuration</groupId>
+                <artifactId>commons-configuration</artifactId>
+                <version>1.10</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <!--===================================================公共依赖=========================================================-->
     <dependencies>
+        <!--_____________________________________ springBoot-starts ___________________________________________________-->
+        <!--dependency for spring boot-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <!--dependency for spring cloud eureka (SpringBoot2.0+专用,低于2.0请使用spring-cloud-starter-eureka-server)-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+        </dependency>
+        <!--dependency for spring cloud feign (SpringBoot2.0+专用,低于2.0请使用spring-cloud-starter-feign)-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
 
+        <!--dependency for spring web-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <!--dependency for spring aop-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <!--dependency for spring redis-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!--<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>-->
+        <!--__________________________________________ message ________________________________________________________-->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+        </dependency>
+        <!--__________________________________________ cache __________________________________________________________-->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+        <!--_________________________________________ commons _________________________________________________________-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-httpclient</groupId>
+            <artifactId>commons-httpclient</artifactId>
+            <version>${commons.httpclient}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-configuration</groupId>
+            <artifactId>commons-configuration</artifactId>
+        </dependency>
     </dependencies>
 </project>

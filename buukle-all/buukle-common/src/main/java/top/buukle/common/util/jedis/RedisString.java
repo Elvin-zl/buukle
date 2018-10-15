@@ -19,5 +19,8 @@ public class RedisString {
          return JedisCommands.get(key);
     }
 
+    public static boolean delete(String key) {
+        return JedisCommands.delete(key);
+    }
 
 }

@@ -7,7 +7,6 @@
 
 package top.buukle.provider.security.service.impl;
 
-import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import org.springframework.stereotype.Service;
 import top.buukle.provider.security.service.UserGroupService;
 import top.buukle.provider.security.dao.UserGroupMapper;
@@ -26,18 +25,15 @@ public class UserGroupServiceImpl implements UserGroupService {
 	@Resource
 	UserGroupMapper userGroupMapper;
 	@Override
-	public List<UserGroup> getUserGroupByParas(UserGroup userGroup, PageBounds pageBounds) throws Exception {
-		return userGroupMapper.getUserGroupByParas(userGroup, pageBounds);
-	}
-	@Override
 	public UserGroup getUserGroupById(Integer id) throws Exception{
 		return userGroupMapper.getUserGroupById(id);
 	}
-	
+
 	@Override
 	public List<UserGroup> getUserGroupByParas(UserGroup userGroup) throws Exception {
-		return userGroupMapper.getUserGroupByParas(userGroup);
+		return null;
 	}
+
 	@Override
 	public void save(UserGroup userGroup) throws Exception {
 		userGroupMapper.save(userGroup);

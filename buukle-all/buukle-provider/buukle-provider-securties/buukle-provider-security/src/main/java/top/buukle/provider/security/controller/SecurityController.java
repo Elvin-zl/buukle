@@ -20,9 +20,9 @@ public class SecurityController {
      * @param modelAndView
      * @return
      */
-    @RequestMapping("/toMain/{parent}/{target}")
-    public  ModelAndView toMain(@PathVariable("parent")String parent ,@PathVariable("parent")String target,ModelAndView modelAndView ) {
-        modelAndView.setViewName(parent +"/"+ target );
+    @RequestMapping("/toMain/{grandParent}/{parent}/{target}")
+    public  ModelAndView toMain(@PathVariable("grandParent")String grandParent ,@PathVariable("parent")String parent,@PathVariable("target")String target,ModelAndView modelAndView ) {
+        modelAndView.setViewName(grandParent + "/" +parent +"/"+ target );
         return modelAndView;
     }
 }

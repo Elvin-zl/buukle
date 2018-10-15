@@ -25,4 +25,17 @@ public class UserController {
     public User getUserById(@PathVariable("id") Integer id) throws Exception {
         return userService.getUserById(id);
     }
+
+    /**
+     * 获取完成认证的用户信息
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/getUserInfo")
+    @ResponseBody
+    public User getUserInfo(@PathVariable("id") Integer id) throws Exception {
+        return userService.getUserById(id);
+    }
+
 }

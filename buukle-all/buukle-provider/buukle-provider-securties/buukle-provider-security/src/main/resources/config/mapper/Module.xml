@@ -201,14 +201,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="getUserModuleListByUserRoleList" resultMap="resultModule" parameterType="java.util.List">
 		select m.* from module m ,role_module rm where
-		and m.status = 1
+		 m.status = 1
 		<if test="userRoleList != null and userRoleList.size() > 0">
 			and rm.role_id in
-			<foreach collection="#{userRoleList}" item="role" separator="," open="(" close=")">
+			<foreach collection="userRoleList" item="role" separator="," open="(" close=")">
 				#{role.id}
 			</foreach>
 		</if>
-		rm.module_id = m.id;
+		and rm.module_id = m.id;
 	</select>
 
 	<select id="getUserModuleListByUserId" resultMap="resultModule" parameterType="java.util.Map">

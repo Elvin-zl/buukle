@@ -7,8 +7,6 @@
 
 package top.buukle.provider.security.dao;
 
-import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
-import com.github.miemiedev.mybatis.paginator.domain.PageList;
 import top.buukle.provider.security.entity.UserGroup;
 
 /**
@@ -18,19 +16,9 @@ import top.buukle.provider.security.entity.UserGroup;
  */
 
 public interface UserGroupMapper {
-	/** 
-	 * @Description:	分页获取UserGroup
-	 * @param userGroup
-	 * @param pageBounds
-	 * @return
-	 * @return	PageList<UserGroup>
-	 * @Date	2015年6月12日 上午10:29:17 
-	 */
-	public PageList<UserGroup> getUserGroupByParas(UserGroup userGroup, PageBounds pageBounds) throws Exception;
-	
+
 	/** 
 	 * @Description:	根据id获取UserGroup
-	 * @param userGroup
 	 * @return
 	 * @throws Exception
 	 * @return	UserGroup
@@ -38,16 +26,7 @@ public interface UserGroupMapper {
 	 */
 	public UserGroup getUserGroupById(Integer id) throws Exception;
 	
-	/** 
-	 * @Description:	根据条件获取UserGroup
-	 * @param userGroup
-	 * @return
-	 * @throws Exception
-	 * @return	UserGroup
-	 * @Date	2015年6月12日 上午10:29:35 
-	 */
-	public PageList<UserGroup> getUserGroupByParas(UserGroup userGroup) throws Exception;
-	/** 
+	/**
 	 * @Description:	添加UserGroup
 	 * @param userGroup
 	 * @throws Exception
@@ -71,13 +50,4 @@ public interface UserGroupMapper {
 	 * @Date	2015年6月12日 上午10:30:05 
 	 */
 	public Integer delete(UserGroup userGroup) throws Exception;
-	/** 
-	 * @Description:	获取UserGroup信息 不带分页
-	 * @param userGroup
-	 * @return
-	 * @throws Exception
-	 * @return	PageList<UserGroup>
-	 * @Date	2015年6月12日 上午10:30:13 
-	 */
-	public PageList<UserGroup> getUserGroupsByParasNoPage(UserGroup userGroup) throws Exception;
 }

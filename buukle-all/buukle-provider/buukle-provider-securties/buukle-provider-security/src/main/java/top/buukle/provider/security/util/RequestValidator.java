@@ -1,16 +1,24 @@
 package top.buukle.provider.security.util;
 
 import com.alibaba.fastjson.JSON;
+import org.apache.commons.collections.CollectionUtils;
 import top.buukle.common.constants.BaseResponseCode;
+import top.buukle.common.exception.BaseException;
 import top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator;
 import top.buukle.common.request.BaseRequest;
 import top.buukle.common.response.BaseResponse;
+import top.buukle.common.util.RSA.SignUtil;
+import top.buukle.common.util.common.JsonUtil;
+import top.buukle.common.util.common.SpringContextUtil;
 import top.buukle.common.util.common.StringUtil;
 import top.buukle.common.util.logger.BaseLogger;
+import top.buukle.provider.security.entity.BuukleSign;
+import top.buukle.provider.security.service.BuukleSignService;
 
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * @Author elvin
@@ -21,6 +29,48 @@ public class RequestValidator extends BaseRequestValidator {
 
 
     private static final BaseLogger LOGGER = BaseLogger.getLogger(RequestValidator.class);
+
+    /**
+     * 验签
+     * @param requestBody
+     * @param httpServletRequest
+     */
+    @Override
+    public void verify(String requestBody, HttpServletRequest httpServletRequest) {
+        Boolean verify;
+        BaseRequest baseRequest;
+        try {
+            //获取公钥
+            baseRequest = JsonUtil.parseObject(requestBody, BaseRequest.class);
+            String applicationName = baseRequest.getRequestHead().getApplicationName();
+            String operationId = baseRequest.getRequestHead().getOperationId();
+            BuukleSignService buukleSignService = SpringContextUtil.getBean(BuukleSignService.class);
+            List<BuukleSign> buukleSignByParas = buukleSignService.getBuukleSignByParas(new BuukleSign(applicationName, operationId));
+            verify  = SignUtil.verify(requestBody, this.validateSign(buukleSignByParas), httpServletRequest.getHeader(SignUtil.SECURITY_SIGN_KEY));
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new BaseException(BaseResponseCode.BASE_REQUEST_SIGN_EXCEPTION);
+        }
+        if(!verify){
+            throw new BaseException(BaseResponseCode.BASE_REQUEST_SIGN_WRONG);
+        }
+        LOGGER.info("{}应用下,用户:{}验签通过!",baseRequest.getRequestHead().getApplicationName(),baseRequest.getRequestHead().getOperationId());
+    }
+
+    /**
+     * 校验公钥集合
+     * @param buukleSignByParas
+     * @return
+     */
+    private String validateSign(List<BuukleSign> buukleSignByParas) {
+        if(CollectionUtils.isEmpty(buukleSignByParas)){
+            throw new BaseException(BaseResponseCode.BASE_REQUEST_SIGN_PUBLIC_KEY_NULL);
+        }
+        if(buukleSignByParas.size()>1){
+            throw new BaseException(BaseResponseCode.BASE_REQUEST_SIGN_WRONG);
+        }
+        return buukleSignByParas.get(0).getPartnerKey();
+    }
 
     /**
      * 重写参数校验方法

@@ -275,7 +275,7 @@ layui.define(['element','layer','laytpl'],function(exports){
         if($('#moduleIdForBtn').val() != ''){
             $.ajax({
                 async:false,
-                url:'/module/getModuleButtons/'+moduleId,
+                url:'/button/getModuleButtons/'+moduleId,
                 dataType:'json',
                 type:'post',
                 success:function (data) {

@@ -7,10 +7,7 @@
 
 package top.buukle.provider.security.dao;
 
-import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
-import com.github.miemiedev.mybatis.paginator.domain.PageList;
 import org.apache.ibatis.annotations.Param;
-import top.buukle.common.request.BaseRequest;
 import top.buukle.provider.security.entity.Button;
 import top.buukle.provider.security.entity.Module;
 
@@ -23,19 +20,9 @@ import java.util.List;
  */
 
 public interface ButtonMapper {
-	/** 
-	 * @Description:	分页获取Button
-	 * @param button
-	 * @param pageBounds
-	 * @return
-	 * @return	PageList<Button>
-	 * @Date	2015年6月12日 上午10:29:17 
-	 */
-	public PageList<Button> getButtonByParas(Button button, PageBounds pageBounds) throws Exception;
-	
+
 	/** 
 	 * @Description:	根据id获取Button
-	 * @param button
 	 * @return
 	 * @throws Exception
 	 * @return	Button
@@ -43,16 +30,7 @@ public interface ButtonMapper {
 	 */
 	public Button getButtonById(Integer id) throws Exception;
 	
-	/** 
-	 * @Description:	根据条件获取Button
-	 * @param button
-	 * @return
-	 * @throws Exception
-	 * @return	Button
-	 * @Date	2015年6月12日 上午10:29:35 
-	 */
-	public PageList<Button> getButtonByParas(Button button) throws Exception;
-	/** 
+	/**
 	 * @Description:	添加Button
 	 * @param button
 	 * @throws Exception
@@ -76,17 +54,9 @@ public interface ButtonMapper {
 	 * @Date	2015年6月12日 上午10:30:05 
 	 */
 	public Integer delete(Button button) throws Exception;
-	/** 
-	 * @Description:	获取Button信息 不带分页
-	 * @param button
-	 * @return
-	 * @throws Exception
-	 * @return	PageList<Button>
-	 * @Date	2015年6月12日 上午10:30:13 
-	 */
-	public PageList<Button> getButtonsByParasNoPage(Button button) throws Exception;
 
     List<Button> getUserButtonListByUserModuleList(@Param("userModuleList") List<Module> userModuleList);
 
 	List<Button> getGlobalButtonList();
+
 }

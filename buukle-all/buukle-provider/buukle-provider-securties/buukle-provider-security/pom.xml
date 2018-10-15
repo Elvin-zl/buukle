@@ -23,9 +23,15 @@
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
         </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.github.miemiedev</groupId>-->
+            <!--<artifactId>mybatis-paginator</artifactId>-->
+        <!--</dependency>-->
+        <!--分页插件-->
         <dependency>
-            <groupId>com.github.miemiedev</groupId>
-            <artifactId>mybatis-paginator</artifactId>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>top.buukle</groupId>

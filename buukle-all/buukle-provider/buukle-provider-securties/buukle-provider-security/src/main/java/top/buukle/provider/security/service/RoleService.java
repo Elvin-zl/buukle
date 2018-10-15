@@ -7,7 +7,6 @@
 
 package top.buukle.provider.security.service;
 
-import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import top.buukle.provider.security.entity.Role;
 
 import java.util.List;
@@ -18,20 +17,8 @@ import java.util.List;
  *
  */
 public interface RoleService {
-	
-	/** 
-	 * @Description:	分页获取Role
-	 * @param role
-	 * @param pageBounds
-	 * @return
-	 * @return	List<Role>
-	 * @Date	2015年6月12日 上午10:29:17 
-	 */
-	public List<Role> getRoleByParas(Role role, PageBounds pageBounds) throws Exception;
-	
-	/** 
+	/**
 	 * @Description:	根据id获取Role
-	 * @param role
 	 * @return
 	 * @throws Exception
 	 * @return	Role

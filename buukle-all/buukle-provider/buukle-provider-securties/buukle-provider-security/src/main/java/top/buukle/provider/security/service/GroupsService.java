@@ -7,7 +7,6 @@
 
 package top.buukle.provider.security.service;
 
-import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import top.buukle.provider.security.entity.Groups;
 
 import java.util.List;
@@ -19,19 +18,9 @@ import java.util.List;
  */
 public interface GroupsService {
 	
-	/** 
-	 * @Description:	分页获取Groups
-	 * @param groups
-	 * @param pageBounds
-	 * @return
-	 * @return	List<Groups>
-	 * @Date	2015年6月12日 上午10:29:17 
-	 */
-	public List<Groups> getGroupsByParas(Groups groups, PageBounds pageBounds) throws Exception;
-	
+
 	/** 
 	 * @Description:	根据id获取Groups
-	 * @param groups
 	 * @return
 	 * @throws Exception
 	 * @return	Groups

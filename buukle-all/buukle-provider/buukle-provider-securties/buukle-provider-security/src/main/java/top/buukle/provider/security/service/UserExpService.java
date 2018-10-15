@@ -7,7 +7,6 @@
 
 package top.buukle.provider.security.service;
 
-import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import top.buukle.provider.security.entity.UserExp;
 
 import java.util.List;
@@ -19,19 +18,9 @@ import java.util.List;
  */
 public interface UserExpService {
 	
-	/** 
-	 * @Description:	分页获取UserExp
-	 * @param userExp
-	 * @param pageBounds
-	 * @return
-	 * @return	List<UserExp>
-	 * @Date	2015年6月12日 上午10:29:17 
-	 */
-	public List<UserExp> getUserExpByParas(UserExp userExp, PageBounds pageBounds) throws Exception;
-	
+
 	/** 
 	 * @Description:	根据id获取UserExp
-	 * @param userExp
 	 * @return
 	 * @throws Exception
 	 * @return	UserExp

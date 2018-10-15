@@ -7,10 +7,15 @@
 
 package top.buukle.provider.security.service;
 
-import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import top.buukle.common.request.BaseRequest;
 import top.buukle.common.response.BaseResponse;
+import top.buukle.provider.security.entity.Button;
+import top.buukle.provider.security.entity.Module;
+import top.buukle.provider.security.entity.Role;
 import top.buukle.provider.security.entity.User;
+import top.buukle.provider.security.vo.query.PageBounds;
+import top.buukle.provider.security.vo.query.UserQuery;
+import top.buukle.provider.security.vo.response.PageResponse;
 
 import java.util.List;
 
@@ -21,16 +26,7 @@ import java.util.List;
  */
 public interface UserService {
 	
-	/** 
-	 * @Description:	分页获取User
-	 * @param user
-	 * @param pageBounds
-	 * @return
-	 * @return	List<User>
-	 * @Date	2015年6月12日 上午10:29:17 
-	 */
-	public List<User> getUserByParas(User user, PageBounds pageBounds) throws Exception;
-	
+
 	/** 
 	 * @Description:	根据id获取User
 	 * @return
@@ -87,4 +83,11 @@ public interface UserService {
 
 	public BaseResponse setPermission(BaseRequest request) throws Exception;
 
+	public List<Button> getUserButton(String userCookie, List<Module> userModuleList, BaseRequest request) throws Exception;
+
+	public List<Module> getUserModule(String userCookie, List<Role> userRoleList, BaseRequest request) throws Exception;
+
+	public List<Role> getUserRole(String userCookie, User user, BaseRequest request) throws Exception;
+
+	PageResponse<User> getUserList(UserQuery userQuery, PageBounds pageBounds);
 }

@@ -20,7 +20,7 @@ public interface SecurityInvoker{
      * @param request
      * @return
      */
-    @PostMapping(value = "/api/security/user/doLogin",headers = {"serverName = ${security.server.name}"})
+    @PostMapping(value = "/api/security/user/doLogin")
     BaseResponse doLogin(BaseRequest request);
 
     /**
@@ -29,7 +29,7 @@ public interface SecurityInvoker{
      * @return
      */
     @InvokerLogging(InvokerLogging.PRINT_FALSE)
-    @PostMapping(value = "/api/security/user/authentication",headers = {"serverName = ${security.server.name}"})
+    @PostMapping(value = "/api/security/user/authentication")
     BaseResponse authentication(BaseRequest request);
 
     /**

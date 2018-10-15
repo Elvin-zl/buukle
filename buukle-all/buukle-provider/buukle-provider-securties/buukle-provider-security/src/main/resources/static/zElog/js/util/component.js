@@ -219,7 +219,7 @@ function bindTableBtnsClick() {
             $('#currentRecordId').val(id);
         }
         for (var i = 0 ; i < btnsTypes.length; i++){
-            if(dataResponseType == 0 && dataOperationType == btnsTypes[i].btnCode ){//conform  确认框
+            if(dataResponseType == 0 && dataOperationType == btnsTypes[i].typeValue ){//conform  确认框
                 layui.use("layer",function () {
                     var layer = layui.layer;
                     confirmBtnBox = layer.confirm('您确认执行[ '+btnName+' ]操作吗?', {
@@ -244,7 +244,7 @@ function bindTableBtnsClick() {
                 break;
             }
 
-            if(dataResponseType == 1 && dataOperationType == btnsTypes[i].btnCode){//frame 弹层
+            if(dataResponseType == 1 && dataOperationType == btnsTypes[i].typeValue){//frame 弹层
                 if(url != ''){
                     //取出按钮url数据,并判断按钮类型回显数据
                     $.ajax({
@@ -263,7 +263,7 @@ function bindTableBtnsClick() {
                 var width = '970px';
                 var height = '550px';
                 //添加时放大弹框
-                /*if(btnsTypes[i].btnCode == 0){
+                /*if(btnsTypes[i].typeValue == 0){
                     width = '1110px';
                     height = '700px';
                 }*/

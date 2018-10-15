@@ -1,15 +1,18 @@
 package top.buukle.provider.security.controller.user;
 
-import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import top.buukle.provider.security.vo.query.PageBounds;
+import top.buukle.provider.security.vo.response.PageResponse;
+import top.buukle.provider.security.business.UserBusiness;
 import top.buukle.provider.security.entity.User;
 import top.buukle.provider.security.service.UserService;
+import top.buukle.provider.security.vo.query.UserQuery;
 
-import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @Author elvin
@@ -22,6 +25,8 @@ public class UserController {
 
     @Autowired
     UserService userService;
+    @Autowired
+    private UserBusiness userBusiness;
 
     @RequestMapping("/updateUserById/{id}")
     @ResponseBody
@@ -32,14 +37,25 @@ public class UserController {
         userService.update(user);
         return true;
     }
-    @RequestMapping("/getInPage/{page}")
+    /**
+     * 获取完成认证的用户信息
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/getUserInfo")
     @ResponseBody
-    public  List<User> getInPage(@PathVariable("page") Integer page) throws Exception {
-        User user = new User();
-        PageBounds pageBounds = new PageBounds();
-        pageBounds.setLimit(10);
-        pageBounds.setPage(page);
-        List<User> userByParas = userService.getUserByParas(user, pageBounds);
-        return userByParas;
+    public User getUserInfo(HttpServletRequest request) throws Exception {
+        return userBusiness.getUserInfo(request);
     }
+    /**
+     * 获取完成认证的用户信息
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/getUserList")
+    @ResponseBody
+    public PageResponse<User> getUserList(UserQuery userQuery,PageBounds pageBounds) throws Exception {
+        return userService.getUserList(userQuery,pageBounds);
+    }
+
 }

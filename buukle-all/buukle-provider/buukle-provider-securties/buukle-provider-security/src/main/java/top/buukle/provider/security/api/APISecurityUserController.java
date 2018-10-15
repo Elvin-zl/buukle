@@ -6,7 +6,7 @@ import top.buukle.common.request.BaseRequest;
 import top.buukle.common.response.BaseResponse;
 import top.buukle.provider.security.constants.SecurityConstants;
 import top.buukle.provider.security.entity.User;
-import top.buukle.provider.security.service.UserBusiness;
+import top.buukle.provider.security.business.UserBusiness;
 import top.buukle.provider.security.service.UserService;
 
 /**

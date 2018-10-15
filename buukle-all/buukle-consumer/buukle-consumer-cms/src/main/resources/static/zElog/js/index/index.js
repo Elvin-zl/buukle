@@ -13,7 +13,7 @@ $(function () {
     /*渲染左侧菜单*/
     renderModule();
     /*获取全局按钮类别*/
-    getBtnTypes();
+    getButtonTypes();
 });
 /*初始化layUI配置*/
 function initLayUIconfig() {
@@ -75,18 +75,18 @@ function renderTop() {
                 children : [{
                     title : '最新消息('+userInfo.fans+')',
                     layId : 'message',
-                    layUrl : '/toMain/userCenter/password?t='+Math.random()
+                    layUrl : '/userCenter/password?t='+Math.random()
                 },{
                     title : '最新粉丝('+userInfo.message+')',
                     layId : 'message',
-                    layUrl : '/toMain/userCenter/password?t='+Math.random()
+                    layUrl : '/userCenter/password?t='+Math.random()
                 }]
             },{
                 title : userInfo.username,
                 children : [{
                     title : '密码修改',
                     layId : 'password',
-                    layUrl : '/toMain/userCenter/password?t='+Math.random()
+                    layUrl : '/userCenter/password?t='+Math.random()
                 },{
                     title : '退出',
                     layId : 'logout',
@@ -111,9 +111,9 @@ function renderModule() {
     });
 }
 /*获取全局按钮类别*/
-function getBtnTypes() {
+function getButtonTypes() {
     $.ajax({
-        url:'/module/getBtnTypes',
+        url:'/button/getButtonTypes',
         dataType:'text',
         type:'post',
         success:function (data) {
