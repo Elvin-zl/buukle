@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="top.buukle.provider.security.dao.ModuleMapper" >
-  <resultMap id="BaseResultMap" type="top.buukle.provider.security.entity.Module" >
+<mapper namespace="top.buukle.provider.security.dao.UserExpMapper" >
+  <resultMap id="BaseResultMap" type="top.buukle.provider.security.entity.UserExp" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="pid" property="pid" jdbcType="INTEGER" />
-    <result column="module_name" property="moduleName" jdbcType="VARCHAR" />
-    <result column="url" property="url" jdbcType="VARCHAR" />
-    <result column="module_icon" property="moduleIcon" jdbcType="VARCHAR" />
-    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="user_qq" property="userQq" jdbcType="VARCHAR" />
+    <result column="user_wechat" property="userWechat" jdbcType="VARCHAR" />
     <result column="creator" property="creator" jdbcType="VARCHAR" />
     <result column="creator_code" property="creatorCode" jdbcType="VARCHAR" />
     <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
@@ -22,55 +20,47 @@
     <result column="bak05" property="bak05" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, pid, module_name, url, module_icon, description, creator, creator_code, gmt_created, 
-    modifier, modifier_code, gmt_modified, status, bak01, bak02, bak03, bak04, bak05
+    id, user_id, user_qq, user_wechat, creator, creator_code, gmt_created, modifier, 
+    modifier_code, gmt_modified, status, bak01, bak02, bak03, bak04, bak05
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from module
+    from user_exp
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from module
+    delete from user_exp
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="top.buukle.provider.security.entity.Module" >
-    insert into module (id, pid, module_name, 
-      url, module_icon, description, 
-      creator, creator_code, gmt_created, 
-      modifier, modifier_code, gmt_modified, 
-      status, bak01, bak02, 
-      bak03, bak04, bak05
-      )
-    values (#{id,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, #{moduleName,jdbcType=VARCHAR}, 
-      #{url,jdbcType=VARCHAR}, #{moduleIcon,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
-      #{creator,jdbcType=VARCHAR}, #{creatorCode,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, 
-      #{modifier,jdbcType=VARCHAR}, #{modifierCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, 
-      #{status,jdbcType=INTEGER}, #{bak01,jdbcType=VARCHAR}, #{bak02,jdbcType=VARCHAR}, 
-      #{bak03,jdbcType=VARCHAR}, #{bak04,jdbcType=VARCHAR}, #{bak05,jdbcType=VARCHAR}
-      )
+  <insert id="insert" parameterType="top.buukle.provider.security.entity.UserExp" >
+    insert into user_exp (id, user_id, user_qq, 
+      user_wechat, creator, creator_code, 
+      gmt_created, modifier, modifier_code, 
+      gmt_modified, status, bak01, 
+      bak02, bak03, bak04, 
+      bak05)
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=VARCHAR}, #{userQq,jdbcType=VARCHAR}, 
+      #{userWechat,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{creatorCode,jdbcType=VARCHAR}, 
+      #{gmtCreated,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR}, #{modifierCode,jdbcType=VARCHAR}, 
+      #{gmtModified,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, #{bak01,jdbcType=VARCHAR}, 
+      #{bak02,jdbcType=VARCHAR}, #{bak03,jdbcType=VARCHAR}, #{bak04,jdbcType=VARCHAR}, 
+      #{bak05,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="top.buukle.provider.security.entity.Module" >
-    insert into module
+  <insert id="insertSelective" parameterType="top.buukle.provider.security.entity.UserExp" >
+    insert into user_exp
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
       </if>
-      <if test="pid != null" >
-        pid,
+      <if test="userId != null" >
+        user_id,
       </if>
-      <if test="moduleName != null" >
-        module_name,
+      <if test="userQq != null" >
+        user_qq,
       </if>
-      <if test="url != null" >
-        url,
-      </if>
-      <if test="moduleIcon != null" >
-        module_icon,
-      </if>
-      <if test="description != null" >
-        description,
+      <if test="userWechat != null" >
+        user_wechat,
       </if>
       <if test="creator != null" >
         creator,
@@ -113,20 +103,14 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="pid != null" >
-        #{pid,jdbcType=INTEGER},
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
       </if>
-      <if test="moduleName != null" >
-        #{moduleName,jdbcType=VARCHAR},
+      <if test="userQq != null" >
+        #{userQq,jdbcType=VARCHAR},
       </if>
-      <if test="url != null" >
-        #{url,jdbcType=VARCHAR},
-      </if>
-      <if test="moduleIcon != null" >
-        #{moduleIcon,jdbcType=VARCHAR},
-      </if>
-      <if test="description != null" >
-        #{description,jdbcType=VARCHAR},
+      <if test="userWechat != null" >
+        #{userWechat,jdbcType=VARCHAR},
       </if>
       <if test="creator != null" >
         #{creator,jdbcType=VARCHAR},
@@ -166,23 +150,17 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="top.buukle.provider.security.entity.Module" >
-    update module
+  <update id="updateByPrimaryKeySelective" parameterType="top.buukle.provider.security.entity.UserExp" >
+    update user_exp
     <set >
-      <if test="pid != null" >
-        pid = #{pid,jdbcType=INTEGER},
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
       </if>
-      <if test="moduleName != null" >
-        module_name = #{moduleName,jdbcType=VARCHAR},
+      <if test="userQq != null" >
+        user_qq = #{userQq,jdbcType=VARCHAR},
       </if>
-      <if test="url != null" >
-        url = #{url,jdbcType=VARCHAR},
-      </if>
-      <if test="moduleIcon != null" >
-        module_icon = #{moduleIcon,jdbcType=VARCHAR},
-      </if>
-      <if test="description != null" >
-        description = #{description,jdbcType=VARCHAR},
+      <if test="userWechat != null" >
+        user_wechat = #{userWechat,jdbcType=VARCHAR},
       </if>
       <if test="creator != null" >
         creator = #{creator,jdbcType=VARCHAR},
@@ -223,13 +201,11 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="top.buukle.provider.security.entity.Module" >
-    update module
-    set pid = #{pid,jdbcType=INTEGER},
-      module_name = #{moduleName,jdbcType=VARCHAR},
-      url = #{url,jdbcType=VARCHAR},
-      module_icon = #{moduleIcon,jdbcType=VARCHAR},
-      description = #{description,jdbcType=VARCHAR},
+  <update id="updateByPrimaryKey" parameterType="top.buukle.provider.security.entity.UserExp" >
+    update user_exp
+    set user_id = #{userId,jdbcType=VARCHAR},
+      user_qq = #{userQq,jdbcType=VARCHAR},
+      user_wechat = #{userWechat,jdbcType=VARCHAR},
       creator = #{creator,jdbcType=VARCHAR},
       creator_code = #{creatorCode,jdbcType=VARCHAR},
       gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
@@ -244,4 +220,10 @@
       bak05 = #{bak05,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--strat-->
+
+  <select id="getUserExpByUserId" resultMap="resultUserExp" parameterType="java.lang.String">
+    select <include refid="Base_query_column" /> from user_exp where user_id = #{userId}
+  </select>
 </mapper>

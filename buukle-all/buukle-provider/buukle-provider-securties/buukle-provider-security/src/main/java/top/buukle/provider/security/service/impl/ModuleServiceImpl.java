@@ -38,7 +38,7 @@ public class ModuleServiceImpl implements ModuleService {
 	ModuleMapper moduleMapper;
 	@Override
 	public Module getModuleById(Integer id) throws Exception{
-		return moduleMapper.getModuleById(id);
+		return moduleMapper.selectByPrimaryKey(id);
 	}
 
     @Override
@@ -47,11 +47,11 @@ public class ModuleServiceImpl implements ModuleService {
     }
 
     public void save(Module module) throws Exception {
-		moduleMapper.save(module);
+		moduleMapper.insert(module);
 	}
 	@Override
 	public void update(Module module) throws Exception {
-		moduleMapper.update(module);
+		moduleMapper.updateByPrimaryKeySelective(module);
 	}
 	@Override
 	public void delete(Module module) throws Exception {

@@ -26,7 +26,7 @@ public class UserRoleServiceImpl implements UserRoleService {
 	UserRoleMapper userRoleMapper;
 	@Override
 	public UserRole getUserRoleById(Integer id) throws Exception{
-		return userRoleMapper.getUserRoleById(id);
+		return userRoleMapper.selectByPrimaryKey(id);
 	}
 
 	@Override
@@ -36,11 +36,11 @@ public class UserRoleServiceImpl implements UserRoleService {
 
 	@Override
 	public void save(UserRole userRole) throws Exception {
-		userRoleMapper.save(userRole);
+		userRoleMapper.insert(userRole);
 	}
 	@Override
 	public void update(UserRole userRole) throws Exception {
-		userRoleMapper.update(userRole);
+		userRoleMapper.updateByPrimaryKeySelective(userRole);
 	}
 	@Override
 	public void delete(UserRole userRole) throws Exception {

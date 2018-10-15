@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="top.buukle.provider.security.dao.ButtonMapper" >
-  <resultMap id="BaseResultMap" type="top.buukle.provider.security.entity.Button" >
+<mapper namespace="top.buukle.provider.security.dao.GroupsMapper" >
+  <resultMap id="BaseResultMap" type="top.buukle.provider.security.entity.Groups" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="url" property="url" jdbcType="VARCHAR" />
-    <result column="module_id" property="moduleId" jdbcType="INTEGER" />
-    <result column="operation_type" property="operationType" jdbcType="INTEGER" />
-    <result column="response_type" property="responseType" jdbcType="INTEGER" />
-    <result column="layout_level" property="layoutLevel" jdbcType="INTEGER" />
-    <result column="response_dom_id" property="responseDomId" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="creator" property="creator" jdbcType="VARCHAR" />
     <result column="creator_code" property="creatorCode" jdbcType="VARCHAR" />
     <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
@@ -23,59 +18,39 @@
     <result column="bak05" property="bak05" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, url, module_id, operation_type, response_type, layout_level, response_dom_id, 
-    creator, creator_code, gmt_created, modifier, modifier_code, gmt_modified, status, 
-    bak01, bak02, bak03, bak04, bak05
+    id, name, creator, creator_code, gmt_created, modifier, modifier_code, gmt_modified, 
+    status, bak01, bak02, bak03, bak04, bak05
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from button
+    from groups
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from button
+    delete from groups
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="top.buukle.provider.security.entity.Button" >
-    insert into button (id, url, module_id, 
-      operation_type, response_type, layout_level, 
-      response_dom_id, creator, creator_code, 
-      gmt_created, modifier, modifier_code, 
-      gmt_modified, status, bak01, 
-      bak02, bak03, bak04, 
-      bak05)
-    values (#{id,jdbcType=INTEGER}, #{url,jdbcType=VARCHAR}, #{moduleId,jdbcType=INTEGER}, 
-      #{operationType,jdbcType=INTEGER}, #{responseType,jdbcType=INTEGER}, #{layoutLevel,jdbcType=INTEGER}, 
-      #{responseDomId,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{creatorCode,jdbcType=VARCHAR}, 
-      #{gmtCreated,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR}, #{modifierCode,jdbcType=VARCHAR}, 
-      #{gmtModified,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, #{bak01,jdbcType=VARCHAR}, 
-      #{bak02,jdbcType=VARCHAR}, #{bak03,jdbcType=VARCHAR}, #{bak04,jdbcType=VARCHAR}, 
-      #{bak05,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="top.buukle.provider.security.entity.Groups" >
+    insert into groups (id, name, creator, 
+      creator_code, gmt_created, modifier, 
+      modifier_code, gmt_modified, status, 
+      bak01, bak02, bak03, 
+      bak04, bak05)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, 
+      #{creatorCode,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR}, 
+      #{modifierCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
+      #{bak01,jdbcType=VARCHAR}, #{bak02,jdbcType=VARCHAR}, #{bak03,jdbcType=VARCHAR}, 
+      #{bak04,jdbcType=VARCHAR}, #{bak05,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="top.buukle.provider.security.entity.Button" >
-    insert into button
+  <insert id="insertSelective" parameterType="top.buukle.provider.security.entity.Groups" >
+    insert into groups
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
       </if>
-      <if test="url != null" >
-        url,
-      </if>
-      <if test="moduleId != null" >
-        module_id,
-      </if>
-      <if test="operationType != null" >
-        operation_type,
-      </if>
-      <if test="responseType != null" >
-        response_type,
-      </if>
-      <if test="layoutLevel != null" >
-        layout_level,
-      </if>
-      <if test="responseDomId != null" >
-        response_dom_id,
+      <if test="name != null" >
+        name,
       </if>
       <if test="creator != null" >
         creator,
@@ -118,23 +93,8 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="url != null" >
-        #{url,jdbcType=VARCHAR},
-      </if>
-      <if test="moduleId != null" >
-        #{moduleId,jdbcType=INTEGER},
-      </if>
-      <if test="operationType != null" >
-        #{operationType,jdbcType=INTEGER},
-      </if>
-      <if test="responseType != null" >
-        #{responseType,jdbcType=INTEGER},
-      </if>
-      <if test="layoutLevel != null" >
-        #{layoutLevel,jdbcType=INTEGER},
-      </if>
-      <if test="responseDomId != null" >
-        #{responseDomId,jdbcType=VARCHAR},
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
       </if>
       <if test="creator != null" >
         #{creator,jdbcType=VARCHAR},
@@ -174,26 +134,11 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="top.buukle.provider.security.entity.Button" >
-    update button
+  <update id="updateByPrimaryKeySelective" parameterType="top.buukle.provider.security.entity.Groups" >
+    update groups
     <set >
-      <if test="url != null" >
-        url = #{url,jdbcType=VARCHAR},
-      </if>
-      <if test="moduleId != null" >
-        module_id = #{moduleId,jdbcType=INTEGER},
-      </if>
-      <if test="operationType != null" >
-        operation_type = #{operationType,jdbcType=INTEGER},
-      </if>
-      <if test="responseType != null" >
-        response_type = #{responseType,jdbcType=INTEGER},
-      </if>
-      <if test="layoutLevel != null" >
-        layout_level = #{layoutLevel,jdbcType=INTEGER},
-      </if>
-      <if test="responseDomId != null" >
-        response_dom_id = #{responseDomId,jdbcType=VARCHAR},
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
       </if>
       <if test="creator != null" >
         creator = #{creator,jdbcType=VARCHAR},
@@ -234,14 +179,9 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="top.buukle.provider.security.entity.Button" >
-    update button
-    set url = #{url,jdbcType=VARCHAR},
-      module_id = #{moduleId,jdbcType=INTEGER},
-      operation_type = #{operationType,jdbcType=INTEGER},
-      response_type = #{responseType,jdbcType=INTEGER},
-      layout_level = #{layoutLevel,jdbcType=INTEGER},
-      response_dom_id = #{responseDomId,jdbcType=VARCHAR},
+  <update id="updateByPrimaryKey" parameterType="top.buukle.provider.security.entity.Groups" >
+    update groups
+    set name = #{name,jdbcType=VARCHAR},
       creator = #{creator,jdbcType=VARCHAR},
       creator_code = #{creatorCode,jdbcType=VARCHAR},
       gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
@@ -256,4 +196,9 @@
       bak05 = #{bak05,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <!--start-->
+  <select id="getUserGroupsByUserId" resultMap="resultGroups" parameterType="java.lang.String">
+    select g.* from groups g,user_group ug where g.id = ug.group_id and ug.user_id = #{userId}
+    and ug.type = 1;
+  </select>
 </mapper>

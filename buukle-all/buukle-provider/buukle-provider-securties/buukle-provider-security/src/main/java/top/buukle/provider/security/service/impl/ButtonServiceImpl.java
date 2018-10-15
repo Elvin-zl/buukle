@@ -40,7 +40,7 @@ public class ButtonServiceImpl implements ButtonService {
 
 	@Override
 	public Button getButtonById(Integer id) throws Exception{
-		return buttonMapper.getButtonById(id);
+		return buttonMapper.selectByPrimaryKey(id);
 	}
 
     @Override
@@ -50,11 +50,11 @@ public class ButtonServiceImpl implements ButtonService {
 
     @Override
 	public void save(Button button) throws Exception {
-		buttonMapper.save(button);
+		buttonMapper.insert(button);
 	}
 	@Override
 	public void update(Button button) throws Exception {
-		buttonMapper.update(button);
+		buttonMapper.updateByPrimaryKeySelective(button);
 	}
 	@Override
 	public void delete(Button button) throws Exception {

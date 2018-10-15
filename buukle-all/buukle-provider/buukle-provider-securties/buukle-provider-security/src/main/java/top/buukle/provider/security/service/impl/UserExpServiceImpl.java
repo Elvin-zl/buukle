@@ -26,7 +26,7 @@ public class UserExpServiceImpl implements UserExpService {
 	UserExpMapper userExpMapper;
 	@Override
 	public UserExp getUserExpById(Integer id) throws Exception{
-		return userExpMapper.getUserExpById(id);
+		return userExpMapper.selectByPrimaryKey(id);
 	}
 
 	@Override
@@ -36,11 +36,11 @@ public class UserExpServiceImpl implements UserExpService {
 
 	@Override
 	public void save(UserExp userExp) throws Exception {
-		userExpMapper.save(userExp);
+		userExpMapper.insert(userExp);
 	}
 	@Override
 	public void update(UserExp userExp) throws Exception {
-		userExpMapper.update(userExp);
+		userExpMapper.updateByPrimaryKeySelective(userExp);
 	}
 	@Override
 	public void delete(UserExp userExp) throws Exception {

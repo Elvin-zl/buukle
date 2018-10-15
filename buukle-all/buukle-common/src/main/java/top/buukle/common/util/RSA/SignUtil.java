@@ -17,13 +17,10 @@ import java.util.Map;
  */
 public class SignUtil {
 
-
     /** 加密后数据key*/
     public static final String ENCODE_DATA_KEY = "ENCODE_DATA_KEY";
     /** security签名key*/
     public static final String SECURITY_SIGN_KEY = "SECURITY_SIGN_KEY";
-    /** security签名key*/
-    public static final String SIGN_STATUS_SUCCESS = "S";
     /** 测试私钥*/
     private static final String PRIVATE_KEY = "MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAJpbIJa0CxL8mud4/FDjLOfRj14b" +
             "60FyoBu91YVO8RJY3HMixT0h6OsqX5mQ72/5NfYOynwJuV3tgeZcCxlTi2NdStLoSyxPy7HhbPw4" +

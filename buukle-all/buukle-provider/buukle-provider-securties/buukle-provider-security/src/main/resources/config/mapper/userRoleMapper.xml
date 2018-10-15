@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="top.buukle.provider.security.dao.GroupsMapper" >
-  <resultMap id="BaseResultMap" type="top.buukle.provider.security.entity.Groups" >
+<mapper namespace="top.buukle.provider.security.dao.UserRoleMapper" >
+  <resultMap id="BaseResultMap" type="top.buukle.provider.security.entity.UserRole" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="role_id" property="roleId" jdbcType="INTEGER" />
     <result column="creator" property="creator" jdbcType="VARCHAR" />
     <result column="creator_code" property="creatorCode" jdbcType="VARCHAR" />
     <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
@@ -18,39 +19,44 @@
     <result column="bak05" property="bak05" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, creator, creator_code, gmt_created, modifier, modifier_code, gmt_modified, 
-    status, bak01, bak02, bak03, bak04, bak05
+    id, user_id, role_id, creator, creator_code, gmt_created, modifier, modifier_code, 
+    gmt_modified, status, bak01, bak02, bak03, bak04, bak05
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from groups
+    from user_role
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from groups
+    delete from user_role
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="top.buukle.provider.security.entity.Groups" >
-    insert into groups (id, name, creator, 
-      creator_code, gmt_created, modifier, 
-      modifier_code, gmt_modified, status, 
-      bak01, bak02, bak03, 
-      bak04, bak05)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, 
-      #{creatorCode,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR}, 
-      #{modifierCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
-      #{bak01,jdbcType=VARCHAR}, #{bak02,jdbcType=VARCHAR}, #{bak03,jdbcType=VARCHAR}, 
-      #{bak04,jdbcType=VARCHAR}, #{bak05,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="top.buukle.provider.security.entity.UserRole" >
+    insert into user_role (id, user_id, role_id, 
+      creator, creator_code, gmt_created, 
+      modifier, modifier_code, gmt_modified, 
+      status, bak01, bak02, 
+      bak03, bak04, bak05
+      )
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=VARCHAR}, #{roleId,jdbcType=INTEGER}, 
+      #{creator,jdbcType=VARCHAR}, #{creatorCode,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, 
+      #{modifier,jdbcType=VARCHAR}, #{modifierCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{bak01,jdbcType=VARCHAR}, #{bak02,jdbcType=VARCHAR}, 
+      #{bak03,jdbcType=VARCHAR}, #{bak04,jdbcType=VARCHAR}, #{bak05,jdbcType=VARCHAR}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="top.buukle.provider.security.entity.Groups" >
-    insert into groups
+  <insert id="insertSelective" parameterType="top.buukle.provider.security.entity.UserRole" >
+    insert into user_role
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
       </if>
-      <if test="name != null" >
-        name,
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="roleId != null" >
+        role_id,
       </if>
       <if test="creator != null" >
         creator,
@@ -93,8 +99,11 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="name != null" >
-        #{name,jdbcType=VARCHAR},
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null" >
+        #{roleId,jdbcType=INTEGER},
       </if>
       <if test="creator != null" >
         #{creator,jdbcType=VARCHAR},
@@ -134,11 +143,14 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="top.buukle.provider.security.entity.Groups" >
-    update groups
+  <update id="updateByPrimaryKeySelective" parameterType="top.buukle.provider.security.entity.UserRole" >
+    update user_role
     <set >
-      <if test="name != null" >
-        name = #{name,jdbcType=VARCHAR},
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null" >
+        role_id = #{roleId,jdbcType=INTEGER},
       </if>
       <if test="creator != null" >
         creator = #{creator,jdbcType=VARCHAR},
@@ -179,9 +191,10 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="top.buukle.provider.security.entity.Groups" >
-    update groups
-    set name = #{name,jdbcType=VARCHAR},
+  <update id="updateByPrimaryKey" parameterType="top.buukle.provider.security.entity.UserRole" >
+    update user_role
+    set user_id = #{userId,jdbcType=VARCHAR},
+      role_id = #{roleId,jdbcType=INTEGER},
       creator = #{creator,jdbcType=VARCHAR},
       creator_code = #{creatorCode,jdbcType=VARCHAR},
       gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},

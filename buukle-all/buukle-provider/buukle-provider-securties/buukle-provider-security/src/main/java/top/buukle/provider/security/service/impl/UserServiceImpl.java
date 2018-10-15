@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User getUserById(Integer id) throws Exception{
-		return userMapper.getUserById(id);
+		return userMapper.selectByPrimaryKey(id);
 	}
 
     @Override
@@ -61,12 +61,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
 	public void save(User user) throws Exception {
-		userMapper.save(user);
+		userMapper.insert(user);
 	}
 	@Override
 	public void update(User user) throws Exception {
-		userMapper.update(user);
-        int i = 1/0;
+		userMapper.updateByPrimaryKeySelective(user);
     }
 	@Override
 	public void delete(User user) throws Exception {

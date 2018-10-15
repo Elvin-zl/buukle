@@ -386,4 +386,21 @@
       bak05 = #{bak05,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--start -->
+  <select id="getUserInfoForLogin" resultMap="resultUser" parameterType="java.util.Map">
+    select <include refid="Base_query_column" /> from user where 1=1 and username=#{username} AND password = #{password}
+  </select>
+  <select id="getUserSubordinateByUserGroups" resultMap="resultUser" parameterType="java.util.List">
+    select u.* from user u ,user_group ug where
+    u.status = 1
+    <if test="groupsList != null and groupsList.size() > 0">
+      and ug.group_id IN
+      <foreach collection="#{groupsList}" item="group" separator="," open="(" close=")">
+        #{group.id}
+      </foreach>
+    </if>
+    and ug.type = 0
+    and u.user_id = ug.user_id;
+  </select>
 </mapper>

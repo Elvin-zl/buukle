@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="top.buukle.provider.security.dao.ButtonTypeMapper" >
-  <resultMap id="BaseResultMap" type="top.buukle.provider.security.entity.ButtonType" >
+<mapper namespace="top.buukle.provider.security.dao.ModuleMapper" >
+  <resultMap id="BaseResultMap" type="top.buukle.provider.security.entity.Module" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="type_value" property="typeValue" jdbcType="VARCHAR" />
-    <result column="type_operation" property="typeOperation" jdbcType="VARCHAR" />
+    <result column="pid" property="pid" jdbcType="INTEGER" />
+    <result column="module_name" property="moduleName" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="module_icon" property="moduleIcon" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
     <result column="creator" property="creator" jdbcType="VARCHAR" />
     <result column="creator_code" property="creatorCode" jdbcType="VARCHAR" />
     <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
@@ -19,44 +22,55 @@
     <result column="bak05" property="bak05" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, type_value, type_operation, creator, creator_code, gmt_created, modifier, modifier_code, 
-    gmt_modified, status, bak01, bak02, bak03, bak04, bak05
+    id, pid, module_name, url, module_icon, description, creator, creator_code, gmt_created, 
+    modifier, modifier_code, gmt_modified, status, bak01, bak02, bak03, bak04, bak05
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from button_type
+    from module
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from button_type
+    delete from module
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="top.buukle.provider.security.entity.ButtonType" >
-    insert into button_type (id, type_value, type_operation, 
+  <insert id="insert" parameterType="top.buukle.provider.security.entity.Module" >
+    insert into module (id, pid, module_name, 
+      url, module_icon, description, 
       creator, creator_code, gmt_created, 
       modifier, modifier_code, gmt_modified, 
       status, bak01, bak02, 
       bak03, bak04, bak05
       )
-    values (#{id,jdbcType=INTEGER}, #{typeValue,jdbcType=VARCHAR}, #{typeOperation,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, #{moduleName,jdbcType=VARCHAR}, 
+      #{url,jdbcType=VARCHAR}, #{moduleIcon,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
       #{creator,jdbcType=VARCHAR}, #{creatorCode,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, 
       #{modifier,jdbcType=VARCHAR}, #{modifierCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, 
       #{status,jdbcType=INTEGER}, #{bak01,jdbcType=VARCHAR}, #{bak02,jdbcType=VARCHAR}, 
       #{bak03,jdbcType=VARCHAR}, #{bak04,jdbcType=VARCHAR}, #{bak05,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="top.buukle.provider.security.entity.ButtonType" >
-    insert into button_type
+  <insert id="insertSelective" parameterType="top.buukle.provider.security.entity.Module" >
+    insert into module
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
       </if>
-      <if test="typeValue != null" >
-        type_value,
+      <if test="pid != null" >
+        pid,
       </if>
-      <if test="typeOperation != null" >
-        type_operation,
+      <if test="moduleName != null" >
+        module_name,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="moduleIcon != null" >
+        module_icon,
+      </if>
+      <if test="description != null" >
+        description,
       </if>
       <if test="creator != null" >
         creator,
@@ -99,11 +113,20 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="typeValue != null" >
-        #{typeValue,jdbcType=VARCHAR},
+      <if test="pid != null" >
+        #{pid,jdbcType=INTEGER},
       </if>
-      <if test="typeOperation != null" >
-        #{typeOperation,jdbcType=VARCHAR},
+      <if test="moduleName != null" >
+        #{moduleName,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleIcon != null" >
+        #{moduleIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
       </if>
       <if test="creator != null" >
         #{creator,jdbcType=VARCHAR},
@@ -143,14 +166,23 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="top.buukle.provider.security.entity.ButtonType" >
-    update button_type
+  <update id="updateByPrimaryKeySelective" parameterType="top.buukle.provider.security.entity.Module" >
+    update module
     <set >
-      <if test="typeValue != null" >
-        type_value = #{typeValue,jdbcType=VARCHAR},
+      <if test="pid != null" >
+        pid = #{pid,jdbcType=INTEGER},
       </if>
-      <if test="typeOperation != null" >
-        type_operation = #{typeOperation,jdbcType=VARCHAR},
+      <if test="moduleName != null" >
+        module_name = #{moduleName,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleIcon != null" >
+        module_icon = #{moduleIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
       </if>
       <if test="creator != null" >
         creator = #{creator,jdbcType=VARCHAR},
@@ -191,10 +223,13 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="top.buukle.provider.security.entity.ButtonType" >
-    update button_type
-    set type_value = #{typeValue,jdbcType=VARCHAR},
-      type_operation = #{typeOperation,jdbcType=VARCHAR},
+  <update id="updateByPrimaryKey" parameterType="top.buukle.provider.security.entity.Module" >
+    update module
+    set pid = #{pid,jdbcType=INTEGER},
+      module_name = #{moduleName,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      module_icon = #{moduleIcon,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
       creator = #{creator,jdbcType=VARCHAR},
       creator_code = #{creatorCode,jdbcType=VARCHAR},
       gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
@@ -209,4 +244,40 @@
       bak05 = #{bak05,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--start -->
+
+  <select id="getGlobalModuleList" resultMap="resultModule" >
+    select m.* from module m where m.status = 1;
+  </select>
+
+  <select id="getUserModuleListByUserRoleList" resultMap="resultModule" parameterType="java.util.List">
+    select m.* from module m ,role_module rm where
+    m.status = 1
+    <if test="userRoleList != null and userRoleList.size() > 0">
+      and rm.role_id in
+      <foreach collection="userRoleList" item="role" separator="," open="(" close=")">
+        #{role.id}
+      </foreach>
+    </if>
+    and rm.module_id = m.id;
+  </select>
+
+  <select id="getUserModuleListByUserId" resultMap="resultModule" parameterType="java.util.Map">
+    SELECT DISTINCT
+    m.*
+    FROM
+    module m,
+    USER u,
+    role r,
+    user_role ur,
+    role_module rm
+    WHERE
+    u.user_id = #{userId}
+    AND ur.`user_id` = u.`user_id`
+    AND ur.`role_id` = r.`id`
+    AND rm.`role_id` = r.`id`
+    AND rm.`module_id` = m.`id`;
+  </select>
+
 </mapper>

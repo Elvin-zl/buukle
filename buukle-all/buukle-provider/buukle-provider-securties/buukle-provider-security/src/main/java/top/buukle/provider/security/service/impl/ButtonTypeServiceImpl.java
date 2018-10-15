@@ -25,7 +25,7 @@ public class ButtonTypeServiceImpl implements ButtonTypeService {
 	ButtonTypeMapper buttonTypeMapper;
 	@Override
 	public ButtonType getButtonTypeById(Integer id) throws Exception{
-		return buttonTypeMapper.getButtonTypeById(id);
+		return buttonTypeMapper.selectByPrimaryKey(id);
 	}
 
 	@Override
@@ -35,11 +35,11 @@ public class ButtonTypeServiceImpl implements ButtonTypeService {
 
 	@Override
 	public void save(ButtonType buttonType) throws Exception {
-		buttonTypeMapper.save(buttonType);
+		buttonTypeMapper.insert(buttonType);
 	}
 	@Override
 	public void update(ButtonType buttonType) throws Exception {
-		buttonTypeMapper.update(buttonType);
+		buttonTypeMapper.updateByPrimaryKeySelective(buttonType);
 	}
 	@Override
 	public void delete(ButtonType buttonType) throws Exception {

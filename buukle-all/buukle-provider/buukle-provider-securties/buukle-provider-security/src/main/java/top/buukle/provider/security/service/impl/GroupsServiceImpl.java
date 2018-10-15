@@ -26,7 +26,7 @@ public class GroupsServiceImpl implements GroupsService {
 	GroupsMapper groupsMapper;
 	@Override
 	public Groups getGroupsById(Integer id) throws Exception{
-		return groupsMapper.getGroupsById(id);
+		return groupsMapper.selectByPrimaryKey(id);
 	}
 
 	@Override
@@ -36,11 +36,11 @@ public class GroupsServiceImpl implements GroupsService {
 
 	@Override
 	public void save(Groups groups) throws Exception {
-		groupsMapper.save(groups);
+		groupsMapper.insert(groups);
 	}
 	@Override
 	public void update(Groups groups) throws Exception {
-		groupsMapper.update(groups);
+		groupsMapper.updateByPrimaryKeySelective(groups);
 	}
 	@Override
 	public void delete(Groups groups) throws Exception {

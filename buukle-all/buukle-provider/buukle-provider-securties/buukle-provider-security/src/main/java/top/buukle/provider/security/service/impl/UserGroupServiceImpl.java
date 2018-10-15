@@ -26,7 +26,7 @@ public class UserGroupServiceImpl implements UserGroupService {
 	UserGroupMapper userGroupMapper;
 	@Override
 	public UserGroup getUserGroupById(Integer id) throws Exception{
-		return userGroupMapper.getUserGroupById(id);
+		return userGroupMapper.selectByPrimaryKey(id);
 	}
 
 	@Override
@@ -36,11 +36,11 @@ public class UserGroupServiceImpl implements UserGroupService {
 
 	@Override
 	public void save(UserGroup userGroup) throws Exception {
-		userGroupMapper.save(userGroup);
+		userGroupMapper.insert(userGroup);
 	}
 	@Override
 	public void update(UserGroup userGroup) throws Exception {
-		userGroupMapper.update(userGroup);
+		userGroupMapper.updateByPrimaryKeySelective(userGroup);
 	}
 	@Override
 	public void delete(UserGroup userGroup) throws Exception {

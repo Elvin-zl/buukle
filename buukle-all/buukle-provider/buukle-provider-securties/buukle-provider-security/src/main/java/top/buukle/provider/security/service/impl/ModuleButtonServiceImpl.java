@@ -26,7 +26,7 @@ public class ModuleButtonServiceImpl implements ModuleButtonService {
 	ModuleButtonMapper moduleButtonMapper;
 	@Override
 	public ModuleButton getModuleButtonById(Integer id) throws Exception{
-		return moduleButtonMapper.getModuleButtonById(id);
+		return moduleButtonMapper.selectByPrimaryKey(id);
 	}
 
 	@Override
@@ -36,11 +36,11 @@ public class ModuleButtonServiceImpl implements ModuleButtonService {
 
 	@Override
 	public void save(ModuleButton moduleButton) throws Exception {
-		moduleButtonMapper.save(moduleButton);
+		moduleButtonMapper.insert(moduleButton);
 	}
 	@Override
 	public void update(ModuleButton moduleButton) throws Exception {
-		moduleButtonMapper.update(moduleButton);
+		moduleButtonMapper.updateByPrimaryKeySelective(moduleButton);
 	}
 	@Override
 	public void delete(ModuleButton moduleButton) throws Exception {

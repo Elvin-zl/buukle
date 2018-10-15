@@ -25,7 +25,7 @@ public class BuukleSignServiceImpl implements BuukleSignService {
 	BuukleSignMapper buukleSignMapper;
 	@Override
 	public BuukleSign getBuukleSignById(Integer id) throws Exception{
-		return buukleSignMapper.getBuukleSignById(id);
+		return buukleSignMapper.selectByPrimaryKey(id);
 	}
 
 	@Override
@@ -35,11 +35,11 @@ public class BuukleSignServiceImpl implements BuukleSignService {
 
 	@Override
 	public void save(BuukleSign buukleSign) throws Exception {
-		buukleSignMapper.save(buukleSign);
+		buukleSignMapper.insert(buukleSign);
 	}
 	@Override
 	public void update(BuukleSign buukleSign) throws Exception {
-		buukleSignMapper.update(buukleSign);
+		buukleSignMapper.updateByPrimaryKeySelective(buukleSign);
 	}
 	@Override
 	public void delete(BuukleSign buukleSign) throws Exception {

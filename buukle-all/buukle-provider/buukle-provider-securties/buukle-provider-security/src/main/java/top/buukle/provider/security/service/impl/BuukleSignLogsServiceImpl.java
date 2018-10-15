@@ -25,7 +25,7 @@ public class BuukleSignLogsServiceImpl implements BuukleSignLogsService {
 	BuukleSignLogsMapper buukleSignLogsMapper;
 	@Override
 	public BuukleSignLogs getBuukleSignLogsById(Integer id) throws Exception{
-		return buukleSignLogsMapper.getBuukleSignLogsById(id);
+		return buukleSignLogsMapper.selectByPrimaryKey(id);
 	}
 
 	@Override
@@ -35,11 +35,11 @@ public class BuukleSignLogsServiceImpl implements BuukleSignLogsService {
 
 	@Override
 	public void save(BuukleSignLogs buukleSignLogs) throws Exception {
-		buukleSignLogsMapper.save(buukleSignLogs);
+		buukleSignLogsMapper.insert(buukleSignLogs);
 	}
 	@Override
 	public void update(BuukleSignLogs buukleSignLogs) throws Exception {
-		buukleSignLogsMapper.update(buukleSignLogs);
+		buukleSignLogsMapper.updateByPrimaryKeySelective(buukleSignLogs);
 	}
 	@Override
 	public void delete(BuukleSignLogs buukleSignLogs) throws Exception {
