@@ -258,11 +258,11 @@
   </update>
 
   <!--start-->
-  <select id="getGlobalButtonList" resultMap="resultButton">
+  <select id="getGlobalButtonList" resultMap="BaseResultMap">
     select b.* from button b where b.status = 1;
   </select>
 
-  <select id="getUserButtonListByUserModuleList" resultMap="resultButton" parameterType="java.util.List">
+  <select id="getUserButtonListByUserModuleList" resultMap="BaseResultMap" parameterType="java.util.List">
     select b.* from button b , module_button mb where
     b.status = 1
     <if test="userModuleList != null and userModuleList.size() > 0">

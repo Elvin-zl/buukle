@@ -23,7 +23,7 @@ import java.util.List;
 @Service("roleService")
 public class RoleServiceImpl implements RoleService {
 	@Resource
-	RoleMapper roleMapper;
+	private RoleMapper roleMapper;
 	@Override
 	public Role getRoleById(Integer id) throws Exception{
 		return roleMapper.selectByPrimaryKey(id);

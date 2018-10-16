@@ -22,7 +22,7 @@ import top.buukle.provider.security.service.BuukleSignService;
 @Service("buukleSignService")
 public class BuukleSignServiceImpl implements BuukleSignService {
 	@Resource
-	BuukleSignMapper buukleSignMapper;
+    private BuukleSignMapper buukleSignMapper;
 	@Override
 	public BuukleSign getBuukleSignById(Integer id) throws Exception{
 		return buukleSignMapper.selectByPrimaryKey(id);
@@ -30,7 +30,7 @@ public class BuukleSignServiceImpl implements BuukleSignService {
 
 	@Override
 	public List<BuukleSign> getBuukleSignByParas(BuukleSign buukleSign) throws Exception {
-		return null;
+		return buukleSignMapper.getBuukleSignByParas(buukleSign);
 	}
 
 	@Override

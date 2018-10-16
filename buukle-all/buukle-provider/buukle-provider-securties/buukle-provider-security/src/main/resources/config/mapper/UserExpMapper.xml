@@ -223,7 +223,7 @@
 
   <!--strat-->
 
-  <select id="getUserExpByUserId" resultMap="resultUserExp" parameterType="java.lang.String">
-    select <include refid="Base_query_column" /> from user_exp where user_id = #{userId}
+  <select id="getUserExpByUserId" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select <include refid="Base_Column_List" /> from user_exp where user_id = #{userId}
   </select>
 </mapper>

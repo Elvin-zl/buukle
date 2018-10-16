@@ -22,7 +22,7 @@ import top.buukle.provider.security.service.ButtonTypeService;
 @Service("buttonTypeService")
 public class ButtonTypeServiceImpl implements ButtonTypeService {
 	@Resource
-	ButtonTypeMapper buttonTypeMapper;
+	private ButtonTypeMapper buttonTypeMapper;
 	@Override
 	public ButtonType getButtonTypeById(Integer id) throws Exception{
 		return buttonTypeMapper.selectByPrimaryKey(id);

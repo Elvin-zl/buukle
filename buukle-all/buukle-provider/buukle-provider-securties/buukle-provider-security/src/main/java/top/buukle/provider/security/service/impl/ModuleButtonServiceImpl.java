@@ -23,7 +23,7 @@ import java.util.List;
 @Service("moduleButtonService")
 public class ModuleButtonServiceImpl implements ModuleButtonService {
 	@Resource
-	ModuleButtonMapper moduleButtonMapper;
+	private ModuleButtonMapper moduleButtonMapper;
 	@Override
 	public ModuleButton getModuleButtonById(Integer id) throws Exception{
 		return moduleButtonMapper.selectByPrimaryKey(id);

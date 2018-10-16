@@ -2,6 +2,8 @@ package top.buukle.provider.security.dao;
 
 import top.buukle.provider.security.entity.BuukleSign;
 
+import java.util.List;
+
 public interface BuukleSignMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -16,4 +18,6 @@ public interface BuukleSignMapper {
     int updateByPrimaryKeyWithBLOBs(BuukleSign record);
 
     int updateByPrimaryKey(BuukleSign record);
+
+    List<BuukleSign> getBuukleSignByParas(BuukleSign buukleSign);
 }

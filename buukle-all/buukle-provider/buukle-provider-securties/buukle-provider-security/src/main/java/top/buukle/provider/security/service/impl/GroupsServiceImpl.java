@@ -23,7 +23,7 @@ import java.util.List;
 @Service("groupsService")
 public class GroupsServiceImpl implements GroupsService {
 	@Resource
-	GroupsMapper groupsMapper;
+	private GroupsMapper groupsMapper;
 	@Override
 	public Groups getGroupsById(Integer id) throws Exception{
 		return groupsMapper.selectByPrimaryKey(id);

@@ -23,7 +23,7 @@ import java.util.List;
 @Service("userExpService")
 public class UserExpServiceImpl implements UserExpService {
 	@Resource
-	UserExpMapper userExpMapper;
+	private UserExpMapper userExpMapper;
 	@Override
 	public UserExp getUserExpById(Integer id) throws Exception{
 		return userExpMapper.selectByPrimaryKey(id);

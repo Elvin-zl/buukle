@@ -1,6 +1,10 @@
 package top.buukle.provider.security.vo.response;
 
 
+import com.github.pagehelper.PageInfo;
+import org.springframework.util.CollectionUtils;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,8 +18,8 @@ public class PageResponse <T>{
     private String code;
     /** 提示文本*/
     private String msg;
-    /** 数据长度*/
-    private Integer count;
+    /** 总条数*/
+    private Long count;
     /** 数据列表*/
     private List<T> data;
     /** 当前页*/
@@ -40,11 +44,11 @@ public class PageResponse <T>{
         this.msg = msg;
     }
 
-    public Integer getCount() {
+    public Long getCount() {
         return count;
     }
 
-    public void setCount(Integer count) {
+    public void setCount(Long count) {
         this.count = count;
     }
 
@@ -70,5 +74,54 @@ public class PageResponse <T>{
 
     public void setLimit(Integer limit) {
         this.limit = limit;
+    }
+
+    public static class Builder{
+
+        private static final String SUCCESS = "成功!";
+        private static final String SUCCESS_CODE = "0";
+
+        PageResponse pageResponse = new PageResponse();
+
+        public Builder setCode(String code) {
+            pageResponse.code = code;
+            return this;
+        }
+        public Builder setMsg(String msg) {
+            pageResponse.msg = msg;
+            return this;
+        }
+        public Builder setCount(Long count) {
+            pageResponse.count = count;
+            return this;
+        }
+        public <T> Builder setData(List<T> data) {
+            if(CollectionUtils.isEmpty(pageResponse.data)){
+                pageResponse.data = new ArrayList<T>();
+            }
+            pageResponse.data = data;
+            return this;
+        }
+        public Builder setPage(Integer page) {
+            pageResponse.page = page;
+            return this;
+        }
+        public Builder setLimit(Integer limit) {
+            pageResponse.limit = limit;
+            return this;
+        }
+        public PageResponse build() {
+            return pageResponse;
+        }
+
+        public <T> PageResponse<T> build(PageInfo<T> tPageInfo) {
+            this.setCode(SUCCESS_CODE);
+            this.setCount(tPageInfo.getTotal());
+            this.setLimit(tPageInfo.getPageSize());
+            this.setMsg(SUCCESS);
+            this.setPage(tPageInfo.getPageNum());
+            this.setData(tPageInfo.getList());
+            return pageResponse;
+        }
     }
 }

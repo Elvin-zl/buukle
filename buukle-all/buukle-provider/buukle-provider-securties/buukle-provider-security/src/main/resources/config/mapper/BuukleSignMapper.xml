@@ -28,6 +28,59 @@
     status, creator, creator_no, creator_type, gmt_created, modifier, modifier_no, modifier_type, 
     gmt_modified, remark
   </sql>
+  <sql id="Base_Column_where" >
+      <if test="applicationName != null and applicationName != '' " >
+          and application_name = #{applicationName,jdbcType=VARCHAR}
+      </if>
+      <if test="partnerId != null  and partnerId != '' " >
+          and partner_id = #{partnerId,jdbcType=VARCHAR}
+      </if>
+      <if test="partnerType != null  and partnerType != '' " >
+          and partner_type = #{partnerType,jdbcType=INTEGER}
+      </if>
+      <if test="signType != null  and signType != '' " >
+          and sign_type = #{signType,jdbcType=VARCHAR}
+      </if>
+      <if test="partnerKeyValid != null  and partnerKeyValid != '' " >
+          and partner_key_valid = #{partnerKeyValid,jdbcType=TIMESTAMP}
+      </if>
+      <if test="partnerKeyEndvalid != null  and partnerKeyEndvalid != '' " >
+          and partner_key_endvalid = #{partnerKeyEndvalid,jdbcType=TIMESTAMP}
+      </if>
+      <if test="status != null  and status != '' " >
+          and status = #{status,jdbcType=INTEGER}
+      </if>
+      <if test="creator != null  and creator != '' " >
+          and creator = #{creator,jdbcType=VARCHAR}
+      </if>
+      <if test="creatorNo != null  and creatorNo != '' " >
+          and creator_no = #{creatorNo,jdbcType=VARCHAR}
+      </if>
+      <if test="creatorType != null  and creatorType != '' " >
+          and creator_type = #{creatorType,jdbcType=VARCHAR}
+      </if>
+      <if test="gmtCreated != null  and gmtCreated != '' " >
+          and gmt_created = #{gmtCreated,jdbcType=TIMESTAMP}
+      </if>
+      <if test="modifier != null  and modifier != '' " >
+          and modifier = #{modifier,jdbcType=VARCHAR}
+      </if>
+      <if test="modifierNo != null  and modifierNo != '' " >
+          and modifier_no = #{modifierNo,jdbcType=VARCHAR}
+      </if>
+      <if test="modifierType != null  and modifierType != '' " >
+          and modifier_type = #{modifierType,jdbcType=VARCHAR}
+      </if>
+      <if test="gmtModified != null  and gmtModified != '' " >
+          and gmt_modified = #{gmtModified,jdbcType=TIMESTAMP}
+      </if>
+      <if test="remark != null  and remark != '' " >
+          and remark = #{remark,jdbcType=VARCHAR}
+      </if>
+      <if test="partnerKey != null  and partnerKey != '' " >
+          and partner_key = #{partnerKey,jdbcType=LONGVARCHAR}
+      </if>
+  </sql>
   <sql id="Blob_Column_List" >
     partner_key
   </sql>
@@ -272,4 +325,15 @@
       remark = #{remark,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--start  -->
+  <select id="getBuukleSignByParas" resultMap="ResultMapWithBLOBs" parameterType="java.util.Map" >
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from buukle_sign
+    where 1=1
+      <include refid="Base_Column_where" />
+  </select>
 </mapper>

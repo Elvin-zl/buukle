@@ -1,5 +1,6 @@
 package top.buukle.provider.security.configure;
 import com.alibaba.druid.pool.DruidDataSource;
+import com.github.pagehelper.PageHelper;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -8,6 +9,7 @@ import org.springframework.core.env.Environment;
 import top.buukle.common.util.common.NumberUtil;
 
 import javax.sql.DataSource;
+import java.util.Properties;
 
 /**
  *
@@ -51,6 +53,22 @@ class DataSourceConfigure {
         //是否缓存preparedStatement，也就是PSCache
         dataSource.setPoolPreparedStatements(false);
         return dataSource;
+    }
+
+    /**
+     * 配置PageHelper插件
+     * @return
+     */
+    @Bean
+    public PageHelper getPageHelper(){
+        PageHelper pageHelper=new PageHelper();
+        Properties properties=new Properties();
+        properties.setProperty("helperDialect","mysql");
+        properties.setProperty("reasonable","true");
+        properties.setProperty("supportMethodsArguments","true");
+        properties.setProperty("params","count=countSql");
+        pageHelper.setProperties(properties);
+        return pageHelper;
     }
 
 }

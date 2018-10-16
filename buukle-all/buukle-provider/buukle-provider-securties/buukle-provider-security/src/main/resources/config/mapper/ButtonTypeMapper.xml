@@ -211,7 +211,7 @@
   </update>
 
   <!--start-->
-  <select id="getButtonTypes" resultMap="resultButtonType">
-    select <include refid="Base_query_column" /> from button_type where button_type.status=1;
+  <select id="getButtonTypes" resultMap="BaseResultMap">
+    select  <include refid="Base_Column_List" /> from button_type where button_type.status=1;
   </select>
 </mapper>

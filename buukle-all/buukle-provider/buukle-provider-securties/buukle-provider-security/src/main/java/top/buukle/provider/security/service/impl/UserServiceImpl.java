@@ -7,7 +7,9 @@
 
 package top.buukle.provider.security.service.impl;
 
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Service;
 import top.buukle.common.constants.BaseResponseCode;
@@ -39,13 +41,13 @@ import java.util.List;
 @Service("userService")
 public class UserServiceImpl implements UserService {
 	@Resource
-	UserMapper userMapper;
+    private UserMapper userMapper;
 	@Resource
-	ButtonMapper buttonMapper;
+    private ButtonMapper buttonMapper;
 	@Resource
-	ModuleMapper moduleMapper;
+    private ModuleMapper moduleMapper;
 	@Resource
-	RoleMapper roleMapper;
+    private RoleMapper roleMapper;
 
 	private static final String AUTHENTICATION_WRONG = "认证失败";
 
@@ -191,11 +193,9 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public PageResponse<User> getUserList(UserQuery userQuery, PageBounds pageBounds) {
-        /*PageHelper.startPage(pageNum, pageSize);
-        List<UserMo> list = userMapper.();
-        PageInfo pageInfo = new PageInfo(list);
-        Page page = (Page) list;*/
-        return null;
+        PageHelper.startPage(pageBounds.getPage(), pageBounds.getLimit());
+        List<User> list = userMapper.getUserList(userQuery);
+        return new PageResponse.Builder().build(new PageInfo<>(list));
     }
 
 	/**

@@ -23,7 +23,7 @@ import java.util.List;
 @Service("userGroupService")
 public class UserGroupServiceImpl implements UserGroupService {
 	@Resource
-	UserGroupMapper userGroupMapper;
+	private UserGroupMapper userGroupMapper;
 	@Override
 	public UserGroup getUserGroupById(Integer id) throws Exception{
 		return userGroupMapper.selectByPrimaryKey(id);

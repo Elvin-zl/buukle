@@ -35,7 +35,7 @@ import java.util.List;
 @Service("moduleService")
 public class ModuleServiceImpl implements ModuleService {
 	@Resource
-	ModuleMapper moduleMapper;
+    private ModuleMapper moduleMapper;
 	@Override
 	public Module getModuleById(Integer id) throws Exception{
 		return moduleMapper.selectByPrimaryKey(id);

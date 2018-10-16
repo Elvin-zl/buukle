@@ -197,7 +197,7 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   <!--start-->
-  <select id="getUserGroupsByUserId" resultMap="resultGroups" parameterType="java.lang.String">
+  <select id="getUserGroupsByUserId" resultMap="BaseResultMap" parameterType="java.lang.String">
     select g.* from groups g,user_group ug where g.id = ug.group_id and ug.user_id = #{userId}
     and ug.type = 1;
   </select>

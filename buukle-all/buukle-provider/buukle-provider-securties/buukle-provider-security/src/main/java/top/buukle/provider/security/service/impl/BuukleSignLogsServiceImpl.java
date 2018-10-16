@@ -22,7 +22,7 @@ import top.buukle.provider.security.service.BuukleSignLogsService;
 @Service("buukleSignLogsService")
 public class BuukleSignLogsServiceImpl implements BuukleSignLogsService {
 	@Resource
-	BuukleSignLogsMapper buukleSignLogsMapper;
+	private BuukleSignLogsMapper buukleSignLogsMapper;
 	@Override
 	public BuukleSignLogs getBuukleSignLogsById(Integer id) throws Exception{
 		return buukleSignLogsMapper.selectByPrimaryKey(id);
