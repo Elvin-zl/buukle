@@ -11,6 +11,7 @@ import top.buukle.common.util.logger.BaseLogger;
 import top.buukle.plugin.security.util.CookieUtil;
 import top.buukle.provider.security.entity.Role;
 import top.buukle.provider.security.vo.query.PageBounds;
+import top.buukle.provider.security.vo.response.FuzzySearchListVo;
 import top.buukle.provider.security.vo.response.PageResponse;
 import top.buukle.provider.security.business.UserBusiness;
 import top.buukle.provider.security.entity.User;
@@ -91,5 +92,16 @@ public class UserController {
     @ResponseBody
     public BaseResponse doSetUserRole(String ids,UserQuery userQuery) throws Exception {
         return userService.doSetUserRole(ids,userQuery);
+    }
+
+    /**
+     * 模糊搜索
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/fuzzySearchByName")
+    @ResponseBody
+    public List<FuzzySearchListVo> fuzzySearchByName(String fuzzyText) throws Exception {
+        return userService.fuzzySearchByName(fuzzyText);
     }
 }

@@ -1,5 +1,6 @@
 package top.buukle.provider.security.dao;
 
+import feign.Param;
 import top.buukle.provider.security.entity.Role;
 import top.buukle.provider.security.vo.query.RoleQuery;
 
@@ -28,4 +29,6 @@ public interface RoleMapper {
     List<Role> getRoleList(RoleQuery roleQuery);
 
     void doBanOrRelease(RoleQuery query);
+
+    List<Role> fuzzySearchByName(@Param("fuzzyText") String fuzzyText);
 }

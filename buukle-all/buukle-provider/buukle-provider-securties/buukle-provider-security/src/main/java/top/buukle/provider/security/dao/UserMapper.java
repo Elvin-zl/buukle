@@ -46,4 +46,6 @@ public interface UserMapper {
     List<User> getUserByModuleId(@Param("moduleId") Integer moduleId);
 
     List<User> getUserByRoleId(@Param("roleId") Integer roleId);
+
+    List<User> fuzzySearchByName(@Param("fuzzyText") String fuzzyText);
 }

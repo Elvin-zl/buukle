@@ -9,6 +9,7 @@ package top.buukle.provider.security.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,10 +31,13 @@ import top.buukle.provider.security.service.ButtonService;
 import top.buukle.provider.security.dao.ButtonMapper;
 import top.buukle.provider.security.vo.query.ButtonQuery;
 import top.buukle.provider.security.vo.query.PageBounds;
+import top.buukle.provider.security.vo.response.FuzzySearchListVo;
 import top.buukle.provider.security.vo.response.PageResponse;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -164,7 +168,7 @@ public class ButtonServiceImpl implements ButtonService {
         validateAddParam(query);
         User user = UserInvoker.getUser(CookieUtil.getUserCookie(request));
         query.setGmtCreated(new Date());
-        query.setCreator(user.getCreatorMessage());
+        query.setCreator(user.getUsername());
         query.setCreatorCode(user.getUserId());
         buttonMapper.insert(query);
         // 更新全局按钮缓存
@@ -181,6 +185,57 @@ public class ButtonServiceImpl implements ButtonService {
     @Override
     public Button getButtonDetail(HttpServletRequest request, ButtonQuery query) {
         return buttonMapper.selectByPrimaryKey(query.getId());
+    }
+
+    /**
+     * 修改按钮
+     * @param request
+     * @param query
+     * @param id
+     * @return
+     */
+    @Override
+    public BaseResponse editButton(HttpServletRequest request, ButtonQuery query, Integer id) throws InvocationTargetException, IllegalAccessException {
+        User operator = UserInvoker.getUser(CookieUtil.getUserCookie(request));
+        if(buttonMapper.updateByPrimaryKeySelective(this.assButton(operator,query,id)) > 0){
+            return new BaseResponse.Builder().buildSuccess();
+        }
+        throw new BaseException(BaseResponseCode.BUTTON_EDIT_EXCEPTION);
+    }
+
+    /**
+     * 模糊搜索
+     * @param fuzzyText
+     * @return
+     */
+    @Override
+    public List<FuzzySearchListVo> fuzzySearchByName(String fuzzyText) {
+        List<Button> buttonList = buttonMapper.fuzzySearchByName("%" + fuzzyText + "%");
+        List<FuzzySearchListVo> fuzzySearchListVos = new ArrayList<>();
+        if(CollectionUtils.isNotEmpty(buttonList)){
+            for (Button button: buttonList) {
+                FuzzySearchListVo fuzzySearchListVo = new FuzzySearchListVo();
+                fuzzySearchListVo.setText(button.getButtonName());
+                fuzzySearchListVos.add(fuzzySearchListVo);
+            }
+        }
+        return fuzzySearchListVos;
+    }
+
+    /**
+     * 组装按钮对象
+     * @param operator
+     * @param query
+     * @param id
+     * @return
+     */
+    private Button assButton(User operator, ButtonQuery query, Integer id) throws InvocationTargetException, IllegalAccessException {
+        Button button = new Button();
+        BeanUtils.copyProperties(button,query);
+        button.setId(id);
+        button.setGmtModified(new Date());
+        button.setModifier(operator.getUsername());
+        return button;
     }
 
     private void validateAddParam(ButtonQuery query) {

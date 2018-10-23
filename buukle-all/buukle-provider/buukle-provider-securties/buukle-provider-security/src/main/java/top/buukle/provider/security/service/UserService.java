@@ -15,6 +15,7 @@ import top.buukle.provider.security.entity.Role;
 import top.buukle.provider.security.entity.User;
 import top.buukle.provider.security.vo.query.PageBounds;
 import top.buukle.provider.security.vo.query.UserQuery;
+import top.buukle.provider.security.vo.response.FuzzySearchListVo;
 import top.buukle.provider.security.vo.response.PageResponse;
 import top.buukle.provider.security.vo.response.UserRoleListVo;
 
@@ -91,18 +92,66 @@ public interface UserService {
 
 	public List<Role> getUserRole(String userCookie, User user, BaseRequest request) throws Exception;
 
+	/**
+	 * 分页获取用户列表
+	 * @param userQuery
+	 * @param pageBounds
+	 * @return
+	 */
 	PageResponse<User> getUserList(UserQuery userQuery, PageBounds pageBounds);
 
+	/**
+	 * 个根据类型获取不同的用户缓存信息
+	 * @param clazz
+	 * @param userCookie
+	 * @return
+	 * @throws Exception
+	 */
 	List getUserCacheInfoByType(Class clazz, String userCookie) throws Exception;
 
+	/**
+	 * 起停用
+	 * @param userQuery
+	 * @return
+	 */
     BaseResponse doBanOrRelease(UserQuery userQuery);
 
+	/**
+	 * 执行设置角色
+	 * @param ids
+	 * @param userQuery
+	 * @return
+	 */
     BaseResponse doSetUserRole(String ids, UserQuery userQuery);
 
-    List<Role> getGlobalRole();
+	/**
+	 * 获取全局角色列表
+	 * @return
+	 */
+	List<Role> getGlobalRole();
 
-	List getGlobalCacheByType(Class clazz) throws Exception;
+	/**
+	 * 根据类型获取全局缓存信息
+	 * @param clazz
+	 * @return
+	 * @throws Exception
+	 */
+    List getGlobalCacheByType(Class clazz) throws Exception;
 
 
+	/**
+	 * 分配角色前页面回显查询
+	 * @param request
+	 * @param id
+	 * @return
+	 * @throws Exception
+	 */
 	List<UserRoleListVo> getUserRoleForPage(HttpServletRequest request, Integer id) throws Exception;
+
+	/**
+	 * 模糊搜索
+	 * @param fuzzyText
+	 * @return
+	 */
+    List<FuzzySearchListVo> fuzzySearchByName(String fuzzyText);
 }

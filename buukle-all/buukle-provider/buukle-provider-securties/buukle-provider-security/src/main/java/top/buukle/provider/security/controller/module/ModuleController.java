@@ -11,6 +11,7 @@ import top.buukle.provider.security.entity.Module;
 import top.buukle.provider.security.service.ModuleService;
 import top.buukle.provider.security.vo.query.ModuleQuery;
 import top.buukle.provider.security.vo.query.PageBounds;
+import top.buukle.provider.security.vo.response.FuzzySearchListVo;
 import top.buukle.provider.security.vo.response.ModuleButtonListVo;
 import top.buukle.provider.security.vo.response.PageResponse;
 import top.buukle.provider.security.vo.result.ModuleNavigationVo;
@@ -87,5 +88,15 @@ public class ModuleController {
     @ResponseBody
     public BaseResponse setModuleButton(String ids,ModuleQuery query) throws Exception {
         return moduleService.setModuleButton(ids,query);
+    }
+    /**
+     * 模糊搜索
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/fuzzySearchByName")
+    @ResponseBody
+    public List<FuzzySearchListVo> fuzzySearchByName(String fuzzyText) throws Exception {
+        return moduleService.fuzzySearchByName(fuzzyText);
     }
 }

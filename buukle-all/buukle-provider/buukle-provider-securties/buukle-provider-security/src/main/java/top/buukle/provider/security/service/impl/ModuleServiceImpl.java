@@ -26,6 +26,7 @@ import top.buukle.provider.security.service.ModuleService;
 import top.buukle.provider.security.service.UserService;
 import top.buukle.provider.security.vo.query.ModuleQuery;
 import top.buukle.provider.security.vo.query.PageBounds;
+import top.buukle.provider.security.vo.response.FuzzySearchListVo;
 import top.buukle.provider.security.vo.response.ModuleButtonListVo;
 import top.buukle.provider.security.vo.response.PageResponse;
 import top.buukle.provider.security.vo.result.ModuleNavigationVo;
@@ -232,6 +233,26 @@ public class ModuleServiceImpl implements ModuleService {
         //更新菜单下按钮缓存
         UserInvoker.deleteModuleButton(query.getId());
         return new BaseResponse.Builder().buildSuccess();
+    }
+
+
+    /**
+     * 模糊搜索
+     * @param fuzzyText
+     * @return
+     */
+    @Override
+    public List<FuzzySearchListVo> fuzzySearchByName(String fuzzyText) {
+        List<Module> buttonList = moduleMapper.fuzzySearchByName("%" + fuzzyText + "%");
+        List<FuzzySearchListVo> fuzzySearchListVos = new ArrayList<>();
+        if(CollectionUtils.isNotEmpty(buttonList)){
+            for (Module module: buttonList) {
+                FuzzySearchListVo fuzzySearchListVo = new FuzzySearchListVo();
+                fuzzySearchListVo.setText(module.getModuleName());
+                fuzzySearchListVos.add(fuzzySearchListVo);
+            }
+        }
+        return fuzzySearchListVos;
     }
 
     /**

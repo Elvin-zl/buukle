@@ -11,6 +11,7 @@ import top.buukle.provider.security.entity.ButtonType;
 import top.buukle.provider.security.service.ButtonService;
 import top.buukle.provider.security.vo.query.ButtonQuery;
 import top.buukle.provider.security.vo.query.PageBounds;
+import top.buukle.provider.security.vo.response.FuzzySearchListVo;
 import top.buukle.provider.security.vo.response.PageResponse;
 
 import javax.servlet.http.HttpServletRequest;
@@ -83,6 +84,18 @@ public class ButtonController {
     public BaseResponse addButton(HttpServletRequest request, ButtonQuery query) throws Exception {
         return buttonService.addButton(request,query);
     }
+    /**
+     * 修改按钮
+     * @param request
+     * @param query
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/editButton/{id}")
+    @ResponseBody
+    public BaseResponse editButton(HttpServletRequest request,@PathVariable("id") Integer id, ButtonQuery query) throws Exception {
+        return buttonService.editButton(request,query,id);
+    }
 
     /**
      * 获取按钮详情
@@ -95,6 +108,17 @@ public class ButtonController {
     @ResponseBody
     public Button getButtonDetail(HttpServletRequest request, ButtonQuery query) throws Exception {
         return buttonService.getButtonDetail(request,query);
+    }
+
+    /**
+     * 模糊搜索
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/fuzzySearchByName")
+    @ResponseBody
+    public List<FuzzySearchListVo> fuzzySearchByName(String fuzzyText) throws Exception {
+        return buttonService.fuzzySearchByName(fuzzyText);
     }
 
 }

@@ -11,6 +11,7 @@ import top.buukle.common.response.BaseResponse;
 import top.buukle.provider.security.entity.Module;
 import top.buukle.provider.security.vo.query.ModuleQuery;
 import top.buukle.provider.security.vo.query.PageBounds;
+import top.buukle.provider.security.vo.response.FuzzySearchListVo;
 import top.buukle.provider.security.vo.response.ModuleButtonListVo;
 import top.buukle.provider.security.vo.response.PageResponse;
 import top.buukle.provider.security.vo.result.ModuleNavigationVo;
@@ -80,13 +81,51 @@ public interface ModuleService {
 	public List<Module> getModulesByParasNoPage(Module module) throws Exception;
 
 
+	/**
+	 * 获取用户权限树
+	 * @param httpServletRequest
+	 * @param applicationName
+	 * @return
+	 * @throws Exception
+	 */
     List<ModuleNavigationVo> getUserModuleTree(HttpServletRequest httpServletRequest, String applicationName) throws Exception;
 
+	/**
+	 * 分页获取列表
+	 * @param query
+	 * @param pageBounds
+	 * @return
+	 */
     PageResponse<Module> getModuleList(ModuleQuery query, PageBounds pageBounds);
 
-    BaseResponse doBanOrRelease(ModuleQuery query);
+	/**
+	 * 启用禁用
+	 * @param query
+	 * @return
+	 */
+	BaseResponse doBanOrRelease(ModuleQuery query);
 
+	/**
+	 * 分配按钮回显页面查询
+	 * @param request
+	 * @param id
+	 * @return
+	 * @throws Exception
+	 */
     List<ModuleButtonListVo> getModuleButtonForPage(HttpServletRequest request, Integer id) throws Exception;
 
-    BaseResponse setModuleButton(String ids, ModuleQuery query);
+	/**
+	 * 分配按钮
+	 * @param ids
+	 * @param query
+	 * @return
+	 */
+	BaseResponse setModuleButton(String ids, ModuleQuery query);
+
+	/**
+	 * 模糊搜索
+	 * @param fuzzyText
+	 * @return
+	 */
+	List<FuzzySearchListVo> fuzzySearchByName(String fuzzyText);
 }

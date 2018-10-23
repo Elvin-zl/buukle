@@ -416,4 +416,7 @@
     where
     module.id = #{id}
   </update>
+  <select id="fuzzySearchByName" resultMap="BaseResultMap" parameterType="java.lang.String">
+    SELECT m.module_name FROM module m WHERE m.module_name LIKE #{fuzzyText};
+  </select>
 </mapper>

@@ -32,6 +32,7 @@ import top.buukle.provider.security.dao.*;
 import top.buukle.provider.security.invoker.UserInvoker;
 import top.buukle.provider.security.service.UserService;
 import top.buukle.provider.security.vo.query.UserQuery;
+import top.buukle.provider.security.vo.response.FuzzySearchListVo;
 import top.buukle.provider.security.vo.response.PageResponse;
 import top.buukle.provider.security.vo.response.UserRoleListVo;
 
@@ -428,8 +429,28 @@ public class UserServiceImpl implements UserService {
         return userRoleListVoList;
     }
 
+	/**
+	 *
+	 * 模糊搜索
+	 * @param fuzzyText
+	 * @return
+	 */
+	@Override
+	public List<FuzzySearchListVo> fuzzySearchByName(String fuzzyText) {
+        List<User> roleList = userMapper.fuzzySearchByName("%" + fuzzyText + "%");
+        List<FuzzySearchListVo> fuzzySearchListVos = new ArrayList<>();
+        if(CollectionUtils.isNotEmpty(roleList)){
+            for (User user: roleList) {
+                FuzzySearchListVo fuzzySearchListVo = new FuzzySearchListVo();
+                fuzzySearchListVo.setText(user.getUsername());
+                fuzzySearchListVos.add(fuzzySearchListVo);
+            }
+        }
+        return fuzzySearchListVos;
+	}
 
-    /**
+
+	/**
 	 * 判断url是否在全局菜单+按钮 管理列表
 	 * @param url
 	 * @param globalModuleList

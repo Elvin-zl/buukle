@@ -327,4 +327,8 @@
         where
         role.id = #{id}
     </update>
+
+    <select id="fuzzySearchByName" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT  r.role_name FROM   role r WHERE r.role_name  LIKE #{fuzzyText};
+    </select>
 </mapper>

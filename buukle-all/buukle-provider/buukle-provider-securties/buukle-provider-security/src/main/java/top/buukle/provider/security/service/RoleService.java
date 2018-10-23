@@ -11,6 +11,7 @@ import top.buukle.common.response.BaseResponse;
 import top.buukle.provider.security.entity.Role;
 import top.buukle.provider.security.vo.query.PageBounds;
 import top.buukle.provider.security.vo.query.RoleQuery;
+import top.buukle.provider.security.vo.response.FuzzySearchListVo;
 import top.buukle.provider.security.vo.response.PageResponse;
 import top.buukle.provider.security.vo.response.RoleModuleListVo;
 
@@ -84,9 +85,34 @@ public interface RoleService {
 	 */
     PageResponse<Role> getRoleList(RoleQuery roleQuery, PageBounds pageBounds);
 
-    BaseResponse doBanOrRelease(RoleQuery query);
+	/**
+	 * 启用禁用
+	 * @param query
+	 * @return
+	 */
+	BaseResponse doBanOrRelease(RoleQuery query);
 
+	/**
+	 * 分配菜单前回显
+	 * @param request
+	 * @param id
+	 * @return
+	 * @throws Exception
+	 */
     List<RoleModuleListVo> getRoleModuleForPage(HttpServletRequest request, Integer id) throws Exception;
 
+	/**
+	 * 分配菜单
+	 * @param ids
+	 * @param userQuery
+	 * @return
+	 */
     BaseResponse setRoleModule(String ids, RoleQuery userQuery);
+
+	/**
+	 * 模糊查询
+	 * @param fuzzyText
+	 * @return
+	 */
+	List<FuzzySearchListVo> fuzzySearchByName(String fuzzyText);
 }

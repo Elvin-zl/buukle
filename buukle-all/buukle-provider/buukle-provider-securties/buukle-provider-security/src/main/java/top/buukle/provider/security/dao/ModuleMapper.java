@@ -1,7 +1,6 @@
 package top.buukle.provider.security.dao;
 
 import org.apache.ibatis.annotations.Param;
-import top.buukle.provider.security.entity.Button;
 import top.buukle.provider.security.entity.Module;
 import top.buukle.provider.security.entity.Role;
 import top.buukle.provider.security.entity.User;
@@ -51,4 +50,5 @@ public interface ModuleMapper {
 
     void doBanOrRelease(ModuleQuery query);
 
+    List<Module> fuzzySearchByName(@Param("fuzzyText") String fuzzyText);
 }

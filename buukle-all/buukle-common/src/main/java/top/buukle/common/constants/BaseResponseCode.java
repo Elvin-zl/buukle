@@ -53,6 +53,7 @@ public enum BaseResponseCode {
     BUTTON_ADD_LAYOUTLEVEL_NULL(BaseResponseCode.FAILURES, "010011","添加按钮失败,按钮分布级别为空!" ),
     BUTTON_ADD_OPERATION_TYPE_NULL(BaseResponseCode.FAILURES, "010012","添加按钮失败,按钮响应类型为空!" ),
     BUTTON_ADD_REMARK_NULL(BaseResponseCode.FAILURES, "010013","添加按钮失败,按钮备注为空!" ),
+    BUTTON_EDIT_EXCEPTION(BaseResponseCode.FAILURES, "010014","更新按钮失败!"),
 
     /*----------------------------------------------MC--00{*}{*}{*}{*}--------------------------------------------------------------------*/
     /** 登录,认证,授权 --0000{*}{*}*/
@@ -69,6 +70,7 @@ public enum BaseResponseCode {
     USER_LOGIN_USERNAME_PASSWORD_NULL_SSO_PLUGIN(BaseResponseCode.FAILURES, "060003","登录失败!用户名或密码为空!"),
     USER_AUTHENTICATION_FAILED_COOKIE_NULL(BaseResponseCode.FAILURES, "060004","认证失败!客户端标识信息为空!"),
     USER_AUTHENTICATION_FAILED_REQUEST_WRONG(BaseResponseCode.FAILURES, "060005","认证失败!buukle-security配置security.host请求失败!"),
+
     ;
 
     private static final String SUCCESSFUL = "S";

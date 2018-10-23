@@ -635,4 +635,7 @@
         AND ur.`role_id` =   r.`id`
         AND ur.`user_id` = u.`user_id`
     </select>
+  <select id="fuzzySearchByName" resultMap="BaseResultMap" parameterType="java.lang.String">
+    SELECT u.username FROM  user u WHERE u.username LIKE #{fuzzyText};
+  </select>
 </mapper>

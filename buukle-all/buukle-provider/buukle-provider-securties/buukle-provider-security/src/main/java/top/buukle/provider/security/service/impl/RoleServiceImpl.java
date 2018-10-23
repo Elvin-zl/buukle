@@ -29,6 +29,7 @@ import top.buukle.provider.security.entity.Role;
 import top.buukle.provider.security.service.UserService;
 import top.buukle.provider.security.vo.query.PageBounds;
 import top.buukle.provider.security.vo.query.RoleQuery;
+import top.buukle.provider.security.vo.response.FuzzySearchListVo;
 import top.buukle.provider.security.vo.response.PageResponse;
 import top.buukle.provider.security.vo.response.RoleModuleListVo;
 import top.buukle.provider.security.vo.response.UserRoleListVo;
@@ -191,5 +192,24 @@ public class RoleServiceImpl implements RoleService {
             }
         }
         return new BaseResponse.Builder().buildSuccess();
+    }
+
+    /**
+     * 模糊搜索
+     * @param fuzzyText
+     * @return
+     */
+    @Override
+    public List<FuzzySearchListVo> fuzzySearchByName(String fuzzyText) {
+        List<Role> roleList = roleMapper.fuzzySearchByName("%" + fuzzyText + "%");
+        List<FuzzySearchListVo> fuzzySearchListVos = new ArrayList<>();
+        if(CollectionUtils.isNotEmpty(roleList)){
+            for (Role role: roleList) {
+                FuzzySearchListVo fuzzySearchListVo = new FuzzySearchListVo();
+                fuzzySearchListVo.setText(role.getRoleName());
+                fuzzySearchListVos.add(fuzzySearchListVo);
+            }
+        }
+        return fuzzySearchListVos;
     }
 }

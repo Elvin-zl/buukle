@@ -12,9 +12,11 @@ import top.buukle.provider.security.entity.Button;
 import top.buukle.provider.security.entity.ButtonType;
 import top.buukle.provider.security.vo.query.ButtonQuery;
 import top.buukle.provider.security.vo.query.PageBounds;
+import top.buukle.provider.security.vo.response.FuzzySearchListVo;
 import top.buukle.provider.security.vo.response.PageResponse;
 
 import javax.servlet.http.HttpServletRequest;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 /**
@@ -124,4 +126,20 @@ import java.util.List;
 	 * @return
 	 */
     Button getButtonDetail(HttpServletRequest request, ButtonQuery query);
+
+	/**
+	 * 修改按钮
+	 * @param request
+	 * @param query
+	 * @param id
+	 * @return
+	 */
+    BaseResponse editButton(HttpServletRequest request, ButtonQuery query, Integer id) throws InvocationTargetException, IllegalAccessException;
+
+    /**
+     * 模糊搜索
+     * @param fuzzyText
+     * @return
+     */
+    List<FuzzySearchListVo> fuzzySearchByName(String fuzzyText);
 }

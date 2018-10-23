@@ -4,6 +4,7 @@ import org.apache.ibatis.annotations.Param;
 import top.buukle.provider.security.entity.Button;
 import top.buukle.provider.security.entity.Module;
 import top.buukle.provider.security.vo.query.ButtonQuery;
+import top.buukle.provider.security.vo.response.FuzzySearchListVo;
 
 import java.util.List;
 
@@ -33,6 +34,11 @@ public interface ButtonMapper {
      */
     List<Button> getGlobalButtonList();
 
+    /**
+     * 分页获取按钮列表
+     * @param query
+     * @return
+     */
     List<Button> getButtonList(ButtonQuery query);
 
     /**
@@ -42,5 +48,16 @@ public interface ButtonMapper {
      */
     List<Button> getModuleButtons(@Param("moduleId") Integer moduleId);
 
+    /**
+     * 启用禁用
+     * @param query
+     */
     void doBanOrRelease(ButtonQuery query);
+
+    /**
+     * 模糊搜索
+     * @param fuzzyText
+     * @return
+     */
+    List<Button> fuzzySearchByName(@Param("fuzzyText") String fuzzyText);
 }

@@ -9,6 +9,7 @@ import top.buukle.provider.security.entity.Role;
 import top.buukle.provider.security.service.RoleService;
 import top.buukle.provider.security.vo.query.PageBounds;
 import top.buukle.provider.security.vo.query.RoleQuery;
+import top.buukle.provider.security.vo.response.FuzzySearchListVo;
 import top.buukle.provider.security.vo.response.PageResponse;
 import top.buukle.provider.security.vo.response.RoleModuleListVo;
 
@@ -69,5 +70,16 @@ public class RoleController {
     @ResponseBody
     public BaseResponse setRoleModule(String ids,RoleQuery userQuery) throws Exception {
         return roleService.setRoleModule(ids,userQuery);
+    }
+
+    /**
+     * 模糊搜索
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/fuzzySearchByName")
+    @ResponseBody
+    public List<FuzzySearchListVo> fuzzySearchByName(String fuzzyText) throws Exception {
+        return roleService.fuzzySearchByName(fuzzyText);
     }
 }

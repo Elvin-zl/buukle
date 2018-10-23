@@ -436,4 +436,8 @@
       where
       button.id = #{id}
     </update>
+
+  <select id="fuzzySearchByName" resultMap="BaseResultMap" parameterType="java.lang.String">
+    SELECT b.`button_name` FROM button b WHERE b.`button_name` LIKE #{fuzzyText};
+  </select>
 </mapper>

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/static/layui/css/layui.css">
     <link rel="stylesheet" href="/static/css/public.css">
     <link rel="stylesheet" href="/static/css/list.css">
-    <link rel="stylesheet" href="/static/zElog/css/form.css">
+    <link rel="stylesheet" href="/static/buukle/css/form.css">
     <link rel="stylesheet" href="" id="btnThemeCss">
 </head>
 <body>
@@ -17,8 +17,13 @@
         <!--搜索条件-->
         <form id="searchForm" class="buukle-data-form">
             <div class="buukle-search-name">
-                <span class="form-span fuzzy-body">按钮名称 : </span>
-                <input id="fuzzy-index-0" class="buukle-input search-condition fuzzy-input" data-fuzzyUrl="/module/fuzzySearchModuleInfoByModuleName" type="text" name="name" placeholder="请输入按钮名称" autocomplete="off">
+                <div class="form-span" style="float: inherit;">按钮名称 : </div>
+                <div class="fuzzy-div">
+                    <input id="fuzzy-index-0" class="buukle-input search-condition fuzzy-input" data-fuzzyUrl="/button/fuzzySearchByName" type="text" name="name" placeholder="请输入按钮名称" autocomplete="off">
+                    <!--建议框-->
+                    <div id="fuzzy-items-index-0"class="fuzzy-item-div" data-fuzzyIndex="0">
+                    </div>
+                </div>
             </div>
             <div id="searchTime" class="buukle-search-time">
                 <span class="form-span">创建时间 :</span>
@@ -42,10 +47,8 @@
                 <span class="layui-btn empty-btn layui-btn-primary" id="emptyBtn">清空</span>
             </div>
         </form>
-        <!--模糊搜索-->
-        <div class="fuzzySearchDiv" id="fuuzyDiv-id-0" data-fuuzyIndex="0"></div>
         <!--数据列表-->
-        <div class="layui-tab-content">
+        <div class="layui-tab-content buukle-table">
             <table id="table" class="layui-table"></table>
         </div>
         <!--CRUD START-->
@@ -83,83 +86,105 @@
                     <td class="table-property-value ">
                         <input type="text" class="buukle-frame-input add-input" disabled id="operationType">
                     </td>
-                    <td class="table-property-name">按钮描述 :</td>
+                    <td class="table-property-name">创建者 :</td>
+                    <td class="table-property-value ">
+                        <input type="text" class="buukle-frame-input add-input" disabled id="creator">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="table-property-name">修改者 :</td>
+                    <td class="table-property-value ">
+                        <input type="text" class="buukle-frame-input add-input" disabled id="modifier">
+                    </td>
+                    <td class="table-property-name">创建时间 :</td>
+                    <td class="table-property-value">
+                        <input type="text" class="buukle-frame-input add-input" disabled id="gmtCreated">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="table-property-name">修改时间 :</td>
+                    <td class="table-property-value">
+                        <input type="text" class="buukle-frame-input add-input" disabled id="gmtModified">
+                    </td>
+
+                    <td class="table-property-name">描述 :</td>
                     <td class="table-property-value">
                         <textarea class="layui-textarea buukle-add-textarea" disabled id="bak01" name="bak01"></textarea>
                     </td>
                 </tr>
                 </table>
-                <div class="buukle-frame-button">
+                <div class="buukle-frame-button" style="margin-top: 130px;">
                     <button type="" class="layui-btn layui-btn-primary layui-layer-close ">返回</button>
                 </div>
             </table>
         </div>
         <!--编辑-->
         <div class="hiddenForm" id="edit">
-            <table class="data-table">
-                <tr>
-                    <td class="table-property-name">按钮名称 :</td>
-                    <td class="table-property-value"><input type="text" class="buukle-frame-input add-input" ></td>
-                    <td class="table-property-name">回调url :</td>
-                    <td class="table-property-value"><input type="text" class="buukle-frame-input add-input" ></td>
-                </tr>
-                <tr>
-                    <td class="table-property-name">状态 :</td>
-                    <td class="table-property-value">
-                        <select  class="buukle-frame-input btn-layer-type-selector selector add-input" name="status">
-                            <option class="select-item" value="" data-status="">------------请选择-------------</option>
-                            <option class="select-item" value="1" data-status="1">-------------启用---------------</option>
-                            <option class="select-item" value="0" data-status="0">-------------停用---------------</option>
-                        </select>
-                    </td>
-                    <td class="table-property-name">分布级别 :</td>
-                    <td class="table-property-value">
-                        <select name="layoutLevel" class="buukle-frame-input btn-layer-type-selector selector add-input btn-select-item">
-                            <option value="">-------------请选择---------</option>
-                            <option value="0">-----------页面级别---------</option>
-                            <option value="1">-----------列表级别---------</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="table-property-name">回调方法名称 :</td>
-                    <td class="table-property-value"><input type="text" class="buukle-frame-input add-input" ></td>
-                    <td class="table-property-name ">响应类型 :</td>
-                    <td class="table-property-value ">
-                        <select name="responseType" class="buukle-frame-input btn-layer-type-selector selector add-input btn-select-item">
-                            <option value="">----------请选择----------</option>
-                            <option value="0">-------提示确认框-----</option>
-                            <option value="1">-弹层页面取接口数据-</option>
-                            <option value="2">弹层页面不取接口数据</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="table-property-name">按钮操作类型 :</td>
-                    <td class="table-property-value ">
-                        <select name="operationType" class="buukle-frame-input btn-operate-type-selector selector add-input btn-select-item">
-                            <option value="">------------请选择-----------</option>
-                            <option value="0">------------添加------------</option>
-                            <option value="1">------------删除------------</option>
-                            <option value="2">------------修改------------</option>
-                            <option value="3">------------详情------------</option>
-                            <option value="4">----------申请启用----------</option>
-                            <option value="5">------------审核------------</option>
-                            <option value="6">----------起/停用------------</option>
-                            <option value="7">----------分配角色-----------</option>
-                            <option value="8">----------分配按钮-----------</option>
-                        </select>
-                    </td>
-                    <td class="table-property-name">按钮描述 :</td>
-                    <td class="table-property-value">
-                        <textarea class="layui-textarea buukle-add-textarea" name="bak01"></textarea>
-                    </td>
-                </tr>
+            <form id="editButtonForm">
+                <table class="data-table">
+                    <tr>
+                        <td class="table-property-name">按钮名称 :</td>
+                        <td class="table-property-value"><input type="text" id="buttonNameEdit" class="buukle-frame-input add-input" name="buttonName"></td>
+                        <td class="table-property-name">回调url :</td>
+                        <td class="table-property-value"><input type="text" id="urlEdit" class="buukle-frame-input add-input" name="url"></td>
+                    </tr>
+                    <tr>
+                        <td class="table-property-name">状态 :</td>
+                        <td class="table-property-value">
+                            <select id="statusEdit" class="buukle-frame-input btn-layer-type-selector selector add-input" name="status">
+                                <option class="select-item" value="" data-status="">------------请选择-------------</option>
+                                <option class="select-item" value="1" data-status="1">-------------启用---------------</option>
+                                <option class="select-item" value="0" data-status="0">-------------停用---------------</option>
+                            </select>
+                        </td>
+                        <td class="table-property-name">分布级别 :</td>
+                        <td class="table-property-value">
+                            <select name="layoutLevel" id="layoutLevelEdit" class="buukle-frame-input btn-layer-type-selector selector add-input btn-select-item">
+                                <option value="">-------------请选择---------</option>
+                                <option value="0">-----------页面级别---------</option>
+                                <option value="1">-----------列表级别---------</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="table-property-name ">响应类型 :</td>
+                        <td class="table-property-value ">
+                            <select name="responseType" id="responseTypeEdit" class="buukle-frame-input btn-layer-type-selector selector add-input btn-select-item">
+                                <option value="">----------请选择----------</option>
+                                <option value="0">-------提示确认框-----</option>
+                                <option value="1">-弹层页面取接口数据-</option>
+                                <option value="2">弹层页面不取接口数据</option>
+                            </select>
+                        </td>
+                        <td class="table-property-name">页面响应ID :</td>
+                        <td class="table-property-value"><input type="text" id="responseDomIdEdit" class="buukle-frame-input add-input" name="responseDomId"></td>
+                    </tr>
+                    <tr>
+                        <td class="table-property-name">按钮操作类型 :</td>
+                        <td class="table-property-value ">
+                            <select name="operationType" id="operationTypeEdit" class="buukle-frame-input btn-operate-type-selector selector add-input btn-select-item">
+                                <option value="">------------请选择-----------</option>
+                                <option value="0">------------添加------------</option>
+                                <option value="1">------------删除------------</option>
+                                <option value="2">------------修改------------</option>
+                                <option value="3">------------详情------------</option>
+                                <option value="4">----------申请启用----------</option>
+                                <option value="5">------------审核------------</option>
+                                <option value="6">----------起/停用------------</option>
+                                <option value="7">----------分配设置-----------</option>
+                            </select>
+                        </td>
+                        <td class="table-property-name">按钮描述 :</td>
+                        <td class="table-property-value">
+                            <textarea class="layui-textarea buukle-add-textarea" id="bak01Edit" name="bak01"></textarea>
+                        </td>
+                    </tr>
                 </table>
-                <div class="buukle-frame-button">
-                    <button type="" class="layui-btn layui-btn-primary layui-layer-close ">返回</button>
-                </div>
-            </table>
+            </form>
+            <div style="margin-top: -106px;margin-left: 94px;">
+                <button class="layui-btn commitBtn saveBtn theme-btn" data-form-id="editButtonForm" id="editButton">保存</button>
+                <button class="layui-btn layui-btn-primary layui-layer-close back-button" id="closeEditButton">取消</button>
+            </div>
         </div>
         <!--添加页面-->
         <div class="hiddenForm" id="add">
@@ -214,8 +239,7 @@
                                 <option value="4">----------申请启用----------</option>
                                 <option value="5">------------审核------------</option>
                                 <option value="6">----------起/停用------------</option>
-                                <option value="7">----------分配角色-----------</option>
-                                <option value="8">----------分配按钮-----------</option>
+                                <option value="7">----------分配设置-----------</option>
                             </select>
                         </td>
                         <td class="table-property-name">按钮描述 :</td>
@@ -231,13 +255,17 @@
             </div>
         </div>
     </div>
+    <div id="hiddenResource">
+        <!--当前操作记录的id-->
+        <input type="hidden" id="currentRecordId">
+    </div>
 </div>
 <script src="/static/mods/jquery-3.3.1.min.js"></script>
 <script src="/static/ztree/js/jquery.ztree.core.js"></script>
 <script src="/static/ztree/js/jquery.ztree.excheck.js"></script>
 <script src="/static/ztree/js/jquery.ztree.exedit.js"></script>
 <script src="/static/layui/layui.js"></script>
-<script src="/static/zElog/js/util/component.js"></script>
-<script src="/static/zElog/js/permission/button/buttonList.js"></script>
+<script src="/static/buukle/js/util/component.js"></script>
+<script src="/static/buukle/js/permission/button/buttonList.js"></script>
 </body>
 </html>
