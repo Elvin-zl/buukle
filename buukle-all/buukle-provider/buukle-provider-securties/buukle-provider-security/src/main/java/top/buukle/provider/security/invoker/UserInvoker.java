@@ -1,6 +1,8 @@
 package top.buukle.provider.security.invoker;
 
 import com.alibaba.fastjson.JSON;
+import top.buukle.common.constants.BaseResponseCode;
+import top.buukle.common.exception.BaseException;
 import top.buukle.common.request.RequestHead;
 import top.buukle.common.util.common.NumberUtil;
 import top.buukle.common.util.common.StringUtil;
@@ -23,6 +25,13 @@ import java.util.List;
 public class UserInvoker {
 
     /**
+     * 缓存全局按钮列表信息
+     * @param globalButtonList
+     */
+    public static void saveGlobalButton(List<Button> globalButtonList) {
+        RedisString.setWithExpire(UserInfoCacheConstants.GLOBAL_BUTTON_LIST_KEY,JSON.toJSONString(globalButtonList),NumberUtil.LONG_ONE_DAY_SECOND);
+    }
+    /**
      * 缓存全局菜单列表信息
      * @param globalModuleList
      */
@@ -31,11 +40,42 @@ public class UserInvoker {
     }
 
     /**
-     * 缓存全局按钮列表信息
-     * @param globalButtonList
+     * 缓存全局角色列表信息
+     * @param roleList
      */
-    public static void saveGlobalButton(List<Button> globalButtonList) {
-        RedisString.setWithExpire(UserInfoCacheConstants.GLOBAL_BUTTON_LIST_KEY,JSON.toJSONString(globalButtonList),NumberUtil.LONG_ONE_DAY_SECOND);
+    public static void saveGlobalRole(List<Role> roleList) {
+        RedisString.setWithExpire(UserInfoCacheConstants.GLOBAL_ROLE_LIST_KEY,JSON.toJSONString(roleList),NumberUtil.LONG_ONE_DAY_SECOND);
+    }
+
+    /**
+     * 根据类型清除用户的权限信息
+     * @param clazz
+     */
+    public static void clearGlobalCacheInfoByType(Class clazz) {
+        if(null == clazz){
+            //清除全局按钮缓存
+            RedisString.delete(UserInfoCacheConstants.GLOBAL_BUTTON_LIST_KEY);
+            //清除全局菜单缓存
+            RedisString.delete(UserInfoCacheConstants.GLOBAL_MODULE_LIST_KEY);
+            //清除全局角色缓存
+            RedisString.delete(UserInfoCacheConstants.GLOBAL_ROLE_LIST_KEY);
+            return;
+        }
+        if(clazz.equals(Button.class)){
+            //清除全局按钮缓存
+            RedisString.delete(UserInfoCacheConstants.GLOBAL_BUTTON_LIST_KEY);
+            return;
+        }
+        if(clazz.equals(Module.class)){
+            //清除全局菜单缓存
+            RedisString.delete(UserInfoCacheConstants.GLOBAL_MODULE_LIST_KEY);
+            return;
+        }
+        if(clazz.equals(Role.class)){
+            //清除全局角色缓存
+            RedisString.delete(UserInfoCacheConstants.GLOBAL_ROLE_LIST_KEY);
+            return;
+        }
     }
 
     /**
@@ -43,73 +83,74 @@ public class UserInvoker {
      * @param user
      * @param defaultMaxAge
      * @param requestHead
+     * @param userCookie   userCookie ==null ? "登录调用" : "认证调用";
      */
-    public static String saveUser(User user, String defaultMaxAge, RequestHead requestHead) {
+    public static String saveUser(User user, String defaultMaxAge, RequestHead requestHead, String userCookie) {
         //将调用方应用指定默认超时时间缓存到redis ,一天后失效
         RedisString.setWithExpire(UserInfoCacheConstants.APPLICATION_DEFAULT_MAX_AGE_PREFIX + requestHead.getApplicationName(),defaultMaxAge,NumberUtil.LONG_ONE_DAY_SECOND);
         //绑定用户登录策略到线程本地
         ThreadLocalUtil.set(new ThreadParam.Biulder().setLoginStrategy(user.getLoginStrategy()).build());
-        return UserInvoker.saveUserInfoWithPrefixAndStrategy(UserInfoCacheConstants.USER_INFO_KEY_PREFIX,JSON.toJSONString(user),null,requestHead.getApplicationName());
+        return UserInvoker.saveUserInfoWithPrefixAndStrategy(UserInfoCacheConstants.USER_INFO_KEY_PREFIX,JSON.toJSONString(user),userCookie,requestHead.getApplicationName());
     }
 
     /**
      * 缓存用户扩展信息
      * @param userExp
-     * @param userCookie
+     * @param userId
      * @param requestHead
      */
-    public static void saveUserExp(UserExp userExp, String userCookie, RequestHead requestHead) {
-        UserInvoker.saveUserInfoWithPrefixAndStrategy(UserInfoCacheConstants.USER_EXP_KEY_PREFIX,JSON.toJSONString(userExp),userCookie,requestHead.getApplicationName());
+    public static void saveUserExp(UserExp userExp, String userId, RequestHead requestHead) {
+        UserInvoker.saveUserInfoWithPrefixAndStrategy(UserInfoCacheConstants.USER_EXP_KEY_PREFIX,JSON.toJSONString(userExp),userId,requestHead.getApplicationName());
     }
 
     /**
      * 缓存用户组别信息
      * @param groupList
-     * @param userCookie
+     * @param userId
      * @param requestHead
      */
-    public static void saveUserGroup(List<Groups> groupList, String userCookie, RequestHead requestHead) {
-        UserInvoker.saveUserInfoWithPrefixAndStrategy(UserInfoCacheConstants.USER_GROUP_LIST_KEY_PREFIX,JSON.toJSONString(groupList),userCookie,requestHead.getApplicationName());
+    public static void saveUserGroup(List<Groups> groupList, String userId, RequestHead requestHead) {
+        UserInvoker.saveUserInfoWithPrefixAndStrategy(UserInfoCacheConstants.USER_GROUP_LIST_KEY_PREFIX,JSON.toJSONString(groupList),userId,requestHead.getApplicationName());
     }
 
     /**
      * 缓存用户所辖用户
      * @param userList
-     * @param userCookie
+     * @param userId
      * @param requestHead
      */
-    public static void saveUserSubordinate(List<User> userList, String userCookie, RequestHead requestHead) {
-        UserInvoker.saveUserInfoWithPrefixAndStrategy(UserInfoCacheConstants.USER_SUBORDINATE_LIST_KEY_PREFIX,JSON.toJSONString(userList),userCookie,requestHead.getApplicationName());
+    public static void saveUserSubordinate(List<User> userList, String userId, RequestHead requestHead) {
+        UserInvoker.saveUserInfoWithPrefixAndStrategy(UserInfoCacheConstants.USER_SUBORDINATE_LIST_KEY_PREFIX,JSON.toJSONString(userList),userId,requestHead.getApplicationName());
     }
 
     /**
      * 缓存用户角色信息
      * @param roleList
-     * @param userCookie
+     * @param userId
      * @param requestHead
      */
-    public static void saveUserRole(List<Role> roleList, String userCookie, RequestHead requestHead) {
-        UserInvoker.saveUserInfoWithPrefixAndStrategy(UserInfoCacheConstants.USER_ROLE_LIST_KEY_PREFIX,JSON.toJSONString(roleList),userCookie,requestHead.getApplicationName());
+    public static void saveUserRole(List<Role> roleList, String userId, RequestHead requestHead) {
+        UserInvoker.saveUserInfoWithPrefixAndStrategy(UserInfoCacheConstants.USER_ROLE_LIST_KEY_PREFIX,JSON.toJSONString(roleList),userId,requestHead.getApplicationName());
     }
 
     /**
      * 缓存用户菜单信息
      * @param moduleList
-     * @param userCookie
+     * @param userId
      * @param requestHead
      */
-    public static void saveUserModule(List<Module> moduleList, String userCookie, RequestHead requestHead) {
-        UserInvoker.saveUserInfoWithPrefixAndStrategy(UserInfoCacheConstants.USER_MODULE_LIST_KEY_PREFIX,JSON.toJSONString(moduleList),userCookie,requestHead.getApplicationName());
+    public static void saveUserModule(List<Module> moduleList, String userId, RequestHead requestHead) {
+        UserInvoker.saveUserInfoWithPrefixAndStrategy(UserInfoCacheConstants.USER_MODULE_LIST_KEY_PREFIX,JSON.toJSONString(moduleList),userId,requestHead.getApplicationName());
     }
 
     /**
      * 缓存用户按钮信息
      * @param buttonList
-     * @param userCookie
+     * @param userId
      * @param requestHead
      */
-    public static void saveUserButton(List<Button> buttonList, String userCookie, RequestHead requestHead) {
-        UserInvoker.saveUserInfoWithPrefixAndStrategy(UserInfoCacheConstants.USER_BUTTON_LIST_KEY_PREFIX,JSON.toJSONString(buttonList),userCookie,requestHead.getApplicationName());
+    public static void saveUserButton(List<Button> buttonList, String userId, RequestHead requestHead) {
+        UserInvoker.saveUserInfoWithPrefixAndStrategy(UserInfoCacheConstants.USER_BUTTON_LIST_KEY_PREFIX,JSON.toJSONString(buttonList),userId,requestHead.getApplicationName());
     }
 
     /**
@@ -119,9 +160,20 @@ public class UserInvoker {
      */
     public static User getUser(String userCookie) {
         String UserInfoStr = RedisString.get(UserInfoCacheConstants.USER_INFO_KEY_PREFIX + userCookie);
-        return StringUtil.isEmpty(UserInfoStr) ? null : JSON.parseObject(UserInfoStr,User.class);
+        if(StringUtil.isEmpty(UserInfoStr)){
+            throw new BaseException(BaseResponseCode.USER_OUT_OF_TIME);
+        }
+        return JSON.parseObject(UserInfoStr,User.class);
     }
 
+    /**
+     * 获取全局角色列表缓存信息
+     * @return
+     */
+    public static List<Role> getGlobalRole() {
+        String globalRoleList = RedisString.get(UserInfoCacheConstants.GLOBAL_ROLE_LIST_KEY);
+        return null == globalRoleList ? null : JSON.parseArray(globalRoleList,Role.class);
+    }
     /**
      * 获取全局菜单列表缓存信息
      * @return
@@ -142,45 +194,85 @@ public class UserInvoker {
 
     /**
      * 获取用户角色列表缓存信息
-     * @param userCookie
+     * @param userId
      * @return
      */
-    public static List<Role> getUserRole(String userCookie) {
-        String userModuleListStr = RedisString.get(UserInfoCacheConstants.USER_ROLE_LIST_KEY_PREFIX + userCookie);
+    public static List<Role> getUserRole(String userId) {
+        String userModuleListStr = RedisString.get(UserInfoCacheConstants.USER_ROLE_LIST_KEY_PREFIX + userId);
         return null == userModuleListStr ? null : JSON.parseArray(userModuleListStr,Role.class);
     }
 
     /**
      * 获取用户菜单缓存信息
-     * @param userCookie
+     * @param userId
      * @return
      */
-    public static List<Module> getUserModule(String userCookie) {
-        String userModuleListStr = RedisString.get(UserInfoCacheConstants.USER_MODULE_LIST_KEY_PREFIX + userCookie);
+    public static List<Module> getUserModule(String userId) {
+        String userModuleListStr = RedisString.get(UserInfoCacheConstants.USER_MODULE_LIST_KEY_PREFIX + userId);
         return null == userModuleListStr ? null : JSON.parseArray(userModuleListStr,Module.class);
     }
 
     /**
      * 获取用户按钮缓存信息
-     * @param userCookie
+     * @param userId
      * @return
      */
-    public static List<Button> getUserButton(String userCookie) {
-        String userModuleListStr = RedisString.get(UserInfoCacheConstants.USER_BUTTON_LIST_KEY_PREFIX + userCookie);
+    public static List<Button> getUserButton(String userId) {
+        String userModuleListStr = RedisString.get(UserInfoCacheConstants.USER_BUTTON_LIST_KEY_PREFIX + userId);
         return null == userModuleListStr ? new ArrayList<>() : JSON.parseArray(userModuleListStr,Button.class);
     }
 
     /**
-     * 清除用户的权限信息
-     * @param userCookie
+     * 根据类型清除用户的权限信息
+     * @param userId
+     * @param clazz
      */
-    public static void clearUserSecurityInfo(String userCookie) {
-        //清除角色缓存
-        RedisString.delete(UserInfoCacheConstants.USER_ROLE_LIST_KEY_PREFIX + userCookie);
-        //清除菜单缓存
-        RedisString.delete(UserInfoCacheConstants.USER_MODULE_LIST_KEY_PREFIX + userCookie);
-        //清除按钮缓存
-        RedisString.delete(UserInfoCacheConstants.USER_BUTTON_LIST_KEY_PREFIX + userCookie);
+    public static void clearUserCacheInfoByType(Class clazz, String userId) {
+        if(null == clazz){
+            //清除角色缓存
+            RedisString.delete(UserInfoCacheConstants.USER_ROLE_LIST_KEY_PREFIX + userId);
+            //清除菜单缓存
+            RedisString.delete(UserInfoCacheConstants.USER_MODULE_LIST_KEY_PREFIX + userId);
+            //清除按钮缓存
+            RedisString.delete(UserInfoCacheConstants.USER_BUTTON_LIST_KEY_PREFIX + userId);
+            //清除扩展缓存
+            RedisString.delete(UserInfoCacheConstants.USER_EXP_KEY_PREFIX + userId);
+            //清除组别缓存
+            RedisString.delete(UserInfoCacheConstants.USER_GROUP_LIST_KEY_PREFIX + userId);
+            //清除下属缓存
+            RedisString.delete(UserInfoCacheConstants.USER_SUBORDINATE_LIST_KEY_PREFIX + userId);
+            return;
+        }
+        if(clazz.equals(Role.class)){
+            //清除角色缓存
+            RedisString.delete(UserInfoCacheConstants.USER_ROLE_LIST_KEY_PREFIX + userId);
+            return;
+        }
+        if(clazz.equals(Module.class)){
+            //清除菜单缓存
+            RedisString.delete(UserInfoCacheConstants.USER_MODULE_LIST_KEY_PREFIX + userId);
+            return;
+        }
+        if(clazz.equals(Button.class)){
+            //清除按钮缓存
+            RedisString.delete(UserInfoCacheConstants.USER_BUTTON_LIST_KEY_PREFIX + userId);
+            return;
+        }
+        if(clazz.equals(Button.class)){
+            //清除扩展缓存
+            RedisString.delete(UserInfoCacheConstants.USER_EXP_KEY_PREFIX + userId);
+            return;
+        }
+        if(clazz.equals(Button.class)){
+            //清除组别缓存
+            RedisString.delete(UserInfoCacheConstants.USER_GROUP_LIST_KEY_PREFIX + userId);
+            return;
+        }
+        if(clazz.equals(Button.class)){
+            //清除下属缓存
+            RedisString.delete(UserInfoCacheConstants.USER_SUBORDINATE_LIST_KEY_PREFIX + userId);
+            return;
+        }
     }
 
     /**
@@ -208,4 +300,30 @@ public class UserInvoker {
         return userCookie;
     }
 
+    /**
+     * 获取指定菜单id下的按钮列表信息
+     * @param moduleId
+     * @return
+     */
+    public static List<Button> getModuleButton(Integer moduleId) {
+        String moduleButtonStr = RedisString.get(UserInfoCacheConstants.MODULE_BUTTON_LIST_KEY_PREFIX + moduleId);
+        return null == moduleButtonStr ? null : JSON.parseArray(moduleButtonStr,Button.class);
+    }
+
+    /**
+     * 缓存指定菜单id下的按钮列表信息
+     * @param moduleButtons
+     * @param moduleId
+     */
+    public static void saveModuleButton(List<Button> moduleButtons, Integer moduleId) {
+        RedisString.setWithExpire(UserInfoCacheConstants.MODULE_BUTTON_LIST_KEY_PREFIX + moduleId ,JSON.toJSONString(moduleButtons),NumberUtil.LONG_ONE_DAY_SECOND);
+    }
+
+    /**
+     * 清除指定菜单id下的按钮列表信息
+     * @param moduleId
+     */
+    public static void deleteModuleButton(Integer moduleId) {
+        RedisString.delete(UserInfoCacheConstants.MODULE_BUTTON_LIST_KEY_PREFIX + moduleId);
+    }
 }

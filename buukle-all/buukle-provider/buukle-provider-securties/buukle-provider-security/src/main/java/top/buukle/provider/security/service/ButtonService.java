@@ -7,8 +7,12 @@
 
 package top.buukle.provider.security.service;
 
+import top.buukle.common.response.BaseResponse;
 import top.buukle.provider.security.entity.Button;
 import top.buukle.provider.security.entity.ButtonType;
+import top.buukle.provider.security.vo.query.ButtonQuery;
+import top.buukle.provider.security.vo.query.PageBounds;
+import top.buukle.provider.security.vo.response.PageResponse;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -74,7 +78,50 @@ import java.util.List;
 	 List<Button> getButtonsByParasNoPage(Button button) throws Exception;
 
 
+	/**
+	 * 获取全局按钮类型
+	 * @return
+	 */
     List<ButtonType> getButtonTypes();
 
-    List<Button> getModuleButtons(HttpServletRequest httpServletRequest, Integer moduleId);
+	/**
+	 * 获取菜单下按钮列表
+	 * @param httpServletRequest
+	 * @param moduleId
+	 * @return
+	 * @throws Exception
+	 */
+    List<Button> getModuleButtons(HttpServletRequest httpServletRequest, Integer moduleId) throws Exception;
+
+	/**
+	 * 分页获取列表
+	 * @param query
+	 * @param pageBounds
+	 * @return
+	 */
+    PageResponse<Button> getButtonList(ButtonQuery query, PageBounds pageBounds);
+
+	/**
+	 * 启用停用
+	 * @param query
+	 * @return
+	 */
+	BaseResponse doBanOrRelease(ButtonQuery query);
+
+	/**
+	 * 添加按钮
+	 *
+	 * @param request
+	 * @param query
+	 * @return
+	 */
+	BaseResponse addButton(HttpServletRequest request, ButtonQuery query);
+
+	/**
+	 * 获取详情
+	 * @param request
+	 * @param query
+	 * @return
+	 */
+    Button getButtonDetail(HttpServletRequest request, ButtonQuery query);
 }

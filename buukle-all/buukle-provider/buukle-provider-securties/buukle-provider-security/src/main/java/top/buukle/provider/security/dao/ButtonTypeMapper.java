@@ -1,6 +1,8 @@
 package top.buukle.provider.security.dao;
 
+import top.buukle.provider.security.entity.Button;
 import top.buukle.provider.security.entity.ButtonType;
+import top.buukle.provider.security.vo.query.ButtonQuery;
 
 import java.util.List;
 
@@ -22,4 +24,5 @@ public interface ButtonTypeMapper {
      * @return
      */
     List<ButtonType> getButtonTypes();
+
 }

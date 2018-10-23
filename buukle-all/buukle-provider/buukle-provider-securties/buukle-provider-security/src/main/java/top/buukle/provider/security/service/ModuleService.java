@@ -7,7 +7,12 @@
 
 package top.buukle.provider.security.service;
 
+import top.buukle.common.response.BaseResponse;
 import top.buukle.provider.security.entity.Module;
+import top.buukle.provider.security.vo.query.ModuleQuery;
+import top.buukle.provider.security.vo.query.PageBounds;
+import top.buukle.provider.security.vo.response.ModuleButtonListVo;
+import top.buukle.provider.security.vo.response.PageResponse;
 import top.buukle.provider.security.vo.result.ModuleNavigationVo;
 
 import javax.servlet.http.HttpServletRequest;
@@ -75,5 +80,13 @@ public interface ModuleService {
 	public List<Module> getModulesByParasNoPage(Module module) throws Exception;
 
 
-    List<ModuleNavigationVo> getUserModuleTree(HttpServletRequest httpServletRequest, String applicationName);
+    List<ModuleNavigationVo> getUserModuleTree(HttpServletRequest httpServletRequest, String applicationName) throws Exception;
+
+    PageResponse<Module> getModuleList(ModuleQuery query, PageBounds pageBounds);
+
+    BaseResponse doBanOrRelease(ModuleQuery query);
+
+    List<ModuleButtonListVo> getModuleButtonForPage(HttpServletRequest request, Integer id) throws Exception;
+
+    BaseResponse setModuleButton(String ids, ModuleQuery query);
 }

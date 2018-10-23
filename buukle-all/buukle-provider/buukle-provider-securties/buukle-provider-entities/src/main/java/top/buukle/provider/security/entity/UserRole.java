@@ -78,6 +78,15 @@ public class UserRole {
      */
     private String bak05;
 
+    public UserRole(int roleId, String userId) {
+        this.roleId = roleId;
+        this.userId = userId;
+        this.gmtCreated = new Date();
+        this.status = 1;
+    }
+    public UserRole() {
+    }
+
     /**
      * 主键id
      * @return id 主键id

@@ -68,18 +68,18 @@
     <!-- 每天生成一个html格式的日志结束 -->
 
     <!--日志异步到数据库 -->
-    <appender name="DB" class="ch.qos.logback.classic.db.DBAppender">
-        <connectionSource class="ch.qos.logback.core.db.DriverManagerConnectionSource">
-            <driverClass>com.mysql.jdbc.Driver</driverClass>
-            <url>jdbc:mysql://47.95.13.7:3654/buukle-security-logs?characterEncoding=UTF-8</url>
-            <user>root</user>
-            <password>A987654321b/</password>
-        </connectionSource>
-    </appender>
+    <!--<appender name="DB" class="ch.qos.logback.classic.db.DBAppender">-->
+        <!--<connectionSource class="ch.qos.logback.core.db.DriverManagerConnectionSource">-->
+            <!--<driverClass>com.mysql.jdbc.Driver</driverClass>-->
+            <!--<url>jdbc:mysql://47.95.13.7:3654/buukle-security-logs?characterEncoding=UTF-8</url>-->
+            <!--<user>root</user>-->
+            <!--<password>A987654321b/</password>-->
+        <!--</connectionSource>-->
+    <!--</appender>-->
 
-    <appender name="DB_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
-        <appender-ref ref="DB"/>
-    </appender>
+    <!--<appender name="DB_ASYNC" class="ch.qos.logback.classic.AsyncAppender">-->
+        <!--<appender-ref ref="DB"/>-->
+    <!--</appender>-->
 
     <!--buukle-log-configures-->
     <logger name="com.apache.ibatis" level="TRACE"/>
@@ -98,6 +98,6 @@
         <appender-ref ref="FILE" />
         <appender-ref ref="HTML" />
         <appender-ref ref="FILE_HTML" />
-        <appender-ref ref="DB_ASYNC" />
+        <!--<appender-ref ref="DB_ASYNC" />-->
     </root>
 </configuration>

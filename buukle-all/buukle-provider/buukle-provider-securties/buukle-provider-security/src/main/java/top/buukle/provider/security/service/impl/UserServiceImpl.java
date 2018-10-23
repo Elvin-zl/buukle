@@ -7,32 +7,37 @@
 
 package top.buukle.provider.security.service.impl;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.collections.CollectionUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 import top.buukle.common.constants.BaseResponseCode;
 import top.buukle.common.exception.BaseException;
 import top.buukle.common.request.BaseRequest;
 import top.buukle.common.request.RequestHead;
 import top.buukle.common.response.BaseResponse;
+import top.buukle.common.util.common.NumberUtil;
 import top.buukle.common.util.common.StringUtil;
 import top.buukle.common.util.common.ThreadLocalUtil;
 import top.buukle.common.vo.ThreadParam;
+import top.buukle.provider.security.constants.SecurityStatusConstants;
+import top.buukle.provider.security.entity.*;
 import top.buukle.provider.security.vo.query.PageBounds;
+import top.buukle.provider.security.vo.query.RoleQuery;
 import top.buukle.provider.security.vo.query.UserLoginPermissionQuery;
 import top.buukle.provider.security.dao.*;
-import top.buukle.provider.security.entity.Button;
-import top.buukle.provider.security.entity.Module;
-import top.buukle.provider.security.entity.Role;
-import top.buukle.provider.security.entity.User;
 import top.buukle.provider.security.invoker.UserInvoker;
 import top.buukle.provider.security.service.UserService;
 import top.buukle.provider.security.vo.query.UserQuery;
 import top.buukle.provider.security.vo.response.PageResponse;
+import top.buukle.provider.security.vo.response.UserRoleListVo;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -48,6 +53,11 @@ public class UserServiceImpl implements UserService {
     private ModuleMapper moduleMapper;
 	@Resource
     private RoleMapper roleMapper;
+	@Resource
+    private UserRoleMapper userRoleMapper;
+
+    @Autowired
+    private Environment env;
 
 	private static final String AUTHENTICATION_WRONG = "认证失败";
 
@@ -89,7 +99,7 @@ public class UserServiceImpl implements UserService {
         String ssoDefault = request.getExpandParameterString();
 		if(null != user){
 			//刷新用户缓存失效时间
-			UserInvoker.saveUser(user,ssoDefault,request.getRequestHead());
+			UserInvoker.saveUser(user,ssoDefault,request.getRequestHead(),userCookie);
 			return new BaseResponse.Builder().buildSuccess(user);
 		}
 		return new BaseResponse.Builder().buildFailed(AUTHENTICATION_WRONG);
@@ -107,7 +117,6 @@ public class UserServiceImpl implements UserService {
 		this.validatePermissionParam(userLoginPermissionQuery,request.getRequestHead());
 		//初始化认证参数
 		String url = userLoginPermissionQuery.getUrl();
-		String userCookie = userLoginPermissionQuery.getUserCookie();
 		User user = (User) userLoginPermissionQuery.getUser();
 		//获取全局菜单缓存
 		List<Module> globalModuleList = this.getGlobalModule();
@@ -125,17 +134,17 @@ public class UserServiceImpl implements UserService {
 			return new BaseResponse.Builder().buildSuccess();
 		}
 		//获取用户角色列表缓存
-		List<Role> userRoleList = this.getUserRole(userCookie,user,request);
+		List<Role> userRoleList = this.getUserRole(user.getUserId(),user,request);
 		if(CollectionUtils.isEmpty(userRoleList)){
 			throw new BaseException(BaseResponseCode.USER_PERMISSION_USER_ROLE_LIST_NULL);
 		}
 		//获取用户菜单列表缓存
-		List<Module> userModuleList = this.getUserModule(userCookie,userRoleList,request);
+		List<Module> userModuleList = this.getUserModule(user.getUserId(),userRoleList,request);
 		if(CollectionUtils.isEmpty(userModuleList)){
 			throw new BaseException(BaseResponseCode.USER_PERMISSION_USER_MODULE_LIST_NULL);
 		}
 		//获取用户按钮列表缓存
-		List<Button> userButtonList = this.getUserButton(userCookie,userModuleList,request);
+		List<Button> userButtonList = this.getUserButton(user.getUserId(),userModuleList,request);
 		//判断当前用户是否拥有当前请求url菜单(菜单 + 按钮)
 		if(!this.hasPermission(url,userModuleList,userButtonList)){
 			throw new BaseException(BaseResponseCode.USER_PERMISSION_USER_NO_PERMISSION);
@@ -168,18 +177,18 @@ public class UserServiceImpl implements UserService {
 
 	/**
 	 * 获取用户按钮列表缓存
-	 * @param userCookie
+	 * @param userId
 	 * @param userModuleList
 	 *@param request  @return
 	 */
 	@Override
-    public List<Button> getUserButton(String userCookie, List<Module> userModuleList, BaseRequest request) throws Exception {
-		List<Button> userButtonList =  UserInvoker.getUserButton(userCookie);
+    public List<Button> getUserButton(String userId, List<Module> userModuleList, BaseRequest request) throws Exception {
+		List<Button> userButtonList =  UserInvoker.getUserButton(userId);
 		if(CollectionUtils.isEmpty(userButtonList)){
 			userButtonList = buttonMapper.getUserButtonListByUserModuleList(userModuleList);
 			if(CollectionUtils.isNotEmpty(userButtonList)){
 				//缓存用户按钮列表缓存
-				UserInvoker.saveUserButton(userButtonList,userCookie, request.getRequestHead());
+				UserInvoker.saveUserButton(userButtonList,userId, request.getRequestHead());
 			}
 		}
 		return userButtonList;
@@ -198,21 +207,96 @@ public class UserServiceImpl implements UserService {
         return new PageResponse.Builder().build(new PageInfo<>(list));
     }
 
-	/**
+    /**
+     * 根据类型获取用户相应类型的缓存信息
+     * @param clazz
+     * @param userCookie
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public List getUserCacheInfoByType(Class clazz, String userCookie) throws Exception {
+        User userCache = UserInvoker.getUser(userCookie);
+        if(null == userCache){
+            return null;
+        }
+        BaseRequest baseRequest = new BaseRequest.Builder().build(env.getProperty("spring.application.name"), userCache.getUserId());
+        List<Role> userRole = this.getUserRole(userCache.getUserId(), userCache, baseRequest);
+        if(clazz.equals(Role.class)){
+            return userRole;
+        }
+        List<Module> userModule = this.getUserModule(userCache.getUserId(), userRole, baseRequest);
+        if(clazz.equals(Module.class)){
+            return userModule;
+        }
+        List<Button> userButton = this.getUserButton(userCache.getUserId(), userModule, baseRequest);
+        if(clazz.equals(Button.class)){
+            return userButton;
+        }
+        return null;
+    }
+
+    /**
+     * 启用/停用 用户
+     * @param userQuery
+     * @return
+     */
+    @Override
+    public BaseResponse doBanOrRelease(UserQuery userQuery) {
+        if(null != userQuery.getStatus() && userQuery.getStatus().equals(SecurityStatusConstants.STATUS_OPEN)){
+            userQuery.setStatus(SecurityStatusConstants.STATUS_CLOSE);
+        }else{
+            userQuery.setStatus(SecurityStatusConstants.STATUS_OPEN);
+        }
+        userMapper.doBanOrRelease(userQuery);
+        return new BaseResponse.Builder().buildSuccess();
+    }
+
+    /**
+     * 执行分配角色
+     * @param ids
+     * @param userQuery
+     * @return
+     */
+    @Override
+    public BaseResponse doSetUserRole(String ids, UserQuery userQuery) {
+        User user = userMapper.selectByPrimaryKey(userQuery.getId());
+        userRoleMapper.deleteUserRole(user.getUserId());
+        if(StringUtil.isEmpty(ids)){
+            //更新用户缓存信息
+            UserInvoker.clearUserCacheInfoByType(null ,user.getUserId());
+            return new BaseResponse.Builder().buildSuccess();
+        }
+        String[] idsArr = ids.split(",");
+        if(null== idsArr || idsArr.length < 1){
+            return new BaseResponse.Builder().buildSuccess();
+        }
+        for (String idStr : idsArr) {
+        	if(StringUtil.isNotEmpty(idStr)){
+                UserRole userRole = new UserRole(Integer.parseInt(idStr),user.getUserId());
+                userRoleMapper.insert(userRole);
+            }
+        }
+        //更新用户缓存信息
+        UserInvoker.clearUserCacheInfoByType(null ,user.getUserId());
+        return new BaseResponse.Builder().buildSuccess();
+    }
+
+    /**
 	 * 获取用户菜单列表缓存
-	 * @param userCookie
+	 * @param userId
 	 * @param userRoleList
 	 *@param request  @return
 	 */
     @Override
-    public List<Module> getUserModule(String userCookie, List<Role> userRoleList, BaseRequest request) throws Exception {
-		List<Module> userModuleList =  UserInvoker.getUserModule(userCookie);
+    public List<Module> getUserModule(String userId, List<Role> userRoleList, BaseRequest request) throws Exception {
+		List<Module> userModuleList =  UserInvoker.getUserModule(userId);
 		request.setInfo(userRoleList);
 		if(CollectionUtils.isEmpty(userModuleList)){
 			userModuleList = moduleMapper.getUserModuleListByUserRoleList(userRoleList);
 			if(CollectionUtils.isNotEmpty(userModuleList)){
 				//缓存用户菜单列表缓存
-				UserInvoker.saveUserModule(userModuleList,userCookie, request.getRequestHead());
+				UserInvoker.saveUserModule(userModuleList,userId, request.getRequestHead());
 			}
 		}
 		return userModuleList;
@@ -221,26 +305,25 @@ public class UserServiceImpl implements UserService {
 
 	/**
 	 * 获取用户角色列表缓存
-	 * @param userCookie
+	 * @param userId
 	 * @param user
 	 * @param request
 	 * @return
 	 */
     @Override
-	public List<Role> getUserRole(String userCookie, User user, BaseRequest request) throws Exception {
-		List<Role> userRoleList =  UserInvoker.getUserRole(userCookie);
+	public List<Role> getUserRole(String userId, User user, BaseRequest request) throws Exception {
+		List<Role> userRoleList =  UserInvoker.getUserRole(userId);
 		if(CollectionUtils.isEmpty(userRoleList)){
 			userRoleList = roleMapper.getUserRoleListByUserId(user.getUserId());
 			if(CollectionUtils.isNotEmpty(userRoleList)){
 				//绑定用户登录策略到线程本地
 				ThreadLocalUtil.set(new ThreadParam.Biulder().setLoginStrategy(user.getLoginStrategy()).build());
 				//缓存用户角色列表缓存
-				UserInvoker.saveUserRole(userRoleList,userCookie, request.getRequestHead());
+				UserInvoker.saveUserRole(userRoleList,userId, request.getRequestHead());
 			}
 		}
 		return userRoleList;
 	}
-
 
     /**
 	 * 获取全局按钮缓存
@@ -274,7 +357,79 @@ public class UserServiceImpl implements UserService {
 		return globalModuleList;
 	}
 
-	/**
+    /**
+     * 获取全局菜角色列表缓存
+     */
+    @Override
+    public List<Role> getGlobalRole() {
+        List<Role> roleList = UserInvoker.getGlobalRole();
+        if(CollectionUtils.isEmpty(roleList)){
+            RoleQuery roleQuery = new RoleQuery();
+            roleQuery.setStatus(SecurityStatusConstants.STATUS_OPEN);
+            roleList = roleMapper.getRoleList(roleQuery);
+            UserInvoker.saveGlobalRole(roleList);
+        }
+        return roleList;
+    }
+
+    /**
+     * 根据类型获取全局缓存信息
+     * @param clazz
+     * @return
+     */
+    @Override
+    public List getGlobalCacheByType(Class clazz) throws Exception {
+        if(clazz.equals(Role.class)){
+            return this.getGlobalRole();
+        }
+        if(clazz.equals(Module.class)){
+            return this.getGlobalModule();
+        }
+        if(clazz.equals(Button.class)){
+            return this.getGlobalButton();
+        }
+        return null;
+    }
+
+    /**
+     * 页面获取用户角色信息
+     * @return
+     */
+    @Override
+    public List<UserRoleListVo> getUserRoleForPage(HttpServletRequest request, Integer id) throws Exception {
+
+        //获取全局角色列表
+        List<Role> globalRoleList = this.getGlobalCacheByType(Role.class);
+        if(CollectionUtils.isEmpty(globalRoleList)){
+            return new ArrayList<>();
+        }
+        //获取用户角色列表
+        List<Role> userRoleList = new ArrayList<>();
+        User user = userMapper.selectByPrimaryKey(id);
+        if(null != user){
+            userRoleList = roleMapper.getUserRoleListByUserId(user.getUserId());
+        }
+        List<Integer> userRoleIdList = new ArrayList<>();
+        if(CollectionUtils.isNotEmpty(userRoleList)){
+            for (Role uRole: userRoleList) {
+                userRoleIdList.add(uRole.getId());
+            }
+        }
+        List<UserRoleListVo> userRoleListVoList = new ArrayList<>();
+        //设置指定用户角色选中标识
+        for (Role gRole: globalRoleList) {
+            UserRoleListVo userRoleListVo = new UserRoleListVo();
+            BeanUtils.copyProperties(userRoleListVo,gRole);
+            if(userRoleIdList.contains(gRole.getId())){
+                userRoleListVo.setIsSelected(NumberUtil.INTEGER_ONE);
+            }
+            userRoleListVoList.add(userRoleListVo);
+        }
+        return userRoleListVoList;
+    }
+
+
+    /**
 	 * 判断url是否在全局菜单+按钮 管理列表
 	 * @param url
 	 * @param globalModuleList

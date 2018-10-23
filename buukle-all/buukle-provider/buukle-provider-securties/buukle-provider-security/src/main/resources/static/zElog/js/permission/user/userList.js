@@ -73,8 +73,10 @@ function modify(id, data) {
 function setUserRole(data) {
     //渲染用户角色
     renderUserRoles(data);
+    releaseThis($('#doSetUserRole'));
     //保存
     $('#doSetUserRole').off().on('click',function () {
+        disableThis( $('#doSetUserRole'));
         $('#setUserRoleId').val($('#currentRecordId').val());
         $.ajax({
             url:'/user/doSetUserRole',
@@ -102,10 +104,9 @@ function setUserRole(data) {
 /*渲染用户角色*/
 function renderUserRoles(data) {
     var html = '';
-    console.log(data);
     for(var i = 0; i<data.length;i++){
         var checkVelue = data[i].isSelected == 1?'checked':'';
-     html +='<input style="margin-left: 25px;" '+checkVelue+' value="'+data[i].id+'" name="ids" type="checkbox">'+data[i].roleName;
+     html +='<input class="clearAbleBuukle" style="margin-left: 25px;" '+checkVelue+' value="'+data[i].id+'" name="ids" type="checkbox">'+data[i].roleName;
     }
     $('#roleListContains').html(html);
 }

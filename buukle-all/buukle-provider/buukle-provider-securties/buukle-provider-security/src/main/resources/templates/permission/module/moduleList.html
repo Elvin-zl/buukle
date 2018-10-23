@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/static/css/public.css">
     <link rel="stylesheet" href="/static/css/list.css">
     <link rel="stylesheet" href="/static/zElog/css/form.css">
+    <link rel="stylesheet" type="text/css" href="/static/ztree/css/zTreeStyle/zTreeStyle.css">
     <link rel="stylesheet" href="" id="btnThemeCss">
 </head>
 <body>
@@ -49,6 +50,7 @@
             <table id="table" class="layui-table"></table>
         </div>
         <!--CRUD START-->
+        <input type="hidden" id="currentRecordId">
         <!--详情-->
         <div class="hiddenForm" id="detail">
             <table class="data-table">
@@ -86,7 +88,37 @@
                 <button type="" class="layui-btn layui-btn-primary layui-layer-close ">返回</button>
             </div>
         </div>
-        <!--CRUD START-->
+        <!--编辑-->
+        <div class="hiddenForm" id="edit">
+            <table class="data-table">
+                <tr>
+                    <td class="table-property-name">菜单名称</td>
+                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input " ></td>
+                    <td class="table-property-name">状态</td>
+                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input " ></td>
+                </tr>
+                <tr>
+                    <td class="table-property-name">创建时间</td>
+                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input " ></td>
+                    <td class="table-property-name">更新时间</td>
+                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input " ></td>
+                </tr>
+                <tr>
+                    <td class="table-property-name">创建者</td>
+                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input ">
+                    </td>
+                    <td class="table-property-name">更新者</td>
+                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input " ></td>
+                </tr>
+                <tr>
+                    <td class="table-property-name">描述</td>
+                    <td class="table-property-value"><textarea disabled class="layui-textarea" ></textarea></td>
+                </tr>
+            </table>
+            <div class="buukle-frame-button">
+                <button type="" class="layui-btn layui-btn-primary layui-layer-close ">返回</button>
+            </div>
+        </div>
         <!--添加页面-->
         <div class="hiddenForm" id="add">
             <form id="addModuleForm">
@@ -193,6 +225,19 @@
             </div>
             <div>
                 <button style="margin-left: 102px;" class="layui-btn layui-layer-close buukle-choose-father-tree-btn back-button saveBtn theme-btn" data-form-id="yes" id="yes">确定</button>
+            </div>
+        </div>
+        <!--分配按钮-->
+        <div class="hiddenForm" id="setModuleButton">
+            <div style="width: 300px">
+                <form>
+                    <ul id="tree" class="ztree buukle-zTree"></ul>
+                </form>
+            </div>
+            <div style="margin-top: -106px;margin-left: 94px;">
+                <button class="layui-btn back-button layui-layer-close saveBtn theme-btn" id="doSetModuleButton">保存</button>
+                <button class="layui-btn layui-btn-primary layui-layer-close back-button" id="cancelSetModuleButton">取消
+                </button>
             </div>
         </div>
     </div>

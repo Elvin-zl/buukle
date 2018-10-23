@@ -87,12 +87,115 @@
                 <button class="layui-btn layui-btn-primary layui-layer-close">返回</button>
             </div>
         </div>
+        <!--编辑-->
+        <div class="detail crud" id="edit" style="display: none;">
+            <table class="data-table">
+                <tr>
+                    <td class="table-property-name">账号</td>
+                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input"  >
+                    </td>
+                    <td class="table-property-name">性别</td>
+                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input" ></td>
+                </tr>
+                <tr>
+                    <td class="table-property-name">姓名</td>
+                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input"  >
+                    </td>
+                    <td class="table-property-name">手机</td>
+                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input" ></td>
+                </tr>
+                <tr>
+                    <td class="table-property-name">创建时间</td>
+                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input" ></td>
+                    <td class="table-property-name">状态</td>
+                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="table-property-name">更新时间</td>
+                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input" ></td>
+                </tr>
+            </table>
+            <div class="buukle-frame-button">
+                <button class="layui-btn layui-btn-primary layui-layer-close">返回</button>
+            </div>
+        </div>
         <input id="currentRecordId" type="hidden">
+        <!--添加页面-->
+        <div class="hiddenForm" id="add">
+            <form id="addButtonForm">
+                <table class="data-table">
+                    <tr>
+                        <td class="table-property-name">按钮名称 :</td>
+                        <td class="table-property-value"><input type="text" class="buukle-frame-input add-input" name="buttonName"></td>
+                        <td class="table-property-name">回调url :</td>
+                        <td class="table-property-value"><input type="text" class="buukle-frame-input add-input" name="url"></td>
+                    </tr>
+                    <tr>
+                        <td class="table-property-name">状态 :</td>
+                        <td class="table-property-value">
+                            <select id="addStatus" class="buukle-frame-input btn-layer-type-selector selector add-input" name="status">
+                                <option class="select-item" value="" data-status="">------------请选择-------------</option>
+                                <option class="select-item" value="1" data-status="1">-------------启用---------------</option>
+                                <option class="select-item" value="0" data-status="0">-------------停用---------------</option>
+                            </select>
+                        </td>
+                        <td class="table-property-name">分布级别 :</td>
+                        <td class="table-property-value">
+                            <select name="layoutLevel" class="buukle-frame-input btn-layer-type-selector selector add-input btn-select-item">
+                                <option value="">-------------请选择---------</option>
+                                <option value="0">-----------页面级别---------</option>
+                                <option value="1">-----------列表级别---------</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="table-property-name ">响应类型 :</td>
+                        <td class="table-property-value ">
+                            <select name="responseType" class="buukle-frame-input btn-layer-type-selector selector add-input btn-select-item">
+                                <option value="">----------请选择----------</option>
+                                <option value="0">-------提示确认框-----</option>
+                                <option value="1">-弹层页面取接口数据-</option>
+                                <option value="2">弹层页面不取接口数据</option>
+                            </select>
+                        </td>
+                        <td class="table-property-name">页面响应ID :</td>
+                        <td class="table-property-value"><input type="text" class="buukle-frame-input add-input" name="responseDomId"></td>
+                    </tr>
+                    <tr>
+                        <td class="table-property-name">按钮操作类型 :</td>
+                        <td class="table-property-value ">
+                            <select name="operationType" class="buukle-frame-input btn-operate-type-selector selector add-input btn-select-item">
+                                <option value="">------------请选择-----------</option>
+                                <option value="0">------------添加------------</option>
+                                <option value="1">------------删除------------</option>
+                                <option value="2">------------修改------------</option>
+                                <option value="3">------------详情------------</option>
+                                <option value="4">----------申请启用----------</option>
+                                <option value="5">------------审核------------</option>
+                                <option value="6">----------起/停用------------</option>
+                                <option value="7">----------分配角色-----------</option>
+                                <option value="8">----------分配按钮-----------</option>
+                            </select>
+                        </td>
+                        <td class="table-property-name">按钮描述 :</td>
+                        <td class="table-property-value">
+                            <textarea class="layui-textarea buukle-add-textarea" id="buttonDescTextarea" name="bak01"></textarea>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <div style="margin-top: -106px;margin-left: 94px;">
+                <button class="layui-btn commitBtn saveBtn theme-btn" data-form-id="addButtonForm" id="addButton">保存
+                </button>
+                <button class="layui-btn layui-btn-primary layui-layer-close back-button" id="closeAddButton">取消</button>
+            </div>
+        </div>
         <!--设置角色-->
         <div class="hiddenForm" id="setUserRole">
             <form id="setUserRoleForm">
                 <input type="hidden" name="id" id="setUserRoleId">
-                <div id="roleListContains" class="roleListContains"></div>
+                <div id="roleListContains" class="roleListContains containsClearAbleBuukle"></div>
             </form>
             <div class="buukle-frame-bottom">
                 <button class="layui-btn back-button layui-layer-close saveBtn theme-btn" id="doSetUserRole">保存</button>

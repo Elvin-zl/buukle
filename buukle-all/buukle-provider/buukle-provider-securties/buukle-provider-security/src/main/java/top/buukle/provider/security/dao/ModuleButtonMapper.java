@@ -1,5 +1,6 @@
 package top.buukle.provider.security.dao;
 
+import org.apache.ibatis.annotations.Param;
 import top.buukle.provider.security.entity.ModuleButton;
 
 public interface ModuleButtonMapper {
@@ -14,4 +15,8 @@ public interface ModuleButtonMapper {
     int updateByPrimaryKeySelective(ModuleButton record);
 
     int updateByPrimaryKey(ModuleButton record);
+
+    void deleteModuleButton(@Param("moduleId") Integer moduleId);
+
+    ModuleButton getByButtonId(@Param("buttonId") Integer buttonId);
 }

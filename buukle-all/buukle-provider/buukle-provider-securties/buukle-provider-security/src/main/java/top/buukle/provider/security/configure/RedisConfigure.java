@@ -38,16 +38,11 @@ import java.lang.reflect.Method;
 @PropertySource(value = "classpath:/application-prod.yml")
 public class RedisConfigure extends CachingConfigurerSupport {
 
-    @Value("${spring.redis.host}")
-    private String host;
-    @Value("${spring.redis.port}")
-    private int port;
-    @Value("${spring.redis.timeout}")
-    private int timeout;
     private final static Logger LOGGER = LoggerFactory.getLogger(RedisConfigure.class);
 
     @Autowired
     private JedisConnectionFactory jedisConnectionFactory;
+
     @Bean
     public KeyGenerator wiselyKeyGenerator(){
         return new KeyGenerator() {
@@ -63,6 +58,7 @@ public class RedisConfigure extends CachingConfigurerSupport {
             }
         };
     }
+
     @Bean
     @Override
     public CacheManager cacheManager() {
@@ -70,22 +66,6 @@ public class RedisConfigure extends CachingConfigurerSupport {
         RedisCacheManager.RedisCacheManagerBuilder builder = RedisCacheManager .RedisCacheManagerBuilder.fromConnectionFactory(jedisConnectionFactory);
         return builder.build();
     }
-
-//    @Bean
-////    public RedisTemplate<String, Object> redisTemplate(JedisConnectionFactory jedisConnectionFactory ) {
-////        RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
-////        redisTemplate.setConnectionFactory(jedisConnectionFactory);
-////        //定义value的序列化方式
-////        Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
-////        ObjectMapper om = new ObjectMapper();
-////        om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
-////        om.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
-////        jackson2JsonRedisSerializer.setObjectMapper(om);
-////        redisTemplate.setValueSerializer(jackson2JsonRedisSerializer);
-////        redisTemplate.setHashValueSerializer(jackson2JsonRedisSerializer);
-////        redisTemplate.afterPropertiesSet();
-////        return redisTemplate;
-////    }
 
     @Bean
     public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
@@ -148,6 +128,8 @@ public class RedisConfigure extends CachingConfigurerSupport {
      */
     @ConfigurationProperties
     class DataJedisProperties{
+        @Value("${spring.redis.database}")
+        private  int database;
         @Value("${spring.redis.host}")
         private  String host;
         @Value("${spring.redis.password}")
@@ -156,15 +138,16 @@ public class RedisConfigure extends CachingConfigurerSupport {
         private  int port;
         @Value("${spring.redis.timeout}")
         private  int timeout;
-//        @Value("${spring.redis.jedis.pool.max-idle}")
-//        private int maxIdle;
-//        @Value("${spring.redis.jedis.pool.max-wait}")
-//        private long maxWaitMillis;
+        @Value("${spring.redis.pool.max-idle}")
+        private int maxIdle;
+        @Value("${spring.redis.pool.max-wait}")
+        private long maxWaitMillis;
 
         @Bean
         JedisConnectionFactory jedisConnectionFactory() {
             LOGGER.info("Create JedisConnectionFactory successful");
             JedisConnectionFactory factory = new JedisConnectionFactory();
+            factory.setDatabase(database);
             factory.setHostName(host);
             factory.setPort(port);
             factory.setTimeout(timeout);
@@ -175,8 +158,8 @@ public class RedisConfigure extends CachingConfigurerSupport {
         public JedisPool redisPoolFactory() {
             LOGGER.info("JedisPool init successful，host -> [{}]；port -> [{}]", host, port);
             JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
-//            jedisPoolConfig.setMaxIdle(maxIdle);
-//            jedisPoolConfig.setMaxWaitMillis(maxWaitMillis);
+            jedisPoolConfig.setMaxIdle(maxIdle);
+            jedisPoolConfig.setMaxWaitMillis(maxWaitMillis);
             JedisPool jedisPool = new JedisPool(jedisPoolConfig, host, port, timeout, password);
             return jedisPool;
         }

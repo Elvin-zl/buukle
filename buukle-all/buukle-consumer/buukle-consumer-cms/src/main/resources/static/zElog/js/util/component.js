@@ -248,7 +248,7 @@ function bindTableBtnsClick() {
                 if(url != ''){
                     //取出按钮url数据,并判断按钮类型回显数据
                     $.ajax({
-                        url: url+"?random="+Math.random(),
+                        url: url+"?v="+Math.random(),
                         dataType: 'json',
                         data:{"id":id},
                         cache:false,

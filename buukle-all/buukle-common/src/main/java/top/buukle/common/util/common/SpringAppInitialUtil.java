@@ -11,11 +11,14 @@ import org.springframework.stereotype.Component;
  * @Date Created by elvin on 2018/5/19.
  * @Description : ApplicationInitListener app 启动监听器,用于项目启动后初始化一些默认后台任务
  */
-public class SpringAppInitialUtil implements ApplicationListener<ContextRefreshedEvent> {
+public abstract class SpringAppInitialUtil implements ApplicationListener<ContextRefreshedEvent> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SpringAppInitialUtil.class);
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         LOGGER.info("top.buukle.common.util.common.ApplicationInitialUtil : 应用启动完毕!");
+        init();
     }
+
+    protected abstract void init();
 }

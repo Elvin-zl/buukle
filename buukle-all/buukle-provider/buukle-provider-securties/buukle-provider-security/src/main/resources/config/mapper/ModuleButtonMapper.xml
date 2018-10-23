@@ -209,4 +209,14 @@
       bak05 = #{bak05,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--start-->
+  <delete id="deleteModuleButton" parameterType="java.lang.Integer" >
+    delete from module_button
+    where module_button.module_id = #{moduleId}
+  </delete>
+
+    <select id="getByButtonId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+        select * from module_button mb where mb.button_id = #{buttonId}
+    </select>
 </mapper>

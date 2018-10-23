@@ -5,9 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import top.buukle.common.response.BaseResponse;
 import top.buukle.provider.security.entity.Button;
 import top.buukle.provider.security.entity.ButtonType;
 import top.buukle.provider.security.service.ButtonService;
+import top.buukle.provider.security.vo.query.ButtonQuery;
+import top.buukle.provider.security.vo.query.PageBounds;
+import top.buukle.provider.security.vo.response.PageResponse;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -41,7 +45,56 @@ public class ButtonController {
      */
     @RequestMapping("/getModuleButtons/{moduleId}")
     @ResponseBody
-    public List<Button> getModuleButtons(@PathVariable("moduleId") Integer moduleId, HttpServletRequest httpServletRequest) {
+    public List<Button> getModuleButtons(@PathVariable("moduleId") Integer moduleId, HttpServletRequest httpServletRequest) throws Exception {
         return buttonService.getModuleButtons(httpServletRequest,moduleId);
     }
+
+    /**
+     * 分页获取按钮信息列表
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/getButtonList")
+    @ResponseBody
+    public PageResponse<Button> getModuleList(ButtonQuery query, PageBounds pageBounds) throws Exception {
+        return buttonService.getButtonList(query,pageBounds);
+    }
+
+    /**
+     * 启用/停用 按钮
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/doBanOrRelease")
+    @ResponseBody
+    public BaseResponse doBanOrRelease(ButtonQuery query) throws Exception {
+        return buttonService.doBanOrRelease(query);
+    }
+
+    /**
+     * 添加按钮
+     * @param request
+     * @param query
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/addButton")
+    @ResponseBody
+    public BaseResponse addButton(HttpServletRequest request, ButtonQuery query) throws Exception {
+        return buttonService.addButton(request,query);
+    }
+
+    /**
+     * 获取按钮详情
+     * @param request
+     * @param query
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/getButtonDetail")
+    @ResponseBody
+    public Button getButtonDetail(HttpServletRequest request, ButtonQuery query) throws Exception {
+        return buttonService.getButtonDetail(request,query);
+    }
+
 }

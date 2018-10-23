@@ -2,10 +2,8 @@
 $(function () {
     /*绑定页面按钮操作组件*/
     bindsearchConditionClick();
-    /*绑定添加页面中加载父级菜单树点击事件*/
-    bindShowFatherModuleTree();
     /*绑定添加页面保存按钮事件*/
-    bindAddModulePageClick();
+    // bindAddModulePageClick();
 });
 var tableIns;
 function renderTable() {
@@ -26,8 +24,8 @@ function renderTable() {
             first:  '首页',
             last:   '尾页',
             request: {
-                pageName: 'pageNo',
-                limitName: 'pageSize'
+                pageName: 'page',
+                limitName: 'limit'
             }
             ,cols: [[
                 {field: 'moduleName', title: '菜单/按钮名', width:177}
@@ -52,79 +50,35 @@ function reloadTable() {
     },1000);
 }
 
-/*菜单树回显*/
-function bindShowFatherModuleTree(){
-    $('#fatherModuleName').off().on('click',function () {
-        $('#fatherModuleName').attr('disabled','disabled');
-        $.ajax({
-            url:'/module/getFatherModuleList',
-            dataType:'json',
-            type:'post',
-            success:function (data) {
-                $('#fatherModuleTreeContain').html('');
-                layui.use('tree', function(){
-                    layui.tree({
-                        elem: '#fatherModuleTreeContain' //传入元素选择器
-                        ,nodes:  data,
-                        click:function (node) {
-                            $('#fatherModuleName').val(node.name);
-                            $('#pid').val(node.id);
-                        }
-                    });
-                });
-                layui.use("layer",function () {
-                    var layer = layui.layer;
-                    layer.open({
-                        title:"选择父级菜单",
-                        type:1,
-                        content: $('#fatherModuleTree'),
-                        area: ['500px', '320px']
-                    });
-                });
-            }
-        });
-    });
-    /*防止二次点击*/
-    $('#yes').off().on('click',function () {
-        $('#fatherModuleName').attr('disabled',false);
-    })
-}
-/*绑定添加页面点击事件*/
-function bindAddModulePageClick() {
-    //点击选择类型动态显示按钮选项
-    $('#moduleType').off().on('change',function () {
-        if($(this).val() == 1){
-            $('.btn-selected').show();
-        }
-        if($(this).val() == 0){
-            $('.btn-select-item').val('');
-            $('.btn-selected').hide();
+/*添加*/
+$('#addRole').off().on('click',function () {
+    $.ajax({
+        url:"/role/addRole",
+        dataType:"json",
+        type:"post",
+        data: $('#addRoleForm').serialize(),
+        success:function (data) {
+            var code = data.code;
+            layui.use("layer",function () {
+                var layer = layui.layer;
+                var cancelB =  $("#cancelAddRole");
+                if(code == "F"){
+                    layer.msg(data.msg, {icon: 2});
+                    cancelB.click();
+                    return;
+                }
+                layer.msg(data.msg, {icon: 1});
+                cancelB.click();
+                reloadTable();
+            })
         }
     });
-    //保存
-    $('#addModule').off().on('click',function () {
-        $.ajax({
-            url:'/module/addModule',
-            dataType:'json',
-            type:'post',
-            data:$('#addModuleForm').serialize(),
-            success:function (data) {
-                layer.msg(data.msg, {
-                    icon: 1,
-                    time: 1000
-                });
-                //清空添加表单
-                $('.add-input').val('');
-                reloadTable ();
-            }
-        });
-    });
-}
+});
 /*详情回显回调*/
 function detail(data) {
     for(var key in data){
         if(key == "status"){
-            $("#moduleStatus").val(data[key]==0?"停用":"启用")
+            $('#roleStatus').val(data[key]==0?"停用":"启用")
             continue;
         }else if(key=="gmtCreated" || key=="modifiedTime"){
             $("#"+key).val(formatDateTime(data[key]));
@@ -136,4 +90,68 @@ function detail(data) {
 /*修改回显回调*/
 function modify(id, data) {
 
+}
+
+/*分配按钮回调*/
+function setModuleButton(data) {
+    //渲染树
+    rederzTree(data);
+    releaseThis($('#doSetModuleButton'));
+    //保存
+    $('#doSetModuleButton').off().on('click',function () {
+        disableThis($('#doSetModuleButton'));
+        var id = $("#currentRecordId").val();
+        var nodes = zTreeObj.getCheckedNodes(true);
+        var ids = '';
+        for(var i=0;i<nodes.length;i++){
+            ids = ids + nodes[i].id + ',';
+        }
+        $.ajax({
+            url:"/module/setModuleButton",
+            dataType:"json",
+            type:"post",
+            data:{'ids':ids,'id':id},
+            success:function (data) {
+                var code = data.code;
+                layui.use("layer",function () {
+                    var layer = layui.layer;
+                    var cancelB =  $("#cancelSetModuleButton");
+                    if(code == "F"){
+                        layer.msg(data.msg, {icon: 2});
+                        cancelB.click();
+                        return;
+                    }
+                    layer.msg(data.msg, {icon: 1});
+                    cancelB.click();
+                    reloadTable();
+                })
+            }
+        });
+    })
+}
+/*渲染zTree*/
+var zTreeObj ;
+function rederzTree(data) {
+    var setting = {
+        view: {
+            dblClickExpand: false,
+            showLine: true,
+            selectedMulti: false
+        },
+        check: {
+            chkboxType: { "Y" : "ps", "N" : "ps" },
+            enable: true
+        },
+        data: {
+            simpleData: {
+                enable:true,
+                idKey: "id",
+                pIdKey: "pId",
+                rootPId: ""
+            }
+        }
+    };
+    var zNodes = data;
+    var t = $("#tree");
+    zTreeObj = $.fn.zTree.init(t, setting, zNodes);
 }

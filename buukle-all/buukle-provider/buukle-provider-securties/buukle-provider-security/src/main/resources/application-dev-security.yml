@@ -17,7 +17,7 @@ security:
   ## 指定 : 是否开启授权
   openAuth: 1
   ## 指定 :sso domain
-  ssoDomain: localHost
+  ssoDomain: localhost
   ## 指定 :执行登录path
   doLoginPath: /doLogin
   ## 指定 :登录页面路径path

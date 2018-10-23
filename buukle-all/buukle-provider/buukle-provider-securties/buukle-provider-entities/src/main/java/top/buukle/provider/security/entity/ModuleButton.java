@@ -78,6 +78,14 @@ public class ModuleButton {
      */
     private String bak05;
 
+    public ModuleButton(int buttonId, Integer moduleId) {
+        this.moduleId = moduleId;
+        this.buttonId = buttonId;
+    }
+
+    public ModuleButton() {
+    }
+
     /**
      * 主键id
      * @return id 主键id

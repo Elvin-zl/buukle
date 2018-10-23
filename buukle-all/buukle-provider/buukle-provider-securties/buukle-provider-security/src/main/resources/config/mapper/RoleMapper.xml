@@ -22,6 +22,99 @@
     id, role_name, description, creator, creator_code, gmt_created, modifier, modifier_code, 
     gmt_modified, status, bak01, bak02, bak03, bak04, bak05
   </sql>
+  <sql id="Base_Column_Update" >
+      <if test="roleName != null" >
+          role_name = #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+          description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+          creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorCode != null" >
+          creator_code = #{creatorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreated != null" >
+          gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null" >
+          modifier = #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifierCode != null" >
+          modifier_code = #{modifierCode,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModified != null" >
+          gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+          status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="bak01 != null" >
+          bak01 = #{bak01,jdbcType=VARCHAR},
+      </if>
+      <if test="bak02 != null" >
+          bak02 = #{bak02,jdbcType=VARCHAR},
+      </if>
+      <if test="bak03 != null" >
+          bak03 = #{bak03,jdbcType=VARCHAR},
+      </if>
+      <if test="bak04 != null" >
+          bak04 = #{bak04,jdbcType=VARCHAR},
+      </if>
+      <if test="bak05 != null" >
+          bak05 = #{bak05,jdbcType=VARCHAR},
+      </if>
+      id = #{id,jdbcType=INTEGER}
+  </sql>
+
+  <sql id="Base_Column_where" >
+      <if test="id != null" >
+          and  id = #{id}
+      </if>
+      <if test="roleName != null and roleName !='' " >
+          and  role_name = #{roleName}
+      </if>
+      <if test="description != null and description !='' " >
+          and  description = #{description}
+      </if>
+      <if test="creator != null and creator !='' " >
+          and  creator = #{creator}
+      </if>
+      <if test="creatorCode != null and creatorCode !='' " >
+          and  creator_code = #{creatorCode}
+      </if>
+      <if test="gmtCreated != null and gmtCreated !='' " >
+          and  gmt_created = #{gmtCreated}
+      </if>
+      <if test="modifier != null and modifier !='' " >
+          and  modifier = #{modifier}
+      </if>
+      <if test="modifierCode != null and modifierCode !='' " >
+          and  modifier_code = #{modifierCode}
+      </if>
+      <if test="gmtModified != null and gmtModified !='' " >
+          and  gmt_modified = #{gmtModified}
+      </if>
+      <if test="status !=null " >
+          and  status = #{status}
+      </if>
+      <if test="bak01 != null and bak01 !='' " >
+          and  bak01 = #{bak01}
+      </if>
+      <if test="bak02 != null and bak02 !='' " >
+          and  bak02 = #{bak02}
+      </if>
+      <if test="bak03 != null and bak03 !='' " >
+          and  bak03 = #{bak03}
+      </if>
+      <if test="bak04 != null and bak04 !='' " >
+          and  bak04 = #{bak04}
+      </if>
+      <if test="bak05 != null and bak05 !='' " >
+          and  bak05 = #{bak05}
+      </if>
+  </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
@@ -215,4 +308,23 @@
   <select id="getUserRoleListByUserId" resultMap="BaseResultMap" parameterType="java.lang.String">
     select r.* from role r,user_role ur where r.id = ur.role_id and ur.user_id = #{userId} and r.status =1;
   </select>
+
+    <select id="getRoleList" resultMap="BaseResultMap" parameterType="java.util.Map">
+        select <include refid="Base_Column_List" /> from role where 1=1
+        <include refid="Base_Column_where" />
+        <if test="startTime != null  and startTime !='' " >
+            and gmt_created &gt;= #{startTime}
+        </if>
+        <if test="endTime != null  and endTime !='' " >
+            and gmt_created &lt;= #{endTime}
+        </if>
+    </select>
+
+    <update id="doBanOrRelease" parameterType="java.util.Map" >
+        update role
+        set
+        <include refid="Base_Column_Update" />
+        where
+        role.id = #{id}
+    </update>
 </mapper>

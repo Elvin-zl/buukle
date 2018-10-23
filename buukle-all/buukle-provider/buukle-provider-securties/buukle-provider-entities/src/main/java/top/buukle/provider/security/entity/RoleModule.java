@@ -78,6 +78,13 @@ public class RoleModule {
      */
     private String bak05;
 
+    public RoleModule(Integer moduleId, Integer roleId) {
+        this.roleId = roleId;
+        this.moduleId = moduleId;
+    }
+    public RoleModule() {
+    }
+
     /**
      * 主键id
      * @return id 主键id

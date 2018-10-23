@@ -7,7 +7,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication()
-@ImportResource(locations = {"classpath:config/spring/springBootContext.xml"})
 @EnableEurekaServer
 public class ClouldApplication {
     private static volatile boolean RUNNING = true;

@@ -5,6 +5,7 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="url" property="url" jdbcType="VARCHAR" />
     <result column="module_id" property="moduleId" jdbcType="INTEGER" />
+    <result column="button_name" property="buttonName" jdbcType="VARCHAR" />
     <result column="operation_type" property="operationType" jdbcType="INTEGER" />
     <result column="response_type" property="responseType" jdbcType="INTEGER" />
     <result column="layout_level" property="layoutLevel" jdbcType="INTEGER" />
@@ -23,9 +24,131 @@
     <result column="bak05" property="bak05" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, url, module_id, operation_type, response_type, layout_level, response_dom_id, 
+    id, url, module_id, button_name, operation_type, response_type, layout_level, response_dom_id, 
     creator, creator_code, gmt_created, modifier, modifier_code, gmt_modified, status, 
     bak01, bak02, bak03, bak04, bak05
+  </sql>
+  <sql id="Base_Column_Update" >
+    <if test="url != null" >
+      url = #{url,jdbcType=VARCHAR},
+    </if>
+    <if test="moduleId != null" >
+      module_id = #{moduleId,jdbcType=INTEGER},
+    </if>
+    <if test="buttonName != null" >
+      button_name = #{buttonName,jdbcType=VARCHAR},
+    </if>
+    <if test="operationType != null" >
+      operation_type = #{operationType,jdbcType=INTEGER},
+    </if>
+    <if test="responseType != null" >
+      response_type = #{responseType,jdbcType=INTEGER},
+    </if>
+    <if test="layoutLevel != null" >
+      layout_level = #{layoutLevel,jdbcType=INTEGER},
+    </if>
+    <if test="responseDomId != null" >
+      response_dom_id = #{responseDomId,jdbcType=VARCHAR},
+    </if>
+    <if test="creator != null" >
+      creator = #{creator,jdbcType=VARCHAR},
+    </if>
+    <if test="creatorCode != null" >
+      creator_code = #{creatorCode,jdbcType=VARCHAR},
+    </if>
+    <if test="gmtCreated != null" >
+      gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+    </if>
+    <if test="modifier != null" >
+      modifier = #{modifier,jdbcType=VARCHAR},
+    </if>
+    <if test="modifierCode != null" >
+      modifier_code = #{modifierCode,jdbcType=VARCHAR},
+    </if>
+    <if test="gmtModified != null" >
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+    </if>
+    <if test="status != null" >
+      status = #{status,jdbcType=INTEGER},
+    </if>
+    <if test="bak01 != null" >
+      bak01 = #{bak01,jdbcType=VARCHAR},
+    </if>
+    <if test="bak02 != null" >
+      bak02 = #{bak02,jdbcType=VARCHAR},
+    </if>
+    <if test="bak03 != null" >
+      bak03 = #{bak03,jdbcType=VARCHAR},
+    </if>
+    <if test="bak04 != null" >
+      bak04 = #{bak04,jdbcType=VARCHAR},
+    </if>
+    <if test="bak05 != null" >
+      bak05 = #{bak05,jdbcType=VARCHAR},
+    </if>
+    id = #{id,jdbcType=INTEGER}
+  </sql>
+  <sql id="Base_Column_where" >
+      <if test="id != null " >
+          and id = #{id}
+      </if>
+      <if test="url != null  and url !='' " >
+          and url = #{url}
+      </if>
+      <if test="moduleId != null  and moduleId !='' " >
+          and module_id = #{moduleId}
+      </if>
+      <if test="buttonName != null  and buttonName !='' " >
+          and button_name = #{buttonName}
+      </if>
+      <if test="operationType != null  and operationType !='' " >
+          and operation_type = #{operationType}
+      </if>
+      <if test="responseType != null  and responseType !='' " >
+          and response_type = #{responseType}
+      </if>
+      <if test="layoutLevel != null  and layoutLevel !='' " >
+          and layout_level = #{layoutLevel}
+      </if>
+      <if test="responseDomId != null  and responseDomId !='' " >
+          and response_dom_id = #{responseDomId}
+      </if>
+      <if test="creator != null  and creator !='' " >
+          and creator = #{creator}
+      </if>
+      <if test="creatorCode != null  and creatorCode !='' " >
+          and creator_code = #{creatorCode}
+      </if>
+      <if test="gmtCreated != null  and gmtCreated !='' " >
+          and gmt_created = #{gmtCreated}
+      </if>
+      <if test="modifier != null  and modifier !='' " >
+          and modifier = #{modifier}
+      </if>
+      <if test="modifierCode != null  and modifierCode !='' " >
+          and  modifier_code = #{modifierCode}
+      </if>
+      <if test="gmtModified != null  and gmtModified !='' " >
+          and gmt_modified = #{gmtModified}
+      </if>
+      <if test="status != null" >
+          and status = #{status}
+      </if>
+      <if test="bak01 != null  and bak01 !='' " >
+          and bak01 = #{bak01}
+      </if>
+      <if test="bak02 != null  and bak02 !='' " >
+          and  bak02 = #{bak02}
+      </if>
+      <if test="bak03 != null  and bak03 !='' " >
+          and bak03 = #{bak03}
+      </if>
+      <if test="bak04 != null  and bak04 !='' " >
+          and bak04 = #{bak04}
+      </if>
+      <if test="bak05 != null  and bak05 !='' " >
+          and bak05 = #{bak05}
+      </if>
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -39,19 +162,19 @@
   </delete>
   <insert id="insert" parameterType="top.buukle.provider.security.entity.Button" >
     insert into button (id, url, module_id, 
-      operation_type, response_type, layout_level, 
-      response_dom_id, creator, creator_code, 
-      gmt_created, modifier, modifier_code, 
-      gmt_modified, status, bak01, 
-      bak02, bak03, bak04, 
-      bak05)
+      button_name, operation_type, response_type, 
+      layout_level, response_dom_id, creator, 
+      creator_code, gmt_created, modifier, 
+      modifier_code, gmt_modified, status, 
+      bak01, bak02, bak03, 
+      bak04, bak05)
     values (#{id,jdbcType=INTEGER}, #{url,jdbcType=VARCHAR}, #{moduleId,jdbcType=INTEGER}, 
-      #{operationType,jdbcType=INTEGER}, #{responseType,jdbcType=INTEGER}, #{layoutLevel,jdbcType=INTEGER}, 
-      #{responseDomId,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{creatorCode,jdbcType=VARCHAR}, 
-      #{gmtCreated,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR}, #{modifierCode,jdbcType=VARCHAR}, 
-      #{gmtModified,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, #{bak01,jdbcType=VARCHAR}, 
-      #{bak02,jdbcType=VARCHAR}, #{bak03,jdbcType=VARCHAR}, #{bak04,jdbcType=VARCHAR}, 
-      #{bak05,jdbcType=VARCHAR})
+      #{buttonName,jdbcType=VARCHAR}, #{operationType,jdbcType=INTEGER}, #{responseType,jdbcType=INTEGER}, 
+      #{layoutLevel,jdbcType=INTEGER}, #{responseDomId,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, 
+      #{creatorCode,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR}, 
+      #{modifierCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
+      #{bak01,jdbcType=VARCHAR}, #{bak02,jdbcType=VARCHAR}, #{bak03,jdbcType=VARCHAR}, 
+      #{bak04,jdbcType=VARCHAR}, #{bak05,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="top.buukle.provider.security.entity.Button" >
     insert into button
@@ -64,6 +187,9 @@
       </if>
       <if test="moduleId != null" >
         module_id,
+      </if>
+      <if test="buttonName != null" >
+        button_name,
       </if>
       <if test="operationType != null" >
         operation_type,
@@ -124,6 +250,9 @@
       <if test="moduleId != null" >
         #{moduleId,jdbcType=INTEGER},
       </if>
+      <if test="buttonName != null" >
+        #{buttonName,jdbcType=VARCHAR},
+      </if>
       <if test="operationType != null" >
         #{operationType,jdbcType=INTEGER},
       </if>
@@ -183,6 +312,9 @@
       <if test="moduleId != null" >
         module_id = #{moduleId,jdbcType=INTEGER},
       </if>
+      <if test="buttonName != null" >
+        button_name = #{buttonName,jdbcType=VARCHAR},
+      </if>
       <if test="operationType != null" >
         operation_type = #{operationType,jdbcType=INTEGER},
       </if>
@@ -238,6 +370,7 @@
     update button
     set url = #{url,jdbcType=VARCHAR},
       module_id = #{moduleId,jdbcType=INTEGER},
+      button_name = #{buttonName,jdbcType=VARCHAR},
       operation_type = #{operationType,jdbcType=INTEGER},
       response_type = #{responseType,jdbcType=INTEGER},
       layout_level = #{layoutLevel,jdbcType=INTEGER},
@@ -273,4 +406,34 @@
     </if>
     and mb.button_id = b.id;
   </select>
+
+    <select id="getButtonList" resultMap="BaseResultMap" parameterType="java.util.Map">
+        select <include refid="Base_Column_List" /> from button where 1=1
+        <include refid="Base_Column_where" />
+        <if test="startTime != null  and startTime !='' " >
+            and gmt_created &gt;= #{startTime}
+        </if>
+        <if test="endTime != null  and endTime !='' " >
+            and gmt_created &lt;= #{endTime}
+        </if>
+    </select>
+
+    <select id="getModuleButtons" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+      SELECT
+      *
+      FROM
+      button b,
+      module_button mb
+      WHERE b.status = 1
+      AND mb.`module_id` = #{moduleId}
+      AND mb.`button_id` = b.`id`;
+    </select>
+
+    <update id="doBanOrRelease" parameterType="java.util.Map" >
+      update button
+      set
+      <include refid="Base_Column_Update" />
+      where
+      button.id = #{id}
+    </update>
 </mapper>

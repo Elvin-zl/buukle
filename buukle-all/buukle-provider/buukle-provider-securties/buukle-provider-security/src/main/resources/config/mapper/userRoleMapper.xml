@@ -209,4 +209,9 @@
       bak05 = #{bak05,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+    <!--start-->
+    <delete id="deleteUserRole" parameterType="java.lang.String" >
+        delete from user_role
+        where user_role.user_id = #{userId}
+    </delete>
 </mapper>

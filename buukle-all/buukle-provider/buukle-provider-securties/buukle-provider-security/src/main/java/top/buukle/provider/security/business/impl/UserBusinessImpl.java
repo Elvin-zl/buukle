@@ -64,24 +64,23 @@ public class UserBusinessImpl implements UserBusiness {
         List<User> userSubordinateList = userMapper.getUserSubordinateByUserGroups(groupsList);
 
         // 缓存用户基本信息
-        String userCookie = UserInvoker.saveUser(userInfoForLogin ,baseRequest.getExpandParameterString(),baseRequest.getRequestHead());
+        String userCookie = UserInvoker.saveUser(userInfoForLogin ,baseRequest.getExpandParameterString(),baseRequest.getRequestHead(), null);
+        // 清除用户缓存信息
+        UserInvoker.clearUserCacheInfoByType(null,userInfoForLogin.getUserId());
         // 缓存用户扩展信息
-        UserInvoker.saveUserExp(userExp ,baseRequest.getExpandParameterString(),baseRequest.getRequestHead());
+        UserInvoker.saveUserExp(userExp ,userInfoForLogin.getUserId(),baseRequest.getRequestHead());
         // 缓存用户组别信息
-        UserInvoker.saveUserGroup(groupsList ,baseRequest.getExpandParameterString(),baseRequest.getRequestHead());
+        UserInvoker.saveUserGroup(groupsList ,userInfoForLogin.getUserId(),baseRequest.getRequestHead());
         // 缓存用户下级信息
-        UserInvoker.saveUserSubordinate(userSubordinateList ,baseRequest.getExpandParameterString(),baseRequest.getRequestHead());
-        // 清除用户权限缓存信息
-        UserInvoker.clearUserSecurityInfo(userCookie);
-
-        //缓存用户角色信息
-        List<Role> userRole = userService.getUserRole(userCookie, userInfoForLogin, baseRequest);
-        //缓存用户菜单信息
-        List<Module> userModule = userService.getUserModule(userCookie, userRole, baseRequest);
-        //缓存用户按钮信息
-        userService.getUserButton(userCookie,userModule,baseRequest);
+        UserInvoker.saveUserSubordinate(userSubordinateList ,userInfoForLogin.getUserId(),baseRequest.getRequestHead());
+        // 缓存用户角色信息
+        List<Role> userRole = userService.getUserRole(userInfoForLogin.getUserId(), userInfoForLogin, baseRequest);
+        // 缓存用户菜单信息
+        List<Module> userModule = userService.getUserModule(userInfoForLogin.getUserId(), userRole, baseRequest);
+        // 缓存用户按钮信息
+        userService.getUserButton(userInfoForLogin.getUserId(),userModule,baseRequest);
         LOGGER.info(SecurityConstants.LOGIN_SUCCESS,user.getUsername());
-        //组织返回并回写cookie
+        // 组织返回并回写cookie
         return new BaseResponse.Builder().buildSuccess(userCookie);
     }
 

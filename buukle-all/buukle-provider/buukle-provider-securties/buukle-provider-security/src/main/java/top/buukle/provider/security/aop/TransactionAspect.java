@@ -49,6 +49,7 @@ public class TransactionAspect {
         txMap.put("insert*", requiredTx);
         txMap.put("update*", requiredTx);
         txMap.put("delete*", requiredTx);
+        txMap.put("set*", requiredTx);
         txMap.put("get*", readOnlyTx);
         txMap.put("do*", requiredTx);
         txMap.put("query*", readOnlyTx);

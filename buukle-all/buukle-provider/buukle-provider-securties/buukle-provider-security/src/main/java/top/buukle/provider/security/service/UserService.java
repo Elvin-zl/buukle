@@ -16,7 +16,9 @@ import top.buukle.provider.security.entity.User;
 import top.buukle.provider.security.vo.query.PageBounds;
 import top.buukle.provider.security.vo.query.UserQuery;
 import top.buukle.provider.security.vo.response.PageResponse;
+import top.buukle.provider.security.vo.response.UserRoleListVo;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -90,4 +92,17 @@ public interface UserService {
 	public List<Role> getUserRole(String userCookie, User user, BaseRequest request) throws Exception;
 
 	PageResponse<User> getUserList(UserQuery userQuery, PageBounds pageBounds);
+
+	List getUserCacheInfoByType(Class clazz, String userCookie) throws Exception;
+
+    BaseResponse doBanOrRelease(UserQuery userQuery);
+
+    BaseResponse doSetUserRole(String ids, UserQuery userQuery);
+
+    List<Role> getGlobalRole();
+
+	List getGlobalCacheByType(Class clazz) throws Exception;
+
+
+	List<UserRoleListVo> getUserRoleForPage(HttpServletRequest request, Integer id) throws Exception;
 }

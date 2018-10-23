@@ -1,5 +1,7 @@
 package top.buukle.provider.security.entity;
 
+import top.buukle.common.util.common.StringUtil;
+
 import java.util.Date;
 
 public class User {
@@ -631,5 +633,14 @@ public class User {
      */
     public void setBak05(String bak05) {
         this.bak05 = bak05 == null ? null : bak05.trim();
+    }
+
+
+    /**
+     * 获取创建者信息
+     */
+    public String getCreatorMessage() {
+        String s = new StringBuilder().append("登录名 : ").append(StringUtil.isEmpty(this.username) ? "" : this.username).append("姓名 : ").append(StringUtil.isEmpty(this.nameCn) ? "" : this.nameCn).toString();
+        return s.length() > 64 ? new StringBuilder().append("姓名 : ").append(StringUtil.isEmpty(this.nameCn) ? "" : this.nameCn).toString() : s;
     }
 }

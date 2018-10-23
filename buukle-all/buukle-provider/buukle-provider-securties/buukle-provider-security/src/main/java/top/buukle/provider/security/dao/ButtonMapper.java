@@ -3,6 +3,7 @@ package top.buukle.provider.security.dao;
 import org.apache.ibatis.annotations.Param;
 import top.buukle.provider.security.entity.Button;
 import top.buukle.provider.security.entity.Module;
+import top.buukle.provider.security.vo.query.ButtonQuery;
 
 import java.util.List;
 
@@ -31,4 +32,15 @@ public interface ButtonMapper {
      * @return
      */
     List<Button> getGlobalButtonList();
+
+    List<Button> getButtonList(ButtonQuery query);
+
+    /**
+     * 根据获取菜单id获取按钮
+     * @param moduleId
+     * @return
+     */
+    List<Button> getModuleButtons(@Param("moduleId") Integer moduleId);
+
+    void doBanOrRelease(ButtonQuery query);
 }

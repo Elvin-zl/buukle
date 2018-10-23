@@ -7,8 +7,14 @@
 
 package top.buukle.provider.security.service;
 
+import top.buukle.common.response.BaseResponse;
 import top.buukle.provider.security.entity.Role;
+import top.buukle.provider.security.vo.query.PageBounds;
+import top.buukle.provider.security.vo.query.RoleQuery;
+import top.buukle.provider.security.vo.response.PageResponse;
+import top.buukle.provider.security.vo.response.RoleModuleListVo;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -68,6 +74,19 @@ public interface RoleService {
 	 * @Date	2015年6月12日 上午10:30:13 
 	 */
 	public List<Role> getRolesByParasNoPage(Role role) throws Exception;
-	
 
+
+	/**
+	 * 查询角色列表
+	 * @param roleQuery
+	 * @param pageBounds
+	 * @return
+	 */
+    PageResponse<Role> getRoleList(RoleQuery roleQuery, PageBounds pageBounds);
+
+    BaseResponse doBanOrRelease(RoleQuery query);
+
+    List<RoleModuleListVo> getRoleModuleForPage(HttpServletRequest request, Integer id) throws Exception;
+
+    BaseResponse setRoleModule(String ids, RoleQuery userQuery);
 }

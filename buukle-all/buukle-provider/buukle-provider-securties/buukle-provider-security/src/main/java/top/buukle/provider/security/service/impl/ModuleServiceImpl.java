@@ -7,25 +7,32 @@
 
 package top.buukle.provider.security.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Service;
 import top.buukle.common.constants.BaseResponseCode;
 import top.buukle.common.exception.BaseException;
-import top.buukle.common.request.RequestHead;
+import top.buukle.common.response.BaseResponse;
 import top.buukle.common.util.common.NumberUtil;
 import top.buukle.common.util.common.StringUtil;
 import top.buukle.plugin.security.util.CookieUtil;
-import top.buukle.provider.security.entity.User;
+import top.buukle.provider.security.constants.SecurityStatusConstants;
+import top.buukle.provider.security.dao.*;
+import top.buukle.provider.security.entity.*;
 import top.buukle.provider.security.invoker.UserInvoker;
 import top.buukle.provider.security.service.ModuleService;
-import top.buukle.provider.security.dao.ModuleMapper;
-import top.buukle.provider.security.entity.Module;
+import top.buukle.provider.security.service.UserService;
+import top.buukle.provider.security.vo.query.ModuleQuery;
+import top.buukle.provider.security.vo.query.PageBounds;
+import top.buukle.provider.security.vo.response.ModuleButtonListVo;
+import top.buukle.provider.security.vo.response.PageResponse;
 import top.buukle.provider.security.vo.result.ModuleNavigationVo;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * 
@@ -36,6 +43,16 @@ import java.util.List;
 public class ModuleServiceImpl implements ModuleService {
 	@Resource
     private ModuleMapper moduleMapper;
+	@Resource
+    private UserService userService;
+	@Resource
+    private UserMapper userMapper;
+	@Resource
+    private ButtonMapper buttonMapper;
+	@Resource
+    private ButtonTypeMapper buttonTypeMapper;
+	@Resource
+    private ModuleButtonMapper moduleButtonMapper;
 	@Override
 	public Module getModuleById(Integer id) throws Exception{
 		return moduleMapper.selectByPrimaryKey(id);
@@ -68,9 +85,10 @@ public class ModuleServiceImpl implements ModuleService {
      * @return
      */
 	@Override
-	public List<ModuleNavigationVo> getUserModuleTree(HttpServletRequest httpServletRequest, String applicationName) {
+	public List<ModuleNavigationVo> getUserModuleTree(HttpServletRequest httpServletRequest, String applicationName) throws Exception {
         String userCookie = this.validateParameter(httpServletRequest,applicationName);
-        List<Module> userModuleListAll = this.getUserModule(userCookie,applicationName);
+        //获取用户菜单列表
+        List<Module> userModuleListAll = userService.getUserCacheInfoByType(Module.class,userCookie);
         List<Module> userModuleListApplication = new ArrayList<>();
         //根据应用名过滤
         for (Module module:  userModuleListAll) {
@@ -91,17 +109,129 @@ public class ModuleServiceImpl implements ModuleService {
         return moduleNavigationVoList;
 	}
 
-    private List<Module> getUserModule(String userCookie, String applicationName) {
-        List<Module> userModuleListAll = UserInvoker.getUserModule(userCookie);
-        if(CollectionUtils.isEmpty(userModuleListAll)){
-            User user = UserInvoker.getUser(userCookie);
-            userModuleListAll = moduleMapper.getUserModuleListByUserId(user);
-            UserInvoker.saveUserModule(userModuleListAll,userCookie,new RequestHead.Builder().build(applicationName));
-            if(CollectionUtils.isEmpty(userModuleListAll)){
-                throw new BaseException(BaseResponseCode.USER_PERMISSION_USER_MODULE_LIST_NULL);
+    /**
+     * 分页获取菜单列表
+     * @param query
+     * @param pageBounds
+     * @return
+     */
+    @Override
+    public PageResponse<Module> getModuleList(ModuleQuery query, PageBounds pageBounds) {
+        PageHelper.startPage(pageBounds.getPage(), pageBounds.getLimit());
+        List<Module> list = moduleMapper.getModuleList(query);
+        return new PageResponse.Builder().build(new PageInfo<>(list));
+    }
+
+    /**
+     * 起停用菜单
+     * @param query
+     * @return
+     */
+    @Override
+    public BaseResponse doBanOrRelease(ModuleQuery query) {
+        if(null != query.getStatus() && query.getStatus().equals(SecurityStatusConstants.STATUS_OPEN)){
+            query.setStatus(SecurityStatusConstants.STATUS_CLOSE);
+        }else{
+            query.setStatus(SecurityStatusConstants.STATUS_OPEN);
+        }
+        moduleMapper.doBanOrRelease(query);
+        // 更新全局菜单缓存
+        UserInvoker.clearGlobalCacheInfoByType(Module.class);
+        // 更新用户菜单缓存 ==>> TODO 此处可优化为异步线程处理
+        List<User> users = userMapper.getUserByModuleId(query.getId());
+        if(CollectionUtils.isNotEmpty(users)){
+            for (User user : users) {
+                UserInvoker.clearUserCacheInfoByType(Module.class,user.getUserId());
             }
         }
-        return userModuleListAll;
+        return new BaseResponse.Builder().buildSuccess();
+    }
+
+    /**
+     * 获取菜单按钮列表
+     * @param request
+     * @param id
+     * @return
+     */
+    @Override
+    public List<ModuleButtonListVo> getModuleButtonForPage(HttpServletRequest request, Integer id) throws Exception {
+        //获取全局按钮列表
+        List<Button> globalButtonList = userService.getGlobalCacheByType(Button.class);
+        if(CollectionUtils.isEmpty(globalButtonList)){
+            return new ArrayList<>();
+        }
+        //获取指定菜单按钮列表
+        List<Button> moduleButtonList = buttonMapper.getModuleButtons(id);
+        List<Integer> moduleButtonIdList = new ArrayList<>();
+        if(CollectionUtils.isNotEmpty(moduleButtonList)){
+            for (Button mButton: moduleButtonList) {
+                moduleButtonIdList.add(mButton.getId());
+            }
+        }
+        //初始化返回包装对象
+        List<ModuleButtonListVo> moduleButtonListVoList = new ArrayList<>();
+        List<ButtonType> buttonTypes = buttonTypeMapper.getButtonTypes();
+        if(CollectionUtils.isEmpty(buttonTypes)){
+            return null;
+        }
+        //初始化按钮类型-虚拟按钮 映射map
+        Map<Integer,ModuleButtonListVo> buttonTypeValueMap = new HashMap<>();
+        //初始化按钮类别 虚拟按钮id
+        int vid = -1;
+        for (ButtonType buttonType: buttonTypes) {
+            //初始化按钮类别 虚拟按钮 实体
+            ModuleButtonListVo ModuleButtonListVo = new ModuleButtonListVo();
+            ModuleButtonListVo.setpId(NumberUtil.INTEGER_ZERO);
+            ModuleButtonListVo.setChecked(true);
+            ModuleButtonListVo.setId(vid--);
+            ModuleButtonListVo.setName(buttonType.getTypeOperation());
+            moduleButtonListVoList.add(ModuleButtonListVo);
+            buttonTypeValueMap.put(Integer.parseInt(buttonType.getTypeValue()),ModuleButtonListVo);
+        }
+        //设置指定菜单拥有按钮选中标识,并设置按钮类型与按钮的父子关系
+        for (Button gButton: globalButtonList) {
+            ModuleButtonListVo moduleButtonListVo = new ModuleButtonListVo();
+            BeanUtils.copyProperties(moduleButtonListVo,gButton);
+            moduleButtonListVo.setName(gButton.getButtonName() + "  (" +gButton.getBak01() + ")");
+            //设置选中标识
+            if(moduleButtonIdList.contains(gButton.getId())){
+                moduleButtonListVo.setChecked(true);
+            }
+            //设置按钮类型(虚拟按钮)与按钮的父子关系
+            if(buttonTypeValueMap.keySet().contains(gButton.getOperationType())){
+                moduleButtonListVo.setpId(buttonTypeValueMap.get(gButton.getOperationType()).getId());
+            }
+            moduleButtonListVoList.add(moduleButtonListVo);
+        }
+        return moduleButtonListVoList;
+    }
+
+    /**
+     * 设置菜单按钮
+     * @param ids
+     * @param query
+     * @return
+     */
+    @Override
+    public BaseResponse setModuleButton(String ids, ModuleQuery query) {
+        moduleButtonMapper.deleteModuleButton(query.getId());
+        if(StringUtil.isEmpty(ids)){
+            return new BaseResponse.Builder().buildSuccess();
+        }
+        String[] idsArr = ids.split(",");
+        if(null== idsArr || idsArr.length < 1){
+            return new BaseResponse.Builder().buildSuccess();
+        }
+        for (String idStr : idsArr) {
+            if(StringUtil.isNotEmpty(idStr) && Integer.parseInt(idStr) > NumberUtil.INTEGER_ZERO){
+                ModuleButton moduleButton = new ModuleButton(Integer.parseInt(idStr),query.getId());
+                moduleButton.setGmtCreated(new Date());
+                moduleButtonMapper.insert(moduleButton);
+            }
+        }
+        //更新菜单下按钮缓存
+        UserInvoker.deleteModuleButton(query.getId());
+        return new BaseResponse.Builder().buildSuccess();
     }
 
     /**

@@ -26,9 +26,9 @@ import top.buukle.provider.security.util.ResponseHandler;
 public class AppConfigure implements WebMvcConfigurer {
 
     /** feign-http 链接超時時間*/
-    public static int connectTimeOutMillis = NumberUtil.INTEGER_THOUSAND * NumberUtil.INTEGER_THREE;
+    public static int CONNECT_TIMEOUT_MILLIS = NumberUtil.INTEGER_THOUSAND * NumberUtil.INTEGER_TEN;
     /** feign-http 等待超时时间*/
-    public static int readTimeOutMillis = NumberUtil.INTEGER_THOUSAND * NumberUtil.INTEGER_SIX;
+    public static int READ_TIMEOUT_MILLIS = NumberUtil.INTEGER_THOUSAND * NumberUtil.INTEGER_FIVE * NumberUtil.INTEGER_TWO ;
 
     /**
      * 重写静态资源处理
@@ -45,7 +45,7 @@ public class AppConfigure implements WebMvcConfigurer {
      */
     @Bean
     public Request.Options options() {
-        return new Request.Options(connectTimeOutMillis, readTimeOutMillis);
+        return new Request.Options(CONNECT_TIMEOUT_MILLIS, READ_TIMEOUT_MILLIS);
     }
 
     /**

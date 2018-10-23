@@ -23,6 +23,8 @@ public class BaseResponse<T>{
     final public static String UNKNOWN = "T";
     /** 响应msg常量 : 失败*/
     private static final String FAILED_MSG = "失败 !";
+    /** 响应msg常量 : 成功*/
+    private static final String SUCCESS_MSG = "成功!";
 
     final public static String SYSTEM_BUSY = "系统异常";
 
@@ -126,6 +128,7 @@ public class BaseResponse<T>{
         /** 成功响应(不带业务响应参数)*/
         public BaseResponse buildSuccess() {
             baseResponse.status =  SUCCESS;
+            baseResponse.setMsg(SUCCESS_MSG);
             return build();
         }
         /** 成功响应(带业务响应参数 数据)*/

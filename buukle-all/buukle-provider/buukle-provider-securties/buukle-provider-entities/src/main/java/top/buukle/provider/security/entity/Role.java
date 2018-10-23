@@ -1,3 +1,4 @@
+
 package top.buukle.provider.security.entity;
 
 import java.util.Date;
@@ -77,6 +78,13 @@ public class Role {
      * 备用
      */
     private String bak05;
+
+    public Role(Integer id) {
+
+        this.id = id;
+    }
+    public Role() {
+    }
 
     /**
      * 主键id

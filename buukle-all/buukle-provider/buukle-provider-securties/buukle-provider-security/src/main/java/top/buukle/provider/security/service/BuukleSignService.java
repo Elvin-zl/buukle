@@ -33,7 +33,7 @@ public interface BuukleSignService {
 	 * @return	BuukleSign
 	 * @Date	2015年6月12日 上午10:29:35 
 	 */
-	public List<BuukleSign> getBuukleSignByParas(BuukleSign buukleSign) throws Exception;
+	public List<BuukleSign> getUserBuukleSign(BuukleSign buukleSign) throws Exception;
 	/** 
 	 * @Description:	添加BuukleSign
 	 * @param buukleSign

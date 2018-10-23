@@ -35,4 +35,15 @@ public interface UserMapper {
     List<User> getUserSubordinateByUserGroups(@Param("groupsList") List<Groups> groupsList);
 
     List<User> getUserList(UserQuery userQuery);
+
+    /**
+     * 启用/停用 用户
+     * @param userQuery
+     */
+    void doBanOrRelease(UserQuery userQuery);
+
+
+    List<User> getUserByModuleId(@Param("moduleId") Integer moduleId);
+
+    List<User> getUserByRoleId(@Param("roleId") Integer roleId);
 }

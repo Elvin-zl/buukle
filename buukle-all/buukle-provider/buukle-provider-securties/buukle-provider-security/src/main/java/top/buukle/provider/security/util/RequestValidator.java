@@ -45,13 +45,14 @@ public class RequestValidator extends BaseRequestValidator {
             String applicationName = baseRequest.getRequestHead().getApplicationName();
             String operationId = baseRequest.getRequestHead().getOperationId();
             BuukleSignService buukleSignService = SpringContextUtil.getBean(BuukleSignService.class);
-            List<BuukleSign> buukleSignByParas = buukleSignService.getBuukleSignByParas(new BuukleSign(applicationName, operationId));
+            List<BuukleSign> buukleSignByParas = buukleSignService.getUserBuukleSign(new BuukleSign(applicationName, operationId));
             verify  = SignUtil.verify(requestBody, this.validateSign(buukleSignByParas), httpServletRequest.getHeader(SignUtil.SECURITY_SIGN_KEY));
         } catch (Exception e) {
             e.printStackTrace();
             throw new BaseException(BaseResponseCode.BASE_REQUEST_SIGN_EXCEPTION);
         }
         if(!verify){
+            LOGGER.info("验签失败参数 : {}" ,requestBody);
             throw new BaseException(BaseResponseCode.BASE_REQUEST_SIGN_WRONG);
         }
         LOGGER.info("{}应用下,用户:{}验签通过!",baseRequest.getRequestHead().getApplicationName(),baseRequest.getRequestHead().getOperationId());

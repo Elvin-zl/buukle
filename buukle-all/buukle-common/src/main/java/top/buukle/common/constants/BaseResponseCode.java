@@ -37,7 +37,7 @@ public enum BaseResponseCode {
     BASE_REQUEST_SIGN_EXCEPTION(BaseResponseCode.FAILURES, "999991", "验签异常!"),
     BASE_REQUEST_SIGN_PUBLIC_KEY_NULL(BaseResponseCode.FAILURES, "999990", "验签异常,该机构公钥不存在!"),
 
-    /*----------------------------------------------SSO--01{*}{*}{*}{*}--------------------------------------------------------------------*/
+    /*----------------------------------------------Security--01{*}{*}{*}{*}--------------------------------------------------------------------*/
     /** 登录,认证,授权 --0100{*}{*}*/
     LOGIN_FAILED(BaseResponseCode.FAILURES, "010000","登录失败!参数错误!" ),
     LOGIN_FAILED_USERNAME_PWD_NULL(BaseResponseCode.FAILURES, "010001","登录失败!用户名或密码为空!"),
@@ -48,6 +48,11 @@ public enum BaseResponseCode {
     USER_PERMISSION_USER_NO_PERMISSION(BaseResponseCode.FAILURES, "010006", "请求失败!当前用户无此权限!" ),
     USER_PERMISSION_USER_ROLE_LIST_NULL(BaseResponseCode.FAILURES, "010007","用户授权失败!用户角色为空!"),
     USER_COOKIE_NULL(BaseResponseCode.FAILURES, "010008","操作失败,获取用户信息为空!" ),
+    USER_OUT_OF_TIME(BaseResponseCode.FAILURES, "010009","登录超时!" ),
+    BUTTON_ADD_NAME_NULL(BaseResponseCode.FAILURES, "010010","添加按钮失败,按钮名称为空!" ),
+    BUTTON_ADD_LAYOUTLEVEL_NULL(BaseResponseCode.FAILURES, "010011","添加按钮失败,按钮分布级别为空!" ),
+    BUTTON_ADD_OPERATION_TYPE_NULL(BaseResponseCode.FAILURES, "010012","添加按钮失败,按钮响应类型为空!" ),
+    BUTTON_ADD_REMARK_NULL(BaseResponseCode.FAILURES, "010013","添加按钮失败,按钮备注为空!" ),
 
     /*----------------------------------------------MC--00{*}{*}{*}{*}--------------------------------------------------------------------*/
     /** 登录,认证,授权 --0000{*}{*}*/

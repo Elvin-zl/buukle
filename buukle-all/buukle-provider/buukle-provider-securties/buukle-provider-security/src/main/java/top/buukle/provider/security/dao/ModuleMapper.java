@@ -1,9 +1,11 @@
 package top.buukle.provider.security.dao;
 
 import org.apache.ibatis.annotations.Param;
+import top.buukle.provider.security.entity.Button;
 import top.buukle.provider.security.entity.Module;
 import top.buukle.provider.security.entity.Role;
 import top.buukle.provider.security.entity.User;
+import top.buukle.provider.security.vo.query.ModuleQuery;
 
 import java.util.List;
 
@@ -39,4 +41,14 @@ public interface ModuleMapper {
      * @return
      */
     List<Module> getUserModuleListByUserId(User user);
+
+    /**
+     * 分页获取角色列表
+     * @param query
+     * @return
+     */
+    List<Module> getModuleList(ModuleQuery query);
+
+    void doBanOrRelease(ModuleQuery query);
+
 }

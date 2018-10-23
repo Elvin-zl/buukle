@@ -109,6 +109,11 @@
     width: 227px;
     height: 281px;
 }
+.commitBtn{
+    margin-left: 324px;
+    margin-top: 230px;
+    position: unset !important;
+}
 .back-button{
     margin-left: 324px;
     margin-top: 230px;
@@ -218,6 +223,10 @@
 }
 .buukle-right-padel-page-btn{
     margin-left: 696px !important;
+}
+.buukle-add-textarea{
+    resize:none;
+    max-width: 165px !important;
 }
 .required{
     color: red;

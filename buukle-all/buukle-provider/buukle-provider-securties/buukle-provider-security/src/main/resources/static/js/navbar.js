@@ -290,7 +290,7 @@ layui.define(['element','layer','laytpl'],function(exports){
         var pageButtonArr = [];
         var tableButtonArr = [];
         for(var i = 0 ; i < data.length ; i++){
-            if(data[i].buttonLayoutLevel == 0){
+            if(data[i].layoutLevel == 0){
                 // 将页面级按钮添加在缓存数组
 
                 pageButtonArr.push(data[i]);

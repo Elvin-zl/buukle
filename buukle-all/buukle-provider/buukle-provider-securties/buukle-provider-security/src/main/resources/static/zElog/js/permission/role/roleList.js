@@ -22,8 +22,8 @@ function renderTable() {
             first:  '首页',
             last:   '尾页',
             request: {
-                pageName: 'pageNo',
-                limitName: 'pageSize'
+                pageName: 'page',
+                limitName: 'limit'
             }
             ,cols: [[
                 {field: 'roleName', title: '角色名', width:177}
@@ -93,8 +93,10 @@ function modify(id, data) {
 function setRoleModule(data) {
     //渲染树
     rederzTree(data);
+    releaseThis($('#doSetRoleModule'));
     //保存
     $('#doSetRoleModule').off().on('click',function () {
+        disableThis($('#doSetRoleModule'));
         var id = $("#currentRecordId").val();
         var nodes = zTreeObj.getCheckedNodes(true);
         var ids = '';
