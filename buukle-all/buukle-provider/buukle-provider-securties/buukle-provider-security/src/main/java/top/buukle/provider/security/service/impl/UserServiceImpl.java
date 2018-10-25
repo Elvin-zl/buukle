@@ -23,6 +23,7 @@ import top.buukle.common.util.common.NumberUtil;
 import top.buukle.common.util.common.StringUtil;
 import top.buukle.common.util.common.ThreadLocalUtil;
 import top.buukle.common.vo.ThreadParam;
+import top.buukle.plugin.security.util.CookieUtil;
 import top.buukle.provider.security.constants.SecurityStatusConstants;
 import top.buukle.provider.security.entity.*;
 import top.buukle.provider.security.vo.query.PageBounds;
@@ -38,7 +39,9 @@ import top.buukle.provider.security.vo.response.UserRoleListVo;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -239,18 +242,43 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 启用/停用 用户
+     *
+     * @param request
      * @param userQuery
      * @return
      */
     @Override
-    public BaseResponse doBanOrRelease(UserQuery userQuery) {
+    public BaseResponse doBanOrRelease(HttpServletRequest request, UserQuery userQuery) throws InvocationTargetException, IllegalAccessException {
         if(null != userQuery.getStatus() && userQuery.getStatus().equals(SecurityStatusConstants.STATUS_OPEN)){
             userQuery.setStatus(SecurityStatusConstants.STATUS_CLOSE);
         }else{
             userQuery.setStatus(SecurityStatusConstants.STATUS_OPEN);
         }
-        userMapper.doBanOrRelease(userQuery);
+        userMapper.updateByPrimaryKeySelective(this.assUser(request,userQuery,false));
         return new BaseResponse.Builder().buildSuccess();
+    }
+
+    /**
+     * 组装用户
+     * @param request
+     * @param userQuery
+     * @param isAdd
+     * @return
+     */
+    private User assUser(HttpServletRequest request, UserQuery userQuery, boolean isAdd) throws InvocationTargetException, IllegalAccessException {
+        User user = new User();
+        BeanUtils.copyProperties(user,userQuery);
+        User operator = UserInvoker.getUser(CookieUtil.getUserCookie(request));
+        if(isAdd){
+            user.setGmtCreated(new Date());
+            user.setCreatorCode(operator.getUserId());
+            user.setCreator(operator.getUsername());
+        }else{
+            user.setGmtModified(new Date());
+            user.setModifier(operator.getUsername());
+            user.setModifierCode(operator.getUserId());
+        }
+        return user;
     }
 
     /**

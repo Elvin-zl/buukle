@@ -1,0 +1,2517 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>Logback Log Messages</title>
+<style  type="text/css">
+table { margin-left: 2em; margin-right: 2em; border-left: 2px solid #AAA; }
+TR.even { background: #FFFFFF; }
+TR.odd { background: #EAEAEA; }
+TR.warn TD.Level, TR.error TD.Level, TR.fatal TD.Level {font-weight: bold; color: #FF4040 }
+TD { padding-right: 1ex; padding-left: 1ex; border-right: 2px solid #AAA; }
+TD.Time, TD.Date { text-align: right; font-family: courier, monospace; font-size: smaller; }
+TD.Thread { text-align: left; }
+TD.Level { text-align: right; }
+TD.Logger { text-align: left; }
+TR.header { background: #596ED5; color: #FFF; font-weight: bold; font-size: larger; }
+TD.Exception { background: #A2AEE8; font-family: courier, monospace;}
+</style>
+
+  </head>
+<body>
+<hr/>
+<p>Log session start time Mon Oct 22 17:22:22 CST 2018</p><p></p>
+
+<table cellspacing="0">
+<tr class="header">
+<td class="Level">Level</td>
+<td class="Date">Date</td>
+<td class="Message">Message</td>
+<td class="MethodOfCaller">MethodOfCaller</td>
+<td class="FileOfCaller">FileOfCaller</td>
+<td class="LineOfCaller">LineOfCaller</td>
+</tr>
+
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 17:22:22,270</td>
+<td class="Message">The following profiles are active: dev</td>
+<td class="MethodOfCaller">logStartupProfileInfo</td>
+<td class="FileOfCaller">SpringApplication.java</td>
+<td class="LineOfCaller">684</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 17:22:27,586</td>
+<td class="Message">No URLs will be polled as dynamic configuration sources.</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">URLConfigurationSource.java</td>
+<td class="LineOfCaller">121</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 17:22:27,588</td>
+<td class="Message">To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">URLConfigurationSource.java</td>
+<td class="LineOfCaller">122</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 17:22:27,605</td>
+<td class="Message">DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@e9feb2</td>
+<td class="MethodOfCaller">getInstance</td>
+<td class="FileOfCaller">DynamicPropertyFactory.java</td>
+<td class="LineOfCaller">281</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 17:22:29,701</td>
+<td class="Message">Initiating Jersey application, version &#39;Jersey: 1.19.1 03/11/2016 02:08 PM&#39;</td>
+<td class="MethodOfCaller">_initiate</td>
+<td class="FileOfCaller">WebApplicationImpl.java</td>
+<td class="LineOfCaller">815</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 17:22:29,819</td>
+<td class="Message">Using JSON encoding codec LegacyJacksonJson</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryJerseyProvider.java</td>
+<td class="LineOfCaller">70</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 17:22:29,822</td>
+<td class="Message">Using JSON decoding codec LegacyJacksonJson</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryJerseyProvider.java</td>
+<td class="LineOfCaller">71</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 17:22:29,999</td>
+<td class="Message">Using XML encoding codec XStreamXml</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryJerseyProvider.java</td>
+<td class="LineOfCaller">80</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 17:22:30,001</td>
+<td class="Message">Using XML decoding codec XStreamXml</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryJerseyProvider.java</td>
+<td class="LineOfCaller">81</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 17:22:30,528</td>
+<td class="Message">No URLs will be polled as dynamic configuration sources.</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">URLConfigurationSource.java</td>
+<td class="LineOfCaller">121</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 17:22:30,530</td>
+<td class="Message">To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">URLConfigurationSource.java</td>
+<td class="LineOfCaller">122</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 17:22:33,760</td>
+<td class="Message">Initializing Eureka in region us-east-1</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">349</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 17:22:33,761</td>
+<td class="Message">Client configured to neither register nor query for data.</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">352</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 17:22:33,771</td>
+<td class="Message">Discovery Client initialized at timestamp 1540200153769 with initial instances count: 0</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">365</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 17:22:33,844</td>
+<td class="Message">Initializing ...</td>
+<td class="MethodOfCaller">initialize</td>
+<td class="FileOfCaller">DefaultEurekaServerContext.java</td>
+<td class="LineOfCaller">63</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 17:22:33,847</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 17:22:33,870</td>
+<td class="Message">Initialized</td>
+<td class="MethodOfCaller">initialize</td>
+<td class="FileOfCaller">DefaultEurekaServerContext.java</td>
+<td class="LineOfCaller">70</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 17:22:34,340</td>
+<td class="Message">Got 1 instances from neighboring DS node</td>
+<td class="MethodOfCaller">openForTraffic</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">242</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 17:22:34,341</td>
+<td class="Message">Renew threshold is: 1</td>
+<td class="MethodOfCaller">openForTraffic</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">243</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 17:22:34,341</td>
+<td class="Message">Changing status to UP</td>
+<td class="MethodOfCaller">openForTraffic</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">254</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 17:22:34,369</td>
+<td class="Message">Started ClouldApplication in 13.741 seconds (JVM running for 14.956)</td>
+<td class="MethodOfCaller">logStarted</td>
+<td class="FileOfCaller">StartupInfoLogger.java</td>
+<td class="LineOfCaller">59</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 17:32:33,849</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 17:37:33,869</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 17:42:33,852</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 17:52:33,854</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 17:52:33,870</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 18:02:33,855</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 18:07:33,870</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 18:12:33,899</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 18:22:33,871</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 18:22:33,904</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 18:32:33,910</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 18:37:33,872</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 18:42:33,913</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 18:52:33,872</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 18:52:33,919</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 19:02:33,921</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 19:07:33,873</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 19:12:33,924</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 19:22:33,874</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 19:22:33,931</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 19:32:33,936</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 19:37:33,874</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 19:42:33,943</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 19:52:33,874</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 19:52:33,946</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 20:02:33,950</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 20:07:33,875</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 20:12:33,956</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 20:22:33,876</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 20:22:33,959</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 20:32:33,961</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 20:37:33,877</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 20:42:33,967</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 20:52:33,924</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 20:52:33,974</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 21:02:33,977</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 21:07:33,925</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 21:12:33,982</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 21:22:33,878</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 21:22:33,990</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 21:32:33,995</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 21:37:33,879</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 21:42:34,000</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 21:52:33,879</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 21:52:34,006</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 22:02:34,009</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 22:07:33,880</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 22:12:34,015</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 22:22:33,880</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 22:22:34,022</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 22:32:34,026</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 22:37:33,881</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 22:42:34,029</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 22:52:33,882</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 22:52:34,033</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 23:02:34,039</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 23:07:33,882</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 23:12:34,044</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 23:22:33,883</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 23:22:34,048</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 23:32:34,053</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 23:37:33,883</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 23:42:34,058</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-22 23:52:33,884</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-22 23:52:34,064</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 00:02:34,069</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 00:07:33,885</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 00:12:34,075</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 00:22:33,886</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 00:22:34,082</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 00:32:34,088</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 00:37:33,886</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 00:42:34,095</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 00:52:33,886</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 00:52:34,099</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 01:02:34,103</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 01:07:33,886</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 01:12:34,107</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 01:22:33,887</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 01:22:34,110</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 01:32:34,116</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 01:37:33,887</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 01:42:34,118</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 01:52:33,887</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 01:52:34,124</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 02:02:34,132</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 02:07:33,888</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 02:12:34,135</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 02:22:33,888</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 02:22:34,141</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 02:32:34,144</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 02:37:33,888</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 02:42:34,150</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 02:52:33,889</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 02:52:34,156</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 03:02:34,163</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 03:07:33,889</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 03:12:34,170</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 03:22:33,890</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 03:22:34,173</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 03:32:34,177</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 03:37:33,891</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 03:42:34,179</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 03:52:33,901</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 03:52:34,187</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 04:02:34,193</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 04:07:33,891</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 04:12:34,197</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 04:22:33,891</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 04:22:34,201</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 04:32:34,204</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 04:37:33,892</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 04:42:34,208</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 04:52:33,892</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 04:52:34,214</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 05:02:34,220</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 05:07:33,892</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 05:12:34,222</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 05:22:33,893</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 05:22:34,228</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 05:32:34,234</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 05:37:33,893</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 05:42:34,240</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 05:52:33,893</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 05:52:34,246</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 06:02:34,253</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 06:07:33,894</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 06:12:34,255</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 06:22:33,895</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 06:22:34,262</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 06:32:34,268</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 06:37:33,895</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 06:42:34,272</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 06:52:33,895</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 06:52:34,278</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 07:02:34,284</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 07:07:33,896</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 07:12:34,288</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 07:22:33,896</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 07:22:34,290</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 07:32:34,292</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 07:37:33,897</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 07:42:34,298</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 07:52:33,898</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 07:52:34,303</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 08:02:34,310</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 08:07:33,899</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 08:12:34,316</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 08:22:33,899</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 08:22:34,322</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 08:32:34,328</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 08:37:33,900</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 08:42:34,332</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 08:52:33,900</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 08:52:34,336</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 09:02:34,342</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 09:07:33,900</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 09:12:34,349</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 09:22:33,901</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 09:22:34,353</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 09:32:34,360</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 09:37:33,902</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 09:42:34,365</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 09:52:33,901</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 09:52:34,371</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 10:02:34,374</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 10:07:33,902</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 10:12:34,378</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 10:22:33,902</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 10:22:34,384</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 10:32:34,390</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 10:37:33,903</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 10:42:34,392</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 10:52:33,904</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 10:52:34,396</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 11:02:34,402</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 11:07:33,905</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 11:12:34,410</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 11:22:33,905</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 11:22:34,414</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 11:32:34,421</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 11:37:33,906</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 11:42:34,428</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 11:52:33,907</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 11:52:34,433</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 12:02:34,436</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 12:07:33,906</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 12:12:34,439</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 12:22:33,906</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 12:22:34,445</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 12:32:34,447</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 12:37:33,906</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 12:42:34,451</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 12:52:33,906</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 12:52:34,453</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 13:02:34,459</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 13:07:33,906</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 13:12:34,462</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 13:22:33,906</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 13:22:34,465</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 13:32:34,472</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 13:37:33,907</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 13:42:34,478</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 13:52:33,908</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 13:52:34,480</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 14:02:34,484</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 14:07:33,908</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 14:12:34,490</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 14:22:33,908</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 14:22:34,493</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 14:32:34,499</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 14:37:33,909</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 14:42:34,501</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 14:52:33,910</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 14:52:34,503</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 15:02:34,508</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 15:07:33,910</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 15:12:34,513</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 15:22:33,911</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 15:22:34,515</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 15:32:34,520</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 15:37:33,911</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 15:42:34,523</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 15:52:33,914</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 15:52:34,527</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 16:02:34,530</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 16:07:33,913</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 16:12:34,531</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 16:22:33,913</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 16:22:34,533</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 16:32:34,537</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 16:37:33,913</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 16:42:34,539</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 16:52:33,913</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 16:52:34,548</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 17:02:34,550</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 17:07:33,914</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 17:12:34,553</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 17:22:33,914</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 17:22:34,556</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 17:32:34,558</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 17:37:33,915</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 17:42:34,560</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 17:52:33,915</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 17:52:34,562</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 18:02:34,567</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 18:07:33,915</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 18:12:34,569</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 18:22:33,915</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 18:22:34,573</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 18:32:34,578</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 18:37:33,915</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 18:42:34,579</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-23 18:52:33,915</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-23 18:52:34,581</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>

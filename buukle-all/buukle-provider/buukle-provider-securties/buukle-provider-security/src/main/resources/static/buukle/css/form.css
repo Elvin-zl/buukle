@@ -118,6 +118,12 @@
     overflow:auto;
     margin-left: 80px !important;
 }
+.buukle-zTree-2{
+    width: 500px;
+    height: 250px;
+    overflow:auto;
+    margin-left: 80px !important;
+}
 .roleListContains{
     width: 809px;
     margin-top: 33px;
@@ -236,4 +242,8 @@
     width: 120px;
     display: inline-table;
     background-color: whitesmoke;
+}
+.buukle-save-cancel{
+    margin-top: -106px;
+    margin-left: 94px;
 }

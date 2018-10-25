@@ -54,6 +54,9 @@ public enum BaseResponseCode {
     BUTTON_ADD_OPERATION_TYPE_NULL(BaseResponseCode.FAILURES, "010012","添加按钮失败,按钮响应类型为空!" ),
     BUTTON_ADD_REMARK_NULL(BaseResponseCode.FAILURES, "010013","添加按钮失败,按钮备注为空!" ),
     BUTTON_EDIT_EXCEPTION(BaseResponseCode.FAILURES, "010014","更新按钮失败!"),
+    MODULE_ADD_NAME_NULL(BaseResponseCode.FAILURES, "010015","添加菜单失败,名称为空!" ),
+    MODULE_ADD_PID_NULL(BaseResponseCode.FAILURES, "010016","添加菜单失败,父级菜单id为空!" ),
+    MODULE_ADD_STATUS_NULL(BaseResponseCode.FAILURES, "010017","添加菜单失败,状态为空!" ),
 
     /*----------------------------------------------MC--00{*}{*}{*}{*}--------------------------------------------------------------------*/
     /** 登录,认证,授权 --0000{*}{*}*/

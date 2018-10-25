@@ -3,7 +3,6 @@ package top.buukle.provider.security.controller.module;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import top.buukle.common.response.BaseResponse;
@@ -14,6 +13,7 @@ import top.buukle.provider.security.vo.query.PageBounds;
 import top.buukle.provider.security.vo.response.FuzzySearchListVo;
 import top.buukle.provider.security.vo.response.ModuleButtonListVo;
 import top.buukle.provider.security.vo.response.PageResponse;
+import top.buukle.provider.security.vo.response.RoleModuleListVo;
 import top.buukle.provider.security.vo.result.ModuleNavigationVo;
 
 import javax.servlet.http.HttpServletRequest;
@@ -60,11 +60,20 @@ public class ModuleController {
      */
     @RequestMapping("/doBanOrRelease")
     @ResponseBody
-    public BaseResponse doBanOrRelease(ModuleQuery query) throws Exception {
-        return moduleService.doBanOrRelease(query);
+    public BaseResponse doBanOrRelease(HttpServletRequest request,ModuleQuery query) throws Exception {
+        return moduleService.doBanOrRelease(request,query);
+    }
+    /**
+     * 添加菜单
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/addModule")
+    @ResponseBody
+    public BaseResponse addModule(HttpServletRequest request,ModuleQuery query) throws Exception {
+        return moduleService.addModule(request,query,applicationName);
     }
 
-    ///
     /**
      * 获取角色菜单信息
      * @param request
@@ -98,5 +107,15 @@ public class ModuleController {
     @ResponseBody
     public List<FuzzySearchListVo> fuzzySearchByName(String fuzzyText) throws Exception {
         return moduleService.fuzzySearchByName(fuzzyText);
+    }
+    /**
+     * 查询父级菜单树
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/getFatherModuleTree")
+    @ResponseBody
+    public List<RoleModuleListVo> getFatherModuleTree(String clickCallBack) throws Exception {
+        return moduleService.getFatherModuleTree(applicationName,clickCallBack);
     }
 }

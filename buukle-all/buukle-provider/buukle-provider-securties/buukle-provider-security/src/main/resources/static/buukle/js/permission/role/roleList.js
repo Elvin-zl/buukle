@@ -88,26 +88,22 @@ function detail(data) {
 function modify(id, data) {
 
 }
-
+/*初始化分配菜单树对象*/
+var setModuleZTreeObj;
 /*分配菜单回调*/
 function setRoleModule(data) {
     //渲染树
-    rederzTree(data);
+    setModuleZTreeObj = renderSimpleCheckboxZTree(setModuleZTreeObj,data,'tree');
     releaseThis($('#doSetRoleModule'));
     //保存
     $('#doSetRoleModule').off().on('click',function () {
         disableThis($('#doSetRoleModule'));
         var id = $("#currentRecordId").val();
-        var nodes = zTreeObj.getCheckedNodes(true);
-        var ids = '';
-        for(var i=0;i<nodes.length;i++){
-            ids = ids + nodes[i].id + ',';
-        }
         $.ajax({
             url:"/role/setRoleModule",
             dataType:"json",
             type:"post",
-            data:{'ids':ids,'id':id},
+            data:{'ids':getZTreeSelected(setModuleZTreeObj),'id':id},
             success:function (data) {
                 var code = data.code;
                 layui.use("layer",function () {
@@ -125,30 +121,4 @@ function setRoleModule(data) {
             }
         });
     })
-}
-/*渲染zTree*/
-var zTreeObj ;
-function rederzTree(data) {
-    var setting = {
-        view: {
-            dblClickExpand: false,
-            showLine: true,
-            selectedMulti: false
-        },
-        check: {
-            chkboxType: { "Y" : "ps", "N" : "ps" },
-            enable: true
-        },
-        data: {
-            simpleData: {
-                enable:true,
-                idKey: "id",
-                pIdKey: "pId",
-                rootPId: ""
-            }
-        }
-    };
-    var zNodes = data;
-    var t = $("#tree");
-    zTreeObj = $.fn.zTree.init(t, setting, zNodes);
 }

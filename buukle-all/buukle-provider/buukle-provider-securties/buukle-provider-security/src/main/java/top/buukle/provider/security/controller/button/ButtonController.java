@@ -68,8 +68,8 @@ public class ButtonController {
      */
     @RequestMapping("/doBanOrRelease")
     @ResponseBody
-    public BaseResponse doBanOrRelease(ButtonQuery query) throws Exception {
-        return buttonService.doBanOrRelease(query);
+    public BaseResponse doBanOrRelease(HttpServletRequest request,ButtonQuery query) throws Exception {
+        return buttonService.doBanOrRelease(request,query);
     }
 
     /**

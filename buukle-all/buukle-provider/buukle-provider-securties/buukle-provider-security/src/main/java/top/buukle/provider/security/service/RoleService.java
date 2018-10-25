@@ -16,6 +16,7 @@ import top.buukle.provider.security.vo.response.PageResponse;
 import top.buukle.provider.security.vo.response.RoleModuleListVo;
 
 import javax.servlet.http.HttpServletRequest;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 /**
@@ -87,10 +88,12 @@ public interface RoleService {
 
 	/**
 	 * 启用禁用
-	 * @param query
-	 * @return
+	 *
+     * @param request
+     * @param query
+     * @return
 	 */
-	BaseResponse doBanOrRelease(RoleQuery query);
+	BaseResponse doBanOrRelease(HttpServletRequest request, RoleQuery query) throws InvocationTargetException, IllegalAccessException;
 
 	/**
 	 * 分配菜单前回显

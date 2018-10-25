@@ -133,11 +133,13 @@ public class ButtonServiceImpl implements ButtonService {
 
     /**
      * 起停用按钮
+     *
+     * @param request
      * @param query
      * @return
      */
     @Override
-    public BaseResponse doBanOrRelease(ButtonQuery query) {
+    public BaseResponse doBanOrRelease(HttpServletRequest request, ButtonQuery query) throws InvocationTargetException, IllegalAccessException {
         if(query == null){
             throw new BaseException(BaseResponseCode.BASE_REQUEST_NULL);
         }
@@ -146,13 +148,35 @@ public class ButtonServiceImpl implements ButtonService {
         }else{
             query.setStatus(SecurityStatusConstants.STATUS_OPEN);
         }
-        buttonMapper.doBanOrRelease(query);
+        buttonMapper.updateByPrimaryKeySelective(this.assButton(request, query, false));
         ModuleButton moduleButton = moduleButtonMapper.getByButtonId(query.getId());
         // 更新全局按钮缓存
         UserInvoker.clearGlobalCacheInfoByType(Button.class);
         // 更新菜单下按钮缓存
         UserInvoker.deleteModuleButton(moduleButton.getModuleId());
         return new BaseResponse.Builder().buildSuccess();
+    }
+
+    /**
+     * 组装按钮对象
+     * @param request
+     * @param query
+     * @param isAdd
+     */
+    private Button assButton(HttpServletRequest request, ButtonQuery query, boolean isAdd) throws InvocationTargetException, IllegalAccessException {
+        User operator = UserInvoker.getUser(CookieUtil.getUserCookie(request));
+        Button button = new Button();
+        BeanUtils.copyProperties(button,query);
+        if(isAdd){
+            button.setCreator(operator.getUsername());
+            button.setCreatorCode(operator.getUserId());
+            button.setGmtCreated(new Date());
+        }else{
+            button.setModifier(operator.getUsername());
+            button.setModifierCode(operator.getUserId());
+            button.setGmtModified(new Date());
+        }
+        return button;
     }
 
     /**
@@ -163,14 +187,11 @@ public class ButtonServiceImpl implements ButtonService {
      * @return
      */
     @Override
-    public BaseResponse addButton(HttpServletRequest request, ButtonQuery query) {
+    public BaseResponse addButton(HttpServletRequest request, ButtonQuery query) throws InvocationTargetException, IllegalAccessException {
         //校验参数
         validateAddParam(query);
-        User user = UserInvoker.getUser(CookieUtil.getUserCookie(request));
-        query.setGmtCreated(new Date());
-        query.setCreator(user.getUsername());
-        query.setCreatorCode(user.getUserId());
-        buttonMapper.insert(query);
+        //insert
+        buttonMapper.insert(this.assButton(request, query, true));
         // 更新全局按钮缓存
         UserInvoker.clearGlobalCacheInfoByType(Button.class);
         return new BaseResponse.Builder().buildSuccess();
@@ -196,8 +217,7 @@ public class ButtonServiceImpl implements ButtonService {
      */
     @Override
     public BaseResponse editButton(HttpServletRequest request, ButtonQuery query, Integer id) throws InvocationTargetException, IllegalAccessException {
-        User operator = UserInvoker.getUser(CookieUtil.getUserCookie(request));
-        if(buttonMapper.updateByPrimaryKeySelective(this.assButton(operator,query,id)) > 0){
+        if(buttonMapper.updateByPrimaryKeySelective(this.assButton(request,query,false)) > 0){
             return new BaseResponse.Builder().buildSuccess();
         }
         throw new BaseException(BaseResponseCode.BUTTON_EDIT_EXCEPTION);
@@ -220,22 +240,6 @@ public class ButtonServiceImpl implements ButtonService {
             }
         }
         return fuzzySearchListVos;
-    }
-
-    /**
-     * 组装按钮对象
-     * @param operator
-     * @param query
-     * @param id
-     * @return
-     */
-    private Button assButton(User operator, ButtonQuery query, Integer id) throws InvocationTargetException, IllegalAccessException {
-        Button button = new Button();
-        BeanUtils.copyProperties(button,query);
-        button.setId(id);
-        button.setGmtModified(new Date());
-        button.setModifier(operator.getUsername());
-        return button;
     }
 
     private void validateAddParam(ButtonQuery query) {

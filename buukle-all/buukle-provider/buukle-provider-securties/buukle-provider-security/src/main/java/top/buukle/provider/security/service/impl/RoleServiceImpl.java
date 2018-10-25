@@ -13,8 +13,8 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Service;
 import top.buukle.common.response.BaseResponse;
-import top.buukle.common.util.common.NumberUtil;
 import top.buukle.common.util.common.StringUtil;
+import top.buukle.plugin.security.util.CookieUtil;
 import top.buukle.provider.security.constants.SecurityStatusConstants;
 import top.buukle.provider.security.dao.ModuleMapper;
 import top.buukle.provider.security.dao.RoleModuleMapper;
@@ -32,10 +32,10 @@ import top.buukle.provider.security.vo.query.RoleQuery;
 import top.buukle.provider.security.vo.response.FuzzySearchListVo;
 import top.buukle.provider.security.vo.response.PageResponse;
 import top.buukle.provider.security.vo.response.RoleModuleListVo;
-import top.buukle.provider.security.vo.response.UserRoleListVo;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -98,17 +98,19 @@ public class RoleServiceImpl implements RoleService {
 
     /**
      * 启用/停用 角色
+     *
+     * @param request
      * @param query
      * @return
      */
     @Override
-    public BaseResponse doBanOrRelease(RoleQuery query) {
+    public BaseResponse doBanOrRelease(HttpServletRequest request, RoleQuery query) throws InvocationTargetException, IllegalAccessException {
         if(null != query.getStatus() && query.getStatus().equals(SecurityStatusConstants.STATUS_OPEN)){
             query.setStatus(SecurityStatusConstants.STATUS_CLOSE);
         }else{
             query.setStatus(SecurityStatusConstants.STATUS_OPEN);
         }
-        roleMapper.doBanOrRelease(query);
+        roleMapper.updateByPrimaryKeySelective(this.assRole(request,query,false));
         //更新全局角色缓存
         UserInvoker.clearGlobalCacheInfoByType(Role.class);
         // 根据用户角色更新用户菜单缓存 ==>> TODO 此处可优化为异步线程处理
@@ -121,8 +123,30 @@ public class RoleServiceImpl implements RoleService {
         return new BaseResponse.Builder().buildSuccess();
     }
 
+    /**
+     * 组装角色
+     * @param request
+     * @param query
+     * @param isAdd
+     * @return
+     */
+    private Role assRole(HttpServletRequest request, RoleQuery query, boolean isAdd) throws InvocationTargetException, IllegalAccessException {
+        Role role = new Role();
+        User operator = UserInvoker.getUser(CookieUtil.getUserCookie(request));
+        BeanUtils.copyProperties(role,query);
+        if(isAdd){
+            role.setGmtCreated(new Date());
+            role.setCreator(operator.getUsername());
+            role.setCreatorCode(operator.getUserId());
+        }else{
+            role.setModifier(operator.getUsername());
+            role.setGmtModified(new Date());
+            role.setModifierCode(operator.getUserId());
+        }
+        return role;
+    }
 
-	/**
+    /**
 	 * 获取角色菜单列表
 	 * @param request
 	 * @param id

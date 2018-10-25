@@ -105,10 +105,12 @@ import java.util.List;
 
 	/**
 	 * 启用停用
-	 * @param query
-	 * @return
+	 *
+     * @param request
+     * @param query
+     * @return
 	 */
-	BaseResponse doBanOrRelease(ButtonQuery query);
+	BaseResponse doBanOrRelease(HttpServletRequest request, ButtonQuery query) throws InvocationTargetException, IllegalAccessException;
 
 	/**
 	 * 添加按钮
@@ -117,7 +119,7 @@ import java.util.List;
 	 * @param query
 	 * @return
 	 */
-	BaseResponse addButton(HttpServletRequest request, ButtonQuery query);
+	BaseResponse addButton(HttpServletRequest request, ButtonQuery query) throws InvocationTargetException, IllegalAccessException;
 
 	/**
 	 * 获取详情

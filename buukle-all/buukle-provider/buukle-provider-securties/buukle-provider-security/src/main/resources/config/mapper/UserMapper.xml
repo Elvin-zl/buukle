@@ -487,7 +487,7 @@
       <if test="creator != null and creator != '' " >
         creator = #{creator,jdbcType=VARCHAR},
       </if>
-      <if test="creatorCode != null and creatorCode != '' " >
+      <if test="creatorCode != null " >
         creator_code = #{creatorCode,jdbcType=VARCHAR},
       </if>
       <if test="gmtCreated != null and gmtCreated != '' " >
@@ -499,7 +499,7 @@
       <if test="modifierCode != null and modifierCode != '' " >
         modifier_code = #{modifierCode,jdbcType=VARCHAR},
       </if>
-      <if test="gmtModified != null and gmtModified != '' " >
+      <if test="gmtModified != null " >
         gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
       </if>
       <if test="nameCn != null and nameCn != '' " >
@@ -514,7 +514,7 @@
       <if test="fullNameEn != null and fullNameEn != '' " >
         full_name_en = #{fullNameEn,jdbcType=VARCHAR},
       </if>
-      <if test="status != null and status != '' " >
+      <if test="status != null " >
         status = #{status,jdbcType=INTEGER},
       </if>
       <if test="bak01 != null and bak01 != '' " >

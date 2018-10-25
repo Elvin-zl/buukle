@@ -10,8 +10,17 @@ import top.buukle.provider.security.entity.Module;
 public class RoleModuleListVo extends Module{
 
     private String name;
+    private String click;
     private Boolean checked;
     private Integer pId;
+
+    public String getClick() {
+        return click;
+    }
+
+    public void setClick(String click) {
+        this.click = click;
+    }
 
     public String getName() {
         return name;

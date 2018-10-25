@@ -44,8 +44,8 @@ public class RoleController {
      */
     @RequestMapping("/doBanOrRelease")
     @ResponseBody
-    public BaseResponse doBanOrRelease(RoleQuery query) throws Exception {
-        return roleService.doBanOrRelease(query);
+    public BaseResponse doBanOrRelease(HttpServletRequest request,RoleQuery query) throws Exception {
+        return roleService.doBanOrRelease(request,query);
     }
     /**
      * 获取角色菜单信息

@@ -29,10 +29,12 @@ import top.buukle.provider.security.vo.query.PageBounds;
 import top.buukle.provider.security.vo.response.FuzzySearchListVo;
 import top.buukle.provider.security.vo.response.ModuleButtonListVo;
 import top.buukle.provider.security.vo.response.PageResponse;
+import top.buukle.provider.security.vo.response.RoleModuleListVo;
 import top.buukle.provider.security.vo.result.ModuleNavigationVo;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
 /**
@@ -42,7 +44,10 @@ import java.util.*;
  */
 @Service("moduleService")
 public class ModuleServiceImpl implements ModuleService {
-	@Resource
+
+    /** 根菜单名称*/
+    private static final String ROOT_MODULE_NAME = "根菜单";
+    @Resource
     private ModuleMapper moduleMapper;
 	@Resource
     private UserService userService;
@@ -99,14 +104,7 @@ public class ModuleServiceImpl implements ModuleService {
         }
         //转换用户菜单列表为菜单树
         ArrayList<ModuleNavigationVo> moduleNavigationVoList = new ArrayList<>();
-        for (Module module : userModuleListApplication) {
-            if(module.getPid().equals(NumberUtil.INTEGER_ZERO)){
-                ModuleNavigationVo moduleNavigationVo = new ModuleNavigationVo();
-                ModuleNavigationVo.copyProperties(module,moduleNavigationVo);
-                moduleNavigationVoList.add(moduleNavigationVo);
-                this.getSonModule(userModuleListApplication,moduleNavigationVo);
-            }
-        }
+        this.converseToTree(userModuleListApplication,moduleNavigationVoList);
         return moduleNavigationVoList;
 	}
 
@@ -125,17 +123,18 @@ public class ModuleServiceImpl implements ModuleService {
 
     /**
      * 起停用菜单
+     * @param request
      * @param query
      * @return
      */
     @Override
-    public BaseResponse doBanOrRelease(ModuleQuery query) {
+    public BaseResponse doBanOrRelease(HttpServletRequest request, ModuleQuery query) throws InvocationTargetException, IllegalAccessException {
         if(null != query.getStatus() && query.getStatus().equals(SecurityStatusConstants.STATUS_OPEN)){
             query.setStatus(SecurityStatusConstants.STATUS_CLOSE);
         }else{
             query.setStatus(SecurityStatusConstants.STATUS_OPEN);
         }
-        moduleMapper.doBanOrRelease(query);
+        moduleMapper.updateByPrimaryKeySelective(assModule(request,query,false));
         // 更新全局菜单缓存
         UserInvoker.clearGlobalCacheInfoByType(Module.class);
         // 更新用户菜单缓存 ==>> TODO 此处可优化为异步线程处理
@@ -146,6 +145,29 @@ public class ModuleServiceImpl implements ModuleService {
             }
         }
         return new BaseResponse.Builder().buildSuccess();
+    }
+
+    /**
+     * 组装菜单对象
+     *
+     * @param request
+     * @param query
+     * @return
+     */
+    private Module assModule(HttpServletRequest request, ModuleQuery query,Boolean isAdd) throws InvocationTargetException, IllegalAccessException {
+        Module module = new Module();
+        User operator = UserInvoker.getUser(CookieUtil.getUserCookie(request));
+        BeanUtils.copyProperties(module,query);
+        if(isAdd){
+            module.setGmtCreated(new Date());
+            module.setCreator(operator.getUsername());
+            module.setCreatorCode(operator.getUserId());
+        }else{
+            module.setGmtModified(new Date());
+            module.setModifier(operator.getUsername());
+            module.setModifierCode(operator.getUserId());
+        }
+        return module;
     }
 
     /**
@@ -253,6 +275,99 @@ public class ModuleServiceImpl implements ModuleService {
             }
         }
         return fuzzySearchListVos;
+    }
+
+    /**
+     * 查询父级菜单树
+     * @return
+     * @param applicationName
+     * @param clickCallBack  */
+    @Override
+    public List<RoleModuleListVo> getFatherModuleTree(String applicationName, String clickCallBack) throws Exception {
+        if(StringUtil.isEmpty(applicationName)){
+            throw new BaseException(BaseResponseCode.BASE_REQUEST_APPLICATION_NAME_NULL);
+        }
+        //获取全局菜单列表
+        List<Module> globalModuleList = userService.getGlobalCacheByType(Module.class);
+        List<Module> globalModuleListForApplication = new ArrayList<>();
+        //根据应用名过滤
+        for (Module module:  globalModuleList) {
+            if(StringUtil.isNotEmpty(module.getBak01()) && module.getBak01().equals(applicationName)){
+                globalModuleListForApplication.add(module);
+            }
+        }
+        //初始化返回对象
+        ArrayList<RoleModuleListVo> roleModuleListVos = new ArrayList<>();
+        //初始化根菜单
+        Module rootModule = new Module();
+        rootModule.setId(0);
+        rootModule.setPid(-1);
+        rootModule.setModuleName(ROOT_MODULE_NAME);
+        globalModuleListForApplication.add(rootModule);
+        for (Module gModule: globalModuleListForApplication) {
+            RoleModuleListVo roleModuleListVo = new RoleModuleListVo();
+            BeanUtils.copyProperties(roleModuleListVo,gModule);
+            roleModuleListVo.setName(gModule.getModuleName());
+            roleModuleListVo.setpId(gModule.getPid());
+            roleModuleListVo.setId(gModule.getId());
+            roleModuleListVo.setClick(clickCallBack);
+            roleModuleListVos.add(roleModuleListVo);
+            roleModuleListVo.setUrl("");
+        }
+        return roleModuleListVos;
+    }
+
+    /**
+     * 添加菜单
+     * @param request
+     * @param query
+     * @param applicationName
+     * @return
+     */
+    @Override
+    public BaseResponse addModule(HttpServletRequest request, ModuleQuery query, String applicationName) throws InvocationTargetException, IllegalAccessException {
+        moduleMapper.insert(validateAddParam(request,query,applicationName));
+        //清除全局菜单缓存
+        UserInvoker.clearGlobalCacheInfoByType(Module.class);
+        return new BaseResponse.Builder().buildSuccess();
+    }
+
+    /**
+     * 校验添加参数
+     *
+     * @param request
+     * @param query
+     * @param applicationName
+     * @return
+     */
+    private Module validateAddParam(HttpServletRequest request, ModuleQuery query, String applicationName) throws InvocationTargetException, IllegalAccessException {
+        if(StringUtil.isEmpty(query.getModuleName())){
+            throw new BaseException(BaseResponseCode.MODULE_ADD_NAME_NULL);
+        }
+        if(query.getPid() ==null){
+            throw new BaseException(BaseResponseCode.MODULE_ADD_PID_NULL);
+        }
+        if(query.getStatus() ==null){
+            throw new BaseException(BaseResponseCode.MODULE_ADD_STATUS_NULL);
+        }
+        query.setBak01(applicationName);
+        return this.assModule(request, query, true);
+    }
+
+    /**
+     * 转换菜单菜单列表为菜单树
+     * @param globalModuleListForApplication
+     * @param moduleNavigationVoList
+     */
+    private void converseToTree(List<Module> globalModuleListForApplication, ArrayList<ModuleNavigationVo> moduleNavigationVoList) {
+        for (Module module : globalModuleListForApplication) {
+            if(module.getPid().equals(NumberUtil.INTEGER_ZERO)){
+                ModuleNavigationVo moduleNavigationVo = new ModuleNavigationVo();
+                ModuleNavigationVo.copyProperties(module,moduleNavigationVo);
+                moduleNavigationVoList.add(moduleNavigationVo);
+                this.getSonModule(globalModuleListForApplication,moduleNavigationVo);
+            }
+        }
     }
 
     /**

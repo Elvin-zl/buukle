@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * @Author elvin
  * @Date Created by elvin on 2018/10/10.
- * @Description :
+ * @Description : 菜单树包装对象
  */
 public class ModuleNavigationVo {
 

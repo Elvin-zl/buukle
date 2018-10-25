@@ -14,9 +14,11 @@ import top.buukle.provider.security.vo.query.PageBounds;
 import top.buukle.provider.security.vo.response.FuzzySearchListVo;
 import top.buukle.provider.security.vo.response.ModuleButtonListVo;
 import top.buukle.provider.security.vo.response.PageResponse;
+import top.buukle.provider.security.vo.response.RoleModuleListVo;
 import top.buukle.provider.security.vo.result.ModuleNavigationVo;
 
 import javax.servlet.http.HttpServletRequest;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 /**
@@ -100,10 +102,12 @@ public interface ModuleService {
 
 	/**
 	 * 启用禁用
-	 * @param query
-	 * @return
+	 *
+     * @param request
+     * @param query
+     * @return
 	 */
-	BaseResponse doBanOrRelease(ModuleQuery query);
+	BaseResponse doBanOrRelease(HttpServletRequest request, ModuleQuery query) throws InvocationTargetException, IllegalAccessException;
 
 	/**
 	 * 分配按钮回显页面查询
@@ -128,4 +132,22 @@ public interface ModuleService {
 	 * @return
 	 */
 	List<FuzzySearchListVo> fuzzySearchByName(String fuzzyText);
+
+	/**
+	 * 查询父级菜单树
+	 * @return
+     * @param applicationName
+     * @param callBack
+     */
+    List<RoleModuleListVo> getFatherModuleTree(String applicationName, String callBack) throws Exception;
+
+    /**
+     * 添加菜单
+     *
+     * @param request
+     * @param query
+     * @param applicationName
+     * @return
+     */
+    BaseResponse addModule(HttpServletRequest request, ModuleQuery query, String applicationName) throws InvocationTargetException, IllegalAccessException;
 }

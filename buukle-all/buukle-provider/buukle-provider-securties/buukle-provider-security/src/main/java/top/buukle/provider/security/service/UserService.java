@@ -20,6 +20,7 @@ import top.buukle.provider.security.vo.response.PageResponse;
 import top.buukle.provider.security.vo.response.UserRoleListVo;
 
 import javax.servlet.http.HttpServletRequest;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 /**
@@ -111,10 +112,12 @@ public interface UserService {
 
 	/**
 	 * 起停用
-	 * @param userQuery
-	 * @return
+	 *
+     * @param request
+     * @param userQuery
+     * @return
 	 */
-    BaseResponse doBanOrRelease(UserQuery userQuery);
+    BaseResponse doBanOrRelease(HttpServletRequest request, UserQuery userQuery) throws InvocationTargetException, IllegalAccessException;
 
 	/**
 	 * 执行设置角色

@@ -3,7 +3,7 @@ $(function () {
     /*绑定页面按钮操作组件*/
     bindsearchConditionClick();
     /*绑定添加页面保存按钮事件*/
-    // bindAddModulePageClick();
+    bindCRUDClick();
 });
 var tableIns;
 function renderTable() {
@@ -28,9 +28,10 @@ function renderTable() {
                 limitName: 'limit'
             }
             ,cols: [[
-                {field: 'moduleName', title: '菜单/按钮名', width:177}
+                {title: '菜单/按钮名',  field: 'moduleName', width:177}
                 ,{title: '创建时间', width: 160,templet: '<div><a href="javascript:;">{{formatDateTime(d.gmtCreated)}}</a></div>'}
-                ,{title: '更新时间', width: 160,templet: '<div><a href="javascript:;">{{formatDateTime(d.modifiedTime)}}</a></div>'}
+                ,{title: '更新时间', width: 160,templet: '<div><a href="javascript:;">{{formatDateTime(d.gmtModified)}}</a></div>'}
+                ,{title: '备注',field: 'description',  width:177}
                 ,{title: '状态', width: 80,templet: '<div>{{formatStatus(d.status)}} </div>'}
                 ,{title: '操作',fixed: 'right', width:290, align:'center',templet: '<div>{{formatUserHandle(d.status,d.id)}} </div>'}
             ]]
@@ -50,30 +51,68 @@ function reloadTable() {
     },1000);
 }
 
-/*添加*/
-$('#addRole').off().on('click',function () {
-    $.ajax({
-        url:"/role/addRole",
-        dataType:"json",
-        type:"post",
-        data: $('#addRoleForm').serialize(),
-        success:function (data) {
-            var code = data.code;
-            layui.use("layer",function () {
-                var layer = layui.layer;
-                var cancelB =  $("#cancelAddRole");
-                if(code == "F"){
-                    layer.msg(data.msg, {icon: 2});
-                    cancelB.click();
-                    return;
-                }
-                layer.msg(data.msg, {icon: 1});
-                cancelB.click();
-                reloadTable();
-            })
-        }
+/*初始化父级菜单zTree对象*/
+var fatherModuleZTreeObj;
+function bindCRUDClick() {
+    /*绑定父级菜单点击事件*/
+    $('#fatherModuleName').off().on('click',function () {
+        //去后台取数据
+        $.ajax({
+            url:"/module/getFatherModuleTree",
+            dataType:"json",
+            type:"post",
+            data: {"clickCallBack" : 'fatherModuleClickCallback()'},
+            success:function (data) {
+                //渲染父级菜单数据
+                fatherModuleZTreeObj = renderCallbackRedioOrCheckboxZTree(fatherModuleZTreeObj,data,'fatherTree',true);
+                //打开父级菜单弹层
+                layui.use("layer",function () {
+                    var layer = layui.layer;
+                    dataBtnBox = layer.open({
+                        title:'父级菜单',
+                        type:1,
+                        content: $('#fatherModuleTree'),
+                        area: ['665px', '340px']
+                    });
+                });
+            }
+        });
     });
-});
+
+    /*添加*/
+    $('#addModule').off().on('click',function () {
+        disableThis($('#addModule'));
+        $.ajax({
+            url:"/module/addModule",
+            dataType:"json",
+            type:"post",
+            data: $('#addModuleForm').serialize(),
+            success:function (data) {
+                releaseThis($('#addModule'));
+                layui.use("layer",function () {
+                    var layer = layui.layer;
+                    if(data.status  == 'F'){
+                        layer.msg(data.msg, {
+                            icon: 2,
+                            time: 3000
+                        });
+                    }
+                    if(data.status  == 'S'){
+                        layer.msg(data.msg, {
+                            icon: 1,
+                            time: 3000
+                        });
+                        //清空添加表单
+                        $('.add-input').val('');
+                        $("#cancelSetModuleButton").click();
+                        reloadTable ();
+                    }
+                })
+            }
+        });
+    });
+}
+
 /*详情回显回调*/
 function detail(data) {
     for(var key in data){
@@ -92,25 +131,22 @@ function modify(id, data) {
 
 }
 
+/*初始化分配按钮zTree对象*/
+var setButtonZTreeObj;
 /*分配按钮回调*/
 function setModuleButton(data) {
     //渲染树
-    rederzTree(data);
+    setButtonZTreeObj = renderSimpleCheckboxZTree(setButtonZTreeObj,data,'tree');
     releaseThis($('#doSetModuleButton'));
     //保存
     $('#doSetModuleButton').off().on('click',function () {
         disableThis($('#doSetModuleButton'));
         var id = $("#currentRecordId").val();
-        var nodes = zTreeObj.getCheckedNodes(true);
-        var ids = '';
-        for(var i=0;i<nodes.length;i++){
-            ids = ids + nodes[i].id + ',';
-        }
         $.ajax({
             url:"/module/setModuleButton",
             dataType:"json",
             type:"post",
-            data:{'ids':ids,'id':id},
+            data:{'ids':getZTreeSelected(setButtonZTreeObj),'id':id},
             success:function (data) {
                 var code = data.code;
                 layui.use("layer",function () {
@@ -129,18 +165,26 @@ function setModuleButton(data) {
         });
     })
 }
-/*渲染zTree*/
-var zTreeObj ;
-function rederzTree(data) {
+
+/**
+ * 渲染复杂带回调的单选/复选树
+ * @param zTreeObj
+ * @param data
+ * @param treeId
+ * @param isSingle
+ * @returns {*}
+ */
+function renderCallbackRedioOrCheckboxZTree(zTreeObj , data, treeId, isSingle) {
     var setting = {
+        callback: {
+            beforeCheck: fatherModuleClickCallback
+        },
         view: {
             dblClickExpand: false,
             showLine: true,
             selectedMulti: false
         },
         check: {
-            chkboxType: { "Y" : "ps", "N" : "ps" },
-            enable: true
         },
         data: {
             simpleData: {
@@ -151,7 +195,29 @@ function rederzTree(data) {
             }
         }
     };
+    //设置zTree单选复选形式
+    if(isSingle){
+        setting.check.enable = true;
+        setting.check.chkboxType = '';
+        setting.check.chkStyle = 'radio';
+        setting.check.radioType = 'all';
+    }else{
+        setting.check.enable = true;
+        setting.check.chkboxType = { "Y" : "ps", "N" : "ps" };
+    }
+
     var zNodes = data;
-    var t = $("#tree");
+    var t = $("#"+ treeId);
     zTreeObj = $.fn.zTree.init(t, setting, zNodes);
+    return zTreeObj;
+}
+/*父级菜单点击回调*/
+function fatherModuleClickCallback(treeId, treeNode) {
+    // console.log(treeNode.id);
+    // console.log();
+    if(treeNode == undefined){
+        return;
+    }
+    $('#fatherModuleName').val(treeNode.name);
+    $('#pid').val(treeNode.id);
 }

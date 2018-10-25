@@ -65,8 +65,8 @@ public class UserController {
      */
     @RequestMapping("/doBanOrRelease")
     @ResponseBody
-    public BaseResponse doBanOrRelease(UserQuery userQuery) throws Exception {
-        return userService.doBanOrRelease(userQuery);
+    public BaseResponse doBanOrRelease(HttpServletRequest request,UserQuery userQuery) throws Exception {
+        return userService.doBanOrRelease(request,userQuery);
     }
 
     /**
