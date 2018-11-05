@@ -18,4 +18,12 @@ public class StringGeneratorUtil {
     public static String generateUserCookie() {
         return UUID.randomUUID().toString().replace(StringUtil.MIDDLE,StringUtil.EMPTY);
     }
+
+    /**
+     * 生成用户ID
+     * @return
+     */
+    public static String generateUserID() {
+        return "BK_" + (UUID.randomUUID().toString().replace(StringUtil.MIDDLE,StringUtil.EMPTY)).toUpperCase();
+    }
 }

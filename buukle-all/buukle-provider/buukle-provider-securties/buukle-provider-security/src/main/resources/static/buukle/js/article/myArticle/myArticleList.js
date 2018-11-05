@@ -1,7 +1,7 @@
 //@ sourceURL=myArticleList.js
 $(function () {
     /*绑定页面按钮操作组件*/
-    bindsearchConditionClick();
+    bindSearchConditionClick();
     /*绑定当前页面事件*/
     bindCurrentPageCilck();
 });

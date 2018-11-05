@@ -9,10 +9,7 @@ package top.buukle.provider.security.service;
 
 import top.buukle.common.request.BaseRequest;
 import top.buukle.common.response.BaseResponse;
-import top.buukle.provider.security.entity.Button;
-import top.buukle.provider.security.entity.Module;
-import top.buukle.provider.security.entity.Role;
-import top.buukle.provider.security.entity.User;
+import top.buukle.provider.security.entity.*;
 import top.buukle.provider.security.vo.query.PageBounds;
 import top.buukle.provider.security.vo.query.UserQuery;
 import top.buukle.provider.security.vo.response.FuzzySearchListVo;
@@ -134,6 +131,12 @@ public interface UserService {
 	List<Role> getGlobalRole();
 
 	/**
+	 * 获取全局组别列表
+	 * @return
+	 */
+	List<Groups> getGlobalGroups();
+
+	/**
 	 * 根据类型获取全局缓存信息
 	 * @param clazz
 	 * @return
@@ -145,11 +148,11 @@ public interface UserService {
 	/**
 	 * 分配角色前页面回显查询
 	 * @param request
-	 * @param id
+	 * @param query
 	 * @return
 	 * @throws Exception
 	 */
-	List<UserRoleListVo> getUserRoleForPage(HttpServletRequest request, Integer id) throws Exception;
+	List<UserRoleListVo> getUserRoleForPage(HttpServletRequest request, UserQuery query) throws Exception;
 
 	/**
 	 * 模糊搜索
@@ -157,4 +160,29 @@ public interface UserService {
 	 * @return
 	 */
     List<FuzzySearchListVo> fuzzySearchByName(String fuzzyText);
+
+	/**
+	 * 添加用户
+	 *
+	 * @param request
+	 * @param userQuery
+	 * @return
+	 */
+    BaseResponse addUser(HttpServletRequest request, UserQuery userQuery) throws InvocationTargetException, IllegalAccessException;
+
+	/**
+	 * 获取用户详情
+	 * @param userQuery
+	 * @return
+	 */
+	User getUserDetail(UserQuery userQuery);
+
+	/**
+	 * 修改用户
+	 * @param request
+	 * @param userQuery
+	 * @param userId
+	 * @return
+	 */
+    BaseResponse editUser(HttpServletRequest request, UserQuery userQuery, String userId) throws InvocationTargetException, IllegalAccessException;
 }

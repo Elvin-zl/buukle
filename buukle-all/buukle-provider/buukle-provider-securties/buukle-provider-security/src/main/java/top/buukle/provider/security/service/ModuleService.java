@@ -11,10 +11,7 @@ import top.buukle.common.response.BaseResponse;
 import top.buukle.provider.security.entity.Module;
 import top.buukle.provider.security.vo.query.ModuleQuery;
 import top.buukle.provider.security.vo.query.PageBounds;
-import top.buukle.provider.security.vo.response.FuzzySearchListVo;
-import top.buukle.provider.security.vo.response.ModuleButtonListVo;
-import top.buukle.provider.security.vo.response.PageResponse;
-import top.buukle.provider.security.vo.response.RoleModuleListVo;
+import top.buukle.provider.security.vo.response.*;
 import top.buukle.provider.security.vo.result.ModuleNavigationVo;
 
 import javax.servlet.http.HttpServletRequest;
@@ -150,4 +147,22 @@ public interface ModuleService {
      * @return
      */
     BaseResponse addModule(HttpServletRequest request, ModuleQuery query, String applicationName) throws InvocationTargetException, IllegalAccessException;
+
+	/**
+	 * 查询菜单详情
+	 * @param query
+	 * @return
+	 */
+	ModuleDetailVo getModuleDetail(ModuleQuery query) throws InvocationTargetException, IllegalAccessException;
+
+	/**
+	 * 编辑菜单
+	 *
+	 * @param request
+	 * @param id
+	 * @param query
+	 * @param applicationName
+	 * @return
+	 */
+	BaseResponse editModule(HttpServletRequest request, Integer id, ModuleQuery query, String applicationName) throws InvocationTargetException, IllegalAccessException;
 }

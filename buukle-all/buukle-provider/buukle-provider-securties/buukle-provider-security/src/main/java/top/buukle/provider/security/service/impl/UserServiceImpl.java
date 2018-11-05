@@ -19,20 +19,20 @@ import top.buukle.common.exception.BaseException;
 import top.buukle.common.request.BaseRequest;
 import top.buukle.common.request.RequestHead;
 import top.buukle.common.response.BaseResponse;
+import top.buukle.common.util.common.MD5Util;
 import top.buukle.common.util.common.NumberUtil;
 import top.buukle.common.util.common.StringUtil;
 import top.buukle.common.util.common.ThreadLocalUtil;
 import top.buukle.common.vo.ThreadParam;
 import top.buukle.plugin.security.util.CookieUtil;
+import top.buukle.provider.security.constants.SecurityConstants;
 import top.buukle.provider.security.constants.SecurityStatusConstants;
 import top.buukle.provider.security.entity.*;
-import top.buukle.provider.security.vo.query.PageBounds;
-import top.buukle.provider.security.vo.query.RoleQuery;
-import top.buukle.provider.security.vo.query.UserLoginPermissionQuery;
+import top.buukle.provider.security.util.StringGeneratorUtil;
+import top.buukle.provider.security.vo.query.*;
 import top.buukle.provider.security.dao.*;
 import top.buukle.provider.security.invoker.UserInvoker;
 import top.buukle.provider.security.service.UserService;
-import top.buukle.provider.security.vo.query.UserQuery;
 import top.buukle.provider.security.vo.response.FuzzySearchListVo;
 import top.buukle.provider.security.vo.response.PageResponse;
 import top.buukle.provider.security.vo.response.UserRoleListVo;
@@ -57,6 +57,8 @@ public class UserServiceImpl implements UserService {
     private ModuleMapper moduleMapper;
 	@Resource
     private RoleMapper roleMapper;
+	@Resource
+    private GroupsMapper groupsMapper;
 	@Resource
     private UserRoleMapper userRoleMapper;
 
@@ -249,11 +251,16 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public BaseResponse doBanOrRelease(HttpServletRequest request, UserQuery userQuery) throws InvocationTargetException, IllegalAccessException {
+        User user = this.getUserByUserId(userQuery);
+        if(user.getBak02().equals(SecurityConstants.DELETE_LEVEL_SYSTEM) && userQuery.getStatus() != null && userQuery.getStatus().equals(SecurityStatusConstants.STATUS_CLOSE)){
+            throw new BaseException(BaseResponseCode.EDIT_FORBIDDEN);
+        }
         if(null != userQuery.getStatus() && userQuery.getStatus().equals(SecurityStatusConstants.STATUS_OPEN)){
             userQuery.setStatus(SecurityStatusConstants.STATUS_CLOSE);
         }else{
             userQuery.setStatus(SecurityStatusConstants.STATUS_OPEN);
         }
+        userQuery.setId(user.getId());
         userMapper.updateByPrimaryKeySelective(this.assUser(request,userQuery,false));
         return new BaseResponse.Builder().buildSuccess();
     }
@@ -273,6 +280,12 @@ public class UserServiceImpl implements UserService {
             user.setGmtCreated(new Date());
             user.setCreatorCode(operator.getUserId());
             user.setCreator(operator.getUsername());
+            user.setGmtModified(new Date());
+            user.setModifier(operator.getUsername());
+            user.setModifierCode(operator.getUserId());
+            user.setUserId(StringGeneratorUtil.generateUserID());
+            user.setPassword(MD5Util.MD5WithUTF8(user.getPassword()));
+            user.setBak02(SecurityConstants.DELETE_LEVEL_TRUE);
         }else{
             user.setGmtModified(new Date());
             user.setModifier(operator.getUsername());
@@ -289,7 +302,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public BaseResponse doSetUserRole(String ids, UserQuery userQuery) {
-        User user = userMapper.selectByPrimaryKey(userQuery.getId());
+        User user = this.getUserByUserId(userQuery);
         userRoleMapper.deleteUserRole(user.getUserId());
         if(StringUtil.isEmpty(ids)){
             //更新用户缓存信息
@@ -387,7 +400,7 @@ public class UserServiceImpl implements UserService {
 	}
 
     /**
-     * 获取全局菜角色列表缓存
+     * 获取全局角色列表缓存
      */
     @Override
     public List<Role> getGlobalRole() {
@@ -399,6 +412,21 @@ public class UserServiceImpl implements UserService {
             UserInvoker.saveGlobalRole(roleList);
         }
         return roleList;
+    }
+
+    /**
+     * 获取全局组别列表缓存
+     */
+    @Override
+    public List<Groups> getGlobalGroups() {
+        List<Groups> groupsList = UserInvoker.getGlobalGroups();
+        if(CollectionUtils.isEmpty(groupsList)){
+            GroupsQuery groupsQuery = new GroupsQuery();
+            groupsQuery.setStatus(SecurityStatusConstants.STATUS_OPEN);
+            groupsList = groupsMapper.getGroupsList(groupsQuery);
+            UserInvoker.saveGlobalGroups(groupsList);
+        }
+        return groupsList;
     }
 
     /**
@@ -425,8 +453,7 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     @Override
-    public List<UserRoleListVo> getUserRoleForPage(HttpServletRequest request, Integer id) throws Exception {
-
+    public List<UserRoleListVo> getUserRoleForPage(HttpServletRequest request, UserQuery query) throws Exception {
         //获取全局角色列表
         List<Role> globalRoleList = this.getGlobalCacheByType(Role.class);
         if(CollectionUtils.isEmpty(globalRoleList)){
@@ -434,7 +461,7 @@ public class UserServiceImpl implements UserService {
         }
         //获取用户角色列表
         List<Role> userRoleList = new ArrayList<>();
-        User user = userMapper.selectByPrimaryKey(id);
+        User user = this.getUserByUserId(query);
         if(null != user){
             userRoleList = roleMapper.getUserRoleListByUserId(user.getUserId());
         }
@@ -477,9 +504,108 @@ public class UserServiceImpl implements UserService {
         return fuzzySearchListVos;
 	}
 
-
 	/**
-	 * 判断url是否在全局菜单+按钮 管理列表
+	 * 添加用户
+     * @param request
+     * @param userQuery
+     * @return
+	 */
+	@Override
+	public BaseResponse addUser(HttpServletRequest request, UserQuery userQuery) throws InvocationTargetException, IllegalAccessException {
+        //校验参数
+        this.validateAddOrUpdateParam(userQuery,true);
+        //组装user对象,并插入数据库
+        userMapper.insert(this.assUser(request, userQuery, true));
+        return new BaseResponse.Builder().buildSuccess();
+	}
+
+
+    /**
+     * 获取用户详情
+     * @param userQuery
+     * @return
+     */
+    @Override
+    public User getUserDetail(UserQuery userQuery) {
+        return this.getUserByUserId(userQuery);
+    }
+
+    /**
+     * 编辑用户
+     * @param request
+     * @param userQuery
+     * @param userId
+     * @return
+     */
+    @Override
+    public BaseResponse editUser(HttpServletRequest request, UserQuery userQuery, String userId) throws InvocationTargetException, IllegalAccessException {
+        //验证参数
+        userQuery.setUserId(userId);
+        User user = this.validateAddOrUpdateParam(userQuery, false);
+        userQuery.setId(user.getId());
+        //不予许修改用户名密码
+        userQuery.setUsername(null);
+        userQuery.setPassword(null);
+        //判断删禁级别
+        if(user.getBak02().equals(SecurityConstants.DELETE_LEVEL_SYSTEM) && userQuery.getStatus().equals(SecurityStatusConstants.STATUS_CLOSE)){
+            throw new BaseException(BaseResponseCode.EDIT_FORBIDDEN);
+        }
+        //组装并更新用户
+        userMapper.updateByPrimaryKeySelective(this.assUser(request, userQuery, false));
+        return new BaseResponse.Builder().buildSuccess();
+    }
+
+    /**
+     * 校验添加/更新参数
+     * @param userQuery
+     * @param isAdd
+     */
+    private User validateAddOrUpdateParam(UserQuery userQuery, boolean isAdd) {
+        if(!isAdd){
+            User user = this.getUserByUserId(new UserQuery(userQuery.getUserId()));
+            if(null == user){
+                throw new BaseException(BaseResponseCode.FAILED);
+            }
+            if(user.getBak02().equals(SecurityConstants.DELETE_LEVEL_SYSTEM) && userQuery.getStatus() != null && userQuery.getStatus().equals(SecurityStatusConstants.STATUS_CLOSE)){
+                throw new BaseException(BaseResponseCode.EDIT_FORBIDDEN);
+            }
+            if(user.getBak02().equals(SecurityConstants.DELETE_LEVEL_SYSTEM)){
+                userQuery.setStatus(SecurityStatusConstants.STATUS_OPEN);
+            }
+            if(StringUtil.isEmpty(userQuery.getGender())){
+                throw new BaseException(BaseResponseCode.USER_ADD_GENDER_NULL);
+            }
+            if(userQuery.getStatus() == null){
+                throw new BaseException(BaseResponseCode.USER_ADD_STATUS_NULL);
+            }
+            return user;
+        }
+        else {
+            if(StringUtil.isEmpty(userQuery.getUsername())){
+                throw new BaseException(BaseResponseCode.USER_ADD_USERNAME_NULL);
+            }
+            UserQuery user = new UserQuery();
+            user.setUsername(userQuery.getUsername());
+            List<User> userList = userMapper.getUserList(user);
+            if(CollectionUtils.isNotEmpty(userList)){
+                throw new BaseException(BaseResponseCode.USER_ADD_USERNAME_EXIST);
+            }
+            if(StringUtil.isEmpty(userQuery.getPassword())){
+                throw new BaseException(BaseResponseCode.USER_ADD_PASSWORD_NULL);
+            }
+            if(StringUtil.isEmpty(userQuery.getGender())){
+                throw new BaseException(BaseResponseCode.USER_ADD_GENDER_NULL);
+            }
+            if(userQuery.getStatus() == null){
+                throw new BaseException(BaseResponseCode.USER_ADD_STATUS_NULL);
+            }
+            return null;
+        }
+    }
+
+
+    /**
+	 * 判断url是否在全局菜单/按钮 管理列表
 	 * @param url
 	 * @param globalModuleList
 	 * @param globalButtonList
@@ -518,4 +644,14 @@ public class UserServiceImpl implements UserService {
 			throw new BaseException(BaseResponseCode.USER_PERMISSION_PARAM_WRONG);
 		}
 	}
+
+    /**
+     * 根据userId获取user
+     * @return
+     * @param userQuery
+     */
+    public User getUserByUserId(UserQuery userQuery) {
+        List<User> userList = userMapper.getUserList(new UserQuery(userQuery.getUserId()));
+        return CollectionUtils.isEmpty(userList) ? null : userList.get(0);
+    }
 }

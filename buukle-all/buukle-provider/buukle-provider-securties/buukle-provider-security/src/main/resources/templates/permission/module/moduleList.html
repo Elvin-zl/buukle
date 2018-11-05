@@ -13,14 +13,14 @@
     <link rel="stylesheet" href="" id="btnThemeCss">
 </head>
 <body>
-<div class="layui-tab layui-tab-brief" lay-filter="user">
+<div class="layui-tab layui-tab-brief" lay-filter="module">
     <div class="layui-tab-content">
         <!--搜索条件-->
         <form id="searchForm" class="buukle-data-form">
             <div class="buukle-search-name">
                 <div class="form-span" style="float: inherit;">菜单名称 : </div>
                 <div class="fuzzy-div">
-                    <input id="fuzzy-index-0" class="buukle-input search-condition fuzzy-input" data-fuzzyUrl="/module/fuzzySearchByName" type="text" name="name" placeholder="请输入按钮名称" autocomplete="off">
+                    <input id="fuzzy-index-0" class="buukle-input search-condition fuzzy-input" data-fuzzyUrl="/module/fuzzySearchByName" type="text" name="name" placeholder="请输入菜单名称" autocomplete="off">
                     <!--建议框-->
                     <div id="fuzzy-items-index-0"class="fuzzy-item-div" data-fuzzyIndex="0">
                     </div>
@@ -35,7 +35,7 @@
             <div class="buukle-select-father buukle-search-status">
                 <span class="form-span">状态 :</span>
                 <div>
-                    <select id="status" class="buukle-select search-condition-select" name="state">
+                    <select id="searchStatus" class="buukle-select search-condition-select">
                         <option class="select-item" value="" data-status="">------------请选择-------------</option>
                         <option class="select-item" value="1" data-status="1">-------------启用---------------</option>
                         <option class="select-item" value="0" data-status="0">-------------停用---------------</option>
@@ -49,7 +49,7 @@
             </div>
         </form>
         <!--数据列表-->
-        <div class="layui-tab-content buukle-table">
+        <div class="layui-tab-content">
             <table id="table" class="layui-table"></table>
         </div>
         <!--CRUD START-->
@@ -59,26 +59,26 @@
             <table class="data-table">
                 <tr>
                     <td class="table-property-name">菜单名称</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input " id="moduleName"></td>
+                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input add-input" id="moduleName"></td>
                     <td class="table-property-name">状态</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input " id="moduleStatus"></td>
+                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input add-input" id="moduleStatus"></td>
                 </tr>
                 <tr>
                     <td class="table-property-name">创建时间</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input " id="gmtCreated"></td>
+                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input add-input" id="gmtCreated"></td>
                     <td class="table-property-name">更新时间</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input " id="modifiedTime"></td>
+                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input add-input" id="gmtModified"></td>
                 </tr>
                 <tr>
                     <td class="table-property-name">创建者</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input " id="creator">
+                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input add-input" id="creator">
                     </td>
                     <td class="table-property-name">更新者</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input " id="modifior"></td>
+                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input add-input" id="modifier"></td>
                 </tr>
                 <tr>
                     <td class="table-property-name">描述</td>
-                    <td class="table-property-value"><textarea disabled class="layui-textarea"  id="description"></textarea></td>
+                    <td class="table-property-value"><textarea disabled class="layui-textarea buukle-add-textarea"  id="description"></textarea></td>
                 </tr>
             </table>
             <div class="buukle-frame-button">
@@ -87,33 +87,36 @@
         </div>
         <!--编辑-->
         <div class="hiddenForm" id="edit">
-            <table class="data-table">
-                <tr>
-                    <td class="table-property-name">菜单名称</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input " ></td>
-                    <td class="table-property-name">状态</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input " ></td>
-                </tr>
-                <tr>
-                    <td class="table-property-name">创建时间</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input " ></td>
-                    <td class="table-property-name">更新时间</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input " ></td>
-                </tr>
-                <tr>
-                    <td class="table-property-name">创建者</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input ">
-                    </td>
-                    <td class="table-property-name">更新者</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input " ></td>
-                </tr>
-                <tr>
-                    <td class="table-property-name">描述</td>
-                    <td class="table-property-value"><textarea disabled class="layui-textarea" ></textarea></td>
-                </tr>
-            </table>
-            <div class="buukle-frame-button">
-                <button type="" class="layui-btn layui-btn-primary layui-layer-close ">返回</button>
+            <form id="editModuleForm">
+                <table class="data-table">
+                    <tr>
+                        <td class="table-property-name">父级菜单 :</td>
+                        <td class="table-property-value">
+                            <input id="pNameEdit" type="text" class="buukle-frame-input add-input" readonly>
+                            <input id="pidEdit" type="hidden" name="pid" class="add-input" readonly>
+                        </td>
+                        <td class="table-property-name">菜单名称 :</td>
+                        <td class="table-property-value"><input type="text" id="moduleNameEdit" class="buukle-frame-input add-input" name="moduleName"></td>
+                    </tr>
+                    <tr>
+                        <td class="table-property-name">菜单图标 :</td>
+                        <td class="table-property-value"><input type="text" id="moduleImgEdit" class="buukle-frame-input add-input"  name="moduleImg"></td>
+                        <td class="table-property-name">url :</td>
+                        <td class="table-property-value"><input type="text" id="urlEdit" class="buukle-frame-input add-input" name="url"></td>
+                    </tr>
+                    <tr>
+                        <td class="table-property-name">状态 :</td>
+                        <td class="table-property-value" id="statusFather"></td>
+                        <td class="table-property-name">菜单描述 :</td>
+                        <td class="table-property-value">
+                            <textarea class="layui-textarea buukle-add-textarea" id="descriptionEdit" name="description"></textarea>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <div class="buukle-save-cancel">
+                <button class="layui-btn commitBtn saveBtn theme-btn" data-form-id="editModuleForm" id="editModule">保存 </button>
+                <button class="layui-btn layui-btn-primary layui-layer-close back-button" id="cancelEditModule">取消</button>
             </div>
         </div>
         <!--添加页面-->
@@ -123,7 +126,7 @@
                     <tr>
                         <td class="table-property-name">父级菜单 :</td>
                         <td class="table-property-value">
-                            <input id="fatherModuleName" type="text" class="buukle-frame-input add-input" readonly>
+                            <input id="pName" type="text" class="buukle-frame-input add-input" readonly>
                             <input id="pid" type="hidden" name="pid" class="add-input" readonly>
                         </td>
                         <td class="table-property-name">菜单名称 :</td>
@@ -138,8 +141,7 @@
                     <tr>
                         <td class="table-property-name">状态 :</td>
                         <td class="table-property-value">
-                            <select id="addStatus" class="buukle-frame-input btn-layer-type-selector selector add-input"
-                                    name="status">
+                            <select id="addStatus" name="status" class="buukle-frame-input btn-layer-type-selector selector add-input">
                                 <option class="select-item" value="" data-status="">------------请选择-------------</option>
                                 <option class="select-item" value="1" data-status="1">-------------启用--------------- </option>
                                 <option class="select-item" value="0" data-status="0">-------------停用--------------- </option>
@@ -154,7 +156,7 @@
             </form>
             <div class="buukle-save-cancel">
                 <button class="layui-btn commitBtn saveBtn theme-btn" data-form-id="addModuleForm" id="addModule">保存 </button>
-                <button class="layui-btn layui-btn-primary layui-layer-close back-button">取消</button>
+                <button class="layui-btn layui-btn-primary layui-layer-close back-button" id="cancelAddModule">取消</button>
             </div>
         </div>
         <!--父级菜单树-->

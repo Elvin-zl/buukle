@@ -34,18 +34,47 @@ public interface UserMapper {
      */
     List<User> getUserSubordinateByUserGroups(@Param("groupsList") List<Groups> groupsList);
 
+    /**
+     * 分页获取用户列表
+     * @param userQuery
+     * @return
+     */
     List<User> getUserList(UserQuery userQuery);
 
     /**
-     * 启用/停用 用户
+     * 启用/停用用户
      * @param userQuery
      */
     void doBanOrRelease(UserQuery userQuery);
 
 
+    /**
+     * 根据菜单id获取响应用户
+     * @param moduleId
+     * @return
+     */
     List<User> getUserByModuleId(@Param("moduleId") Integer moduleId);
 
+    /**
+     * 根据角色id获取相应用户
+     * @param roleId
+     * @return
+     */
     List<User> getUserByRoleId(@Param("roleId") Integer roleId);
 
+    /**
+     * 根据组别id获取相应用户
+     * @param groupsId
+     * @return
+     */
+    List<User> getUserByGroupsId(@Param("groupsId") Integer groupsId);
+
+    /**
+     * 模糊搜索
+     * @param fuzzyText
+     * @return
+     */
     List<User> fuzzySearchByName(@Param("fuzzyText") String fuzzyText);
+
+
 }

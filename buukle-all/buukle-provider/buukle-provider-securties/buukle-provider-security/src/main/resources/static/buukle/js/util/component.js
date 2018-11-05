@@ -3,10 +3,8 @@
 var confirmBtnBox;
 /*数据框按钮对象*/
 var dataBtnBox;
-var globalBtnTypeText = parent.$('#globalBtnType').val();
-var globalBtnType =  JSON.parse(globalBtnTypeText);
-/*绑定搜索控件点击事件*/
-function bindsearchConditionClick() {
+/*绑定控件点击事件*/
+function bindSearchConditionClick() {
     /*绑定模糊搜索*/
     bindFuzzySearchItemsClick();
     //渲染日期控件
@@ -17,6 +15,21 @@ function bindsearchConditionClick() {
     bindEmptyBtnClick();
     //渲染页面级别按钮组
     renderPageLevelButton();
+    //渲染列表
+    renderTable();
+    //公共初始化
+    initPage();
+}
+/*绑定弹层控件点击事件*/
+function bindSearchConditionClickForFrame() {
+    /*绑定模糊搜索*/
+    bindFuzzySearchItemsClick();
+    //渲染日期控件
+    renderDateForFrame();
+    //绑定搜索按钮点击事件
+    bindSearchBtnClickForFrame();
+    //绑定清空按钮点击事件
+    bindEmptyBtnClickForFrame();
     //渲染列表
     renderTable();
     //公共初始化
@@ -120,9 +133,27 @@ function renderDate() {
         });
     });
 }
+/*渲染日期控件(弹层列表)*/
+function renderDateForFrame() {
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: '#startTimeForFrame',format: 'yyyy-MM-dd'
+        });
+        laydate.render({
+            elem: '#endTimeForFrame',format: 'yyyy-MM-dd'
+        });
+    });
+}
 /*绑定搜索按钮*/
 function bindSearchBtnClick() {
     $('#searchBtn').off().on('click',function () {
+        renderTable();
+    })
+}
+/*绑定搜索按钮(弹层列表)*/
+function bindSearchBtnClickForFrame() {
+    $('#searchBtnForFrame').off().on('click',function () {
         renderTable();
     })
 }
@@ -131,6 +162,13 @@ function bindEmptyBtnClick() {
     $('#emptyBtn').off().on('click',function () {
         $('.search-condition').val('');
         $('.search-condition-select').val('');
+    })
+}
+/*绑定清空按钮(弹层列表)*/
+function bindEmptyBtnClickForFrame() {
+    $('#emptyBtnForFrame').off().on('click',function () {
+        $('.search-condition-frame').val('');
+        $('.search-condition-select-frame').val('');
     })
 }
 /*渲染页面级别按钮*/
@@ -154,7 +192,7 @@ function renderPageLevelButton() {
  * param  inputState : 当前记录的状态
  * param  id         : 当前记录的id
  * */
-function formatUserHandle(inputState,id) {
+function formatUserHandle(inputState,id,deleteLevel) {
     var currentTabModuleId = parent.$(".layui-this").attr('lay-id');
     var tableBtnText = parent.$('#tableBtn-'+currentTabModuleId).val();
     var buttons =  JSON.parse(tableBtnText);
@@ -171,7 +209,7 @@ function formatUserHandle(inputState,id) {
                 html += '<a class="layui-btn layui-btn-mini theme-btn buukle-table-btn" data-responseDomId="'+buttons[i].responseDomId+'" data-responseType="'+buttons[i].responseType+'" data-operationType="'+buttons[i].operationType+'" data-state="'+inputState+'" data-id="'+id+'" data-url="'+buttons[i].url+'">'+buttons[i].buttonName+'</a>'
             }
             //删除
-            else if(buttons[i].operationType == 1){
+            else if(buttons[i].operationType == 1 && deleteLevel == 1){
                 html += '<a  class="layui-btn layui-btn-mini theme-btn buukle-table-btn" data-responseDomId="'+buttons[i].responseDomId+'" data-responseType="'+buttons[i].responseType+'" data-operationType="'+buttons[i].operationType+'" data-state="'+inputState+'" data-id="'+id+'" data-url="'+buttons[i].url+'">'+buttons[i].buttonName+'</a>'
             }
             //其他
@@ -180,7 +218,7 @@ function formatUserHandle(inputState,id) {
             }
         }
         //2. 处理申请( [启用/解禁]...等)变更状态按钮动态展示
-        else if( buttons[i].operationType == 4 && (inputState == 0 || inputState == 5)){
+        else if( buttons[i].operationType == 4 && (inputState == 0 || inputState == 5) ){
             if(inputState == 0){
                 html += '<a style="background-color: #5f6b70;" class="layui-btn layui-btn-mini buukle-table-btn" data-responseDomId="'+buttons[i].responseDomId+'" data-responseType="'+buttons[i].responseType+'" data-operationType="'+buttons[i].operationType+'" data-state="'+inputState+'" data-id="'+id+'" data-url="'+buttons[i].url+'">'+buttons[i].buttonName+'</a>'
             }
@@ -193,7 +231,7 @@ function formatUserHandle(inputState,id) {
             html += '<a style="background-color: #5f6b70;" class="layui-btn layui-btn-mini buukle-table-btn" data-responseDomId="'+buttons[i].responseDomId+'" data-responseType="'+buttons[i].responseType+'" data-operationType="'+buttons[i].operationType+'" data-state="'+inputState+'" data-id="'+id+'" data-url="'+buttons[i].url+'">'+buttons[i].buttonName+'</a>'
         }
         //4. 处理 [启/停用] 按钮动态展示
-        else if(buttons[i].operationType == 6){
+        else if(buttons[i].operationType == 6 && deleteLevel == 1){
             if( (inputState == 3)){
                 html += ''
             }else if(inputState == 0 || inputState == 5){
@@ -221,8 +259,10 @@ function bindTableBtnsClick() {
 
     $('.buukle-table-btn').off().on('click',function () {
         $('.layui-layer-content').html('');
+        $('.bukkle-detail').html('');
         $('.add-input').val("");
         $('.buukle-add-textarea').val("");
+
         btnsTypesText = parent.$('#globalBtnType').val();
         //全局按钮操作类型
         btnsTypes =  JSON.parse(JSON.parse(btnsTypesText));
@@ -249,6 +289,10 @@ function bindTableBtnsClick() {
         //conform  确认框
         if(dataResponseType == 0 ){
             var layer = layui.layer;
+            var data = {"id": id,"status":status};
+            if(parseFloat(id).toString() == "NaN"){
+                data = {"userId": id,"status":status};
+            }
             layui.use("layer",function () {
                 confirmBtnBox = layer.confirm('您确认执行[ '+btnName+' ]操作吗?', {
                     btn: ['确认','取消'],
@@ -261,7 +305,7 @@ function bindTableBtnsClick() {
                         url: url,
                         dataType: 'json',
                         type: 'post',
-                        data:{"id": id,"status":status},
+                        data:data,
                         success: function (data) {
                             layer.msg(data.msg == null ? "操作成功!" : data.msg , {
                                 icon: 1,
@@ -277,17 +321,21 @@ function bindTableBtnsClick() {
             });
             return;
         }
-        //frame 弹层
-        if(dataResponseType == 1 ){
+        //frame 弹层(取数据 & 不取数据)
+        if(dataResponseType == 1 || dataResponseType == 2 ){
             //清除弹框中上次操作的遗留数据
             $(".containsClearAbleBuukle").html("");
             $(".clearAbleBuukle").css("display","none");
+            var data = {"id": id};
+            if(parseFloat(id).toString() == "NaN"){
+                data = {"userId": id};
+            }
             if(url != ''){
                 //取出按钮url数据,并判断按钮类型回显数据
                 $.ajax({
                     url: url+"?v="+Math.random(),
                     dataType: 'json',
-                    data:{"id":id},
+                    data:data,
                     cache:false,
                     type: 'post',
                     success: function (data) {
@@ -316,6 +364,24 @@ function bindTableBtnsClick() {
             if($('#layEditFlag').val() == 1){
                 initTheLayEdit();
             }
+            return;
+        }
+        //frame 弹层(加载其他列表)
+        if(dataResponseType == 3 ){
+            //清除弹框中上次操作的遗留数据
+            $('#'+ responseDomId  + 'Load').load(url);
+            //弹出相应的弹层框
+            var  width = '1200px';
+            var   height = '800px';
+            layui.use("layer",function () {
+                var layer = layui.layer;
+                dataBtnBox = layer.open({
+                    title:moduleName,
+                    type:1,
+                    content: $('#'+responseDomId),
+                    area: [width, height]
+                });
+            });
             return;
         }
     })
@@ -380,15 +446,27 @@ function formatInputOperationType(inputOperationType) {
     }else if(inputOperationType == 6){
         type = " 启/停用 ";
     }else if(inputOperationType == 7){
-        type = " 分配角色 ";
-    }else if(inputOperationType == 8){
-        type = " 分配菜单 ";
+        type = " 多表设置 ";
     }
     return  type;
 }
 /*格式化响应类型*/
 function formatInputResponseType(inputResponseType) {
-    return inputResponseType == 0 ? " 提示确认框" : inputResponseType == 1 ? " 弹层页面取接口数据 " : " 弹层页面不取接口数据 ";
+    if(inputResponseType == 0){
+        return "提示确认框";
+    }else if(inputResponseType == 1){
+        return "弹层页面取接口数据";
+    }else if(inputResponseType == 2){
+        return "弹层页不取接口数据";
+    }else if(inputResponseType == 3){
+        return "弹层页加载其他列表";
+    }
+
+}
+/*格式化复选框*/
+function formatCheckbox(inputId) {
+    // return '<input type="checkbox" name="" '+"data-id="+inputId+' lay-skin="primary" checked="">';
+    return '<input type="checkbox" name="" '+"data-id="+inputId+' lay-skin="primary">';
 }
 
 /*格式化用户文章列表状态值*/

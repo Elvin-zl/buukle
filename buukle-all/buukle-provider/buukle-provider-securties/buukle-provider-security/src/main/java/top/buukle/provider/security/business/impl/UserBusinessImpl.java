@@ -70,7 +70,7 @@ public class UserBusinessImpl implements UserBusiness {
         // 缓存用户扩展信息
         UserInvoker.saveUserExp(userExp ,userInfoForLogin.getUserId(),baseRequest.getRequestHead());
         // 缓存用户组别信息
-        UserInvoker.saveUserGroup(groupsList ,userInfoForLogin.getUserId(),baseRequest.getRequestHead());
+        UserInvoker.saveUserGroup(groupsList,userInfoForLogin.getUserId(),baseRequest.getRequestHead());
         // 缓存用户下级信息
         UserInvoker.saveUserSubordinate(userSubordinateList ,userInfoForLogin.getUserId(),baseRequest.getRequestHead());
         // 缓存用户角色信息

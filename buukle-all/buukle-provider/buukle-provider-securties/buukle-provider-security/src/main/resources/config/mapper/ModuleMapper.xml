@@ -362,7 +362,7 @@
   </select>
 
   <select id="getUserModuleListByUserRoleList" resultMap="BaseResultMap" parameterType="java.util.List">
-    select m.* from module m ,role_module rm ,role r where
+    select DISTINCT m.* from module m ,role_module rm ,role r where
     m.status = 1
     <choose>
       <when test="userRoleList != null and userRoleList.size() > 0">
@@ -382,7 +382,7 @@
 
   <select id="getUserModuleListByUserId" resultMap="BaseResultMap" parameterType="java.util.Map">
     SELECT DISTINCT
-    m.*
+    DISTINCT m.*
     FROM
     module m,
     USER u,
@@ -407,6 +407,7 @@
     <if test="endTime != null  and endTime !='' " >
       and gmt_created &lt;= #{endTime}
     </if>
+    order by gmt_modified DESC
   </select>
 
   <update id="doBanOrRelease" parameterType="java.util.Map" >

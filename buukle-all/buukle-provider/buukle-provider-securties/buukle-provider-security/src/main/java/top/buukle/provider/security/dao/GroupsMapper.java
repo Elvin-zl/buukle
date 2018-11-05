@@ -1,17 +1,30 @@
 package top.buukle.provider.security.dao;
 
+import org.apache.ibatis.annotations.Param;
 import top.buukle.provider.security.entity.Groups;
+import top.buukle.provider.security.entity.GroupsExample;
+import top.buukle.provider.security.vo.query.GroupsQuery;
 
 import java.util.List;
 
 public interface GroupsMapper {
+    int countByExample(GroupsExample example);
+
+    int deleteByExample(GroupsExample example);
+
     int deleteByPrimaryKey(Integer id);
 
     int insert(Groups record);
 
     int insertSelective(Groups record);
 
+    List<Groups> selectByExample(GroupsExample example);
+
     Groups selectByPrimaryKey(Integer id);
+
+    int updateByExampleSelective(@Param("record") Groups record, @Param("example") GroupsExample example);
+
+    int updateByExample(@Param("record") Groups record, @Param("example") GroupsExample example);
 
     int updateByPrimaryKeySelective(Groups record);
 
@@ -23,4 +36,18 @@ public interface GroupsMapper {
      * @return
      */
     List<Groups> getUserGroupsByUserId(String userId);
+
+    /**
+     * 分页获取组别列表
+     * @param query
+     * @return
+     */
+    List<Groups> getGroupsList(GroupsQuery query);
+
+    /**
+     * 模糊搜索
+     * @param fuzzyText
+     * @return
+     */
+    List<Groups> fuzzySearchByName(@Param("fuzzyText") String fuzzyText);
 }

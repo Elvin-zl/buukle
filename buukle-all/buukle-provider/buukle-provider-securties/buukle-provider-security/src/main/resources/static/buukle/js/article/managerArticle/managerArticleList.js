@@ -1,7 +1,7 @@
 //@ sourceURL=managerArticleList.js
 $(function () {
     /*绑定宏JS操作组件*/
-    bindsearchConditionClick();
+    bindSearchConditionClick();
     /*绑定当前业务事件*/
     bindCurrentPageCilck();
 });

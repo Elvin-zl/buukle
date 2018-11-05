@@ -19,13 +19,12 @@ import top.buukle.common.response.BaseResponse;
 import top.buukle.common.util.common.StringUtil;
 import top.buukle.plugin.security.util.CookieUtil;
 import top.buukle.provider.security.business.ButtonBusiness;
+import top.buukle.provider.security.constants.SecurityConstants;
 import top.buukle.provider.security.constants.SecurityStatusConstants;
 import top.buukle.provider.security.dao.ButtonTypeMapper;
 import top.buukle.provider.security.dao.ModuleButtonMapper;
-import top.buukle.provider.security.entity.Button;
-import top.buukle.provider.security.entity.ButtonType;
-import top.buukle.provider.security.entity.ModuleButton;
-import top.buukle.provider.security.entity.User;
+import top.buukle.provider.security.dao.UserMapper;
+import top.buukle.provider.security.entity.*;
 import top.buukle.provider.security.invoker.UserInvoker;
 import top.buukle.provider.security.service.ButtonService;
 import top.buukle.provider.security.dao.ButtonMapper;
@@ -56,6 +55,8 @@ public class ButtonServiceImpl implements ButtonService {
 	private ButtonBusiness buttonBusiness;
     @Autowired
 	private ModuleButtonMapper moduleButtonMapper;
+    @Autowired
+    private UserMapper userMapper;
 
 	@Override
 	public Button getButtonById(Integer id) throws Exception{
@@ -143,17 +144,18 @@ public class ButtonServiceImpl implements ButtonService {
         if(query == null){
             throw new BaseException(BaseResponseCode.BASE_REQUEST_NULL);
         }
+        Button button = buttonMapper.selectByPrimaryKey(query.getId());
+        if(button.getBak02().equals(SecurityConstants.DELETE_LEVEL_SYSTEM) && query.getStatus() != null && query.getStatus().equals(SecurityStatusConstants.STATUS_CLOSE)){
+            throw new BaseException(BaseResponseCode.EDIT_FORBIDDEN);
+        }
         if(query.getStatus().equals(SecurityStatusConstants.STATUS_OPEN)){
             query.setStatus(SecurityStatusConstants.STATUS_CLOSE);
         }else{
             query.setStatus(SecurityStatusConstants.STATUS_OPEN);
         }
         buttonMapper.updateByPrimaryKeySelective(this.assButton(request, query, false));
-        ModuleButton moduleButton = moduleButtonMapper.getByButtonId(query.getId());
-        // 更新全局按钮缓存
-        UserInvoker.clearGlobalCacheInfoByType(Button.class);
-        // 更新菜单下按钮缓存
-        UserInvoker.deleteModuleButton(moduleButton.getModuleId());
+        //更新缓存
+        this.refreshButtonCaChe(query.getId());
         return new BaseResponse.Builder().buildSuccess();
     }
 
@@ -171,6 +173,7 @@ public class ButtonServiceImpl implements ButtonService {
             button.setCreator(operator.getUsername());
             button.setCreatorCode(operator.getUserId());
             button.setGmtCreated(new Date());
+            button.setBak02(SecurityConstants.DELETE_LEVEL_TRUE);
         }else{
             button.setModifier(operator.getUsername());
             button.setModifierCode(operator.getUserId());
@@ -217,10 +220,53 @@ public class ButtonServiceImpl implements ButtonService {
      */
     @Override
     public BaseResponse editButton(HttpServletRequest request, ButtonQuery query, Integer id) throws InvocationTargetException, IllegalAccessException {
+        //检验参数
+        this.validateUpdateParam(id,query);
+        //组装并更新
         if(buttonMapper.updateByPrimaryKeySelective(this.assButton(request,query,false)) > 0){
+            //更新缓存
+            this.refreshButtonCaChe(id);
             return new BaseResponse.Builder().buildSuccess();
         }
         throw new BaseException(BaseResponseCode.BUTTON_EDIT_EXCEPTION);
+    }
+
+    /**
+     * 刷新按钮缓存
+     * @param id
+     */
+    private void refreshButtonCaChe(Integer id) {
+        List<ModuleButton> moduleButtonList = moduleButtonMapper.getByButtonId(id);
+        // 更新全局按钮缓存
+        UserInvoker.clearGlobalCacheInfoByType(Button.class);
+        // 更新菜单下按钮缓存
+        if(CollectionUtils.isNotEmpty(moduleButtonList)){
+            for (ModuleButton moduleButton: moduleButtonList) {
+                UserInvoker.deleteModuleButton(moduleButton.getModuleId());
+                //更新拥有该菜单的用户的按钮缓存 ==>> TODO 此处可优化为异步线程处理
+                List<User> users = userMapper.getUserByModuleId(moduleButton.getModuleId());
+                if(CollectionUtils.isNotEmpty(users)){
+                    for (User user : users) {
+                        UserInvoker.clearUserCacheInfoByType(Button.class,user.getUserId());
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * 校验更新参数
+     * @param id
+     * @param query
+     */
+    private void validateUpdateParam(Integer id, ButtonQuery query) {
+        Button button = buttonMapper.selectByPrimaryKey(id);
+        if(null == button){
+            throw new BaseException(BaseResponseCode.FAILED);
+        }
+        if(button.getBak02().equals(SecurityConstants.DELETE_LEVEL_SYSTEM) && query.getStatus() != null && query.getStatus().equals(SecurityStatusConstants.STATUS_CLOSE)){
+            throw new BaseException(BaseResponseCode.EDIT_FORBIDDEN);
+        }
     }
 
     /**

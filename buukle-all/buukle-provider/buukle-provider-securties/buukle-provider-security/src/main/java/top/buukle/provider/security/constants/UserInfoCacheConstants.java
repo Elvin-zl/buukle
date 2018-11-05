@@ -9,12 +9,14 @@ package top.buukle.provider.security.constants;
 public class UserInfoCacheConstants {
 
 
-    /** 全局菜单菜单信息 KEY*/
+    /** 全局菜单缓存信息 KEY*/
     public static final String GLOBAL_MODULE_LIST_KEY = "GLOBAL_MODULE_LIST_KEY:";
-    /** 全局菜单按钮信息 KEY*/
+    /** 全局按钮缓存信息 KEY*/
     public static final String GLOBAL_BUTTON_LIST_KEY = "GLOBAL_BUTTON_LIST_KEY:";
-    /** 全局菜单按钮信息 KEY*/
+    /** 全局角色缓存信息 KEY*/
     public static final String GLOBAL_ROLE_LIST_KEY = "GLOBAL_ROLE_LIST_KEY:";
+    /** 全局组别缓存信息 KEY*/
+    public static final String GLOBAL_GROUPS_LIST_KEY = "GLOBAL_GROUPS_LIST_KEY:";
     /** 调用系统默认自动登录超时策略cache前缀*/
     public static final String APPLICATION_DEFAULT_MAX_AGE_PREFIX = "APPLICATION_DEFAULT_MAX_AGE_PREFIX:";
     /** 用户基本信息cache前缀*/

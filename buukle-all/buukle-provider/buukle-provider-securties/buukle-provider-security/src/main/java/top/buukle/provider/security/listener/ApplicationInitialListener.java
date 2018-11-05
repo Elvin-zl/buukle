@@ -3,6 +3,7 @@ package top.buukle.provider.security.listener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import top.buukle.common.util.common.SpringAppInitialUtil;
+import top.buukle.common.util.logger.BaseLogger;
 import top.buukle.provider.security.service.UserService;
 
 /**
@@ -13,6 +14,7 @@ import top.buukle.provider.security.service.UserService;
 @Component
 public class ApplicationInitialListener extends SpringAppInitialUtil{
 
+    final static private BaseLogger LOGGER = BaseLogger.getLogger(ApplicationInitialListener.class);
     @Autowired
     private UserService userService;
     /**
@@ -22,5 +24,8 @@ public class ApplicationInitialListener extends SpringAppInitialUtil{
     protected void init() {
         //缓存全局角色列表信息
         userService.getGlobalRole();
+        LOGGER.info("缓存全局角色列表信息完成!");
+        userService.getGlobalGroups();
+        LOGGER.info("缓存全局组别列表信息完成!");
     }
 }

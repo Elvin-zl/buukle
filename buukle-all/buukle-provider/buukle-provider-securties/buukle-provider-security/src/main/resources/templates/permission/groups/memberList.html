@@ -1,0 +1,52 @@
+<div class="layui-tab layui-tab-brief" lay-filter="member">
+    <span style="color: red;margin-left: -120px;"> tips : 首先选择用户列表左方的复选框,选中想要移入当前组别的用户;然后点击[保存]按钮即可将选中的用户移入当前组别</span>
+    <div class="buukle-search-name">
+        <div class="form-span" style="float: inherit;margin-left: 8px; font-size: 17px;">当前组别 : </div>
+        <div class="form-span" style="float: inherit;font-size: 17px;" id="currentGroup">总部 </div>
+    </div>
+    <span class="layui-btn search-btn " style="float: right;margin-top: 20px;margin-right: 18px;" id="cancelMemberManage" value="">返回</span>
+    <span class="layui-btn search-btn theme-btn" style="float: right;margin-right: 16px;margin-top: 20px;" id="save" value="">保存</span>
+    <br/>
+    <!--分割线-->
+    <hr style="border: 1px;margin-bottom: 30px;margin-top: 60px;" width="100%" color=#987cb9 size="1" />
+    <div class="layui-tab-content">
+        <!--搜索条件-->
+        <form id="searchForm" class="buukle-data-form">
+            <div class="buukle-search-name">
+                <div class="form-span" style="float: inherit;">登录账号 : </div>
+                <div class="fuzzy-div">
+                    <input id="fuzzy-index-1" class="buukle-input search-condition-frame fuzzy-input" data-fuzzyUrl="/user/fuzzySearchByName" type="text" name="name" placeholder="请输入登录名" autocomplete="off">
+                    <!--建议框-->
+                    <div id="fuzzy-items-index-1"class="fuzzy-item-div" data-fuzzyIndex="1">
+                    </div>
+                </div>
+            </div>
+            <div id="searchTime" class="buukle-search-time">
+                <span class="form-span">注册时间 :</span>
+                <input id="startTimeForFrame" class="buukle-input search-condition-frame" type="text" name="startTime" placeholder="起始时间" autocomplete="off">
+                <span class="form-span">--</span>
+                <input id="endTimeForFrame" class="buukle-input search-condition-frame" type="text" name="endTime" placeholder="结束时间" autocomplete="off">
+            </div>
+            <div class="buukle-select-father buukle-search-status">
+                <span class="form-span">状态 :</span>
+                <div>
+                    <select id="searchStatusForFrame" class="buukle-select search-condition-select-frame">
+                        <option class="select-item" value="" data-status="">------------请选择-------------</option>
+                        <option class="select-item" value="1" data-status="1">-------------启用---------------</option>
+                        <option class="select-item" value="0" data-status="0">-------------停用---------------</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="pageLevelButton">
+                <span class="layui-btn search-btn theme-btn" id="searchBtnForFrame" value="">搜索</span>
+                <span class="layui-btn empty-btn layui-btn-primary" id="emptyBtnForFrame">清空</span>
+            </div>
+        </form>
+        <!--数据列表-->
+        <div class="layui-tab-content">
+            <table id="memberTable" class="layui-table"></table>
+        </div>
+    </div>
+</div>
+<script src="/static/buukle/js/permission/group/memberList.js"></script>

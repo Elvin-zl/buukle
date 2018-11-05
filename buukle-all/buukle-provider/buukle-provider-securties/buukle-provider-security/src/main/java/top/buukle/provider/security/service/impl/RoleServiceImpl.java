@@ -12,9 +12,12 @@ import com.github.pagehelper.PageInfo;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Service;
+import top.buukle.common.constants.BaseResponseCode;
+import top.buukle.common.exception.BaseException;
 import top.buukle.common.response.BaseResponse;
 import top.buukle.common.util.common.StringUtil;
 import top.buukle.plugin.security.util.CookieUtil;
+import top.buukle.provider.security.constants.SecurityConstants;
 import top.buukle.provider.security.constants.SecurityStatusConstants;
 import top.buukle.provider.security.dao.ModuleMapper;
 import top.buukle.provider.security.dao.RoleModuleMapper;
@@ -105,21 +108,17 @@ public class RoleServiceImpl implements RoleService {
      */
     @Override
     public BaseResponse doBanOrRelease(HttpServletRequest request, RoleQuery query) throws InvocationTargetException, IllegalAccessException {
+        Role role = roleMapper.selectByPrimaryKey(query.getId());
+        if(role.getBak01().equals(SecurityConstants.DELETE_LEVEL_SYSTEM) && query.getStatus() != null && query.getStatus().equals(SecurityStatusConstants.STATUS_CLOSE)){
+            throw new BaseException(BaseResponseCode.EDIT_FORBIDDEN);
+        }
         if(null != query.getStatus() && query.getStatus().equals(SecurityStatusConstants.STATUS_OPEN)){
             query.setStatus(SecurityStatusConstants.STATUS_CLOSE);
         }else{
             query.setStatus(SecurityStatusConstants.STATUS_OPEN);
         }
         roleMapper.updateByPrimaryKeySelective(this.assRole(request,query,false));
-        //更新全局角色缓存
-        UserInvoker.clearGlobalCacheInfoByType(Role.class);
-        // 根据用户角色更新用户菜单缓存 ==>> TODO 此处可优化为异步线程处理
-        List<User> users = userMapper.getUserByRoleId(query.getId());
-        if(CollectionUtils.isNotEmpty(users)){
-            for (User user : users) {
-                UserInvoker.clearUserCacheInfoByType(Module.class,user.getUserId());
-            }
-        }
+        this.refreshCaChe(query,false);
         return new BaseResponse.Builder().buildSuccess();
     }
 
@@ -138,6 +137,7 @@ public class RoleServiceImpl implements RoleService {
             role.setGmtCreated(new Date());
             role.setCreator(operator.getUsername());
             role.setCreatorCode(operator.getUserId());
+            role.setBak01(SecurityConstants.DELETE_LEVEL_TRUE);
         }else{
             role.setModifier(operator.getUsername());
             role.setGmtModified(new Date());
@@ -235,5 +235,108 @@ public class RoleServiceImpl implements RoleService {
             }
         }
         return fuzzySearchListVos;
+    }
+
+    /**
+     * 添加角色
+     * @param request
+     * @param query
+     * @return
+     */
+    @Override
+    public BaseResponse addRole(HttpServletRequest request, RoleQuery query) throws InvocationTargetException, IllegalAccessException {
+        roleMapper.insert(this.validateAddParam(request, query));
+        //清除角色相关缓存
+        this.refreshCaChe(query,true);
+        return new BaseResponse.Builder().buildSuccess();
+    }
+
+    /**
+     * 查询角色详情
+     * @param query
+     * @return
+     */
+    @Override
+    public Role getRoleDetail(RoleQuery query) {
+        return roleMapper.selectByPrimaryKey(query.getId());
+    }
+
+    /**
+     * 编辑角色
+     * @param request
+     * @param id
+     *@param query
+     * @return
+     */
+    @Override
+    public BaseResponse editRole(HttpServletRequest request, Integer id, RoleQuery query) throws InvocationTargetException, IllegalAccessException {
+        //校验参数
+        this.validateParam(query);
+        query.setId(id);
+        Role role = this.assRole(request, query, false);
+        roleMapper.updateByPrimaryKeySelective(role);
+        //更新缓存
+        refreshCaChe(query,false);
+        return new BaseResponse.Builder().buildSuccess();
+    }
+
+    /**
+     * 校验参数
+     * @param query
+     */
+    private void validateParam(RoleQuery query) {
+        Role role = roleMapper.selectByPrimaryKey(query.getId());
+        if(null == role){
+            throw new BaseException(BaseResponseCode.FAILED);
+        }
+        if(role.getBak01().equals(SecurityConstants.DELETE_LEVEL_SYSTEM)  && query.getStatus() !=null && query.getStatus().equals(SecurityStatusConstants.STATUS_CLOSE)){
+            throw new BaseException(BaseResponseCode.EDIT_FORBIDDEN);
+        }
+        if(role.getBak01().equals(SecurityConstants.DELETE_LEVEL_SYSTEM)){
+            query.setStatus(SecurityStatusConstants.STATUS_OPEN);
+        }
+        if(StringUtil.isEmpty(query.getRoleName())){
+            throw new BaseException(BaseResponseCode.ROLE_EDIT_NAME_NULL);
+        }
+        if(null == query.getStatus()){
+            throw new BaseException(BaseResponseCode.ROLE_EDIT_STATUS_NULL);
+        }
+    }
+
+    /**
+     * 清除角色相关缓存
+     * @param query
+     */
+    private void refreshCaChe(RoleQuery query,Boolean isAdd) {
+        //更新全局角色缓存
+        UserInvoker.clearGlobalCacheInfoByType(Role.class);
+        //更新全局菜单缓存
+        UserInvoker.clearGlobalCacheInfoByType(Module.class);
+        if(!isAdd){
+            // 更新拥有该角色的用户的角色&菜单缓存 ==>> TODO 此处可优化为异步线程处理
+            List<User> users = userMapper.getUserByRoleId(query.getId());
+            if(CollectionUtils.isNotEmpty(users)){
+                for (User user : users) {
+                    UserInvoker.clearUserCacheInfoByType(Module.class,user.getUserId());
+                    UserInvoker.clearUserCacheInfoByType(Role.class,user.getUserId());
+                }
+            }
+        }
+    }
+
+    /**
+     * 校验添加参数
+     * @param request
+     * @param query
+     * @return
+     */
+    private Role validateAddParam(HttpServletRequest request, RoleQuery query) throws InvocationTargetException, IllegalAccessException {
+        if(StringUtil.isEmpty(query.getRoleName())){
+            throw new BaseException(BaseResponseCode.ROLE_ADD_NAME_NULL);
+        }
+        if(query.getStatus() == null){
+            throw new BaseException(BaseResponseCode.ROLE_ADD_STATUS_NULL);
+        }
+        return this.assRole(request, query, true);
     }
 }

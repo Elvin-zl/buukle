@@ -15,6 +15,13 @@ public class UserQuery extends User {
     /** 结束时间*/
     private String endTime ;
 
+    public UserQuery(String userId) {
+        super();
+        super.setUserId(userId);
+    }
+
+    public UserQuery() {
+    }
 
     public String getStartTime() {
         return startTime;

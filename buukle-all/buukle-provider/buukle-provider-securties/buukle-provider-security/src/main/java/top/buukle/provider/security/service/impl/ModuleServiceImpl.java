@@ -18,6 +18,7 @@ import top.buukle.common.response.BaseResponse;
 import top.buukle.common.util.common.NumberUtil;
 import top.buukle.common.util.common.StringUtil;
 import top.buukle.plugin.security.util.CookieUtil;
+import top.buukle.provider.security.constants.SecurityConstants;
 import top.buukle.provider.security.constants.SecurityStatusConstants;
 import top.buukle.provider.security.dao.*;
 import top.buukle.provider.security.entity.*;
@@ -26,10 +27,7 @@ import top.buukle.provider.security.service.ModuleService;
 import top.buukle.provider.security.service.UserService;
 import top.buukle.provider.security.vo.query.ModuleQuery;
 import top.buukle.provider.security.vo.query.PageBounds;
-import top.buukle.provider.security.vo.response.FuzzySearchListVo;
-import top.buukle.provider.security.vo.response.ModuleButtonListVo;
-import top.buukle.provider.security.vo.response.PageResponse;
-import top.buukle.provider.security.vo.response.RoleModuleListVo;
+import top.buukle.provider.security.vo.response.*;
 import top.buukle.provider.security.vo.result.ModuleNavigationVo;
 
 import javax.annotation.Resource;
@@ -129,22 +127,35 @@ public class ModuleServiceImpl implements ModuleService {
      */
     @Override
     public BaseResponse doBanOrRelease(HttpServletRequest request, ModuleQuery query) throws InvocationTargetException, IllegalAccessException {
+        Module module = moduleMapper.selectByPrimaryKey(query.getId());
+        if(module.getBak02().equals(SecurityConstants.DELETE_LEVEL_SYSTEM) && query.getStatus() != null && query.getStatus().equals(SecurityStatusConstants.STATUS_CLOSE)){
+            throw new BaseException(BaseResponseCode.EDIT_FORBIDDEN);
+        }
         if(null != query.getStatus() && query.getStatus().equals(SecurityStatusConstants.STATUS_OPEN)){
             query.setStatus(SecurityStatusConstants.STATUS_CLOSE);
         }else{
             query.setStatus(SecurityStatusConstants.STATUS_OPEN);
         }
         moduleMapper.updateByPrimaryKeySelective(assModule(request,query,false));
+        //刷新菜单缓存
+        this.refreshModuleCache(query.getId());
+        return new BaseResponse.Builder().buildSuccess();
+    }
+
+    /**
+     * 刷新菜单缓存
+     * @param id
+     */
+    private void refreshModuleCache(Integer id) {
         // 更新全局菜单缓存
         UserInvoker.clearGlobalCacheInfoByType(Module.class);
         // 更新用户菜单缓存 ==>> TODO 此处可优化为异步线程处理
-        List<User> users = userMapper.getUserByModuleId(query.getId());
+        List<User> users = userMapper.getUserByModuleId(id);
         if(CollectionUtils.isNotEmpty(users)){
             for (User user : users) {
                 UserInvoker.clearUserCacheInfoByType(Module.class,user.getUserId());
             }
         }
-        return new BaseResponse.Builder().buildSuccess();
     }
 
     /**
@@ -162,6 +173,7 @@ public class ModuleServiceImpl implements ModuleService {
             module.setGmtCreated(new Date());
             module.setCreator(operator.getUsername());
             module.setCreatorCode(operator.getUserId());
+            module.setBak02(SecurityConstants.DELETE_LEVEL_TRUE);
         }else{
             module.setGmtModified(new Date());
             module.setModifier(operator.getUsername());
@@ -242,7 +254,7 @@ public class ModuleServiceImpl implements ModuleService {
             return new BaseResponse.Builder().buildSuccess();
         }
         String[] idsArr = ids.split(",");
-        if(null== idsArr || idsArr.length < 1){
+        if(idsArr.length < 1){
             return new BaseResponse.Builder().buildSuccess();
         }
         for (String idStr : idsArr) {
@@ -254,6 +266,13 @@ public class ModuleServiceImpl implements ModuleService {
         }
         //更新菜单下按钮缓存
         UserInvoker.deleteModuleButton(query.getId());
+        //更新拥有该菜单的用户的按钮缓存 ==>> TODO 此处可优化为异步线程处理
+        List<User> users = userMapper.getUserByModuleId(query.getId());
+        if(CollectionUtils.isNotEmpty(users)){
+            for (User user : users) {
+                UserInvoker.clearUserCacheInfoByType(Button.class,user.getUserId());
+            }
+        }
         return new BaseResponse.Builder().buildSuccess();
     }
 
@@ -281,7 +300,8 @@ public class ModuleServiceImpl implements ModuleService {
      * 查询父级菜单树
      * @return
      * @param applicationName
-     * @param clickCallBack  */
+     * @param clickCallBack
+     */
     @Override
     public List<RoleModuleListVo> getFatherModuleTree(String applicationName, String clickCallBack) throws Exception {
         if(StringUtil.isEmpty(applicationName)){
@@ -326,21 +346,70 @@ public class ModuleServiceImpl implements ModuleService {
      */
     @Override
     public BaseResponse addModule(HttpServletRequest request, ModuleQuery query, String applicationName) throws InvocationTargetException, IllegalAccessException {
-        moduleMapper.insert(validateAddParam(request,query,applicationName));
+        moduleMapper.insert(validateAddOrUpdateParam(request,query,applicationName, true));
         //清除全局菜单缓存
         UserInvoker.clearGlobalCacheInfoByType(Module.class);
         return new BaseResponse.Builder().buildSuccess();
     }
 
     /**
-     * 校验添加参数
+     * 查询菜单详情
+     * @param query
+     * @return
+     */
+    @Override
+    public ModuleDetailVo getModuleDetail(ModuleQuery query) throws InvocationTargetException, IllegalAccessException {
+        Module module = moduleMapper.selectByPrimaryKey(query.getId());
+        ModuleDetailVo moduleDetailVo = new ModuleDetailVo();
+        Module moduleFather = moduleMapper.selectByPrimaryKey(module.getPid());
+        moduleDetailVo.setpName((null == moduleFather || null == moduleFather.getModuleName()) ? ROOT_MODULE_NAME : moduleFather.getModuleName());
+        BeanUtils.copyProperties(moduleDetailVo,module);
+        return moduleDetailVo;
+    }
+
+    /**
+     * 编辑菜单
      *
      * @param request
+     * @param id
      * @param query
      * @param applicationName
      * @return
      */
-    private Module validateAddParam(HttpServletRequest request, ModuleQuery query, String applicationName) throws InvocationTargetException, IllegalAccessException {
+    @Override
+    public BaseResponse editModule(HttpServletRequest request, Integer id, ModuleQuery query, String applicationName) throws InvocationTargetException, IllegalAccessException {
+        //校验参数
+        Module module = validateAddOrUpdateParam(request, query, applicationName, false);
+        module.setId(id);
+        moduleMapper.updateByPrimaryKeySelective(module);
+        //刷新缓存
+        this.refreshModuleCache(id);
+        return new BaseResponse.Builder().buildSuccess();
+    }
+
+    /**
+     * 校验添加参数
+     * @param request
+     * @param query
+     * @param applicationName
+     * @param isAdd
+     * @return
+     * @throws InvocationTargetException
+     * @throws IllegalAccessException
+     */
+    private Module validateAddOrUpdateParam(HttpServletRequest request, ModuleQuery query, String applicationName, boolean isAdd) throws InvocationTargetException, IllegalAccessException {
+        Module module = moduleMapper.selectByPrimaryKey(query.getId());
+        if(!isAdd){
+            if(null == module){
+                throw new BaseException(BaseResponseCode.FAILED);
+            }
+            if(module.getBak02().equals(SecurityConstants.DELETE_LEVEL_SYSTEM) && query.getStatus() != null && query.getStatus().equals(SecurityStatusConstants.STATUS_CLOSE)){
+                throw new BaseException(BaseResponseCode.EDIT_FORBIDDEN);
+            }
+            if(module.getBak02().equals(SecurityConstants.DELETE_LEVEL_SYSTEM)){
+                query.setStatus(SecurityStatusConstants.STATUS_OPEN);
+            }
+        }
         if(StringUtil.isEmpty(query.getModuleName())){
             throw new BaseException(BaseResponseCode.MODULE_ADD_NAME_NULL);
         }
@@ -351,7 +420,7 @@ public class ModuleServiceImpl implements ModuleService {
             throw new BaseException(BaseResponseCode.MODULE_ADD_STATUS_NULL);
         }
         query.setBak01(applicationName);
-        return this.assModule(request, query, true);
+        return this.assModule(request, query, isAdd);
     }
 
     /**

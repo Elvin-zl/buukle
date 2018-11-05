@@ -1,7 +1,9 @@
 //@ sourceURL=roleList.js
 $(function () {
     /*绑定页面按钮操作组件*/
-    bindsearchConditionClick();
+    bindSearchConditionClick();
+    /*绑定添加页面保存按钮事件*/
+    bindCRUDClick();
 });
 var tableIns;
 function renderTable() {
@@ -16,7 +18,7 @@ function renderTable() {
                 roleName:   $('#fuzzy-index-0').val()
                 ,startTime: ($('#startTime').val()==""?"":$('#startTime').val()+" 00:00:00")
                 ,endTime:   ($('#endTime').val()==""?"":$('#endTime').val()+" 23:59:59")
-                ,status: $('#status').val()
+                ,status: $('#searchStatus').val()
             },
             method: 'post',
             first:  '首页',
@@ -28,9 +30,9 @@ function renderTable() {
             ,cols: [[
                 {field: 'roleName', title: '角色名', width:177}
                 ,{title: '创建时间', width: 160,templet: '<div><a href="javascript:;">{{formatDateTime(d.gmtCreated)}}</a></div>'}
-                ,{title: '更新时间', width: 160,templet: '<div><a href="javascript:;">{{formatDateTime(d.modifiedTime)}}</a></div>'}
+                ,{title: '更新时间', width: 160,templet: '<div><a href="javascript:;">{{formatDateTime(d.gmtModified)}}</a></div>'}
                 ,{title: '状态', width: 80,templet: '<div>{{formatStatus(d.status)}} </div>'}
-                ,{title: '操作',fixed: 'right', width:290, align:'center',templet: '<div>{{formatUserHandle(d.status,d.id)}} </div>'}
+                ,{title: '操作',fixed: 'right', width:290, align:'center',templet: '<div>{{formatUserHandle(d.status,d.id,d.bak01)}} </div>'}
             ]]
             ,limits: [10, 20, 30,50,100]
             ,limit: 10
@@ -47,46 +49,118 @@ function reloadTable() {
         tableIns.reload();
     },1000);
 }
-/*添加*/
-$('#addRole').off().on('click',function () {
-    $.ajax({
-        url:"/role/addRole",
-        dataType:"json",
-        type:"post",
-        data: $('#addRoleForm').serialize(),
-        success:function (data) {
-            var code = data.code;
-            layui.use("layer",function () {
-                var layer = layui.layer;
-                var cancelB =  $("#cancelAddRole");
-                if(code == "F"){
-                    layer.msg(data.msg, {icon: 2});
-                    cancelB.click();
-                    return;
-                }
-                layer.msg(data.msg, {icon: 1});
-                cancelB.click();
-                reloadTable();
-            })
-        }
+
+/*绑定页面CRUD事件*/
+function bindCRUDClick() {
+    /*添加*/
+    $('#addRole').off().on('click',function () {
+        disableThis($('#addRole'));
+        $.ajax({
+            url:"/role/addRole",
+            dataType:"json",
+            type:"post",
+            data: $('#addRoleForm').serialize(),
+            success:function (data) {
+                releaseThis($('#addRole'));
+                layui.use("layer",function () {
+                    var layer = layui.layer;
+                    if(data.status  == 'F'){
+                        layer.msg(data.msg, {
+                            icon: 2,
+                            time: 3000
+                        });
+                    }
+                    if(data.status  == 'S'){
+                        layer.msg(data.msg, {
+                            icon: 1,
+                            time: 3000
+                        });
+                        //清空添加表单
+                        $('.add-input').val('');
+                        $("#cancelAddRole").click();
+                        reloadTable ();
+                    }
+                })
+            }
+        });
     });
-});
+    /*编辑*/
+    $('#editRole').off().on('click',function () {
+        disableThis($('#editRole'));
+        $.ajax({
+            url:"/role/editRole/"+$('#currentRecordId').val(),
+            dataType:"json",
+            type:"post",
+            data: $('#editRoleForm').serialize(),
+            success:function (data) {
+                releaseThis($('#editRole'));
+                layui.use("layer",function () {
+                    var layer = layui.layer;
+                    if(data.status  == 'F'){
+                        layer.msg(data.msg, {
+                            icon: 2,
+                            time: 3000
+                        });
+                    }
+                    if(data.status  == 'S'){
+                        layer.msg(data.msg, {
+                            icon: 1,
+                            time: 3000
+                        });
+                        //清空添加表单
+                        $('.add-input').val('');
+                        $("#cancelEditRole").click();
+                        reloadTable ();
+                    }
+                })
+            }
+        });
+    });
+}
 /*详情回显回调*/
 function detail(data) {
     for(var key in data){
         if(key == "status"){
-            $('#roleStatus').val(data[key]==0?"停用":"启用")
+            $("#"+key).val(data[key]==0 ? "停用" : "启用");
             continue;
-        }else if(key=="gmtCreated" || key=="modifiedTime"){
+        }else if(key=="gmtCreated" || key=="gmtModified"){
             $("#"+key).val(formatDateTime(data[key]));
             continue;
         }
         $("#"+key).val(data[key]);
     }
 }
-/*修改回显回调*/
-function modify(id, data) {
-
+/*编辑回显回调*/
+function edit(data) {
+    releaseThis($('#editButton'));
+    var statusHtml = '<select id="statusEdit" class="buukle-frame-input btn-layer-type-selector selector add-input" name="status">'+
+        '<option class="select-item" value="" data-status="">------------请选择-------------</option>'+
+        '<option class="select-item" value="1" data-status="1">-------------启用---------------</option>'+
+        '<option class="select-item" value="0" data-status="0">-------------停用---------------</option>'+
+        '</select>';
+    var deleteLevel ;
+    for(var key in data){
+        if(key == "bak01"){
+            deleteLevel = data[key];
+            break;
+        }
+    }
+    for(var key in data){
+        if(key == "status"){
+            $("#"+key+"Edit").remove();
+            $("#noDelete").remove();
+            if(deleteLevel == 0){
+                $("#statusFather").append("<span id='noDelete'>系统创建,不允许修改!</span>")
+            }else{
+                $('#statusFather').append(statusHtml);
+                selectValue(key,data[key],Math.random());
+            }
+            continue;
+        }else if(key=="gmtCreated" || key=="gmtModified"){
+            continue;
+        }
+        $("#"+key+"Edit").val(data[key]);
+    }
 }
 /*初始化分配菜单树对象*/
 var setModuleZTreeObj;

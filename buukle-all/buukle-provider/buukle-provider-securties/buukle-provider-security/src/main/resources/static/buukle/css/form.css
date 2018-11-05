@@ -228,7 +228,8 @@
     margin-top: 0px !important;
 }
 .fuzzy-item-div{
-    position: relative;
+    position: absolute;
+    z-index: 66666666;
     border: 1px solid #66afe9;
     border-top: 0px;
     display: none;

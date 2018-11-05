@@ -7,8 +7,15 @@
 
 package top.buukle.provider.security.service;
 
+import top.buukle.common.response.BaseResponse;
 import top.buukle.provider.security.entity.Groups;
+import top.buukle.provider.security.vo.query.GroupsQuery;
+import top.buukle.provider.security.vo.query.PageBounds;
+import top.buukle.provider.security.vo.response.FuzzySearchListVo;
+import top.buukle.provider.security.vo.response.PageResponse;
 
+import javax.servlet.http.HttpServletRequest;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 /**
@@ -18,26 +25,7 @@ import java.util.List;
  */
 public interface GroupsService {
 	
-
-	/** 
-	 * @Description:	根据id获取Groups
-	 * @return
-	 * @throws Exception
-	 * @return	Groups
-	 * @Date	2015年6月12日 上午10:29:35 
-	 */
-	public Groups getGroupsById(Integer id) throws Exception;
-	
-	/** 
-	 * @Description:	根据条件获取Groups
-	 * @param groups
-	 * @return
-	 * @throws Exception
-	 * @return	Groups
-	 * @Date	2015年6月12日 上午10:29:35 
-	 */
-	public List<Groups> getGroupsByParas(Groups groups) throws Exception;
-	/** 
+	/**
 	 * @Description:	添加Groups
 	 * @param groups
 	 * @throws Exception
@@ -61,15 +49,52 @@ public interface GroupsService {
 	 * @Date	2015年6月12日 上午10:30:05 
 	 */
 	public void delete(Groups groups) throws Exception;
-	/** 
-	 * @Description:	获取Groups信息 不带分页
-	 * @param groups
-	 * @return
-	 * @throws Exception
-	 * @return	List<Groups>
-	 * @Date	2015年6月12日 上午10:30:13 
-	 */
-	public List<Groups> getGroupssByParasNoPage(Groups groups) throws Exception;
-	
 
+
+	/**
+	 * 分页获取组别信息列表
+	 * @param query
+	 * @param pageBounds
+	 * @return
+	 */
+	PageResponse<Groups> getGroupsList(GroupsQuery query, PageBounds pageBounds);
+
+    /**
+     * 模糊搜索
+     * @param fuzzyText
+     * @return
+     */
+    List<FuzzySearchListVo> fuzzySearchByName(String fuzzyText);
+
+    /**
+     * 添加组别
+     * @param request
+     * @param query
+     * @return
+     */
+     BaseResponse addGroups(HttpServletRequest request, GroupsQuery query) throws InvocationTargetException, IllegalAccessException;
+
+    /**
+     * 查询组别详情
+     * @param query
+     * @return
+     */
+     Groups getGroupsDetail(GroupsQuery query);
+
+    /**
+     * 编辑组别
+     * @param request
+     * @param id
+     *@param query
+     * @return
+     */
+     BaseResponse editGroups(HttpServletRequest request, Integer id, GroupsQuery query) throws InvocationTargetException, IllegalAccessException ;
+
+    /**
+     * 起停用组别
+     * @param request
+     * @param query
+     * @return
+     */
+    BaseResponse doBanOrRelease(HttpServletRequest request, GroupsQuery query) throws InvocationTargetException, IllegalAccessException;
 }

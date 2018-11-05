@@ -318,6 +318,7 @@
         <if test="endTime != null  and endTime !='' " >
             and gmt_created &lt;= #{endTime}
         </if>
+        order by gmt_modified DESC
     </select>
 
     <update id="doBanOrRelease" parameterType="java.util.Map" >

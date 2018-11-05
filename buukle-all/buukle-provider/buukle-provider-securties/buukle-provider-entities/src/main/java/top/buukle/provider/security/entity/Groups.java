@@ -9,6 +9,11 @@ public class Groups {
     private Integer id;
 
     /**
+     * 上级组别id
+     */
+    private Integer pid;
+
+    /**
      * 组名
      */
     private String name;
@@ -87,6 +92,22 @@ public class Groups {
      */
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    /**
+     * 上级组别id
+     * @return pid 上级组别id
+     */
+    public Integer getPid() {
+        return pid;
+    }
+
+    /**
+     * 上级组别id
+     * @param pid 上级组别id
+     */
+    public void setPid(Integer pid) {
+        this.pid = pid;
     }
 
     /**

@@ -1,7 +1,7 @@
 //@ sourceURL=buttonList.js
 $(function () {
     /*绑定页面按钮操作组件*/
-    bindsearchConditionClick();
+    bindSearchConditionClick();
     /*绑定CRUD页面保存按钮事件*/
     bindCRUDClick();
 });
@@ -33,7 +33,7 @@ function renderTable() {
                 ,{title: '更新时间', width: 160,templet: '<div><a href="javascript:;">{{formatDateTime(d.gmtModified)}}</a></div>'}
                 ,{title: '备注', width:177,field: 'bak01'}
                 ,{title: '状态', width: 80,templet: '<div>{{formatStatus(d.status)}} </div>'}
-                ,{title: '操作',fixed: 'right', width:290, align:'center',templet: '<div>{{formatUserHandle(d.status,d.id)}} </div>'}
+                ,{title: '操作',fixed: 'right', width:290, align:'center',templet: '<div>{{formatUserHandle(d.status,d.id,d.bak02)}} </div>'}
             ]]
             ,limits: [10, 20, 30,50,100]
             ,limit: 10
@@ -136,9 +136,28 @@ function detail(data) {
 /*修改回显回调*/
 function edit(data) {
     releaseThis($('#editButton'));
+    var statusHtml = '<select id="statusEdit" class="buukle-frame-input btn-layer-type-selector selector add-input" name="status">'+
+        '<option class="select-item" value="" data-status="">------------请选择-------------</option>'+
+        '<option class="select-item" value="1" data-status="1">-------------启用---------------</option>'+
+        '<option class="select-item" value="0" data-status="0">-------------停用---------------</option>'+
+        '</select>';
+    var deleteLevel ;
+    for(var key in data){
+        if(key == "bak02"){
+            deleteLevel = data[key];
+            break;
+        }
+    }
     for(var key in data){
         if(key == "status"){
-            selectValue(key,data[key],Math.random());
+            $("#"+key+"Edit").remove();
+            $("#noDelete").remove();
+            if(deleteLevel == 0){
+                $("#statusFather").append("<span id='noDelete'>系统创建,不允许修改!</span>")
+            }else{
+                $('#statusFather').append(statusHtml);
+                selectValue(key,data[key],Math.random());
+            }
             continue;
         }else if(key=="layoutLevel"){
             selectValue(key,data[key]);

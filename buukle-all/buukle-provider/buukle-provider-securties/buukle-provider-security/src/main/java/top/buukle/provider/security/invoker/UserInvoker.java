@@ -48,6 +48,14 @@ public class UserInvoker {
     }
 
     /**
+     * 缓存全局组别列表信息
+     * @param groupsList
+     */
+    public static void saveGlobalGroups(List<Groups> groupsList) {
+        RedisString.setWithExpire(UserInfoCacheConstants.GLOBAL_GROUPS_LIST_KEY,JSON.toJSONString(groupsList),NumberUtil.LONG_ONE_DAY_SECOND);
+    }
+
+    /**
      * 根据类型清除用户的权限信息
      * @param clazz
      */
@@ -59,6 +67,8 @@ public class UserInvoker {
             RedisString.delete(UserInfoCacheConstants.GLOBAL_MODULE_LIST_KEY);
             //清除全局角色缓存
             RedisString.delete(UserInfoCacheConstants.GLOBAL_ROLE_LIST_KEY);
+            //清除全局组别缓存
+            RedisString.delete(UserInfoCacheConstants.GLOBAL_GROUPS_LIST_KEY);
             return;
         }
         if(clazz.equals(Button.class)){
@@ -74,6 +84,11 @@ public class UserInvoker {
         if(clazz.equals(Role.class)){
             //清除全局角色缓存
             RedisString.delete(UserInfoCacheConstants.GLOBAL_ROLE_LIST_KEY);
+            return;
+        }
+        if(clazz.equals(Groups.class)){
+            //清除全局组别缓存
+            RedisString.delete(UserInfoCacheConstants.GLOBAL_GROUPS_LIST_KEY);
             return;
         }
     }
@@ -193,6 +208,14 @@ public class UserInvoker {
     }
 
     /**
+     * 获取全局组别列表信息
+     * @return
+     */
+    public static List<Groups> getGlobalGroups() {
+        String globalGroupsListStr = RedisString.get(UserInfoCacheConstants.GLOBAL_GROUPS_LIST_KEY);
+        return null == globalGroupsListStr ? null : JSON.parseArray(globalGroupsListStr,Groups.class);
+    }
+    /**
      * 获取用户角色列表缓存信息
      * @param userId
      * @return
@@ -271,7 +294,6 @@ public class UserInvoker {
         if(clazz.equals(Button.class)){
             //清除下属缓存
             RedisString.delete(UserInfoCacheConstants.USER_SUBORDINATE_LIST_KEY_PREFIX + userId);
-            return;
         }
     }
 
@@ -326,4 +348,5 @@ public class UserInvoker {
     public static void deleteModuleButton(Integer moduleId) {
         RedisString.delete(UserInfoCacheConstants.MODULE_BUTTON_LIST_KEY_PREFIX + moduleId);
     }
+
 }

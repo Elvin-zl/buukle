@@ -2,6 +2,7 @@ package top.buukle.provider.security.controller.role;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import top.buukle.common.response.BaseResponse;
@@ -81,5 +82,43 @@ public class RoleController {
     @ResponseBody
     public List<FuzzySearchListVo> fuzzySearchByName(String fuzzyText) throws Exception {
         return roleService.fuzzySearchByName(fuzzyText);
+    }
+
+    /**
+     * 添加角色
+     * @param request
+     * @param query
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/addRole")
+    @ResponseBody
+    public BaseResponse addRole(HttpServletRequest request,RoleQuery query) throws Exception {
+        return roleService.addRole(request,query);
+    }
+
+    /**
+     * 查询角色详情
+     * @param query
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/getRoleDetail")
+    @ResponseBody
+    public Role getRoleDetail(RoleQuery query) throws Exception {
+        return roleService.getRoleDetail(query);
+    }
+
+    /**
+     * 编辑角色
+     * @param request
+     * @param query
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/editRole/{id}")
+    @ResponseBody
+    public BaseResponse editRole(HttpServletRequest request, @PathVariable Integer id, RoleQuery query) throws Exception {
+        return roleService.editRole(request,id,query);
     }
 }

@@ -13,14 +13,14 @@
     <link rel="stylesheet" href="" id="btnThemeCss">
 </head>
 <body>
-<div class="layui-tab layui-tab-brief" lay-filter="user">
+<div class="layui-tab layui-tab-brief" lay-filter="role">
     <div class="layui-tab-content">
         <!--搜索条件-->
         <form id="searchForm" class="buukle-data-form">
             <div class="buukle-search-name">
                 <div class="form-span" style="float: inherit;">角色名称 : </div>
                 <div class="fuzzy-div">
-                    <input id="fuzzy-index-0" class="buukle-input search-condition fuzzy-input" data-fuzzyUrl="/role/fuzzySearchByName" type="text" name="name" placeholder="请输入按钮名称" autocomplete="off">
+                    <input id="fuzzy-index-0" class="buukle-input search-condition fuzzy-input" data-fuzzyUrl="/role/fuzzySearchByName" type="text" name="name" placeholder="请输入角色名称" autocomplete="off">
                     <!--建议框-->
                     <div id="fuzzy-items-index-0"class="fuzzy-item-div" data-fuzzyIndex="0">
                     </div>
@@ -35,7 +35,7 @@
             <div class="buukle-select-father buukle-search-status">
                 <span class="form-span">状态 :</span>
                 <div>
-                    <select id="status" class="buukle-select search-condition-select" name="state">
+                    <select id="searchStatus" class="buukle-select search-condition-select">
                         <option class="select-item" value="" data-status="">------------请选择-------------</option>
                         <option class="select-item" value="1" data-status="1">-------------启用---------------</option>
                         <option class="select-item" value="0" data-status="0">-------------停用---------------</option>
@@ -48,7 +48,7 @@
             </div>
         </form>
         <!--数据列表-->
-        <div class="layui-tab-content buukle-table" >
+        <div class="layui-tab-content" >
             <table id="table" class="layui-table"></table>
         </div>
         <!--CRUD START-->
@@ -58,24 +58,23 @@
             <table class="data-table">
                 <tr>
                     <td class="table-property-name">角色名</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input" id="roleName">
+                    <td class="table-property-value">
+                        <input type="text" disabled class="buukle-frame-input add-input" id="roleName">
                     </td>
                     <td class="table-property-name">创建时间</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input"
-                                                            id="gmtCreated"></td>
+                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input add-input" id="gmtCreated"></td>
                 </tr>
                 <tr>
                     <td class="table-property-name">更新时间</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input"
-                                                            id="modifiedTime"></td>
+                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input add-input" id="gmtModified"></td>
                     <td class="table-property-name">状态</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input"
-                                                            id="roleStatus"></td>
+                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input add-input" id="status"></td>
                 </tr>
                 <tr>
                     <td class="table-property-name">描述</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input"
-                                                            id="description"></td>
+                    <td class="table-property-value">
+                        <textarea class="layui-textarea buukle-add-textarea" disabled name="description" id="description"></textarea>
+                    </td>
                 </tr>
             </table>
             <div class="buukle-frame-button">
@@ -84,27 +83,29 @@
         </div>
         <!--编辑-->
         <div class="detail crud" id="edit" style="display: none;">
-            <table class="data-table">
-                <tr>
-                    <td class="table-property-name">角色名</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input" >
-                    </td>
-                    <td class="table-property-name">创建时间</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input" ></td>
-                </tr>
-                <tr>
-                    <td class="table-property-name">更新时间</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input" ></td>
-                    <td class="table-property-name">状态</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input" ></td>
-                </tr>
-                <tr>
-                    <td class="table-property-name">描述</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input" ></td>
-                </tr>
-            </table>
-            <div class="buukle-frame-button">
-                <button class="layui-btn layui-btn-primary layui-layer-close">返回</button>
+            <form id="editRoleForm" style="height: 312px;">
+                <table class="data-table">
+                    <tr>
+                        <td class="table-property-name">角色名称 :</td>
+                        <td class="table-property-value">
+                            <input type="text" class="buukle-frame-input add-input" id="roleNameEdit" name="roleName">
+                        </td>
+                        <td class="table-property-name">状态 :</td>
+                        <td class="table-property-value" id="statusFather"></td>
+                    </tr>
+                    <tr>
+                        <td class="table-property-name">角色描述 :</td>
+                        <td class="table-property-value">
+                            <textarea class="layui-textarea buukle-add-textarea" id="descriptionEdit" name="description" ></textarea>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <div class="buukle-save-cancel">
+                <button class="layui-btn commitBtn saveBtn theme-btn" data-form-id="editRoleForm" id="editRole">
+                    保存
+                </button>
+                <button class="layui-btn layui-btn-primary layui-layer-close back-button" id="cancelEditRole">取消</button>
             </div>
         </div>
         <!--添加-->
@@ -113,12 +114,12 @@
                 <table class="data-table">
                     <tr>
                         <td class="table-property-name">角色名称 :</td>
-                        <td class="table-property-value"><input type="text" class="buukle-frame-input add-input"
-                                                                name="roleName"></td>
+                        <td class="table-property-value">
+                            <input type="text" class="buukle-frame-input add-input" name="roleName">
+                        </td>
                         <td class="table-property-name">状态 :</td>
                         <td class="table-property-value">
-                            <select id="addStatus" class="buukle-frame-input btn-layer-type-selector selector add-input"
-                                    name="status">
+                            <select id="addStatus" class="buukle-frame-input btn-layer-type-selector selector add-input" name="status">
                                 <option class="select-item" value="" data-status="">------------请选择-------------</option>
                                 <option class="select-item" value="1" data-status="1">-------------启用---------------
                                 </option>
@@ -130,14 +131,13 @@
                     <tr>
                         <td class="table-property-name">角色描述 :</td>
                         <td class="table-property-value">
-                            <textarea class="layui-textarea add-input" name="description"
-                                      id="roleDescTextarea"></textarea>
+                            <textarea class="layui-textarea buukle-add-textarea" name="description" id="roleDescTextarea"></textarea>
                         </td>
                     </tr>
                 </table>
             </form>
             <div class="buukle-save-cancel">
-                <button class="layui-btn back-button layui-layer-close saveBtn theme-btn" data-form-id="addRoleForm" id="addRole">
+                <button class="layui-btn commitBtn saveBtn theme-btn" data-form-id="addRoleForm" id="addRole">
                     保存
                 </button>
                 <button class="layui-btn layui-btn-primary layui-layer-close back-button" id="cancelAddRole">取消</button>

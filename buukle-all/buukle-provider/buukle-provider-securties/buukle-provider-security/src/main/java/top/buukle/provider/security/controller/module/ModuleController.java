@@ -3,6 +3,7 @@ package top.buukle.provider.security.controller.module;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import top.buukle.common.response.BaseResponse;
@@ -10,10 +11,7 @@ import top.buukle.provider.security.entity.Module;
 import top.buukle.provider.security.service.ModuleService;
 import top.buukle.provider.security.vo.query.ModuleQuery;
 import top.buukle.provider.security.vo.query.PageBounds;
-import top.buukle.provider.security.vo.response.FuzzySearchListVo;
-import top.buukle.provider.security.vo.response.ModuleButtonListVo;
-import top.buukle.provider.security.vo.response.PageResponse;
-import top.buukle.provider.security.vo.response.RoleModuleListVo;
+import top.buukle.provider.security.vo.response.*;
 import top.buukle.provider.security.vo.result.ModuleNavigationVo;
 
 import javax.servlet.http.HttpServletRequest;
@@ -118,4 +116,25 @@ public class ModuleController {
     public List<RoleModuleListVo> getFatherModuleTree(String clickCallBack) throws Exception {
         return moduleService.getFatherModuleTree(applicationName,clickCallBack);
     }
+    /**
+     * 查询菜单详情
+     * @param query
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/getModuleDetail")
+    @ResponseBody
+    public ModuleDetailVo getModuleDetail(ModuleQuery query) throws Exception {
+        return moduleService.getModuleDetail(query);
+    }
+
+    /**
+     * 编辑菜单
+     */
+    @RequestMapping("/editModule/{id}")
+    @ResponseBody
+    public BaseResponse editModule(HttpServletRequest request,@PathVariable("id")  Integer id, ModuleQuery query) throws Exception {
+        return moduleService.editModule(request,id,query,applicationName);
+    }
+
 }

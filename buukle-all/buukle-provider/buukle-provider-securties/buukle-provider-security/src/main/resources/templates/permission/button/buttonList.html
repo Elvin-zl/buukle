@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="" id="btnThemeCss">
 </head>
 <body>
-<div class="layui-tab layui-tab-brief" lay-filter="user">
+<div class="layui-tab layui-tab-brief" lay-filter="button">
     <div class="layui-tab-content">
         <!--搜索条件-->
         <form id="searchForm" class="buukle-data-form">
@@ -34,7 +34,7 @@
             <div class="buukle-select-father buukle-search-status">
                 <span class="form-span">状态 :</span>
                 <div>
-                    <select id="searchStatus" class="buukle-select search-condition-select" name="status">
+                    <select id="searchStatus" class="buukle-select search-condition-select">
                         <option class="select-item" value="" data-status="">------------请选择-------------</option>
                         <option class="select-item" value="1" data-status="1">-------------启用---------------</option>
                         <option class="select-item" value="0" data-status="0">-------------停用---------------</option>
@@ -48,7 +48,7 @@
             </div>
         </form>
         <!--数据列表-->
-        <div class="layui-tab-content buukle-table">
+        <div class="layui-tab-content">
             <table id="table" class="layui-table"></table>
         </div>
         <!--CRUD START-->
@@ -130,13 +130,7 @@
                     </tr>
                     <tr>
                         <td class="table-property-name">状态 :</td>
-                        <td class="table-property-value">
-                            <select id="statusEdit" class="buukle-frame-input btn-layer-type-selector selector add-input" name="status">
-                                <option class="select-item" value="" data-status="">------------请选择-------------</option>
-                                <option class="select-item" value="1" data-status="1">-------------启用---------------</option>
-                                <option class="select-item" value="0" data-status="0">-------------停用---------------</option>
-                            </select>
-                        </td>
+                        <td class="table-property-value" id="statusFather"></td>
                         <td class="table-property-name">分布级别 :</td>
                         <td class="table-property-value">
                             <select name="layoutLevel" id="layoutLevelEdit" class="buukle-frame-input btn-layer-type-selector selector add-input btn-select-item">
@@ -153,7 +147,8 @@
                                 <option value="">----------请选择----------</option>
                                 <option value="0">-------提示确认框-----</option>
                                 <option value="1">-弹层页面取接口数据-</option>
-                                <option value="2">弹层页面不取接口数据</option>
+                                <option value="2">-弹层页不取接口数据-</option>
+                                <option value="3">-弹层页加载其他列表-</option>
                             </select>
                         </td>
                         <td class="table-property-name">页面响应ID :</td>
@@ -170,8 +165,8 @@
                                 <option value="3">------------详情------------</option>
                                 <option value="4">----------申请启用----------</option>
                                 <option value="5">------------审核------------</option>
-                                <option value="6">----------起/停用------------</option>
-                                <option value="7">----------分配设置-----------</option>
+                                <option value="6">----------起/停用-----------</option>
+                                <option value="7">----------多表设置-----------</option>
                             </select>
                         </td>
                         <td class="table-property-name">按钮描述 :</td>
@@ -221,7 +216,9 @@
                                 <option value="">----------请选择----------</option>
                                 <option value="0">-------提示确认框-----</option>
                                 <option value="1">-弹层页面取接口数据-</option>
-                                <option value="2">弹层页面不取接口数据</option>
+                                <option value="2">-弹层页不取接口数据-</option>
+                                <option value="3">-弹层页加载其他列表-</option>
+
                             </select>
                         </td>
                         <td class="table-property-name">页面响应ID :</td>

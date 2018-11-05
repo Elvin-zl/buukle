@@ -33,6 +33,21 @@ public class MD5Util {
         return HEXDIGITS[d1] + HEXDIGITS[d2];
     }
 
+    /**
+     * 默认使用utf-8加密
+     * @param origin
+     * @return
+     */
+    public static String MD5WithUTF8(String origin) {
+        return MD5Encode(origin,"utf-8");
+    }
+
+    /**
+     * 指定编码加密
+     * @param origin
+     * @param charsetname
+     * @return
+     */
     public static String MD5Encode(String origin, String charsetname) {
         String resultString = null;
         try {
@@ -49,6 +64,9 @@ public class MD5Util {
         return resultString;
     }
 
-    private static final String HEXDIGITS[] = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "UserLoginPermissionQuery", "e", "f" };
+//    public static void main(String[] args) {
+//        System.out.println(MD5WithUTF8("1"));
+//    }
+    private static final String HEXDIGITS[] = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f" };
 }
 

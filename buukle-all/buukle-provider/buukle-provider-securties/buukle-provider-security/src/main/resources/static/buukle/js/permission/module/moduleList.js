@@ -1,7 +1,7 @@
 //@ sourceURL=ModuleList.js
 $(function () {
     /*绑定页面按钮操作组件*/
-    bindsearchConditionClick();
+    bindSearchConditionClick();
     /*绑定添加页面保存按钮事件*/
     bindCRUDClick();
 });
@@ -18,7 +18,7 @@ function renderTable() {
                 moduleName:   $('#fuzzy-index-0').val()
                 ,startTime: ($('#startTime').val()==""?"":$('#startTime').val()+" 00:00:00")
                 ,endTime:   ($('#endTime').val()==""?"":$('#endTime').val()+" 23:59:59")
-                ,status: $('#status').val()
+                ,status: $('#searchStatus').val()
             },
             method: 'post',
             first:  '首页',
@@ -33,7 +33,7 @@ function renderTable() {
                 ,{title: '更新时间', width: 160,templet: '<div><a href="javascript:;">{{formatDateTime(d.gmtModified)}}</a></div>'}
                 ,{title: '备注',field: 'description',  width:177}
                 ,{title: '状态', width: 80,templet: '<div>{{formatStatus(d.status)}} </div>'}
-                ,{title: '操作',fixed: 'right', width:290, align:'center',templet: '<div>{{formatUserHandle(d.status,d.id)}} </div>'}
+                ,{title: '操作',fixed: 'right', width:290, align:'center',templet: '<div>{{formatUserHandle(d.status,d.id,d.bak02)}} </div>'}
             ]]
             ,limits: [10, 20, 30,50,100]
             ,limit: 10
@@ -55,7 +55,7 @@ function reloadTable() {
 var fatherModuleZTreeObj;
 function bindCRUDClick() {
     /*绑定父级菜单点击事件*/
-    $('#fatherModuleName').off().on('click',function () {
+    $('#pName,#pNameEdit').off().on('click',function () {
         //去后台取数据
         $.ajax({
             url:"/module/getFatherModuleTree",
@@ -104,7 +104,39 @@ function bindCRUDClick() {
                         });
                         //清空添加表单
                         $('.add-input').val('');
-                        $("#cancelSetModuleButton").click();
+                        $("#cancelAddModule").click();
+                        reloadTable ();
+                    }
+                })
+            }
+        });
+    });
+    /*编辑*/
+    $('#editModule').off().on('click',function () {
+        disableThis($('#editModule'));
+        $.ajax({
+            url:"/module/editModule/"+$('#currentRecordId').val(),
+            dataType:"json",
+            type:"post",
+            data: $('#editModuleForm').serialize(),
+            success:function (data) {
+                releaseThis($('#editModule'));
+                layui.use("layer",function () {
+                    var layer = layui.layer;
+                    if(data.status  == 'F'){
+                        layer.msg(data.msg, {
+                            icon: 2,
+                            time: 3000
+                        });
+                    }
+                    if(data.status  == 'S'){
+                        layer.msg(data.msg, {
+                            icon: 1,
+                            time: 3000
+                        });
+                        //清空添加表单
+                        $('.add-input').val('');
+                        $("#cancelEditModule").click();
                         reloadTable ();
                     }
                 })
@@ -117,18 +149,46 @@ function bindCRUDClick() {
 function detail(data) {
     for(var key in data){
         if(key == "status"){
-            $('#roleStatus').val(data[key]==0?"停用":"启用")
+            $('#moduleStatus').val(data[key]==0?"停用":"启用");
             continue;
-        }else if(key=="gmtCreated" || key=="modifiedTime"){
+        }else if(key=="gmtCreated" || key=="gmtModified"){
             $("#"+key).val(formatDateTime(data[key]));
             continue;
         }
         $("#"+key).val(data[key]);
     }
 }
-/*修改回显回调*/
-function modify(id, data) {
-
+/*编辑回显回调*/
+function edit(data) {
+    releaseThis($('#editButton'));
+    var statusHtml = '<select id="statusEdit" class="buukle-frame-input btn-layer-type-selector selector add-input" name="status">'+
+        '<option class="select-item" value="" data-status="">------------请选择-------------</option>'+
+        '<option class="select-item" value="1" data-status="1">-------------启用---------------</option>'+
+        '<option class="select-item" value="0" data-status="0">-------------停用---------------</option>'+
+        '</select>';
+    var deleteLevel ;
+    for(var key in data){
+        if(key == "bak02"){
+            deleteLevel = data[key];
+            break;
+        }
+    }
+    for(var key in data){
+        if(key == "status"){
+            $("#"+key+"Edit").remove();
+            $("#noDelete").remove();
+            if(deleteLevel == 0){
+                $("#statusFather").append("<span id='noDelete'>系统创建,不允许修改!</span>")
+            }else{
+                $('#statusFather').append(statusHtml);
+                selectValue(key,data[key],Math.random());
+            }
+            continue;
+        }else if(key=="gmtCreated" || key=="gmtModified"){
+            continue;
+        }
+        $("#"+key+"Edit").val(data[key]);
+    }
 }
 
 /*初始化分配按钮zTree对象*/
@@ -218,6 +278,6 @@ function fatherModuleClickCallback(treeId, treeNode) {
     if(treeNode == undefined){
         return;
     }
-    $('#fatherModuleName').val(treeNode.name);
-    $('#pid').val(treeNode.id);
+    $('#pName,#pNameEdit').val(treeNode.name);
+    $('#pid,#pidEdit').val(treeNode.id);
 }

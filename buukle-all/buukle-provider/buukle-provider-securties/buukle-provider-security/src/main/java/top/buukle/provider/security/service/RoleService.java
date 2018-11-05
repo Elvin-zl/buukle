@@ -118,4 +118,27 @@ public interface RoleService {
 	 * @return
 	 */
 	List<FuzzySearchListVo> fuzzySearchByName(String fuzzyText);
+
+	/**
+	 * 添加角色
+	 * @param request
+	 * @param query
+	 * @return
+	 */
+    BaseResponse addRole(HttpServletRequest request, RoleQuery query) throws InvocationTargetException, IllegalAccessException;
+
+	/**
+	 * 获取角色详情
+	 * @param query
+	 * @return
+	 */
+    Role getRoleDetail(RoleQuery query);
+
+	/**
+	 * 编辑角色
+	 * @param request
+	 * @param id
+	 *@param query  @return
+	 */
+    BaseResponse editRole(HttpServletRequest request, Integer id, RoleQuery query) throws InvocationTargetException, IllegalAccessException;
 }

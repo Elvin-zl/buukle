@@ -19,7 +19,7 @@
             <div class="buukle-search-name">
                 <div class="form-span" style="float: inherit;">登录账号 : </div>
                 <div class="fuzzy-div">
-                    <input id="fuzzy-index-0" class="buukle-input search-condition fuzzy-input" data-fuzzyUrl="/user/fuzzySearchByName" type="text" name="name" placeholder="请输入按钮名称" autocomplete="off">
+                    <input id="fuzzy-index-0" class="buukle-input search-condition fuzzy-input" data-fuzzyUrl="/user/fuzzySearchByName" type="text" name="name" placeholder="请输入登录名" autocomplete="off">
                     <!--建议框-->
                     <div id="fuzzy-items-index-0"class="fuzzy-item-div" data-fuzzyIndex="0">
                     </div>
@@ -35,7 +35,7 @@
             <div class="buukle-select-father buukle-search-status">
                 <span class="form-span">状态 :</span>
                 <div>
-                    <select id="status" class="buukle-select search-condition-select" name="state">
+                    <select id="searchStatus" class="buukle-select search-condition-select">
                         <option class="select-item" value="" data-status="">------------请选择-------------</option>
                         <option class="select-item" value="1" data-status="1">-------------启用---------------</option>
                         <option class="select-item" value="0" data-status="0">-------------停用---------------</option>
@@ -50,90 +50,169 @@
 
         </form>
         <!--数据列表-->
-        <div class="layui-tab-content buukle-table">
+        <div class="layui-tab-content">
             <table id="table" class="layui-table"></table>
         </div>
         <!--CRUD START-->
         <!--详情-->
         <div class="detail crud" id="detail" style="display: none;">
-            <table class="data-table">
-                <tr>
-                    <td class="table-property-name">账号</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input" id="uname">
-                    </td>
-                    <td class="table-property-name">性别</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input"
-                                                            id="property01"></td>
-                </tr>
-                <tr>
-                    <td class="table-property-name">姓名</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input" id="realname">
-                    </td>
-                    <td class="table-property-name">手机</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input"
-                                                            id="phoneNumber"></td>
-                </tr>
-                <tr>
-                    <td class="table-property-name">创建时间</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input"
-                                                            id="creatTime"></td>
-                    <td class="table-property-name">状态</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input" id="state">
-                    </td>
-                </tr>
-                <tr>
-                    <td class="table-property-name">更新时间</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input"
-                                                            id="updateTime"></td>
-                </tr>
-            </table>
-            <div class="buukle-frame-button">
-                <button class="layui-btn layui-btn-primary layui-layer-close">返回</button>
-            </div>
+            <form id="detailUserForm" style="margin-left: 90px; margin-top: 71px;">
+                <table class="data-table">
+                    <tr>
+                        <td class="table-property-name">登录账号 :</td>
+                        <td class="table-property-value">
+                            <span  class="bukkle-detail" id="username"></span>
+                        </td>
+                        <td class="table-property-name">用户ID :</td>
+                        <td class="table-property-value">
+                            <span  class="bukkle-detail" id="userId"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="table-property-name">性别 :</td>
+                        <td class="table-property-value">
+                            <span  class="bukkle-detail" id="gender"></span>
+                        </td>
+                        <td class="table-property-name">中文姓名 :</td>
+                        <td class="table-property-value">
+                            <span  class="bukkle-detail" id="nameCn"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="table-property-name">英文姓名 :</td>
+                        <td class="table-property-value">
+                            <span  class="bukkle-detail" id="nameEn"></span>
+                        </td>
+                        <td class="table-property-name">手机号码 :</td>
+                        <td class="table-property-value">
+                            <span  class="bukkle-detail" id="phone"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="table-property-name">创建者 :</td>
+                        <td class="table-property-value">
+                            <span  class="bukkle-detail" id="creator"></span>
+                        </td>
+                        <td class="table-property-name">创建时间 :</td>
+                        <td class="table-property-value">
+                            <span  class="bukkle-detail" id="gmtCreated"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="table-property-name">更新者 :</td>
+                        <td class="table-property-value">
+                            <span  class="bukkle-detail" id="modifier"></span>
+                        </td>
+                        <td class="table-property-name">更新时间 :</td>
+                        <td class="table-property-value">
+                            <span  class="bukkle-detail" id="gmtModified"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="table-property-name">状态 :</td>
+                        <td class="table-property-value">
+                            <span   class="bukkle-detail"id="status"></span>
+                        </td>
+                        <td class="table-property-name">备注 :</td>
+                        <td class="table-property-value">
+                            <span   class="bukkle-detail"id="bak01"></span>
+                        </td>
+                    </tr>
+                </table>
+            </form>
         </div>
         <!--编辑-->
         <div class="detail crud" id="edit" style="display: none;">
-            <table class="data-table">
-                <tr>
-                    <td class="table-property-name">账号</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input"  >
-                    </td>
-                    <td class="table-property-name">性别</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input" ></td>
-                </tr>
-                <tr>
-                    <td class="table-property-name">姓名</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input"  >
-                    </td>
-                    <td class="table-property-name">手机</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input" ></td>
-                </tr>
-                <tr>
-                    <td class="table-property-name">创建时间</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input" ></td>
-                    <td class="table-property-name">状态</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input">
-                    </td>
-                </tr>
-                <tr>
-                    <td class="table-property-name">更新时间</td>
-                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input" ></td>
-                </tr>
-            </table>
-            <div class="buukle-frame-button">
-                <button class="layui-btn layui-btn-primary layui-layer-close">返回</button>
+            <form id="editUserForm">
+                <table class="data-table">
+                    <tr>
+                        <td class="table-property-name">登录账号 :</td>
+                        <td class="table-property-value">
+                            <input type="text" id="usernameEdit" name="username" disabled autocomplete="false" class="buukle-frame-input">
+                        </td>
+                        <td class="table-property-name">登录密码 :</td>
+                        <td class="table-property-value">
+                            <textarea class="layui-textarea buukle-add-textarea" disabled placeholder="密码不允许修改,请联系用户自行修改密码,或使用[重置密码]功能重置后通知用户" style="color: red;">
+                            </textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="table-property-name">性别 :</td>
+                        <td class="table-property-value">
+                            <select id="genderEdit" name="gender" class="buukle-frame-input btn-layer-type-selector selector add-input" >
+                                <option class="select-item" value="" data-status="">------------请选择-------------</option>
+                                <option class="select-item" value="1" data-status="1">-------------男---------------</option>
+                                <option class="select-item" value="0" data-status="0">-------------女---------------</option>
+                            </select>
+                        </td>
+                        <td class="table-property-name">中文姓名 :</td>
+                        <td class="table-property-value">
+                            <input type="text" id="nameCnEdit" name="nameCn" class="buukle-frame-input add-input"  >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="table-property-name">英文姓名 :</td>
+                        <td class="table-property-value">
+                            <input type="text" id="nameEnEdit" name="nameEn" class="buukle-frame-input add-input"  >
+                        </td>
+                        <td class="table-property-name">手机号码 :</td>
+                        <td class="table-property-value">
+                            <input type="text" id="phoneEdit" name="phone" class="buukle-frame-input add-input" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="table-property-name">状态 :</td>
+                        <td class="table-property-value" id="statusFather"></td>
+                        <td class="table-property-name">备注 :</td>
+                        <td class="table-property-value">
+                            <textarea class="layui-textarea buukle-add-textarea" id="bak01Edit" name="bak01" ></textarea>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <div class="buukle-save-cancel">
+                <button class="layui-btn commitBtn saveBtn theme-btn" data-form-id="addButtonForm" id="editUser">保存</button>
+                <button class="layui-btn layui-btn-primary layui-layer-close back-button" id="cancelEditUser">取消</button>
             </div>
         </div>
         <input id="currentRecordId" type="hidden">
         <!--添加页面-->
         <div class="hiddenForm" id="add">
-            <form id="addButtonForm">
+            <form id="addUserForm">
                 <table class="data-table">
                     <tr>
-                        <td class="table-property-name">按钮名称 :</td>
-                        <td class="table-property-value"><input type="text" class="buukle-frame-input add-input" name="buttonName"></td>
-                        <td class="table-property-name">回调url :</td>
-                        <td class="table-property-value"><input type="text" class="buukle-frame-input add-input" name="url"></td>
+                        <td class="table-property-name">登录账号 :</td>
+                        <td class="table-property-value">
+                            <input type="text" name="username" autocomplete="false" class="buukle-frame-input add-input">
+                        </td>
+                        <td class="table-property-name">登录密码 :</td>
+                        <td class="table-property-value">
+                            <input type="password" name="password" autocomplete="false" class="buukle-frame-input add-input">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="table-property-name">性别 :</td>
+                        <td class="table-property-value">
+                            <select class="buukle-frame-input btn-layer-type-selector selector add-input" name="gender">
+                                <option class="select-item" value="" data-status="">------------请选择-------------</option>
+                                <option class="select-item" value="1" data-status="1">-------------男---------------</option>
+                                <option class="select-item" value="0" data-status="0">-------------女---------------</option>
+                            </select>
+                        </td>
+                        <td class="table-property-name">中文姓名 :</td>
+                        <td class="table-property-value">
+                            <input type="text" name="nameCn" class="buukle-frame-input add-input"  >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="table-property-name">英文姓名 :</td>
+                        <td class="table-property-value">
+                            <input type="text" name="nameEn" class="buukle-frame-input add-input"  >
+                        </td>
+                        <td class="table-property-name">手机号码 :</td>
+                        <td class="table-property-value">
+                            <input type="text" name="phone" class="buukle-frame-input add-input" >
+                        </td>
                     </tr>
                     <tr>
                         <td class="table-property-name">状态 :</td>
@@ -144,67 +223,27 @@
                                 <option class="select-item" value="0" data-status="0">-------------停用---------------</option>
                             </select>
                         </td>
-                        <td class="table-property-name">分布级别 :</td>
+                        <td class="table-property-name">备注 :</td>
                         <td class="table-property-value">
-                            <select name="layoutLevel" class="buukle-frame-input btn-layer-type-selector selector add-input btn-select-item">
-                                <option value="">-------------请选择---------</option>
-                                <option value="0">-----------页面级别---------</option>
-                                <option value="1">-----------列表级别---------</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="table-property-name ">响应类型 :</td>
-                        <td class="table-property-value ">
-                            <select name="responseType" class="buukle-frame-input btn-layer-type-selector selector add-input btn-select-item">
-                                <option value="">----------请选择----------</option>
-                                <option value="0">-------提示确认框-----</option>
-                                <option value="1">-弹层页面取接口数据-</option>
-                                <option value="2">弹层页面不取接口数据</option>
-                            </select>
-                        </td>
-                        <td class="table-property-name">页面响应ID :</td>
-                        <td class="table-property-value"><input type="text" class="buukle-frame-input add-input" name="responseDomId"></td>
-                    </tr>
-                    <tr>
-                        <td class="table-property-name">按钮操作类型 :</td>
-                        <td class="table-property-value ">
-                            <select name="operationType" class="buukle-frame-input btn-operate-type-selector selector add-input btn-select-item">
-                                <option value="">------------请选择-----------</option>
-                                <option value="0">------------添加------------</option>
-                                <option value="1">------------删除------------</option>
-                                <option value="2">------------修改------------</option>
-                                <option value="3">------------详情------------</option>
-                                <option value="4">----------申请启用----------</option>
-                                <option value="5">------------审核------------</option>
-                                <option value="6">----------起/停用------------</option>
-                                <option value="7">----------分配角色-----------</option>
-                                <option value="8">----------分配按钮-----------</option>
-                            </select>
-                        </td>
-                        <td class="table-property-name">按钮描述 :</td>
-                        <td class="table-property-value">
-                            <textarea class="layui-textarea buukle-add-textarea" id="buttonDescTextarea" name="bak01"></textarea>
+                            <textarea class="layui-textarea buukle-add-textarea" name="bak01" ></textarea>
                         </td>
                     </tr>
                 </table>
             </form>
             <div class="buukle-save-cancel">
-                <button class="layui-btn commitBtn saveBtn theme-btn" data-form-id="addButtonForm" id="addButton">保存
-                </button>
-                <button class="layui-btn layui-btn-primary layui-layer-close back-button" id="closeAddButton">取消</button>
+                <button class="layui-btn commitBtn saveBtn theme-btn" data-form-id="addButtonForm" id="addUser">保存</button>
+                <button class="layui-btn layui-btn-primary layui-layer-close back-button" id="cancelAddUser">取消</button>
             </div>
         </div>
         <!--设置角色-->
         <div class="hiddenForm" id="setUserRole">
             <form id="setUserRoleForm">
-                <input type="hidden" name="id" id="setUserRoleId">
+                <input type="hidden" name="userId" id="setUserRoleId">
                 <div id="roleListContains" class="roleListContains containsClearAbleBuukle"></div>
             </form>
             <div class="buukle-frame-bottom">
                 <button class="layui-btn back-button layui-layer-close saveBtn theme-btn" id="doSetUserRole">保存</button>
-                <button class="layui-btn layui-btn-primary layui-layer-close back-button" id="cancelSetUserRole">取消
-                </button>
+                <button class="layui-btn layui-btn-primary layui-layer-close back-button" id="cancelSetUserRole">取消</button>
             </div>
         </div>
     </div>

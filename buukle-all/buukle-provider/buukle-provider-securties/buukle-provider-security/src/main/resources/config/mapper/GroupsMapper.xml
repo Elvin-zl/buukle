@@ -3,6 +3,7 @@
 <mapper namespace="top.buukle.provider.security.dao.GroupsMapper" >
   <resultMap id="BaseResultMap" type="top.buukle.provider.security.entity.Groups" >
     <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="pid" property="pid" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="creator" property="creator" jdbcType="VARCHAR" />
     <result column="creator_code" property="creatorCode" jdbcType="VARCHAR" />
@@ -17,10 +18,130 @@
     <result column="bak04" property="bak04" jdbcType="VARCHAR" />
     <result column="bak05" property="bak05" jdbcType="VARCHAR" />
   </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
   <sql id="Base_Column_List" >
-    id, name, creator, creator_code, gmt_created, modifier, modifier_code, gmt_modified, 
+    id, pid, name, creator, creator_code, gmt_created, modifier, modifier_code, gmt_modified, 
     status, bak01, bak02, bak03, bak04, bak05
   </sql>
+  <sql id="Base_Column_where" >
+      <if test="id != null and id != '' " >
+          and id = #{id}
+      </if>
+      <if test="pid != null and pid != '' " >
+          and pid = #{pid}
+      </if>
+      <if test="name != null and name != '' " >
+          and name = #{name}
+      </if>
+      <if test="creator != null and creator != '' " >
+          and creator = #{creator}
+      </if>
+      <if test="creatorCode != null and creatorCode != '' " >
+          and creator_code = #{creatorCode}
+      </if>
+      <if test="gmtCreated != null and gmtCreated != '' " >
+          and gmt_created = #{gmtCreated}
+      </if>
+      <if test="modifier != null and modifier != '' " >
+          and modifier = #{modifier}
+      </if>
+      <if test="modifierCode != null and modifierCode != '' " >
+          and modifier_code = #{modifierCode}
+      </if>
+      <if test="gmtModified != null and gmtModified != '' " >
+          and gmt_modified = #{gmtModified}
+      </if>
+      <if test="status != null " >
+          and status = #{status}
+      </if>
+      <if test="bak01 != null and bak01 != '' " >
+          and bak01 = #{bak01}
+      </if>
+      <if test="bak02 != null and bak02 != '' " >
+          and bak02 = #{bak02}
+      </if>
+      <if test="bak03 != null and bak03 != '' " >
+          and bak03 = #{bak03}
+      </if>
+      <if test="bak04 != null and bak04 != '' " >
+          and bak04 = #{bak04}
+      </if>
+      <if test="bak05 != null and bak05 != '' " >
+          and bak05 = #{bak05}
+      </if>
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="top.buukle.provider.security.entity.GroupsExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from groups
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
@@ -31,23 +152,34 @@
     delete from groups
     where id = #{id,jdbcType=INTEGER}
   </delete>
+  <delete id="deleteByExample" parameterType="top.buukle.provider.security.entity.GroupsExample" >
+    delete from groups
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
   <insert id="insert" parameterType="top.buukle.provider.security.entity.Groups" >
-    insert into groups (id, name, creator, 
-      creator_code, gmt_created, modifier, 
-      modifier_code, gmt_modified, status, 
-      bak01, bak02, bak03, 
-      bak04, bak05)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, 
-      #{creatorCode,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR}, 
-      #{modifierCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
-      #{bak01,jdbcType=VARCHAR}, #{bak02,jdbcType=VARCHAR}, #{bak03,jdbcType=VARCHAR}, 
-      #{bak04,jdbcType=VARCHAR}, #{bak05,jdbcType=VARCHAR})
+    insert into groups (id, pid, name, 
+      creator, creator_code, gmt_created, 
+      modifier, modifier_code, gmt_modified, 
+      status, bak01, bak02, 
+      bak03, bak04, bak05
+      )
+    values (#{id,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{creator,jdbcType=VARCHAR}, #{creatorCode,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, 
+      #{modifier,jdbcType=VARCHAR}, #{modifierCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{bak01,jdbcType=VARCHAR}, #{bak02,jdbcType=VARCHAR}, 
+      #{bak03,jdbcType=VARCHAR}, #{bak04,jdbcType=VARCHAR}, #{bak05,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="top.buukle.provider.security.entity.Groups" >
     insert into groups
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
+      </if>
+      <if test="pid != null" >
+        pid,
       </if>
       <if test="name != null" >
         name,
@@ -93,6 +225,9 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
+      <if test="pid != null" >
+        #{pid,jdbcType=INTEGER},
+      </if>
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
@@ -134,9 +269,92 @@
       </if>
     </trim>
   </insert>
+  <select id="countByExample" parameterType="top.buukle.provider.security.entity.GroupsExample" resultType="java.lang.Integer" >
+    select count(*) from groups
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update groups
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.pid != null" >
+        pid = #{record.pid,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creator != null" >
+        creator = #{record.creator,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creatorCode != null" >
+        creator_code = #{record.creatorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gmtCreated != null" >
+        gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifier != null" >
+        modifier = #{record.modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifierCode != null" >
+        modifier_code = #{record.modifierCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gmtModified != null" >
+        gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.bak01 != null" >
+        bak01 = #{record.bak01,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bak02 != null" >
+        bak02 = #{record.bak02,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bak03 != null" >
+        bak03 = #{record.bak03,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bak04 != null" >
+        bak04 = #{record.bak04,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bak05 != null" >
+        bak05 = #{record.bak05,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update groups
+    set id = #{record.id,jdbcType=INTEGER},
+      pid = #{record.pid,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
+      creator = #{record.creator,jdbcType=VARCHAR},
+      creator_code = #{record.creatorCode,jdbcType=VARCHAR},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      modifier = #{record.modifier,jdbcType=VARCHAR},
+      modifier_code = #{record.modifierCode,jdbcType=VARCHAR},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      status = #{record.status,jdbcType=INTEGER},
+      bak01 = #{record.bak01,jdbcType=VARCHAR},
+      bak02 = #{record.bak02,jdbcType=VARCHAR},
+      bak03 = #{record.bak03,jdbcType=VARCHAR},
+      bak04 = #{record.bak04,jdbcType=VARCHAR},
+      bak05 = #{record.bak05,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
   <update id="updateByPrimaryKeySelective" parameterType="top.buukle.provider.security.entity.Groups" >
     update groups
     <set >
+      <if test="pid != null" >
+        pid = #{pid,jdbcType=INTEGER},
+      </if>
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>
@@ -181,7 +399,8 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="top.buukle.provider.security.entity.Groups" >
     update groups
-    set name = #{name,jdbcType=VARCHAR},
+    set pid = #{pid,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
       creator = #{creator,jdbcType=VARCHAR},
       creator_code = #{creatorCode,jdbcType=VARCHAR},
       gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
@@ -196,9 +415,24 @@
       bak05 = #{bak05,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <!--start-->
-  <select id="getUserGroupsByUserId" resultMap="BaseResultMap" parameterType="java.lang.String">
-    select g.* from groups g,user_group ug where g.id = ug.group_id and ug.user_id = #{userId}
-    and ug.type = 1;
-  </select>
+
+    <!--start-->
+    <select id="getUserGroupsByUserId" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select g.* from groups g,user_group ug where g.id = ug.group_id and ug.user_id = #{userId}
+        and ug.type = 1;
+    </select>
+    <select id="getGroupsList" resultMap="BaseResultMap" parameterType="java.util.Map">
+        select <include refid="Base_Column_List" /> from groups where 1=1
+        <include refid="Base_Column_where" />
+        <if test="startTime != null  and startTime !='' " >
+            and gmt_created &gt;= #{startTime}
+        </if>
+        <if test="endTime != null  and endTime !='' " >
+            and gmt_created &lt;= #{endTime}
+        </if>
+        order by gmt_modified DESC
+    </select>
+    <select id="fuzzySearchByName" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT g.name FROM  groups g WHERE g.name LIKE #{fuzzyText};
+    </select>
 </mapper>
