@@ -40,7 +40,7 @@
       bak03, bak04, bak05
       )
     values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=VARCHAR}, #{roleId,jdbcType=INTEGER}, 
-      #{creator,jdbcType=VARCHAR}, #{creatorCode,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, 
+      #{creator,jdbcType=VARCHAR}, #{creatorCode,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP},
       #{modifier,jdbcType=VARCHAR}, #{modifierCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, 
       #{status,jdbcType=INTEGER}, #{bak01,jdbcType=VARCHAR}, #{bak02,jdbcType=VARCHAR}, 
       #{bak03,jdbcType=VARCHAR}, #{bak04,jdbcType=VARCHAR}, #{bak05,jdbcType=VARCHAR}

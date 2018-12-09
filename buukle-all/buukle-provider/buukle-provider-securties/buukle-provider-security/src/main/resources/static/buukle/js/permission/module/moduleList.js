@@ -28,12 +28,13 @@ function renderTable() {
                 limitName: 'limit'
             }
             ,cols: [[
-                {title: '菜单/按钮名',  field: 'moduleName', width:177}
+                {title: '菜单名称',  field: 'moduleName', width:177}
+                ,{title: 'url',  field: 'url', width:300}
                 ,{title: '创建时间', width: 160,templet: '<div><a href="javascript:;">{{formatDateTime(d.gmtCreated)}}</a></div>'}
                 ,{title: '更新时间', width: 160,templet: '<div><a href="javascript:;">{{formatDateTime(d.gmtModified)}}</a></div>'}
                 ,{title: '备注',field: 'description',  width:177}
                 ,{title: '状态', width: 80,templet: '<div>{{formatStatus(d.status)}} </div>'}
-                ,{title: '操作',fixed: 'right', width:290, align:'center',templet: '<div>{{formatUserHandle(d.status,d.id,d.bak02)}} </div>'}
+                ,{title: '操作',fixed: 'right', width:290, align:'center',templet: '<div>{{formatUserHandle(d.status,d.id,d.bak02,"")}} </div>'}
             ]]
             ,limits: [10, 20, 30,50,100]
             ,limit: 10

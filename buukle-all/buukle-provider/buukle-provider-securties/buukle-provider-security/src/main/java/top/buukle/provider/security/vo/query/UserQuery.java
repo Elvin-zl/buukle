@@ -15,6 +15,9 @@ public class UserQuery extends User {
     /** 结束时间*/
     private String endTime ;
 
+    /** 组别id*/
+    private Integer groupsId ;
+
     public UserQuery(String userId) {
         super();
         super.setUserId(userId);
@@ -37,5 +40,13 @@ public class UserQuery extends User {
 
     public void setEndTime(String endTime) {
         this.endTime = endTime;
+    }
+
+    public Integer getGroupsId() {
+        return groupsId;
+    }
+
+    public void setGroupsId(Integer groupsId) {
+        this.groupsId = groupsId;
     }
 }

@@ -1,21 +1,20 @@
 package top.buukle.provider.security.configure;
+
 import com.alibaba.druid.pool.DruidDataSource;
-import com.github.pagehelper.PageHelper;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
+import top.buukle.common.interceptor.DataIsolationInterceptor;
 import top.buukle.common.util.common.NumberUtil;
 
 import javax.sql.DataSource;
-import java.util.Properties;
 
 /**
  *
  * Created by Administrator on 2017/11/18.
  */
-
 @Configuration
 @MapperScan(basePackages = "top.buukle.provider.security.dao")
 class DataSourceConfigure {
@@ -56,19 +55,11 @@ class DataSourceConfigure {
     }
 
     /**
-     * 配置PageHelper插件
+     * 配置 DataIsolationAnnotation 数据隔离插件
      * @return
      */
     @Bean
-    public PageHelper getPageHelper(){
-        PageHelper pageHelper=new PageHelper();
-        Properties properties=new Properties();
-        properties.setProperty("helperDialect","mysql");
-        properties.setProperty("reasonable","true");
-        properties.setProperty("supportMethodsArguments","true");
-        properties.setProperty("params","count=countSql");
-        pageHelper.setProperties(properties);
-        return pageHelper;
+    public DataIsolationInterceptor getGroupsInterceptor(){
+        return  new DataIsolationInterceptor();
     }
-
 }

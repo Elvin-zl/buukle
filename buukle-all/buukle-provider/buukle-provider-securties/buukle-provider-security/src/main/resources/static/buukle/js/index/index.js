@@ -64,6 +64,11 @@ function getUserModuleTree() {
 }
 /*渲染用户信息*/
 function renderTop() {
+    $('#userId').val(userInfo.userId);
+    $('#platformId').val(userInfo.platformId);
+    $('#agentId').val(userInfo.agentId);
+    $('#groupId').val(userInfo.groupId);
+    $('#salesmanId').val(userInfo.salesmanId);
     layui.use(['element','navbar'],function(){
         var element = layui.element,navbar  = layui.navbar;
         // 顶部导航栏渲染

@@ -1,6 +1,7 @@
 package top.buukle.provider.security.dao;
 
 import org.apache.ibatis.annotations.Param;
+import top.buukle.common.annotation.DataIsolationAnnotation;
 import top.buukle.provider.security.entity.Button;
 import top.buukle.provider.security.entity.Module;
 import top.buukle.provider.security.vo.query.ButtonQuery;
@@ -39,6 +40,7 @@ public interface ButtonMapper {
      * @param query
      * @return
      */
+    @DataIsolationAnnotation(tableName = "button")
     List<Button> getButtonList(ButtonQuery query);
 
     /**
@@ -59,5 +61,6 @@ public interface ButtonMapper {
      * @param fuzzyText
      * @return
      */
+    @DataIsolationAnnotation(tableName = "button")
     List<Button> fuzzySearchByName(@Param("fuzzyText") String fuzzyText);
 }

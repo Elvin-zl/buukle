@@ -14,6 +14,7 @@ import top.buukle.provider.security.business.UserBusiness;
 import top.buukle.provider.security.entity.User;
 import top.buukle.provider.security.service.UserService;
 import top.buukle.provider.security.vo.query.UserQuery;
+import top.buukle.provider.security.vo.response.UserMemberVo;
 import top.buukle.provider.security.vo.response.UserRoleListVo;
 
 import javax.servlet.http.HttpServletRequest;
@@ -86,8 +87,8 @@ public class UserController {
      */
     @RequestMapping("/doSetUserRole")
     @ResponseBody
-    public BaseResponse doSetUserRole(String ids,UserQuery userQuery) throws Exception {
-        return userService.doSetUserRole(ids,userQuery);
+    public BaseResponse doSetUserRole(String ids,UserQuery userQuery,Integer roleLevel,HttpServletRequest request) throws Exception {
+        return userService.doSetUserRole(ids,userQuery,roleLevel,request);
     }
 
     /**
@@ -139,4 +140,17 @@ public class UserController {
         return userService.getUserDetail(userQuery);
     }
 
+    /**
+     * 获取组别成员列表
+     * @param groupsId
+     * @param userQuery
+     * @param pageBounds
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/getMemberList/{groupsId}")
+    @ResponseBody
+    public PageResponse<UserMemberVo> getMemberList(@PathVariable("groupsId") Integer groupsId, UserQuery userQuery, PageBounds pageBounds) throws Exception {
+        return userService.getMemberList(groupsId, userQuery, pageBounds);
+    }
 }

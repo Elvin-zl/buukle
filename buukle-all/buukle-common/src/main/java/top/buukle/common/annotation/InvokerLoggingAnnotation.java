@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD})
-public @interface InvokerLogging {
+public @interface InvokerLoggingAnnotation {
 
     /** 打印日志*/
     public static final String PRINT_TRUE = "0";

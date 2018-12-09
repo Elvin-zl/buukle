@@ -10,7 +10,8 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>buukle-provider-security</artifactId>
     <dependencies>
-        <!--__________________________________________ dataSource _____________________________________________________-->
+
+        <!--dataSource-->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>

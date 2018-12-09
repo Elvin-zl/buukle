@@ -155,7 +155,7 @@
       )
     values (#{id,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, #{moduleName,jdbcType=VARCHAR}, 
       #{url,jdbcType=VARCHAR}, #{moduleIcon,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
-      #{creator,jdbcType=VARCHAR}, #{creatorCode,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, 
+      #{creator,jdbcType=VARCHAR}, #{creatorCode,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP},
       #{modifier,jdbcType=VARCHAR}, #{modifierCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, 
       #{status,jdbcType=INTEGER}, #{bak01,jdbcType=VARCHAR}, #{bak02,jdbcType=VARCHAR}, 
       #{bak03,jdbcType=VARCHAR}, #{bak04,jdbcType=VARCHAR}, #{bak05,jdbcType=VARCHAR}
@@ -418,6 +418,6 @@
     module.id = #{id}
   </update>
   <select id="fuzzySearchByName" resultMap="BaseResultMap" parameterType="java.lang.String">
-    SELECT m.module_name FROM module m WHERE m.module_name LIKE #{fuzzyText};
+    SELECT module_name FROM module WHERE module_name LIKE #{fuzzyText};
   </select>
 </mapper>

@@ -107,7 +107,7 @@
     values (#{id,jdbcType=INTEGER}, #{applicationName,jdbcType=VARCHAR}, #{partnerId,jdbcType=VARCHAR}, 
       #{partnerType,jdbcType=INTEGER}, #{signType,jdbcType=VARCHAR}, #{partnerKeyValid,jdbcType=TIMESTAMP}, 
       #{partnerKeyEndvalid,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, #{creator,jdbcType=VARCHAR}, 
-      #{creatorNo,jdbcType=VARCHAR}, #{creatorType,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, 
+      #{creatorNo,jdbcType=VARCHAR}, #{creatorType,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP},
       #{modifier,jdbcType=VARCHAR}, #{modifierNo,jdbcType=VARCHAR}, #{modifierType,jdbcType=VARCHAR}, 
       #{gmtModified,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, #{partnerKey,jdbcType=LONGVARCHAR}
       )

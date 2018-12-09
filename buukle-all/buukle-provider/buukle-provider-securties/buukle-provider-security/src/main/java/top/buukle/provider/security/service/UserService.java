@@ -12,9 +12,7 @@ import top.buukle.common.response.BaseResponse;
 import top.buukle.provider.security.entity.*;
 import top.buukle.provider.security.vo.query.PageBounds;
 import top.buukle.provider.security.vo.query.UserQuery;
-import top.buukle.provider.security.vo.response.FuzzySearchListVo;
-import top.buukle.provider.security.vo.response.PageResponse;
-import top.buukle.provider.security.vo.response.UserRoleListVo;
+import top.buukle.provider.security.vo.response.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.InvocationTargetException;
@@ -120,9 +118,11 @@ public interface UserService {
 	 * 执行设置角色
 	 * @param ids
 	 * @param userQuery
-	 * @return
+	 * @param roleLevel
+     * @param request
+     * @return
 	 */
-    BaseResponse doSetUserRole(String ids, UserQuery userQuery);
+    BaseResponse doSetUserRole(String ids, UserQuery userQuery, Integer roleLevel, HttpServletRequest request);
 
 	/**
 	 * 获取全局角色列表
@@ -185,4 +185,22 @@ public interface UserService {
 	 * @return
 	 */
     BaseResponse editUser(HttpServletRequest request, UserQuery userQuery, String userId) throws InvocationTargetException, IllegalAccessException;
+
+	/**
+	 * 获取组别成员列表
+	 * @param groupsId
+	 * @param userQuery
+	 * @param pageBounds
+	 * @return
+	 */
+    PageResponse<UserMemberVo> getMemberList(Integer groupsId, UserQuery userQuery, PageBounds pageBounds) throws InvocationTargetException, IllegalAccessException;
+
+	/**
+	 * 获取下拉框列表
+	 * @param request
+	 * @param selectType
+	 * @param superCode
+	 * @return
+	 */
+	List<SelectSearchItemVo> getSelectItemByType(HttpServletRequest request, Integer selectType, String superCode);
 }

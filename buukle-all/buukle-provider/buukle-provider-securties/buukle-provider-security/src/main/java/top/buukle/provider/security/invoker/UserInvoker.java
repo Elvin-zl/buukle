@@ -1,6 +1,7 @@
 package top.buukle.provider.security.invoker;
 
 import com.alibaba.fastjson.JSON;
+import org.apache.commons.collections.CollectionUtils;
 import top.buukle.common.constants.BaseResponseCode;
 import top.buukle.common.exception.BaseException;
 import top.buukle.common.request.RequestHead;
@@ -56,7 +57,7 @@ public class UserInvoker {
     }
 
     /**
-     * 根据类型清除用户的权限信息
+     * 根据类型全局缓存信息
      * @param clazz
      */
     public static void clearGlobalCacheInfoByType(Class clazz) {
@@ -119,23 +120,13 @@ public class UserInvoker {
     }
 
     /**
-     * 缓存用户组别信息
-     * @param groupList
-     * @param userId
-     * @param requestHead
-     */
-    public static void saveUserGroup(List<Groups> groupList, String userId, RequestHead requestHead) {
-        UserInvoker.saveUserInfoWithPrefixAndStrategy(UserInfoCacheConstants.USER_GROUP_LIST_KEY_PREFIX,JSON.toJSONString(groupList),userId,requestHead.getApplicationName());
-    }
-
-    /**
      * 缓存用户所辖用户
-     * @param userList
+     * @param subordinateList
      * @param userId
      * @param requestHead
      */
-    public static void saveUserSubordinate(List<User> userList, String userId, RequestHead requestHead) {
-        UserInvoker.saveUserInfoWithPrefixAndStrategy(UserInfoCacheConstants.USER_SUBORDINATE_LIST_KEY_PREFIX,JSON.toJSONString(userList),userId,requestHead.getApplicationName());
+    public static void saveUserSubordinate(List<String> subordinateList, String userId, RequestHead requestHead) {
+        UserInvoker.saveUserInfoWithPrefixAndStrategy(UserInfoCacheConstants.USER_SUBORDINATE_LIST_KEY_PREFIX,JSON.toJSONString(subordinateList),userId,requestHead.getApplicationName());
     }
 
     /**
@@ -214,6 +205,15 @@ public class UserInvoker {
     public static List<Groups> getGlobalGroups() {
         String globalGroupsListStr = RedisString.get(UserInfoCacheConstants.GLOBAL_GROUPS_LIST_KEY);
         return null == globalGroupsListStr ? null : JSON.parseArray(globalGroupsListStr,Groups.class);
+    }
+
+    /**
+     * 获取用户所辖用户
+     * @param userId
+     */
+    public static List<String> getUserSubordinate(String userId) {
+        String userSubordinate = RedisString.get(UserInfoCacheConstants.USER_SUBORDINATE_LIST_KEY_PREFIX + userId);
+        return null == userSubordinate ? null : JSON.parseArray(userSubordinate,String.class);
     }
     /**
      * 获取用户角色列表缓存信息

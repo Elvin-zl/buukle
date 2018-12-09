@@ -1,4 +1,4 @@
-package top.buukle.provider.security.util;
+package top.buukle.provider.security.filter.RquestValidatorAndResponseHanler;
 
 import top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseResponseParamHandler;
 import top.buukle.common.filter.reqestAndResponseParameterFilter.wrapper.BaseResponseWrapper;
@@ -9,12 +9,12 @@ import java.io.IOException;
 /**
  * @Author elvin
  * @Date Created by elvin on 2018/10/7.
- * @Description :
+ * @Description :  api接口返回参数处理器
  */
-public class ResponseHandler extends BaseResponseParamHandler {
+public class ApiSignResponseHandler extends BaseResponseParamHandler {
 
 
-    private static final BaseLogger LOGGER = BaseLogger.getLogger(ResponseHandler.class);
+    private static final BaseLogger LOGGER = BaseLogger.getLogger(ApiSignResponseHandler.class);
 
 
     @Override

@@ -32,7 +32,7 @@ function renderTable() {
                 ,{title: '创建时间', width: 160,templet: '<div><a href="javascript:;">{{formatDateTime(d.gmtCreated)}}</a></div>'}
                 ,{title: '更新时间', width: 160,templet: '<div><a href="javascript:;">{{formatDateTime(d.gmtModified)}}</a></div>'}
                 ,{title: '状态', width: 80,templet: '<div>{{formatStatus(d.status)}} </div>'}
-                ,{title: '操作',fixed: 'right', width:290, align:'center',templet: '<div>{{formatUserHandle(d.status,d.id,d.bak01)}} </div>'}
+                ,{title: '操作',fixed: 'right', width:290, align:'center',templet: '<div>{{formatUserHandle(d.status,d.id,d.bak01,d.name)}} </div>'}
             ]]
             ,limits: [10, 20, 30,50,100]
             ,limit: 10

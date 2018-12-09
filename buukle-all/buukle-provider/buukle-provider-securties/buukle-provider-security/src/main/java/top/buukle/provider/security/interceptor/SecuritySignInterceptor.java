@@ -8,7 +8,7 @@ import top.buukle.common.util.logger.BaseLogger;
 import top.buukle.provider.security.constants.SecurityPrivateKeyConstant;
 
 /**
- * security 接口签名
+ * security API接口签名
  */
 @Configuration
 public class SecuritySignInterceptor implements RequestInterceptor {
@@ -17,7 +17,7 @@ public class SecuritySignInterceptor implements RequestInterceptor {
 
     @Override
     public void apply(RequestTemplate requestTemplate) {
-        if(requestTemplate.url().equals("/api/security/user/doLogin") || requestTemplate.url().equals("/api/security/user/authentication") || requestTemplate.url().equals("/api/security/user/setPermission")){
+        if(requestTemplate.url().startsWith("/api/")){
             try {
                 requestTemplate.header(SignUtil.SECURITY_SIGN_KEY,SignUtil.sign(new String(requestTemplate.body()), SecurityPrivateKeyConstant.SECURITY_API_PRIVATE_KEY));
             } catch (Exception e) {

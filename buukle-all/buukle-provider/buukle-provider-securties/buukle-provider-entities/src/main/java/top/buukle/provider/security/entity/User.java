@@ -1,7 +1,5 @@
 package top.buukle.provider.security.entity;
 
-import top.buukle.common.util.common.StringUtil;
-
 import java.util.Date;
 
 public class User {
@@ -19,6 +17,31 @@ public class User {
      * 密码
      */
     private String password;
+
+    /**
+     * 用户身份级别 :  0:boss级别 1:平台级别 2:代理界别 3:区域管理员级别 4: 业务员级别 5:小白级别
+     */
+    private Integer userLevel;
+
+    /**
+     * 用户平台代码
+     */
+    private String platformId;
+
+    /**
+     * 用户代理商代码
+     */
+    private String agentId;
+
+    /**
+     * 用户区域代码
+     */
+    private String groupId;
+
+    /**
+     * 用户业务员代码
+     */
+    private String salesmanId;
 
     /**
      * 用户代码 : 生成规则待定,全局唯一
@@ -633,5 +656,45 @@ public class User {
      */
     public void setBak05(String bak05) {
         this.bak05 = bak05 == null ? null : bak05.trim();
+    }
+
+    public Integer getUserLevel() {
+        return userLevel;
+    }
+
+    public void setUserLevel(Integer userLevel) {
+        this.userLevel = userLevel;
+    }
+
+    public String getPlatformId() {
+        return platformId;
+    }
+
+    public void setPlatformId(String platformId) {
+        this.platformId = platformId;
+    }
+
+    public String getAgentId() {
+        return agentId;
+    }
+
+    public void setAgentId(String agentId) {
+        this.agentId = agentId;
+    }
+
+    public String getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
+    }
+
+    public String getSalesmanId() {
+        return salesmanId;
+    }
+
+    public void setSalesmanId(String salesmanId) {
+        this.salesmanId = salesmanId;
     }
 }

@@ -1,4 +1,4 @@
-package top.buukle.provider.security.util;
+package top.buukle.provider.security.filter.RquestValidatorAndResponseHanler;
 
 import com.alibaba.fastjson.JSON;
 import org.apache.commons.collections.CollectionUtils;
@@ -23,12 +23,13 @@ import java.util.List;
 /**
  * @Author elvin
  * @Date Created by elvin on 2018/10/7.
- * @Description : 继承 BaseRequestValidator 自定义参数检验规则和异常返回response信息
+ * @Description : api接口验签校验请求处理器
+ * @Tips 继承BaseRequestValidator 自定义参数检验规则和异常返回response信息
  */
-public class RequestValidator extends BaseRequestValidator {
+public class ApiSignRequestValidator extends BaseRequestValidator {
 
 
-    private static final BaseLogger LOGGER = BaseLogger.getLogger(RequestValidator.class);
+    private static final BaseLogger LOGGER = BaseLogger.getLogger(ApiSignRequestValidator.class);
 
     /**
      * 验签
@@ -120,5 +121,4 @@ public class RequestValidator extends BaseRequestValidator {
         }
         return new BaseResponse.Builder().buildSuccess();
     }
-
 }

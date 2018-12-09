@@ -71,6 +71,8 @@
                     <td class="table-property-value"><input type="text" disabled class="buukle-frame-input add-input" id="status"></td>
                 </tr>
                 <tr>
+                    <td class="table-property-name">级别</td>
+                    <td class="table-property-value"><input type="text" disabled class="buukle-frame-input add-input" id="roleLevel"></td>
                     <td class="table-property-name">描述</td>
                     <td class="table-property-value">
                         <textarea class="layui-textarea buukle-add-textarea" disabled name="description" id="description"></textarea>
@@ -129,6 +131,14 @@
                         </td>
                     </tr>
                     <tr>
+                        <td class="table-property-name">级别 :</td>
+                        <td class="table-property-value">
+                            <input readonly id="select-index-0" class="buukle-input search-condition select-input" data-selectType="0" data-selectUrl="/common/getSelectItemByType" type="text" placeholder="请选择用户级别" autocomplete="off">
+                            <input type="hidden" id="select-index-idStr-0" />
+                            <input type="hidden" id="select-index-idInteger-0" />
+                            <!--备选框-->
+                            <div id="select-items-index-0" class="select-item-div" data-selectIndex="0"> </div>
+                        </td>
                         <td class="table-property-name">角色描述 :</td>
                         <td class="table-property-value">
                             <textarea class="layui-textarea buukle-add-textarea" name="description" id="roleDescTextarea"></textarea>

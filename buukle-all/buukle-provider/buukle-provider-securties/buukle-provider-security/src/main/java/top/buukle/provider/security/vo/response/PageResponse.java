@@ -3,6 +3,7 @@ package top.buukle.provider.security.vo.response;
 
 import com.github.pagehelper.PageInfo;
 import org.springframework.util.CollectionUtils;
+import top.buukle.provider.security.entity.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -118,9 +119,19 @@ public class PageResponse <T>{
             this.setCode(SUCCESS_CODE);
             this.setCount(tPageInfo.getTotal());
             this.setLimit(tPageInfo.getPageSize());
+            this.setPage(tPageInfo.getPageNum());
+            this.setMsg(SUCCESS);
+            this.setData(tPageInfo.getList());
+            return pageResponse;
+        }
+
+        public <T> PageResponse<UserMemberVo> build(List<T> voList, PageInfo tPageInfo) {
+            this.setCode(SUCCESS_CODE);
+            this.setCount(tPageInfo.getTotal());
+            this.setLimit(tPageInfo.getPageSize());
             this.setMsg(SUCCESS);
             this.setPage(tPageInfo.getPageNum());
-            this.setData(tPageInfo.getList());
+            this.setData(voList);
             return pageResponse;
         }
     }

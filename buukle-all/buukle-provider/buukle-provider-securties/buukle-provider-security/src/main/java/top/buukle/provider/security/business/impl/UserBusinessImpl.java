@@ -8,6 +8,7 @@ import top.buukle.common.response.BaseResponse;
 import top.buukle.common.util.common.StringUtil;
 import top.buukle.common.util.logger.BaseLogger;
 import top.buukle.plugin.security.util.CookieUtil;
+import top.buukle.common.dataIsolation.IsolationConstants;
 import top.buukle.provider.security.dao.GroupsMapper;
 import top.buukle.provider.security.dao.UserExpMapper;
 import top.buukle.provider.security.entity.*;
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Component;
 import top.buukle.provider.security.dao.UserMapper;
 import top.buukle.provider.security.invoker.UserInvoker;
 import top.buukle.provider.security.service.UserService;
+import top.buukle.provider.security.vo.query.UserQuery;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -53,15 +55,12 @@ public class UserBusinessImpl implements UserBusiness {
         User userInfoForLogin = userMapper.getUserInfoForLogin(user);
         // 登录失败
         if(userInfoForLogin == null){
-//            return new BaseResponse.Builder().buildFailed();
             throw new BaseException(BaseResponseCode.USER_LOGIN_USERNAME_PASSWORD_WRONG);
         }
-        //查询用户扩展信息
+        // 查询用户扩展信息
         UserExp userExp = userExpMapper.getUserExpByUserId(userInfoForLogin.getUserId());
-        //查询用户组别信息
-        List<Groups> groupsList = groupsMapper.getUserGroupsByUserId(userInfoForLogin.getUserId());
-        //查询用户成员信息
-        List<User> userSubordinateList = userMapper.getUserSubordinateByUserGroups(groupsList);
+        // 查询用户下级信息 --只查询下级用户代码列表,用于数据隔离
+        List<String> userSubordinateList = this.getUserSubordinateByUserLevel(userInfoForLogin);
 
         // 缓存用户基本信息
         String userCookie = UserInvoker.saveUser(userInfoForLogin ,baseRequest.getExpandParameterString(),baseRequest.getRequestHead(), null);
@@ -69,8 +68,6 @@ public class UserBusinessImpl implements UserBusiness {
         UserInvoker.clearUserCacheInfoByType(null,userInfoForLogin.getUserId());
         // 缓存用户扩展信息
         UserInvoker.saveUserExp(userExp ,userInfoForLogin.getUserId(),baseRequest.getRequestHead());
-        // 缓存用户组别信息
-        UserInvoker.saveUserGroup(groupsList,userInfoForLogin.getUserId(),baseRequest.getRequestHead());
         // 缓存用户下级信息
         UserInvoker.saveUserSubordinate(userSubordinateList ,userInfoForLogin.getUserId(),baseRequest.getRequestHead());
         // 缓存用户角色信息
@@ -82,6 +79,45 @@ public class UserBusinessImpl implements UserBusiness {
         LOGGER.info(SecurityConstants.LOGIN_SUCCESS,user.getUsername());
         // 组织返回并回写cookie
         return new BaseResponse.Builder().buildSuccess(userCookie);
+    }
+
+    /**
+     * 根据身份获取用户下级信息
+     * @param userInfoForLogin
+     * @return
+     */
+    private List<String> getUserSubordinateByUserLevel(User userInfoForLogin) {
+        UserQuery userQuery = new UserQuery();
+        //0 boss级别
+        if(userInfoForLogin.getUserLevel().equals(IsolationConstants.USER_LEVEL_BOSS)){
+            return userMapper.getUserSubordinateByUserLevel(userQuery);
+        }
+        //1 平台级别
+        if(userInfoForLogin.getUserLevel().equals(IsolationConstants.USER_LEVEL_PLATFORM)){
+            userQuery.setPlatformId(userInfoForLogin.getPlatformId());
+            return userMapper.getUserSubordinateByUserLevel(userQuery);
+        }
+        //2 代理级别
+        if(userInfoForLogin.getUserLevel().equals(IsolationConstants.USER_LEVEL_AGENT)){
+            userQuery.setAgentId(userInfoForLogin.getAgentId());
+            return userMapper.getUserSubordinateByUserLevel(userQuery);
+        }
+        //3 区域/组别级别
+        if(userInfoForLogin.getUserLevel().equals(IsolationConstants.USER_LEVEL_GROUP)){
+            userQuery.setGroupId(userInfoForLogin.getGroupId());
+            return userMapper.getUserSubordinateByUserLevel(userQuery);
+        }
+        //4 业务员级别
+        if(userInfoForLogin.getUserLevel().equals(IsolationConstants.USER_LEVEL_SALESMAN)){
+            userQuery.setSalesmanId(userInfoForLogin.getSalesmanId());
+            return userMapper.getUserSubordinateByUserLevel(userQuery);
+        }
+        //5 小白级别
+        if(userInfoForLogin.getUserLevel().equals(IsolationConstants.USER_LEVEL_CREATOR)){
+            userQuery.setCreatorCode(userInfoForLogin.getUserId());
+            return userMapper.getUserSubordinateByUserLevel(userQuery);
+        }
+        return null;
     }
 
     /**

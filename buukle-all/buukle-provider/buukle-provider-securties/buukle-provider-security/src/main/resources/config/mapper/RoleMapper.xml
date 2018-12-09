@@ -3,6 +3,7 @@
 <mapper namespace="top.buukle.provider.security.dao.RoleMapper" >
   <resultMap id="BaseResultMap" type="top.buukle.provider.security.entity.Role" >
     <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="role_level" property="roleLevel" jdbcType="INTEGER" />
     <result column="role_name" property="roleName" jdbcType="VARCHAR" />
     <result column="description" property="description" jdbcType="VARCHAR" />
     <result column="creator" property="creator" jdbcType="VARCHAR" />
@@ -19,10 +20,13 @@
     <result column="bak05" property="bak05" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, role_name, description, creator, creator_code, gmt_created, modifier, modifier_code, 
+    id, role_level,role_name, description, creator, creator_code, gmt_created, modifier, modifier_code,
     gmt_modified, status, bak01, bak02, bak03, bak04, bak05
   </sql>
   <sql id="Base_Column_Update" >
+      <if test="roleLevel != null" >
+          role_level = #{roleLevel,jdbcType=INTEGER},
+      </if>
       <if test="roleName != null" >
           role_name = #{roleName,jdbcType=VARCHAR},
       </if>
@@ -71,6 +75,9 @@
   <sql id="Base_Column_where" >
       <if test="id != null" >
           and  id = #{id}
+      </if>
+      <if test="roleLevel != null" >
+          and  role_level = #{roleLevel}
       </if>
       <if test="roleName != null and roleName !='' " >
           and  role_name = #{roleName}
@@ -126,14 +133,14 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="top.buukle.provider.security.entity.Role" >
-    insert into role (id, role_name, description, 
+    insert into role (id,role_level, role_name, description,
       creator, creator_code, gmt_created, 
       modifier, modifier_code, gmt_modified, 
       status, bak01, bak02, 
       bak03, bak04, bak05
       )
-    values (#{id,jdbcType=INTEGER}, #{roleName,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
-      #{creator,jdbcType=VARCHAR}, #{creatorCode,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, 
+    values (#{id,jdbcType=INTEGER},#{roleLevel,jdbcType=INTEGER}, #{roleName,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR},
+      #{creator,jdbcType=VARCHAR}, #{creatorCode,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP},
       #{modifier,jdbcType=VARCHAR}, #{modifierCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, 
       #{status,jdbcType=INTEGER}, #{bak01,jdbcType=VARCHAR}, #{bak02,jdbcType=VARCHAR}, 
       #{bak03,jdbcType=VARCHAR}, #{bak04,jdbcType=VARCHAR}, #{bak05,jdbcType=VARCHAR}
@@ -144,6 +151,9 @@
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
+      </if>
+      <if test="roleLevel != null" >
+        role_level,
       </if>
       <if test="roleName != null" >
         role_name,
@@ -192,6 +202,9 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
+      <if test="roleLevel != null" >
+        #{role_level,jdbcType=INTEGER},
+      </if>
       <if test="roleName != null" >
         #{roleName,jdbcType=VARCHAR},
       </if>
@@ -239,6 +252,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="top.buukle.provider.security.entity.Role" >
     update role
     <set >
+        <if test="roleLevel != null" >
+            role_level = #{roleLevel,jdbcType=INTEGER},
+        </if>
       <if test="roleName != null" >
         role_name = #{roleName,jdbcType=VARCHAR},
       </if>
@@ -286,7 +302,9 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="top.buukle.provider.security.entity.Role" >
     update role
-    set role_name = #{roleName,jdbcType=VARCHAR},
+    set
+      role_level = #{roleLevel,jdbcType=INTEGER},
+      role_name = #{roleName,jdbcType=VARCHAR},
       description = #{description,jdbcType=VARCHAR},
       creator = #{creator,jdbcType=VARCHAR},
       creator_code = #{creatorCode,jdbcType=VARCHAR},
@@ -318,6 +336,18 @@
         <if test="endTime != null  and endTime !='' " >
             and gmt_created &lt;= #{endTime}
         </if>
+        order by role_order,gmt_modified DESC
+    </select>
+
+    <select id="getRoleListWithNoIsolation" resultMap="BaseResultMap" parameterType="java.util.Map">
+        select <include refid="Base_Column_List" /> from role where 1=1
+        <include refid="Base_Column_where" />
+        <if test="startTime != null  and startTime !='' " >
+            and gmt_created &gt;= #{startTime}
+        </if>
+        <if test="endTime != null  and endTime !='' " >
+            and gmt_created &lt;= #{endTime}
+        </if>
         order by gmt_modified DESC
     </select>
 
@@ -332,4 +362,6 @@
     <select id="fuzzySearchByName" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT  r.role_name FROM   role r WHERE r.role_name  LIKE #{fuzzyText};
     </select>
+
+
 </mapper>

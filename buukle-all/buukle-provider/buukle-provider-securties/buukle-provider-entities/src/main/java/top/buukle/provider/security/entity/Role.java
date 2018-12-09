@@ -8,6 +8,10 @@ public class Role {
      * 主键id
      */
     private Integer id;
+    /**
+     * 角色级别 : 0:boss级别 1:平台级别 2:代理界别 3:区域管理员级别 4: 业务员级别 5:小白级别
+     */
+    private Integer roleLevel;
 
     /**
      * 角色名称
@@ -100,6 +104,14 @@ public class Role {
      */
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getRoleLevel() {
+        return roleLevel;
+    }
+
+    public void setRoleLevel(Integer roleLevel) {
+        this.roleLevel = roleLevel;
     }
 
     /**

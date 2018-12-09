@@ -1,6 +1,7 @@
 package top.buukle.provider.security.dao;
 
 import org.apache.ibatis.annotations.Param;
+import top.buukle.common.annotation.DataIsolationAnnotation;
 import top.buukle.provider.security.entity.Module;
 import top.buukle.provider.security.entity.Role;
 import top.buukle.provider.security.entity.User;
@@ -46,9 +47,16 @@ public interface ModuleMapper {
      * @param query
      * @return
      */
+    @DataIsolationAnnotation(tableName = "module")
     List<Module> getModuleList(ModuleQuery query);
 
     void doBanOrRelease(ModuleQuery query);
 
+    /**
+     * 模糊搜索
+     * @param fuzzyText
+     * @return
+     */
+    @DataIsolationAnnotation(tableName = "module")
     List<Module> fuzzySearchByName(@Param("fuzzyText") String fuzzyText);
 }

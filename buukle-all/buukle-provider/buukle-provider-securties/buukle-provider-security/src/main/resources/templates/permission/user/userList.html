@@ -21,8 +21,7 @@
                 <div class="fuzzy-div">
                     <input id="fuzzy-index-0" class="buukle-input search-condition fuzzy-input" data-fuzzyUrl="/user/fuzzySearchByName" type="text" name="name" placeholder="请输入登录名" autocomplete="off">
                     <!--建议框-->
-                    <div id="fuzzy-items-index-0"class="fuzzy-item-div" data-fuzzyIndex="0">
-                    </div>
+                    <div id="fuzzy-items-index-0"class="fuzzy-item-div" data-fuzzyIndex="0"> </div>
                 </div>
             </div>
 
@@ -176,6 +175,7 @@
             </div>
         </div>
         <input id="currentRecordId" type="hidden">
+        <input id="currentRecordName" type="hidden">
         <!--添加页面-->
         <div class="hiddenForm" id="add">
             <form id="addUserForm">
@@ -230,7 +230,7 @@
                     </tr>
                 </table>
             </form>
-            <div class="buukle-save-cancel">
+            <div class="buukle-save-cancel" style="margin-top: -50px;">
                 <button class="layui-btn commitBtn saveBtn theme-btn" data-form-id="addButtonForm" id="addUser">保存</button>
                 <button class="layui-btn layui-btn-primary layui-layer-close back-button" id="cancelAddUser">取消</button>
             </div>
@@ -239,9 +239,51 @@
         <div class="hiddenForm" id="setUserRole">
             <form id="setUserRoleForm">
                 <input type="hidden" name="userId" id="setUserRoleId">
+                <input type="hidden" name="roleLevel" id="roleLevel">
+                <div style="margin-left: 35px; margin-top: 20px;"> 用户 : <span id="nameForSetUserRole" style="color: #5DB276;"> [ 加载中... ] </span> </div>
+                <div style="margin-left: 35px; margin-top: 20px;"> 角色 : </div>
                 <div id="roleListContains" class="roleListContains containsClearAbleBuukle"></div>
+                <div style="margin-left: 35px;margin-top: 48px; margin-bottom: 24px;"> 归属关系 : <span id="roleFirst" style="color: red;display: none;margin-left: 63px;"></span></div>
+                <table class="data-table">
+                    <tr>
+                        <td class="table-property-name platform-belonging">平台 :</td>
+                        <td class="table-property-value platform-belonging">
+                            <input readonly id="select-index-1" class="buukle-input search-condition select-input" data-selectType="1" data-selectUrl="/common/getSelectItemByType" type="text" placeholder="请选择" autocomplete="off">
+                            <input type="hidden" id="select-index-idStr-1" name="platformId" />
+                            <input type="hidden" id="select-index-idInteger-1" />
+                            <!--备选框-->
+                            <div id="select-items-index-1" class="select-item-div" data-selectIndex="1"> </div>
+                        </td>
+                        <td class="table-property-name agent-belonging">代理 :</td>
+                        <td class="table-property-value agent-belonging">
+                            <input readonly id="select-index-2" class="buukle-input search-condition select-input selectType2" data-selectType="2" data-superCode="" data-selectUrl="/common/getSelectItemByType" type="text" placeholder="请选择平台" autocomplete="off">
+                            <input type="hidden" id="select-index-idStr-2"  name="agentId" />
+                            <input type="hidden" id="select-index-idInteger-2" />
+                            <!--备选框-->
+                            <div id="select-items-index-2" class="select-item-div" data-selectIndex="2"> </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="table-property-name group-belonging">区域 :</td>
+                        <td class="table-property-value group-belonging">
+                            <input readonly id="select-index-3" class="buukle-input search-condition select-input selectType3" data-selectType="3" data-superCode="" data-selectUrl="/common/getSelectItemByType" type="text" placeholder="请选择代理" autocomplete="off">
+                            <input type="hidden" id="select-index-idStr-3"  name="groupId" />
+                            <input type="hidden" id="select-index-idInteger-3" />
+                            <!--建议框-->
+                            <div id="select-items-index-3" class="select-item-div" data-selectIndex="3"> </div>
+                        </td>
+                        <td class="table-property-name salesman-belonging">业务员 :</td>
+                        <td class="table-property-value salesman-belonging">
+                            <input readonly id="select-index-4" class="buukle-input search-condition select-input selectType4" data-selectType="4" data-superCode="" data-selectUrl="/common/getSelectItemByType" type="text" placeholder="请选择区域" autocomplete="off">
+                            <input type="hidden" id="select-index-idStr-4"  name="salesmanId" />
+                            <input type="hidden" id="select-index-idInteger-4" />
+                            <!--建议框-->
+                            <div id="select-items-index-4" class="select-item-div" data-selectIndex="4"> </div>
+                        </td>
+                    </tr>
+                </table>
             </form>
-            <div class="buukle-frame-bottom">
+            <div class="buukle-frame-bottom" style="margin-top: -120px;">
                 <button class="layui-btn back-button layui-layer-close saveBtn theme-btn" id="doSetUserRole">保存</button>
                 <button class="layui-btn layui-btn-primary layui-layer-close back-button" id="cancelSetUserRole">取消</button>
             </div>

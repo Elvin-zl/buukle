@@ -11,11 +11,13 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import top.buukle.common.filter.reqestAndResponseParameterFilter.BaseResponseParamHandlerFilter;
+import top.buukle.common.interceptor.DataIsolationInterceptor;
 import top.buukle.common.util.common.NumberUtil;
 import top.buukle.plugin.security.plugins.SecurityInterceptor;
 import top.buukle.common.filter.reqestAndResponseParameterFilter.BaseRequestParamValidateFilter;
-import top.buukle.provider.security.util.RequestValidator;
-import top.buukle.provider.security.util.ResponseHandler;
+import top.buukle.provider.security.filter.RquestValidatorAndResponseHanler.ApiSignRequestValidator;
+import top.buukle.provider.security.filter.RquestValidatorAndResponseHanler.ApiSignResponseHandler;
+import top.buukle.provider.security.filter.RquestValidatorAndResponseHanler.DataIsolationRequestValdator;
 
 /**
  * @Author elvin
@@ -87,7 +89,7 @@ public class AppConfigure implements WebMvcConfigurer {
     @Bean
     public FilterRegistrationBean filterRegistrationBean1() {
         FilterRegistrationBean registration = new FilterRegistrationBean();
-        registration.setFilter(new BaseRequestParamValidateFilter(new RequestValidator()));
+        registration.setFilter(new BaseRequestParamValidateFilter(new ApiSignRequestValidator()));
         registration.addUrlPatterns("/api/*");
         registration.setName("BaseRequestParamValidateFilter");
         registration.setOrder(1);
@@ -101,10 +103,26 @@ public class AppConfigure implements WebMvcConfigurer {
     @Bean
     public FilterRegistrationBean filterRegistrationBean2() {
         FilterRegistrationBean registration = new FilterRegistrationBean();
-        registration.setFilter(new BaseResponseParamHandlerFilter(new ResponseHandler()));
+        registration.setFilter(new BaseResponseParamHandlerFilter(new ApiSignResponseHandler()));
         registration.addUrlPatterns("/api/*");
         registration.setName("BaseResponseParamHandlerFilter");
         registration.setOrder(2);
         return registration;
     }
+
+    /**
+     * 注册 全局数据隔离请求参数校验 过滤器
+     * @return
+     */
+    @Bean
+    public FilterRegistrationBean filterRegistrationBean3() {
+        FilterRegistrationBean registration = new FilterRegistrationBean();
+        registration.setFilter(new BaseRequestParamValidateFilter(new DataIsolationRequestValdator()));
+        registration.addUrlPatterns("/*");
+        registration.setName("BaseResponseParamHandlerFilter2");
+        registration.setOrder(3);
+        return registration;
+    }
+
+
 }

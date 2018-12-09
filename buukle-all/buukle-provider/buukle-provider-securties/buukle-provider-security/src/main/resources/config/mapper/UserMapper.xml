@@ -6,6 +6,11 @@
     <result column="username" property="username" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="user_level" property="userLevel" jdbcType="INTEGER" />
+    <result column="platform_id" property="platformId" jdbcType="VARCHAR" />
+    <result column="agent_id" property="agentId" jdbcType="VARCHAR" />
+    <result column="group_id" property="groupId" jdbcType="VARCHAR" />
+    <result column="salesman_id" property="salesmanId" jdbcType="VARCHAR" />
     <result column="fans_number" property="fansNumber" jdbcType="VARCHAR" />
     <result column="phone" property="phone" jdbcType="VARCHAR" />
     <result column="gender" property="gender" jdbcType="VARCHAR" />
@@ -34,13 +39,15 @@
     <result column="bak05" property="bak05" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, username, password, user_id, fans_number, phone, gender, age, slogen, login_strategy, 
+    id, username, password, user_id,user_level,platform_id,agent_id,group_id,salesman_id,
+    fans_number, phone, gender, age, slogen, login_strategy,
     head_image_url, head_image_id, theme, theme_id, creator, creator_code, gmt_created, 
     modifier, modifier_code, gmt_modified, name_cn, full_name_cn, name_en, full_name_en, 
     status, bak01, bak02, bak03, bak04, bak05
   </sql>
   <sql id="Base_Column_List_without_pwd" >
-    id, username, user_id, fans_number, phone, gender, age, slogen, login_strategy,
+    id, username, user_id,user_level,platform_id,agent_id,group_id,salesman_id, fans_number,
+    phone, gender, age, slogen, login_strategy,
     head_image_url, head_image_id, theme, theme_id, creator, creator_code, gmt_created,
     modifier, modifier_code, gmt_modified, name_cn, full_name_cn, name_en, full_name_en,
     status, bak01, bak02, bak03, bak04, bak05
@@ -54,6 +61,21 @@
       </if>
       <if test="userId != null  and userId !='' " >
           user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userLevel != null" >
+        user_level = #{userLevel,jdbcType=INTEGER},
+      </if>
+      <if test="platformId != null  and platformId !='' " >
+        platform_id = #{platformId,jdbcType=VARCHAR},
+      </if>
+      <if test="agentId != null  and agentId !='' " >
+        agent_id = #{agentId,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null  and groupId !='' " >
+        group_id = #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="salesmanId != null  and salesmanId !='' " >
+        salesman_id = #{salesmanId,jdbcType=VARCHAR},
       </if>
       <if test="fansNumber != null  and fansNumber !='' " >
           fans_number = #{fansNumber,jdbcType=VARCHAR},
@@ -226,6 +248,22 @@
     <if test="bak05 != null  and bak05 !='' " >
       and bak05 = #{bak05}
     </if>
+    <if test="userLevel != null" >
+      and user_level = #{userLevel}
+    </if>
+    <if test="platformId != null  and platformId !='' " >
+      and  platform_id = #{platformId}
+    </if>
+    <if test="agentId != null  and agentId !='' " >
+      and agent_id = #{agentId}
+    </if>
+    <if test="groupId != null  and groupId !='' " >
+      and group_id = #{groupId}
+    </if>
+    <if test="salesmanId != null  and salesmanId !='' " >
+      and salesman_id = #{salesmanId}
+    </if>
+
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -239,7 +277,7 @@
   </delete>
   <insert id="insert" parameterType="top.buukle.provider.security.entity.User" >
     insert into user (id, username, password, 
-      user_id, fans_number, phone, 
+      user_id,user_level,platform_id,agent_id,group_id,salesman_id,fans_number, phone,
       gender, age, slogen, 
       login_strategy, head_image_url, head_image_id, 
       theme, theme_id, creator, 
@@ -250,11 +288,13 @@
       bak03, bak04, bak05
       )
     values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{userId,jdbcType=VARCHAR}, #{fansNumber,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=VARCHAR},#{userLevel,jdbcType=INTEGER},#{platformId,jdbcType=VARCHAR},
+      #{agentId,jdbcType=VARCHAR},#{groupId,jdbcType=VARCHAR},#{salesmanId,jdbcType=VARCHAR},
+      #{fansNumber,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR},
       #{gender,jdbcType=VARCHAR}, #{age,jdbcType=VARCHAR}, #{slogen,jdbcType=VARCHAR}, 
       #{loginStrategy,jdbcType=INTEGER}, #{headImageUrl,jdbcType=VARCHAR}, #{headImageId,jdbcType=VARCHAR}, 
       #{theme,jdbcType=VARCHAR}, #{themeId,jdbcType=INTEGER}, #{creator,jdbcType=VARCHAR}, 
-      #{creatorCode,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR}, 
+      #{creatorCode,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR},
       #{modifierCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, #{nameCn,jdbcType=VARCHAR}, 
       #{fullNameCn,jdbcType=VARCHAR}, #{nameEn,jdbcType=VARCHAR}, #{fullNameEn,jdbcType=VARCHAR}, 
       #{status,jdbcType=INTEGER}, #{bak01,jdbcType=VARCHAR}, #{bak02,jdbcType=VARCHAR}, 
@@ -275,6 +315,21 @@
       </if>
       <if test="userId != null" >
         user_id,
+      </if>
+      <if test="userLevel != null" >
+        user_level,
+      </if>
+      <if test="platformId != null" >
+        platform_id,
+      </if>
+      <if test="agentId != null" >
+        agent_id,
+      </if>
+      <if test="groupId != null" >
+        group_id,
+      </if>
+      <if test="salesmanId != null" >
+        salesman_id,
       </if>
       <if test="fansNumber != null" >
         fans_number,
@@ -368,6 +423,21 @@
       <if test="userId != null" >
         #{userId,jdbcType=VARCHAR},
       </if>
+      <if test="userLevel != null" >
+        #{userLevel,jdbcType=INTEGER},
+      </if>
+      <if test="platformId != null" >
+        #{platformId,jdbcType=VARCHAR},
+      </if>
+      <if test="agentId != null" >
+        #{agentId,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null" >
+        #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="salesmanId != null" >
+        #{salesmanId,jdbcType=VARCHAR},
+      </if>
       <if test="fansNumber != null" >
         #{fansNumber,jdbcType=VARCHAR},
       </if>
@@ -460,6 +530,21 @@
       <if test="userId != null and userId != '' " >
         user_id = #{userId,jdbcType=VARCHAR},
       </if>
+      <if test="userLevel != null" >
+        user_level = #{userLevel,jdbcType=INTEGER},
+      </if>
+      <if test="platformId != null  and platformId !='' " >
+        platform_id = #{platformId,jdbcType=VARCHAR},
+      </if>
+      <if test="agentId != null  and agentId !='' " >
+        agent_id = #{agentId,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null  and groupId !='' " >
+        group_id = #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="salesmanId != null  and salesmanId !='' " >
+        salesman_id = #{salesmanId,jdbcType=VARCHAR},
+      </if>
       <if test="fansNumber != null and fansNumber != '' " >
         fans_number = #{fansNumber,jdbcType=VARCHAR},
       </if>
@@ -541,11 +626,26 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <update id="updateByPrimaryKeyForRelation" parameterType="top.buukle.provider.security.entity.User" >
+    update user
+    set
+    user_level = #{userLevel,jdbcType=INTEGER},
+    platform_id = #{platformId,jdbcType=VARCHAR},
+    agent_id = #{agentId,jdbcType=VARCHAR},
+    group_id = #{groupId,jdbcType=VARCHAR},
+    salesman_id = #{salesmanId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
   <update id="updateByPrimaryKey" parameterType="top.buukle.provider.security.entity.User" >
     update user
     set username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
       user_id = #{userId,jdbcType=VARCHAR},
+      user_level = #{userLevel,jdbcType=VARCHAR},
+      platform_id = #{platformId,jdbcType=VARCHAR},
+      agent_id = #{agentId,jdbcType=VARCHAR},
+      group_id = #{groupId,jdbcType=VARCHAR},
+      salesman_id = #{salesmanId,jdbcType=VARCHAR},
       fans_number = #{fansNumber,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=VARCHAR},
       gender = #{gender,jdbcType=VARCHAR},
@@ -585,16 +685,27 @@
     u.status = 1
     <if test="groupsList != null and groupsList.size() > 0">
       and ug.group_id IN
-      <foreach collection="#{groupsList}" item="group" separator="," open="(" close=")">
+      <foreach collection="groupsList" item="group" separator="," open="(" close=")">
         #{group.id}
       </foreach>
     </if>
-    and ug.type = 0
     and u.user_id = ug.user_id;
   </select>
 
   <select id="getUserList" resultMap="BaseResultMap" parameterType="java.util.Map">
     select <include refid="Base_Column_List_without_pwd" /> from user where 1=1
+    <include refid="Base_Column_where" />
+    <if test="startTime != null  and startTime !='' " >
+      and gmt_created &gt;= #{startTime}
+    </if>
+    <if test="endTime != null  and endTime !='' " >
+      and gmt_created &lt;= #{endTime}
+    </if>
+    order by gmt_modified DESC
+  </select>
+
+  <select id="getUserSubordinateByUserLevel" resultType="java.lang.String" parameterType="java.util.Map">
+    select user_id from user where 1=1
     <include refid="Base_Column_where" />
     <if test="startTime != null  and startTime !='' " >
       and gmt_created &gt;= #{startTime}
@@ -642,7 +753,14 @@
         AND ur.`role_id` =   r.`id`
         AND ur.`user_id` = u.`user_id`
     </select>
-
+    <select id="getUserByUserId" resultMap="BaseResultMap" parameterType="java.util.Map">
+        SELECT
+        u.*
+        FROM
+        USER u
+        WHERE
+        u.`user_id` = #{userId}
+    </select>
     <select id="getUserByGroupsId" resultMap="BaseResultMap" parameterType="java.util.Map">
         SELECT DISTINCT
         u.`user_id`
@@ -658,4 +776,134 @@
   <select id="fuzzySearchByName" resultMap="BaseResultMap" parameterType="java.lang.String">
     SELECT u.username FROM  user u WHERE u.username LIKE #{fuzzyText};
   </select>
+
+  <select id="getSubPlatformSelectItemsForLevelBoss" resultMap="BaseResultMap">
+    select * from user u where u.`user_level` =  1 and u.status = 1
+  </select>
+  <select id="getSubAgentSelectItemsForLevelPlatform" resultMap="BaseResultMap"  parameterType="java.lang.String">
+    select * from user u where u.`user_level` =  2 and u.`platform_id` = #{superCode} and u.status = 1
+  </select>
+  <select id="getSubGroupSelectItemsForLevelAgent" resultMap="BaseResultMap"  parameterType="java.lang.String">
+    select * from user u where u.`user_level` =  3 and u.`agent_id` = #{superCode} and u.status = 1
+  </select>
+  <select id="getSubSalesmanSelectItemsForLevelGroup" resultMap="BaseResultMap"  parameterType="java.lang.String">
+    select * from user u where u.`user_level` =  4 and u.`group_id` = #{superCode} and u.status = 1
+  </select>
+  <select id="getUserByUsername" resultMap="BaseResultMap"  parameterType="java.lang.String">
+    select * from user u where u.username =  #{username}
+  </select>
+
+  <select id="getUserByGroupsIdWithQuery" resultMap="BaseResultMap" parameterType="java.lang.String">
+    SELECT DISTINCT
+    u.id, u.username, u.user_id, u.fans_number, u.phone, u.gender, u.age, u.slogen, u.login_strategy,
+    u.head_image_url, u.head_image_id, u.theme, u.theme_id, u.creator, u.creator_code, u.gmt_created,
+    u.modifier, u.modifier_code, u.gmt_modified, u.name_cn, u.full_name_cn, u.name_en, u.full_name_en,
+    u.status, u.bak01, u.bak02, u.bak03, u.bak04,u.bak05
+        FROM
+        USER u,
+        user_group ug,
+        groups g
+        WHERE
+        g.`id` = #{groupsId}
+        AND ug.group_id = g.`id`
+        AND ug.`user_id` = u.`user_id`
+    <if test="id != null  and id !='' " >
+      and u.id = #{id}
+    </if>
+    <if test="username != null  and username !='' " >
+      and u.username = #{username}
+    </if>
+    <if test="password != null  and password !='' " >
+      and u.password = #{password}
+    </if>
+    <if test="userId != null  and userId !='' " >
+      and u.user_id = #{userId}
+    </if>
+    <if test="fansNumber != null  and fansNumber !='' " >
+      and u.fans_number = #{fansNumber}
+    </if>
+    <if test="phone != null  and phone !='' " >
+      and u.phone = #{phone}
+    </if>
+    <if test="gender != null  and gender !='' " >
+      and u.gender = #{gender}
+    </if>
+    <if test="age != null  and age !='' " >
+      and u.age = #{age}
+    </if>
+    <if test="slogen != null  and slogen !='' " >
+      and u.slogen = #{slogen}
+    </if>
+    <if test="loginStrategy != null  and loginStrategy !='' " >
+      and u.login_strategy = #{loginStrategy}
+    </if>
+    <if test="headImageUrl != null  and headImageUrl !='' " >
+      and u.head_image_url = #{headImageUrl}
+    </if>
+    <if test="headImageId != null  and headImageId !='' " >
+      and u.head_image_id = #{headImageId}
+    </if>
+    <if test="theme != null  and theme !='' " >
+      and u.theme = #{theme}
+    </if>
+    <if test="themeId != null  and themeId !='' " >
+      and u.theme_id = #{themeId}
+    </if>
+    <if test="creator != null  and creator !='' " >
+      and u.creator = #{creator}
+    </if>
+    <if test="creatorCode != null  and creatorCode !='' " >
+      and u.creator_code = #{creatorCode}
+    </if>
+    <if test="gmtCreated != null  and gmtCreated !='' " >
+      and u.gmt_created >= #{gmtCreated}
+    </if>
+    <if test="modifier != null  and modifier !='' " >
+      and u.modifier = #{modifier}
+    </if>
+    <if test="modifierCode != null  and modifierCode !='' " >
+      and u.modifier_code = #{modifierCode}
+    </if>
+    <if test="gmtModified != null  and gmtModified !='' " >
+      and u.gmt_modified = #{gmtModified}
+    </if>
+    <if test="nameCn != null  and nameCn !='' " >
+      and u.name_cn = #{nameCn}
+    </if>
+    <if test="fullNameCn != null  and fullNameCn !='' " >
+      and u.full_name_cn = #{fullNameCn}
+    </if>
+    <if test="nameEn != null  and nameEn !='' " >
+      and u.name_en = #{nameEn}
+    </if>
+    <if test="fullNameEn != null and fullNameEn !='' " >
+      and u.full_name_en = #{fullNameEn}
+    </if>
+    <if test="status != null" >
+      and u.status = #{status}
+    </if>
+    <if test="bak01 != null  and bak01 !='' " >
+      and u.bak01 = #{bak01}
+    </if>
+    <if test="bak02 != null  and bak02 !='' " >
+      and u.bak02 = #{bak02}
+    </if>
+    <if test="bak03 != null  and bak03 !='' " >
+      and u.bak03 = #{bak03}
+    </if>
+    <if test="bak04 != null  and bak04 !='' " >
+      and u.bak04 = #{bak04}
+    </if>
+    <if test="bak05 != null  and bak05 !='' " >
+      and u.bak05 = #{bak05}
+    </if>
+    <if test="startTime != null  and startTime !='' " >
+      and u.gmt_created &gt;= #{startTime}
+    </if>
+    <if test="endTime != null  and endTime !='' " >
+      and u.gmt_created &lt;= #{endTime}
+    </if>
+    order by gmt_modified DESC
+  </select>
+
 </mapper>

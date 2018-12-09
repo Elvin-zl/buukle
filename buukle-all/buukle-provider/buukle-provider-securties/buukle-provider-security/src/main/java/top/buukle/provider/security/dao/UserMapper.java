@@ -1,6 +1,7 @@
 package top.buukle.provider.security.dao;
 
 import org.apache.ibatis.annotations.Param;
+import top.buukle.common.annotation.DataIsolationAnnotation;
 import top.buukle.provider.security.entity.Groups;
 import top.buukle.provider.security.entity.User;
 import top.buukle.provider.security.vo.query.UserQuery;
@@ -39,6 +40,7 @@ public interface UserMapper {
      * @param userQuery
      * @return
      */
+    @DataIsolationAnnotation(tableName = "user")
     List<User> getUserList(UserQuery userQuery);
 
     /**
@@ -74,7 +76,68 @@ public interface UserMapper {
      * @param fuzzyText
      * @return
      */
+    @DataIsolationAnnotation(tableName = "user")
     List<User> fuzzySearchByName(@Param("fuzzyText") String fuzzyText);
 
 
+    /**
+     * 根据userId 获取用户
+     * @param userId
+     * @return
+     */
+    User getUserByUserId(String userId);
+
+    /**
+     * 根据组别id 以及查询条件 获取组别成员
+     * @param userQuery
+     * @return
+     */
+    List<User> getUserByGroupsIdWithQuery(UserQuery userQuery);
+
+    /**
+     * 根据用户身份获取用户下级
+     * @param userQuery
+     * @return
+     */
+    List<String> getUserSubordinateByUserLevel(UserQuery userQuery);
+
+    /**
+     * 获取boss下platform列表
+     * @return
+     */
+    List<User> getSubPlatformSelectItemsForLevelBoss();
+
+    /**
+     * 获取平台下agent列表
+     * @return
+     */
+    List<User> getSubAgentSelectItemsForLevelPlatform(@Param("superCode") String superCode);
+
+    /**
+     * 获取代理下区域列表
+     * @param superCode
+     * @return
+     */
+    List<User> getSubGroupSelectItemsForLevelAgent(@Param("superCode") String superCode);
+
+    /**
+     * 获取区域下业务员列表
+     * @param superCode
+     * @return
+     */
+    List<User> getSubSalesmanSelectItemsForLevelGroup(@Param("superCode") String superCode);
+
+    /**
+     * 根据主键id更新用户所属关系
+     * @param userQuery
+     * @return
+     */
+    int updateByPrimaryKeyForRelation(UserQuery userQuery);
+
+    /**
+     * 用户名查重
+     * @param username
+     * @return
+     */
+    List<User> getUserByUsername(@Param("username") String username);
 }

@@ -41,6 +41,8 @@ public enum BaseResponseCode {
     /** 登录,认证,授权 --0100{*}{*}*/
     LOGIN_FAILED(BaseResponseCode.FAILURES, "010000","登录失败!参数错误!" ),
     LOGIN_FAILED_USERNAME_PWD_NULL(BaseResponseCode.FAILURES, "010001","登录失败!用户名或密码为空!"),
+
+    // 用户登录认证错误返回码
     USER_PERMISSION_PARAM_WRONG(BaseResponseCode.FAILURES,"010002","用户认证失败!认证参数错误!" ),
     USER_PERMISSION_GLOBAL_MODULE_LIST_NULL(BaseResponseCode.FAILURES, "010003", "用户授权失败!全局菜单列表为空!"),
     USER_PERMISSION_GLOBAL_BUTTON_LIST_NULL(BaseResponseCode.FAILURES, "010004", "用户授权失败!全局按钮列表为空!"),
@@ -49,29 +51,55 @@ public enum BaseResponseCode {
     USER_PERMISSION_USER_ROLE_LIST_NULL(BaseResponseCode.FAILURES, "010007","用户授权失败!用户角色为空!"),
     USER_COOKIE_NULL(BaseResponseCode.FAILURES, "010008","操作失败,获取用户信息为空!" ),
     USER_OUT_OF_TIME(BaseResponseCode.FAILURES, "010009","登录超时!" ),
-    BUTTON_ADD_NAME_NULL(BaseResponseCode.FAILURES, "010010","添加按钮参数检验格式不通过,按钮名称为空!" ),
-    BUTTON_ADD_LAYOUTLEVEL_NULL(BaseResponseCode.FAILURES, "010011","添加按钮参数检验格式不通过,按钮分布级别为空!" ),
-    BUTTON_ADD_OPERATION_TYPE_NULL(BaseResponseCode.FAILURES, "010012","添加按钮参数检验格式不通过,按钮响应类型为空!" ),
-    BUTTON_ADD_REMARK_NULL(BaseResponseCode.FAILURES, "010013","添加按钮参数检验格式不通过,按钮备注为空!" ),
-    BUTTON_EDIT_EXCEPTION(BaseResponseCode.FAILURES, "010014","更新按钮失败!"),
-    MODULE_ADD_NAME_NULL(BaseResponseCode.FAILURES, "010015","更新菜单参数检验格式不通过,名称为空!" ),
-    MODULE_ADD_PID_NULL(BaseResponseCode.FAILURES, "010016","更新菜单参数检验格式不通过,父级菜单id为空!" ),
-    MODULE_ADD_STATUS_NULL(BaseResponseCode.FAILURES, "010017","更新菜单参数检验格式不通过,状态为空!" ),
-    ROLE_ADD_NAME_NULL(BaseResponseCode.FAILURES, "010018","添加角色参数检验格式不通过,角色名称为空!" ),
-    ROLE_ADD_STATUS_NULL(BaseResponseCode.FAILURES, "010018","添加角色参数检验格式不通过,角色状态为空!" ),
-    ROLE_EDIT_NAME_NULL(BaseResponseCode.FAILURES, "010019","更新角色参数检验格式不通过,角色名称为空!" ),
-    ROLE_EDIT_STATUS_NULL(BaseResponseCode.FAILURES, "010019","更新角色参数检验格式不通过,角色状态为空!" ),
-    USER_ADD_USERNAME_NULL(BaseResponseCode.FAILURES, "010020","添加用户参数检验格式不通过,用户名为空!"),
-    USER_ADD_PASSWORD_NULL(BaseResponseCode.FAILURES, "010021","添加用户参数检验格式不通过,密码为空!"),
-    USER_ADD_GENDER_NULL(BaseResponseCode.FAILURES, "010022","添加用户参数检验格式不通过,性别为空!"),
-    USER_ADD_STATUS_NULL(BaseResponseCode.FAILURES, "010023","添加用户参数检验格式不通过,状态为空!"),
-    USER_ADD_USERNAME_EXIST(BaseResponseCode.FAILURES, "010024","添加用户失败,用户名已经存在!"),
-    EDIT_FORBIDDEN(BaseResponseCode.FAILURES, "010025","该记录由系统创建,不允许该操作!"),
-    GROUPS_ADD_NAME_NULL(BaseResponseCode.FAILURES, "010026","添加组别参数检验格式不通过,名称为空!"),
-    GROUPS_ADD_STATUS_NULL(BaseResponseCode.FAILURES, "010026","添加组别参数检验格式不通过,状态为空!"),
-    GROUPS_EDIT_NAME_NULL(BaseResponseCode.FAILURES, "010027","修改组别参数检验格式不通过,名称为空!"),
-    GROUPS_EDIT_STATUS_NULL(BaseResponseCode.FAILURES, "010028","修改组别参数检验格式不通过,状态为空!"),
 
+    // 按钮操作错误返回码
+    BUTTON_ADD_NAME_NULL(BaseResponseCode.FAILURES, "010100","添加按钮参数检验格式不通过,按钮名称为空!" ),
+    BUTTON_ADD_LAYOUTLEVEL_NULL(BaseResponseCode.FAILURES, "010101","添加按钮参数检验格式不通过,按钮分布级别为空!" ),
+    BUTTON_ADD_OPERATION_TYPE_NULL(BaseResponseCode.FAILURES, "010102","添加按钮参数检验格式不通过,按钮响应类型为空!" ),
+    BUTTON_ADD_REMARK_NULL(BaseResponseCode.FAILURES, "010103","添加按钮参数检验格式不通过,按钮备注为空!" ),
+    BUTTON_EDIT_EXCEPTION(BaseResponseCode.FAILURES, "010104","更新按钮失败!"),
+
+    // 菜单错误返回码
+    MODULE_ADD_NAME_NULL(BaseResponseCode.FAILURES, "010200","更新菜单参数检验格式不通过,名称为空!" ),
+    MODULE_ADD_PID_NULL(BaseResponseCode.FAILURES, "010201","更新菜单参数检验格式不通过,父级菜单id为空!" ),
+    MODULE_ADD_STATUS_NULL(BaseResponseCode.FAILURES, "010202","更新菜单参数检验格式不通过,状态为空!" ),
+    ROLE_ADD_NAME_NULL(BaseResponseCode.FAILURES, "010203","添加角色参数检验格式不通过,角色名称为空!" ),
+
+    // 角色错误返回码
+    ROLE_ADD_STATUS_NULL(BaseResponseCode.FAILURES, "010310","添加角色参数检验格式不通过,角色状态为空!" ),
+    ROLE_EDIT_NAME_NULL(BaseResponseCode.FAILURES, "010311","更新角色参数检验格式不通过,角色名称为空!" ),
+    ROLE_EDIT_STATUS_NULL(BaseResponseCode.FAILURES, "010312","更新角色参数检验格式不通过,角色状态为空!" ),
+
+
+    // 用户操作返回码
+    USER_ADD_USERNAME_NULL(BaseResponseCode.FAILURES, "010400","添加用户参数检验格式不通过,用户名为空!"),
+    USER_ADD_PASSWORD_NULL(BaseResponseCode.FAILURES, "010401","添加用户参数检验格式不通过,密码为空!"),
+    USER_ADD_GENDER_NULL(BaseResponseCode.FAILURES, "010402","添加用户参数检验格式不通过,性别为空!"),
+    USER_ADD_STATUS_NULL(BaseResponseCode.FAILURES, "010403","添加用户参数检验格式不通过,状态为空!"),
+    USER_ADD_USERNAME_EXIST(BaseResponseCode.FAILURES, "010404","添加用户失败,用户名已经存在!"),
+    USER_SET_ROLE_LIST_NULL(BaseResponseCode.FAILURES, "010405","修改用户角色失败,用户角色列表为空!"),
+    USER_SET_ROLE_UPDATE_USER_LEVEL_INFO_WRONG(BaseResponseCode.FAILURES, "010406","修改用户角色失败,更新用户等级归属信息失败!"),
+    USER_SET_ROLE_USER_NULL(BaseResponseCode.FAILURES, "010407","修改用户角色失败,用户id对应用户信息为空!"),
+    USER_SET_ROLE_USER_LEVEL_BELONGING_RELATION_WRONG(BaseResponseCode.FAILURES, "010408","修改用户角色失败,用户等级和归属关系不匹配!"),
+    USER_SET_ROLE_OPERATOR_PERMISSION_NOT_ENOUGH(BaseResponseCode.FAILURES, "010409","修改用户角色失败,当前用户等级不够!"),
+
+    // 系统禁止操作返回码
+    EDIT_FORBIDDEN(BaseResponseCode.FAILURES, "010500","该记录由系统创建,不允许该操作!"),
+
+    // 区域操作返回码
+    GROUPS_ADD_NAME_NULL(BaseResponseCode.FAILURES, "010600","添加组别参数检验格式不通过,名称为空!"),
+    GROUPS_ADD_STATUS_NULL(BaseResponseCode.FAILURES, "010601","添加组别参数检验格式不通过,状态为空!"),
+    GROUPS_EDIT_NAME_NULL(BaseResponseCode.FAILURES, "010602","修改组别参数检验格式不通过,名称为空!"),
+    GROUPS_EDIT_STATUS_NULL(BaseResponseCode.FAILURES, "010603","修改组别参数检验格式不通过,状态为空!"),
+
+    // 数据隔离错误返回码
+    ISOLATION_TABLE_NAME_NULL(BaseResponseCode.FAILURES, "010700","数据隔离查询表名为空!"),
+    ISOLATION_QUERY_DIMENSION_NULL(BaseResponseCode.FAILURES, "010701","数据隔离查询维度为空!"),
+    ISOLATION_QUERY_CODE_NULL(BaseResponseCode.FAILURES, "010702","数据隔离查询字段名为空!"),
+
+    // 通用查询组件错误返回码
+    COMMON_SELECT_TYPE_NULL(BaseResponseCode.FAILURES, "010800","查询失败!查询标识为空!"),
+    COMMON_SELECT_TYPE_SUPER_CODE_NULL(BaseResponseCode.FAILURES, "010801","查询失败!请传入直接上级代码进行查询!"),
 
     /*----------------------------------------------MC--00{*}{*}{*}{*}--------------------------------------------------------------------*/
     /** 登录,认证,授权 --0000{*}{*}*/
@@ -80,6 +108,7 @@ public enum BaseResponseCode {
     USER_LOGIN_USERNAME_PASSWORD_WRONG(BaseResponseCode.FAILURES, "000002","登录失败!密码错误!"),
     USER_PERMISSION_USER_ROLE_LIST_NULL_MC(BaseResponseCode.FAILURES, "000003", "用户授权失败!用户菜单列表为空!"),
     LOGIN_FAILED_USER_LOGIN_STRATEGY_AND_DEFAULT_MAX_AGE_NULL(BaseResponseCode.FAILURES, "000004", "登录失败!用户登陆策略和缺省设置为空!"),
+    USER_LOGIN_USER_GROUPS_INFO_NULL(BaseResponseCode.FAILURES, "000005","登录失败!用户组别信息为空!"),
 
     /*----------------------------------------------SS0-PLUGIN--06{*}{*}{*}{*}-------------------------------------------------------------*/
     USER_LOGIN_VERIFY_CODE_NULL(BaseResponseCode.FAILURES, "060000", "登录失败!验证码为空!"),

@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 import top.buukle.common.constants.BaseResponseCode;
+import top.buukle.common.dataIsolation.IsolationConstants;
 import top.buukle.common.exception.BaseException;
 import top.buukle.common.request.BaseRequest;
 import top.buukle.common.request.RequestHead;
@@ -24,18 +25,17 @@ import top.buukle.common.util.common.NumberUtil;
 import top.buukle.common.util.common.StringUtil;
 import top.buukle.common.util.common.ThreadLocalUtil;
 import top.buukle.common.vo.ThreadParam;
-import top.buukle.plugin.security.util.CookieUtil;
+import top.buukle.provider.security.constants.CommonControllerConstants;
 import top.buukle.provider.security.constants.SecurityConstants;
 import top.buukle.provider.security.constants.SecurityStatusConstants;
 import top.buukle.provider.security.entity.*;
+import top.buukle.provider.security.util.SessionUtil;
 import top.buukle.provider.security.util.StringGeneratorUtil;
 import top.buukle.provider.security.vo.query.*;
 import top.buukle.provider.security.dao.*;
 import top.buukle.provider.security.invoker.UserInvoker;
 import top.buukle.provider.security.service.UserService;
-import top.buukle.provider.security.vo.response.FuzzySearchListVo;
-import top.buukle.provider.security.vo.response.PageResponse;
-import top.buukle.provider.security.vo.response.UserRoleListVo;
+import top.buukle.provider.security.vo.response.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -43,6 +43,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author elvin
@@ -61,6 +62,8 @@ public class UserServiceImpl implements UserService {
     private GroupsMapper groupsMapper;
 	@Resource
     private UserRoleMapper userRoleMapper;
+	@Resource
+    private UserGroupMapper userGroupMapper;
 
     @Autowired
     private Environment env;
@@ -275,7 +278,7 @@ public class UserServiceImpl implements UserService {
     private User assUser(HttpServletRequest request, UserQuery userQuery, boolean isAdd) throws InvocationTargetException, IllegalAccessException {
         User user = new User();
         BeanUtils.copyProperties(user,userQuery);
-        User operator = UserInvoker.getUser(CookieUtil.getUserCookie(request));
+        User operator = SessionUtil.getOperator(request);
         if(isAdd){
             user.setGmtCreated(new Date());
             user.setCreatorCode(operator.getUserId());
@@ -286,6 +289,33 @@ public class UserServiceImpl implements UserService {
             user.setUserId(StringGeneratorUtil.generateUserID());
             user.setPassword(MD5Util.MD5WithUTF8(user.getPassword()));
             user.setBak02(SecurityConstants.DELETE_LEVEL_TRUE);
+            //初始化用户的等级
+            user.setUserLevel(operator.getUserLevel());
+            //初始化用户的归属关系
+
+            //platform
+            if(operator.getUserLevel().equals(IsolationConstants.USER_LEVEL_PLATFORM)){
+                user.setPlatformId(operator.getPlatformId());
+            }
+            //agent
+            if(operator.getUserLevel().equals(IsolationConstants.USER_LEVEL_AGENT)){
+                user.setPlatformId(operator.getPlatformId());
+                user.setAgentId(operator.getAgentId());
+            }
+            //group
+            if(operator.getUserLevel().equals(IsolationConstants.USER_LEVEL_GROUP)){
+                user.setPlatformId(operator.getPlatformId());
+                user.setAgentId(operator.getAgentId());
+                user.setGroupId(operator.getGroupId());
+            }
+            //salesman
+            if(operator.getUserLevel().equals(IsolationConstants.USER_LEVEL_GROUP)){
+                user.setPlatformId(operator.getPlatformId());
+                user.setAgentId(operator.getAgentId());
+                user.setGroupId(operator.getGroupId());
+                user.setSalesmanId(operator.getSalesmanId());
+            }
+
         }else{
             user.setGmtModified(new Date());
             user.setModifier(operator.getUsername());
@@ -298,17 +328,21 @@ public class UserServiceImpl implements UserService {
      * 执行分配角色
      * @param ids
      * @param userQuery
+     * @param roleLevel
+     * @param request
      * @return
      */
     @Override
-    public BaseResponse doSetUserRole(String ids, UserQuery userQuery) {
-        User user = this.getUserByUserId(userQuery);
-        userRoleMapper.deleteUserRole(user.getUserId());
-        if(StringUtil.isEmpty(ids)){
-            //更新用户缓存信息
-            UserInvoker.clearUserCacheInfoByType(null ,user.getUserId());
-            return new BaseResponse.Builder().buildSuccess();
+    public BaseResponse doSetUserRole(String ids, UserQuery userQuery, Integer roleLevel, HttpServletRequest request) {
+        userQuery.setUserLevel(roleLevel);
+        // 校验参数和归属关系
+        User user = validateSetUserRoleParam(userQuery,ids,request);
+        // 更新用户等级归属等信息
+        if(userMapper.updateByPrimaryKeyForRelation(userQuery) != 1){
+            throw new BaseException(BaseResponseCode.USER_SET_ROLE_UPDATE_USER_LEVEL_INFO_WRONG);
         }
+        // 更新用户角色关系表记录
+        userRoleMapper.deleteUserRole(user.getUserId());
         String[] idsArr = ids.split(",");
         if(null== idsArr || idsArr.length < 1){
             return new BaseResponse.Builder().buildSuccess();
@@ -319,9 +353,88 @@ public class UserServiceImpl implements UserService {
                 userRoleMapper.insert(userRole);
             }
         }
-        //更新用户缓存信息
+        // 更新用户缓存信息
         UserInvoker.clearUserCacheInfoByType(null ,user.getUserId());
         return new BaseResponse.Builder().buildSuccess();
+    }
+
+    /**
+     * 校验参数
+     * @param userQuery
+     * @param ids
+     * @param request
+     */
+    private User validateSetUserRoleParam(UserQuery userQuery, String ids, HttpServletRequest request) {
+        User user = this.getUserByUserId(userQuery);
+        if(null == user){
+            throw new BaseException(BaseResponseCode.USER_SET_ROLE_USER_NULL);
+        }
+        if(StringUtil.isEmpty(ids)){
+            throw new BaseException(BaseResponseCode.USER_SET_ROLE_LIST_NULL);
+        }
+
+        User operator = SessionUtil.getOperator(request);
+        //操作人的级别要低于将要设置的级别,返回错误
+        if(operator.getUserLevel() > userQuery.getUserLevel()){
+            throw new BaseException(BaseResponseCode.USER_SET_ROLE_OPERATOR_PERMISSION_NOT_ENOUGH);
+        }
+        // 校验用户等级和归属关系
+
+        // boss
+        if(userQuery.getUserLevel().equals(IsolationConstants.USER_LEVEL_BOSS)){
+            if(StringUtil.isNotEmpty(userQuery.getPlatformId()) || StringUtil.isNotEmpty(userQuery.getAgentId()) || StringUtil.isNotEmpty(userQuery.getGroupId()) || StringUtil.isNotEmpty(userQuery.getSalesmanId())){
+                throw new BaseException(BaseResponseCode.USER_SET_ROLE_USER_LEVEL_BELONGING_RELATION_WRONG);
+            }
+        }
+        // 平台
+        if(userQuery.getUserLevel().equals(IsolationConstants.USER_LEVEL_PLATFORM)){
+            if(StringUtil.isNotEmpty(userQuery.getPlatformId()) || StringUtil.isNotEmpty(userQuery.getAgentId()) || StringUtil.isNotEmpty(userQuery.getGroupId()) || StringUtil.isNotEmpty(userQuery.getSalesmanId())){
+                throw new BaseException(BaseResponseCode.USER_SET_ROLE_USER_LEVEL_BELONGING_RELATION_WRONG);
+            }
+            //处理将下级提升为当前用户同级的情况
+            if(operator.getUserLevel().equals(userQuery.getUserLevel())){
+                userQuery.setPlatformId(operator.getPlatformId());
+            }
+        }
+        // 代理
+        if(userQuery.getUserLevel().equals(IsolationConstants.USER_LEVEL_AGENT)){
+            if(StringUtil.isEmpty(userQuery.getPlatformId()) || StringUtil.isNotEmpty(userQuery.getAgentId()) || StringUtil.isNotEmpty(userQuery.getGroupId()) || StringUtil.isNotEmpty(userQuery.getSalesmanId())){
+                throw new BaseException(BaseResponseCode.USER_SET_ROLE_USER_LEVEL_BELONGING_RELATION_WRONG);
+            }
+            //处理将下级提升为当前用户同级的情况
+            if(operator.getUserLevel().equals(userQuery.getUserLevel())){
+                userQuery.setAgentId(operator.getAgentId());
+            }
+        }
+        // 区域
+        if(userQuery.getUserLevel().equals(IsolationConstants.USER_LEVEL_GROUP)){
+            if(StringUtil.isEmpty(userQuery.getPlatformId()) || StringUtil.isEmpty(userQuery.getAgentId()) || StringUtil.isNotEmpty(userQuery.getGroupId()) || StringUtil.isNotEmpty(userQuery.getSalesmanId())){
+                throw new BaseException(BaseResponseCode.USER_SET_ROLE_USER_LEVEL_BELONGING_RELATION_WRONG);
+            }
+            //处理将下级提升为当前用户同级的情况
+            if(operator.getUserLevel().equals(userQuery.getUserLevel())){
+                userQuery.setGroupId(operator.getGroupId());
+            }
+        }
+        // 业务员
+        if(userQuery.getUserLevel().equals(IsolationConstants.USER_LEVEL_SALESMAN)){
+            if(StringUtil.isEmpty(userQuery.getPlatformId()) || StringUtil.isEmpty(userQuery.getAgentId()) || StringUtil.isEmpty(userQuery.getGroupId()) || StringUtil.isNotEmpty(userQuery.getSalesmanId())){
+                throw new BaseException(BaseResponseCode.USER_SET_ROLE_USER_LEVEL_BELONGING_RELATION_WRONG);
+            }
+            //处理将下级提升为当前用户同级的情况
+            if(operator.getUserLevel().equals(userQuery.getUserLevel())){
+                userQuery.setSalesmanId(operator.getSalesmanId());
+            }
+        }
+        // 普通用户
+        if(userQuery.getUserLevel().equals(IsolationConstants.USER_LEVEL_CREATOR)){
+            if(StringUtil.isEmpty(userQuery.getPlatformId()) || StringUtil.isEmpty(userQuery.getAgentId()) || StringUtil.isEmpty(userQuery.getGroupId()) || StringUtil.isEmpty(userQuery.getSalesmanId())){
+                throw new BaseException(BaseResponseCode.USER_SET_ROLE_USER_LEVEL_BELONGING_RELATION_WRONG);
+            }
+        }
+        //设置用户id
+        userQuery.setId(user.getId());
+        return user;
     }
 
     /**
@@ -408,7 +521,7 @@ public class UserServiceImpl implements UserService {
         if(CollectionUtils.isEmpty(roleList)){
             RoleQuery roleQuery = new RoleQuery();
             roleQuery.setStatus(SecurityStatusConstants.STATUS_OPEN);
-            roleList = roleMapper.getRoleList(roleQuery);
+            roleList = roleMapper.getRoleListWithNoIsolation(roleQuery);
             UserInvoker.saveGlobalRole(roleList);
         }
         return roleList;
@@ -423,7 +536,7 @@ public class UserServiceImpl implements UserService {
         if(CollectionUtils.isEmpty(groupsList)){
             GroupsQuery groupsQuery = new GroupsQuery();
             groupsQuery.setStatus(SecurityStatusConstants.STATUS_OPEN);
-            groupsList = groupsMapper.getGroupsList(groupsQuery);
+            groupsList = groupsMapper.getGroupsListWithNoIsolation(groupsQuery);
             UserInvoker.saveGlobalGroups(groupsList);
         }
         return groupsList;
@@ -462,6 +575,8 @@ public class UserServiceImpl implements UserService {
         //获取用户角色列表
         List<Role> userRoleList = new ArrayList<>();
         User user = this.getUserByUserId(query);
+        //获取用户角色等级,根据用户等级筛选其所能分配的所有角色列表
+        List<Role> gRoleList = globalRoleList.stream().filter(role -> role.getRoleLevel() >= SessionUtil.getOperator(request).getUserLevel()).collect(Collectors.toList());
         if(null != user){
             userRoleList = roleMapper.getUserRoleListByUserId(user.getUserId());
         }
@@ -473,7 +588,7 @@ public class UserServiceImpl implements UserService {
         }
         List<UserRoleListVo> userRoleListVoList = new ArrayList<>();
         //设置指定用户角色选中标识
-        for (Role gRole: globalRoleList) {
+        for (Role gRole: gRoleList) {
             UserRoleListVo userRoleListVo = new UserRoleListVo();
             BeanUtils.copyProperties(userRoleListVo,gRole);
             if(userRoleIdList.contains(gRole.getId())){
@@ -556,6 +671,133 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
+     * 获取组别成员列表
+     * @param groupsId
+     * @param userQuery
+     * @param pageBounds
+     * @return
+     */
+    @Override
+    public PageResponse<UserMemberVo> getMemberList(Integer groupsId, UserQuery userQuery, PageBounds pageBounds) throws InvocationTargetException, IllegalAccessException {
+        //查询用户列表
+        List<UserMemberVo> voList = new ArrayList<>();
+        PageHelper.startPage(pageBounds.getPage(), pageBounds.getLimit());
+        userQuery.setGroupsId(groupsId);
+        List<User> list = userMapper.getUserByGroupsIdWithQuery(userQuery);
+        for (User user : list) {
+            UserMemberVo userMemberVo = new UserMemberVo();
+            BeanUtils.copyProperties(userMemberVo,user);
+            //设置该用户的组别信息
+            List<Groups> userGroupsByUserId = groupsMapper.getUserGroupsByUserId(user.getUserId());
+            UserGroup userGroupRelation = userGroupMapper.getByUserId(user.getUserId());
+            if(CollectionUtils.isNotEmpty(userGroupsByUserId)){
+                Groups userGroup = userGroupsByUserId.get(0);
+                userMemberVo.setCurrentGroupsId(userGroup.getId());
+                userMemberVo.setCurrentGroupsName(userGroup.getName());
+                userMemberVo.setIsBelong(userGroup.getId().equals(groupsId) ? UserMemberVo.IS_BELONG_TRUE : UserMemberVo.IS_BELONG_FALSE);
+                userMemberVo.setIsAdmin((userGroupRelation.getType().equals(NumberUtil.INTEGER_ONE) && userGroupRelation.getGroupId().equals(groupsId)) ?  UserMemberVo.IS_ADMIN_TRUE :UserMemberVo.IS_ADMIN_FALSE );
+            }
+            voList.add(userMemberVo);
+        }
+        return new PageResponse.Builder().build(voList,new PageInfo<>(list));
+    }
+
+    /**
+     * 根据级别获取用户下拉选项列表
+     * @param request
+     * @param selectType
+     * @param superCode
+     * @return
+     */
+    @Override
+    public List<SelectSearchItemVo> getSelectItemByType(HttpServletRequest request, Integer selectType, String superCode) {
+        User operator = SessionUtil.getOperator(request);
+        Integer userLevel = operator.getUserLevel();
+        List<SelectSearchItemVo> selectSearchItemVos = new ArrayList<>();
+        //尝试为boss用户获取平台列表
+        if(selectType.equals(CommonControllerConstants.SELECT_TYPE_PLATFORM)){
+            if(userLevel.equals(IsolationConstants.USER_LEVEL_BOSS)){
+                List<User> userList = userMapper.getSubPlatformSelectItemsForLevelBoss();
+                return this.assSelectSearchItemVoList(userList);
+            }else{
+                SelectSearchItemVo selectSearchItemVo = new SelectSearchItemVo();
+                selectSearchItemVo.setText(userMapper.getUserByUserId(operator.getPlatformId()).getUsername());
+                selectSearchItemVo.setIdStr(operator.getPlatformId());
+                selectSearchItemVos.add(selectSearchItemVo);
+                return selectSearchItemVos;
+            }
+        }
+        //尝试为platform用户获取代理商列表
+        if(selectType.equals(CommonControllerConstants.SELECT_TYPE_AGENT)){
+            if(StringUtil.isEmpty(superCode)){
+                throw new BaseException(BaseResponseCode.COMMON_SELECT_TYPE_SUPER_CODE_NULL);
+            }
+            if(userLevel.equals(IsolationConstants.USER_LEVEL_PLATFORM) || userLevel.equals(IsolationConstants.USER_LEVEL_BOSS)){
+                List<User> userList = userMapper.getSubAgentSelectItemsForLevelPlatform(superCode);
+                return this.assSelectSearchItemVoList(userList);
+            }else{
+                SelectSearchItemVo selectSearchItemVo = new SelectSearchItemVo();
+                selectSearchItemVo.setText(userMapper.getUserByUserId(operator.getAgentId()).getUsername());
+                selectSearchItemVo.setIdStr(operator.getAgentId());
+                selectSearchItemVos.add(selectSearchItemVo);
+                return selectSearchItemVos;
+            }
+        }
+        //尝试为agent用户获取区域/组别列表
+        if(selectType.equals(CommonControllerConstants.SELECT_TYPE_GROUP)){
+            if(StringUtil.isEmpty(superCode)){
+                throw new BaseException(BaseResponseCode.COMMON_SELECT_TYPE_SUPER_CODE_NULL);
+            }
+            if(userLevel.equals(IsolationConstants.USER_LEVEL_AGENT) || userLevel.equals(IsolationConstants.USER_LEVEL_PLATFORM) || userLevel.equals(IsolationConstants.USER_LEVEL_BOSS)){
+                List<User> userList = userMapper.getSubGroupSelectItemsForLevelAgent(superCode);
+                return this.assSelectSearchItemVoList(userList);
+            }else{
+                SelectSearchItemVo selectSearchItemVo = new SelectSearchItemVo();
+                selectSearchItemVo.setText(userMapper.getUserByUserId(operator.getPlatformId()).getUsername());
+                selectSearchItemVo.setIdStr(operator.getGroupId());
+                selectSearchItemVos.add(selectSearchItemVo);
+                return selectSearchItemVos;
+            }
+        }
+        //尝试为group用户获取业务员
+        if(selectType.equals(CommonControllerConstants.SELECT_TYPE_SALESMAN)){
+            if(StringUtil.isEmpty(superCode)){
+                throw new BaseException(BaseResponseCode.COMMON_SELECT_TYPE_SUPER_CODE_NULL);
+            }
+            if(userLevel.equals(IsolationConstants.USER_LEVEL_GROUP) || userLevel.equals(IsolationConstants.USER_LEVEL_AGENT) || userLevel.equals(IsolationConstants.USER_LEVEL_PLATFORM) || userLevel.equals(IsolationConstants.USER_LEVEL_BOSS)){
+                List<User> userList = userMapper.getSubSalesmanSelectItemsForLevelGroup(superCode);
+                return this.assSelectSearchItemVoList(userList);
+            }else{
+                SelectSearchItemVo selectSearchItemVo = new SelectSearchItemVo();
+                selectSearchItemVo.setText(userMapper.getUserByUserId(operator.getPlatformId()).getUsername());
+                selectSearchItemVo.setIdStr(operator.getSalesmanId());
+                selectSearchItemVos.add(selectSearchItemVo);
+                return selectSearchItemVos;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 组装用户列表为下拉列表
+     * @param userList
+     * @return
+     */
+    private List<SelectSearchItemVo> assSelectSearchItemVoList(List<User> userList) {
+        List<SelectSearchItemVo> list = new ArrayList<>();
+        if(CollectionUtils.isEmpty(userList)){
+            return list;
+        }
+        for (User user: userList) {
+            SelectSearchItemVo selectSearchItemVo = new SelectSearchItemVo();
+            selectSearchItemVo.setText(user.getUsername());
+            selectSearchItemVo.setIdStr(user.getUserId());
+            list.add(selectSearchItemVo);
+        }
+        return list;
+    }
+
+    /**
      * 校验添加/更新参数
      * @param userQuery
      * @param isAdd
@@ -586,8 +828,9 @@ public class UserServiceImpl implements UserService {
             }
             UserQuery user = new UserQuery();
             user.setUsername(userQuery.getUsername());
-            List<User> userList = userMapper.getUserList(user);
-            if(CollectionUtils.isNotEmpty(userList)){
+            // 用户名查重
+            List<User> userRepeat = userMapper.getUserByUsername(userQuery.getUsername());
+            if(CollectionUtils.isNotEmpty(userRepeat)){
                 throw new BaseException(BaseResponseCode.USER_ADD_USERNAME_EXIST);
             }
             if(StringUtil.isEmpty(userQuery.getPassword())){

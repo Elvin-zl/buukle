@@ -171,7 +171,7 @@
     values (#{id,jdbcType=INTEGER}, #{url,jdbcType=VARCHAR}, #{moduleId,jdbcType=INTEGER}, 
       #{buttonName,jdbcType=VARCHAR}, #{operationType,jdbcType=INTEGER}, #{responseType,jdbcType=INTEGER}, 
       #{layoutLevel,jdbcType=INTEGER}, #{responseDomId,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, 
-      #{creatorCode,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR}, 
+      #{creatorCode,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR},
       #{modifierCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
       #{bak01,jdbcType=VARCHAR}, #{bak02,jdbcType=VARCHAR}, #{bak03,jdbcType=VARCHAR}, 
       #{bak04,jdbcType=VARCHAR}, #{bak05,jdbcType=VARCHAR})

@@ -1,17 +1,18 @@
 <div class="layui-tab layui-tab-brief" lay-filter="member">
-    <span style="color: red;margin-left: -120px;"> tips : 首先选择用户列表左方的复选框,选中想要移入当前组别的用户;然后点击[保存]按钮即可将选中的用户移入当前组别</span>
-    <div class="buukle-search-name">
-        <div class="form-span" style="float: inherit;margin-left: 8px; font-size: 17px;">当前组别 : </div>
-        <div class="form-span" style="float: inherit;font-size: 17px;" id="currentGroup">总部 </div>
+    <div>
+        <span style="color: red;margin-left: 9px;position: fixed;"> tips : 点击操作按钮对选中成员进行操作</span>
+        <div class="buukle-search-name">
+            <div class="form-span" style="float: inherit;margin-top: 30px;margin-left: 8px; font-size: 17px;position: fixed;">当前组别 : </div>
+            <div class="form-span" style="float: inherit;font-size: 17px;margin-left: 100px; margin-top: 30px;position: fixed;" id="currentGroup">加载中 </div>
+        </div>
+        <span class="layui-btn search-btn theme-btn" style="float: right;margin-left: 92%;position:fixed; margin-top: 1px;" id="delete" value="">操作</span>
+        <br/>
     </div>
-    <span class="layui-btn search-btn " style="float: right;margin-top: 20px;margin-right: 18px;" id="cancelMemberManage" value="">返回</span>
-    <span class="layui-btn search-btn theme-btn" style="float: right;margin-right: 16px;margin-top: 20px;" id="save" value="">保存</span>
-    <br/>
     <!--分割线-->
-    <hr style="border: 1px;margin-bottom: 30px;margin-top: 60px;" width="100%" color=#987cb9 size="1" />
-    <div class="layui-tab-content">
+    <hr style="border: 1px;margin-bottom: 30px;margin-top: 60px;position: fixed;" width="100%" color=#987cb9 size="1" />
+    <div class="layui-tab-content" style="margin-top: 105px;">
         <!--搜索条件-->
-        <form id="searchForm" class="buukle-data-form">
+        <form id="searchForm" class="buukle-data-form" style="position: fixed;z-index: 1; background-color: white;width: 1175px;border-bottom: 1px #e2e2e2 solid;">
             <div class="buukle-search-name">
                 <div class="form-span" style="float: inherit;">登录账号 : </div>
                 <div class="fuzzy-div">
@@ -44,7 +45,7 @@
             </div>
         </form>
         <!--数据列表-->
-        <div class="layui-tab-content">
+        <div class="layui-tab-content" style="margin-top: 66px;">
             <table id="memberTable" class="layui-table"></table>
         </div>
     </div>

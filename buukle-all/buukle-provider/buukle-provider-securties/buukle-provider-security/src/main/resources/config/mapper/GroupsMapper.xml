@@ -166,7 +166,7 @@
       bak03, bak04, bak05
       )
     values (#{id,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
-      #{creator,jdbcType=VARCHAR}, #{creatorCode,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, 
+      #{creator,jdbcType=VARCHAR}, #{creatorCode,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP},
       #{modifier,jdbcType=VARCHAR}, #{modifierCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, 
       #{status,jdbcType=INTEGER}, #{bak01,jdbcType=VARCHAR}, #{bak02,jdbcType=VARCHAR}, 
       #{bak03,jdbcType=VARCHAR}, #{bak04,jdbcType=VARCHAR}, #{bak05,jdbcType=VARCHAR}
@@ -419,7 +419,6 @@
     <!--start-->
     <select id="getUserGroupsByUserId" resultMap="BaseResultMap" parameterType="java.lang.String">
         select g.* from groups g,user_group ug where g.id = ug.group_id and ug.user_id = #{userId}
-        and ug.type = 1;
     </select>
     <select id="getGroupsList" resultMap="BaseResultMap" parameterType="java.util.Map">
         select <include refid="Base_Column_List" /> from groups where 1=1
@@ -432,7 +431,18 @@
         </if>
         order by gmt_modified DESC
     </select>
+    <select id="getGroupsListWithNoIsolation" resultMap="BaseResultMap" parameterType="java.util.Map">
+        select <include refid="Base_Column_List" /> from groups where 1=1
+        <include refid="Base_Column_where" />
+        <if test="startTime != null  and startTime !='' " >
+            and gmt_created &gt;= #{startTime}
+        </if>
+        <if test="endTime != null  and endTime !='' " >
+            and gmt_created &lt;= #{endTime}
+        </if>
+        order by gmt_modified DESC
+    </select>
     <select id="fuzzySearchByName" resultMap="BaseResultMap" parameterType="java.lang.String">
-        SELECT g.name FROM  groups g WHERE g.name LIKE #{fuzzyText};
+        SELECT name FROM  groups  WHERE name LIKE #{fuzzyText};
     </select>
 </mapper>

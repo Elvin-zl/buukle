@@ -32,7 +32,7 @@ function renderTable() {
                 ,{title: '创建时间', width: 160,templet: '<div><a href="javascript:;">{{formatDateTime(d.gmtCreated)}}</a></div>'}
                 ,{title: '更新时间', width: 160,templet: '<div><a href="javascript:;">{{formatDateTime(d.gmtModified)}}</a></div>'}
                 ,{title: '状态', width: 80,templet: '<div>{{formatStatus(d.status)}} </div>'}
-                ,{title: '操作',fixed: 'right', width:290, align:'center',templet: '<div>{{formatUserHandle(d.status,d.id,d.bak01)}} </div>'}
+                ,{title: '操作',fixed: 'right', width:290, align:'center',templet: '<div>{{formatUserHandle(d.status,d.id,d.bak01,"")}} </div>'}
             ]]
             ,limits: [10, 20, 30,50,100]
             ,limit: 10
@@ -126,6 +126,32 @@ function detail(data) {
         }else if(key=="gmtCreated" || key=="gmtModified"){
             $("#"+key).val(formatDateTime(data[key]));
             continue;
+        }else if(key=="roleLevel"){
+           var level= data[key];
+            if(level ==0){
+                $("#"+key).val('boss管理员');
+                continue;
+            }
+            if(level ==1){
+                $("#"+key).val('平台管理员');
+                continue;
+            }
+            if(level ==2){
+                $("#"+key).val('代理管理员');
+                continue;
+            }
+            if(level ==3){
+                $("#"+key).val('区域管理员');
+                continue;
+            }
+            if(level ==4){
+                $("#"+key).val('业务员');
+                continue;
+            }
+            if(level ==5){
+                $("#"+key).val('普通用户');
+                continue;
+            }
         }
         $("#"+key).val(data[key]);
     }

@@ -37,8 +37,8 @@ public class UserInfoCacheConstants {
 
     /** 指定菜单按钮信息cache前缀*/
     public static final String MODULE_BUTTON_LIST_KEY_PREFIX = "MODULE_BUTTON_LIST_KEY_PREFIX:";
-    /** 用户自动登录超时策略 _ 一周*/
+    /** 用户自动登录超时策略 : 一周*/
     public static final Integer USER_LOGIN_CACHE_STRATEGY_ONE_WEEK = 1;
-    /** 用户自动登录超时策略 _ 5分钟*/
+    /** 用户自动登录超时策略 : 5分钟*/
     public static final Integer USER_LOGIN_CACHE_STRATEGY_FIVE_MINUTES = 0;
 }

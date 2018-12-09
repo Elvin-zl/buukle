@@ -1,6 +1,7 @@
 package top.buukle.provider.security.dao;
 
 import org.apache.ibatis.annotations.Param;
+import top.buukle.common.annotation.DataIsolationAnnotation;
 import top.buukle.provider.security.entity.Groups;
 import top.buukle.provider.security.entity.GroupsExample;
 import top.buukle.provider.security.vo.query.GroupsQuery;
@@ -42,6 +43,7 @@ public interface GroupsMapper {
      * @param query
      * @return
      */
+    @DataIsolationAnnotation(tableName = "groups")
     List<Groups> getGroupsList(GroupsQuery query);
 
     /**
@@ -49,5 +51,13 @@ public interface GroupsMapper {
      * @param fuzzyText
      * @return
      */
+    @DataIsolationAnnotation(tableName = "groups")
     List<Groups> fuzzySearchByName(@Param("fuzzyText") String fuzzyText);
+
+    /**
+     * 获取全局组别列表
+     * @param groupsQuery
+     * @return
+     */
+    List<Groups> getGroupsListWithNoIsolation(GroupsQuery groupsQuery);
 }

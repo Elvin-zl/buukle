@@ -42,7 +42,7 @@
       bak05)
     values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=VARCHAR}, #{groupId,jdbcType=INTEGER}, 
       #{type,jdbcType=INTEGER}, #{creator,jdbcType=VARCHAR}, #{creatorCode,jdbcType=VARCHAR}, 
-      #{gmtCreated,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR}, #{modifierCode,jdbcType=VARCHAR}, 
+      #{gmtCreated,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR}, #{modifierCode,jdbcType=VARCHAR},
       #{gmtModified,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, #{bak01,jdbcType=VARCHAR}, 
       #{bak02,jdbcType=VARCHAR}, #{bak03,jdbcType=VARCHAR}, #{bak04,jdbcType=VARCHAR}, 
       #{bak05,jdbcType=VARCHAR})
@@ -220,4 +220,12 @@
       bak05 = #{bak05,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <!--start-->
+
+  <select id="getByUserId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from user_group
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </select>
 </mapper>

@@ -32,7 +32,7 @@ function renderTable() {
                 ,{title: '创建时间', width: 160,templet: '<div><a href="javascript:;">{{formatDateTime(d.gmtCreated)}}</a></div>'}
                 ,{title: '更新时间', width: 160,templet: '<div><a href="javascript:;">{{formatDateTime(d.gmtModified)}}</a></div>'}
                 ,{title: '状态', width: 80,templet: '<div>{{formatStatus(d.status)}} </div>'}
-                ,{title: '操作',fixed: 'right', width:290, align:'center',templet: '<div>{{formatUserHandle(d.status,d.userId,d.bak02)}} </div>'}
+                ,{title: '操作',fixed: 'right', width:290, align:'center',templet: '<div>{{formatUserHandle(d.status,d.userId,d.bak02,d.username)}} </div>'}
             ]]
             ,limits: [10, 20, 30,50,100]
             ,limit: 10
@@ -175,9 +175,31 @@ function edit(data) {
 }
 /*分配角色回调*/
 function setUserRole(data) {
-    //渲染用户角色
-    renderUserRoles(data);
+    $('#nameForSetUserRole').html($('#currentRecordName').val());
+    //初始化用户所选角色最低等级为100
+    var roleLevel = 100;
+    //渲染用户角色,并返回用户所选角色最高等级
+    roleLevel = renderUserRoles(data,roleLevel);
+    //维护所属关系
+    syncDisplayBelongingSelect(roleLevel);
+    //释放保存按钮
     releaseThis($('#doSetUserRole'));
+    //绑定角色点击事件,动态调整用户所属关系的展示
+    $('.selectRole').off().on('click',function () {
+        //重置用户所选角色最低等级为100
+        roleLevel = 100;
+        //筛选用户所选角色最高等级
+        $.each($('input:checkbox'),function(){
+            if(this.checked){
+               var thisLevel = $(this).attr('data-roleLevel');
+               if(thisLevel  < roleLevel){
+                   roleLevel = thisLevel;
+               }
+            }
+        });
+        //维护所属关系
+        syncDisplayBelongingSelect(roleLevel);
+    });
     //保存
     $('#doSetUserRole').off().on('click',function () {
         disableThis( $('#doSetUserRole'));
@@ -188,13 +210,12 @@ function setUserRole(data) {
             dataType:'json',
             data:$('#setUserRoleForm').serialize(),
             success:function (data) {
-                var code = data.code;
                 layui.use("layer",function () {
                     var layer = layui.layer;
                     var cancelB =  $("#cancelSetUserRole");
-                    if(code == "F"){
+                    if(data.status == "F"){
                         layer.msg(data.msg, {icon: 2});
-                        cancelB.click();
+                        releaseThis($('#doSetUserRole'));
                         return;
                     }
                     layer.msg(data.msg, {icon: 1});
@@ -204,13 +225,94 @@ function setUserRole(data) {
             }
         })
     })
+    /** 动态展示所属选项框*/
+    function syncDisplayBelongingSelect(roleLevel) {
+        //清空之前内容
+        $('#select-index-idStr-1').val('');
+        $('#select-index-idStr-2').val('');
+        $('#select-index-idStr-3').val('');
+        $('#select-index-idStr-4').val('');
+        //清空之前隐藏域
+        $('#select-index-1').val('');
+        $('#select-index-2').val('');
+        $('#select-index-3').val('');
+        $('#select-index-4').val('');
+        //boss 或 平台
+        $('#roleLevel').val(roleLevel);
+        if(roleLevel == 0 ||  roleLevel == 1){
+            $('#roleFirst').html('直属boss管辖');
+            $('#roleFirst').css('display','block');
+            $('.platform-belonging').hide();
+            $('.agent-belonging').hide();
+            $('.group-belonging').hide();
+            $('.salesman-belonging').hide();
+            return;
+        }
+        //代理
+        if(roleLevel == 2){
+            $('#roleFirst').css('display','none');
+            $('#roleFirst').html('');
+            $('.platform-belonging').show();
+            $('.agent-belonging').hide();
+            $('.group-belonging').hide();
+            $('.salesman-belonging').hide();
+            return;
+        }
+        //区域
+        if(roleLevel == 3){
+            $('#roleFirst').css('display','none');
+            $('#roleFirst').html('');
+            $('.platform-belonging').show();
+            $('.agent-belonging').show();
+            $('.group-belonging').hide();
+            $('.salesman-belonging').hide();
+            return;
+        }
+        //业务员
+        if(roleLevel == 4){
+            $('#roleFirst').css('display','none');
+            $('#roleFirst').html('');
+            $('.platform-belonging').show();
+            $('.agent-belonging').show();
+            $('.group-belonging').show();
+            $('.salesman-belonging').hide();
+            return;
+        }
+        //业务员
+        if(roleLevel == 5){
+            $('#roleFirst').css('display','none');
+            $('.platform-belonging').show();
+            $('.agent-belonging').show();
+            $('.group-belonging').show();
+            $('.salesman-belonging').show();
+            return;
+        }
+        //没有选择角色
+        if(roleLevel == 100){
+            $('#roleFirst').html('请选择角色!');
+            $('#roleFirst').css('display','block');
+            $('.platform-belonging').hide();
+            $('#select-index-idStr-1').val('');
+            $('.agent-belonging').hide();
+            $('#select-index-idStr-2').val('');
+            $('.group-belonging').hide();
+            $('#select-index-idStr-3').val('');
+            $('.salesman-belonging').hide();
+            $('#select-index-idStr-4').val('');
+            return;
+        }
+    }
 }
-/*渲染用户角色*/
-function renderUserRoles(data) {
+/* 渲染用户角色*/
+function renderUserRoles(data,roleLevel) {
     var html = '';
     for(var i = 0; i<data.length;i++){
         var checkVelue = data[i].isSelected == 1?'checked':'';
-     html +='<input class="clearAbleBuukle" style="margin-left: 25px;" '+checkVelue+' value="'+data[i].id+'" name="ids" type="checkbox">'+data[i].roleName;
+        if(data[i].isSelected && data[i].roleLevel  < roleLevel){
+            roleLevel = data[i].roleLevel;
+        }
+        html +='<input class="clearAbleBuukle selectRole" data-roleLevel="'+data[i].roleLevel+'" style="margin-left: 25px;" '+checkVelue+' value="'+data[i].id+'" name="ids" type="checkbox">'+data[i].roleName;
     }
     $('#roleListContains').html(html);
+    return roleLevel;
 }

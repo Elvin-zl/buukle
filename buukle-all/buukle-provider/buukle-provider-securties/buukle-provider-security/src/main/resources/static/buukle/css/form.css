@@ -230,7 +230,7 @@
 .fuzzy-item-div{
     position: absolute;
     z-index: 66666666;
-    border: 1px solid #66afe9;
+    border: 1px solid #898d996e;
     border-top: 0px;
     display: none;
     overflow: scroll;
@@ -243,8 +243,32 @@
     width: 120px;
     display: inline-table;
     background-color: whitesmoke;
+    cursor: pointer;
 }
 .buukle-save-cancel{
     margin-top: -106px;
     margin-left: 94px;
+}
+.select-input{
+    margin-top: 0px !important;
+}
+.select-item{
+    cursor: pointer;
+    background-color: whitesmoke;
+    text-align: center;!important;
+    width: 81%; !important;
+}
+.select-item-div{
+    position: absolute;
+    z-index: 66666666;
+    border: 1px solid #898d996e;
+    border-top: 0px;
+    display: none;
+    overflow: scroll;
+    height: 125px;
+    width: 163px;
+}
+.error-input{
+    display: none;
+    color: red;
 }

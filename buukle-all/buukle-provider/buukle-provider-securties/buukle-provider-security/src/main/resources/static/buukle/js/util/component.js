@@ -7,6 +7,8 @@ var dataBtnBox;
 function bindSearchConditionClick() {
     /*绑定模糊搜索*/
     bindFuzzySearchItemsClick();
+    /*绑定下拉框*/
+    bindSelectSearchItemsClick();
     //渲染日期控件
     renderDate();
     //绑定搜索按钮点击事件
@@ -90,7 +92,7 @@ function bindFuzzySearchItemsClick() {
     function genAdvertiseSearchItem(data,fuzzyIndex) {
         var html = '';
         for(var i = 0;i < data.length;i++){
-            html += '<div class="layui-form-label fuzzy-item">'+data[i].text+'</div>';
+            html += '<div class="layui-form-label fuzzy-item">'+data[i].text+'</div> ';
         }
         var indexArr = fuzzyIndex.split('-');
         var fuzzyDiv =  $('#fuzzy-items-index-'+indexArr[2]);
@@ -117,8 +119,101 @@ function bindFuzzySearchItemsClick() {
             $('.fuzzy-item-div').hide();
         })
     }
-    /*------------------------------------------------------------------------------------------*/
+}
 
+/*渲染下拉效果,事件*/
+function bindSelectSearchItemsClick() {
+    //隐藏列表框
+    $("body").click(function () {
+        $('.select-item-div').hide();
+    });
+    //初始化参数
+    var selectUrl = '';
+    var selectIndex = '';
+    var selectType = '';
+    var superCode = '';
+    //change事件
+    $('.select-input').on('click',function () {
+        selectUrl = $(this).attr('data-selectUrl');
+        selectIndex = $(this).attr('id');
+        selectType = $(this).attr('data-selectType');
+        superCode = $(this).attr('data-superCode');
+        //请求数据并生成搜索建议框
+        getSelectData(selectUrl,selectIndex,selectType,superCode,$(this));
+    });
+    //请求数据
+    function getSelectData(selectUrl, selectIndex,selectType,superCode,thisObj) {
+        if(selectType == ''){
+            return;
+        }
+        $.ajax({
+            url:selectUrl,
+            type:'post',
+            data:{"selectType":selectType,"superCode":superCode},
+            dataType:'json',
+            success:function (data) {
+                if(data.status == 'F'){
+                    thisObj.focus();
+                    addRedBorderClass(thisObj);
+                    layer.msg(data.msg);
+                    return;
+                }
+                //生成建议框
+                genAdvertiseSelectItem(data,selectIndex,selectType);
+            }
+        });
+    }
+    //生成建议框
+    function genAdvertiseSelectItem(data,selectIndex,selectType) {
+        var html = '';
+        for(var i = 0;i < data.length;i++){
+            html += '<div class="layui-form-label select-item" data-selectType='+selectType+' data-idStr="'+data[i].idStr+'" data-idInteger="'+data[i].idInteger+'">'+data[i].text+'</div>';
+        }
+        var indexArr = selectIndex.split('-');
+        var selectDiv =  $('#select-items-index-'+indexArr[2]);
+        selectDiv.html(html);
+        selectDiv.show();
+        //绑定下拉建议框事件
+        bindSelectSlidAndClick();
+    }
+    //绑定建议框事件
+    function bindSelectSlidAndClick() {
+        //划过效果
+        var selectItem =  $('.select-item');
+        selectItem.on('mouseover',function () {
+            this.style.cursor='hand';
+            $(this).css('background-color','#808693');
+        });
+        selectItem.on('mouseleave',function () {
+            $(this).css('background-color','whitesmoke');
+        });
+        //点击事件
+        selectItem.on('click',function () {
+            var selectIndex = $(this).parent().attr('data-selectIndex');
+            $('#select-index-'+selectIndex).val($(this).html());
+            var idStr = $(this).attr('data-idStr');
+            var idInteger = $(this).attr('data-idInteger');
+            $('#select-index-idStr-'+selectIndex).val(idStr);
+            $('#select-index-idInteger-'+selectIndex).val(idInteger);
+            $(this).parent().html('');
+            //点选platform时,为agent下拉框赋值superCode
+            if($(this).attr('data-selectType') == 1){
+                $('.selectType2').attr('data-superCode',idStr)
+                removeRedBorderClass($('.selectType2'));
+            }
+            //点选agent时,为group下拉框赋值superCode
+            if($(this).attr('data-selectType') == 2){
+                $('.selectType3').attr('data-superCode',idStr);
+                removeRedBorderClass($('.selectType3'));
+            }
+            //点选group时,为salesman下拉框赋值superCode
+            if($(this).attr('data-selectType') == 3){
+                $('.selectType4').attr('data-superCode',idStr);
+                removeRedBorderClass($('.selectType4'));
+            }
+            $('.select-item-div').hide();
+        })
+    }
 }
 
 /*渲染日期控件*/
@@ -192,52 +287,53 @@ function renderPageLevelButton() {
  * param  inputState : 当前记录的状态
  * param  id         : 当前记录的id
  * */
-function formatUserHandle(inputState,id,deleteLevel) {
+function formatUserHandle(inputState,id,deleteLevel,name) {
     var currentTabModuleId = parent.$(".layui-this").attr('lay-id');
     var tableBtnText = parent.$('#tableBtn-'+currentTabModuleId).val();
     var buttons =  JSON.parse(tableBtnText);
     var html = '';
+    name = (name == undefined || name == '') ? '' : name;
     for (var i = 0; i < buttons.length; i++) {
         // 1. 处理常规按钮渲染展示
         if(buttons[i].operationType != 4 && buttons[i].operationType != 5 && buttons[i].operationType != 6){
             //详情
             if(buttons[i].operationType == 3){
-                html += '<a class="layui-btn layui-btn-mini theme-btn buukle-table-btn" data-responseDomId="'+buttons[i].responseDomId+'" data-responseType="'+buttons[i].responseType+'" data-operationType="'+buttons[i].operationType+'" data-state="'+inputState+'" data-id="'+id+'" data-url="'+buttons[i].url+'">'+buttons[i].buttonName+'</a>'
+                html += '<a class="layui-btn layui-btn-mini theme-btn buukle-table-btn" data-name="'+name+'" data-responseDomId="'+buttons[i].responseDomId+'" data-responseType="'+buttons[i].responseType+'" data-operationType="'+buttons[i].operationType+'" data-state="'+inputState+'" data-id="'+id+'" data-url="'+buttons[i].url+'">'+buttons[i].buttonName+'</a>'
             }
             //修改
             else if(buttons[i].operationType == 2 && inputState != 4){
-                html += '<a class="layui-btn layui-btn-mini theme-btn buukle-table-btn" data-responseDomId="'+buttons[i].responseDomId+'" data-responseType="'+buttons[i].responseType+'" data-operationType="'+buttons[i].operationType+'" data-state="'+inputState+'" data-id="'+id+'" data-url="'+buttons[i].url+'">'+buttons[i].buttonName+'</a>'
+                html += '<a class="layui-btn layui-btn-mini theme-btn buukle-table-btn" data-name="'+name+'" data-responseDomId="'+buttons[i].responseDomId+'" data-responseType="'+buttons[i].responseType+'" data-operationType="'+buttons[i].operationType+'" data-state="'+inputState+'" data-id="'+id+'" data-url="'+buttons[i].url+'">'+buttons[i].buttonName+'</a>'
             }
             //删除
             else if(buttons[i].operationType == 1 && deleteLevel == 1){
-                html += '<a  class="layui-btn layui-btn-mini theme-btn buukle-table-btn" data-responseDomId="'+buttons[i].responseDomId+'" data-responseType="'+buttons[i].responseType+'" data-operationType="'+buttons[i].operationType+'" data-state="'+inputState+'" data-id="'+id+'" data-url="'+buttons[i].url+'">'+buttons[i].buttonName+'</a>'
+                html += '<a  class="layui-btn layui-btn-mini theme-btn buukle-table-btn" data-name="'+name+'" data-responseDomId="'+buttons[i].responseDomId+'" data-responseType="'+buttons[i].responseType+'" data-operationType="'+buttons[i].operationType+'" data-state="'+inputState+'" data-id="'+id+'" data-url="'+buttons[i].url+'">'+buttons[i].buttonName+'</a>'
             }
             //其他
             else if(inputState != 4){
-                html += '<a class="layui-btn layui-btn-mini theme-btn buukle-table-btn" data-responseDomId="'+buttons[i].responseDomId+'" data-responseType="'+buttons[i].responseType+'" data-operationType="'+buttons[i].operationType+'" data-state="'+inputState+'" data-id="'+id+'" data-url="'+buttons[i].url+'">'+buttons[i].buttonName+'</a>'
+                html += '<a class="layui-btn layui-btn-mini theme-btn buukle-table-btn" data-name="'+name+'" data-responseDomId="'+buttons[i].responseDomId+'" data-responseType="'+buttons[i].responseType+'" data-operationType="'+buttons[i].operationType+'" data-state="'+inputState+'" data-id="'+id+'" data-url="'+buttons[i].url+'">'+buttons[i].buttonName+'</a>'
             }
         }
         //2. 处理申请( [启用/解禁]...等)变更状态按钮动态展示
         else if( buttons[i].operationType == 4 && (inputState == 0 || inputState == 5) ){
             if(inputState == 0){
-                html += '<a style="background-color: #5f6b70;" class="layui-btn layui-btn-mini buukle-table-btn" data-responseDomId="'+buttons[i].responseDomId+'" data-responseType="'+buttons[i].responseType+'" data-operationType="'+buttons[i].operationType+'" data-state="'+inputState+'" data-id="'+id+'" data-url="'+buttons[i].url+'">'+buttons[i].buttonName+'</a>'
+                html += '<a style="background-color: #5f6b70;" class="layui-btn layui-btn-mini buukle-table-btn" data-name="'+name+'" data-responseDomId="'+buttons[i].responseDomId+'" data-responseType="'+buttons[i].responseType+'" data-operationType="'+buttons[i].operationType+'" data-state="'+inputState+'" data-id="'+id+'" data-url="'+buttons[i].url+'">'+buttons[i].buttonName+'</a>'
             }
             if(inputState == 5){
-                html += '<a style="background-color: #5f6b70;" class="layui-btn layui-btn-mini buukle-table-btn" data-responseDomId="'+buttons[i].responseDomId+'" data-responseType="'+buttons[i].responseType+'" data-operationType="'+buttons[i].operationType+'" data-state="'+inputState+'" data-id="'+id+'" data-url="'+buttons[i].url+'">重新申请</a>'
+                html += '<a style="background-color: #5f6b70;" class="layui-btn layui-btn-mini buukle-table-btn" data-name="'+name+'" data-responseDomId="'+buttons[i].responseDomId+'" data-responseType="'+buttons[i].responseType+'" data-operationType="'+buttons[i].operationType+'" data-state="'+inputState+'" data-id="'+id+'" data-url="'+buttons[i].url+'">重新申请</a>'
             }
         }
         //3. 处理( [审核] ...等)变更状态按钮动态展示
         else if(buttons[i].operationType == 5 && (inputState == 3 ||inputState == 4)){
-            html += '<a style="background-color: #5f6b70;" class="layui-btn layui-btn-mini buukle-table-btn" data-responseDomId="'+buttons[i].responseDomId+'" data-responseType="'+buttons[i].responseType+'" data-operationType="'+buttons[i].operationType+'" data-state="'+inputState+'" data-id="'+id+'" data-url="'+buttons[i].url+'">'+buttons[i].buttonName+'</a>'
+            html += '<a style="background-color: #5f6b70;" class="layui-btn layui-btn-mini buukle-table-btn" data-name="'+name+'" data-responseDomId="'+buttons[i].responseDomId+'" data-responseType="'+buttons[i].responseType+'" data-operationType="'+buttons[i].operationType+'" data-state="'+inputState+'" data-id="'+id+'" data-url="'+buttons[i].url+'">'+buttons[i].buttonName+'</a>'
         }
         //4. 处理 [启/停用] 按钮动态展示
         else if(buttons[i].operationType == 6 && deleteLevel == 1){
             if( (inputState == 3)){
                 html += ''
             }else if(inputState == 0 || inputState == 5){
-                html += '<a class="layui-btn layui-btn-mini buukle-table-btn theme-btn" data-responseType="'+buttons[i].responseType+'" data-operationType="'+buttons[i].operationType+'" data-state="'+inputState+'" data-id="'+id+'" data-url="'+buttons[i].url+'">解禁</a>'
+                html += '<a class="layui-btn layui-btn-mini buukle-table-btn theme-btn" data-name="'+name+'" data-responseType="'+buttons[i].responseType+'" data-operationType="'+buttons[i].operationType+'" data-state="'+inputState+'" data-id="'+id+'" data-url="'+buttons[i].url+'">解禁</a>'
             }else if(inputState == 1){
-                html += '<a class="layui-btn layui-btn-mini buukle-table-btn theme-btn" data-responseType="'+buttons[i].responseType+'" data-operationType="'+buttons[i].operationType+'" data-state="'+inputState+'" data-id="'+id+'" data-url="'+buttons[i].url+'">封禁</a>'
+                html += '<a class="layui-btn layui-btn-mini buukle-table-btn theme-btn" data-name="'+name+'" data-responseType="'+buttons[i].responseType+'" data-operationType="'+buttons[i].operationType+'" data-state="'+inputState+'" data-id="'+id+'" data-url="'+buttons[i].url+'">封禁</a>'
             }
         }
     }
@@ -256,6 +352,7 @@ function bindTableBtnsClick() {
     var status;
     var id ;
     var moduleName ;
+    var name;
 
     $('.buukle-table-btn').off().on('click',function () {
         $('.layui-layer-content').html('');
@@ -282,9 +379,14 @@ function bindTableBtnsClick() {
         id =  $(this).attr('data-id');
         //当前按钮名称
         moduleName = $(this).html();
+        //当前记录名称
+        name = $(this).attr('data-name');
         //缓存当前操作的id到隐藏域
         if(id != undefined && id != ''){
             $('#currentRecordId').val(id);
+        }
+        if(name != undefined && name != ''){
+            $('#currentRecordName').val(name);
         }
         //conform  确认框
         if(dataResponseType == 0 ){
@@ -366,9 +468,10 @@ function bindTableBtnsClick() {
             }
             return;
         }
-        //frame 弹层(加载其他列表)
+        //frame 弹层(加载其他列表页面)
         if(dataResponseType == 3 ){
             //清除弹框中上次操作的遗留数据
+            $('#currentRecordName').val(name);
             $('#'+ responseDomId  + 'Load').load(url);
             //弹出相应的弹层框
             var  width = '1200px';
@@ -461,12 +564,27 @@ function formatInputResponseType(inputResponseType) {
     }else if(inputResponseType == 3){
         return "弹层页加载其他列表";
     }
-
 }
 /*格式化复选框*/
-function formatCheckbox(inputId) {
-    // return '<input type="checkbox" name="" '+"data-id="+inputId+' lay-skin="primary" checked="">';
-    return '<input type="checkbox" name="" '+"data-id="+inputId+' lay-skin="primary">';
+function formatCheckboxWithStatus(inputId,isBelong) {
+    if(isBelong == '1'){
+        return '<input type="checkbox" class="buukle-checkbox" data-checked="1" checked="" data-id="'+inputId+'" lay-skin="primary">';
+    }
+    return '<input type="checkbox" class="buukle-checkbox" data-checked="0" data-id="'+inputId+'" lay-skin="primary">';
+}
+/*格式化复选框*/
+function formatCheckbox(inputId,inputUsername) {
+    return '<input type="checkbox" class="buukle-checkbox" data-checked="0" data-id="'+inputId+'" data-username="'+inputUsername+'" lay-skin="primary">';
+}
+/*格式化单选按钮*/
+function formatIsAdmin(inputId,isAdmin,inputUsername) {
+    var isChecked = "checked";
+    var redio = "_isAdmin";
+    if(isAdmin != '1'){
+        return ' 是 <input type="radio" name="'+inputId+redio+'" data-username="'+inputUsername+'" data-userId="'+inputId+'" class="buukle-isAdmin" value="'+inputId+'" lay-skin="primary" style="display: initial;"> 否 <input name="'+inputId+redio+'" type="radio" lay-skin="primary" checked style="display: initial;" value="-1"> ';
+    }else{
+        return ' 是 <input type="radio" name="'+inputId+redio+'" data-username="'+inputUsername+'" data-userId="'+inputId+'" class="buukle-isAdmin" value="'+inputId+'" checked lay-skin="primary" style="display: initial;"> 否 <input name="'+inputId+redio+'" type="radio" lay-skin="primary" style="display: initial;" value="-1"> ';
+    }
 }
 
 /*格式化用户文章列表状态值*/
@@ -581,4 +699,86 @@ function getZTreeSelected(setModuleZTreeObj) {
         ids = ids + nodes[i].id + ',';
     }
     return ids;
+}
+
+/*绑定复选框点击事件*/
+function bindCheckboxClick() {
+    //全选复选框点击事件
+    $('#checkAll').next().off().on('click',function () {
+        if($(this).attr('data-checked') == '1'){
+            $('.buukle-checkbox').attr('data-checked',"0");
+            $('.buukle-checkbox').next().removeClass('layui-form-checked');
+            var boxList = $('.buukle-checkbox');
+            for(var i=0;i<boxList.length;i++){
+                $(boxList[i]).next().removeClass('layui-form-checked');
+            }
+            $(this).attr('data-checked','0');
+            $(this).removeClass('layui-form-checked');
+        }else{
+            $('.buukle-checkbox').attr('data-checked',"1");
+            $('.buukle-checkbox').addClass('layui-form-checked');
+            var boxList = $('.buukle-checkbox');
+            for(var i=0;i<boxList.length;i++){
+                $(boxList[i]).next().addClass('layui-form-checked');
+            }
+            $(this).attr('data-checked','1');
+            $(this).addClass('layui-form-checked');
+
+        }
+
+    });
+
+    //复选框点击事件
+    $('.buukle-checkbox').next().off().on('click',function () {
+        if($(this).prev().attr('data-checked') == 1){
+            $(this).prev().attr('data-checked','0');
+            $(this).removeClass('layui-form-checked');
+            //控制全选按钮
+            $('#checkAll').attr('data-checked','0');
+            $('#checkAll').next().removeClass('layui-form-checked');
+
+        }else{
+            $(this).prev().attr('data-checked','1');
+            $(this).addClass('layui-form-checked');
+            //控制全选按钮
+            var boxList = $('.buukle-checkbox');
+            var isAllChecked = true;
+            for(var i=0;i<boxList.length;i++){
+                if($(boxList[i]).attr('data-checked') == 0){
+                    isAllChecked = false;
+                }
+            }
+            if(isAllChecked){
+                $('#checkAll').attr('data-checked','1');
+                $('#checkAll').next().addClass('layui-form-checked');
+            }
+        }
+    })
+}
+
+/*获取选中的复选框的id值*/
+function getCheckedIds() {
+    var boxList = $('.buukle-checkbox');
+    var idsArr = new Array;
+    for(var i=0 ;i<boxList.length;i++){
+        if($(boxList[i]).attr('data-checked') == '1'){
+            idsArr.push($(boxList[i]).attr('data-id'));
+        }
+    }
+    return idsArr;
+}
+/*获取管理员*/
+function getIsAdminIds() {
+    var listArr = $('.buukle-isAdmin');
+    var nameArr = new Array;
+    for(var i=0;i<listArr.length;i++){
+        nameArr.push($(listArr[i]).attr('data-userId')+"_isAdmin");
+    }
+    var isAdminIds = new Array;
+    for(var j = 0;j<nameArr.length;j++){
+        if($("input[name="+nameArr[j]+"]:checked").val() != '-1'){
+            isAdminIds.push($("input[name="+nameArr[j]+"]:checked").val());
+        }
+    }
+    return isAdminIds;
 }

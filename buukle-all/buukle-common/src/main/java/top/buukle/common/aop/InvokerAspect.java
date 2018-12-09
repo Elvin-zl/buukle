@@ -10,7 +10,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
-import top.buukle.common.annotation.InvokerLogging;
+import top.buukle.common.annotation.InvokerLoggingAnnotation;
 import top.buukle.common.util.common.StringUtil;
 import top.buukle.common.util.common.ThreadLocalUtil;
 import top.buukle.common.util.logger.BaseLogger;
@@ -35,13 +35,13 @@ public class InvokerAspect {
 
     @Before("pointcuts()")
     public void doBefore(JoinPoint joinPoint) throws ClassNotFoundException {
-        InvokerLogging annotation = ((MethodSignature) joinPoint.getSignature()).getMethod().getAnnotation(InvokerLogging.class);
+        InvokerLoggingAnnotation annotation = ((MethodSignature) joinPoint.getSignature()).getMethod().getAnnotation(InvokerLoggingAnnotation.class);
         if(null == annotation){
             this.logging(joinPoint);
             return;
         }
         String isLogging =  annotation.value();
-        if(StringUtil.isEmpty(isLogging) || isLogging.equals(InvokerLogging.PRINT_FALSE)){
+        if(StringUtil.isEmpty(isLogging) || isLogging.equals(InvokerLoggingAnnotation.PRINT_FALSE)){
             return;
         }
         this.logging(joinPoint);
