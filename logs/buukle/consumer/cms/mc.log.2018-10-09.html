@@ -1,0 +1,1562 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>Logback Log Messages</title>
+<style  type="text/css">
+table { margin-left: 2em; margin-right: 2em; border-left: 2px solid #AAA; }
+TR.even { background: #FFFFFF; }
+TR.odd { background: #EAEAEA; }
+TR.warn TD.Level, TR.error TD.Level, TR.fatal TD.Level {font-weight: bold; color: #FF4040 }
+TD { padding-right: 1ex; padding-left: 1ex; border-right: 2px solid #AAA; }
+TD.Time, TD.Date { text-align: right; font-family: courier, monospace; font-size: smaller; }
+TD.Thread { text-align: left; }
+TD.Level { text-align: right; }
+TD.Logger { text-align: left; }
+TR.header { background: #596ED5; color: #FFF; font-weight: bold; font-size: larger; }
+TD.Exception { background: #A2AEE8; font-family: courier, monospace;}
+</style>
+
+  </head>
+<body>
+<hr/>
+<p>Log session start time Tue Oct 09 10:18:44 CST 2018</p><p></p>
+
+<table cellspacing="0">
+<tr class="header">
+<td class="Level">Level</td>
+<td class="Date">Date</td>
+<td class="Message">Message</td>
+<td class="MethodOfCaller">MethodOfCaller</td>
+<td class="FileOfCaller">FileOfCaller</td>
+<td class="LineOfCaller">LineOfCaller</td>
+</tr>
+
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:45,091</td>
+<td class="Message">The following profiles are active: dev,dev-security</td>
+<td class="MethodOfCaller">logStartupProfileInfo</td>
+<td class="FileOfCaller">SpringApplication.java</td>
+<td class="LineOfCaller">684</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-09 10:18:48,821</td>
+<td class="Message">No URLs will be polled as dynamic configuration sources.</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">URLConfigurationSource.java</td>
+<td class="LineOfCaller">121</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:48,837</td>
+<td class="Message">To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">URLConfigurationSource.java</td>
+<td class="LineOfCaller">122</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:48,853</td>
+<td class="Message">DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@4235df</td>
+<td class="MethodOfCaller">getInstance</td>
+<td class="FileOfCaller">DynamicPropertyFactory.java</td>
+<td class="LineOfCaller">281</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:51,117</td>
+<td class="Message">top.buukle.plugin.security.plugins.SecurityInterceptor.getDefaultValueAndPrintLog(SecurityInterceptor.java:467)[sid:[currentId=1]] buukle-security :ApplicationName 配置没有找到,将使用默认值:default applicationName</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:51,117</td>
+<td class="Message">top.buukle.plugin.security.plugins.SecurityInterceptor.getDefaultValueAndPrintLog(SecurityInterceptor.java:467)[sid:[currentId=1]] buukle-security :DefaultMaxAge 配置没有找到,将使用默认值:300</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:51,117</td>
+<td class="Message">top.buukle.plugin.security.plugins.SecurityInterceptor.getDefaultValueAndPrintLog(SecurityInterceptor.java:467)[sid:[currentId=1]] buukle-security :SsoDomain 配置没有找到,将使用默认值:localhost</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:51,117</td>
+<td class="Message">top.buukle.plugin.security.plugins.SecurityInterceptor.getDefaultValueAndPrintLog(SecurityInterceptor.java:467)[sid:[currentId=1]] buukle-security :LoginOutStrategy 配置没有找到,将使用默认值:1</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:51,117</td>
+<td class="Message">top.buukle.plugin.security.plugins.SecurityInterceptor.getDefaultValueAndPrintLog(SecurityInterceptor.java:467)[sid:[currentId=1]] buukle-security :VerificationCodeKey 配置没有找到,将使用默认值:verificationCode</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:51,117</td>
+<td class="Message">top.buukle.plugin.security.plugins.SecurityInterceptor.getDefaultValueAndPrintLog(SecurityInterceptor.java:467)[sid:[currentId=1]] buukle-security :CaCheStrategyKey 配置没有找到,将使用默认值:caCheStrategy</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:51,117</td>
+<td class="Message">top.buukle.plugin.security.plugins.SecurityInterceptor.getDefaultValueAndPrintLog(SecurityInterceptor.java:467)[sid:[currentId=1]] buukle-security :OpenAuth 配置没有找到,将使用默认值:1</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:51,117</td>
+<td class="Message">top.buukle.plugin.security.plugins.SecurityInterceptor.getDefaultValueAndPrintLog(SecurityInterceptor.java:467)[sid:[currentId=1]] buukle-security :CloseVerification 配置没有找到,将使用默认值:0</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:51,117</td>
+<td class="Message">top.buukle.plugin.security.plugins.SecurityInterceptor.getDefaultValueAndPrintLog(SecurityInterceptor.java:467)[sid:[currentId=1]] buukle-security :VerificationImgPath 配置没有找到,将使用默认值:/getVerificationImg</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:51,117</td>
+<td class="Message">top.buukle.plugin.security.plugins.SecurityInterceptor.getDefaultValueAndPrintLog(SecurityInterceptor.java:467)[sid:[currentId=1]] buukle-security :DoLoginPath 配置没有找到,将使用默认值:/doLogin</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:51,117</td>
+<td class="Message">top.buukle.plugin.security.plugins.SecurityInterceptor.getDefaultValueAndPrintLog(SecurityInterceptor.java:467)[sid:[currentId=1]] buukle-security :LoginPath 配置没有找到,将使用默认值:/login</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:51,117</td>
+<td class="Message">top.buukle.plugin.security.plugins.SecurityInterceptor.getDefaultValueAndPrintLog(SecurityInterceptor.java:467)[sid:[currentId=1]] buukle-security :IndexPath 配置没有找到,将使用默认值:/index</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:51,117</td>
+<td class="Message">top.buukle.plugin.security.plugins.SecurityInterceptor.getDefaultValueAndPrintLog(SecurityInterceptor.java:467)[sid:[currentId=1]] buukle-security :OutOfTimePath 配置没有找到,将使用默认值:/outOfTime</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:51,117</td>
+<td class="Message">top.buukle.plugin.security.plugins.SecurityInterceptor.getDefaultValueAndPrintLog(SecurityInterceptor.java:467)[sid:[currentId=1]] buukle-security :NoPermissionPath 配置没有找到,将使用默认值:/noPermission</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:51,133</td>
+<td class="Message">top.buukle.plugin.security.plugins.SecurityInterceptor.getDefaultValueAndPrintLog(SecurityInterceptor.java:467)[sid:[currentId=1]] buukle-security :ErrorPagePath 配置没有找到,将使用默认值:/errors</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:51,133</td>
+<td class="Message">top.buukle.plugin.security.plugins.SecurityInterceptor.getDefaultValueAndPrintLog(SecurityInterceptor.java:467)[sid:[currentId=1]] buukle-security :LogoutPath 配置没有找到,将使用默认值:/logout</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:51,133</td>
+<td class="Message">top.buukle.plugin.security.plugins.SecurityInterceptor.getDefaultValueAndPrintLog(SecurityInterceptor.java:467)[sid:[currentId=1]] buukle-security :LoginViewName 配置没有找到,将使用默认值:login</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:51,133</td>
+<td class="Message">top.buukle.plugin.security.plugins.SecurityInterceptor.getDefaultValueAndPrintLog(SecurityInterceptor.java:467)[sid:[currentId=1]] buukle-security :IndexViewName 配置没有找到,将使用默认值:index</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:51,133</td>
+<td class="Message">top.buukle.plugin.security.plugins.SecurityInterceptor.getDefaultValueAndPrintLog(SecurityInterceptor.java:467)[sid:[currentId=1]] buukle-security :OutOfTimeViewName 配置没有找到,将使用默认值:outOfTime</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:51,133</td>
+<td class="Message">top.buukle.plugin.security.plugins.SecurityInterceptor.getDefaultValueAndPrintLog(SecurityInterceptor.java:467)[sid:[currentId=1]] buukle-security :noPermissionViewName 配置没有找到,将使用默认值:noPermission</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:51,133</td>
+<td class="Message">top.buukle.plugin.security.plugins.SecurityInterceptor.getDefaultValueAndPrintLog(SecurityInterceptor.java:467)[sid:[currentId=1]] buukle-security :ErrorPageViewName 配置没有找到,将使用默认值:error</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:51,133</td>
+<td class="Message">top.buukle.plugin.security.plugins.SecurityInterceptor.getDefaultValueAndPrintLog(SecurityInterceptor.java:467)[sid:[currentId=1]] buukle-security :LogoutViewName 配置没有找到,将使用默认值:index</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-09 10:18:51,164</td>
+<td class="Message">No URLs will be polled as dynamic configuration sources.</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">URLConfigurationSource.java</td>
+<td class="LineOfCaller">121</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:51,164</td>
+<td class="Message">To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">URLConfigurationSource.java</td>
+<td class="LineOfCaller">122</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:54,399</td>
+<td class="Message">Initializing Eureka in region us-east-1</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">349</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:54,867</td>
+<td class="Message">Using JSON encoding codec LegacyJacksonJson</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryJerseyProvider.java</td>
+<td class="LineOfCaller">70</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:54,867</td>
+<td class="Message">Using JSON decoding codec LegacyJacksonJson</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryJerseyProvider.java</td>
+<td class="LineOfCaller">71</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:55,024</td>
+<td class="Message">Using XML encoding codec XStreamXml</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryJerseyProvider.java</td>
+<td class="LineOfCaller">80</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:55,024</td>
+<td class="Message">Using XML decoding codec XStreamXml</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryJerseyProvider.java</td>
+<td class="LineOfCaller">81</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:55,446</td>
+<td class="Message">Disable delta property : false</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">958</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:55,446</td>
+<td class="Message">Single vip registry refresh property : null</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">959</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:55,446</td>
+<td class="Message">Force full registry fetch : false</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">960</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:55,446</td>
+<td class="Message">Application is null : false</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">961</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:55,446</td>
+<td class="Message">Registered Applications size is zero : true</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">962</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:55,446</td>
+<td class="Message">Application version is -1: true</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">964</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:55,446</td>
+<td class="Message">Getting all instance registry info from the eureka server</td>
+<td class="MethodOfCaller">getAndStoreFullRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">1047</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:55,883</td>
+<td class="Message">The response status is 200</td>
+<td class="MethodOfCaller">getAndStoreFullRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">1056</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:55,883</td>
+<td class="Message">Starting heartbeat executor: renew interval is: 30</td>
+<td class="MethodOfCaller">initScheduledTasks</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">1264</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:55,899</td>
+<td class="Message">InstanceInfoReplicator onDemand update allowed rate per min is 4</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">InstanceInfoReplicator.java</td>
+<td class="LineOfCaller">60</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:55,899</td>
+<td class="Message">Discovery Client initialized at timestamp 1539051535899 with initial instances count: 0</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">449</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:55,914</td>
+<td class="Message">Saw local status change event StatusChangeEvent [timestamp=1539051535914, current=UP, previous=STARTING]</td>
+<td class="MethodOfCaller">notify</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">1299</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:55,914</td>
+<td class="Message">DiscoveryClient_BUUKLE-CMS/ELVIN-WORK-PC:buukle-cms:9000: registering service...</td>
+<td class="MethodOfCaller">register</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">826</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:55,977</td>
+<td class="Message">Started CmsApplication in 12.555 seconds (JVM running for 13.171)</td>
+<td class="MethodOfCaller">logStarted</td>
+<td class="FileOfCaller">StartupInfoLogger.java</td>
+<td class="LineOfCaller">59</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:18:56,086</td>
+<td class="Message">DiscoveryClient_BUUKLE-CMS/ELVIN-WORK-PC:buukle-cms:9000 - registration status: 204</td>
+<td class="MethodOfCaller">register</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">835</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:19:25,899</td>
+<td class="Message">Disable delta property : false</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">958</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:19:25,899</td>
+<td class="Message">Single vip registry refresh property : null</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">959</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:19:25,899</td>
+<td class="Message">Force full registry fetch : false</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">960</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:19:25,899</td>
+<td class="Message">Application is null : false</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">961</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:19:25,899</td>
+<td class="Message">Registered Applications size is zero : true</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">962</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:19:25,899</td>
+<td class="Message">Application version is -1: false</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">964</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:19:25,899</td>
+<td class="Message">Getting all instance registry info from the eureka server</td>
+<td class="MethodOfCaller">getAndStoreFullRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">1047</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:19:25,992</td>
+<td class="Message">The response status is 200</td>
+<td class="MethodOfCaller">getAndStoreFullRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">1056</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:19:51,817</td>
+<td class="Message">{dataSource-1} inited</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">Log4j2Impl.java</td>
+<td class="LineOfCaller">106</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:19:51,895</td>
+<td class="Message">top.buukle.common.aop.InvokerAspect.logging(InvokerAspect.java:63)[sid:C443BA31561E977083D641561D826D77] com.sun.proxy.$Proxy133调用:/api/security/user/doLogin接口开始:</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:19:51,926</td>
+<td class="Message">top.buukle.common.aop.InvokerAspect.logging(InvokerAspect.java:64)[sid:C443BA31561E977083D641561D826D77] 请求参数:{&quot;expandParameterString&quot;:&quot;300&quot;,&quot;info&quot;:{&quot;loginStrategy&quot;:0,&quot;password&quot;:&quot;c4ca4238a0b923820dcc509a6f75849b&quot;,&quot;username&quot;:&quot;1&quot;},&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:1539051591864,&quot;operationId&quot;:&quot;-1&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;}}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:19:52,388</td>
+<td class="Message">Flipping property: buukle-security.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647</td>
+<td class="MethodOfCaller">checkAndFlip</td>
+<td class="FileOfCaller">ChainedDynamicProperty.java</td>
+<td class="LineOfCaller">115</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:19:52,419</td>
+<td class="Message">Shutdown hook installed for: NFLoadBalancer-PingTimer-buukle-security</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">ShutdownEnabledTimer.java</td>
+<td class="LineOfCaller">58</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:19:52,451</td>
+<td class="Message">Client: buukle-security instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=buukle-security,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null</td>
+<td class="MethodOfCaller">initWithConfig</td>
+<td class="FileOfCaller">BaseLoadBalancer.java</td>
+<td class="LineOfCaller">192</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:19:52,482</td>
+<td class="Message">Using serverListUpdater PollingServerListUpdater</td>
+<td class="MethodOfCaller">enableAndInitLearnNewServersFeature</td>
+<td class="FileOfCaller">DynamicServerListLoadBalancer.java</td>
+<td class="LineOfCaller">222</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:19:52,482</td>
+<td class="Message">DynamicServerListLoadBalancer for client buukle-security initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=buukle-security,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@183428e</td>
+<td class="MethodOfCaller">restOfInit</td>
+<td class="FileOfCaller">DynamicServerListLoadBalancer.java</td>
+<td class="LineOfCaller">150</td>
+</tr>
+
+<tr class="error even">
+<td class="Level">ERROR</td>
+<td class="Date">2018-10-09 10:19:52,669</td>
+<td class="Message">Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.RuntimeException: com.netflix.client.ClientException: Load balancer does not have available server for client: buukle-security] with root cause</td>
+<td class="MethodOfCaller">log</td>
+<td class="FileOfCaller">DirectJDKLog.java</td>
+<td class="LineOfCaller">182</td>
+</tr>
+<tr><td class="Exception" colspan="6">com.netflix.client.ClientException: Load balancer does not have available server for client: buukle-security
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.loadbalancer.LoadBalancerContext.getServerFromLoadBalancer(LoadBalancerContext.java:483)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.loadbalancer.reactive.LoadBalancerCommand$1.call(LoadBalancerCommand.java:184)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.loadbalancer.reactive.LoadBalancerCommand$1.call(LoadBalancerCommand.java:180)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.Observable.unsafeSubscribe(Observable.java:10327)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeConcatMap.call(OnSubscribeConcatMap.java:94)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeConcatMap.call(OnSubscribeConcatMap.java:42)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.Observable.subscribe(Observable.java:10423)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.Observable.subscribe(Observable.java:10390)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.observables.BlockingObservable.blockForSingle(BlockingObservable.java:443)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.observables.BlockingObservable.single(BlockingObservable.java:340)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.client.AbstractLoadBalancerAwareClient.executeWithLoadBalancer(AbstractLoadBalancerAwareClient.java:112)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.openfeign.ribbon.LoadBalancerFeignClient.execute(LoadBalancerFeignClient.java:63)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:97)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:76)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at feign.ReflectiveFeign$FeignInvocationHandler.invoke(ReflectiveFeign.java:103)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.proxy.$Proxy133.doLogin(Unknown Source)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Method.invoke(Method.java:498)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:197)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:56)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.aspectj.AspectJAfterAdvice.invoke(AspectJAfterAdvice.java:47)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:55)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.proxy.$Proxy134.doLogin(Unknown Source)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at top.buukle.plugin.security.business.impl.SecurityBusinessImpl.doLogin(SecurityBusinessImpl.java:84)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at top.buukle.plugin.security.business.impl.SecurityBusinessImpl.doLogin(SecurityBusinessImpl.java:63)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at top.buukle.plugin.security.business.impl.SecurityBusinessImpl$$FastClassBySpringCGLIB$$c872f3c6.invoke(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:294)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at top.buukle.plugin.security.business.impl.SecurityBusinessImpl$$EnhancerBySpringCGLIB$$c0dd0b4.doLogin(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at top.buukle.plugin.security.plugins.SecurityInterceptor.uriHandle(SecurityInterceptor.java:98)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at top.buukle.plugin.security.plugins.SecurityInterceptor.preHandle(SecurityInterceptor.java:61)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:136)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:986)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:877)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter.doFilterInternal(HttpTraceFilter.java:90)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:155)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:123)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:108)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:806)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.Thread.run(Thread.java:748)
+</td></tr>
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:20:23,512</td>
+<td class="Message">Flipping property: buukle-security.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647</td>
+<td class="MethodOfCaller">checkAndFlip</td>
+<td class="FileOfCaller">ChainedDynamicProperty.java</td>
+<td class="LineOfCaller">115</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:26:43,189</td>
+<td class="Message">top.buukle.common.aop.InvokerAspect.logging(InvokerAspect.java:63)[sid:C443BA31561E977083D641561D826D77] com.sun.proxy.$Proxy133调用:/api/security/user/doLogin接口开始:</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:26:43,189</td>
+<td class="Message">top.buukle.common.aop.InvokerAspect.logging(InvokerAspect.java:64)[sid:C443BA31561E977083D641561D826D77] 请求参数:{&quot;expandParameterString&quot;:&quot;300&quot;,&quot;info&quot;:{&quot;loginStrategy&quot;:0,&quot;password&quot;:&quot;c4ca4238a0b923820dcc509a6f75849b&quot;,&quot;username&quot;:&quot;1&quot;},&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:1539052003188,&quot;operationId&quot;:&quot;-1&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;}}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:26:44,325</td>
+<td class="Message">top.buukle.common.aop.InvokerAspect.doAfterReturnint(InvokerAspect.java:79)[sid:C443BA31561E977083D641561D826D77] com.sun.proxy.$Proxy133调用/api/security/user/doLogin接口结束:</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:26:44,335</td>
+<td class="Message">top.buukle.common.aop.InvokerAspect.doAfterReturnint(InvokerAspect.java:80)[sid:C443BA31561E977083D641561D826D77] 返回结果:{&quot;business&quot;:{&quot;dataList&quot;:[&quot;b246861bc14545ee8f1c08b5784df9e1&quot;],&quot;status&quot;:&quot;S&quot;},&quot;responseHead&quot;:{&quot;applicationName&quot;:&quot;SYSTEM&quot;,&quot;operationDatetime&quot;:1539052004240},&quot;status&quot;:&quot;S&quot;,&quot;success&quot;:true}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:26:44,340</td>
+<td class="Message">top.buukle.plugin.security.util.CookieUtil.addLocalCookieWithAWeekTime(CookieUtil.java:76)[sid:C443BA31561E977083D641561D826D77] 调用 CookieUtil addLocalCookieWithAWeekTime  接口，请求参数 domainHostAndPort： localhost</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:26:44,341</td>
+<td class="Message">top.buukle.plugin.security.util.CookieUtil.addLocalCookieWithAWeekTime(CookieUtil.java:79)[sid:C443BA31561E977083D641561D826D77] domian 值 ： domainlocalhost </td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:26:44,363</td>
+<td class="Message">top.buukle.plugin.security.plugins.SecurityInterceptor.sendJson(SecurityInterceptor.java:236)[sid:C443BA31561E977083D641561D826D77] 返回頁面信息: {&quot;business&quot;:{&quot;dataList&quot;:[&quot;b246861bc14545ee8f1c08b5784df9e1&quot;],&quot;status&quot;:&quot;S&quot;},&quot;responseHead&quot;:{&quot;applicationName&quot;:&quot;SYSTEM&quot;,&quot;operationDatetime&quot;:1539052004240},&quot;status&quot;:&quot;S&quot;,&quot;success&quot;:true}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:26:44,433</td>
+<td class="Message">top.buukle.common.aop.InvokerAspect.doAfterReturnint(InvokerAspect.java:79)[sid:C443BA31561E977083D641561D826D77] com.sun.proxy.$Proxy133调用/api/security/user/doLogin接口结束:</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 10:26:44,436</td>
+<td class="Message">top.buukle.common.aop.InvokerAspect.doAfterReturnint(InvokerAspect.java:80)[sid:C443BA31561E977083D641561D826D77] 返回结果:{&quot;business&quot;:{&quot;dataList&quot;:[{&quot;id&quot;:1,&quot;username&quot;:&quot;1&quot;,&quot;password&quot;:&quot;c4ca4238a0b923820dcc509a6f75849b&quot;,&quot;userId&quot;:&quot;1&quot;,&quot;milli&quot;:&quot;2018-09-13T20:28:26.000+0000&quot;,&quot;nameEn&quot;:&quot;张召忠&quot;}],&quot;status&quot;:&quot;S&quot;},&quot;responseHead&quot;:{&quot;applicationName&quot;:&quot;SYSTEM&quot;,&quot;operationDatetime&quot;:1539052004421},&quot;status&quot;:&quot;S&quot;,&quot;success&quot;:true}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 13:33:43,970</td>
+<td class="Message">top.buukle.common.aop.InvokerAspect.logging(InvokerAspect.java:63)[sid:B4E0EAC21A28FDA8E3C89DDE39C33EA5] com.sun.proxy.$Proxy133调用:/api/security/user/doLogin接口开始:</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 13:33:43,970</td>
+<td class="Message">top.buukle.common.aop.InvokerAspect.logging(InvokerAspect.java:64)[sid:B4E0EAC21A28FDA8E3C89DDE39C33EA5] 请求参数:{&quot;expandParameterString&quot;:&quot;300&quot;,&quot;info&quot;:{&quot;loginStrategy&quot;:0,&quot;password&quot;:&quot;c4ca4238a0b923820dcc509a6f75849b&quot;,&quot;username&quot;:&quot;1&quot;},&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:1539063223970,&quot;operationId&quot;:&quot;-1&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;}}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 13:33:44,189</td>
+<td class="Message">top.buukle.common.aop.InvokerAspect.doAfterReturnint(InvokerAspect.java:79)[sid:B4E0EAC21A28FDA8E3C89DDE39C33EA5] com.sun.proxy.$Proxy133调用/api/security/user/doLogin接口结束:</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 13:33:44,189</td>
+<td class="Message">top.buukle.common.aop.InvokerAspect.doAfterReturnint(InvokerAspect.java:80)[sid:B4E0EAC21A28FDA8E3C89DDE39C33EA5] 返回结果:{&quot;business&quot;:{&quot;dataList&quot;:[&quot;e863a9ffa9c54a41bd8a5746b02dab33&quot;],&quot;status&quot;:&quot;S&quot;},&quot;responseHead&quot;:{&quot;applicationName&quot;:&quot;SYSTEM&quot;,&quot;operationDatetime&quot;:1539063224173},&quot;status&quot;:&quot;S&quot;,&quot;success&quot;:true}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 13:33:44,189</td>
+<td class="Message">top.buukle.plugin.security.util.CookieUtil.addLocalCookieWithAWeekTime(CookieUtil.java:76)[sid:B4E0EAC21A28FDA8E3C89DDE39C33EA5] 调用 CookieUtil addLocalCookieWithAWeekTime  接口，请求参数 domainHostAndPort： localhost</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 13:33:44,189</td>
+<td class="Message">top.buukle.plugin.security.util.CookieUtil.addLocalCookieWithAWeekTime(CookieUtil.java:79)[sid:B4E0EAC21A28FDA8E3C89DDE39C33EA5] domian 值 ： domainlocalhost </td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 13:33:44,205</td>
+<td class="Message">top.buukle.plugin.security.plugins.SecurityInterceptor.sendJson(SecurityInterceptor.java:236)[sid:B4E0EAC21A28FDA8E3C89DDE39C33EA5] 返回頁面信息: {&quot;business&quot;:{&quot;dataList&quot;:[&quot;e863a9ffa9c54a41bd8a5746b02dab33&quot;],&quot;status&quot;:&quot;S&quot;},&quot;responseHead&quot;:{&quot;applicationName&quot;:&quot;SYSTEM&quot;,&quot;operationDatetime&quot;:1539063224173},&quot;status&quot;:&quot;S&quot;,&quot;success&quot;:true}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 13:45:36,153</td>
+<td class="Message">top.buukle.common.aop.InvokerAspect.logging(InvokerAspect.java:63)[sid:B4E0EAC21A28FDA8E3C89DDE39C33EA5] com.sun.proxy.$Proxy133调用:/api/security/user/doLogin接口开始:</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 13:45:36,155</td>
+<td class="Message">top.buukle.common.aop.InvokerAspect.logging(InvokerAspect.java:64)[sid:B4E0EAC21A28FDA8E3C89DDE39C33EA5] 请求参数:{&quot;expandParameterString&quot;:&quot;300&quot;,&quot;info&quot;:{&quot;loginStrategy&quot;:0,&quot;password&quot;:&quot;c4ca4238a0b923820dcc509a6f75849b&quot;,&quot;username&quot;:&quot;1&quot;},&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:1539063936153,&quot;operationId&quot;:&quot;-1&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;}}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 13:45:36,634</td>
+<td class="Message">top.buukle.common.aop.InvokerAspect.doAfterReturnint(InvokerAspect.java:79)[sid:B4E0EAC21A28FDA8E3C89DDE39C33EA5] com.sun.proxy.$Proxy133调用/api/security/user/doLogin接口结束:</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 13:45:36,634</td>
+<td class="Message">top.buukle.common.aop.InvokerAspect.doAfterReturnint(InvokerAspect.java:80)[sid:B4E0EAC21A28FDA8E3C89DDE39C33EA5] 返回结果:{&quot;business&quot;:{&quot;dataList&quot;:[&quot;21d4440a34574b798110992346c602f9&quot;],&quot;status&quot;:&quot;S&quot;},&quot;responseHead&quot;:{&quot;applicationName&quot;:&quot;SYSTEM&quot;,&quot;operationDatetime&quot;:1539063936603},&quot;status&quot;:&quot;S&quot;,&quot;success&quot;:true}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 13:45:36,634</td>
+<td class="Message">top.buukle.plugin.security.util.CookieUtil.addLocalCookieWithAWeekTime(CookieUtil.java:76)[sid:B4E0EAC21A28FDA8E3C89DDE39C33EA5] 调用 CookieUtil addLocalCookieWithAWeekTime  接口，请求参数 domainHostAndPort： localhost</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 13:45:36,650</td>
+<td class="Message">top.buukle.plugin.security.util.CookieUtil.addLocalCookieWithAWeekTime(CookieUtil.java:79)[sid:B4E0EAC21A28FDA8E3C89DDE39C33EA5] domian 值 ： domainlocalhost </td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 13:45:36,665</td>
+<td class="Message">top.buukle.plugin.security.plugins.SecurityInterceptor.sendJson(SecurityInterceptor.java:236)[sid:B4E0EAC21A28FDA8E3C89DDE39C33EA5] 返回頁面信息: {&quot;business&quot;:{&quot;dataList&quot;:[&quot;21d4440a34574b798110992346c602f9&quot;],&quot;status&quot;:&quot;S&quot;},&quot;responseHead&quot;:{&quot;applicationName&quot;:&quot;SYSTEM&quot;,&quot;operationDatetime&quot;:1539063936603},&quot;status&quot;:&quot;S&quot;,&quot;success&quot;:true}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 13:50:56,529</td>
+<td class="Message">top.buukle.common.aop.InvokerAspect.logging(InvokerAspect.java:63)[sid:B4E0EAC21A28FDA8E3C89DDE39C33EA5] com.sun.proxy.$Proxy133调用:/api/security/user/doLogin接口开始:</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 13:50:56,530</td>
+<td class="Message">top.buukle.common.aop.InvokerAspect.logging(InvokerAspect.java:64)[sid:B4E0EAC21A28FDA8E3C89DDE39C33EA5] 请求参数:{&quot;expandParameterString&quot;:&quot;300&quot;,&quot;info&quot;:{&quot;loginStrategy&quot;:0,&quot;password&quot;:&quot;c4ca4238a0b923820dcc509a6f75849b&quot;,&quot;username&quot;:&quot;1&quot;},&quot;requestHead&quot;:{&quot;applicationName&quot;:&quot;default applicationName&quot;,&quot;operationDatetime&quot;:1539064256528,&quot;operationId&quot;:&quot;-1&quot;,&quot;operationLoginName&quot;:&quot;authenticationOrLoginSystem&quot;}}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 13:50:57,932</td>
+<td class="Message">top.buukle.common.aop.InvokerAspect.doAfterReturnint(InvokerAspect.java:79)[sid:B4E0EAC21A28FDA8E3C89DDE39C33EA5] com.sun.proxy.$Proxy133调用/api/security/user/doLogin接口结束:</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 13:50:57,932</td>
+<td class="Message">top.buukle.common.aop.InvokerAspect.doAfterReturnint(InvokerAspect.java:80)[sid:B4E0EAC21A28FDA8E3C89DDE39C33EA5] 返回结果:{&quot;business&quot;:{&quot;dataList&quot;:[&quot;1e2f6fd611d9487180cac25af802a3d3&quot;],&quot;status&quot;:&quot;S&quot;},&quot;responseHead&quot;:{&quot;applicationName&quot;:&quot;SYSTEM&quot;,&quot;operationDatetime&quot;:1539064257900},&quot;status&quot;:&quot;S&quot;,&quot;success&quot;:true}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 13:50:57,932</td>
+<td class="Message">top.buukle.plugin.security.util.CookieUtil.addLocalCookieWithAWeekTime(CookieUtil.java:76)[sid:B4E0EAC21A28FDA8E3C89DDE39C33EA5] 调用 CookieUtil addLocalCookieWithAWeekTime  接口，请求参数 domainHostAndPort： localhost</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 13:50:57,932</td>
+<td class="Message">top.buukle.plugin.security.util.CookieUtil.addLocalCookieWithAWeekTime(CookieUtil.java:79)[sid:B4E0EAC21A28FDA8E3C89DDE39C33EA5] domian 值 ： domainlocalhost </td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-09 13:50:57,947</td>
+<td class="Message">top.buukle.plugin.security.plugins.SecurityInterceptor.sendJson(SecurityInterceptor.java:236)[sid:B4E0EAC21A28FDA8E3C89DDE39C33EA5] 返回頁面信息: {&quot;business&quot;:{&quot;dataList&quot;:[&quot;1e2f6fd611d9487180cac25af802a3d3&quot;],&quot;status&quot;:&quot;S&quot;},&quot;responseHead&quot;:{&quot;applicationName&quot;:&quot;SYSTEM&quot;,&quot;operationDatetime&quot;:1539064257900},&quot;status&quot;:&quot;S&quot;,&quot;success&quot;:true}</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="error even">
+<td class="Level">ERROR</td>
+<td class="Date">2018-10-09 13:51:04,989</td>
+<td class="Message">Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is feign.RetryableException: Read timed out executing POST http://buukle-security/api/security/user/authentication] with root cause</td>
+<td class="MethodOfCaller">log</td>
+<td class="FileOfCaller">DirectJDKLog.java</td>
+<td class="LineOfCaller">182</td>
+</tr>
+<tr><td class="Exception" colspan="6">java.net.SocketTimeoutException: Read timed out
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.SocketInputStream.socketRead0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.SocketInputStream.read(SocketInputStream.java:171)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.SocketInputStream.read(SocketInputStream.java:141)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.io.BufferedInputStream.read1(BufferedInputStream.java:286)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.io.BufferedInputStream.read(BufferedInputStream.java:345)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.net.www.http.HttpClient.parseHTTPHeader(HttpClient.java:735)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.net.www.http.HttpClient.parseHTTP(HttpClient.java:678)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1587)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1492)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:480)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at feign.Client$Default.convertResponse(Client.java:152)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at feign.Client$Default.execute(Client.java:74)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.openfeign.ribbon.FeignLoadBalancer.execute(FeignLoadBalancer.java:89)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.openfeign.ribbon.FeignLoadBalancer.execute(FeignLoadBalancer.java:55)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.client.AbstractLoadBalancerAwareClient$1.call(AbstractLoadBalancerAwareClient.java:104)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.loadbalancer.reactive.LoadBalancerCommand$3$1.call(LoadBalancerCommand.java:303)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.loadbalancer.reactive.LoadBalancerCommand$3$1.call(LoadBalancerCommand.java:287)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.util.ScalarSynchronousObservable$3.call(ScalarSynchronousObservable.java:231)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.util.ScalarSynchronousObservable$3.call(ScalarSynchronousObservable.java:228)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.Observable.unsafeSubscribe(Observable.java:10327)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeConcatMap$ConcatMapSubscriber.drain(OnSubscribeConcatMap.java:286)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeConcatMap$ConcatMapSubscriber.onNext(OnSubscribeConcatMap.java:144)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.loadbalancer.reactive.LoadBalancerCommand$1.call(LoadBalancerCommand.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.loadbalancer.reactive.LoadBalancerCommand$1.call(LoadBalancerCommand.java:180)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.Observable.unsafeSubscribe(Observable.java:10327)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeConcatMap.call(OnSubscribeConcatMap.java:94)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeConcatMap.call(OnSubscribeConcatMap.java:42)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.Observable.subscribe(Observable.java:10423)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.Observable.subscribe(Observable.java:10390)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.observables.BlockingObservable.blockForSingle(BlockingObservable.java:443)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.observables.BlockingObservable.single(BlockingObservable.java:340)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.client.AbstractLoadBalancerAwareClient.executeWithLoadBalancer(AbstractLoadBalancerAwareClient.java:112)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.openfeign.ribbon.LoadBalancerFeignClient.execute(LoadBalancerFeignClient.java:63)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:97)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:76)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at feign.ReflectiveFeign$FeignInvocationHandler.invoke(ReflectiveFeign.java:103)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.proxy.$Proxy133.authentication(Unknown Source)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.GeneratedMethodAccessor129.invoke(Unknown Source)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Method.invoke(Method.java:498)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:197)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:56)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.aspectj.AspectJAfterAdvice.invoke(AspectJAfterAdvice.java:47)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:55)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.proxy.$Proxy134.authentication(Unknown Source)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at top.buukle.plugin.security.business.impl.SecurityBusinessImpl.authentication(SecurityBusinessImpl.java:145)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at top.buukle.plugin.security.business.impl.SecurityBusinessImpl.authAndSetPermission(SecurityBusinessImpl.java:116)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at top.buukle.plugin.security.business.impl.SecurityBusinessImpl$$FastClassBySpringCGLIB$$c872f3c6.invoke(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:294)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at top.buukle.plugin.security.business.impl.SecurityBusinessImpl$$EnhancerBySpringCGLIB$$c0dd0b4.authAndSetPermission(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at top.buukle.plugin.security.plugins.SecurityInterceptor.permissionHandle(SecurityInterceptor.java:122)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at top.buukle.plugin.security.plugins.SecurityInterceptor.preHandle(SecurityInterceptor.java:66)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:136)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:986)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:866)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter.doFilterInternal(HttpTraceFilter.java:90)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:155)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:123)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:108)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:806)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.Thread.run(Thread.java:748)
+</td></tr>
+<tr class="error odd">
+<td class="Level">ERROR</td>
+<td class="Date">2018-10-09 13:51:09,427</td>
+<td class="Message">Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is feign.RetryableException: Read timed out executing POST http://buukle-security/api/security/user/authentication] with root cause</td>
+<td class="MethodOfCaller">log</td>
+<td class="FileOfCaller">DirectJDKLog.java</td>
+<td class="LineOfCaller">182</td>
+</tr>
+<tr><td class="Exception" colspan="6">java.net.SocketTimeoutException: Read timed out
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.SocketInputStream.socketRead0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.SocketInputStream.read(SocketInputStream.java:171)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.SocketInputStream.read(SocketInputStream.java:141)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.io.BufferedInputStream.read1(BufferedInputStream.java:286)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.io.BufferedInputStream.read(BufferedInputStream.java:345)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.net.www.http.HttpClient.parseHTTPHeader(HttpClient.java:735)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.net.www.http.HttpClient.parseHTTP(HttpClient.java:678)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1587)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1492)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:480)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at feign.Client$Default.convertResponse(Client.java:152)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at feign.Client$Default.execute(Client.java:74)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.openfeign.ribbon.FeignLoadBalancer.execute(FeignLoadBalancer.java:89)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.openfeign.ribbon.FeignLoadBalancer.execute(FeignLoadBalancer.java:55)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.client.AbstractLoadBalancerAwareClient$1.call(AbstractLoadBalancerAwareClient.java:104)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.loadbalancer.reactive.LoadBalancerCommand$3$1.call(LoadBalancerCommand.java:303)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.loadbalancer.reactive.LoadBalancerCommand$3$1.call(LoadBalancerCommand.java:287)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.util.ScalarSynchronousObservable$3.call(ScalarSynchronousObservable.java:231)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.util.ScalarSynchronousObservable$3.call(ScalarSynchronousObservable.java:228)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.Observable.unsafeSubscribe(Observable.java:10327)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeConcatMap$ConcatMapSubscriber.drain(OnSubscribeConcatMap.java:286)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeConcatMap$ConcatMapSubscriber.onNext(OnSubscribeConcatMap.java:144)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.loadbalancer.reactive.LoadBalancerCommand$1.call(LoadBalancerCommand.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.loadbalancer.reactive.LoadBalancerCommand$1.call(LoadBalancerCommand.java:180)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.Observable.unsafeSubscribe(Observable.java:10327)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeConcatMap.call(OnSubscribeConcatMap.java:94)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeConcatMap.call(OnSubscribeConcatMap.java:42)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.Observable.subscribe(Observable.java:10423)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.Observable.subscribe(Observable.java:10390)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.observables.BlockingObservable.blockForSingle(BlockingObservable.java:443)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.observables.BlockingObservable.single(BlockingObservable.java:340)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.client.AbstractLoadBalancerAwareClient.executeWithLoadBalancer(AbstractLoadBalancerAwareClient.java:112)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.openfeign.ribbon.LoadBalancerFeignClient.execute(LoadBalancerFeignClient.java:63)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:97)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:76)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at feign.ReflectiveFeign$FeignInvocationHandler.invoke(ReflectiveFeign.java:103)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.proxy.$Proxy133.authentication(Unknown Source)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.GeneratedMethodAccessor129.invoke(Unknown Source)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Method.invoke(Method.java:498)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:197)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:56)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.aspectj.AspectJAfterAdvice.invoke(AspectJAfterAdvice.java:47)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:55)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.proxy.$Proxy134.authentication(Unknown Source)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at top.buukle.plugin.security.business.impl.SecurityBusinessImpl.authentication(SecurityBusinessImpl.java:145)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at top.buukle.plugin.security.business.impl.SecurityBusinessImpl.authAndSetPermission(SecurityBusinessImpl.java:116)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at top.buukle.plugin.security.business.impl.SecurityBusinessImpl$$FastClassBySpringCGLIB$$c872f3c6.invoke(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:294)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at top.buukle.plugin.security.business.impl.SecurityBusinessImpl$$EnhancerBySpringCGLIB$$c0dd0b4.authAndSetPermission(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at top.buukle.plugin.security.plugins.SecurityInterceptor.permissionHandle(SecurityInterceptor.java:122)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at top.buukle.plugin.security.plugins.SecurityInterceptor.preHandle(SecurityInterceptor.java:66)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:136)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:986)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:877)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter.doFilterInternal(HttpTraceFilter.java:90)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:155)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:123)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:108)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:806)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.Thread.run(Thread.java:748)
+</td></tr>
+<tr class="error even">
+<td class="Level">ERROR</td>
+<td class="Date">2018-10-09 13:51:21,771</td>
+<td class="Message">Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is feign.RetryableException: Read timed out executing POST http://buukle-security/api/security/user/authentication] with root cause</td>
+<td class="MethodOfCaller">log</td>
+<td class="FileOfCaller">DirectJDKLog.java</td>
+<td class="LineOfCaller">182</td>
+</tr>
+<tr><td class="Exception" colspan="6">java.net.SocketTimeoutException: Read timed out
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.SocketInputStream.socketRead0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.SocketInputStream.read(SocketInputStream.java:171)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.SocketInputStream.read(SocketInputStream.java:141)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.io.BufferedInputStream.read1(BufferedInputStream.java:286)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.io.BufferedInputStream.read(BufferedInputStream.java:345)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.net.www.http.HttpClient.parseHTTPHeader(HttpClient.java:735)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.net.www.http.HttpClient.parseHTTP(HttpClient.java:678)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1587)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1492)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:480)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at feign.Client$Default.convertResponse(Client.java:152)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at feign.Client$Default.execute(Client.java:74)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.openfeign.ribbon.FeignLoadBalancer.execute(FeignLoadBalancer.java:89)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.openfeign.ribbon.FeignLoadBalancer.execute(FeignLoadBalancer.java:55)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.client.AbstractLoadBalancerAwareClient$1.call(AbstractLoadBalancerAwareClient.java:104)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.loadbalancer.reactive.LoadBalancerCommand$3$1.call(LoadBalancerCommand.java:303)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.loadbalancer.reactive.LoadBalancerCommand$3$1.call(LoadBalancerCommand.java:287)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.util.ScalarSynchronousObservable$3.call(ScalarSynchronousObservable.java:231)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.util.ScalarSynchronousObservable$3.call(ScalarSynchronousObservable.java:228)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.Observable.unsafeSubscribe(Observable.java:10327)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeConcatMap$ConcatMapSubscriber.drain(OnSubscribeConcatMap.java:286)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeConcatMap$ConcatMapSubscriber.onNext(OnSubscribeConcatMap.java:144)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.loadbalancer.reactive.LoadBalancerCommand$1.call(LoadBalancerCommand.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.loadbalancer.reactive.LoadBalancerCommand$1.call(LoadBalancerCommand.java:180)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.Observable.unsafeSubscribe(Observable.java:10327)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeConcatMap.call(OnSubscribeConcatMap.java:94)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeConcatMap.call(OnSubscribeConcatMap.java:42)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.Observable.subscribe(Observable.java:10423)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.Observable.subscribe(Observable.java:10390)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.observables.BlockingObservable.blockForSingle(BlockingObservable.java:443)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.observables.BlockingObservable.single(BlockingObservable.java:340)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.client.AbstractLoadBalancerAwareClient.executeWithLoadBalancer(AbstractLoadBalancerAwareClient.java:112)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.openfeign.ribbon.LoadBalancerFeignClient.execute(LoadBalancerFeignClient.java:63)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:97)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:76)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at feign.ReflectiveFeign$FeignInvocationHandler.invoke(ReflectiveFeign.java:103)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.proxy.$Proxy133.authentication(Unknown Source)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.GeneratedMethodAccessor129.invoke(Unknown Source)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Method.invoke(Method.java:498)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:197)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:56)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.aspectj.AspectJAfterAdvice.invoke(AspectJAfterAdvice.java:47)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:55)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.proxy.$Proxy134.authentication(Unknown Source)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at top.buukle.plugin.security.business.impl.SecurityBusinessImpl.authentication(SecurityBusinessImpl.java:145)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at top.buukle.plugin.security.business.impl.SecurityBusinessImpl.authAndSetPermission(SecurityBusinessImpl.java:116)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at top.buukle.plugin.security.business.impl.SecurityBusinessImpl$$FastClassBySpringCGLIB$$c872f3c6.invoke(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:294)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at top.buukle.plugin.security.business.impl.SecurityBusinessImpl$$EnhancerBySpringCGLIB$$c0dd0b4.authAndSetPermission(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at top.buukle.plugin.security.plugins.SecurityInterceptor.permissionHandle(SecurityInterceptor.java:122)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at top.buukle.plugin.security.plugins.SecurityInterceptor.preHandle(SecurityInterceptor.java:66)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:136)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:986)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:877)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter.doFilterInternal(HttpTraceFilter.java:90)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:155)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:123)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:108)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:806)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.Thread.run(Thread.java:748)
+</td></tr>
+<tr class="error odd">
+<td class="Level">ERROR</td>
+<td class="Date">2018-10-09 13:51:30,686</td>
+<td class="Message">Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is feign.RetryableException: Read timed out executing POST http://buukle-security/api/security/user/authentication] with root cause</td>
+<td class="MethodOfCaller">log</td>
+<td class="FileOfCaller">DirectJDKLog.java</td>
+<td class="LineOfCaller">182</td>
+</tr>
+<tr><td class="Exception" colspan="6">java.net.SocketTimeoutException: Read timed out
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.SocketInputStream.socketRead0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.SocketInputStream.read(SocketInputStream.java:171)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.SocketInputStream.read(SocketInputStream.java:141)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.io.BufferedInputStream.read1(BufferedInputStream.java:286)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.io.BufferedInputStream.read(BufferedInputStream.java:345)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.net.www.http.HttpClient.parseHTTPHeader(HttpClient.java:735)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.net.www.http.HttpClient.parseHTTP(HttpClient.java:678)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1587)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1492)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:480)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at feign.Client$Default.convertResponse(Client.java:152)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at feign.Client$Default.execute(Client.java:74)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.openfeign.ribbon.FeignLoadBalancer.execute(FeignLoadBalancer.java:89)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.openfeign.ribbon.FeignLoadBalancer.execute(FeignLoadBalancer.java:55)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.client.AbstractLoadBalancerAwareClient$1.call(AbstractLoadBalancerAwareClient.java:104)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.loadbalancer.reactive.LoadBalancerCommand$3$1.call(LoadBalancerCommand.java:303)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.loadbalancer.reactive.LoadBalancerCommand$3$1.call(LoadBalancerCommand.java:287)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.util.ScalarSynchronousObservable$3.call(ScalarSynchronousObservable.java:231)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.util.ScalarSynchronousObservable$3.call(ScalarSynchronousObservable.java:228)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.Observable.unsafeSubscribe(Observable.java:10327)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeConcatMap$ConcatMapSubscriber.drain(OnSubscribeConcatMap.java:286)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeConcatMap$ConcatMapSubscriber.onNext(OnSubscribeConcatMap.java:144)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.loadbalancer.reactive.LoadBalancerCommand$1.call(LoadBalancerCommand.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.loadbalancer.reactive.LoadBalancerCommand$1.call(LoadBalancerCommand.java:180)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.Observable.unsafeSubscribe(Observable.java:10327)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeConcatMap.call(OnSubscribeConcatMap.java:94)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeConcatMap.call(OnSubscribeConcatMap.java:42)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:48)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.internal.operators.OnSubscribeLift.call(OnSubscribeLift.java:30)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.Observable.subscribe(Observable.java:10423)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.Observable.subscribe(Observable.java:10390)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.observables.BlockingObservable.blockForSingle(BlockingObservable.java:443)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at rx.observables.BlockingObservable.single(BlockingObservable.java:340)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.client.AbstractLoadBalancerAwareClient.executeWithLoadBalancer(AbstractLoadBalancerAwareClient.java:112)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.openfeign.ribbon.LoadBalancerFeignClient.execute(LoadBalancerFeignClient.java:63)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:97)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:76)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at feign.ReflectiveFeign$FeignInvocationHandler.invoke(ReflectiveFeign.java:103)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.proxy.$Proxy133.authentication(Unknown Source)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.GeneratedMethodAccessor129.invoke(Unknown Source)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Method.invoke(Method.java:498)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:197)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:56)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.aspectj.AspectJAfterAdvice.invoke(AspectJAfterAdvice.java:47)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:55)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.proxy.$Proxy134.authentication(Unknown Source)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at top.buukle.plugin.security.business.impl.SecurityBusinessImpl.authentication(SecurityBusinessImpl.java:145)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at top.buukle.plugin.security.business.impl.SecurityBusinessImpl.authAndSetPermission(SecurityBusinessImpl.java:116)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at top.buukle.plugin.security.business.impl.SecurityBusinessImpl$$FastClassBySpringCGLIB$$c872f3c6.invoke(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:294)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at top.buukle.plugin.security.business.impl.SecurityBusinessImpl$$EnhancerBySpringCGLIB$$c0dd0b4.authAndSetPermission(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at top.buukle.plugin.security.plugins.SecurityInterceptor.permissionHandle(SecurityInterceptor.java:122)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at top.buukle.plugin.security.plugins.SecurityInterceptor.preHandle(SecurityInterceptor.java:66)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:136)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:986)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:877)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter.doFilterInternal(HttpTraceFilter.java:90)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:155)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:123)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:108)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:806)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.Thread.run(Thread.java:748)
+</td></tr>

@@ -2,9 +2,14 @@ package top.buukle.plugin.security.business;
 
 
 import top.buukle.common.response.BaseResponse;
+import top.buukle.plugin.security.entity.Button;
+import top.buukle.plugin.security.entity.ButtonType;
+import top.buukle.plugin.security.entity.User;
+import top.buukle.plugin.security.vo.response.ModuleNavigationVo;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * @Author elvin
@@ -21,7 +26,53 @@ public interface SecurityBusiness {
      */
     void logout(HttpServletRequest request, HttpServletResponse response);
 
+    /**
+     * 登录
+     * @param request
+     * @param response
+     * @return
+     * @throws Exception
+     */
     BaseResponse doLogin(HttpServletRequest request, HttpServletResponse response) throws Exception;
 
+    /**
+     * 鉴权
+     * @param request
+     * @param response
+     * @param uri
+     * @param ssoDefaultAge
+     * @param applicationName
+     * @return
+     * @throws Exception
+     */
     BaseResponse authAndSetPermission(HttpServletRequest request, HttpServletResponse response, String uri, String ssoDefaultAge, String applicationName) throws Exception;
+
+    /**
+     * 获取用户菜单信息
+     * @param httpServletRequest
+     * @return
+     */
+    List<ModuleNavigationVo> getUserModuleTree(HttpServletRequest httpServletRequest);
+
+    /**
+     * 获取用户信息
+     * @param request
+     * @return
+     */
+    User getUserInfo(HttpServletRequest request);
+
+    /**
+     * 获取全局按钮类型
+     * @return
+     */
+    List<ButtonType> getButtonTypes();
+
+
+    /**
+     * 获取菜单下的按钮
+     * @param request
+     * @param moduleId
+     * @return
+     */
+    List<Button> getModuleButtons(HttpServletRequest request, Integer moduleId);
 }

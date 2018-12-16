@@ -1,10 +1,7 @@
 package top.buukle.plugin.security.constants;
 
 import top.buukle.plugin.security.plugins.SecurityInterceptor;
-import top.buukle.plugin.security.vo.ViewNameParameters;
-
-import java.util.ArrayList;
-import java.util.List;
+import top.buukle.plugin.security.vo.parameter.ViewNameParameters;
 
 /**
  * @Author elvin

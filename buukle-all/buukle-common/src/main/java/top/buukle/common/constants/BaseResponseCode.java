@@ -69,6 +69,7 @@ public enum BaseResponseCode {
     ROLE_ADD_STATUS_NULL(BaseResponseCode.FAILURES, "010310","添加角色参数检验格式不通过,角色状态为空!" ),
     ROLE_EDIT_NAME_NULL(BaseResponseCode.FAILURES, "010311","更新角色参数检验格式不通过,角色名称为空!" ),
     ROLE_EDIT_STATUS_NULL(BaseResponseCode.FAILURES, "010312","更新角色参数检验格式不通过,角色状态为空!" ),
+    ROLE_ADD_ROLE_LEVEL_NULL(BaseResponseCode.FAILURES, "010313","添加角色参数检验格式不通过,角色级别为空!" ),
 
 
     // 用户操作返回码

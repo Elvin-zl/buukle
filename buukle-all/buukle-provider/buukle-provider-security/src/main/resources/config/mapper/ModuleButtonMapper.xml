@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.buukle.provider.security.dao.ModuleButtonMapper" >
+  <resultMap id="BaseResultMap" type="top.buukle.plugin.security.entity.ModuleButton" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="module_id" property="moduleId" jdbcType="INTEGER" />
+    <result column="button_id" property="buttonId" jdbcType="INTEGER" />
+    <result column="creator" property="creator" jdbcType="VARCHAR" />
+    <result column="creator_code" property="creatorCode" jdbcType="VARCHAR" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="modifier" property="modifier" jdbcType="VARCHAR" />
+    <result column="modifier_code" property="modifierCode" jdbcType="VARCHAR" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="bak01" property="bak01" jdbcType="VARCHAR" />
+    <result column="bak02" property="bak02" jdbcType="VARCHAR" />
+    <result column="bak03" property="bak03" jdbcType="VARCHAR" />
+    <result column="bak04" property="bak04" jdbcType="VARCHAR" />
+    <result column="bak05" property="bak05" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, module_id, button_id, creator, creator_code, gmt_created, modifier, modifier_code, 
+    gmt_modified, status, bak01, bak02, bak03, bak04, bak05
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from module_button
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from module_button
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="top.buukle.plugin.security.entity.ModuleButton" >
+    insert into module_button (id, module_id, button_id, 
+      creator, creator_code, gmt_created, 
+      modifier, modifier_code, gmt_modified, 
+      status, bak01, bak02, 
+      bak03, bak04, bak05
+      )
+    values (#{id,jdbcType=INTEGER}, #{moduleId,jdbcType=INTEGER}, #{buttonId,jdbcType=INTEGER}, 
+      #{creator,jdbcType=VARCHAR}, #{creatorCode,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP},
+      #{modifier,jdbcType=VARCHAR}, #{modifierCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{bak01,jdbcType=VARCHAR}, #{bak02,jdbcType=VARCHAR}, 
+      #{bak03,jdbcType=VARCHAR}, #{bak04,jdbcType=VARCHAR}, #{bak05,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="top.buukle.plugin.security.entity.ModuleButton" >
+    insert into module_button
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="moduleId != null" >
+        module_id,
+      </if>
+      <if test="buttonId != null" >
+        button_id,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="creatorCode != null" >
+        creator_code,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="modifier != null" >
+        modifier,
+      </if>
+      <if test="modifierCode != null" >
+        modifier_code,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="bak01 != null" >
+        bak01,
+      </if>
+      <if test="bak02 != null" >
+        bak02,
+      </if>
+      <if test="bak03 != null" >
+        bak03,
+      </if>
+      <if test="bak04 != null" >
+        bak04,
+      </if>
+      <if test="bak05 != null" >
+        bak05,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="moduleId != null" >
+        #{moduleId,jdbcType=INTEGER},
+      </if>
+      <if test="buttonId != null" >
+        #{buttonId,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorCode != null" >
+        #{creatorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null" >
+        #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifierCode != null" >
+        #{modifierCode,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="bak01 != null" >
+        #{bak01,jdbcType=VARCHAR},
+      </if>
+      <if test="bak02 != null" >
+        #{bak02,jdbcType=VARCHAR},
+      </if>
+      <if test="bak03 != null" >
+        #{bak03,jdbcType=VARCHAR},
+      </if>
+      <if test="bak04 != null" >
+        #{bak04,jdbcType=VARCHAR},
+      </if>
+      <if test="bak05 != null" >
+        #{bak05,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="top.buukle.plugin.security.entity.ModuleButton" >
+    update module_button
+    <set >
+      <if test="moduleId != null" >
+        module_id = #{moduleId,jdbcType=INTEGER},
+      </if>
+      <if test="buttonId != null" >
+        button_id = #{buttonId,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorCode != null" >
+        creator_code = #{creatorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null" >
+        modifier = #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifierCode != null" >
+        modifier_code = #{modifierCode,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="bak01 != null" >
+        bak01 = #{bak01,jdbcType=VARCHAR},
+      </if>
+      <if test="bak02 != null" >
+        bak02 = #{bak02,jdbcType=VARCHAR},
+      </if>
+      <if test="bak03 != null" >
+        bak03 = #{bak03,jdbcType=VARCHAR},
+      </if>
+      <if test="bak04 != null" >
+        bak04 = #{bak04,jdbcType=VARCHAR},
+      </if>
+      <if test="bak05 != null" >
+        bak05 = #{bak05,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="top.buukle.plugin.security.entity.ModuleButton" >
+    update module_button
+    set module_id = #{moduleId,jdbcType=INTEGER},
+      button_id = #{buttonId,jdbcType=INTEGER},
+      creator = #{creator,jdbcType=VARCHAR},
+      creator_code = #{creatorCode,jdbcType=VARCHAR},
+      gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      modifier = #{modifier,jdbcType=VARCHAR},
+      modifier_code = #{modifierCode,jdbcType=VARCHAR},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      bak01 = #{bak01,jdbcType=VARCHAR},
+      bak02 = #{bak02,jdbcType=VARCHAR},
+      bak03 = #{bak03,jdbcType=VARCHAR},
+      bak04 = #{bak04,jdbcType=VARCHAR},
+      bak05 = #{bak05,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <!--start-->
+  <delete id="deleteModuleButton" parameterType="java.lang.Integer" >
+    delete from module_button
+    where module_button.module_id = #{moduleId}
+  </delete>
+
+    <select id="getByButtonId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+        select * from module_button mb where mb.button_id = #{buttonId}
+    </select>
+</mapper>

@@ -2,22 +2,21 @@
 security:
   server:
     name: buukle-security
-  ## 指定 : 当前系统名称
-  applicationName:
+    url: http://security.buukle.top
   ## 指定 : 用户登录是否关闭验证码验证 1 : 关闭 无 : 开启
-  closeVerification:
+  closeVerification: 0
   ## 指定 :获取验证码path
-  verificationImgPath:
+  verificationImgPath: /getVerificationImg
   ## 指定 : 用户请求验证码参数名 key
-  verificationCodeKey:
+  verificationCodeKey: verificationCode
   ## 指定 : 自动登录策略参数名 key
-  caCheStrategyKey:
+  caCheStrategyKey: caCheStrategyKey
   ## 指定 : 缺醒自动登录时长(秒)
-  defaultMaxAge:
+  defaultMaxAge: 300000
   ## 指定 : 是否开启授权
-  openAuth:
+  openAuth: 1
   ## 指定 :sso domain
-  ssoDomain:
+  ssoDomain: buukle.top
   ## 指定 :执行登录path
   doLoginPath: /doLogin
   ## 指定 :登录页面路径path
@@ -33,7 +32,7 @@ security:
   ## 指定 :超时页面视图名ViewName
   outOfTimeViewName: outOfTime
   ## 指定 :越权页面路径path
-  noPermissionPath: /noPermission
+  noPermissionPath: /noPermissions
   ## 指定 :越权页面视图名ViewName
   noPermissionViewName: noPermissions
   ## 指定 :错误页面路径path

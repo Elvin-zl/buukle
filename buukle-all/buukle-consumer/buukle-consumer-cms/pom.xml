@@ -15,6 +15,16 @@
     </properties>
     <artifactId>buukle-consumer-cms</artifactId>
     <dependencies>
+        <!--_______________________________________ spring-boot-starter-web ___________________________________________-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--__________________________________________ eureka client __________________________________________________-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
         <!--__________________________________________ dataSource _____________________________________________________-->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
@@ -28,17 +38,13 @@
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
         </dependency>
+        <!--分页插件-->
         <dependency>
-            <groupId>com.github.miemiedev</groupId>
-            <artifactId>mybatis-paginator</artifactId>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.0.0</version>
         </dependency>
         <!--依赖buukle-security-->
-        <dependency>
-            <groupId>top.buukle</groupId>
-            <artifactId>buukle-plugin-security</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <!--依赖entity-->
         <dependency>
             <groupId>top.buukle</groupId>
             <artifactId>buukle-plugin-security</artifactId>

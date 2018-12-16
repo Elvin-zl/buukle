@@ -1,12 +1,10 @@
 package top.buukle.plugin.security.plugins;
 
 import com.alibaba.fastjson.JSON;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import top.buukle.common.constants.BaseResponseCode;
 import top.buukle.common.exception.BaseException;
 import top.buukle.common.response.BaseResponse;
-import top.buukle.common.util.RSA.SignUtil;
 import top.buukle.common.util.common.SpringEnvironmentUtil;
 import top.buukle.common.util.common.StringUtil;
 import top.buukle.common.util.logger.BaseLogger;
@@ -14,7 +12,7 @@ import top.buukle.plugin.security.business.SecurityBusiness;
 import top.buukle.plugin.security.constants.SecurityConstants;
 import top.buukle.plugin.security.util.RandomUtil;
 import top.buukle.plugin.security.util.VerificationCodeImageUtil;
-import top.buukle.plugin.security.vo.LoginParameters;
+import top.buukle.plugin.security.vo.parameter.LoginParameters;
 import top.buukle.plugin.security.util.CookieUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;

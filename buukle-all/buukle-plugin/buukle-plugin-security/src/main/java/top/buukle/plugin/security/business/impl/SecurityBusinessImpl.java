@@ -8,16 +8,20 @@ import top.buukle.common.response.BaseResponse;
 import top.buukle.common.util.common.StringUtil;
 import top.buukle.common.util.logger.BaseLogger;
 import top.buukle.plugin.security.constants.SecurityConstants;
-import top.buukle.provider.security.vo.query.UserLoginPermissionQuery;
+import top.buukle.plugin.security.entity.Button;
+import top.buukle.plugin.security.entity.ButtonType;
+import top.buukle.plugin.security.vo.query.UserLoginPermissionQuery;
 import top.buukle.plugin.security.business.SecurityBusiness;
 import top.buukle.plugin.security.invoker.SecurityInvoker;
 import top.buukle.plugin.security.plugins.SecurityInterceptor;
 import top.buukle.plugin.security.util.CookieUtil;
 import org.springframework.stereotype.Component;
-import top.buukle.provider.security.entity.User;
+import top.buukle.plugin.security.entity.User;
+import top.buukle.plugin.security.vo.response.ModuleNavigationVo;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * @Author elvin
@@ -127,6 +131,59 @@ public class SecurityBusinessImpl implements SecurityBusiness {
             baseResponse.setMsg(SecurityInterceptor.NO_PERMISSION_PATH);
         }
         return baseResponse;
+    }
+
+    /**
+     * 获取用户菜单树
+     * @param httpServletRequest
+     * @return
+     */
+    @Override
+    public List<ModuleNavigationVo> getUserModuleTree(HttpServletRequest httpServletRequest) {
+        //校验参数
+        String userCookie = this.validateAuthenticationParam(httpServletRequest,SecurityInterceptor.APPLICATION_NAME);
+        BaseRequest baseRequest = new BaseRequest.Builder().build(SecurityInterceptor.APPLICATION_NAME, SecurityInterceptor.APPLICATION_NAME);
+        baseRequest.setInfo(userCookie);
+        return securityInvoker.getUserModuleTree(baseRequest);
+    }
+
+    /**
+     * 获取用户信息
+     * @param request
+     * @return
+     */
+    @Override
+    public User getUserInfo(HttpServletRequest request) {
+        //校验参数
+        String userCookie = this.validateAuthenticationParam(request,SecurityInterceptor.APPLICATION_NAME);
+        BaseRequest baseRequest = new BaseRequest.Builder().build(SecurityInterceptor.APPLICATION_NAME, SecurityInterceptor.APPLICATION_NAME);
+        baseRequest.setInfo(userCookie);
+        return securityInvoker.getUserInfo(baseRequest);
+    }
+
+    /**
+     * 获取全局按钮类型
+     * @return
+     */
+    @Override
+    public List<ButtonType> getButtonTypes() {
+        BaseRequest baseRequest = new BaseRequest.Builder().build(SecurityInterceptor.APPLICATION_NAME, SecurityInterceptor.APPLICATION_NAME);
+        return securityInvoker.getButtonTypes(baseRequest);
+    }
+
+    /**
+     * 获取菜单下的按钮
+     * @param request
+     * @param moduleId
+     * @return
+     */
+    @Override
+    public List<Button> getModuleButtons(HttpServletRequest request, Integer moduleId) {
+        //校验参数
+        this.validateAuthenticationParam(request,SecurityInterceptor.APPLICATION_NAME);
+        BaseRequest baseRequest = new BaseRequest.Builder().build(SecurityInterceptor.APPLICATION_NAME, SecurityInterceptor.APPLICATION_NAME);
+        baseRequest.setInfo(moduleId);
+        return securityInvoker.getModuleButtons(baseRequest);
     }
 
     /**

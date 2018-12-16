@@ -27,7 +27,7 @@ function initLayUIconfig() {
 function getUserInfo() {
     $.ajax({
         async:false,
-        url:'/user/getUserInfo',
+        url:'/security/getUserInfo',
         type:'post',
         dataType:'json',
         success:function (data) {
@@ -54,7 +54,7 @@ function setThemeAppearance(userInfo) {
 function getUserModuleTree() {
     $.ajax({
         async:false,
-        url:'/module/getUserModuleTree',
+        url:'/security/getUserModuleTree',
         type:'post',
         dataType:'json',
         success:function (data) {
@@ -113,7 +113,7 @@ function renderModule() {
 /*获取全局按钮类别*/
 function getButtonTypes() {
     $.ajax({
-        url:'/button/getButtonTypes',
+        url:'/security/getButtonTypes',
         dataType:'text',
         type:'post',
         success:function (data) {

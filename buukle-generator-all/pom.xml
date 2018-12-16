@@ -8,10 +8,8 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>buukle-generator-mybatis</module>
-        <module>buukle-generator-html</module>
+        <module>buukle-generator-mybatisGUI</module>
         <module>buukle-generator-entityToDataBase</module>
-        <module>buukle-generator-artificial</module>
     </modules>
     <name>buukle-generators-all</name>
     <description>buukle project</description>

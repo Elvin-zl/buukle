@@ -31,7 +31,8 @@ springBoot[2.0.5.RELEASE]  +spring-cloud + mybatis[1.3.1]
 buukle-all\
 &nbsp;&nbsp;&nbsp;|---buukle-all\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---------buukle-common\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---------buukle-clould\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---------buukle-eureka\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---------buukle-gateway\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---------buukle-plugin\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -40,22 +41,6 @@ buukle-all\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|------buukle-plugin-security\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---------buukle-provider\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|------buukle-provider-entity\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|------buukle-provider-mc\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|------buukle-provider-securties\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|------buukle-provider-entities\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|------buukle-provider-security\
@@ -73,10 +58,8 @@ buukle-all\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---------buukle-consumer-album\
 &nbsp;&nbsp;&nbsp;|---buukle-generator-all\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---------buukle-generator-artificial\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---------buukle-generator-entityToDataBase\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---------buukle-generator-html\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---------buukle-generator-mybatis\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---------buukle-generator-mybatisGUI\
 
 ###2.2 buukle 项目总工程
 ````
@@ -108,24 +91,33 @@ buukle-all\
         其中也封装了jedis的一些功能工具模块,开发者可直接用工厂+ 模板类通过编写回调逻辑直接使用分布式锁等工具;
     ......
 ````
-###2.2.1.2 buukle-clould 程序注册监控管理云中心 (executable jar)
+###2.2.1.2 buukle-eureka 程序注册监控管理中心 (executable jar)
 
 ````
 此工程主要管理项目中所有的feign-Client服务状态 : 
-    <1>  通过clould集成提供的一些服务,监控和管理feign-client的活动;
+    <1>  通过cloud集成提供的一些服务,监控和管理各个应用的活动和状态;
         
 ````
-###2.2.1.3 buukle-plugin 插件工程(pom)
+###2.2.1.3 buukle-gateway 网关服务(executable jar)
+
+````
+    <1> 为网站提供入口服务
+    <2> 为网站访问提供监控服务
+    <3> 为网站访问提供熔断服务
+    <4> 为网站访问提供负载服务
+        .....
+````
+###2.2.1.4 buukle-plugin 插件工程(pom)
 
 ####此工程主要管理项目中所有的插件工具,目前主要分为以下两个工程(可根据需求扩展)
-####2.2.1.3.1 buukle-plugin-mq 消息插件
+####2.2.1.4.1 buukle-plugin-mq 消息插件
 
 ````
 此工程负责提供相应的消息工具,例如 :
     <1> 单点退出时,发通知广播其他应用及时下线;
     <2> 接受第三方异步通知的消息内容,并做后续处理
 ````
-####2.2.1.3.2 buukle-plugin-security 单点登陆&授权接入插件(jar)
+####2.2.1.4.2 buukle-plugin-security 单点登陆&授权接入插件(jar)
 ````
 此工程负责提供单点登录功能的接入 :
     <1> 该插件通过spring拦截器(inteceptor)实现,应用可通过配置相应的interceptor,传入指定的参数即可接入;
@@ -134,45 +126,37 @@ buukle-all\
 此工程负责提供认证授权功能 :
     <1> 该插件通过拦截请求,验证用户的cookie缓存的用户信息,并对uri作权限验证 
 ````
-###2.2.1.4 buukle-provider 生产者父工程 (pom)
+###2.2.1.5 buukle-provider 生产者父工程 (pom)
 
 此工程负责管理所有的生产者服务工程
 
-####2.2.1.4.1 buukle-provider-mc 管理中心服务工程 (executable jar)
+####2.2.1.5.2 buukle-provider-security 安全中心工程 (executable jar)
 ````
-此工程主要为项目提供后台数据处理服务,是一个纯粹的接口服务工程.
-    
-    1. 严格按照springboot规范来讲,是可以在每个为服务内部实现service层和dao层,做自己的数据服务.
-    但是有些模块,用到公用的service,dao层逻辑,这时候没有必要每个为微服务都实现业务层和数据层,
-    这时候就需要一个管理中心对接口进行统一的管理.
-    2. 提供全局验签服务
-````
-####2.2.1.4.2 buukle-provider-security 单点登录&授权服务工程 (executable jar)
-````
-此工程主要为项目提供单点登录数据处理服务以及缓存服务,是一个纯粹的接口服务工程.
-    此工程接收buukle-plugin-security 插件发送的请求,并对请求作相应的登录,认证,授权的处理.,于用户数据的采集和缓存.
+    1. 提供接口验签服务
+    2. 此工程主要为项目提供单点登录数据处理服务
+    3. 为应用,用户配置权限
+    4. 为请求作认证授权
 ````
 
-###2.2.1.5 buukle-consumer 消费者父工程 (pom)
+###2.2.1.6 buukle-consumer 消费者父工程 (pom)
 
 此工程负责管理所有的生产者服务工程
 
-####2.2.1.5.1 buukle-consumer-cms 用户管理系统(executable jar)
+####2.2.1.6.1 buukle-consumer-cms 内容管理系统(executable jar)
 ````
-此工程主要为项目提供用户后台管理服务
+此工程主要为项目提供内容后台管理服务
 
     不同身份角色的用户,通过不同的菜单按钮实现文章的发布,流程的控制
-    等功能,主要分为几个核心模块: 首页 | 文章管理 | 数据统计 | 权限管理 | 系统设置 等;分别
-    对应不同的功能流程;
+    等功能,主要分为几个核心模块: 首页 | 文章管理 | 数据统计 | 系统设置 等;分别对应不同的功能和流程;
 ````
-####2.2.1.5.2 buukle-consumer-portal 门户系统(executable jar)
+####2.2.1.6.2 buukle-consumer-portal 门户系统(executable jar)
 ````
  此工程主要为项目提供用户门户服务,未登录用户可通过门户完成 :
         
         1. 首页浏览推送轮播的文章推荐;
         2. 登录门进入门户.
 ````
-####2.2.1.5.3 buukle-consumer-article 文章系统(executable jar)
+####2.2.1.6.3 buukle-consumer-article 文章系统(executable jar)
 ````
  此工程主要为项目提供文章服务,用户可通过文章系统
  
@@ -184,30 +168,20 @@ buukle-all\
     6. 后台通过消息处理文章的访问数据等;
      
 ````
-####2.2.1.5.4 buukle-consumer-album 相册系统(executable jar)
+####2.2.1.6.4 buukle-consumer-album 相册系统(executable jar)
 ````
-
 此工程主要为项目提供相册服务
     暂时只对管理员开放,普通用户无法上传,只能浏览;(考虑到人工审核成本比较大,自动审核风险比较大,暂时不作开放)
 ````
-
 ###2.2.2 buukle-generator-all 布壳儿项目辅助工程(pom)
 
 此工程主要为主工程负责一些生成的服务
 
-####2.2.2.1 buukle-generator-artificial(jar)
-````
-此工程是辅助工程下的人工定制子项目,用于为其他生成项目提供需要改造的依赖逻辑jar文件;
-````
-####2.2.2.2 buukle-generator-entityToDataBase(main)
+####2.2.2.1 buukle-generator-entityToDataBase(main)
 ````
 此工程为主项目提供实体生成数据库的功能
 ````
-####2.2.2.3 buukle-generator-html(main)
-````    
-此工程为主项目提供页面模板文件
-````
-####2.2.2.4 buukle-generator-mybatis(main)
+####2.2.2.2 buukle-generator-mybatisGUI(main)
 ````    
 此工程为主项目提供生成mybatis资源文件
 ````

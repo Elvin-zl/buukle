@@ -7,10 +7,8 @@ import top.buukle.common.util.RSA.SignUtil;
 import top.buukle.common.util.logger.BaseLogger;
 import top.buukle.consumer.cms.constants.CmsPrivateKeyConstant;
 
-import static org.junit.Assert.assertEquals;
-
 /**
- * security 接口签名
+ * cms API接口签名
  */
 @Configuration
 public class SecuritySignInterceptor implements RequestInterceptor {
@@ -19,12 +17,12 @@ public class SecuritySignInterceptor implements RequestInterceptor {
 
     @Override
     public void apply(RequestTemplate requestTemplate) {
-        if(requestTemplate.url().equals("/api/security/user/doLogin") || requestTemplate.url().equals("/api/security/user/authentication") || requestTemplate.url().equals("/api/security/user/setPermission")){
+        if(requestTemplate.url().startsWith("/api/")){
             try {
                 requestTemplate.header(SignUtil.SECURITY_SIGN_KEY,SignUtil.sign(new String(requestTemplate.body()), CmsPrivateKeyConstant.SECURITY_API_PRIVATE_KEY));
             } catch (Exception e) {
                 e.printStackTrace();
-                LOGGER.info("签名异常!");
+                LOGGER.info("签名写入异常!");
             }
         }
     }

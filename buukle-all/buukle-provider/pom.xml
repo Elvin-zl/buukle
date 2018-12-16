@@ -11,9 +11,7 @@
     <artifactId>buukle-provider</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>buukle-provider-entity</module>
-        <module>buukle-provider-mc</module>
-        <module>buukle-provider-securties</module>
+        <module>buukle-provider-security</module>
     </modules>
     <dependencies>
         <!-- 依赖utils -->

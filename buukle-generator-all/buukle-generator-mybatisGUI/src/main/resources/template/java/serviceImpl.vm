@@ -1,0 +1,88 @@
+package $!table.get("basePackage") .service.impl;
+
+import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import top.buukle.common.vo.response.PageResponse;
+import top.buukle.plugin.security.vo.query.PageBounds;
+import top.buukle.plugin.security.vo.response.FuzzySearchListVo;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import org.apache.commons.collections.CollectionUtils;
+import java.util.ArrayList;
+import java.util.List;
+
+
+import $!table.get("basePackage") .service.${table.entityName}Service;
+import $!table.get("basePackage") .dao.${table.entityName}Mapper;
+import $!table.get("basePackage") .entity.${table.entityName};
+import $!table.get("basePackage") .entity.vo.${table.entityName}Query;
+
+@Service
+public class ${table.entityName}ServiceImpl implements ${table.entityName}Service{
+
+    @Autowired
+    ${table.entityName}Mapper mapper;
+
+    /**
+    * 分页获取列表
+    * @param query
+    * @param pageBounds
+    * @return
+    */
+    @Override
+    public PageResponse<${table.entityName}> get${table.entityName}List(${table.entityName}Query query, PageBounds pageBounds) {
+        PageHelper.startPage(pageBounds.getPage(), pageBounds.getLimit());
+        //List<${table.entityName}> list = mapper.get${table.entityName}List(query);
+        List<${table.entityName}> list = new ArrayList<>();
+        return new PageResponse.Builder().build(new PageInfo<>(list));
+    }
+
+    /**
+    * 模糊搜素
+    * @param fuzzyText
+    * @return
+    */
+    @Override
+    public List<FuzzySearchListVo> fuzzySearchByName(String fuzzyText) {
+        List<${table.entityName}> list = new ArrayList<>();
+        //List<${table.entityName}> list = mapper.fuzzySearchByName("%" + fuzzyText + "%");
+        List<FuzzySearchListVo> fuzzySearchListVos = new ArrayList<>();
+        //if(CollectionUtils.isNotEmpty(list)){
+        //    for (${table.entityName} item: list) {
+        //    FuzzySearchListVo fuzzySearchListVo = new FuzzySearchListVo();
+        //    fuzzySearchListVo.setText(item.getName());
+        //    fuzzySearchListVos.add(fuzzySearchListVo);
+        //    }
+        //}
+        return fuzzySearchListVos;
+    }
+
+    /**
+    * 插入单条数据
+    * @param record
+    */
+    @Override
+    public ${table.entityName} insert(${table.entityName} record) throws Exception{
+        mapper.insertSelective(record);
+        return record;
+    }
+
+    /**
+    * 更新单条数据
+    * @param record
+    */
+    @Override
+    public int update(${table.entityName} record) throws Exception{
+        return mapper.updateByPrimaryKey(record);
+    }
+
+    /**
+    * 删除单条数据
+    *
+    * @param id
+    */
+    @Override
+    public int deleteOne(Integer id) throws Exception{
+        return mapper.deleteByPrimaryKey(id);
+    }
+}

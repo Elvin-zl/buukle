@@ -2,22 +2,22 @@ package top.buukle.consumer.cms.constants;
 
 /**
  * @Author elvin
- * @Date Created by elvin on 2018/10/14.
- * @Description : 秘钥管理配置类 (暂时先这样用,后期优化成 springboot vault)
+ * @Date Created by elvin on 2018/12/15.
+ * @Description :
  */
 public class CmsPrivateKeyConstant {
 
     /** 调用 SECURITY_API 使用的私钥*/
-    public static final String SECURITY_API_PRIVATE_KEY = "MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAIH/3QhSEKtI10vnQiSPHM4ObTNy" +
-            "CnVTm8mYG0qTwoD5hGKrQh1OU400rz9S5MsORgDuEtf0jNR5aNp8AM32tQ+HYxjZCBZdwi9nASfS" +
-            "Uj3YbX/R4SH2hPoSCXcOZmU/HyL5qNK2hA+eLD9c3G1XjhxCD+uMF1zphcUeLqs2ax3hAgMBAAEC" +
-            "gYAgro6G9Pqz1RArSOxb/I6lTwMtF9KBRI+50r+ptBQGELSziZKJg5OFwGT+anySf/gha7jZCeYN" +
-            "1KgDpYEeRpOmA7pzv7PtEetGL9SMokNuxilU/ZLDouW9W+jZfCo0XbhcdvwISjALPivW64f91geu" +
-            "rSk4AAppj34m5jB7383VMQJBAMZvJ96MydYmgmbWuYKvsw99Cbcvh/WkDlyxgFgpovWK7+WvRn5c" +
-            "aIhgFQNABMp4arbpeKUReDzNV+BcJSeXf4sCQQCntluYmU5NrZLZV0v1w3dOj/Q5xef6JRiuGYrd" +
-            "Nfnp6s3YHZtJnThcGsT91LIrLF4fsVaaqgJab9v9Qc3WfcXDAkBvpEpCI+PK4I+tXFGy/Tc5F5hH" +
-            "wC42Pb7218bl00cj7q9aAmse3M7TK3unAHWxlF412tVNya5kRwOR70XYKJxRAkB7/bISS6U8gIsE" +
-            "7ClYdT6LcpoY7Fvo7+wjKvcjPHibm+C7WogoEHhOf+wLzWg7yv17aNyiU/aRbgmyXygS38GJAkA6" +
-            "OlRpMP1/NIEcCinuokmQSeIncXcVQvE+OAiHf3GJz5V3QYMTqpMDopj+FIPKBIyaqZyG+TuaRSiU" +
-            "5bbpnf5I";
+    public static final String SECURITY_API_PRIVATE_KEY = "MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAJpbIJa0CxL8mud4/FDjLOfRj14b" +
+            "60FyoBu91YVO8RJY3HMixT0h6OsqX5mQ72/5NfYOynwJuV3tgeZcCxlTi2NdStLoSyxPy7HhbPw4" +
+            "8nmpZY5Mc6pBMBm+O8CHhxME0YgOW7AS8Cec+iGT5/J5vhEKC9yfJVBJbqDjJtmx2tANAgMBAAEC" +
+            "gYEAgkfV+r0d97mTuTmJpXAJT+S1oFXqO8RW1PNmS+00VisAboFzfsSnRg3uwLvvDFCIthUH3KeM" +
+            "eHXlxRv9FjRImZFHUYu9h5NgGc6FVCr62l789NoLh/s5b7Wcipi7HKLsTGdxyD/c0Vje9pPytogi" +
+            "JJwkCUgjfWLmElnE+MNCX7UCQQDuwV+J47hW0TjpYrd0d2Oliy1t7EkWILtQUIsHvybS+KAHPPAW" +
+            "FluG1cZotAaDqYn5S8MDAhNBxPy1K5+wB+o3AkEApYEx7sHG6X/F6pvhzzCjQkillO1mYpg2Br/W" +
+            "snbF3En9sV719idX+sxRycNCVvXfZkYIllEO5VWZf7On9+Cl2wJAWDd87H8GgpWFuL4v2MmwON+G" +
+            "5qGyk4l+jHtmE3Ouja8tud7rOs4B/X0JdXBnI8jF4SX8JSVkJh353ZsDws/52wJABhyDL4HQSocB" +
+            "U+x1piTxolz0YE9z3Ggqdo1W7DgejkfdKlOLWY+SXBx3WK/xHyztFuW3I3XSyv0iMej8ZtbQyQJB" +
+            "AJPhpsDxjhqys/l6zt4UFJ9w/CsYMH6D0o1mdDFkFCeHgQENDZ8ochAtdm7FBHNH1J81YMqPkG4A" +
+            "pAtCDejPaG4=";
 }

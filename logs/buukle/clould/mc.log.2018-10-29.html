@@ -1,0 +1,1418 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>Logback Log Messages</title>
+<style  type="text/css">
+table { margin-left: 2em; margin-right: 2em; border-left: 2px solid #AAA; }
+TR.even { background: #FFFFFF; }
+TR.odd { background: #EAEAEA; }
+TR.warn TD.Level, TR.error TD.Level, TR.fatal TD.Level {font-weight: bold; color: #FF4040 }
+TD { padding-right: 1ex; padding-left: 1ex; border-right: 2px solid #AAA; }
+TD.Time, TD.Date { text-align: right; font-family: courier, monospace; font-size: smaller; }
+TD.Thread { text-align: left; }
+TD.Level { text-align: right; }
+TD.Logger { text-align: left; }
+TR.header { background: #596ED5; color: #FFF; font-weight: bold; font-size: larger; }
+TD.Exception { background: #A2AEE8; font-family: courier, monospace;}
+</style>
+
+  </head>
+<body>
+<hr/>
+<p>Log session start time Mon Oct 29 15:57:28 CST 2018</p><p></p>
+
+<table cellspacing="0">
+<tr class="header">
+<td class="Level">Level</td>
+<td class="Date">Date</td>
+<td class="Message">Message</td>
+<td class="MethodOfCaller">MethodOfCaller</td>
+<td class="FileOfCaller">FileOfCaller</td>
+<td class="LineOfCaller">LineOfCaller</td>
+</tr>
+
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 15:57:28,115</td>
+<td class="Message">The following profiles are active: dev</td>
+<td class="MethodOfCaller">logStartupProfileInfo</td>
+<td class="FileOfCaller">SpringApplication.java</td>
+<td class="LineOfCaller">684</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-29 15:57:33,237</td>
+<td class="Message">No URLs will be polled as dynamic configuration sources.</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">URLConfigurationSource.java</td>
+<td class="LineOfCaller">121</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 15:57:33,237</td>
+<td class="Message">To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">URLConfigurationSource.java</td>
+<td class="LineOfCaller">122</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 15:57:33,253</td>
+<td class="Message">DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@3d5dbf</td>
+<td class="MethodOfCaller">getInstance</td>
+<td class="FileOfCaller">DynamicPropertyFactory.java</td>
+<td class="LineOfCaller">281</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 15:57:35,206</td>
+<td class="Message">Initiating Jersey application, version &#39;Jersey: 1.19.1 03/11/2016 02:08 PM&#39;</td>
+<td class="MethodOfCaller">_initiate</td>
+<td class="FileOfCaller">WebApplicationImpl.java</td>
+<td class="LineOfCaller">815</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 15:57:35,315</td>
+<td class="Message">Using JSON encoding codec LegacyJacksonJson</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryJerseyProvider.java</td>
+<td class="LineOfCaller">70</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 15:57:35,331</td>
+<td class="Message">Using JSON decoding codec LegacyJacksonJson</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryJerseyProvider.java</td>
+<td class="LineOfCaller">71</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 15:57:35,503</td>
+<td class="Message">Using XML encoding codec XStreamXml</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryJerseyProvider.java</td>
+<td class="LineOfCaller">80</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 15:57:35,503</td>
+<td class="Message">Using XML decoding codec XStreamXml</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryJerseyProvider.java</td>
+<td class="LineOfCaller">81</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-29 15:57:36,018</td>
+<td class="Message">No URLs will be polled as dynamic configuration sources.</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">URLConfigurationSource.java</td>
+<td class="LineOfCaller">121</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 15:57:36,018</td>
+<td class="Message">To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">URLConfigurationSource.java</td>
+<td class="LineOfCaller">122</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 15:57:38,875</td>
+<td class="Message">Initializing Eureka in region us-east-1</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">349</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 15:57:38,875</td>
+<td class="Message">Client configured to neither register nor query for data.</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">352</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 15:57:38,891</td>
+<td class="Message">Discovery Client initialized at timestamp 1540799858891 with initial instances count: 0</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">365</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 15:57:38,953</td>
+<td class="Message">Initializing ...</td>
+<td class="MethodOfCaller">initialize</td>
+<td class="FileOfCaller">DefaultEurekaServerContext.java</td>
+<td class="LineOfCaller">63</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-29 15:57:38,953</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 15:57:38,984</td>
+<td class="Message">Initialized</td>
+<td class="MethodOfCaller">initialize</td>
+<td class="FileOfCaller">DefaultEurekaServerContext.java</td>
+<td class="LineOfCaller">70</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 15:57:39,391</td>
+<td class="Message">Got 1 instances from neighboring DS node</td>
+<td class="MethodOfCaller">openForTraffic</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">242</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 15:57:39,391</td>
+<td class="Message">Renew threshold is: 1</td>
+<td class="MethodOfCaller">openForTraffic</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">243</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 15:57:39,391</td>
+<td class="Message">Changing status to UP</td>
+<td class="MethodOfCaller">openForTraffic</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">254</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 15:57:39,422</td>
+<td class="Message">Started ClouldApplication in 12.901 seconds (JVM running for 13.932)</td>
+<td class="MethodOfCaller">logStarted</td>
+<td class="FileOfCaller">StartupInfoLogger.java</td>
+<td class="LineOfCaller">59</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-29 16:07:38,976</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 16:12:38,998</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-29 16:17:38,981</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-29 16:27:38,993</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 16:27:39,009</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-29 16:37:39,004</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 16:42:39,011</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-29 16:47:39,071</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 16:50:54,032</td>
+<td class="Message">Shutting down ...</td>
+<td class="MethodOfCaller">shutdown</td>
+<td class="FileOfCaller">DefaultEurekaServerContext.java</td>
+<td class="LineOfCaller">76</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 16:50:54,032</td>
+<td class="Message">Shut down</td>
+<td class="MethodOfCaller">shutdown</td>
+<td class="FileOfCaller">DefaultEurekaServerContext.java</td>
+<td class="LineOfCaller">79</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 16:50:54,048</td>
+<td class="Message">Shutting down DiscoveryClient ...</td>
+<td class="MethodOfCaller">shutdown</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">888</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 16:50:54,048</td>
+<td class="Message">Completed shut down of DiscoveryClient</td>
+<td class="MethodOfCaller">shutdown</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">911</td>
+</tr>
+</table>
+</body></html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>Logback Log Messages</title>
+<style  type="text/css">
+table { margin-left: 2em; margin-right: 2em; border-left: 2px solid #AAA; }
+TR.even { background: #FFFFFF; }
+TR.odd { background: #EAEAEA; }
+TR.warn TD.Level, TR.error TD.Level, TR.fatal TD.Level {font-weight: bold; color: #FF4040 }
+TD { padding-right: 1ex; padding-left: 1ex; border-right: 2px solid #AAA; }
+TD.Time, TD.Date { text-align: right; font-family: courier, monospace; font-size: smaller; }
+TD.Thread { text-align: left; }
+TD.Level { text-align: right; }
+TD.Logger { text-align: left; }
+TR.header { background: #596ED5; color: #FFF; font-weight: bold; font-size: larger; }
+TD.Exception { background: #A2AEE8; font-family: courier, monospace;}
+</style>
+
+  </head>
+<body>
+<hr/>
+<p>Log session start time Mon Oct 29 16:51:00 CST 2018</p><p></p>
+
+<table cellspacing="0">
+<tr class="header">
+<td class="Level">Level</td>
+<td class="Date">Date</td>
+<td class="Message">Message</td>
+<td class="MethodOfCaller">MethodOfCaller</td>
+<td class="FileOfCaller">FileOfCaller</td>
+<td class="LineOfCaller">LineOfCaller</td>
+</tr>
+
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 16:51:00,454</td>
+<td class="Message">The following profiles are active: dev</td>
+<td class="MethodOfCaller">logStartupProfileInfo</td>
+<td class="FileOfCaller">SpringApplication.java</td>
+<td class="LineOfCaller">684</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 16:51:04,467</td>
+<td class="Message">Initiating Jersey application, version &#39;Jersey: 1.19.1 03/11/2016 02:08 PM&#39;</td>
+<td class="MethodOfCaller">_initiate</td>
+<td class="FileOfCaller">WebApplicationImpl.java</td>
+<td class="LineOfCaller">815</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 16:51:04,514</td>
+<td class="Message">Using JSON encoding codec LegacyJacksonJson</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryJerseyProvider.java</td>
+<td class="LineOfCaller">70</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 16:51:04,514</td>
+<td class="Message">Using JSON decoding codec LegacyJacksonJson</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryJerseyProvider.java</td>
+<td class="LineOfCaller">71</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 16:51:04,514</td>
+<td class="Message">Using XML encoding codec XStreamXml</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryJerseyProvider.java</td>
+<td class="LineOfCaller">80</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 16:51:04,514</td>
+<td class="Message">Using XML decoding codec XStreamXml</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryJerseyProvider.java</td>
+<td class="LineOfCaller">81</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-29 16:51:04,782</td>
+<td class="Message">No URLs will be polled as dynamic configuration sources.</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">URLConfigurationSource.java</td>
+<td class="LineOfCaller">121</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 16:51:04,782</td>
+<td class="Message">To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">URLConfigurationSource.java</td>
+<td class="LineOfCaller">122</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 16:51:05,516</td>
+<td class="Message">Initializing Eureka in region us-east-1</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">349</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 16:51:05,516</td>
+<td class="Message">Client configured to neither register nor query for data.</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">352</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 16:51:05,516</td>
+<td class="Message">Discovery Client initialized at timestamp 1540803065516 with initial instances count: 0</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">365</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 16:51:05,547</td>
+<td class="Message">Initializing ...</td>
+<td class="MethodOfCaller">initialize</td>
+<td class="FileOfCaller">DefaultEurekaServerContext.java</td>
+<td class="LineOfCaller">63</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-29 16:51:05,547</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 16:51:05,547</td>
+<td class="Message">Initialized</td>
+<td class="MethodOfCaller">initialize</td>
+<td class="FileOfCaller">DefaultEurekaServerContext.java</td>
+<td class="LineOfCaller">70</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 16:51:05,688</td>
+<td class="Message">Got 1 instances from neighboring DS node</td>
+<td class="MethodOfCaller">openForTraffic</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">242</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 16:51:05,688</td>
+<td class="Message">Renew threshold is: 1</td>
+<td class="MethodOfCaller">openForTraffic</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">243</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 16:51:05,688</td>
+<td class="Message">Changing status to UP</td>
+<td class="MethodOfCaller">openForTraffic</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">254</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 16:51:05,704</td>
+<td class="Message">Started ClouldApplication in 5.578 seconds (JVM running for 3220.211)</td>
+<td class="MethodOfCaller">logStarted</td>
+<td class="FileOfCaller">StartupInfoLogger.java</td>
+<td class="LineOfCaller">59</td>
+</tr>
+
+<tr class="error even">
+<td class="Level">ERROR</td>
+<td class="Date">2018-10-29 16:57:39,091</td>
+<td class="Message">Cannot update renewal threshold</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">543</td>
+</tr>
+<tr><td class="Exception" colspan="6">org.springframework.beans.factory.BeanCreationException: Error creating bean with name &#39;org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration&#39;: Unexpected exception during bean creation; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type &#39;org.springframework.core.env.ConfigurableEnvironment&#39; available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:508)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:372)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1247)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1096)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:251)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1135)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1062)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:818)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolvePreparedArguments(ConstructorResolver.java:767)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:410)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1247)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1096)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$1(AbstractBeanFactory.java:353)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.getBean(GenericScope.java:390)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.context.scope.GenericScope.get(GenericScope.java:184)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:350)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.target.SimpleBeanTargetSource.getTarget(SimpleBeanTargetSource.java:35)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.proxy.$Proxy105.getApplications(Unknown Source)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl.updateRenewalThreshold(PeerAwareInstanceRegistryImpl.java:523)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl.access$000(PeerAwareInstanceRegistryImpl.java:92)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl$2.run(PeerAwareInstanceRegistryImpl.java:194)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.TimerThread.mainLoop(Timer.java:555)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.TimerThread.run(Timer.java:505)
+<br />Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type &#39;org.springframework.core.env.ConfigurableEnvironment&#39; available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1506)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1101)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1062)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:818)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolvePreparedArguments(ConstructorResolver.java:767)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:136)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1267)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1112)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;	... 36 common frames omitted
+</td></tr>
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-29 17:01:05,553</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 17:06:05,550</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-29 17:11:05,568</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="error even">
+<td class="Level">ERROR</td>
+<td class="Date">2018-10-29 17:12:39,039</td>
+<td class="Message">Cannot update renewal threshold</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">543</td>
+</tr>
+<tr><td class="Exception" colspan="6">org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name &#39;org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration&#39;: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type &#39;org.springframework.core.env.ConfigurableEnvironment&#39; available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:732)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:197)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1267)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1124)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:372)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1247)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1096)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:251)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1135)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1062)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:818)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolvePreparedArguments(ConstructorResolver.java:767)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:410)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1247)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1096)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$1(AbstractBeanFactory.java:353)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.getBean(GenericScope.java:390)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.context.scope.GenericScope.get(GenericScope.java:184)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:350)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.target.SimpleBeanTargetSource.getTarget(SimpleBeanTargetSource.java:35)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.proxy.$Proxy105.getApplications(Unknown Source)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl.updateRenewalThreshold(PeerAwareInstanceRegistryImpl.java:523)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl.access$000(PeerAwareInstanceRegistryImpl.java:92)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl$2.run(PeerAwareInstanceRegistryImpl.java:194)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.TimerThread.mainLoop(Timer.java:555)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.TimerThread.run(Timer.java:505)
+<br />Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type &#39;org.springframework.core.env.ConfigurableEnvironment&#39; available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1506)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1101)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1062)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:818)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:724)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;	... 41 common frames omitted
+</td></tr>
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 17:21:05,555</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-29 17:21:05,586</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="error odd">
+<td class="Level">ERROR</td>
+<td class="Date">2018-10-29 17:27:39,029</td>
+<td class="Message">Cannot update renewal threshold</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">543</td>
+</tr>
+<tr><td class="Exception" colspan="6">org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name &#39;org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration&#39;: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type &#39;org.springframework.core.env.ConfigurableEnvironment&#39; available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:732)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:197)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1267)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1124)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:372)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1247)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1096)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:251)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1135)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1062)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:818)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolvePreparedArguments(ConstructorResolver.java:767)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:410)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1247)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1096)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$1(AbstractBeanFactory.java:353)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.getBean(GenericScope.java:390)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.context.scope.GenericScope.get(GenericScope.java:184)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:350)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.target.SimpleBeanTargetSource.getTarget(SimpleBeanTargetSource.java:35)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.proxy.$Proxy105.getApplications(Unknown Source)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl.updateRenewalThreshold(PeerAwareInstanceRegistryImpl.java:523)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl.access$000(PeerAwareInstanceRegistryImpl.java:92)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl$2.run(PeerAwareInstanceRegistryImpl.java:194)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.TimerThread.mainLoop(Timer.java:555)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.TimerThread.run(Timer.java:505)
+<br />Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type &#39;org.springframework.core.env.ConfigurableEnvironment&#39; available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1506)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1101)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1062)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:818)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:724)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;	... 41 common frames omitted
+</td></tr>
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-29 17:31:05,590</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 17:36:05,555</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-29 17:41:05,605</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="error odd">
+<td class="Level">ERROR</td>
+<td class="Date">2018-10-29 17:42:39,037</td>
+<td class="Message">Cannot update renewal threshold</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">543</td>
+</tr>
+<tr><td class="Exception" colspan="6">org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name &#39;org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration&#39;: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type &#39;org.springframework.core.env.ConfigurableEnvironment&#39; available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:732)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:197)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1267)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1124)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:372)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1247)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1096)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:251)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1135)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1062)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:818)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolvePreparedArguments(ConstructorResolver.java:767)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:410)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1247)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1096)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$1(AbstractBeanFactory.java:353)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.getBean(GenericScope.java:390)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.context.scope.GenericScope.get(GenericScope.java:184)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:350)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.target.SimpleBeanTargetSource.getTarget(SimpleBeanTargetSource.java:35)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.proxy.$Proxy105.getApplications(Unknown Source)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl.updateRenewalThreshold(PeerAwareInstanceRegistryImpl.java:523)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl.access$000(PeerAwareInstanceRegistryImpl.java:92)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl$2.run(PeerAwareInstanceRegistryImpl.java:194)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.TimerThread.mainLoop(Timer.java:555)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.TimerThread.run(Timer.java:505)
+<br />Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type &#39;org.springframework.core.env.ConfigurableEnvironment&#39; available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1506)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1101)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1062)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:818)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:724)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;	... 41 common frames omitted
+</td></tr>
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 17:51:05,561</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-29 17:51:05,623</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="error even">
+<td class="Level">ERROR</td>
+<td class="Date">2018-10-29 17:57:39,048</td>
+<td class="Message">Cannot update renewal threshold</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">543</td>
+</tr>
+<tr><td class="Exception" colspan="6">org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name &#39;org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration&#39;: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type &#39;org.springframework.core.env.ConfigurableEnvironment&#39; available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:732)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:197)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1267)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1124)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:372)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1247)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1096)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:251)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1135)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1062)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:818)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolvePreparedArguments(ConstructorResolver.java:767)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:410)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1247)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1096)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$1(AbstractBeanFactory.java:353)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.getBean(GenericScope.java:390)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.context.scope.GenericScope.get(GenericScope.java:184)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:350)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.target.SimpleBeanTargetSource.getTarget(SimpleBeanTargetSource.java:35)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.proxy.$Proxy105.getApplications(Unknown Source)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl.updateRenewalThreshold(PeerAwareInstanceRegistryImpl.java:523)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl.access$000(PeerAwareInstanceRegistryImpl.java:92)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl$2.run(PeerAwareInstanceRegistryImpl.java:194)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.TimerThread.mainLoop(Timer.java:555)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.TimerThread.run(Timer.java:505)
+<br />Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type &#39;org.springframework.core.env.ConfigurableEnvironment&#39; available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1506)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1101)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1062)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:818)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:724)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;	... 41 common frames omitted
+</td></tr>
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-29 18:01:05,636</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 18:06:05,569</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-29 18:11:05,642</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="error even">
+<td class="Level">ERROR</td>
+<td class="Date">2018-10-29 18:12:39,077</td>
+<td class="Message">Cannot update renewal threshold</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">543</td>
+</tr>
+<tr><td class="Exception" colspan="6">org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name &#39;org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration&#39;: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type &#39;org.springframework.core.env.ConfigurableEnvironment&#39; available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:732)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:197)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1267)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1124)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:372)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1247)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1096)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:251)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1135)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1062)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:818)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolvePreparedArguments(ConstructorResolver.java:767)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:410)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1247)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1096)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$1(AbstractBeanFactory.java:353)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.getBean(GenericScope.java:390)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.context.scope.GenericScope.get(GenericScope.java:184)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:350)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.target.SimpleBeanTargetSource.getTarget(SimpleBeanTargetSource.java:35)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.proxy.$Proxy105.getApplications(Unknown Source)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl.updateRenewalThreshold(PeerAwareInstanceRegistryImpl.java:523)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl.access$000(PeerAwareInstanceRegistryImpl.java:92)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl$2.run(PeerAwareInstanceRegistryImpl.java:194)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.TimerThread.mainLoop(Timer.java:555)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.TimerThread.run(Timer.java:505)
+<br />Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type &#39;org.springframework.core.env.ConfigurableEnvironment&#39; available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1506)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1101)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1062)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:818)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:724)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;	... 41 common frames omitted
+</td></tr>
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 18:21:05,581</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-29 18:21:05,644</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="error odd">
+<td class="Level">ERROR</td>
+<td class="Date">2018-10-29 18:27:39,081</td>
+<td class="Message">Cannot update renewal threshold</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">543</td>
+</tr>
+<tr><td class="Exception" colspan="6">org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name &#39;org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration&#39;: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type &#39;org.springframework.core.env.ConfigurableEnvironment&#39; available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:732)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:197)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1267)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1124)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:372)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1247)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1096)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:251)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1135)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1062)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:818)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolvePreparedArguments(ConstructorResolver.java:767)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:410)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1247)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1096)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$1(AbstractBeanFactory.java:353)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.getBean(GenericScope.java:390)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.context.scope.GenericScope.get(GenericScope.java:184)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:350)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.target.SimpleBeanTargetSource.getTarget(SimpleBeanTargetSource.java:35)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.proxy.$Proxy105.getApplications(Unknown Source)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl.updateRenewalThreshold(PeerAwareInstanceRegistryImpl.java:523)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl.access$000(PeerAwareInstanceRegistryImpl.java:92)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl$2.run(PeerAwareInstanceRegistryImpl.java:194)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.TimerThread.mainLoop(Timer.java:555)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.TimerThread.run(Timer.java:505)
+<br />Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type &#39;org.springframework.core.env.ConfigurableEnvironment&#39; available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1506)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1101)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1062)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:818)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:724)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;	... 41 common frames omitted
+</td></tr>
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-29 18:31:05,660</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 18:36:05,588</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-29 18:41:05,675</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="error odd">
+<td class="Level">ERROR</td>
+<td class="Date">2018-10-29 18:42:39,084</td>
+<td class="Message">Cannot update renewal threshold</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">543</td>
+</tr>
+<tr><td class="Exception" colspan="6">org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name &#39;org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration&#39;: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type &#39;org.springframework.core.env.ConfigurableEnvironment&#39; available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:732)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:197)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1267)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1124)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:372)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1247)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1096)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:251)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1135)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1062)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:818)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolvePreparedArguments(ConstructorResolver.java:767)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:410)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1247)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1096)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$1(AbstractBeanFactory.java:353)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.getBean(GenericScope.java:390)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.context.scope.GenericScope.get(GenericScope.java:184)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:350)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.target.SimpleBeanTargetSource.getTarget(SimpleBeanTargetSource.java:35)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.proxy.$Proxy105.getApplications(Unknown Source)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl.updateRenewalThreshold(PeerAwareInstanceRegistryImpl.java:523)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl.access$000(PeerAwareInstanceRegistryImpl.java:92)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl$2.run(PeerAwareInstanceRegistryImpl.java:194)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.TimerThread.mainLoop(Timer.java:555)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.TimerThread.run(Timer.java:505)
+<br />Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type &#39;org.springframework.core.env.ConfigurableEnvironment&#39; available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1506)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1101)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1062)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:818)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:724)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;	... 41 common frames omitted
+</td></tr>
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 18:51:05,589</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-29 18:51:05,683</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="error even">
+<td class="Level">ERROR</td>
+<td class="Date">2018-10-29 18:57:39,098</td>
+<td class="Message">Cannot update renewal threshold</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">543</td>
+</tr>
+<tr><td class="Exception" colspan="6">org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name &#39;org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration&#39;: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type &#39;org.springframework.core.env.ConfigurableEnvironment&#39; available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:732)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:197)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1267)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1124)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:372)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1247)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1096)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:251)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1135)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1062)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:818)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolvePreparedArguments(ConstructorResolver.java:767)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:410)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1247)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1096)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$1(AbstractBeanFactory.java:353)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.getBean(GenericScope.java:390)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.context.scope.GenericScope.get(GenericScope.java:184)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:350)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.target.SimpleBeanTargetSource.getTarget(SimpleBeanTargetSource.java:35)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.proxy.$Proxy105.getApplications(Unknown Source)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl.updateRenewalThreshold(PeerAwareInstanceRegistryImpl.java:523)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl.access$000(PeerAwareInstanceRegistryImpl.java:92)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl$2.run(PeerAwareInstanceRegistryImpl.java:194)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.TimerThread.mainLoop(Timer.java:555)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.TimerThread.run(Timer.java:505)
+<br />Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type &#39;org.springframework.core.env.ConfigurableEnvironment&#39; available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1506)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1101)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1062)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:818)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:724)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;	... 41 common frames omitted
+</td></tr>
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-29 19:01:05,700</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 19:06:05,605</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-29 19:11:05,707</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="error even">
+<td class="Level">ERROR</td>
+<td class="Date">2018-10-29 19:12:39,103</td>
+<td class="Message">Cannot update renewal threshold</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">543</td>
+</tr>
+<tr><td class="Exception" colspan="6">org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name &#39;org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration&#39;: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type &#39;org.springframework.core.env.ConfigurableEnvironment&#39; available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:732)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:197)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1267)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1124)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:372)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1247)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1096)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:251)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1135)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1062)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:818)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolvePreparedArguments(ConstructorResolver.java:767)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:410)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1247)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1096)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$1(AbstractBeanFactory.java:353)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.getBean(GenericScope.java:390)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.context.scope.GenericScope.get(GenericScope.java:184)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:350)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.target.SimpleBeanTargetSource.getTarget(SimpleBeanTargetSource.java:35)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.proxy.$Proxy105.getApplications(Unknown Source)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl.updateRenewalThreshold(PeerAwareInstanceRegistryImpl.java:523)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl.access$000(PeerAwareInstanceRegistryImpl.java:92)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl$2.run(PeerAwareInstanceRegistryImpl.java:194)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.TimerThread.mainLoop(Timer.java:555)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.TimerThread.run(Timer.java:505)
+<br />Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type &#39;org.springframework.core.env.ConfigurableEnvironment&#39; available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1506)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1101)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1062)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:818)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:724)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;	... 41 common frames omitted
+</td></tr>
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 19:21:05,615</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-29 19:21:05,709</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="error odd">
+<td class="Level">ERROR</td>
+<td class="Date">2018-10-29 19:27:39,119</td>
+<td class="Message">Cannot update renewal threshold</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">543</td>
+</tr>
+<tr><td class="Exception" colspan="6">org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name &#39;org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration&#39;: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type &#39;org.springframework.core.env.ConfigurableEnvironment&#39; available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:732)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:197)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1267)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1124)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:372)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1247)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1096)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:251)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1135)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1062)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:818)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolvePreparedArguments(ConstructorResolver.java:767)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:410)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1247)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1096)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$1(AbstractBeanFactory.java:353)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.getBean(GenericScope.java:390)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.context.scope.GenericScope.get(GenericScope.java:184)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:350)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.target.SimpleBeanTargetSource.getTarget(SimpleBeanTargetSource.java:35)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.proxy.$Proxy105.getApplications(Unknown Source)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl.updateRenewalThreshold(PeerAwareInstanceRegistryImpl.java:523)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl.access$000(PeerAwareInstanceRegistryImpl.java:92)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl$2.run(PeerAwareInstanceRegistryImpl.java:194)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.TimerThread.mainLoop(Timer.java:555)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.TimerThread.run(Timer.java:505)
+<br />Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type &#39;org.springframework.core.env.ConfigurableEnvironment&#39; available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1506)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1101)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1062)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:818)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:724)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;	... 41 common frames omitted
+</td></tr>
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2018-10-29 19:31:05,714</td>
+<td class="Message">The replica size seems to be empty. Check the route 53 DNS Registry</td>
+<td class="MethodOfCaller">updatePeerEurekaNodes</td>
+<td class="FileOfCaller">PeerEurekaNodes.java</td>
+<td class="LineOfCaller">156</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2018-10-29 19:36:05,626</td>
+<td class="Message">Current renewal threshold is : 3</td>
+<td class="MethodOfCaller">updateRenewalThreshold</td>
+<td class="FileOfCaller">PeerAwareInstanceRegistryImpl.java</td>
+<td class="LineOfCaller">541</td>
+</tr>

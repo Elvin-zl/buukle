@@ -1,0 +1,30 @@
+package $!table.get("basePackage") .controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import top.buukle.plugin.security.vo.query.PageBounds;
+import top.buukle.common.vo.response.PageResponse;
+import $!table.get("basePackage") .service.${table.entityName}Service;
+import $!table.get("basePackage") .entity.${table.entityName};
+import $!table.get("basePackage") .entity.vo.${table.entityName}Query;
+
+@Controller
+public class ${table.entityName}Controller{
+
+    @Autowired
+    ${table.entityName}Service service;
+
+    /**
+    * 获取列表
+    * @return
+    * @throws Exception
+    */
+    @RequestMapping("/get${table.entityName}List")
+    @ResponseBody
+    public PageResponse<${table.entityName}> getUserList(${table.entityName}Query query,PageBounds pageBounds) throws Exception {
+        return service.get${table.entityName}List(query,pageBounds);
+    }
+
+}

@@ -1,0 +1,7 @@
+logs/
+.idea/
+*.iml
+data/
+/target
+dependency-reduced-pom.xml
+resources/mapper
