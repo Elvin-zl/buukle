@@ -1,51 +1,51 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="top.buukle.consumer.cms.dao.ArticleInfoMapper" >
-  <resultMap id="BaseResultMap" type="top.buukle.consumer.cms.entity.ArticleInfo" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="title" property="title" jdbcType="VARCHAR" />
-    <result column="like_number" property="likeNumber" jdbcType="BIGINT" />
-    <result column="ariticle_author" property="ariticleAuthor" jdbcType="VARCHAR" />
-    <result column="user_id" property="userId" jdbcType="VARCHAR" />
-    <result column="salesman_id" property="salesmanId" jdbcType="VARCHAR" />
-    <result column="group_id" property="groupId" jdbcType="VARCHAR" />
-    <result column="agent_id" property="agentId" jdbcType="VARCHAR" />
-    <result column="platform_id" property="platformId" jdbcType="VARCHAR" />
-    <result column="creator" property="creator" jdbcType="VARCHAR" />
-    <result column="creator_code" property="creatorCode" jdbcType="VARCHAR" />
-    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
-    <result column="modifier" property="modifier" jdbcType="VARCHAR" />
-    <result column="modifier_code" property="modifierCode" jdbcType="VARCHAR" />
-    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
-    <result column="status" property="status" jdbcType="INTEGER" />
-    <result column="bak01" property="bak01" jdbcType="VARCHAR" />
-    <result column="bak02" property="bak02" jdbcType="VARCHAR" />
-    <result column="bak03" property="bak03" jdbcType="VARCHAR" />
-    <result column="bak04" property="bak04" jdbcType="VARCHAR" />
-    <result column="bak05" property="bak05" jdbcType="VARCHAR" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.buukle.consumer.cms.dao.ArticleInfoMapper">
+  <resultMap id="BaseResultMap" type="top.buukle.consumer.cms.entity.ArticleInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="like_number" jdbcType="BIGINT" property="likeNumber" />
+    <result column="ariticle_author" jdbcType="VARCHAR" property="ariticleAuthor" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="salesman_id" jdbcType="VARCHAR" property="salesmanId" />
+    <result column="group_id" jdbcType="VARCHAR" property="groupId" />
+    <result column="agent_id" jdbcType="VARCHAR" property="agentId" />
+    <result column="platform_id" jdbcType="VARCHAR" property="platformId" />
+    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="creator_code" jdbcType="VARCHAR" property="creatorCode" />
+    <result column="gmt_created" jdbcType="TIMESTAMP" property="gmtCreated" />
+    <result column="modifier" jdbcType="VARCHAR" property="modifier" />
+    <result column="modifier_code" jdbcType="VARCHAR" property="modifierCode" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="bak01" jdbcType="VARCHAR" property="bak01" />
+    <result column="bak02" jdbcType="VARCHAR" property="bak02" />
+    <result column="bak03" jdbcType="VARCHAR" property="bak03" />
+    <result column="bak04" jdbcType="VARCHAR" property="bak04" />
+    <result column="bak05" jdbcType="VARCHAR" property="bak05" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="top.buukle.consumer.cms.entity.ArticleInfo" extends="BaseResultMap" >
-    <result column="images" property="images" jdbcType="LONGVARCHAR" />
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="top.buukle.consumer.cms.entity.ArticleInfo">
+    <result column="images" jdbcType="LONGVARCHAR" property="images" />
   </resultMap>
-  <sql id="Example_Where_Clause" >
-    <where >
-      <foreach collection="oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue" >
+                <when test="criterion.singleValue">
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue" >
+                <when test="criterion.betweenValue">
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue" >
+                <when test="criterion.listValue">
                   and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
                     #{listItem}
                   </foreach>
                 </when>
@@ -56,25 +56,25 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Update_By_Example_Where_Clause" >
-    <where >
-      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue" >
+                <when test="criterion.singleValue">
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue" >
+                <when test="criterion.betweenValue">
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue" >
+                <when test="criterion.listValue">
                   and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
                     #{listItem}
                   </foreach>
                 </when>
@@ -85,47 +85,45 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Base_Column_List" >
+  <sql id="Base_Column_List">
     id, title, like_number, ariticle_author, user_id, salesman_id, group_id, agent_id, 
     platform_id, creator, creator_code, gmt_created, modifier, modifier_code, gmt_modified, 
     status, bak01, bak02, bak03, bak04, bak05
   </sql>
-  <sql id="Blob_Column_List" >
+  <sql id="Blob_Column_List">
     images
   </sql>
-  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="top.buukle.consumer.cms.entity.ArticleInfoExample" >
+  <select id="selectByExampleWithBLOBs" parameterType="top.buukle.consumer.cms.entity.ArticleInfoExample" resultMap="ResultMapWithBLOBs">
     select
-    <if test="distinct" >
+    <if test="distinct">
       distinct
     </if>
-    'true' as QUERYID,
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
     from article_info
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
-    <if test="orderByClause != null" >
+    <if test="orderByClause != null">
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="top.buukle.consumer.cms.entity.ArticleInfoExample" >
+  <select id="selectByExample" parameterType="top.buukle.consumer.cms.entity.ArticleInfoExample" resultMap="BaseResultMap">
     select
-    <if test="distinct" >
+    <if test="distinct">
       distinct
     </if>
-    'true' as QUERYID,
     <include refid="Base_Column_List" />
     from article_info
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
-    <if test="orderByClause != null" >
+    <if test="orderByClause != null">
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
     select 
     <include refid="Base_Column_List" />
     ,
@@ -133,17 +131,17 @@
     from article_info
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from article_info
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="top.buukle.consumer.cms.entity.ArticleInfoExample" >
+  <delete id="deleteByExample" parameterType="top.buukle.consumer.cms.entity.ArticleInfoExample">
     delete from article_info
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="top.buukle.consumer.cms.entity.ArticleInfo" >
+  <insert id="insert" parameterType="top.buukle.consumer.cms.entity.ArticleInfo">
     insert into article_info (id, title, like_number, 
       ariticle_author, user_id, salesman_id, 
       group_id, agent_id, platform_id, 
@@ -161,226 +159,226 @@
       #{bak03,jdbcType=VARCHAR}, #{bak04,jdbcType=VARCHAR}, #{bak05,jdbcType=VARCHAR}, 
       #{images,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="top.buukle.consumer.cms.entity.ArticleInfo" >
+  <insert id="insertSelective" parameterType="top.buukle.consumer.cms.entity.ArticleInfo">
     insert into article_info
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
         id,
       </if>
-      <if test="title != null" >
+      <if test="title != null">
         title,
       </if>
-      <if test="likeNumber != null" >
+      <if test="likeNumber != null">
         like_number,
       </if>
-      <if test="ariticleAuthor != null" >
+      <if test="ariticleAuthor != null">
         ariticle_author,
       </if>
-      <if test="userId != null" >
+      <if test="userId != null">
         user_id,
       </if>
-      <if test="salesmanId != null" >
+      <if test="salesmanId != null">
         salesman_id,
       </if>
-      <if test="groupId != null" >
+      <if test="groupId != null">
         group_id,
       </if>
-      <if test="agentId != null" >
+      <if test="agentId != null">
         agent_id,
       </if>
-      <if test="platformId != null" >
+      <if test="platformId != null">
         platform_id,
       </if>
-      <if test="creator != null" >
+      <if test="creator != null">
         creator,
       </if>
-      <if test="creatorCode != null" >
+      <if test="creatorCode != null">
         creator_code,
       </if>
-      <if test="gmtCreated != null" >
+      <if test="gmtCreated != null">
         gmt_created,
       </if>
-      <if test="modifier != null" >
+      <if test="modifier != null">
         modifier,
       </if>
-      <if test="modifierCode != null" >
+      <if test="modifierCode != null">
         modifier_code,
       </if>
-      <if test="gmtModified != null" >
+      <if test="gmtModified != null">
         gmt_modified,
       </if>
-      <if test="status != null" >
+      <if test="status != null">
         status,
       </if>
-      <if test="bak01 != null" >
+      <if test="bak01 != null">
         bak01,
       </if>
-      <if test="bak02 != null" >
+      <if test="bak02 != null">
         bak02,
       </if>
-      <if test="bak03 != null" >
+      <if test="bak03 != null">
         bak03,
       </if>
-      <if test="bak04 != null" >
+      <if test="bak04 != null">
         bak04,
       </if>
-      <if test="bak05 != null" >
+      <if test="bak05 != null">
         bak05,
       </if>
-      <if test="images != null" >
+      <if test="images != null">
         images,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="title != null" >
+      <if test="title != null">
         #{title,jdbcType=VARCHAR},
       </if>
-      <if test="likeNumber != null" >
+      <if test="likeNumber != null">
         #{likeNumber,jdbcType=BIGINT},
       </if>
-      <if test="ariticleAuthor != null" >
+      <if test="ariticleAuthor != null">
         #{ariticleAuthor,jdbcType=VARCHAR},
       </if>
-      <if test="userId != null" >
+      <if test="userId != null">
         #{userId,jdbcType=VARCHAR},
       </if>
-      <if test="salesmanId != null" >
+      <if test="salesmanId != null">
         #{salesmanId,jdbcType=VARCHAR},
       </if>
-      <if test="groupId != null" >
+      <if test="groupId != null">
         #{groupId,jdbcType=VARCHAR},
       </if>
-      <if test="agentId != null" >
+      <if test="agentId != null">
         #{agentId,jdbcType=VARCHAR},
       </if>
-      <if test="platformId != null" >
+      <if test="platformId != null">
         #{platformId,jdbcType=VARCHAR},
       </if>
-      <if test="creator != null" >
+      <if test="creator != null">
         #{creator,jdbcType=VARCHAR},
       </if>
-      <if test="creatorCode != null" >
+      <if test="creatorCode != null">
         #{creatorCode,jdbcType=VARCHAR},
       </if>
-      <if test="gmtCreated != null" >
+      <if test="gmtCreated != null">
         #{gmtCreated,jdbcType=TIMESTAMP},
       </if>
-      <if test="modifier != null" >
+      <if test="modifier != null">
         #{modifier,jdbcType=VARCHAR},
       </if>
-      <if test="modifierCode != null" >
+      <if test="modifierCode != null">
         #{modifierCode,jdbcType=VARCHAR},
       </if>
-      <if test="gmtModified != null" >
+      <if test="gmtModified != null">
         #{gmtModified,jdbcType=TIMESTAMP},
       </if>
-      <if test="status != null" >
+      <if test="status != null">
         #{status,jdbcType=INTEGER},
       </if>
-      <if test="bak01 != null" >
+      <if test="bak01 != null">
         #{bak01,jdbcType=VARCHAR},
       </if>
-      <if test="bak02 != null" >
+      <if test="bak02 != null">
         #{bak02,jdbcType=VARCHAR},
       </if>
-      <if test="bak03 != null" >
+      <if test="bak03 != null">
         #{bak03,jdbcType=VARCHAR},
       </if>
-      <if test="bak04 != null" >
+      <if test="bak04 != null">
         #{bak04,jdbcType=VARCHAR},
       </if>
-      <if test="bak05 != null" >
+      <if test="bak05 != null">
         #{bak05,jdbcType=VARCHAR},
       </if>
-      <if test="images != null" >
+      <if test="images != null">
         #{images,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="top.buukle.consumer.cms.entity.ArticleInfoExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="top.buukle.consumer.cms.entity.ArticleInfoExample" resultType="java.lang.Long">
     select count(*) from article_info
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map" >
+  <update id="updateByExampleSelective" parameterType="map">
     update article_info
-    <set >
-      <if test="record.id != null" >
+    <set>
+      <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.title != null" >
+      <if test="record.title != null">
         title = #{record.title,jdbcType=VARCHAR},
       </if>
-      <if test="record.likeNumber != null" >
+      <if test="record.likeNumber != null">
         like_number = #{record.likeNumber,jdbcType=BIGINT},
       </if>
-      <if test="record.ariticleAuthor != null" >
+      <if test="record.ariticleAuthor != null">
         ariticle_author = #{record.ariticleAuthor,jdbcType=VARCHAR},
       </if>
-      <if test="record.userId != null" >
+      <if test="record.userId != null">
         user_id = #{record.userId,jdbcType=VARCHAR},
       </if>
-      <if test="record.salesmanId != null" >
+      <if test="record.salesmanId != null">
         salesman_id = #{record.salesmanId,jdbcType=VARCHAR},
       </if>
-      <if test="record.groupId != null" >
+      <if test="record.groupId != null">
         group_id = #{record.groupId,jdbcType=VARCHAR},
       </if>
-      <if test="record.agentId != null" >
+      <if test="record.agentId != null">
         agent_id = #{record.agentId,jdbcType=VARCHAR},
       </if>
-      <if test="record.platformId != null" >
+      <if test="record.platformId != null">
         platform_id = #{record.platformId,jdbcType=VARCHAR},
       </if>
-      <if test="record.creator != null" >
+      <if test="record.creator != null">
         creator = #{record.creator,jdbcType=VARCHAR},
       </if>
-      <if test="record.creatorCode != null" >
+      <if test="record.creatorCode != null">
         creator_code = #{record.creatorCode,jdbcType=VARCHAR},
       </if>
-      <if test="record.gmtCreated != null" >
+      <if test="record.gmtCreated != null">
         gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.modifier != null" >
+      <if test="record.modifier != null">
         modifier = #{record.modifier,jdbcType=VARCHAR},
       </if>
-      <if test="record.modifierCode != null" >
+      <if test="record.modifierCode != null">
         modifier_code = #{record.modifierCode,jdbcType=VARCHAR},
       </if>
-      <if test="record.gmtModified != null" >
+      <if test="record.gmtModified != null">
         gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.status != null" >
+      <if test="record.status != null">
         status = #{record.status,jdbcType=INTEGER},
       </if>
-      <if test="record.bak01 != null" >
+      <if test="record.bak01 != null">
         bak01 = #{record.bak01,jdbcType=VARCHAR},
       </if>
-      <if test="record.bak02 != null" >
+      <if test="record.bak02 != null">
         bak02 = #{record.bak02,jdbcType=VARCHAR},
       </if>
-      <if test="record.bak03 != null" >
+      <if test="record.bak03 != null">
         bak03 = #{record.bak03,jdbcType=VARCHAR},
       </if>
-      <if test="record.bak04 != null" >
+      <if test="record.bak04 != null">
         bak04 = #{record.bak04,jdbcType=VARCHAR},
       </if>
-      <if test="record.bak05 != null" >
+      <if test="record.bak05 != null">
         bak05 = #{record.bak05,jdbcType=VARCHAR},
       </if>
-      <if test="record.images != null" >
+      <if test="record.images != null">
         images = #{record.images,jdbcType=LONGVARCHAR},
       </if>
     </set>
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByExampleWithBLOBs" parameterType="map" >
+  <update id="updateByExampleWithBLOBs" parameterType="map">
     update article_info
     set id = #{record.id,jdbcType=INTEGER},
       title = #{record.title,jdbcType=VARCHAR},
@@ -404,11 +402,11 @@
       bak04 = #{record.bak04,jdbcType=VARCHAR},
       bak05 = #{record.bak05,jdbcType=VARCHAR},
       images = #{record.images,jdbcType=LONGVARCHAR}
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByExample" parameterType="map" >
+  <update id="updateByExample" parameterType="map">
     update article_info
     set id = #{record.id,jdbcType=INTEGER},
       title = #{record.title,jdbcType=VARCHAR},
@@ -431,80 +429,80 @@
       bak03 = #{record.bak03,jdbcType=VARCHAR},
       bak04 = #{record.bak04,jdbcType=VARCHAR},
       bak05 = #{record.bak05,jdbcType=VARCHAR}
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="top.buukle.consumer.cms.entity.ArticleInfo" >
+  <update id="updateByPrimaryKeySelective" parameterType="top.buukle.consumer.cms.entity.ArticleInfo">
     update article_info
-    <set >
-      <if test="title != null" >
+    <set>
+      <if test="title != null">
         title = #{title,jdbcType=VARCHAR},
       </if>
-      <if test="likeNumber != null" >
+      <if test="likeNumber != null">
         like_number = #{likeNumber,jdbcType=BIGINT},
       </if>
-      <if test="ariticleAuthor != null" >
+      <if test="ariticleAuthor != null">
         ariticle_author = #{ariticleAuthor,jdbcType=VARCHAR},
       </if>
-      <if test="userId != null" >
+      <if test="userId != null">
         user_id = #{userId,jdbcType=VARCHAR},
       </if>
-      <if test="salesmanId != null" >
+      <if test="salesmanId != null">
         salesman_id = #{salesmanId,jdbcType=VARCHAR},
       </if>
-      <if test="groupId != null" >
+      <if test="groupId != null">
         group_id = #{groupId,jdbcType=VARCHAR},
       </if>
-      <if test="agentId != null" >
+      <if test="agentId != null">
         agent_id = #{agentId,jdbcType=VARCHAR},
       </if>
-      <if test="platformId != null" >
+      <if test="platformId != null">
         platform_id = #{platformId,jdbcType=VARCHAR},
       </if>
-      <if test="creator != null" >
+      <if test="creator != null">
         creator = #{creator,jdbcType=VARCHAR},
       </if>
-      <if test="creatorCode != null" >
+      <if test="creatorCode != null">
         creator_code = #{creatorCode,jdbcType=VARCHAR},
       </if>
-      <if test="gmtCreated != null" >
+      <if test="gmtCreated != null">
         gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
       </if>
-      <if test="modifier != null" >
+      <if test="modifier != null">
         modifier = #{modifier,jdbcType=VARCHAR},
       </if>
-      <if test="modifierCode != null" >
+      <if test="modifierCode != null">
         modifier_code = #{modifierCode,jdbcType=VARCHAR},
       </if>
-      <if test="gmtModified != null" >
+      <if test="gmtModified != null">
         gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
       </if>
-      <if test="status != null" >
+      <if test="status != null">
         status = #{status,jdbcType=INTEGER},
       </if>
-      <if test="bak01 != null" >
+      <if test="bak01 != null">
         bak01 = #{bak01,jdbcType=VARCHAR},
       </if>
-      <if test="bak02 != null" >
+      <if test="bak02 != null">
         bak02 = #{bak02,jdbcType=VARCHAR},
       </if>
-      <if test="bak03 != null" >
+      <if test="bak03 != null">
         bak03 = #{bak03,jdbcType=VARCHAR},
       </if>
-      <if test="bak04 != null" >
+      <if test="bak04 != null">
         bak04 = #{bak04,jdbcType=VARCHAR},
       </if>
-      <if test="bak05 != null" >
+      <if test="bak05 != null">
         bak05 = #{bak05,jdbcType=VARCHAR},
       </if>
-      <if test="images != null" >
+      <if test="images != null">
         images = #{images,jdbcType=LONGVARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="top.buukle.consumer.cms.entity.ArticleInfo" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="top.buukle.consumer.cms.entity.ArticleInfo">
     update article_info
     set title = #{title,jdbcType=VARCHAR},
       like_number = #{likeNumber,jdbcType=BIGINT},
@@ -529,7 +527,7 @@
       images = #{images,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="top.buukle.consumer.cms.entity.ArticleInfo" >
+  <update id="updateByPrimaryKey" parameterType="top.buukle.consumer.cms.entity.ArticleInfo">
     update article_info
     set title = #{title,jdbcType=VARCHAR},
       like_number = #{likeNumber,jdbcType=BIGINT},

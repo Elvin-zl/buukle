@@ -20,6 +20,7 @@ public class Table extends ConfigMatcher {
     public final String actualName;
     public final String entityPackage;
     public final String entityName;
+    public final String entityNameFirstLowerCase;
     public final String entityLowerCamel;
     public final String exampleName;
     public final String exampleLowerCamel;
@@ -35,9 +36,9 @@ public class Table extends ConfigMatcher {
         log.info(">>>>>> begin initialize table configuration");
 
         actualName = introspectedTable.getFullyQualifiedTable().getIntrospectedTableName();
-
         entityPackage = introspectedTable.getIbatis2SqlMapPackage();
         entityName = introspectedTable.getFullyQualifiedTable().getDomainObjectName();
+        entityNameFirstLowerCase = this.getFirstLowerCase(entityName);
         entityLowerCamel = Utils.getLowerCamelCase(entityName);
 
         exampleName = introspectedTable.getExampleType();
@@ -51,6 +52,13 @@ public class Table extends ConfigMatcher {
             columns.add(new Column(context, introspectedTable, introspectedColumn, this));
         }
         log.info("<<<<<< initialized table configuration\n");
+    }
+
+    private String getFirstLowerCase(String entityName) {
+        if(Character.isLowerCase(entityName.charAt(0))){
+            return entityName;
+        }
+        return (new StringBuilder()).append(Character.toLowerCase(entityName.charAt(0))).append(entityName.substring(1)).toString();
     }
 
 
@@ -100,6 +108,10 @@ public class Table extends ConfigMatcher {
 
     public void setColumns(List<Column> columns) {
         this.columns = columns;
+    }
+
+    public String getEntityNameFirstLowerCase() {
+        return entityNameFirstLowerCase;
     }
 
     public void setLog(Logger log) {

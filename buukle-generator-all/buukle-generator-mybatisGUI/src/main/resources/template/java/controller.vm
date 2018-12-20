@@ -9,8 +9,12 @@ import top.buukle.common.vo.response.PageResponse;
 import $!table.get("basePackage") .service.${table.entityName}Service;
 import $!table.get("basePackage") .entity.${table.entityName};
 import $!table.get("basePackage") .entity.vo.${table.entityName}Query;
+import top.buukle.plugin.security.vo.response.FuzzySearchListVo;
+
+import java.util.List;
 
 @Controller
+@RequestMapping("/${table.entityNameFirstLowerCase}")
 public class ${table.entityName}Controller{
 
     @Autowired
@@ -25,6 +29,18 @@ public class ${table.entityName}Controller{
     @ResponseBody
     public PageResponse<${table.entityName}> getUserList(${table.entityName}Query query,PageBounds pageBounds) throws Exception {
         return service.get${table.entityName}List(query,pageBounds);
+    }
+
+    /**
+    * 模糊搜索
+    * @param fuzzyText
+    * @return
+    * @throws Exception
+    */
+    @RequestMapping("/fuzzySearchByText")
+    @ResponseBody
+    public List<FuzzySearchListVo>  fuzzySearchByText(String fuzzyText) throws Exception {
+        return service.fuzzySearchByText(fuzzyText);
     }
 
 }

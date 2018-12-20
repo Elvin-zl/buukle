@@ -1,66 +1,54 @@
 package top.buukle.consumer.cms.dao;
 
-import top.buukle.consumer.cms.entity.UserMessage;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
-import top.buukle.consumer.cms.entity.UserMessageExample;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import top.buukle.consumer.cms.entity.UserMessage;
+import top.buukle.consumer.cms.entity.UserMessageExample;
 
 @Mapper
 public interface UserMessageMapper {
-
     /**
-     * @mbg.generated Mon Dec 17 00:08:17 CST 2018
-     */
-    int deleteByPrimaryKey(Integer id);
-
-    /**
-     * @mbg.generated Mon Dec 17 00:08:17 CST 2018
-     */
-    int updateByPrimaryKeySelective(UserMessage record);
-
-    /**
-     * @mbg.generated Mon Dec 17 00:08:17 CST 2018
-     */
-    UserMessage selectByPrimaryKey(Integer id);
-
-    /**
-     * @mbg.generated Mon Dec 17 00:08:17 CST 2018
-     */
-    List<UserMessage> selectByExample(UserMessageExample example);
-
-    /**
-     * @mbg.generated Mon Dec 17 00:08:17 CST 2018
-     */
-    int insertSelective(UserMessage record);
-
-    /**
-     * @mbg.generated Mon Dec 17 00:08:17 CST 2018
-     */
-    int updateByExample(@Param("record") UserMessage record, @Param("example") UserMessageExample example);
-
-    /**
-     * @mbg.generated Mon Dec 17 00:08:17 CST 2018
-     */
-    int insert(UserMessage record);
-
-    /**
-     * @mbg.generated Mon Dec 17 00:08:17 CST 2018
      */
     long countByExample(UserMessageExample example);
 
     /**
-     * @mbg.generated Mon Dec 17 00:08:17 CST 2018
+     */
+    int deleteByExample(UserMessageExample example);
+
+    /**
+     */
+    int deleteByPrimaryKey(Integer id);
+
+    /**
+     */
+    int insert(UserMessage record);
+
+    /**
+     */
+    int insertSelective(UserMessage record);
+
+    /**
+     */
+    List<UserMessage> selectByExample(UserMessageExample example);
+
+    /**
+     */
+    UserMessage selectByPrimaryKey(Integer id);
+
+    /**
      */
     int updateByExampleSelective(@Param("record") UserMessage record, @Param("example") UserMessageExample example);
 
     /**
-     * @mbg.generated Mon Dec 17 00:08:17 CST 2018
      */
-    int updateByPrimaryKey(UserMessage record);
+    int updateByExample(@Param("record") UserMessage record, @Param("example") UserMessageExample example);
 
     /**
-     * @mbg.generated Mon Dec 17 00:08:17 CST 2018
      */
-    int deleteByExample(UserMessageExample example);
+    int updateByPrimaryKeySelective(UserMessage record);
+
+    /**
+     */
+    int updateByPrimaryKey(UserMessage record);
 }

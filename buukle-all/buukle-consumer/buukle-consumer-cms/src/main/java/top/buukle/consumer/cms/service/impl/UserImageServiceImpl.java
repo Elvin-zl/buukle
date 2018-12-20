@@ -1,13 +1,16 @@
 package top.buukle.consumer.cms .service.impl;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import top.buukle.common.util.common.DateUtil;
+import top.buukle.common.util.common.StringUtil;
 import top.buukle.common.vo.response.PageResponse;
+import top.buukle.consumer.cms.entity.UserImageExample;
 import top.buukle.plugin.security.vo.query.PageBounds;
 import top.buukle.plugin.security.vo.response.FuzzySearchListVo;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import org.apache.commons.collections.CollectionUtils;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,9 +35,7 @@ public class UserImageServiceImpl implements UserImageService{
     @Override
     public PageResponse<UserImage> getUserImageList(UserImageQuery query, PageBounds pageBounds) {
         PageHelper.startPage(pageBounds.getPage(), pageBounds.getLimit());
-        //List<UserImage> list = mapper.getUserImageList(query);
-        List<UserImage> list = new ArrayList<>();
-        return new PageResponse.Builder().build(new PageInfo<>(list));
+        return new PageResponse.Builder().build(new PageInfo<>(mapper.selectByExample(this.assExample(query))));
     }
 
     /**
@@ -43,17 +44,16 @@ public class UserImageServiceImpl implements UserImageService{
     * @return
     */
     @Override
-    public List<FuzzySearchListVo> fuzzySearchByName(String fuzzyText) {
-        List<UserImage> list = new ArrayList<>();
-        //List<UserImage> list = mapper.fuzzySearchByName("%" + fuzzyText + "%");
+    public List<FuzzySearchListVo> fuzzySearchByText(String fuzzyText) {
+        List<UserImage> list = mapper.selectByExample(this.assFuzzyExample(fuzzyText));
         List<FuzzySearchListVo> fuzzySearchListVos = new ArrayList<>();
-        //if(CollectionUtils.isNotEmpty(list)){
-        //    for (UserImage item: list) {
-        //    FuzzySearchListVo fuzzySearchListVo = new FuzzySearchListVo();
-        //    fuzzySearchListVo.setText(item.getName());
-        //    fuzzySearchListVos.add(fuzzySearchListVo);
-        //    }
-        //}
+        if(CollectionUtils.isNotEmpty(list)){
+            for (UserImage item: list) {
+                FuzzySearchListVo fuzzySearchListVo = new FuzzySearchListVo();
+                //fuzzySearchListVo.setText(item.get);
+                fuzzySearchListVos.add(fuzzySearchListVo);
+            }
+        }
         return fuzzySearchListVos;
     }
 
@@ -84,5 +84,37 @@ public class UserImageServiceImpl implements UserImageService{
     @Override
     public int deleteOne(Integer id) throws Exception{
         return mapper.deleteByPrimaryKey(id);
+    }
+
+    /**
+    * 组装分页参数
+    * @param query
+    * @return
+    */
+    private UserImageExample assExample(UserImageQuery query) {
+        UserImageExample example = new UserImageExample();
+        UserImageExample.Criteria criteria = example.createCriteria();
+            if(StringUtil.isNotEmpty(query.getStartTime())){
+                criteria.andGmtCreatedGreaterThanOrEqualTo(DateUtil.parse(query.getStartTime()));
+            }
+            if(StringUtil.isNotEmpty(query.getEndTime())){
+                criteria.andGmtCreatedLessThanOrEqualTo(DateUtil.parse(query.getEndTime()));
+            }
+            if(null != query.getStatus()){
+                criteria.andStatusEqualTo(query.getStatus());
+            }
+        return example;
+    }
+
+    /**
+    * 组装模糊搜索Example
+    * @param fuzzyText
+    * @return
+    */
+    private UserImageExample assFuzzyExample(String fuzzyText) {
+        UserImageExample example = new UserImageExample();
+        UserImageExample.Criteria criteria = example.createCriteria();
+        //criteria.andTitleLike("%" + fuzzyText + "%");
+        return example;
     }
 }

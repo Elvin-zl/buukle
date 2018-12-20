@@ -67,23 +67,6 @@
     float: left;
     margin-left: 60px;
 }
-.fuzzySearchDiv{
-    width: 164px;
-    float: left;
-    margin-left: -921px !important;
-    max-height: 75px;
-    overflow: auto;
-    display: none;
-    /*border: 1px solid whitesmoke;*/
-}
-.fuzzyItem{
-    height: 17px;
-    text-align: center;
-    width: 133px;
-    /*模糊栏 不换行*/
-    display: inline-table;
-    background-color: whitesmoke;
-}
 .layui-table-body {
     background-color: white !important;
     position: relative!important;
@@ -109,6 +92,11 @@
     width: 227px;
     height: 281px;
 }
+.commitBtn{
+    margin-left: 324px;
+    margin-top: 230px;
+    position: unset !important;
+}
 .back-button{
     margin-left: 324px;
     margin-top: 230px;
@@ -127,6 +115,12 @@
 .buukle-zTree{
     width: 860px;
     height:300px;
+    overflow:auto;
+    margin-left: 80px !important;
+}
+.buukle-zTree-2{
+    width: 500px;
+    height: 250px;
     overflow:auto;
     margin-left: 80px !important;
 }
@@ -168,10 +162,14 @@
     float: left;
 }
 .buukle-search-name{
+    margin-top: 20px;
     float: left;
 }
 .buukle-search-status{
     float: left;
+}
+.buukle-table{
+    margin-top: 155px !important;
 }
 .buukle-panel-table{
     width: 280px !important;
@@ -219,6 +217,58 @@
 .buukle-right-padel-page-btn{
     margin-left: 696px !important;
 }
-.required{
+.buukle-add-textarea{
+    resize:none;
+    max-width: 165px !important;
+}
+.fuzzy-div{
+    float: left;position: relative;
+}
+.fuzzy-input{
+    margin-top: 0px !important;
+}
+.fuzzy-item-div{
+    position: absolute;
+    z-index: 66666666;
+    border: 1px solid #898d996e;
+    border-top: 0px;
+    display: none;
+    overflow: scroll;
+    height: 125px;
+    width: 163px;
+}
+.fuzzy-item{
+    height: 17px;
+    text-align: center;
+    width: 120px;
+    display: inline-table;
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+.buukle-save-cancel{
+    margin-top: -106px;
+    margin-left: 94px;
+}
+.select-input{
+    margin-top: 0px !important;
+}
+.select-item{
+    cursor: pointer;
+    background-color: whitesmoke;
+    text-align: center;!important;
+    width: 81%; !important;
+}
+.select-item-div{
+    position: absolute;
+    z-index: 66666666;
+    border: 1px solid #898d996e;
+    border-top: 0px;
+    display: none;
+    overflow: scroll;
+    height: 125px;
+    width: 163px;
+}
+.error-input{
+    display: none;
     color: red;
 }

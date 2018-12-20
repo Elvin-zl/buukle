@@ -6,82 +6,60 @@ import java.util.List;
 
 public class UserMessageExample {
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:08:17 CST 2018
      */
     protected String orderByClause;
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:08:17 CST 2018
      */
     protected boolean distinct;
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:08:17 CST 2018
      */
     protected List<Criteria> oredCriteria;
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:08:17 CST 2018
      */
     public UserMessageExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:08:17 CST 2018
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:08:17 CST 2018
      */
     public String getOrderByClause() {
         return orderByClause;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:08:17 CST 2018
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:08:17 CST 2018
      */
     public boolean isDistinct() {
         return distinct;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:08:17 CST 2018
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:08:17 CST 2018
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:08:17 CST 2018
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -90,8 +68,27 @@ public class UserMessageExample {
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:08:17 CST 2018
+     */
+    public UserMessageExample orderBy(String orderByClause) {
+        this.setOrderByClause(orderByClause);
+        return this;
+    }
+
+    /**
+     */
+    public UserMessageExample orderBy(String ... orderByClauses) {
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < orderByClauses.length; i++) {
+            sb.append(orderByClauses[i]);
+            if (i < orderByClauses.length - 1) {
+                sb.append(" , ");
+            }
+        }
+        this.setOrderByClause(sb.toString());
+        return this;
+    }
+
+    /**
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -102,17 +99,13 @@ public class UserMessageExample {
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:08:17 CST 2018
      */
     protected Criteria createCriteriaInternal() {
-        Criteria criteria = new Criteria();
+        Criteria criteria = new Criteria(this);
         return criteria;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:08:17 CST 2018
      */
     public void clear() {
         oredCriteria.clear();
@@ -121,8 +114,13 @@ public class UserMessageExample {
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:08:17 CST 2018
+     */
+    public static Criteria newAndCreateCriteria() {
+        UserMessageExample example = new UserMessageExample();
+        return example.createCriteria();
+    }
+
+    /**
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -1232,19 +1230,42 @@ public class UserMessageExample {
     }
 
     /**
-     *
-     * @mbg.generated do_not_delete_during_merge Mon Dec 17 00:08:17 CST 2018
      */
     public static class Criteria extends GeneratedCriteria {
+        /**
+         */
+        private UserMessageExample example;
 
-        protected Criteria() {
+        /**
+         */
+        protected Criteria(UserMessageExample example) {
             super();
+            this.example = example;
+        }
+
+        /**
+         */
+        public UserMessageExample example() {
+            return this.example;
+        }
+
+        /**
+         */
+        public Criteria andIf(boolean ifAdd, ICriteriaAdd add) {
+            if (ifAdd) {
+                add.add(this);
+            }
+            return this;
+        }
+
+        public interface ICriteriaAdd {
+            /**
+             */
+            Criteria add(Criteria add);
         }
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:08:17 CST 2018
      */
     public static class Criterion {
         private String condition;

@@ -9,8 +9,12 @@ import top.buukle.common.vo.response.PageResponse;
 import top.buukle.consumer.cms .service.FriendLinkService;
 import top.buukle.consumer.cms .entity.FriendLink;
 import top.buukle.consumer.cms .entity.vo.FriendLinkQuery;
+import top.buukle.plugin.security.vo.response.FuzzySearchListVo;
+
+import java.util.List;
 
 @Controller
+@RequestMapping("/friendLink")
 public class FriendLinkController{
 
     @Autowired
@@ -25,6 +29,18 @@ public class FriendLinkController{
     @ResponseBody
     public PageResponse<FriendLink> getUserList(FriendLinkQuery query,PageBounds pageBounds) throws Exception {
         return service.getFriendLinkList(query,pageBounds);
+    }
+
+    /**
+    * 模糊搜索
+    * @param fuzzyText
+    * @return
+    * @throws Exception
+    */
+    @RequestMapping("/fuzzySearchByText")
+    @ResponseBody
+    public List<FuzzySearchListVo>  fuzzySearchByText(String fuzzyText) throws Exception {
+        return service.fuzzySearchByText(fuzzyText);
     }
 
 }

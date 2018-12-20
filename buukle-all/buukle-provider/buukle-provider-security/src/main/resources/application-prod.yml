@@ -1,6 +1,6 @@
 ##服务配置
 server:
-  port: 9500
+  port: 9191
   tomcat:
     max-threads: 800
     uri-encoding: utf-8
@@ -50,7 +50,7 @@ spring:
 eureka:
   instance:
     hostname: 47.95.13.7
-    serverport: 8001
+    serverport: 9090
   client:
     serviceUrl:
        defaultZone: http://${eureka.instance.hostname}:${eureka.instance.serverport}/eureka/

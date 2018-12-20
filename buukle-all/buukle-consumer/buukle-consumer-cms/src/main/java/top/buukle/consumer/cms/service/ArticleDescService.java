@@ -22,7 +22,7 @@ public interface ArticleDescService{
     * @param fuzzyText
     * @return
     */
-    public List<FuzzySearchListVo> fuzzySearchByName(String fuzzyText);
+    public List<FuzzySearchListVo> fuzzySearchByText(String fuzzyText);
     /**
     * 插入单条数据
     * @param record

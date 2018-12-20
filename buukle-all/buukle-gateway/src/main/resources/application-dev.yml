@@ -36,7 +36,7 @@ spring:
 eureka:
   instance:
     hostname: localhost
-    serverport: 8001
+    serverport: 9090
   client:
     serviceUrl:
        defaultZone: http://${eureka.instance.hostname}:${eureka.instance.serverport}/eureka/

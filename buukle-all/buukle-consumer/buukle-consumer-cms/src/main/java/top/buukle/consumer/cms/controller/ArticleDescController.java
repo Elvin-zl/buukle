@@ -9,8 +9,12 @@ import top.buukle.common.vo.response.PageResponse;
 import top.buukle.consumer.cms .service.ArticleDescService;
 import top.buukle.consumer.cms .entity.ArticleDesc;
 import top.buukle.consumer.cms .entity.vo.ArticleDescQuery;
+import top.buukle.plugin.security.vo.response.FuzzySearchListVo;
+
+import java.util.List;
 
 @Controller
+@RequestMapping("/articleDesc")
 public class ArticleDescController{
 
     @Autowired
@@ -25,6 +29,18 @@ public class ArticleDescController{
     @ResponseBody
     public PageResponse<ArticleDesc> getUserList(ArticleDescQuery query,PageBounds pageBounds) throws Exception {
         return service.getArticleDescList(query,pageBounds);
+    }
+
+    /**
+    * 模糊搜索
+    * @param fuzzyText
+    * @return
+    * @throws Exception
+    */
+    @RequestMapping("/fuzzySearchByText")
+    @ResponseBody
+    public List<FuzzySearchListVo>  fuzzySearchByText(String fuzzyText) throws Exception {
+        return service.fuzzySearchByText(fuzzyText);
     }
 
 }

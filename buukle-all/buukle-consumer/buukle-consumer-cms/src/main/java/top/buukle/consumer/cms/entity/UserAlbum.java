@@ -4,175 +4,132 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Created By MBG-GUI-EXTENSION https://github.com/spawpaw/mybatis-generator-gui-extension
+ * Created By elvin
  * Description:
  * 
- *
  * @author 
  */
 public class UserAlbum implements Serializable {
     /**
      * 主键id
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     private Integer id;
 
     /**
      * 用户id
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     private Integer userId;
 
     /**
      * 业务员编码
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     private String salesmanId;
 
     /**
      * 组别编码
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     private String groupId;
 
     /**
      * 代理编码
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     private String agentId;
 
     /**
      * 平台编码
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     private String platformId;
 
     /**
      * 相册名称
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     private String albumName;
 
     /**
      * 相册描述
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     private String albumDesc;
 
     /**
      * 创建者(用户名)
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     private String creator;
 
     /**
      * 创建者代码
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     private String creatorCode;
 
     /**
      * 创建时间
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     private Date gmtCreated;
 
     /**
      * 修改者(用户名)
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     private String modifier;
 
     /**
      * 修改者代码
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     private String modifierCode;
 
     /**
      * 更新时间
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     private Date gmtModified;
 
     /**
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     private Integer status;
 
     /**
      * 备用
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     private String bak01;
 
     /**
      * 备用
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     private String bak02;
 
     /**
      * 备用
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     private String bak03;
 
     /**
      * 备用
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     private String bak04;
 
     /**
      * 备用
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     private String bak05;
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     private static final long serialVersionUID = 1L;
 
@@ -180,16 +137,12 @@ public class UserAlbum implements Serializable {
      * This method returns the value of the database column buukle-cms..user_album.id
      *
      * @return the value of buukle-cms..user_album.id
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public Integer getId() {
         return id;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public UserAlbum withId(Integer id) {
         this.setId(id);
@@ -200,8 +153,6 @@ public class UserAlbum implements Serializable {
      * This method sets the value of the database column buukle-cms..user_album.id
      *
      * @param id the value for buukle-cms..user_album.id
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public void setId(Integer id) {
         this.id = id;
@@ -211,16 +162,12 @@ public class UserAlbum implements Serializable {
      * This method returns the value of the database column buukle-cms..user_album.user_id
      *
      * @return the value of buukle-cms..user_album.user_id
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public Integer getUserId() {
         return userId;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public UserAlbum withUserId(Integer userId) {
         this.setUserId(userId);
@@ -231,8 +178,6 @@ public class UserAlbum implements Serializable {
      * This method sets the value of the database column buukle-cms..user_album.user_id
      *
      * @param userId the value for buukle-cms..user_album.user_id
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public void setUserId(Integer userId) {
         this.userId = userId;
@@ -242,16 +187,12 @@ public class UserAlbum implements Serializable {
      * This method returns the value of the database column buukle-cms..user_album.salesman_id
      *
      * @return the value of buukle-cms..user_album.salesman_id
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public String getSalesmanId() {
         return salesmanId;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public UserAlbum withSalesmanId(String salesmanId) {
         this.setSalesmanId(salesmanId);
@@ -262,27 +203,21 @@ public class UserAlbum implements Serializable {
      * This method sets the value of the database column buukle-cms..user_album.salesman_id
      *
      * @param salesmanId the value for buukle-cms..user_album.salesman_id
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public void setSalesmanId(String salesmanId) {
-        this.salesmanId = salesmanId;
+        this.salesmanId = salesmanId == null ? null : salesmanId.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..user_album.group_id
      *
      * @return the value of buukle-cms..user_album.group_id
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public String getGroupId() {
         return groupId;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public UserAlbum withGroupId(String groupId) {
         this.setGroupId(groupId);
@@ -293,27 +228,21 @@ public class UserAlbum implements Serializable {
      * This method sets the value of the database column buukle-cms..user_album.group_id
      *
      * @param groupId the value for buukle-cms..user_album.group_id
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public void setGroupId(String groupId) {
-        this.groupId = groupId;
+        this.groupId = groupId == null ? null : groupId.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..user_album.agent_id
      *
      * @return the value of buukle-cms..user_album.agent_id
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public String getAgentId() {
         return agentId;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public UserAlbum withAgentId(String agentId) {
         this.setAgentId(agentId);
@@ -324,27 +253,21 @@ public class UserAlbum implements Serializable {
      * This method sets the value of the database column buukle-cms..user_album.agent_id
      *
      * @param agentId the value for buukle-cms..user_album.agent_id
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public void setAgentId(String agentId) {
-        this.agentId = agentId;
+        this.agentId = agentId == null ? null : agentId.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..user_album.platform_id
      *
      * @return the value of buukle-cms..user_album.platform_id
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public String getPlatformId() {
         return platformId;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public UserAlbum withPlatformId(String platformId) {
         this.setPlatformId(platformId);
@@ -355,27 +278,21 @@ public class UserAlbum implements Serializable {
      * This method sets the value of the database column buukle-cms..user_album.platform_id
      *
      * @param platformId the value for buukle-cms..user_album.platform_id
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public void setPlatformId(String platformId) {
-        this.platformId = platformId;
+        this.platformId = platformId == null ? null : platformId.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..user_album.album_name
      *
      * @return the value of buukle-cms..user_album.album_name
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public String getAlbumName() {
         return albumName;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public UserAlbum withAlbumName(String albumName) {
         this.setAlbumName(albumName);
@@ -386,27 +303,21 @@ public class UserAlbum implements Serializable {
      * This method sets the value of the database column buukle-cms..user_album.album_name
      *
      * @param albumName the value for buukle-cms..user_album.album_name
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public void setAlbumName(String albumName) {
-        this.albumName = albumName;
+        this.albumName = albumName == null ? null : albumName.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..user_album.album_desc
      *
      * @return the value of buukle-cms..user_album.album_desc
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public String getAlbumDesc() {
         return albumDesc;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public UserAlbum withAlbumDesc(String albumDesc) {
         this.setAlbumDesc(albumDesc);
@@ -417,27 +328,21 @@ public class UserAlbum implements Serializable {
      * This method sets the value of the database column buukle-cms..user_album.album_desc
      *
      * @param albumDesc the value for buukle-cms..user_album.album_desc
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public void setAlbumDesc(String albumDesc) {
-        this.albumDesc = albumDesc;
+        this.albumDesc = albumDesc == null ? null : albumDesc.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..user_album.creator
      *
      * @return the value of buukle-cms..user_album.creator
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public String getCreator() {
         return creator;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public UserAlbum withCreator(String creator) {
         this.setCreator(creator);
@@ -448,27 +353,21 @@ public class UserAlbum implements Serializable {
      * This method sets the value of the database column buukle-cms..user_album.creator
      *
      * @param creator the value for buukle-cms..user_album.creator
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public void setCreator(String creator) {
-        this.creator = creator;
+        this.creator = creator == null ? null : creator.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..user_album.creator_code
      *
      * @return the value of buukle-cms..user_album.creator_code
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public String getCreatorCode() {
         return creatorCode;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public UserAlbum withCreatorCode(String creatorCode) {
         this.setCreatorCode(creatorCode);
@@ -479,27 +378,21 @@ public class UserAlbum implements Serializable {
      * This method sets the value of the database column buukle-cms..user_album.creator_code
      *
      * @param creatorCode the value for buukle-cms..user_album.creator_code
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public void setCreatorCode(String creatorCode) {
-        this.creatorCode = creatorCode;
+        this.creatorCode = creatorCode == null ? null : creatorCode.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..user_album.gmt_created
      *
      * @return the value of buukle-cms..user_album.gmt_created
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public Date getGmtCreated() {
         return gmtCreated;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public UserAlbum withGmtCreated(Date gmtCreated) {
         this.setGmtCreated(gmtCreated);
@@ -510,8 +403,6 @@ public class UserAlbum implements Serializable {
      * This method sets the value of the database column buukle-cms..user_album.gmt_created
      *
      * @param gmtCreated the value for buukle-cms..user_album.gmt_created
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public void setGmtCreated(Date gmtCreated) {
         this.gmtCreated = gmtCreated;
@@ -521,16 +412,12 @@ public class UserAlbum implements Serializable {
      * This method returns the value of the database column buukle-cms..user_album.modifier
      *
      * @return the value of buukle-cms..user_album.modifier
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public String getModifier() {
         return modifier;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public UserAlbum withModifier(String modifier) {
         this.setModifier(modifier);
@@ -541,27 +428,21 @@ public class UserAlbum implements Serializable {
      * This method sets the value of the database column buukle-cms..user_album.modifier
      *
      * @param modifier the value for buukle-cms..user_album.modifier
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public void setModifier(String modifier) {
-        this.modifier = modifier;
+        this.modifier = modifier == null ? null : modifier.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..user_album.modifier_code
      *
      * @return the value of buukle-cms..user_album.modifier_code
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public String getModifierCode() {
         return modifierCode;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public UserAlbum withModifierCode(String modifierCode) {
         this.setModifierCode(modifierCode);
@@ -572,27 +453,21 @@ public class UserAlbum implements Serializable {
      * This method sets the value of the database column buukle-cms..user_album.modifier_code
      *
      * @param modifierCode the value for buukle-cms..user_album.modifier_code
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public void setModifierCode(String modifierCode) {
-        this.modifierCode = modifierCode;
+        this.modifierCode = modifierCode == null ? null : modifierCode.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..user_album.gmt_modified
      *
      * @return the value of buukle-cms..user_album.gmt_modified
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public Date getGmtModified() {
         return gmtModified;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public UserAlbum withGmtModified(Date gmtModified) {
         this.setGmtModified(gmtModified);
@@ -603,8 +478,6 @@ public class UserAlbum implements Serializable {
      * This method sets the value of the database column buukle-cms..user_album.gmt_modified
      *
      * @param gmtModified the value for buukle-cms..user_album.gmt_modified
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public void setGmtModified(Date gmtModified) {
         this.gmtModified = gmtModified;
@@ -614,16 +487,12 @@ public class UserAlbum implements Serializable {
      * This method returns the value of the database column buukle-cms..user_album.status
      *
      * @return the value of buukle-cms..user_album.status
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public Integer getStatus() {
         return status;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public UserAlbum withStatus(Integer status) {
         this.setStatus(status);
@@ -634,8 +503,6 @@ public class UserAlbum implements Serializable {
      * This method sets the value of the database column buukle-cms..user_album.status
      *
      * @param status the value for buukle-cms..user_album.status
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public void setStatus(Integer status) {
         this.status = status;
@@ -645,16 +512,12 @@ public class UserAlbum implements Serializable {
      * This method returns the value of the database column buukle-cms..user_album.bak01
      *
      * @return the value of buukle-cms..user_album.bak01
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public String getBak01() {
         return bak01;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public UserAlbum withBak01(String bak01) {
         this.setBak01(bak01);
@@ -665,27 +528,21 @@ public class UserAlbum implements Serializable {
      * This method sets the value of the database column buukle-cms..user_album.bak01
      *
      * @param bak01 the value for buukle-cms..user_album.bak01
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public void setBak01(String bak01) {
-        this.bak01 = bak01;
+        this.bak01 = bak01 == null ? null : bak01.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..user_album.bak02
      *
      * @return the value of buukle-cms..user_album.bak02
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public String getBak02() {
         return bak02;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public UserAlbum withBak02(String bak02) {
         this.setBak02(bak02);
@@ -696,27 +553,21 @@ public class UserAlbum implements Serializable {
      * This method sets the value of the database column buukle-cms..user_album.bak02
      *
      * @param bak02 the value for buukle-cms..user_album.bak02
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public void setBak02(String bak02) {
-        this.bak02 = bak02;
+        this.bak02 = bak02 == null ? null : bak02.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..user_album.bak03
      *
      * @return the value of buukle-cms..user_album.bak03
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public String getBak03() {
         return bak03;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public UserAlbum withBak03(String bak03) {
         this.setBak03(bak03);
@@ -727,27 +578,21 @@ public class UserAlbum implements Serializable {
      * This method sets the value of the database column buukle-cms..user_album.bak03
      *
      * @param bak03 the value for buukle-cms..user_album.bak03
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public void setBak03(String bak03) {
-        this.bak03 = bak03;
+        this.bak03 = bak03 == null ? null : bak03.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..user_album.bak04
      *
      * @return the value of buukle-cms..user_album.bak04
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public String getBak04() {
         return bak04;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public UserAlbum withBak04(String bak04) {
         this.setBak04(bak04);
@@ -758,27 +603,21 @@ public class UserAlbum implements Serializable {
      * This method sets the value of the database column buukle-cms..user_album.bak04
      *
      * @param bak04 the value for buukle-cms..user_album.bak04
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public void setBak04(String bak04) {
-        this.bak04 = bak04;
+        this.bak04 = bak04 == null ? null : bak04.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..user_album.bak05
      *
      * @return the value of buukle-cms..user_album.bak05
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public String getBak05() {
         return bak05;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public UserAlbum withBak05(String bak05) {
         this.setBak05(bak05);
@@ -789,16 +628,12 @@ public class UserAlbum implements Serializable {
      * This method sets the value of the database column buukle-cms..user_album.bak05
      *
      * @param bak05 the value for buukle-cms..user_album.bak05
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     public void setBak05(String bak05) {
-        this.bak05 = bak05;
+        this.bak05 = bak05 == null ? null : bak05.trim();
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     @Override
     public String toString() {
@@ -831,8 +666,6 @@ public class UserAlbum implements Serializable {
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     @Override
     public boolean equals(Object that) {
@@ -869,8 +702,6 @@ public class UserAlbum implements Serializable {
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:20 CST 2018
      */
     @Override
     public int hashCode() {

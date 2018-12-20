@@ -4,175 +4,132 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Created By MBG-GUI-EXTENSION https://github.com/spawpaw/mybatis-generator-gui-extension
+ * Created By elvin
  * Description:
  * 
- *
  * @author 
  */
 public class FriendLink implements Serializable {
     /**
      * 主键id
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     private Integer id;
 
     /**
      * logo
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     private String logo;
 
     /**
      * 链接
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     private String url;
 
     /**
      * 连接描述
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     private String linkDesc;
 
     /**
      * 创建者(用户名)
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     private String creator;
 
     /**
      * 创建者代码
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     private String creatorCode;
 
     /**
      * 创建时间
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     private Date gmtCreated;
 
     /**
      * 修改者(用户名)
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     private String modifier;
 
     /**
      * 修改者代码
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     private String modifierCode;
 
     /**
      * 更新时间
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     private Date gmtModified;
 
     /**
      * 中文姓名昵称
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     private String nameCn;
 
     /**
      * 中文姓名全称
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     private String fullNameCn;
 
     /**
      * 英文姓名昵称
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     private String nameEn;
 
     /**
      * 英文姓名全称
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     private String fullNameEn;
 
     /**
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     private Integer status;
 
     /**
      * 备用
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     private String bak01;
 
     /**
      * 备用
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     private String bak02;
 
     /**
      * 备用
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     private String bak03;
 
     /**
      * 备用
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     private String bak04;
 
     /**
      * 备用
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     private String bak05;
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     private static final long serialVersionUID = 1L;
 
@@ -180,16 +137,12 @@ public class FriendLink implements Serializable {
      * This method returns the value of the database column buukle-cms..friend_link.id
      *
      * @return the value of buukle-cms..friend_link.id
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public Integer getId() {
         return id;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public FriendLink withId(Integer id) {
         this.setId(id);
@@ -200,8 +153,6 @@ public class FriendLink implements Serializable {
      * This method sets the value of the database column buukle-cms..friend_link.id
      *
      * @param id the value for buukle-cms..friend_link.id
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public void setId(Integer id) {
         this.id = id;
@@ -211,16 +162,12 @@ public class FriendLink implements Serializable {
      * This method returns the value of the database column buukle-cms..friend_link.logo
      *
      * @return the value of buukle-cms..friend_link.logo
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public String getLogo() {
         return logo;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public FriendLink withLogo(String logo) {
         this.setLogo(logo);
@@ -231,27 +178,21 @@ public class FriendLink implements Serializable {
      * This method sets the value of the database column buukle-cms..friend_link.logo
      *
      * @param logo the value for buukle-cms..friend_link.logo
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public void setLogo(String logo) {
-        this.logo = logo;
+        this.logo = logo == null ? null : logo.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..friend_link.url
      *
      * @return the value of buukle-cms..friend_link.url
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public String getUrl() {
         return url;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public FriendLink withUrl(String url) {
         this.setUrl(url);
@@ -262,27 +203,21 @@ public class FriendLink implements Serializable {
      * This method sets the value of the database column buukle-cms..friend_link.url
      *
      * @param url the value for buukle-cms..friend_link.url
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public void setUrl(String url) {
-        this.url = url;
+        this.url = url == null ? null : url.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..friend_link.link_desc
      *
      * @return the value of buukle-cms..friend_link.link_desc
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public String getLinkDesc() {
         return linkDesc;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public FriendLink withLinkDesc(String linkDesc) {
         this.setLinkDesc(linkDesc);
@@ -293,27 +228,21 @@ public class FriendLink implements Serializable {
      * This method sets the value of the database column buukle-cms..friend_link.link_desc
      *
      * @param linkDesc the value for buukle-cms..friend_link.link_desc
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public void setLinkDesc(String linkDesc) {
-        this.linkDesc = linkDesc;
+        this.linkDesc = linkDesc == null ? null : linkDesc.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..friend_link.creator
      *
      * @return the value of buukle-cms..friend_link.creator
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public String getCreator() {
         return creator;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public FriendLink withCreator(String creator) {
         this.setCreator(creator);
@@ -324,27 +253,21 @@ public class FriendLink implements Serializable {
      * This method sets the value of the database column buukle-cms..friend_link.creator
      *
      * @param creator the value for buukle-cms..friend_link.creator
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public void setCreator(String creator) {
-        this.creator = creator;
+        this.creator = creator == null ? null : creator.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..friend_link.creator_code
      *
      * @return the value of buukle-cms..friend_link.creator_code
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public String getCreatorCode() {
         return creatorCode;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public FriendLink withCreatorCode(String creatorCode) {
         this.setCreatorCode(creatorCode);
@@ -355,27 +278,21 @@ public class FriendLink implements Serializable {
      * This method sets the value of the database column buukle-cms..friend_link.creator_code
      *
      * @param creatorCode the value for buukle-cms..friend_link.creator_code
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public void setCreatorCode(String creatorCode) {
-        this.creatorCode = creatorCode;
+        this.creatorCode = creatorCode == null ? null : creatorCode.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..friend_link.gmt_created
      *
      * @return the value of buukle-cms..friend_link.gmt_created
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public Date getGmtCreated() {
         return gmtCreated;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public FriendLink withGmtCreated(Date gmtCreated) {
         this.setGmtCreated(gmtCreated);
@@ -386,8 +303,6 @@ public class FriendLink implements Serializable {
      * This method sets the value of the database column buukle-cms..friend_link.gmt_created
      *
      * @param gmtCreated the value for buukle-cms..friend_link.gmt_created
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public void setGmtCreated(Date gmtCreated) {
         this.gmtCreated = gmtCreated;
@@ -397,16 +312,12 @@ public class FriendLink implements Serializable {
      * This method returns the value of the database column buukle-cms..friend_link.modifier
      *
      * @return the value of buukle-cms..friend_link.modifier
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public String getModifier() {
         return modifier;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public FriendLink withModifier(String modifier) {
         this.setModifier(modifier);
@@ -417,27 +328,21 @@ public class FriendLink implements Serializable {
      * This method sets the value of the database column buukle-cms..friend_link.modifier
      *
      * @param modifier the value for buukle-cms..friend_link.modifier
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public void setModifier(String modifier) {
-        this.modifier = modifier;
+        this.modifier = modifier == null ? null : modifier.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..friend_link.modifier_code
      *
      * @return the value of buukle-cms..friend_link.modifier_code
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public String getModifierCode() {
         return modifierCode;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public FriendLink withModifierCode(String modifierCode) {
         this.setModifierCode(modifierCode);
@@ -448,27 +353,21 @@ public class FriendLink implements Serializable {
      * This method sets the value of the database column buukle-cms..friend_link.modifier_code
      *
      * @param modifierCode the value for buukle-cms..friend_link.modifier_code
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public void setModifierCode(String modifierCode) {
-        this.modifierCode = modifierCode;
+        this.modifierCode = modifierCode == null ? null : modifierCode.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..friend_link.gmt_modified
      *
      * @return the value of buukle-cms..friend_link.gmt_modified
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public Date getGmtModified() {
         return gmtModified;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public FriendLink withGmtModified(Date gmtModified) {
         this.setGmtModified(gmtModified);
@@ -479,8 +378,6 @@ public class FriendLink implements Serializable {
      * This method sets the value of the database column buukle-cms..friend_link.gmt_modified
      *
      * @param gmtModified the value for buukle-cms..friend_link.gmt_modified
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public void setGmtModified(Date gmtModified) {
         this.gmtModified = gmtModified;
@@ -490,16 +387,12 @@ public class FriendLink implements Serializable {
      * This method returns the value of the database column buukle-cms..friend_link.name_cn
      *
      * @return the value of buukle-cms..friend_link.name_cn
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public String getNameCn() {
         return nameCn;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public FriendLink withNameCn(String nameCn) {
         this.setNameCn(nameCn);
@@ -510,27 +403,21 @@ public class FriendLink implements Serializable {
      * This method sets the value of the database column buukle-cms..friend_link.name_cn
      *
      * @param nameCn the value for buukle-cms..friend_link.name_cn
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public void setNameCn(String nameCn) {
-        this.nameCn = nameCn;
+        this.nameCn = nameCn == null ? null : nameCn.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..friend_link.full_name_cn
      *
      * @return the value of buukle-cms..friend_link.full_name_cn
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public String getFullNameCn() {
         return fullNameCn;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public FriendLink withFullNameCn(String fullNameCn) {
         this.setFullNameCn(fullNameCn);
@@ -541,27 +428,21 @@ public class FriendLink implements Serializable {
      * This method sets the value of the database column buukle-cms..friend_link.full_name_cn
      *
      * @param fullNameCn the value for buukle-cms..friend_link.full_name_cn
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public void setFullNameCn(String fullNameCn) {
-        this.fullNameCn = fullNameCn;
+        this.fullNameCn = fullNameCn == null ? null : fullNameCn.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..friend_link.name_en
      *
      * @return the value of buukle-cms..friend_link.name_en
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public String getNameEn() {
         return nameEn;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public FriendLink withNameEn(String nameEn) {
         this.setNameEn(nameEn);
@@ -572,27 +453,21 @@ public class FriendLink implements Serializable {
      * This method sets the value of the database column buukle-cms..friend_link.name_en
      *
      * @param nameEn the value for buukle-cms..friend_link.name_en
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public void setNameEn(String nameEn) {
-        this.nameEn = nameEn;
+        this.nameEn = nameEn == null ? null : nameEn.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..friend_link.full_name_en
      *
      * @return the value of buukle-cms..friend_link.full_name_en
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public String getFullNameEn() {
         return fullNameEn;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public FriendLink withFullNameEn(String fullNameEn) {
         this.setFullNameEn(fullNameEn);
@@ -603,27 +478,21 @@ public class FriendLink implements Serializable {
      * This method sets the value of the database column buukle-cms..friend_link.full_name_en
      *
      * @param fullNameEn the value for buukle-cms..friend_link.full_name_en
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public void setFullNameEn(String fullNameEn) {
-        this.fullNameEn = fullNameEn;
+        this.fullNameEn = fullNameEn == null ? null : fullNameEn.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..friend_link.status
      *
      * @return the value of buukle-cms..friend_link.status
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public Integer getStatus() {
         return status;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public FriendLink withStatus(Integer status) {
         this.setStatus(status);
@@ -634,8 +503,6 @@ public class FriendLink implements Serializable {
      * This method sets the value of the database column buukle-cms..friend_link.status
      *
      * @param status the value for buukle-cms..friend_link.status
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public void setStatus(Integer status) {
         this.status = status;
@@ -645,16 +512,12 @@ public class FriendLink implements Serializable {
      * This method returns the value of the database column buukle-cms..friend_link.bak01
      *
      * @return the value of buukle-cms..friend_link.bak01
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public String getBak01() {
         return bak01;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public FriendLink withBak01(String bak01) {
         this.setBak01(bak01);
@@ -665,27 +528,21 @@ public class FriendLink implements Serializable {
      * This method sets the value of the database column buukle-cms..friend_link.bak01
      *
      * @param bak01 the value for buukle-cms..friend_link.bak01
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public void setBak01(String bak01) {
-        this.bak01 = bak01;
+        this.bak01 = bak01 == null ? null : bak01.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..friend_link.bak02
      *
      * @return the value of buukle-cms..friend_link.bak02
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public String getBak02() {
         return bak02;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public FriendLink withBak02(String bak02) {
         this.setBak02(bak02);
@@ -696,27 +553,21 @@ public class FriendLink implements Serializable {
      * This method sets the value of the database column buukle-cms..friend_link.bak02
      *
      * @param bak02 the value for buukle-cms..friend_link.bak02
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public void setBak02(String bak02) {
-        this.bak02 = bak02;
+        this.bak02 = bak02 == null ? null : bak02.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..friend_link.bak03
      *
      * @return the value of buukle-cms..friend_link.bak03
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public String getBak03() {
         return bak03;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public FriendLink withBak03(String bak03) {
         this.setBak03(bak03);
@@ -727,27 +578,21 @@ public class FriendLink implements Serializable {
      * This method sets the value of the database column buukle-cms..friend_link.bak03
      *
      * @param bak03 the value for buukle-cms..friend_link.bak03
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public void setBak03(String bak03) {
-        this.bak03 = bak03;
+        this.bak03 = bak03 == null ? null : bak03.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..friend_link.bak04
      *
      * @return the value of buukle-cms..friend_link.bak04
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public String getBak04() {
         return bak04;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public FriendLink withBak04(String bak04) {
         this.setBak04(bak04);
@@ -758,27 +603,21 @@ public class FriendLink implements Serializable {
      * This method sets the value of the database column buukle-cms..friend_link.bak04
      *
      * @param bak04 the value for buukle-cms..friend_link.bak04
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public void setBak04(String bak04) {
-        this.bak04 = bak04;
+        this.bak04 = bak04 == null ? null : bak04.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..friend_link.bak05
      *
      * @return the value of buukle-cms..friend_link.bak05
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public String getBak05() {
         return bak05;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public FriendLink withBak05(String bak05) {
         this.setBak05(bak05);
@@ -789,16 +628,12 @@ public class FriendLink implements Serializable {
      * This method sets the value of the database column buukle-cms..friend_link.bak05
      *
      * @param bak05 the value for buukle-cms..friend_link.bak05
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     public void setBak05(String bak05) {
-        this.bak05 = bak05;
+        this.bak05 = bak05 == null ? null : bak05.trim();
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     @Override
     public String toString() {
@@ -831,8 +666,6 @@ public class FriendLink implements Serializable {
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     @Override
     public boolean equals(Object that) {
@@ -869,8 +702,6 @@ public class FriendLink implements Serializable {
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:17 CST 2018
      */
     @Override
     public int hashCode() {

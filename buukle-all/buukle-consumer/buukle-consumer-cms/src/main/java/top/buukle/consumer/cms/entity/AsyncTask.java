@@ -4,58 +4,45 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Created By MBG-GUI-EXTENSION https://github.com/spawpaw/mybatis-generator-gui-extension
+ * Created By elvin
  * Description:
  * 延时任务表
- *
  * @author 
  */
 public class AsyncTask implements Serializable {
     /**
      * id
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     private Integer id;
 
     /**
      * 类名字（反射使用）
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     private String className;
 
     /**
      * 方法名字（反射使用）
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     private String methodName;
 
     /**
      * 定时任务执行参数
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     private String parameter;
 
     /**
      * 描述
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     private String description;
 
     /**
      * 提醒邮箱
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     private String alarmMail;
 
@@ -64,8 +51,6 @@ public class AsyncTask implements Serializable {
                         1 是
                         0 否
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     private Integer startAlarm;
 
@@ -74,8 +59,6 @@ public class AsyncTask implements Serializable {
                         1 是
                         0 否
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     private Integer stopAlarm;
 
@@ -84,24 +67,18 @@ public class AsyncTask implements Serializable {
                         1 是
                         0 否
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     private Integer errorAlarm;
 
     /**
      * 执行计划规则
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     private String cronExpression;
 
     /**
      * 启动开始时间
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     private Date startDate;
 
@@ -110,117 +87,87 @@ public class AsyncTask implements Serializable {
                         0 重复执行
                         1 执行一次
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     private Integer type;
 
     /**
      * 运行环境类型 0 灰度 1 线上
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     private Integer runtype;
 
     /**
      * 创建者(用户名)
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     private String creator;
 
     /**
      * 创建者代码
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     private String creatorCode;
 
     /**
      * 创建时间
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     private Date gmtCreated;
 
     /**
      * 修改者(用户名)
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     private String modifier;
 
     /**
      * 修改者代码
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     private String modifierCode;
 
     /**
      * 更新时间
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     private Date gmtModified;
 
     /**
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     private Integer status;
 
     /**
      * 备用
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     private String bak01;
 
     /**
      * 备用
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     private String bak02;
 
     /**
      * 备用
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     private String bak03;
 
     /**
      * 备用
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     private String bak04;
 
     /**
      * 备用
      *
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     private String bak05;
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     private static final long serialVersionUID = 1L;
 
@@ -228,16 +175,12 @@ public class AsyncTask implements Serializable {
      * This method returns the value of the database column buukle-cms..async_task.id
      *
      * @return the value of buukle-cms..async_task.id
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public Integer getId() {
         return id;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public AsyncTask withId(Integer id) {
         this.setId(id);
@@ -248,8 +191,6 @@ public class AsyncTask implements Serializable {
      * This method sets the value of the database column buukle-cms..async_task.id
      *
      * @param id the value for buukle-cms..async_task.id
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public void setId(Integer id) {
         this.id = id;
@@ -259,16 +200,12 @@ public class AsyncTask implements Serializable {
      * This method returns the value of the database column buukle-cms..async_task.class_name
      *
      * @return the value of buukle-cms..async_task.class_name
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public String getClassName() {
         return className;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public AsyncTask withClassName(String className) {
         this.setClassName(className);
@@ -279,27 +216,21 @@ public class AsyncTask implements Serializable {
      * This method sets the value of the database column buukle-cms..async_task.class_name
      *
      * @param className the value for buukle-cms..async_task.class_name
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public void setClassName(String className) {
-        this.className = className;
+        this.className = className == null ? null : className.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..async_task.method_name
      *
      * @return the value of buukle-cms..async_task.method_name
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public String getMethodName() {
         return methodName;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public AsyncTask withMethodName(String methodName) {
         this.setMethodName(methodName);
@@ -310,27 +241,21 @@ public class AsyncTask implements Serializable {
      * This method sets the value of the database column buukle-cms..async_task.method_name
      *
      * @param methodName the value for buukle-cms..async_task.method_name
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public void setMethodName(String methodName) {
-        this.methodName = methodName;
+        this.methodName = methodName == null ? null : methodName.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..async_task.parameter
      *
      * @return the value of buukle-cms..async_task.parameter
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public String getParameter() {
         return parameter;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public AsyncTask withParameter(String parameter) {
         this.setParameter(parameter);
@@ -341,27 +266,21 @@ public class AsyncTask implements Serializable {
      * This method sets the value of the database column buukle-cms..async_task.parameter
      *
      * @param parameter the value for buukle-cms..async_task.parameter
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public void setParameter(String parameter) {
-        this.parameter = parameter;
+        this.parameter = parameter == null ? null : parameter.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..async_task.description
      *
      * @return the value of buukle-cms..async_task.description
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public String getDescription() {
         return description;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public AsyncTask withDescription(String description) {
         this.setDescription(description);
@@ -372,27 +291,21 @@ public class AsyncTask implements Serializable {
      * This method sets the value of the database column buukle-cms..async_task.description
      *
      * @param description the value for buukle-cms..async_task.description
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public void setDescription(String description) {
-        this.description = description;
+        this.description = description == null ? null : description.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..async_task.alarm_mail
      *
      * @return the value of buukle-cms..async_task.alarm_mail
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public String getAlarmMail() {
         return alarmMail;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public AsyncTask withAlarmMail(String alarmMail) {
         this.setAlarmMail(alarmMail);
@@ -403,27 +316,21 @@ public class AsyncTask implements Serializable {
      * This method sets the value of the database column buukle-cms..async_task.alarm_mail
      *
      * @param alarmMail the value for buukle-cms..async_task.alarm_mail
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public void setAlarmMail(String alarmMail) {
-        this.alarmMail = alarmMail;
+        this.alarmMail = alarmMail == null ? null : alarmMail.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..async_task.start_alarm
      *
      * @return the value of buukle-cms..async_task.start_alarm
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public Integer getStartAlarm() {
         return startAlarm;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public AsyncTask withStartAlarm(Integer startAlarm) {
         this.setStartAlarm(startAlarm);
@@ -434,8 +341,6 @@ public class AsyncTask implements Serializable {
      * This method sets the value of the database column buukle-cms..async_task.start_alarm
      *
      * @param startAlarm the value for buukle-cms..async_task.start_alarm
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public void setStartAlarm(Integer startAlarm) {
         this.startAlarm = startAlarm;
@@ -445,16 +350,12 @@ public class AsyncTask implements Serializable {
      * This method returns the value of the database column buukle-cms..async_task.stop_alarm
      *
      * @return the value of buukle-cms..async_task.stop_alarm
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public Integer getStopAlarm() {
         return stopAlarm;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public AsyncTask withStopAlarm(Integer stopAlarm) {
         this.setStopAlarm(stopAlarm);
@@ -465,8 +366,6 @@ public class AsyncTask implements Serializable {
      * This method sets the value of the database column buukle-cms..async_task.stop_alarm
      *
      * @param stopAlarm the value for buukle-cms..async_task.stop_alarm
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public void setStopAlarm(Integer stopAlarm) {
         this.stopAlarm = stopAlarm;
@@ -476,16 +375,12 @@ public class AsyncTask implements Serializable {
      * This method returns the value of the database column buukle-cms..async_task.error_alarm
      *
      * @return the value of buukle-cms..async_task.error_alarm
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public Integer getErrorAlarm() {
         return errorAlarm;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public AsyncTask withErrorAlarm(Integer errorAlarm) {
         this.setErrorAlarm(errorAlarm);
@@ -496,8 +391,6 @@ public class AsyncTask implements Serializable {
      * This method sets the value of the database column buukle-cms..async_task.error_alarm
      *
      * @param errorAlarm the value for buukle-cms..async_task.error_alarm
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public void setErrorAlarm(Integer errorAlarm) {
         this.errorAlarm = errorAlarm;
@@ -507,16 +400,12 @@ public class AsyncTask implements Serializable {
      * This method returns the value of the database column buukle-cms..async_task.cron_expression
      *
      * @return the value of buukle-cms..async_task.cron_expression
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public String getCronExpression() {
         return cronExpression;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public AsyncTask withCronExpression(String cronExpression) {
         this.setCronExpression(cronExpression);
@@ -527,27 +416,21 @@ public class AsyncTask implements Serializable {
      * This method sets the value of the database column buukle-cms..async_task.cron_expression
      *
      * @param cronExpression the value for buukle-cms..async_task.cron_expression
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public void setCronExpression(String cronExpression) {
-        this.cronExpression = cronExpression;
+        this.cronExpression = cronExpression == null ? null : cronExpression.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..async_task.start_date
      *
      * @return the value of buukle-cms..async_task.start_date
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public Date getStartDate() {
         return startDate;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public AsyncTask withStartDate(Date startDate) {
         this.setStartDate(startDate);
@@ -558,8 +441,6 @@ public class AsyncTask implements Serializable {
      * This method sets the value of the database column buukle-cms..async_task.start_date
      *
      * @param startDate the value for buukle-cms..async_task.start_date
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public void setStartDate(Date startDate) {
         this.startDate = startDate;
@@ -569,16 +450,12 @@ public class AsyncTask implements Serializable {
      * This method returns the value of the database column buukle-cms..async_task.type
      *
      * @return the value of buukle-cms..async_task.type
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public Integer getType() {
         return type;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public AsyncTask withType(Integer type) {
         this.setType(type);
@@ -589,8 +466,6 @@ public class AsyncTask implements Serializable {
      * This method sets the value of the database column buukle-cms..async_task.type
      *
      * @param type the value for buukle-cms..async_task.type
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public void setType(Integer type) {
         this.type = type;
@@ -600,16 +475,12 @@ public class AsyncTask implements Serializable {
      * This method returns the value of the database column buukle-cms..async_task.runType
      *
      * @return the value of buukle-cms..async_task.runType
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public Integer getRuntype() {
         return runtype;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public AsyncTask withRuntype(Integer runtype) {
         this.setRuntype(runtype);
@@ -620,8 +491,6 @@ public class AsyncTask implements Serializable {
      * This method sets the value of the database column buukle-cms..async_task.runType
      *
      * @param runtype the value for buukle-cms..async_task.runType
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public void setRuntype(Integer runtype) {
         this.runtype = runtype;
@@ -631,16 +500,12 @@ public class AsyncTask implements Serializable {
      * This method returns the value of the database column buukle-cms..async_task.creator
      *
      * @return the value of buukle-cms..async_task.creator
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public String getCreator() {
         return creator;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public AsyncTask withCreator(String creator) {
         this.setCreator(creator);
@@ -651,27 +516,21 @@ public class AsyncTask implements Serializable {
      * This method sets the value of the database column buukle-cms..async_task.creator
      *
      * @param creator the value for buukle-cms..async_task.creator
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public void setCreator(String creator) {
-        this.creator = creator;
+        this.creator = creator == null ? null : creator.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..async_task.creator_code
      *
      * @return the value of buukle-cms..async_task.creator_code
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public String getCreatorCode() {
         return creatorCode;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public AsyncTask withCreatorCode(String creatorCode) {
         this.setCreatorCode(creatorCode);
@@ -682,27 +541,21 @@ public class AsyncTask implements Serializable {
      * This method sets the value of the database column buukle-cms..async_task.creator_code
      *
      * @param creatorCode the value for buukle-cms..async_task.creator_code
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public void setCreatorCode(String creatorCode) {
-        this.creatorCode = creatorCode;
+        this.creatorCode = creatorCode == null ? null : creatorCode.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..async_task.gmt_created
      *
      * @return the value of buukle-cms..async_task.gmt_created
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public Date getGmtCreated() {
         return gmtCreated;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public AsyncTask withGmtCreated(Date gmtCreated) {
         this.setGmtCreated(gmtCreated);
@@ -713,8 +566,6 @@ public class AsyncTask implements Serializable {
      * This method sets the value of the database column buukle-cms..async_task.gmt_created
      *
      * @param gmtCreated the value for buukle-cms..async_task.gmt_created
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public void setGmtCreated(Date gmtCreated) {
         this.gmtCreated = gmtCreated;
@@ -724,16 +575,12 @@ public class AsyncTask implements Serializable {
      * This method returns the value of the database column buukle-cms..async_task.modifier
      *
      * @return the value of buukle-cms..async_task.modifier
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public String getModifier() {
         return modifier;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public AsyncTask withModifier(String modifier) {
         this.setModifier(modifier);
@@ -744,27 +591,21 @@ public class AsyncTask implements Serializable {
      * This method sets the value of the database column buukle-cms..async_task.modifier
      *
      * @param modifier the value for buukle-cms..async_task.modifier
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public void setModifier(String modifier) {
-        this.modifier = modifier;
+        this.modifier = modifier == null ? null : modifier.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..async_task.modifier_code
      *
      * @return the value of buukle-cms..async_task.modifier_code
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public String getModifierCode() {
         return modifierCode;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public AsyncTask withModifierCode(String modifierCode) {
         this.setModifierCode(modifierCode);
@@ -775,27 +616,21 @@ public class AsyncTask implements Serializable {
      * This method sets the value of the database column buukle-cms..async_task.modifier_code
      *
      * @param modifierCode the value for buukle-cms..async_task.modifier_code
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public void setModifierCode(String modifierCode) {
-        this.modifierCode = modifierCode;
+        this.modifierCode = modifierCode == null ? null : modifierCode.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..async_task.gmt_modified
      *
      * @return the value of buukle-cms..async_task.gmt_modified
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public Date getGmtModified() {
         return gmtModified;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public AsyncTask withGmtModified(Date gmtModified) {
         this.setGmtModified(gmtModified);
@@ -806,8 +641,6 @@ public class AsyncTask implements Serializable {
      * This method sets the value of the database column buukle-cms..async_task.gmt_modified
      *
      * @param gmtModified the value for buukle-cms..async_task.gmt_modified
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public void setGmtModified(Date gmtModified) {
         this.gmtModified = gmtModified;
@@ -817,16 +650,12 @@ public class AsyncTask implements Serializable {
      * This method returns the value of the database column buukle-cms..async_task.status
      *
      * @return the value of buukle-cms..async_task.status
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public Integer getStatus() {
         return status;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public AsyncTask withStatus(Integer status) {
         this.setStatus(status);
@@ -837,8 +666,6 @@ public class AsyncTask implements Serializable {
      * This method sets the value of the database column buukle-cms..async_task.status
      *
      * @param status the value for buukle-cms..async_task.status
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public void setStatus(Integer status) {
         this.status = status;
@@ -848,16 +675,12 @@ public class AsyncTask implements Serializable {
      * This method returns the value of the database column buukle-cms..async_task.bak01
      *
      * @return the value of buukle-cms..async_task.bak01
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public String getBak01() {
         return bak01;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public AsyncTask withBak01(String bak01) {
         this.setBak01(bak01);
@@ -868,27 +691,21 @@ public class AsyncTask implements Serializable {
      * This method sets the value of the database column buukle-cms..async_task.bak01
      *
      * @param bak01 the value for buukle-cms..async_task.bak01
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public void setBak01(String bak01) {
-        this.bak01 = bak01;
+        this.bak01 = bak01 == null ? null : bak01.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..async_task.bak02
      *
      * @return the value of buukle-cms..async_task.bak02
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public String getBak02() {
         return bak02;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public AsyncTask withBak02(String bak02) {
         this.setBak02(bak02);
@@ -899,27 +716,21 @@ public class AsyncTask implements Serializable {
      * This method sets the value of the database column buukle-cms..async_task.bak02
      *
      * @param bak02 the value for buukle-cms..async_task.bak02
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public void setBak02(String bak02) {
-        this.bak02 = bak02;
+        this.bak02 = bak02 == null ? null : bak02.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..async_task.bak03
      *
      * @return the value of buukle-cms..async_task.bak03
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public String getBak03() {
         return bak03;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public AsyncTask withBak03(String bak03) {
         this.setBak03(bak03);
@@ -930,27 +741,21 @@ public class AsyncTask implements Serializable {
      * This method sets the value of the database column buukle-cms..async_task.bak03
      *
      * @param bak03 the value for buukle-cms..async_task.bak03
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public void setBak03(String bak03) {
-        this.bak03 = bak03;
+        this.bak03 = bak03 == null ? null : bak03.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..async_task.bak04
      *
      * @return the value of buukle-cms..async_task.bak04
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public String getBak04() {
         return bak04;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public AsyncTask withBak04(String bak04) {
         this.setBak04(bak04);
@@ -961,27 +766,21 @@ public class AsyncTask implements Serializable {
      * This method sets the value of the database column buukle-cms..async_task.bak04
      *
      * @param bak04 the value for buukle-cms..async_task.bak04
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public void setBak04(String bak04) {
-        this.bak04 = bak04;
+        this.bak04 = bak04 == null ? null : bak04.trim();
     }
 
     /**
      * This method returns the value of the database column buukle-cms..async_task.bak05
      *
      * @return the value of buukle-cms..async_task.bak05
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public String getBak05() {
         return bak05;
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public AsyncTask withBak05(String bak05) {
         this.setBak05(bak05);
@@ -992,16 +791,12 @@ public class AsyncTask implements Serializable {
      * This method sets the value of the database column buukle-cms..async_task.bak05
      *
      * @param bak05 the value for buukle-cms..async_task.bak05
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     public void setBak05(String bak05) {
-        this.bak05 = bak05;
+        this.bak05 = bak05 == null ? null : bak05.trim();
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     @Override
     public String toString() {
@@ -1039,8 +834,6 @@ public class AsyncTask implements Serializable {
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     @Override
     public boolean equals(Object that) {
@@ -1082,8 +875,6 @@ public class AsyncTask implements Serializable {
     }
 
     /**
-     *
-     * @mbg.generated Mon Dec 17 00:04:13 CST 2018
      */
     @Override
     public int hashCode() {
