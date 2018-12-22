@@ -8,6 +8,7 @@ import top.buukle.common.response.BaseResponse;
 import top.buukle.plugin.security.entity.Button;
 import top.buukle.plugin.security.entity.ButtonType;
 import top.buukle.plugin.security.entity.User;
+import top.buukle.plugin.security.plugins.SecurityInterceptor;
 import top.buukle.plugin.security.vo.response.ModuleNavigationVo;
 
 import java.util.List;
@@ -24,7 +25,7 @@ public interface SecurityInvoker{
      * @param request
      * @return
      */
-    @PostMapping(value = "/api/security/user/doLogin")
+    @PostMapping(value = SecurityInterceptor.API_URI_PREFIX + "/doLogin")
     BaseResponse doLogin(BaseRequest request);
 
     /**
@@ -33,7 +34,7 @@ public interface SecurityInvoker{
      * @return
      */
     @InvokerLoggingAnnotation(InvokerLoggingAnnotation.PRINT_FALSE)
-    @PostMapping(value = "/api/security/user/authentication")
+    @PostMapping(value = SecurityInterceptor.API_URI_PREFIX + "/authentication")
     BaseResponse authentication(BaseRequest request);
 
     /**
@@ -42,7 +43,7 @@ public interface SecurityInvoker{
      * @return
      */
     @InvokerLoggingAnnotation(InvokerLoggingAnnotation.PRINT_FALSE)
-    @PostMapping(value = "/api/security/user/setPermission")
+    @PostMapping(value = SecurityInterceptor.API_URI_PREFIX + "/setPermission")
     BaseResponse setPermission(BaseRequest request);
 
 
@@ -52,7 +53,7 @@ public interface SecurityInvoker{
      * @return
      */
     @InvokerLoggingAnnotation(InvokerLoggingAnnotation.PRINT_FALSE)
-    @PostMapping(value = "/api/security/user/getUserModuleTree")
+    @PostMapping(value = SecurityInterceptor.API_URI_PREFIX + "/getUserModuleTree")
     List<ModuleNavigationVo> getUserModuleTree(BaseRequest baseRequest);
 
     /**
@@ -61,7 +62,7 @@ public interface SecurityInvoker{
      * @return
      */
     @InvokerLoggingAnnotation(InvokerLoggingAnnotation.PRINT_FALSE)
-    @PostMapping(value = "/api/security/user/getUserInfo")
+    @PostMapping(value = SecurityInterceptor.API_URI_PREFIX + "/getUserInfo")
     User getUserInfo(BaseRequest baseRequest);
 
     /**
@@ -70,7 +71,7 @@ public interface SecurityInvoker{
      * @return
      */
     @InvokerLoggingAnnotation(InvokerLoggingAnnotation.PRINT_FALSE)
-    @PostMapping(value = "/api/security/user/getButtonTypes")
+    @PostMapping(value = SecurityInterceptor.API_URI_PREFIX + "/getButtonTypes")
     List<ButtonType> getButtonTypes(BaseRequest baseRequest);
 
     /**
@@ -79,6 +80,15 @@ public interface SecurityInvoker{
      * @return
      */
     @InvokerLoggingAnnotation(InvokerLoggingAnnotation.PRINT_FALSE)
-    @PostMapping(value = "/api/security/user/getModuleButtons")
+    @PostMapping(value = SecurityInterceptor.API_URI_PREFIX + "/getModuleButtons")
     List<Button> getModuleButtons(BaseRequest baseRequest);
+
+    /**
+     * 获取用户下辖列表信息
+     * @param baseRequest
+     * @return
+     */
+    @InvokerLoggingAnnotation(InvokerLoggingAnnotation.PRINT_FALSE)
+    @PostMapping(value = SecurityInterceptor.API_URI_PREFIX + "/getUserSubordinate")
+    List<String> getUserSubordinate(BaseRequest baseRequest);
 }

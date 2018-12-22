@@ -4,21 +4,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import top.buukle.common.response.BaseResponse;
 import top.buukle.plugin.security.vo.query.PageBounds;
 import top.buukle.common.vo.response.PageResponse;
+
 import top.buukle.consumer.cms .service.UserFansService;
 import top.buukle.consumer.cms .entity.UserFans;
 import top.buukle.consumer.cms .entity.vo.UserFansQuery;
 import top.buukle.plugin.security.vo.response.FuzzySearchListVo;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
+/**
+* @author elvin
+* @description UserFans controller
+*/
 @Controller
 @RequestMapping("/userFans")
 public class UserFansController{
 
     @Autowired
-    UserFansService service;
+    UserFansService userFansService;
 
     /**
     * 获取列表
@@ -28,7 +35,7 @@ public class UserFansController{
     @RequestMapping("/getUserFansList")
     @ResponseBody
     public PageResponse<UserFans> getUserList(UserFansQuery query,PageBounds pageBounds) throws Exception {
-        return service.getUserFansList(query,pageBounds);
+        return userFansService.getUserFansList(query,pageBounds);
     }
 
     /**
@@ -40,7 +47,58 @@ public class UserFansController{
     @RequestMapping("/fuzzySearchByText")
     @ResponseBody
     public List<FuzzySearchListVo>  fuzzySearchByText(String fuzzyText) throws Exception {
-        return service.fuzzySearchByText(fuzzyText);
+        return userFansService.fuzzySearchByText(fuzzyText);
+    }
+
+    /**
+    * 删除记录
+    * @param query
+    * @param request
+    * @return
+    * @throws Exception
+    */
+    @RequestMapping("/deleteUserFans")
+    @ResponseBody
+    public BaseResponse deleteUserFans(UserFansQuery query, HttpServletRequest request) throws Exception {
+        return userFansService.deleteUserFans(query,request);
+    }
+
+    /**
+    * 查看记录详情
+    * @param query
+    * @return
+    * @throws Exception
+    */
+    @RequestMapping("/getUserFansDetail")
+    @ResponseBody
+    public UserFans getUserFansDetail(UserFansQuery query) throws Exception {
+        return userFansService.getUserFansDetail(query);
+    }
+
+    /**
+    * 新增记录
+    * @param query
+    * @param request
+    * @return
+    * @throws Exception
+    */
+    @RequestMapping("/saveUserFans")
+    @ResponseBody
+    public BaseResponse saveUserFans(UserFansQuery query, HttpServletRequest request) throws Exception {
+        return userFansService.saveUserFans(query,request);
+    }
+
+    /**
+    * 更新记录
+    * @param query
+    * @param request
+    * @return
+    * @throws Exception
+    */
+    @RequestMapping("/updateUserFans")
+    @ResponseBody
+    public BaseResponse updateUserFans(UserFansQuery query, HttpServletRequest request) throws Exception {
+        return userFansService.updateUserFans(query,request);
     }
 
 }

@@ -35,7 +35,7 @@ public class SecurityInterceptor implements HandlerInterceptor {
     /** 请求头来源 常量*/
     final public static String REQUEST_HEADER_REFEREE = "Referer";
     public static final String NO_AUTHENTICATION_PATH = "/noAuthentication";
-    private static final String API_URI_PREFIX = "/api/security/";
+    public static final String API_URI_PREFIX = "/api/securityRest/";
 
     @Autowired
     private Environment env;

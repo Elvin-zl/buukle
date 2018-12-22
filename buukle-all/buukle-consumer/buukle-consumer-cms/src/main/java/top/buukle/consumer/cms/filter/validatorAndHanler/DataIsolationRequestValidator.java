@@ -1,13 +1,14 @@
-package top.buukle.provider.security.filter.RquestValidatorAndResponseHanler;
+package top.buukle.consumer.cms.filter.validatorAndHanler;
 
 import top.buukle.common.dataIsolation.IsolationRelation;
 import top.buukle.common.dataIsolation.IsolationRelationThreadLocal;
 import top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseRequestValidator;
 import top.buukle.common.response.BaseResponse;
+import top.buukle.common.util.common.SpringContextUtil;
 import top.buukle.common.util.logger.BaseLogger;
-import top.buukle.plugin.security.util.CookieUtil;
+import top.buukle.plugin.security.client.SecurityClient;
 import top.buukle.plugin.security.entity.User;
-import top.buukle.provider.security.invoker.UserInvoker;
+import top.buukle.plugin.security.util.CookieUtil;
 
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
@@ -18,9 +19,9 @@ import java.io.IOException;
  * @Date Created by elvin on 2018/12/3.
  * @Description : 数据隔离请求处理校验器
  */
-public class DataIsolationRequestValdator extends BaseRequestValidator {
+public class DataIsolationRequestValidator extends BaseRequestValidator {
 
-    private static final BaseLogger LOGGER = BaseLogger.getLogger(DataIsolationRequestValdator.class);
+    private static final BaseLogger LOGGER = BaseLogger.getLogger(DataIsolationRequestValidator.class);
 
     /**
      * 实现验签方法
@@ -44,13 +45,12 @@ public class DataIsolationRequestValdator extends BaseRequestValidator {
     public void doValidate(HttpServletRequest httpServletRequest, String uri, String requestBody, ServletResponse servletResponse) throws IOException {
         try {
             if(!uri.contains("uploadImageServlet")){
-                String reqMethod = httpServletRequest.getMethod();
-                if("POST".equals(reqMethod)){
+                String method = httpServletRequest.getMethod();
+                if("POST".equals(method)){
                     //校验请求参数
                     BaseResponse baseResponse = this.doValidate(httpServletRequest);
                     //校验失败
-                    if(!baseResponse.isSuccess()){
-                    }else{
+                    if(baseResponse.isSuccess()){
                         this.afterValidateHandle(httpServletRequest,requestBody);
                     }
                 }
@@ -67,12 +67,13 @@ public class DataIsolationRequestValdator extends BaseRequestValidator {
      */
     private BaseResponse doValidate(HttpServletRequest httpServletRequest) {
         // 获取用户信息
-        User user = UserInvoker.getUser(CookieUtil.getUserCookie(httpServletRequest));
+        SecurityClient securityClient = SpringContextUtil.getBean(SecurityClient.class);
+        User user = securityClient.getUserInfo(httpServletRequest);
         IsolationRelation isolationRelation = new IsolationRelation();
         // 设置用户身份
         isolationRelation.setUserLevel(user.getUserLevel());
         // 设置获取用户下级信息
-        isolationRelation.setSubCodeList(UserInvoker.getUserSubordinate(user.getUserId()));
+        isolationRelation.setSubCodeList(securityClient.getUserSubordinate(user.getUserId()));
         IsolationRelationThreadLocal.setSchemas(isolationRelation);
         return new BaseResponse.Builder().buildSuccess();
     }

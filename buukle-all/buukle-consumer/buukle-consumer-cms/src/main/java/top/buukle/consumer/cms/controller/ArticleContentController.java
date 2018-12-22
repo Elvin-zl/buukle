@@ -4,21 +4,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import top.buukle.common.response.BaseResponse;
 import top.buukle.plugin.security.vo.query.PageBounds;
 import top.buukle.common.vo.response.PageResponse;
+
 import top.buukle.consumer.cms .service.ArticleContentService;
 import top.buukle.consumer.cms .entity.ArticleContent;
 import top.buukle.consumer.cms .entity.vo.ArticleContentQuery;
 import top.buukle.plugin.security.vo.response.FuzzySearchListVo;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
+/**
+* @author elvin
+* @description ArticleContent controller
+*/
 @Controller
 @RequestMapping("/articleContent")
 public class ArticleContentController{
 
     @Autowired
-    ArticleContentService service;
+    ArticleContentService articleContentService;
 
     /**
     * 获取列表
@@ -28,7 +35,7 @@ public class ArticleContentController{
     @RequestMapping("/getArticleContentList")
     @ResponseBody
     public PageResponse<ArticleContent> getUserList(ArticleContentQuery query,PageBounds pageBounds) throws Exception {
-        return service.getArticleContentList(query,pageBounds);
+        return articleContentService.getArticleContentList(query,pageBounds);
     }
 
     /**
@@ -40,7 +47,58 @@ public class ArticleContentController{
     @RequestMapping("/fuzzySearchByText")
     @ResponseBody
     public List<FuzzySearchListVo>  fuzzySearchByText(String fuzzyText) throws Exception {
-        return service.fuzzySearchByText(fuzzyText);
+        return articleContentService.fuzzySearchByText(fuzzyText);
+    }
+
+    /**
+    * 删除记录
+    * @param query
+    * @param request
+    * @return
+    * @throws Exception
+    */
+    @RequestMapping("/deleteArticleContent")
+    @ResponseBody
+    public BaseResponse deleteArticleContent(ArticleContentQuery query, HttpServletRequest request) throws Exception {
+        return articleContentService.deleteArticleContent(query,request);
+    }
+
+    /**
+    * 查看记录详情
+    * @param query
+    * @return
+    * @throws Exception
+    */
+    @RequestMapping("/getArticleContentDetail")
+    @ResponseBody
+    public ArticleContent getArticleContentDetail(ArticleContentQuery query) throws Exception {
+        return articleContentService.getArticleContentDetail(query);
+    }
+
+    /**
+    * 新增记录
+    * @param query
+    * @param request
+    * @return
+    * @throws Exception
+    */
+    @RequestMapping("/saveArticleContent")
+    @ResponseBody
+    public BaseResponse saveArticleContent(ArticleContentQuery query, HttpServletRequest request) throws Exception {
+        return articleContentService.saveArticleContent(query,request);
+    }
+
+    /**
+    * 更新记录
+    * @param query
+    * @param request
+    * @return
+    * @throws Exception
+    */
+    @RequestMapping("/updateArticleContent")
+    @ResponseBody
+    public BaseResponse updateArticleContent(ArticleContentQuery query, HttpServletRequest request) throws Exception {
+        return articleContentService.updateArticleContent(query,request);
     }
 
 }

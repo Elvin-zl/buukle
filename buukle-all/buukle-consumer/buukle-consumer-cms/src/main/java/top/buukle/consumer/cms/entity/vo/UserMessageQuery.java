@@ -2,6 +2,10 @@ package top.buukle.consumer.cms .entity.vo;
 
 import top.buukle.consumer.cms .entity. UserMessage;
 
+/**
+* @author elvin
+* @description  UserMessage 查询包装类
+*/
 public class UserMessageQuery extends UserMessage{
 
     /** 起始时间*/

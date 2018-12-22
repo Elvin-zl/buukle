@@ -16,7 +16,6 @@
       <div class="layui-tab-content">
       <!--搜索条件-->
       <form id="searchForm" class="buukle-data-form">
-
           <div class="buukle-search-name">
               <span class="form-span" style="float: inherit;">文章题目 : </span>
               <div class="fuzzy-div">
@@ -62,7 +61,7 @@
                  <td class="table-property-name">题目</td>
                  <td class="table-property-value"><input type="text" disabled  class="buukle-frame-input" id="title"></td>
                  <td class="table-property-name">作者</td>
-                 <td class="table-property-value"><input type="text" disabled  class="buukle-frame-input" id="ariticleAuthor"></td>
+                 <td class="table-property-value"><input type="text" disabled  class="buukle-frame-input" id="articleAuthor"></td>
              </tr>
              <tr>
                  <td class="table-property-name">创建时间</td>
@@ -92,7 +91,7 @@
          </div>
      </div>
      <!--修改-->
-     <div class="detail crud" id="modify" style="display: none;">
+     <div class="detail crud" id="edit" style="display: none;">
          <table class="data-table">
              <tr>
                  <td class="table-property-name">题目</td>
@@ -128,7 +127,7 @@
                      <td class="table-property-name">类别 : </td>
                      <td class="table-property-value">
                          <input placeholder="请点击选择文章类别" type="text" required name="articleCat" class="buukle-article-add buukle-frame-input" id="add-property01">
-                         <input id="pid" type="hidden" name="property01"  class="add-input buukle-article-add" readonly>
+                         <input id="pid" type="hidden" name="articleCatId"  class="add-input buukle-article-add" readonly>
                          <span id="catErrorMsg" style="color: red"></span>
                      </td>
                  </tr>
@@ -161,9 +160,9 @@
      <input type="hidden" id="currentRecordId"> <!--当前操作的记录id-->
     </div>
     <script src="/static/mods/jquery-3.3.1.min.js"></script>
-    <script src=" /static/ztree/js/jquery.ztree.core.js"></script>
-    <script src=" /static/ztree/js/jquery.ztree.excheck.js"></script>
-    <script src=" /static/ztree/js/jquery.ztree.exedit.js"></script>
+    <script src="/static/ztree/js/jquery.ztree.core.js"></script>
+    <script src="/static/ztree/js/jquery.ztree.excheck.js"></script>
+    <script src="/static/ztree/js/jquery.ztree.exedit.js"></script>
     <script src="/static/layui/layui.js"></script>
     <script src="/static/zElog/js/util/component.js"></script>
     <script src="/static/zElog/js/article/userArticle/userArticleList.js"></script>

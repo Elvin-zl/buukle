@@ -18,6 +18,7 @@
     <result column="modifier_code" jdbcType="VARCHAR" property="modifierCode" />
     <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
     <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
     <result column="bak01" jdbcType="VARCHAR" property="bak01" />
     <result column="bak02" jdbcType="VARCHAR" property="bak02" />
     <result column="bak03" jdbcType="VARCHAR" property="bak03" />
@@ -85,7 +86,7 @@
   <sql id="Base_Column_List">
     id, pid, user_id, salesman_id, group_id, agent_id, platform_id, article_cat, description, 
     creator, creator_code, gmt_created, modifier, modifier_code, gmt_modified, status, 
-    bak01, bak02, bak03, bak04, bak05
+    remark, bak01, bak02, bak03, bak04, bak05
   </sql>
   <select id="selectByExample" parameterType="top.buukle.consumer.cms.entity.ArticleCatExample" resultMap="BaseResultMap">
     select
@@ -123,17 +124,17 @@
       platform_id, article_cat, description, 
       creator, creator_code, gmt_created, 
       modifier, modifier_code, gmt_modified, 
-      status, bak01, bak02, 
-      bak03, bak04, bak05
-      )
+      status, remark, bak01, 
+      bak02, bak03, bak04, 
+      bak05)
     values (#{id,jdbcType=INTEGER}, #{pid,jdbcType=BIGINT}, #{userId,jdbcType=VARCHAR}, 
       #{salesmanId,jdbcType=VARCHAR}, #{groupId,jdbcType=VARCHAR}, #{agentId,jdbcType=VARCHAR}, 
       #{platformId,jdbcType=VARCHAR}, #{articleCat,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
       #{creator,jdbcType=VARCHAR}, #{creatorCode,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, 
       #{modifier,jdbcType=VARCHAR}, #{modifierCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, 
-      #{status,jdbcType=INTEGER}, #{bak01,jdbcType=VARCHAR}, #{bak02,jdbcType=VARCHAR}, 
-      #{bak03,jdbcType=VARCHAR}, #{bak04,jdbcType=VARCHAR}, #{bak05,jdbcType=VARCHAR}
-      )
+      #{status,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{bak01,jdbcType=VARCHAR}, 
+      #{bak02,jdbcType=VARCHAR}, #{bak03,jdbcType=VARCHAR}, #{bak04,jdbcType=VARCHAR}, 
+      #{bak05,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="top.buukle.consumer.cms.entity.ArticleCat">
     insert into article_cat
@@ -185,6 +186,9 @@
       </if>
       <if test="status != null">
         status,
+      </if>
+      <if test="remark != null">
+        remark,
       </if>
       <if test="bak01 != null">
         bak01,
@@ -250,6 +254,9 @@
       </if>
       <if test="status != null">
         #{status,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
       </if>
       <if test="bak01 != null">
         #{bak01,jdbcType=VARCHAR},
@@ -325,6 +332,9 @@
       <if test="record.status != null">
         status = #{record.status,jdbcType=INTEGER},
       </if>
+      <if test="record.remark != null">
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
       <if test="record.bak01 != null">
         bak01 = #{record.bak01,jdbcType=VARCHAR},
       </if>
@@ -363,6 +373,7 @@
       modifier_code = #{record.modifierCode,jdbcType=VARCHAR},
       gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
       status = #{record.status,jdbcType=INTEGER},
+      remark = #{record.remark,jdbcType=VARCHAR},
       bak01 = #{record.bak01,jdbcType=VARCHAR},
       bak02 = #{record.bak02,jdbcType=VARCHAR},
       bak03 = #{record.bak03,jdbcType=VARCHAR},
@@ -420,6 +431,9 @@
       <if test="status != null">
         status = #{status,jdbcType=INTEGER},
       </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
       <if test="bak01 != null">
         bak01 = #{bak01,jdbcType=VARCHAR},
       </if>
@@ -455,6 +469,7 @@
       modifier_code = #{modifierCode,jdbcType=VARCHAR},
       gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
       status = #{status,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
       bak01 = #{bak01,jdbcType=VARCHAR},
       bak02 = #{bak02,jdbcType=VARCHAR},
       bak03 = #{bak03,jdbcType=VARCHAR},

@@ -12,13 +12,13 @@ function renderTable() {
         //执行渲染
         tableIns = table.render({
             elem: '#table',
-            url: '/articleInfo/getArticleInfoList',
+            url: '/articleInfo/getUserArticleInfoList',
             page: true,
             where: {
                 title:   $('#fuzzy-index-0').val()
                 ,startTime: ($('#startTime').val()==""?"":$('#startTime').val()+" 00:00:00")
                 ,endTime:   ($('#endTime').val()==""?"":$('#endTime').val()+" 23:59:59")
-                ,state: $('#status').val()
+                ,status: $('#status').val()
             },
             method: 'post',
             first:  '首页',
@@ -30,11 +30,11 @@ function renderTable() {
             ,cols: [[
                 {field:'title',title: '题目', width:230}
                 ,{field: 'likeNumber',align:'center', title: '赞数', width:60}
-                /*,{field: 'ariticleAuthor',align:'center', title: '作者', width:70}*/
-                ,{title: '创建时间',align:'center', width: 160,templet: '<div><a href="javascript:;">{{formatDateTime(d.creatTime)}}</a></div>'}
-                ,{field: 'property02',align:'center', title: '浏览量', width:80}
-                ,{title: '状态',align:'center', width: 120,templet: '<div>{{formatArticleStatus(d.state)}} </div>'}
-                ,{title: '操作',edit:'',align:'center',width: 300,templet: '<div>{{formatUserHandle(d.state,d.articleId)}} </div>'}
+                ,{field: '',align:'center', title: '浏览量', width:80}
+                ,{title: '创建时间', width: 160,templet: '<div><a href="javascript:;">{{formatDateTime(d.gmtCreated)}}</a></div>'}
+                ,{title: '更新时间', width: 160,templet: '<div><a href="javascript:;">{{formatDateTime(d.gmtModified)}}</a></div>'}
+                ,{title: '状态', width: 100,templet: '<div>{{formatArticleStatus(d.status)}} </div>'}
+                ,{title: '操作',fixed: 'right', width:290, align:'center',templet: '<div>{{formatUserHandle(d.status,d.id,d.username)}} </div>'}
             ]]
             ,limits: [10, 20, 30,50,100]
             ,limit: 10
@@ -51,29 +51,6 @@ function reloadTable() {
         tableIns.reload();
     },1000);
 }
-/*添加*/
-$('#addRole').off().on('click',function () {
-    $.ajax({
-        url:"/role/addRole",
-        dataType:"json",
-        type:"post",
-        data: $('#addRoleForm').serialize(),
-        success:function (data) {
-            var code = data.code;
-            layui.use("layer",function () {
-                var cancelB =  $("#cancelAddRole");
-                if(code == "F"){
-                    layer.msg(data.msg, {icon: 2});
-                    cancelB.click();
-                    return;
-                }
-                layer.msg(data.msg, {icon: 1});
-                cancelB.click();
-                reloadTable();
-            })
-        }
-    });
-});
 /*详情回显回调*/
 function detail(data) {
     for(var key in data){
@@ -88,7 +65,7 @@ function detail(data) {
     }
 }
 /*修改回显回调*/
-function modify(data) {
+function edit(data) {
     for(var key in data){
         if(key == "status"){
             $('#roleStatus').val(data[key]==0?"停用":"启用");
@@ -269,7 +246,7 @@ function bindCurrentPageCilck() {
                                 clearTheArticleAddForm();
                                 clearInterval(autoSaveDraftT);
                                 //重新初始化页面参数
-                                resetinitArticleParam();
+                                resetInitArticleParam();
                                 layer.close(confirm_index);
                             },function () {
                                 closeAllFrame();
@@ -305,7 +282,7 @@ function bindArticleCatClick() {
     $('#add-property01').off().on('click',function () {
         $(this).attr('disabled',true);
         $.ajax({
-            url:'/category/getArticleCatTree',
+            url:'/articleCat/getArticleCatTree',
             dataType:'json',
             type:'post',
             success:function (data) {
@@ -374,14 +351,14 @@ function syncArticleContent() {
 }
 /*关闭新增文章的所有弹层*/
 function closeAllFrame() {
-    resetinitArticleParam();
+    resetInitArticleParam();
     layer.close(confirm_index);
     layer.close(dataBtnBox);
     clearInterval(autoSaveDraftT);
 
 }
 /*重新初始化页面参数*/
-function resetinitArticleParam() {
+function resetInitArticleParam() {
     hasStartEdit = false;
     hasSaveDraft = false;
     hasPublishFlag = false;

@@ -57,4 +57,13 @@ public class SecurityClient {
     public List<Button> getModuleButtons(HttpServletRequest request, Integer moduleId) {
         return securityBusiness.getModuleButtons(request, moduleId);
     }
+
+    /**
+     * 获取用户下辖信息列表
+     * @param userId
+     * @return
+     */
+    public List<String> getUserSubordinate(String userId) {
+        return securityBusiness.getUserSubordinate(userId);
+    }
 }

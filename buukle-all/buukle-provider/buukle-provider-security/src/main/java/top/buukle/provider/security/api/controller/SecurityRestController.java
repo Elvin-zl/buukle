@@ -1,4 +1,4 @@
-package top.buukle.provider.security.api;
+package top.buukle.provider.security.api.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -6,10 +6,11 @@ import top.buukle.common.request.BaseRequest;
 import top.buukle.common.response.BaseResponse;
 import top.buukle.plugin.security.entity.Button;
 import top.buukle.plugin.security.entity.ButtonType;
+import top.buukle.plugin.security.plugins.SecurityInterceptor;
 import top.buukle.plugin.security.vo.response.ModuleNavigationVo;
+import top.buukle.provider.security.api.business.SecurityApiBusiness;
 import top.buukle.provider.security.constants.SecurityConstants;
 import top.buukle.plugin.security.entity.User;
-import top.buukle.provider.security.business.UserBusiness;
 import top.buukle.provider.security.service.UserService;
 
 import java.util.List;
@@ -20,11 +21,11 @@ import java.util.List;
  * @Description :
  */
 @RestController
-@RequestMapping(value = "/api/security/user",produces = SecurityConstants.PRODUCES_CONTENT_TYPE_JSON_UTF_8)
-public class APISecurityUserController {
+@RequestMapping(value = SecurityInterceptor.API_URI_PREFIX,produces = SecurityConstants.PRODUCES_CONTENT_TYPE_JSON_UTF_8)
+public class SecurityRestController {
 
     @Autowired
-    private UserBusiness userBusiness;
+    private SecurityApiBusiness securityApiBusiness;
     @Autowired
     private UserService userService;
 
@@ -46,7 +47,7 @@ public class APISecurityUserController {
      */
     @PostMapping(value = "/doLogin")
     public BaseResponse doLogin(@RequestBody BaseRequest baseRequest) throws Exception {
-        return userBusiness.doLogin(baseRequest);
+        return securityApiBusiness.doLogin(baseRequest);
     }
 
     /**
@@ -76,7 +77,7 @@ public class APISecurityUserController {
      */
     @PostMapping(value = "/getUserModuleTree")
     List<ModuleNavigationVo> getUserModuleTree(@RequestBody BaseRequest baseRequest) throws Exception {
-        return userBusiness.getUserModuleTree(baseRequest);
+        return securityApiBusiness.getUserModuleTree(baseRequest);
     }
 
     /**
@@ -86,7 +87,7 @@ public class APISecurityUserController {
      */
     @PostMapping(value = "/getUserInfo")
     User getUserInfo(@RequestBody BaseRequest baseRequest){
-        return userBusiness.getUserInfo(baseRequest);
+        return securityApiBusiness.getUserInfo(baseRequest);
     }
 
     /**
@@ -96,16 +97,26 @@ public class APISecurityUserController {
      */
     @PostMapping(value = "/getButtonTypes")
     List<ButtonType> getButtonTypes(@RequestBody BaseRequest baseRequest){
-        return userBusiness.getButtonTypes();
+        return securityApiBusiness.getButtonTypes();
     }
 
     /**
-     * 获取菜单下的按钮信息
+     * 获取菜单下的按钮信息接口
      * @param baseRequest
      * @return
      */
     @PostMapping(value = "/getModuleButtons")
     List<Button> getModuleButtons(@RequestBody BaseRequest baseRequest){
-        return userBusiness.getModuleButtons(baseRequest);
+        return securityApiBusiness.getModuleButtons(baseRequest);
+    }
+
+    /**
+     * 获取用户下辖列表信息接口
+     * @param baseRequest
+     * @return
+     */
+    @PostMapping(value = "/getUserSubordinate")
+    List<String> getUserSubordinate(@RequestBody BaseRequest baseRequest){
+        return securityApiBusiness.getUserSubordinate(baseRequest);
     }
 }

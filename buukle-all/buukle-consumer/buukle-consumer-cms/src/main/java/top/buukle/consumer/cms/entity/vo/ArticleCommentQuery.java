@@ -2,6 +2,10 @@ package top.buukle.consumer.cms .entity.vo;
 
 import top.buukle.consumer.cms .entity. ArticleComment;
 
+/**
+* @author elvin
+* @description  ArticleComment 查询包装类
+*/
 public class ArticleCommentQuery extends ArticleComment{
 
     /** 起始时间*/

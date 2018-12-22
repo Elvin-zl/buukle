@@ -1,5 +1,0 @@
-<div xmlns:th="http://www.thymeleaf.org" style="padding: 8px">
-    <h1>${table.entityName}</h1>
-
-    <div th:replace="${table.entityLowerCamel}/template::list"></div>
-</div>

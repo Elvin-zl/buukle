@@ -223,6 +223,66 @@ public class ArticleInfoExample {
             return (Criteria) this;
         }
 
+        public Criteria andArticleCatIdIsNull() {
+            addCriterion("article_cat_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleCatIdIsNotNull() {
+            addCriterion("article_cat_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleCatIdEqualTo(Integer value) {
+            addCriterion("article_cat_id =", value, "articleCatId");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleCatIdNotEqualTo(Integer value) {
+            addCriterion("article_cat_id <>", value, "articleCatId");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleCatIdGreaterThan(Integer value) {
+            addCriterion("article_cat_id >", value, "articleCatId");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleCatIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("article_cat_id >=", value, "articleCatId");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleCatIdLessThan(Integer value) {
+            addCriterion("article_cat_id <", value, "articleCatId");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleCatIdLessThanOrEqualTo(Integer value) {
+            addCriterion("article_cat_id <=", value, "articleCatId");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleCatIdIn(List<Integer> values) {
+            addCriterion("article_cat_id in", values, "articleCatId");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleCatIdNotIn(List<Integer> values) {
+            addCriterion("article_cat_id not in", values, "articleCatId");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleCatIdBetween(Integer value1, Integer value2) {
+            addCriterion("article_cat_id between", value1, value2, "articleCatId");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleCatIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("article_cat_id not between", value1, value2, "articleCatId");
+            return (Criteria) this;
+        }
+
         public Criteria andTitleIsNull() {
             addCriterion("title is null");
             return (Criteria) this;
@@ -353,73 +413,73 @@ public class ArticleInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andAriticleAuthorIsNull() {
-            addCriterion("ariticle_author is null");
+        public Criteria andArticleAuthorIsNull() {
+            addCriterion("article_author is null");
             return (Criteria) this;
         }
 
-        public Criteria andAriticleAuthorIsNotNull() {
-            addCriterion("ariticle_author is not null");
+        public Criteria andArticleAuthorIsNotNull() {
+            addCriterion("article_author is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAriticleAuthorEqualTo(String value) {
-            addCriterion("ariticle_author =", value, "ariticleAuthor");
+        public Criteria andArticleAuthorEqualTo(String value) {
+            addCriterion("article_author =", value, "articleAuthor");
             return (Criteria) this;
         }
 
-        public Criteria andAriticleAuthorNotEqualTo(String value) {
-            addCriterion("ariticle_author <>", value, "ariticleAuthor");
+        public Criteria andArticleAuthorNotEqualTo(String value) {
+            addCriterion("article_author <>", value, "articleAuthor");
             return (Criteria) this;
         }
 
-        public Criteria andAriticleAuthorGreaterThan(String value) {
-            addCriterion("ariticle_author >", value, "ariticleAuthor");
+        public Criteria andArticleAuthorGreaterThan(String value) {
+            addCriterion("article_author >", value, "articleAuthor");
             return (Criteria) this;
         }
 
-        public Criteria andAriticleAuthorGreaterThanOrEqualTo(String value) {
-            addCriterion("ariticle_author >=", value, "ariticleAuthor");
+        public Criteria andArticleAuthorGreaterThanOrEqualTo(String value) {
+            addCriterion("article_author >=", value, "articleAuthor");
             return (Criteria) this;
         }
 
-        public Criteria andAriticleAuthorLessThan(String value) {
-            addCriterion("ariticle_author <", value, "ariticleAuthor");
+        public Criteria andArticleAuthorLessThan(String value) {
+            addCriterion("article_author <", value, "articleAuthor");
             return (Criteria) this;
         }
 
-        public Criteria andAriticleAuthorLessThanOrEqualTo(String value) {
-            addCriterion("ariticle_author <=", value, "ariticleAuthor");
+        public Criteria andArticleAuthorLessThanOrEqualTo(String value) {
+            addCriterion("article_author <=", value, "articleAuthor");
             return (Criteria) this;
         }
 
-        public Criteria andAriticleAuthorLike(String value) {
-            addCriterion("ariticle_author like", value, "ariticleAuthor");
+        public Criteria andArticleAuthorLike(String value) {
+            addCriterion("article_author like", value, "articleAuthor");
             return (Criteria) this;
         }
 
-        public Criteria andAriticleAuthorNotLike(String value) {
-            addCriterion("ariticle_author not like", value, "ariticleAuthor");
+        public Criteria andArticleAuthorNotLike(String value) {
+            addCriterion("article_author not like", value, "articleAuthor");
             return (Criteria) this;
         }
 
-        public Criteria andAriticleAuthorIn(List<String> values) {
-            addCriterion("ariticle_author in", values, "ariticleAuthor");
+        public Criteria andArticleAuthorIn(List<String> values) {
+            addCriterion("article_author in", values, "articleAuthor");
             return (Criteria) this;
         }
 
-        public Criteria andAriticleAuthorNotIn(List<String> values) {
-            addCriterion("ariticle_author not in", values, "ariticleAuthor");
+        public Criteria andArticleAuthorNotIn(List<String> values) {
+            addCriterion("article_author not in", values, "articleAuthor");
             return (Criteria) this;
         }
 
-        public Criteria andAriticleAuthorBetween(String value1, String value2) {
-            addCriterion("ariticle_author between", value1, value2, "ariticleAuthor");
+        public Criteria andArticleAuthorBetween(String value1, String value2) {
+            addCriterion("article_author between", value1, value2, "articleAuthor");
             return (Criteria) this;
         }
 
-        public Criteria andAriticleAuthorNotBetween(String value1, String value2) {
-            addCriterion("ariticle_author not between", value1, value2, "ariticleAuthor");
+        public Criteria andArticleAuthorNotBetween(String value1, String value2) {
+            addCriterion("article_author not between", value1, value2, "articleAuthor");
             return (Criteria) this;
         }
 
@@ -1233,6 +1293,76 @@ public class ArticleInfoExample {
             return (Criteria) this;
         }
 
+        public Criteria andRemarkIsNull() {
+            addCriterion("remark is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkIsNotNull() {
+            addCriterion("remark is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkEqualTo(String value) {
+            addCriterion("remark =", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkNotEqualTo(String value) {
+            addCriterion("remark <>", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkGreaterThan(String value) {
+            addCriterion("remark >", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkGreaterThanOrEqualTo(String value) {
+            addCriterion("remark >=", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkLessThan(String value) {
+            addCriterion("remark <", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkLessThanOrEqualTo(String value) {
+            addCriterion("remark <=", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkLike(String value) {
+            addCriterion("remark like", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkNotLike(String value) {
+            addCriterion("remark not like", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkIn(List<String> values) {
+            addCriterion("remark in", values, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkNotIn(List<String> values) {
+            addCriterion("remark not in", values, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkBetween(String value1, String value2) {
+            addCriterion("remark between", value1, value2, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkNotBetween(String value1, String value2) {
+            addCriterion("remark not between", value1, value2, "remark");
+            return (Criteria) this;
+        }
+
         public Criteria andBak01IsNull() {
             addCriterion("bak01 is null");
             return (Criteria) this;
@@ -1588,8 +1718,8 @@ public class ArticleInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andAriticleAuthorLikeInsensitive(String value) {
-            addCriterion("upper(ariticle_author) like", value.toUpperCase(), "ariticleAuthor");
+        public Criteria andArticleAuthorLikeInsensitive(String value) {
+            addCriterion("upper(article_author) like", value.toUpperCase(), "articleAuthor");
             return (Criteria) this;
         }
 
@@ -1635,6 +1765,11 @@ public class ArticleInfoExample {
 
         public Criteria andModifierCodeLikeInsensitive(String value) {
             addCriterion("upper(modifier_code) like", value.toUpperCase(), "modifierCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkLikeInsensitive(String value) {
+            addCriterion("upper(remark) like", value.toUpperCase(), "remark");
             return (Criteria) this;
         }
 

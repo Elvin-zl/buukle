@@ -2,6 +2,10 @@ package top.buukle.consumer.cms .entity.vo;
 
 import top.buukle.consumer.cms .entity. ArticleInfo;
 
+/**
+* @author elvin
+* @description  ArticleInfo 查询包装类
+*/
 public class ArticleInfoQuery extends ArticleInfo{
 
     /** 起始时间*/

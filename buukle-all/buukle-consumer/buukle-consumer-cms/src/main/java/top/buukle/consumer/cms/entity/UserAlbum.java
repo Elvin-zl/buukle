@@ -100,6 +100,12 @@ public class UserAlbum implements Serializable {
     private Integer status;
 
     /**
+     * 备注
+     *
+     */
+    private String remark;
+
+    /**
      * 备用
      *
      */
@@ -509,6 +515,31 @@ public class UserAlbum implements Serializable {
     }
 
     /**
+     * This method returns the value of the database column buukle-cms..user_album.remark
+     *
+     * @return the value of buukle-cms..user_album.remark
+     */
+    public String getRemark() {
+        return remark;
+    }
+
+    /**
+     */
+    public UserAlbum withRemark(String remark) {
+        this.setRemark(remark);
+        return this;
+    }
+
+    /**
+     * This method sets the value of the database column buukle-cms..user_album.remark
+     *
+     * @param remark the value for buukle-cms..user_album.remark
+     */
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
+    }
+
+    /**
      * This method returns the value of the database column buukle-cms..user_album.bak01
      *
      * @return the value of buukle-cms..user_album.bak01
@@ -656,6 +687,7 @@ public class UserAlbum implements Serializable {
         sb.append(", modifierCode=").append(modifierCode);
         sb.append(", gmtModified=").append(gmtModified);
         sb.append(", status=").append(status);
+        sb.append(", remark=").append(remark);
         sb.append(", bak01=").append(bak01);
         sb.append(", bak02=").append(bak02);
         sb.append(", bak03=").append(bak03);
@@ -694,6 +726,7 @@ public class UserAlbum implements Serializable {
             && (this.getModifierCode() == null ? other.getModifierCode() == null : this.getModifierCode().equals(other.getModifierCode()))
             && (this.getGmtModified() == null ? other.getGmtModified() == null : this.getGmtModified().equals(other.getGmtModified()))
             && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
+            && (this.getRemark() == null ? other.getRemark() == null : this.getRemark().equals(other.getRemark()))
             && (this.getBak01() == null ? other.getBak01() == null : this.getBak01().equals(other.getBak01()))
             && (this.getBak02() == null ? other.getBak02() == null : this.getBak02().equals(other.getBak02()))
             && (this.getBak03() == null ? other.getBak03() == null : this.getBak03().equals(other.getBak03()))
@@ -722,6 +755,7 @@ public class UserAlbum implements Serializable {
         result = prime * result + ((getModifierCode() == null) ? 0 : getModifierCode().hashCode());
         result = prime * result + ((getGmtModified() == null) ? 0 : getGmtModified().hashCode());
         result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
+        result = prime * result + ((getRemark() == null) ? 0 : getRemark().hashCode());
         result = prime * result + ((getBak01() == null) ? 0 : getBak01().hashCode());
         result = prime * result + ((getBak02() == null) ? 0 : getBak02().hashCode());
         result = prime * result + ((getBak03() == null) ? 0 : getBak03().hashCode());

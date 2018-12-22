@@ -75,4 +75,11 @@ public interface SecurityBusiness {
      * @return
      */
     List<Button> getModuleButtons(HttpServletRequest request, Integer moduleId);
+
+    /**
+     * 获取用户下辖信息列表
+     * @param userId
+     * @return
+     */
+    List<String> getUserSubordinate(String userId);
 }

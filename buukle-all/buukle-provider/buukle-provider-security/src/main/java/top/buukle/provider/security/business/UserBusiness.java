@@ -17,34 +17,13 @@ import java.util.List;
  */
 public interface UserBusiness {
 
-    /**
-     * 登录
-     * @param baseRequest
-     * @return
-     * @throws Exception
-     */
-    BaseResponse doLogin(BaseRequest baseRequest) throws Exception;
 
     /**
-     * 获取用户信息(项目内用)
+     * 获取用户信息
      * @param request
      * @return
      */
     User getUserInfo(HttpServletRequest request);
-
-    /**
-     * 获取用户菜单树
-     * @param baseRequest
-     * @return
-     */
-    List<ModuleNavigationVo> getUserModuleTree(BaseRequest baseRequest) throws Exception;
-
-    /**
-     * 获取用户信息(外部项目用)
-     * @param baseRequest
-     * @return
-     */
-    User getUserInfo(BaseRequest baseRequest);
 
 
     /**
@@ -59,4 +38,5 @@ public interface UserBusiness {
      * @return
      */
     List<Button> getModuleButtons(BaseRequest baseRequest);
+
 }

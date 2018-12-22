@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
+import top.buukle.common.interceptor.DataIsolationInterceptor;
 import top.buukle.common.util.common.NumberUtil;
 
 import javax.sql.DataSource;
@@ -51,5 +52,14 @@ class DataSourceConfigure {
         //是否缓存preparedStatement，也就是PSCache
         dataSource.setPoolPreparedStatements(false);
         return dataSource;
+    }
+
+    /**
+     * 配置 DataIsolationAnnotation 数据隔离插件
+     * @return
+     */
+    @Bean
+    public DataIsolationInterceptor getGroupsInterceptor(){
+        return  new DataIsolationInterceptor();
     }
 }

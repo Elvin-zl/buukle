@@ -17,6 +17,12 @@ public class ArticleInfo implements Serializable {
     private Integer id;
 
     /**
+     * 文章分类id
+     *
+     */
+    private Integer articleCatId;
+
+    /**
      * 题目
      *
      */
@@ -32,7 +38,7 @@ public class ArticleInfo implements Serializable {
      * 作者
      *
      */
-    private String ariticleAuthor;
+    private String articleAuthor;
 
     /**
      * 作者id
@@ -101,10 +107,16 @@ public class ArticleInfo implements Serializable {
     private Date gmtModified;
 
     /**
-     * 状态
+     * 状态:-2假删除 \r\n -1草稿0封禁1发布成功2真删除3发布待审核4解禁待审核5解禁审核不通过6草稿
      *
      */
     private Integer status;
+
+    /**
+     * 备注
+     *
+     */
+    private String remark;
 
     /**
      * 备用
@@ -172,6 +184,31 @@ public class ArticleInfo implements Serializable {
     }
 
     /**
+     * This method returns the value of the database column buukle-cms..article_info.article_cat_id
+     *
+     * @return the value of buukle-cms..article_info.article_cat_id
+     */
+    public Integer getArticleCatId() {
+        return articleCatId;
+    }
+
+    /**
+     */
+    public ArticleInfo withArticleCatId(Integer articleCatId) {
+        this.setArticleCatId(articleCatId);
+        return this;
+    }
+
+    /**
+     * This method sets the value of the database column buukle-cms..article_info.article_cat_id
+     *
+     * @param articleCatId the value for buukle-cms..article_info.article_cat_id
+     */
+    public void setArticleCatId(Integer articleCatId) {
+        this.articleCatId = articleCatId;
+    }
+
+    /**
      * This method returns the value of the database column buukle-cms..article_info.title
      *
      * @return the value of buukle-cms..article_info.title
@@ -222,28 +259,28 @@ public class ArticleInfo implements Serializable {
     }
 
     /**
-     * This method returns the value of the database column buukle-cms..article_info.ariticle_author
+     * This method returns the value of the database column buukle-cms..article_info.article_author
      *
-     * @return the value of buukle-cms..article_info.ariticle_author
+     * @return the value of buukle-cms..article_info.article_author
      */
-    public String getAriticleAuthor() {
-        return ariticleAuthor;
+    public String getArticleAuthor() {
+        return articleAuthor;
     }
 
     /**
      */
-    public ArticleInfo withAriticleAuthor(String ariticleAuthor) {
-        this.setAriticleAuthor(ariticleAuthor);
+    public ArticleInfo withArticleAuthor(String articleAuthor) {
+        this.setArticleAuthor(articleAuthor);
         return this;
     }
 
     /**
-     * This method sets the value of the database column buukle-cms..article_info.ariticle_author
+     * This method sets the value of the database column buukle-cms..article_info.article_author
      *
-     * @param ariticleAuthor the value for buukle-cms..article_info.ariticle_author
+     * @param articleAuthor the value for buukle-cms..article_info.article_author
      */
-    public void setAriticleAuthor(String ariticleAuthor) {
-        this.ariticleAuthor = ariticleAuthor == null ? null : ariticleAuthor.trim();
+    public void setArticleAuthor(String articleAuthor) {
+        this.articleAuthor = articleAuthor == null ? null : articleAuthor.trim();
     }
 
     /**
@@ -547,6 +584,31 @@ public class ArticleInfo implements Serializable {
     }
 
     /**
+     * This method returns the value of the database column buukle-cms..article_info.remark
+     *
+     * @return the value of buukle-cms..article_info.remark
+     */
+    public String getRemark() {
+        return remark;
+    }
+
+    /**
+     */
+    public ArticleInfo withRemark(String remark) {
+        this.setRemark(remark);
+        return this;
+    }
+
+    /**
+     * This method sets the value of the database column buukle-cms..article_info.remark
+     *
+     * @param remark the value for buukle-cms..article_info.remark
+     */
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
+    }
+
+    /**
      * This method returns the value of the database column buukle-cms..article_info.bak01
      *
      * @return the value of buukle-cms..article_info.bak01
@@ -705,9 +767,10 @@ public class ArticleInfo implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
+        sb.append(", articleCatId=").append(articleCatId);
         sb.append(", title=").append(title);
         sb.append(", likeNumber=").append(likeNumber);
-        sb.append(", ariticleAuthor=").append(ariticleAuthor);
+        sb.append(", articleAuthor=").append(articleAuthor);
         sb.append(", userId=").append(userId);
         sb.append(", salesmanId=").append(salesmanId);
         sb.append(", groupId=").append(groupId);
@@ -720,6 +783,7 @@ public class ArticleInfo implements Serializable {
         sb.append(", modifierCode=").append(modifierCode);
         sb.append(", gmtModified=").append(gmtModified);
         sb.append(", status=").append(status);
+        sb.append(", remark=").append(remark);
         sb.append(", bak01=").append(bak01);
         sb.append(", bak02=").append(bak02);
         sb.append(", bak03=").append(bak03);
@@ -745,9 +809,10 @@ public class ArticleInfo implements Serializable {
         }
         ArticleInfo other = (ArticleInfo) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
+            && (this.getArticleCatId() == null ? other.getArticleCatId() == null : this.getArticleCatId().equals(other.getArticleCatId()))
             && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()))
             && (this.getLikeNumber() == null ? other.getLikeNumber() == null : this.getLikeNumber().equals(other.getLikeNumber()))
-            && (this.getAriticleAuthor() == null ? other.getAriticleAuthor() == null : this.getAriticleAuthor().equals(other.getAriticleAuthor()))
+            && (this.getArticleAuthor() == null ? other.getArticleAuthor() == null : this.getArticleAuthor().equals(other.getArticleAuthor()))
             && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
             && (this.getSalesmanId() == null ? other.getSalesmanId() == null : this.getSalesmanId().equals(other.getSalesmanId()))
             && (this.getGroupId() == null ? other.getGroupId() == null : this.getGroupId().equals(other.getGroupId()))
@@ -760,6 +825,7 @@ public class ArticleInfo implements Serializable {
             && (this.getModifierCode() == null ? other.getModifierCode() == null : this.getModifierCode().equals(other.getModifierCode()))
             && (this.getGmtModified() == null ? other.getGmtModified() == null : this.getGmtModified().equals(other.getGmtModified()))
             && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
+            && (this.getRemark() == null ? other.getRemark() == null : this.getRemark().equals(other.getRemark()))
             && (this.getBak01() == null ? other.getBak01() == null : this.getBak01().equals(other.getBak01()))
             && (this.getBak02() == null ? other.getBak02() == null : this.getBak02().equals(other.getBak02()))
             && (this.getBak03() == null ? other.getBak03() == null : this.getBak03().equals(other.getBak03()))
@@ -775,9 +841,10 @@ public class ArticleInfo implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
+        result = prime * result + ((getArticleCatId() == null) ? 0 : getArticleCatId().hashCode());
         result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
         result = prime * result + ((getLikeNumber() == null) ? 0 : getLikeNumber().hashCode());
-        result = prime * result + ((getAriticleAuthor() == null) ? 0 : getAriticleAuthor().hashCode());
+        result = prime * result + ((getArticleAuthor() == null) ? 0 : getArticleAuthor().hashCode());
         result = prime * result + ((getUserId() == null) ? 0 : getUserId().hashCode());
         result = prime * result + ((getSalesmanId() == null) ? 0 : getSalesmanId().hashCode());
         result = prime * result + ((getGroupId() == null) ? 0 : getGroupId().hashCode());
@@ -790,6 +857,7 @@ public class ArticleInfo implements Serializable {
         result = prime * result + ((getModifierCode() == null) ? 0 : getModifierCode().hashCode());
         result = prime * result + ((getGmtModified() == null) ? 0 : getGmtModified().hashCode());
         result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
+        result = prime * result + ((getRemark() == null) ? 0 : getRemark().hashCode());
         result = prime * result + ((getBak01() == null) ? 0 : getBak01().hashCode());
         result = prime * result + ((getBak02() == null) ? 0 : getBak02().hashCode());
         result = prime * result + ((getBak03() == null) ? 0 : getBak03().hashCode());

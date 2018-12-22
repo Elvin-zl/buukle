@@ -2,6 +2,10 @@ package top.buukle.consumer.cms .entity.vo;
 
 import top.buukle.consumer.cms .entity. AsyncTask;
 
+/**
+* @author elvin
+* @description  AsyncTask 查询包装类
+*/
 public class AsyncTaskQuery extends AsyncTask{
 
     /** 起始时间*/

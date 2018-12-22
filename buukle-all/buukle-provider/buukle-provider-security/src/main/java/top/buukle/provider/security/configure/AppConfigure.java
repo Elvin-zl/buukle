@@ -11,13 +11,12 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import top.buukle.common.filter.reqestAndResponseParameterFilter.BaseResponseParamHandlerFilter;
-import top.buukle.common.interceptor.DataIsolationInterceptor;
 import top.buukle.common.util.common.NumberUtil;
 import top.buukle.plugin.security.plugins.SecurityInterceptor;
 import top.buukle.common.filter.reqestAndResponseParameterFilter.BaseRequestParamValidateFilter;
-import top.buukle.provider.security.filter.RquestValidatorAndResponseHanler.ApiSignRequestValidator;
-import top.buukle.provider.security.filter.RquestValidatorAndResponseHanler.ApiSignResponseHandler;
-import top.buukle.provider.security.filter.RquestValidatorAndResponseHanler.DataIsolationRequestValdator;
+import top.buukle.provider.security.filter.validatorAndHanler.ApiSignRequestValidator;
+import top.buukle.provider.security.filter.validatorAndHanler.ApiSignResponseHandler;
+import top.buukle.provider.security.filter.validatorAndHanler.DataIsolationRequestValidator;
 
 /**
  * @Author elvin
@@ -117,12 +116,10 @@ public class AppConfigure implements WebMvcConfigurer {
     @Bean
     public FilterRegistrationBean filterRegistrationBean3() {
         FilterRegistrationBean registration = new FilterRegistrationBean();
-        registration.setFilter(new BaseRequestParamValidateFilter(new DataIsolationRequestValdator()));
+        registration.setFilter(new BaseRequestParamValidateFilter(new DataIsolationRequestValidator()));
         registration.addUrlPatterns("/*");
         registration.setName("BaseResponseParamHandlerFilter2");
         registration.setOrder(3);
         return registration;
     }
-
-
 }

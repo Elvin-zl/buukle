@@ -17,8 +17,12 @@
         <!--搜索条件-->
         <form id="searchForm" class="buukle-data-form">
             <div class="buukle-search-name">
-                <span class="form-span fuzzy-body">文章题目 : </span>
-                <input id="fuzzy-index-0" class="buukle-input search-condition fuzzy-input" data-fuzzyUrl="/article/fuzzySearchArticleInfoByTitleForManager" type="text" name="name" placeholder="请输入文章题目" autocomplete="off">
+                <span class="form-span" style="float: inherit;">文章题目 : </span>
+                <div class="fuzzy-div">
+                    <input id="fuzzy-index-0" class="buukle-input search-condition fuzzy-input" data-fuzzyUrl="/articleInfo/fuzzySearchByText" type="text" name="name" placeholder="请输入文章题目" autocomplete="off">
+                    <!--建议框-->
+                    <div id="fuzzy-items-index-0"class="fuzzy-item-div" data-fuzzyIndex="0"> </div>
+                </div>
             </div>
             <div id="searchTime" class="buukle-search-time">
                 <span class="form-span">创建时间 :</span>
@@ -61,7 +65,7 @@
                     </td>
                     <td class="table-property-name">作者</td>
                     <td class="table-property-value">
-                        <input type="text" disabled class="buukle-frame-input" id="ariticleAuthor">
+                        <input type="text" disabled class="buukle-frame-input" id="articleAuthor">
                     </td>
                 </tr>
                 <tr>
@@ -196,6 +200,6 @@
 <script src="/static/mods/jquery-3.3.1.min.js"></script>
 <script src="/static/layui/layui.js"></script>
 <script src="/static/zElog/js/util/component.js"></script>
-<script src="/static/zElog/js/article/managerArticle/managerArticleList.js"></script>
+<script src="/static/zElog/js/article/auditArticle/auditArticleList.js"></script>
 </body>
 </html>

@@ -1,8 +1,8 @@
 //@ sourceURL=managerArticleList.js
 $(function () {
-    /*绑定宏JS操作组件*/
-    bindsearchConditionClick();
-    /*绑定当前业务事件*/
+    /*绑定页面按钮操作组件*/
+    bindSearchConditionClick();
+    /*绑定当前页面事件*/
     bindCurrentPageCilck();
 });
 var tableIns;
@@ -12,29 +12,29 @@ function renderTable() {
         //执行渲染
         tableIns = table.render({
             elem: '#table',
-            url: '/article/getArticleListForManager',
+            url: '/articleInfo/getAuditArticleInfoList',
             page: true,
             where: {
                 title:   $('#fuzzy-index-0').val()
                 ,startTime: ($('#startTime').val()==""?"":$('#startTime').val()+" 00:00:00")
                 ,endTime:   ($('#endTime').val()==""?"":$('#endTime').val()+" 23:59:59")
-                ,state: $('#status').val()
+                ,status: $('#status').val()
             },
             method: 'post',
             first:  '首页',
             last:   '尾页',
             request: {
-                pageName: 'pageNo',
-                limitName: 'pageSize'
+                pageName: 'page',
+                limitName: 'limit'
             }
             ,cols: [[
                 {field:'title',title: '题目', width:230}
                 ,{field: 'likeNumber',align:'center', title: '赞数', width:60}
                 /*,{field: 'ariticleAuthor',align:'center', title: '作者', width:70}*/
-                ,{title: '创建时间',align:'center', width: 160,templet: '<div><a href="javascript:;">{{formatDateTime(d.creatTime)}}</a></div>'}
+                ,{title: '创建时间',align:'center', width: 160,templet: '<div><a href="javascript:;">{{formatDateTime(d.gmtCreated)}}</a></div>'}
                 ,{field: 'property02',align:'center', title: '浏览量', width:80}
-                ,{title: '状态',align:'center', width: 120,templet: '<div>{{formatArticleManagerStatus(d.state)}} </div>'}
-                ,{title: '操作',align:'center',edit:'',width: 300,templet: '<div>{{formatUserHandle(d.state,d.articleId)}} </div>'}
+                ,{title: '状态',align:'center', width: 110,templet: '<div>{{formatArticleManagerStatus(d.status)}} </div>'}
+                ,{title: '操作',fixed: 'right', width:290, align:'center',templet: '<div>{{formatUserHandle(d.status,d.id,d.username)}} </div>'}
             ]]
             ,limits: [10, 20, 30,50,100]
             ,limit: 10

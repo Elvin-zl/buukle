@@ -287,7 +287,7 @@ function renderPageLevelButton() {
  * param  inputState : 当前记录的状态
  * param  id         : 当前记录的id
  * */
-function formatUserHandle(inputState,id,deleteLevel,name) {
+function formatUserHandle(inputState,id,name) {
     var currentTabModuleId = parent.$(".layui-this").attr('lay-id');
     var tableBtnText = parent.$('#tableBtn-'+currentTabModuleId).val();
     var buttons =  JSON.parse(tableBtnText);
@@ -305,7 +305,7 @@ function formatUserHandle(inputState,id,deleteLevel,name) {
                 html += '<a class="layui-btn layui-btn-mini theme-btn buukle-table-btn" data-name="'+name+'" data-responseDomId="'+buttons[i].responseDomId+'" data-responseType="'+buttons[i].responseType+'" data-operationType="'+buttons[i].operationType+'" data-state="'+inputState+'" data-id="'+id+'" data-url="'+buttons[i].url+'">'+buttons[i].buttonName+'</a>'
             }
             //删除
-            else if(buttons[i].operationType == 1 && deleteLevel == 1){
+            else if(buttons[i].operationType == 1){
                 html += '<a  class="layui-btn layui-btn-mini theme-btn buukle-table-btn" data-name="'+name+'" data-responseDomId="'+buttons[i].responseDomId+'" data-responseType="'+buttons[i].responseType+'" data-operationType="'+buttons[i].operationType+'" data-state="'+inputState+'" data-id="'+id+'" data-url="'+buttons[i].url+'">'+buttons[i].buttonName+'</a>'
             }
             //其他
@@ -327,7 +327,7 @@ function formatUserHandle(inputState,id,deleteLevel,name) {
             html += '<a style="background-color: #5f6b70;" class="layui-btn layui-btn-mini buukle-table-btn" data-name="'+name+'" data-responseDomId="'+buttons[i].responseDomId+'" data-responseType="'+buttons[i].responseType+'" data-operationType="'+buttons[i].operationType+'" data-state="'+inputState+'" data-id="'+id+'" data-url="'+buttons[i].url+'">'+buttons[i].buttonName+'</a>'
         }
         //4. 处理 [启/停用] 按钮动态展示
-        else if(buttons[i].operationType == 6 && deleteLevel == 1){
+        else if(buttons[i].operationType == 6){
             if( (inputState == 3)){
                 html += ''
             }else if(inputState == 0 || inputState == 5){

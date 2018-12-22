@@ -2,6 +2,10 @@ package top.buukle.consumer.cms .entity.vo;
 
 import top.buukle.consumer.cms .entity. UserImage;
 
+/**
+* @author elvin
+* @description  UserImage 查询包装类
+*/
 public class UserImageQuery extends UserImage{
 
     /** 起始时间*/

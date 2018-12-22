@@ -2,7 +2,7 @@
  * @name    Navbar
  * @author  SuChiZhu
  * @version 1.0.0
-*/
+ */
 
 layui.define(['element','layer','laytpl'],function(exports){
     var element = layui.element,
@@ -11,24 +11,24 @@ layui.define(['element','layer','laytpl'],function(exports){
         laytpl  = layui.laytpl,
         Navbar  = function(){
             this.v = "1.0.0",
-            this.renderConfig = {
-                elem : '.layui-nav',
-                filter : 'navbar',
-                data : []
-            },
-            this.initConfig = {
-                navFilter : 'nav(side)',
-                filter : 'content',
-                reload : '.layui-reload',
-                closeAllTab : '.layui-close-alltab',
-                closeOtherTab : '.layui-close-othertab'
-            }
+                this.renderConfig = {
+                    elem : '.layui-nav',
+                    filter : 'navbar',
+                    data : []
+                },
+                this.initConfig = {
+                    navFilter : 'nav(side)',
+                    filter : 'content',
+                    reload : '.layui-reload',
+                    closeAllTab : '.layui-close-alltab',
+                    closeOtherTab : '.layui-close-othertab'
+                }
         };
-    
+
     // 导航渲染
     Navbar.prototype.render = function(options){
         var that = this;
-        $.extend(that.renderConfig, options); 
+        $.extend(that.renderConfig, options);
         var tpl = [
             "{{# layui.each(d.data,function(index,item){ }}",
             "<li class='layui-nav-item {{item.class||''}}' {{item.layId?'lay-id='+item.layId:''}}><a href='javascript:;'>",
@@ -181,7 +181,7 @@ layui.define(['element','layer','laytpl'],function(exports){
     Navbar.prototype.closeOtherTab = function(elem,filter){
         $(elem).on('click',function(){
             var count = navbar.getTabCount(filter);
-            var tab = $(document).find(".layui-tab ul[class=layui-tab-title] li"); 
+            var tab = $(document).find(".layui-tab ul[class=layui-tab-title] li");
             $(tab).each(function(index,item){
                 if(!($(item).attr("lay-id")==undefined || $(item).attr("class")=="layui-this"))
                 {
@@ -199,7 +199,7 @@ layui.define(['element','layer','laytpl'],function(exports){
     Navbar.prototype.closeAllTab = function(elem,filter){
         $(elem).on("click",function(){
             var count = navbar.getTabCount(filter);
-            var tab = $(document).find(".layui-tab ul[class=layui-tab-title] li"); 
+            var tab = $(document).find(".layui-tab ul[class=layui-tab-title] li");
             $(tab).each(function(index,item){
                 if($(item).attr("lay-id")!=undefined)
                 {
@@ -210,7 +210,7 @@ layui.define(['element','layer','laytpl'],function(exports){
 
             }
             $(".page-operat dl").removeClass("layui-show");
-        });  
+        });
     };
 
     // 刷新选项卡页面
@@ -251,15 +251,15 @@ layui.define(['element','layer','laytpl'],function(exports){
     // 侧边导航栏的展开与收缩
     Navbar.prototype.text = function(){
         $(".layui-nav-tree li").on('click',function(){
-           $(".layui-nav-tree li").removeClass("layui-nav-itemed");
-           $(this).addClass("layui-nav-itemed"); 
+            $(".layui-nav-tree li").removeClass("layui-nav-itemed");
+            $(this).addClass("layui-nav-itemed");
         });
     };
 
     // 导航动态操作初始化
     Navbar.prototype.init = function(options){
         var that = this;
-        $.extend(that.initConfig, options); 
+        $.extend(that.initConfig, options);
         this.shrink();
         this.text();
         this.tabAddChange(that.initConfig);
@@ -290,7 +290,7 @@ layui.define(['element','layer','laytpl'],function(exports){
         var pageButtonArr = [];
         var tableButtonArr = [];
         for(var i = 0 ; i < data.length ; i++){
-            if(data[i].buttonLayoutLevel == 0){
+            if(data[i].layoutLevel == 0){
                 // 将页面级按钮添加在缓存数组
 
                 pageButtonArr.push(data[i]);

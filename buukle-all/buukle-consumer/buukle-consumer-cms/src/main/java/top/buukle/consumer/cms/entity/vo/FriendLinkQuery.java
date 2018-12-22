@@ -2,6 +2,10 @@ package top.buukle.consumer.cms .entity.vo;
 
 import top.buukle.consumer.cms .entity. FriendLink;
 
+/**
+* @author elvin
+* @description  FriendLink 查询包装类
+*/
 public class FriendLinkQuery extends FriendLink{
 
     /** 起始时间*/

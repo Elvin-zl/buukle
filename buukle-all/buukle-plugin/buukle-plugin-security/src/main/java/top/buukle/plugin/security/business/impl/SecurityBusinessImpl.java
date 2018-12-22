@@ -187,6 +187,18 @@ public class SecurityBusinessImpl implements SecurityBusiness {
     }
 
     /**
+     * 获取用户下辖信息列表
+     * @param userId
+     * @return
+     */
+    @Override
+    public List<String> getUserSubordinate(String userId) {
+        BaseRequest baseRequest = new BaseRequest.Builder().build(SecurityInterceptor.APPLICATION_NAME, SecurityInterceptor.APPLICATION_NAME);
+        baseRequest.setInfo(userId);
+        return securityInvoker.getUserSubordinate(baseRequest);
+    }
+
+    /**
      * 认证
      * @param httpServletRequest
      * @param ssoDefaultAge

@@ -3,7 +3,10 @@ package top.buukle.consumer.cms.configure;
 
 import feign.Request;
 import feign.Retryer;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import top.buukle.common.filter.reqestAndResponseParameterFilter.BaseRequestParamValidateFilter;
 import top.buukle.common.util.common.NumberUtil;
+import top.buukle.consumer.cms.filter.validatorAndHanler.DataIsolationRequestValidator;
 import top.buukle.plugin.security.plugins.SecurityInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -73,5 +76,19 @@ public class AppConfigure implements WebMvcConfigurer {
                 //放行錯誤請求
                 .excludePathPatterns("/error")
         ;
+    }
+
+    /**
+     * 注册 全局数据隔离请求参数校验 过滤器
+     * @return
+     */
+    @Bean
+    public FilterRegistrationBean filterRegistrationBean3() {
+        FilterRegistrationBean registration = new FilterRegistrationBean();
+        registration.setFilter(new BaseRequestParamValidateFilter(new DataIsolationRequestValidator()));
+        registration.addUrlPatterns("/*");
+        registration.setName("BaseResponseParamHandlerFilter");
+        registration.setOrder(1);
+        return registration;
     }
 }

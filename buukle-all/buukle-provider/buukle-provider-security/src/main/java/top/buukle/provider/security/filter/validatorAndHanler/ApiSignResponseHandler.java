@@ -1,4 +1,4 @@
-package top.buukle.provider.security.filter.RquestValidatorAndResponseHanler;
+package top.buukle.provider.security.filter.validatorAndHanler;
 
 import top.buukle.common.filter.reqestAndResponseParameterFilter.validatorAndHandler.base.BaseResponseParamHandler;
 import top.buukle.common.filter.reqestAndResponseParameterFilter.wrapper.BaseResponseWrapper;

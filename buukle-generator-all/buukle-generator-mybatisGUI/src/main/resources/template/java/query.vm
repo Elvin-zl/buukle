@@ -2,6 +2,10 @@ package $!table.get("basePackage") .entity.vo;
 
 import $!table.get("basePackage") .entity. ${table.entityName};
 
+/**
+* @author elvin
+* @description  ${table.entityName} 查询包装类
+*/
 public class ${table.entityName}Query extends ${table.entityName}{
 
     /** 起始时间*/

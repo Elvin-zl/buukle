@@ -2,6 +2,10 @@ package top.buukle.consumer.cms .entity.vo;
 
 import top.buukle.consumer.cms .entity. UserAlbum;
 
+/**
+* @author elvin
+* @description  UserAlbum 查询包装类
+*/
 public class UserAlbumQuery extends UserAlbum{
 
     /** 起始时间*/
