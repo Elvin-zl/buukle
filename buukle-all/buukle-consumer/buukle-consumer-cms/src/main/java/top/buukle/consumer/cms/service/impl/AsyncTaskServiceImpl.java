@@ -81,7 +81,7 @@ public class AsyncTaskServiceImpl implements AsyncTaskService{
     */
     @Override
     public BaseResponse deleteAsyncTask(AsyncTaskQuery query, HttpServletRequest request) {
-        if(asyncTaskMapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(query,StatusConstants.STATUS_DELETED_CONCELABLE,request)) != 1){
+        if(asyncTaskMapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(query,StatusConstants.STATUS_DELETED_CONCEALABLE,request)) != 1){
             throw new BaseException(BaseResponseCode.STATUS_UPDATE_FAIL);
         }
         return new BaseResponse.Builder().buildSuccess();

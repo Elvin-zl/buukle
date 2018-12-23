@@ -144,7 +144,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="top.buukle.consumer.cms.entity.ArticleInfo">
-    insert into article_info (id, article_cat_id, title, 
+    <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into article_info (id, article_cat_id, title,
       like_number, article_author, user_id, 
       salesman_id, group_id, agent_id, 
       platform_id, creator, creator_code, 

@@ -84,7 +84,7 @@ public class ArticleCatServiceImpl implements ArticleCatService{
     */
     @Override
     public BaseResponse deleteArticleCat(ArticleCatQuery query, HttpServletRequest request) {
-        if(articleCatMapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(query,StatusConstants.STATUS_DELETED_CONCELABLE,request)) != 1){
+        if(articleCatMapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(query,StatusConstants.STATUS_DELETED_CONCEALABLE,request)) != 1){
             throw new BaseException(BaseResponseCode.STATUS_UPDATE_FAIL);
         }
         return new BaseResponse.Builder().buildSuccess();

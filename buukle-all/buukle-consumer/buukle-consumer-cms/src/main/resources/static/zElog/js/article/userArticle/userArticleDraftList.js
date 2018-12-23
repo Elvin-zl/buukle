@@ -1,4 +1,4 @@
-//@ sourceURL=myArticleDraftList.js
+//@ sourceURL=userArticleDraftList.js
 $(function () {
     /*绑定页面按钮操作组件*/
     bindsearchConditionClick();
@@ -107,7 +107,7 @@ function bindCurrentPageCilck() {
                         elem: '#articleCatTree' //传入元素选择器
                         ,nodes:  data,
                         click:function (node) {
-                            hasSelected = true;
+                            articleCatFlag = true;
                             $('#add-property01').val(node.name);
                             $('#pid').val(node.id);
                         }
@@ -129,7 +129,7 @@ function bindCurrentPageCilck() {
     /*防止二次点击*/
     $('#yes').off().on('click',function () {
         var layer = layui.layer;
-        if(hasSelected){
+        if(articleCatFlag){
             $('#add-property01').attr('disabled',false);
             layer.close(articleCat_frame_index);
         }else{

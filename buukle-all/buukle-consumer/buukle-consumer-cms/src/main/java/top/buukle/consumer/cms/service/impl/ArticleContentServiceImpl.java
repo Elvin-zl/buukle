@@ -81,7 +81,7 @@ public class ArticleContentServiceImpl implements ArticleContentService{
     */
     @Override
     public BaseResponse deleteArticleContent(ArticleContentQuery query, HttpServletRequest request) {
-        if(articleContentMapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(query,StatusConstants.STATUS_DELETED_CONCELABLE,request)) != 1){
+        if(articleContentMapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(query,StatusConstants.STATUS_DELETED_CONCEALABLE,request)) != 1){
             throw new BaseException(BaseResponseCode.STATUS_UPDATE_FAIL);
         }
         return new BaseResponse.Builder().buildSuccess();

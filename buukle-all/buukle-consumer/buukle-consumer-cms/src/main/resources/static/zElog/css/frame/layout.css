@@ -1,0 +1,55 @@
+a:link {
+    color: #999999;
+    text-decoration: none;
+}
+a:visited {
+    color: #999999;
+    text-decoration: none;
+}
+a:hover {
+    cursor:pointer;
+    color: #999999;
+    text-decoration: none;
+}
+
+.crumbs-div {
+    position: fixed;
+    margin-left: -1px;
+    width: 87%;
+    background-color: white;
+    z-index: 101;
+    height: 59px;
+    margin-top: -57px;
+    padding-top: 20px;
+}
+.crumbs-inner-div {
+    width: 119%;
+    background-color: rgba(78, 84, 96,0.9);
+    border-radius: 2px;
+    height: 36px;
+    padding: 9px;
+}
+.crumbs{
+    font-family: '等线';
+    float: none;
+    margin-top: -30px;
+    color: #c8d5e0;
+}
+.article-titleAbs{
+    margin-top: 15px;
+    position: fixed;
+    z-index: 101;
+    background-color: white;
+    width: 78%;
+    border-bottom: 1px solid #96535d;
+}
+.article-titleAbs-input{
+    width: 76%;
+    border: 0 solid;
+    outline: none;
+}
+.buukle-choose-father-tree-btn{
+    position: fixed;
+    margin-left: 209px;
+    margin-top: 218px;
+}

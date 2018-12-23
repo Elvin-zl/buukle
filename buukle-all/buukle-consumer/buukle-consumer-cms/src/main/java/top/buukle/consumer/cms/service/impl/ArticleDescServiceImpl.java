@@ -81,7 +81,7 @@ public class ArticleDescServiceImpl implements ArticleDescService{
     */
     @Override
     public BaseResponse deleteArticleDesc(ArticleDescQuery query, HttpServletRequest request) {
-        if(articleDescMapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(query,StatusConstants.STATUS_DELETED_CONCELABLE,request)) != 1){
+        if(articleDescMapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(query,StatusConstants.STATUS_DELETED_CONCEALABLE,request)) != 1){
             throw new BaseException(BaseResponseCode.STATUS_UPDATE_FAIL);
         }
         return new BaseResponse.Builder().buildSuccess();

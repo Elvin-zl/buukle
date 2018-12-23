@@ -2,8 +2,11 @@ package top.buukle.consumer.cms.service;
 
 import top.buukle.common.response.BaseResponse;
 import top.buukle.common.vo.response.PageResponse;
+import top.buukle.consumer.cms.vo.ArticlePublishVo;
 import top.buukle.plugin.security.vo.query.PageBounds;
 import top.buukle.plugin.security.vo.response.FuzzySearchListVo;
+
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import top.buukle.consumer.cms .entity.ArticleInfo;
 import top.buukle.consumer.cms .entity.vo.ArticleInfoQuery;
@@ -78,4 +81,12 @@ public interface ArticleInfoService{
      * @return
      */
     PageResponse<ArticleInfo> getAuditArticleInfoList(ArticleInfoQuery query, PageBounds pageBounds);
+
+    /**
+     * 发布文章
+     * @param publishVo
+     * @param request
+     * @return
+     */
+    BaseResponse doPublish(ArticlePublishVo publishVo, HttpServletRequest request) throws InvocationTargetException, IllegalAccessException;
 }

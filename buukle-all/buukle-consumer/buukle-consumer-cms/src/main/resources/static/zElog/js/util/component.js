@@ -22,6 +22,11 @@ function bindSearchConditionClick() {
     //公共初始化
     initPage();
 }
+/*单独用主题时*/
+function commonInit(){
+    //公共初始化
+    initPage();
+}
 /*绑定弹层控件点击事件*/
 function bindSearchConditionClickForFrame() {
     /*绑定模糊搜索*/
@@ -485,6 +490,11 @@ function bindTableBtnsClick() {
                     area: [width, height]
                 });
             });
+            return;
+        }
+        //iframe 跳转
+        if(dataResponseType == 5 ){
+            window.location.href=url;
             return;
         }
     })

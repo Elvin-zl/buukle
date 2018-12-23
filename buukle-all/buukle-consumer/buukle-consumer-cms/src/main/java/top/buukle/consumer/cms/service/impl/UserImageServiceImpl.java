@@ -81,7 +81,7 @@ public class UserImageServiceImpl implements UserImageService{
     */
     @Override
     public BaseResponse deleteUserImage(UserImageQuery query, HttpServletRequest request) {
-        if(userImageMapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(query,StatusConstants.STATUS_DELETED_CONCELABLE,request)) != 1){
+        if(userImageMapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(query,StatusConstants.STATUS_DELETED_CONCEALABLE,request)) != 1){
             throw new BaseException(BaseResponseCode.STATUS_UPDATE_FAIL);
         }
         return new BaseResponse.Builder().buildSuccess();

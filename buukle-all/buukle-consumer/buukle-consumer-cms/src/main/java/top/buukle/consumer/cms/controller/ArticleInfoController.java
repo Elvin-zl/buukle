@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import top.buukle.common.response.BaseResponse;
+import top.buukle.consumer.cms.vo.ArticlePublishVo;
 import top.buukle.plugin.security.vo.query.PageBounds;
 import top.buukle.common.vo.response.PageResponse;
 
@@ -120,5 +121,19 @@ public class ArticleInfoController{
     public BaseResponse updateArticleInfo(ArticleInfoQuery query, HttpServletRequest request) throws Exception {
         return articleInfoService.updateArticleInfo(query,request);
     }
+
+    /**
+    * 发布文章
+    * @param publishVo
+    * @param request
+    * @return
+    * @throws Exception
+    */
+    @RequestMapping("/publish")
+    @ResponseBody
+    public BaseResponse publish(ArticlePublishVo publishVo, HttpServletRequest request) throws Exception {
+        return articleInfoService.doPublish(publishVo,request);
+    }
+
 
 }

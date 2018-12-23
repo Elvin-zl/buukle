@@ -81,7 +81,7 @@ public class UserAlbumServiceImpl implements UserAlbumService{
     */
     @Override
     public BaseResponse deleteUserAlbum(UserAlbumQuery query, HttpServletRequest request) {
-        if(userAlbumMapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(query,StatusConstants.STATUS_DELETED_CONCELABLE,request)) != 1){
+        if(userAlbumMapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(query,StatusConstants.STATUS_DELETED_CONCEALABLE,request)) != 1){
             throw new BaseException(BaseResponseCode.STATUS_UPDATE_FAIL);
         }
         return new BaseResponse.Builder().buildSuccess();

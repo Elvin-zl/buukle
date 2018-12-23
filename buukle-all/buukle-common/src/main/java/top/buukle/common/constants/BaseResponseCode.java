@@ -32,10 +32,11 @@ public enum BaseResponseCode {
 
     /*----------------------------------------------SECURITY--01{**}{**}--------------------------------------------------------------------*/
     //登录,认证,授权,验签 --0100{**}
-    LOGIN_FAILED(BaseResponseCode.FAILURES, "010000","登录失败!参数错误!" ),
-    LOGIN_FAILED_USERNAME_PWD_NULL(BaseResponseCode.FAILURES, "010001","登录失败!用户名或密码为空!"),
-    USER_LOGIN_USERNAME_PASSWORD_WRONG(BaseResponseCode.FAILURES, "010002","登录失败!密码错误!"),
-    LOGIN_FAILED_USER_LOGIN_STRATEGY_AND_DEFAULT_MAX_AGE_NULL(BaseResponseCode.FAILURES, "010003", "登录失败!用户登陆策略和缺省设置为空!"),
+    LOGIN_FAILED(BaseResponseCode.FAILURES, "010000","登录失败,参数错误!" ),
+    LOGIN_FAILED_USERNAME_PWD_NULL(BaseResponseCode.FAILURES, "010001","登录失败,用户名或密码为空!"),
+    USER_LOGIN_USERNAME_PASSWORD_WRONG(BaseResponseCode.FAILURES, "010002","登录失败,密码错误!"),
+    LOGIN_FAILED_USER_LOGIN_STRATEGY_AND_DEFAULT_MAX_AGE_NULL(BaseResponseCode.FAILURES, "010003", "登录失败,用户登陆策略和缺省设置为空!"),
+    LOGIN_FAILED_USER_BANED(BaseResponseCode.FAILURES, "010004", "登录失败,用户已经被禁用!"),
 
     // 用户登录认证错误返回码  --0101{**}
     USER_PERMISSION_PARAM_WRONG(BaseResponseCode.FAILURES,"010101","用户认证失败!认证参数错误!" ),
@@ -108,7 +109,13 @@ public enum BaseResponseCode {
 
     /*------------------------------------------------------CMS--02{**}{**}-----------------------------------------------------------------*/
     //状态操作返回码 --0200{**}
-    STATUS_UPDATE_FAIL(BaseResponseCode.FAILURES, "020000", "文章删除失败!"),
+    STATUS_UPDATE_FAIL(BaseResponseCode.FAILURES, "020000", "状态变更失败!"),
+
+    //文章发布返回码 --0201{**}
+    ARTICLE_PUBLISH_FAILED_TITLE_NULL(BaseResponseCode.FAILURES, "020100", "文章发布失败,题目为空!"),
+    ARTICLE_PUBLISH_FAILED_DESC_NULL(BaseResponseCode.FAILURES, "020100", "文章发布失败,摘要为空!"),
+    ARTICLE_PUBLISH_FAILED_CONTENT_NULL(BaseResponseCode.FAILURES, "020100", "文章发布失败,内容为空!"),
+    ARTICLE_PUBLISH_FAILED_PID_NULL(BaseResponseCode.FAILURES, "020100", "文章发布失败,文章分类id为空!"),
 
     /*----------------------------------------------SECURITY-PLUGIN--06{**}{**}-------------------------------------------------------------*/
     // 登录错误返回码 --0600{**}

@@ -81,7 +81,7 @@ public class FriendLinkServiceImpl implements FriendLinkService{
     */
     @Override
     public BaseResponse deleteFriendLink(FriendLinkQuery query, HttpServletRequest request) {
-        if(friendLinkMapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(query,StatusConstants.STATUS_DELETED_CONCELABLE,request)) != 1){
+        if(friendLinkMapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(query,StatusConstants.STATUS_DELETED_CONCEALABLE,request)) != 1){
             throw new BaseException(BaseResponseCode.STATUS_UPDATE_FAIL);
         }
         return new BaseResponse.Builder().buildSuccess();

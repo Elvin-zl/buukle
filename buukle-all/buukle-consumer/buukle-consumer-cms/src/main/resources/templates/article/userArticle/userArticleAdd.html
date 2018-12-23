@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/static/markdown/js/bootstrap.min.css" rel="stylesheet" />
+	<link href="/static/markdown/css/htmleaf-demo.css" rel="stylesheet" />
+	<link href="/static/markdown/lib/codemirror/lib/codemirror.css" rel="stylesheet" />
+	<link href="/static/markdown/lib/highlightjs/styles/github.css" rel="stylesheet" />
+	<link href="/static/markdown/css/explain.css" rel="stylesheet"/>
+	<link href="/static/markdown/dist/tui-editor.css" rel="stylesheet" />
+	<link href="/static/markdown/dist/tui-editor-contents.css"rel="stylesheet" />
+	<link href="/static/markdown/lib/tui-color-picker/dist/tui-color-picker.css"rel="stylesheet" />
+	<link href="/static/markdown/lib/tui-chart/dist/tui-chart.css"rel="stylesheet" />
+	<link rel="stylesheet" href="/static/layui/css/layui.css">
+	<link href="/static/zElog/css/frame/layout.css"rel="stylesheet" />
+	<link rel="stylesheet" href="" id="btnThemeCss">
+</head>
+<body>
+	<div class="htmleaf-container">
+		<div class="crumbs-div">
+			<div class="crumbs-inner-div">
+				<a class="crumbs" style="margin-left: 8px;"> 当前位置>></a><a class="crumbs">buukle内容管理系统/</a><a class="crumbs">我的文章/</a><a class="crumbs"> 新增文章</a>
+			</div>
+			<span  class="layui-btn search-btn theme-btn" id="publish" style="position: fixed; margin-left: 42%; width: 64px; margin-top: 150px;background-color: #0c630c9e !important;">保存</span>
+			<span  class="layui-btn search-btn theme-btn" id="draft" style="position: fixed; margin-left: 46%; width: 64px; margin-top: 150px;    background-color: #7b756cd9 !important;" value="">草稿</span>
+			<span  class="layui-btn search-btn theme-btn" id="cancel" style="position: fixed; margin-left: 50%; width: 64px; margin-top: 150px;" value="">返回</span>
+		</div>
+		<div class="container" style="margin-top:50px;margin-bottom:50px;width: 80%;">
+			<div class="article-titleAbs">
+				<div class="explain">
+					文章标题 :
+					<input placeholder="请输入题目(限64字,只支持 “()（）,,-_:<>《》” 标点符号)" maxlength="64" style="width: 28%" type="text" required name="title" class="article-titleAbs-input" id="addTitle">
+					<span id="titleErrorMsg" style="color: red"></span>
+					文章分类 ：
+					<input placeholder="请选择分类" style="width: 37%" type="text" required name="title" class="article-titleAbs-input" id="addCat">
+					<span id="catErrorMsg" style="color: red"></span>
+					<input type="hidden" required name="articleCatId" class="article-titleAbs-input" id="pid">
+				</div>
+				<div class="explain">
+					文章摘要 :
+					<input placeholder="请输入摘要(限128字,只支持 “()（）,,-_:<>《》” 标点符号)" maxlength="128" type="text" required name="abstract" class="article-titleAbs-input" id="addAbstract">
+					<span id="abstractErrorMsg" style="color: red"></span>
+				</div>
+				<div class="explain" style="border-width: 0px;">
+					正文
+				</div>
+			</div>
+			<div class="code-html" style="margin-top: 136px; z-index: 100;">
+				<div id="editSection"></div>
+				<!--<div id="viewerSection"></div>-->
+			</div>
+		</div>
+		<!--分类菜单树-->
+		<div class="hiddenForm" id="articleCatTree" style="display: none">
+			<div id="articleCatDiv">
+				<div id="articleCatTreeContain"></div>
+			</div>
+			<div>
+				<button class="layui-btn buukle-choose-father-tree-btn theme-btn" data-form-id="yes" id="yes">确定</button>
+			</div>
+		</div>
+	</div>
+	<script src="/static/mods/jquery-3.3.1.min.js"></script>
+	<script src="/static/markdown/lib/markdown-it/dist/markdown-it.js"></script>
+	<script src="/static/markdown/lib/toMark/dist/toMark.js"></script>
+	<script src="/static/markdown/lib/tui-code-snippet/dist/tui-code-snippet.js"></script>
+	<script src="/static/markdown/lib/tui-color-picker/dist/tui-color-picker.js"></script>
+	<script src="/static/markdown/lib/codemirror/lib/codemirror.js"></script>
+	<script src="/static/markdown/lib/highlightjs/highlight.pack.js"></script>
+	<script src="/static/markdown/lib/squire-rte/build/squire-raw.js"></script>
+	<script src="/static/markdown/lib/plantuml-encoder/dist/plantuml-encoder.js"></script>
+	<script src="/static/markdown/lib/raphael/raphael.js"></script>
+	<script src="/static/markdown/lib/tui-chart/dist/tui-chart.js"></script>
+	<script src="/static/markdown/dist/tui-editor-Editor-all.js"></script>
+	<script src="/static/layui/layui.js"></script>
+	<script src="/static/zElog/js/util/component.js"></script>
+	<script src="/static/zElog/js/article/userArticle/userArticleAdd.js"></script>
+</body>
+</html>

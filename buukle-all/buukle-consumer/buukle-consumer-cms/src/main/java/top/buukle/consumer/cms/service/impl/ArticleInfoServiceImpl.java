@@ -1,5 +1,6 @@
 package top.buukle.consumer.cms.service.impl;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,11 @@ import top.buukle.common.util.common.StringUtil;
 import top.buukle.common.vo.response.PageResponse;
 import top.buukle.consumer.cms .constants.StatusConstants;
 import top.buukle.consumer.cms .entity.ArticleInfoExample;
+import top.buukle.consumer.cms.entity.vo.ArticleContentQuery;
+import top.buukle.consumer.cms.entity.vo.ArticleDescQuery;
+import top.buukle.consumer.cms.service.ArticleContentService;
+import top.buukle.consumer.cms.service.ArticleDescService;
+import top.buukle.consumer.cms.vo.ArticlePublishVo;
 import top.buukle.plugin.security.client.SecurityClient;
 import top.buukle.plugin.security.entity.User;
 import top.buukle.plugin.security.vo.query.PageBounds;
@@ -18,6 +24,7 @@ import top.buukle.plugin.security.vo.response.FuzzySearchListVo;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
 
@@ -37,6 +44,12 @@ public class ArticleInfoServiceImpl implements ArticleInfoService{
 
     @Autowired
     private ArticleInfoMapper articleInfoMapper;
+
+    @Autowired
+    private ArticleDescService articleDescService;
+
+    @Autowired
+    private ArticleContentService articleContentService;
 
     @Autowired
     private SecurityClient securityClient;
@@ -80,7 +93,7 @@ public class ArticleInfoServiceImpl implements ArticleInfoService{
     */
     @Override
     public BaseResponse deleteArticleInfo(ArticleInfoQuery query, HttpServletRequest request) {
-        if(articleInfoMapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(query,StatusConstants.STATUS_DELETED_CONCELABLE,request)) != 1){
+        if(articleInfoMapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(query,StatusConstants.STATUS_DELETED_CONCEALABLE,request)) != 1){
             throw new BaseException(BaseResponseCode.STATUS_UPDATE_FAIL);
         }
         return new BaseResponse.Builder().buildSuccess();
@@ -138,9 +151,9 @@ public class ArticleInfoServiceImpl implements ArticleInfoService{
         List<Integer> statusList = new ArrayList();
         statusList.add(StatusConstants.STATUS_BANED);
         statusList.add(StatusConstants.STATUS_PUBLISHED);
-        statusList.add(StatusConstants.STATUS_WAITTING_FOR_AUDIT_PUBLISH);
-        statusList.add(StatusConstants.STATUS_NOT_RELESED);
-        statusList.add(StatusConstants.STATUS_WAITTING_FOR_AUDIT_RELEASE);
+        statusList.add(StatusConstants.STATUS_WAITING_FOR_AUDIT_PUBLISH);
+        statusList.add(StatusConstants.STATUS_NOT_RELEASED);
+        statusList.add(StatusConstants.STATUS_WAITING_FOR_AUDIT_RELEASE);
         PageHelper.startPage(pageBounds.getPage(), pageBounds.getLimit());
         return new PageResponse.Builder().build(new PageInfo<>(articleInfoMapper.selectByExample(this.assExampleForList(query,statusList))));
     }
@@ -156,11 +169,57 @@ public class ArticleInfoServiceImpl implements ArticleInfoService{
         List<Integer> statusList = new ArrayList();
         statusList.add(StatusConstants.STATUS_PUBLISHED);
         statusList.add(StatusConstants.STATUS_BANED);
-        statusList.add(StatusConstants.STATUS_WAITTING_FOR_AUDIT_PUBLISH);
-        statusList.add(StatusConstants.STATUS_WAITTING_FOR_AUDIT_RELEASE);
-        statusList.add(StatusConstants.STATUS_NOT_RELESED);
+        statusList.add(StatusConstants.STATUS_WAITING_FOR_AUDIT_PUBLISH);
+        statusList.add(StatusConstants.STATUS_WAITING_FOR_AUDIT_RELEASE);
+        statusList.add(StatusConstants.STATUS_NOT_RELEASED);
         PageHelper.startPage(pageBounds.getPage(), pageBounds.getLimit());
         return new PageResponse.Builder().build(new PageInfo<>(articleInfoMapper.selectByExample(this.assExampleForList(query,statusList))));
+    }
+
+    /**
+     * 发布文章
+     * @param publishVo
+     * @param request
+     * @return
+     */
+    @Override
+    public BaseResponse doPublish(ArticlePublishVo publishVo, HttpServletRequest request) throws InvocationTargetException, IllegalAccessException {
+        this.paramValidate(publishVo);
+        // 组装并保存文章
+        ArticleInfoQuery articleInfoQuery = new ArticleInfoQuery();
+        BeanUtils.copyProperties(articleInfoQuery,publishVo);
+        articleInfoQuery.setStatus(StatusConstants.STATUS_WAITING_FOR_AUDIT_PUBLISH);
+        articleInfoMapper.insert(this.assQueryForInsert(articleInfoQuery,request));
+        // 组装并保存摘要
+        ArticleDescQuery articleDescQuery = new ArticleDescQuery();
+        articleDescQuery.setArticleDesc(publishVo.getArticleDesc());
+        articleDescQuery.setArticleInfoId(articleInfoQuery.getId());
+        articleDescService.saveArticleDesc(articleDescQuery,request);
+        // 组装并保存内容
+        ArticleContentQuery articleContentQuery = new ArticleContentQuery();
+        articleContentQuery.setArticleContent(publishVo.getArticleContent());
+        articleContentQuery.setArticleInfoId(articleInfoQuery.getId());
+        articleContentService.saveArticleContent(articleContentQuery,request);
+        return new BaseResponse.Builder().buildSuccess();
+    }
+
+    /**
+     * 校验发布参数
+     * @param publishVo
+     */
+    private void paramValidate(ArticlePublishVo publishVo) {
+        if(StringUtil.isEmpty(publishVo.getTitle())){
+            throw new BaseException(BaseResponseCode.ARTICLE_PUBLISH_FAILED_TITLE_NULL);
+        }
+        if(StringUtil.isEmpty(publishVo.getArticleDesc())){
+            throw new BaseException(BaseResponseCode.ARTICLE_PUBLISH_FAILED_DESC_NULL);
+        }
+        if(StringUtil.isEmpty(publishVo.getArticleContent())){
+            throw new BaseException(BaseResponseCode.ARTICLE_PUBLISH_FAILED_CONTENT_NULL);
+        }
+        if(null == publishVo.getArticleCatId()){
+            throw new BaseException(BaseResponseCode.ARTICLE_PUBLISH_FAILED_PID_NULL);
+        }
     }
 
     /**

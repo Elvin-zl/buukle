@@ -14,6 +14,7 @@ import top.buukle.plugin.security.vo.query.UserQuery;
 import top.buukle.plugin.security.vo.response.ModuleNavigationVo;
 import top.buukle.provider.security.api.business.SecurityApiBusiness;
 import top.buukle.provider.security.constants.SecurityConstants;
+import top.buukle.provider.security.constants.SecurityStatusConstants;
 import top.buukle.provider.security.dao.UserExpMapper;
 import top.buukle.provider.security.dao.UserMapper;
 import top.buukle.provider.security.invoker.UserInvoker;
@@ -59,9 +60,13 @@ public class SecurityApiBusinessImpl implements SecurityApiBusiness {
         if(userInfoForLogin == null){
             throw new BaseException(BaseResponseCode.USER_LOGIN_USERNAME_PASSWORD_WRONG);
         }
+        // 用户被禁用
+        if(userInfoForLogin.getStatus().equals(SecurityStatusConstants.STATUS_CLOSE)){
+            throw new BaseException(BaseResponseCode.LOGIN_FAILED_USER_BANED);
+        }
         // 查询用户扩展信息
         UserExp userExp = userExpMapper.getUserExpByUserId(userInfoForLogin.getUserId());
-        // 查询用户下级信息 --只查询下级用户代码列表,用于数据隔离
+        // 查询用户下级信息
         List<String> userSubordinateList = this.getUserSubordinateByUserLevel(userInfoForLogin);
 
         // 缓存用户基本信息

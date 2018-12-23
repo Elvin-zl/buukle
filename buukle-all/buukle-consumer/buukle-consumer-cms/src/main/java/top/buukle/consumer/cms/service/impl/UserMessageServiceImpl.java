@@ -81,7 +81,7 @@ public class UserMessageServiceImpl implements UserMessageService{
     */
     @Override
     public BaseResponse deleteUserMessage(UserMessageQuery query, HttpServletRequest request) {
-        if(userMessageMapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(query,StatusConstants.STATUS_DELETED_CONCELABLE,request)) != 1){
+        if(userMessageMapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(query,StatusConstants.STATUS_DELETED_CONCEALABLE,request)) != 1){
             throw new BaseException(BaseResponseCode.STATUS_UPDATE_FAIL);
         }
         return new BaseResponse.Builder().buildSuccess();
