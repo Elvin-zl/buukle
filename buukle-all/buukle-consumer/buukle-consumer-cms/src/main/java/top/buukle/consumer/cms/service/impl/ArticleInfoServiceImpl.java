@@ -204,6 +204,34 @@ public class ArticleInfoServiceImpl implements ArticleInfoService{
     }
 
     /**
+     * 草稿文章
+     * @param publishVo
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public BaseResponse doDraft(ArticlePublishVo publishVo, HttpServletRequest request) throws Exception {
+        this.paramValidate(publishVo);
+        // 组装并保存文章
+        ArticleInfoQuery articleInfoQuery = new ArticleInfoQuery();
+        BeanUtils.copyProperties(articleInfoQuery,publishVo);
+        articleInfoQuery.setStatus(StatusConstants.STATUS_DRAFT);
+        articleInfoMapper.insert(this.assQueryForInsert(articleInfoQuery,request));
+        // 组装并保存摘要
+        ArticleDescQuery articleDescQuery = new ArticleDescQuery();
+        articleDescQuery.setArticleDesc(publishVo.getArticleDesc());
+        articleDescQuery.setArticleInfoId(articleInfoQuery.getId());
+        articleDescService.saveArticleDesc(articleDescQuery,request);
+        // 组装并保存内容
+        ArticleContentQuery articleContentQuery = new ArticleContentQuery();
+        articleContentQuery.setArticleContent(publishVo.getArticleContent());
+        articleContentQuery.setArticleInfoId(articleInfoQuery.getId());
+        articleContentService.saveArticleContent(articleContentQuery,request);
+        return new BaseResponse.Builder().buildSuccess();
+    }
+
+    /**
      * 校验发布参数
      * @param publishVo
      */

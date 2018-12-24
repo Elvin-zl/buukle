@@ -75,29 +75,3 @@ function edit(data) {
         $("#modify-"+key).val(data[key]);
     }
 }
-/*富文本编辑器回调*/
-function initTheLayEdit() {
-    /*加载富文本编辑器*/
-    layui.use('layedit', function(){
-        layedit = layui.layedit;
-        articleContent = layedit.build('add-articleContent',
-            {
-                height: 396,
-                tool: [
-                    'strong'                       //加粗
-                    ,'italic'                      //斜体
-                    ,'underline'                   //下划线
-                    ,'del'                         //删除线
-                    ,'|'                           //分割线
-                    ,'left'                        //左对齐
-                    ,'center'                      //居中对齐
-                    ,'right'                       //右对齐
-                    ,'link'                        //超链接
-                    ,'unlink'                      //清除链接
-                    ,'face'                        //表情
-                    ,'image'                       //插入图片
-                    ,'help'                        //帮助
-                ]
-            });
-    });
-}

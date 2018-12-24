@@ -9,7 +9,7 @@ $(function () {
 /*显示文章分类树*/
 function showTheCatTree() {
     $.ajax({
-        url:'/category/getArticleCatTree',
+        url:'/articleCat/getArticleCatTree',
         dataType:'json',
         type:'post',
         success:function (data) {
@@ -30,7 +30,7 @@ function showTheCatTree() {
 function getTreeNodeInfo(node) {
     $('#detail').show();
     $.ajax({
-        url:'/category/getCategoryInfo/'+node.id,
+        url:'/articleCat/getCategoryInfo/'+node.id,
         dataType:'json',
         type:'post',
         success:function (data) {
@@ -41,53 +41,36 @@ function getTreeNodeInfo(node) {
             $('#updateTime').html(formatDateTime(data.updateTime));
             $('#desc').html(data.description);
             $('#nodeName').html(data.articleCat);
-            $('.buukle-table-btn').attr('data-id',data.id);
+            $('.buukle-pannel-btn').attr('data-id',data.id);
         }
     })
 }
 /*add按钮回调*/
-var tempFaterCategory='';
 function add(data){
-    tempFaterCategory = data;
-    bindShowFatherModuleTree();
-}
-
-/*父级分类树回显*/
-function bindShowFatherModuleTree(){
-    $('#fatherCat').on('click',function () {
-        $('#fatherCat').attr('disabled','disabled');
-        $('#fatherCatTreeContain').html('');
-        layui.use('tree', function(){
-            layui.tree({
-                elem: '#fatherCatTreeContain' //传入元素选择器
-                ,nodes:  tempFaterCategory,
-                click:function (node) {
-                    var item = $('#fatherCat');
-                    item.val(node.name);
-                    $('#pid').val(node.id);
-                    removeRedBorderClass(item);
-                }
-            });
-        });
-        layui.use("layer",function () {
-            var layer = layui.layer;
-            layer.open({
-                closeBtn: 0,
-                title:"选择父级菜单",
-                type:1,
-                content: $('#fatherCategoryTree'),
-                area: ['500px', '320px']
-            });
+    $('#fatherCat').attr('disabled','disabled');
+    $('#fatherCatTreeContain').html('');
+    layui.use('tree', function(){
+        layui.tree({
+            elem: '#fatherCatTreeContain' //传入元素选择器
+            ,nodes:  data,
+            click:function (node) {
+                var item = $('#fatherCat');
+                item.val(node.name);
+                $('#pid').val(node.id);
+                removeRedBorderClass(item);
+                $('#alert').hide();
+            }
         });
     });
-    /*防止二次点击*/
-    $('#yes').off().on('click',function () {
-        $('#fatherCat').attr('disabled',false);
-    })
-    //参数校验
+    $('#fatherCategoryTree').show();
     bindParamValidateAndSaveCategory();
 }
 
+/*修改按钮回调*/
+function edit(data){
+
+
+}
 /*保存分类*/
 var isRightParam = false;
 function bindParamValidateAndSaveCategory() {
@@ -124,13 +107,15 @@ function validateInputParam() {
 /*保存文章分类*/
 function save() {
     $('#addCategory').off().on('click',function () {
+        disableThis($('#addCategory'));
         if(validateRequiredParam()){
             $.ajax({
-                url : '/category/addCat',
+                url : '/articleCat/saveArticleCat',
                 type : 'post',
                 dataType : 'json',
                 data: $('#addCategoryForm').serialize(),
                 success : function (data) {
+                    releaseThis($('#addCategory'));
                     var code = data.code;
                     layui.use("layer",function () {
                         var layer = layui.layer;
@@ -142,7 +127,8 @@ function save() {
                         }
                         layer.msg(data.msg, {icon: 1});
                         cancelB.click();
-                        $('.layui-reload',window.parent.document).click();
+                        //刷新页面
+                        window.location.href=window.location.href;
                     })
                 }
             })

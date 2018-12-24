@@ -10,6 +10,7 @@ import top.buukle.common.util.common.DateUtil;
 import top.buukle.common.util.common.NumberUtil;
 import top.buukle.common.util.common.StringUtil;
 import top.buukle.common.vo.response.PageResponse;
+import top.buukle.consumer.cms.constants.ArticleCatConstants;
 import top.buukle.consumer.cms .constants.StatusConstants;
 import top.buukle.consumer.cms .entity.ArticleCatExample;
 import top.buukle.consumer.cms.invoker.RedisInvoker;
@@ -87,6 +88,8 @@ public class ArticleCatServiceImpl implements ArticleCatService{
         if(articleCatMapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(query,StatusConstants.STATUS_DELETED_CONCEALABLE,request)) != 1){
             throw new BaseException(BaseResponseCode.STATUS_UPDATE_FAIL);
         }
+        //更新分类树缓存
+        RedisInvoker.saveArticleCatList(new ArrayList<>());
         return new BaseResponse.Builder().buildSuccess();
     }
 
@@ -108,7 +111,13 @@ public class ArticleCatServiceImpl implements ArticleCatService{
     */
     @Override
     public BaseResponse saveArticleCat(ArticleCatQuery query, HttpServletRequest request) {
+        //处理根分类
+        if(query.getPid().intValue() == -1){
+            query.setPid(0l);
+        }
         articleCatMapper.insert(this.assQueryForInsert(query,request));
+        //更新分类树缓存
+        RedisInvoker.saveArticleCatList(new ArrayList<>());
         return new BaseResponse.Builder().buildSuccess();
     }
 
@@ -173,6 +182,21 @@ public class ArticleCatServiceImpl implements ArticleCatService{
     }
 
     /**
+     * 获取文章父分类树
+     * @return
+     */
+    @Override
+    public List<ArticleCatTreeNodeVo> getArticleCatFatherTree() {
+        List<ArticleCatTreeNodeVo> articleCatFatherTree = new ArrayList<>();
+        ArticleCatTreeNodeVo root = new ArticleCatTreeNodeVo();
+        root.setId(-1);
+        root.setName(ArticleCatConstants.ROOT_NAME);
+        root.setChildren(getArticleCatTree());
+        articleCatFatherTree.add(root);
+        return articleCatFatherTree;
+    }
+
+    /**
      * 递归调用寻找子节点
      * @param articleCats
      * @param articleCatTreeNodeVo
@@ -208,6 +232,7 @@ public class ArticleCatServiceImpl implements ArticleCatService{
         query.setAgentId(operator.getAgentId());
         query.setGroupId(operator.getGroupId());
         query.setSalesmanId(operator.getSalesmanId());
+        query.setStatus(StatusConstants.STATUS_OPEN);
         return query;
     }
 

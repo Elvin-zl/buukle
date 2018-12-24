@@ -2,6 +2,7 @@ package top.buukle.consumer.cms .controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import top.buukle.common.response.BaseResponse;
@@ -111,6 +112,28 @@ public class ArticleCatController{
     @ResponseBody
     public List<ArticleCatTreeNodeVo> getArticleCatTree() throws Exception {
         return articleCatService.getArticleCatTree();
+    }
+    /**
+    * 获取文章父分类树
+    * @return
+    * @throws Exception
+    */
+    @RequestMapping("/getArticleCatFatherTree")
+    @ResponseBody
+    public List<ArticleCatTreeNodeVo> getArticleCatFatherTree() throws Exception {
+        return articleCatService.getArticleCatFatherTree();
+    }
+    /**
+    * 获取文章分类详情
+    * @return
+    * @throws Exception
+    */
+    @RequestMapping("/getCategoryInfo/{articleCatId}")
+    @ResponseBody
+    public ArticleCat getCategoryInfo(@PathVariable("articleCatId") Integer id) throws Exception {
+        ArticleCatQuery articleCatQuery = new ArticleCatQuery();
+        articleCatQuery.setId(id);
+        return  articleCatService.getArticleCatDetail(articleCatQuery);
     }
 
 }

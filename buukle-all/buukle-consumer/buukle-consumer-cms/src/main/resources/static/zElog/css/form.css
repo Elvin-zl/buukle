@@ -205,17 +205,20 @@
     width: 301px;
 }
 .buukle-left-tree-div{
-    width: 140px;
-    height: 800px;
+    background-color: white;
+    overflow: auto;
+    height: 310px;
+    width: 314px;
     float: left;
-    margin-top: 54px;
+    margin-top: 49px;
+    border: solid 1px #6e65943b;
 }
 .buukle-right-padel-div{
     width: 100%;
     height: 800px;
 }
 .buukle-right-padel-page-btn{
-    margin-left: 696px !important;
+    margin-left: 669px !important;
 }
 .buukle-add-textarea{
     resize:none;
@@ -271,4 +274,21 @@
 .error-input{
     display: none;
     color: red;
+}
+.father-Tree-container{
+    overflow: auto;
+    background-color: aliceblue;
+    width: 244px;
+    margin-left: 99px;
+    height: 266px;
+}
+.alert{
+    margin-left: 98px;
+    color: red;
+}
+.required{
+    color: red;
+}
+.buukle-table-pannel-btn{
+    margin-left: 78px !important;
 }

@@ -69,4 +69,10 @@ public interface ArticleCatService{
      * @return
      */
     List<ArticleCatTreeNodeVo> getArticleCatTree();
+
+    /**
+     * 获取文章父分类树
+     * @return
+     */
+    List<ArticleCatTreeNodeVo> getArticleCatFatherTree();
 }

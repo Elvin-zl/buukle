@@ -467,11 +467,6 @@ function bindTableBtnsClick() {
                     area: [width, height]
                 });
             });
-            //初始化弹层内富文本编辑器
-            if($('#layEditFlag').val() == 1){
-                initTheLayEdit();
-            }
-            return;
         }
         //frame 弹层(加载其他列表页面)
         if(dataResponseType == 3 ){

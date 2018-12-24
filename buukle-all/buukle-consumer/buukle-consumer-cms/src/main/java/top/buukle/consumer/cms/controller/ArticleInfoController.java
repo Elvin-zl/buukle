@@ -135,5 +135,17 @@ public class ArticleInfoController{
         return articleInfoService.doPublish(publishVo,request);
     }
 
+    /**
+    * 草稿文章
+    * @param publishVo
+    * @param request
+    * @return
+    * @throws Exception
+    */
+    @RequestMapping("/draft")
+    @ResponseBody
+    public BaseResponse draft(ArticlePublishVo publishVo, HttpServletRequest request) throws Exception {
+        return articleInfoService.doDraft(publishVo,request);
+    }
 
 }

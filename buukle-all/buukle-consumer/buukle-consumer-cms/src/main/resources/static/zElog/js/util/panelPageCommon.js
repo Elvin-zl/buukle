@@ -1,3 +1,4 @@
+//@ sourceURL = panelPageCommon.js
 /*渲染本页按钮*/
 function renderBtns() {
     /*渲染页面级别按钮*/
@@ -6,7 +7,25 @@ function renderBtns() {
     renderTableLevelBtn();
     /*绑定按钮事件*/
     bindTableBtnsClick();
+    initPage();
 }
+/*公共初始化*/
+function initPage() {
+    //初始化父页面主题
+    initIndexTheme();
+    //初始化按钮主题
+    initBtnTheme();
+}
+/*初始化父页面主题*/
+function initIndexTheme() {
+    parent.$("#themeCss").attr('href',parent.$('#currentDBTheme').val());
+}
+/*初始化按钮主题*/
+function initBtnTheme() {
+    var themeUrl = parent.$("#themeCss").attr('href');
+    $('#btnThemeCss').attr('href',themeUrl);
+}
+
 /*渲染页面级别按钮*/
 function renderPageLevelBtn() {
     var currentTabModuleId = parent.$(".layui-this").attr('lay-id');
@@ -14,7 +33,7 @@ function renderPageLevelBtn() {
     var pageBtns =  JSON.parse(pageBtnText);
     var html = '';
     for(var i = 0;i < pageBtns.length;i++){
-        html = '<span  class="layui-btn buukle-table-btn theme-btn buukle-right-padel-page-btn" data-responseType="'+pageBtns[i].buttonResponseType+'" data-operationType="'+pageBtns[i].buttonOperationType+'" data-url="'+pageBtns[i].url+'">'+pageBtns[i].moduleName+'</span>';
+        html = '<span  class="layui-btn buukle-pannel-btn theme-btn buukle-right-padel-page-btn" data-responseDomId="'+pageBtns[i].responseDomId+'"  data-responseType="'+pageBtns[i].responseType+'" data-operationType="'+pageBtns[i].operationType+'" data-url="'+pageBtns[i].url+'">'+pageBtns[i].buttonName+'</span>';
     }
     if(html != ''){
         $('#pageLevelBtn').html(html);
@@ -27,14 +46,14 @@ function renderTableLevelBtn() {
     var buttons =  JSON.parse(tableBtnText);
     var html = '';
     for (var i = 0; i < buttons.length; i++) {
-        if(buttons[i].buttonOperationType != 4 && buttons[i].buttonOperationType != 5 && buttons[i].buttonOperationType != 6){
+        if(buttons[i].operationType != 4 && buttons[i].operationType != 5 && buttons[i].operationType != 6){
             //修改
-            if(buttons[i].buttonOperationType == 2){
-                html += '<a class="layui-btn layui-btn-mini theme-btn buukle-table-btn" data-id="" data-responseType="'+buttons[i].buttonResponseType+'" data-operationType="'+buttons[i].buttonOperationType+'"  data-url="'+buttons[i].url+'">'+buttons[i].moduleName+'</a>'
+            if(buttons[i].operationType == 2){
+                html += '<a class="layui-btn layui-btn-mini theme-btn buukle-pannel-btn buukle-table-pannel-btn" data-responseDomId="'+buttons[i].responseDomId+'"  data-id="" data-responseType="'+buttons[i].responseType+'" data-operationType="'+buttons[i].operationType+'"  data-url="'+buttons[i].url+'">'+buttons[i].buttonName+'</a>'
             }
             //删除
-            else if(buttons[i].buttonOperationType == 1){
-                html += '<a class="layui-btn layui-btn-mini theme-btn buukle-table-btn" data-id="" data-responseType="'+buttons[i].buttonResponseType+'" data-operationType="'+buttons[i].buttonOperationType+'"   data-url="'+buttons[i].url+'">'+buttons[i].moduleName+'</a>'
+            else if(buttons[i].operationType == 1){
+                html += '<a class="layui-btn layui-btn-mini theme-btn buukle-pannel-btn buukle-table-pannel-btn" data-responseDomId="'+buttons[i].responseDomId+'" data-id="" data-responseType="'+buttons[i].responseType+'" data-operationType="'+buttons[i].operationType+'"   data-url="'+buttons[i].url+'">'+buttons[i].buttonName+'</a>'
             }
         }
     }
@@ -42,7 +61,7 @@ function renderTableLevelBtn() {
 }
 /*绑定按钮点击事件*/
 function bindTableBtnsClick() {
-    $('.buukle-table-btn').off().on('click',function () {
+    $('.buukle-pannel-btn').off().on('click',function () {
         $('.layui-layer-content').html('');
         var btnsTypesText = parent.$('#globalBtnType').val();
         //全局按钮操作类型
@@ -51,6 +70,7 @@ function bindTableBtnsClick() {
         var dataResponseType = $(this).attr('data-responseType');
         //当前按钮操作类型    (按钮操作类型 ==> 0:添加 1删除 2:修改 3:详情 4: 申请启用 5:审核 6;启/停用 7:分配角色 8:分配菜单)
         var dataOperationType = $(this).attr('data-operationType');
+        var domId = $(this).attr('data-responseDomId');
         //按钮执行的url
         var url = $(this).attr('data-url');
         //当前按钮的名称 用于弹框提示
@@ -66,7 +86,7 @@ function bindTableBtnsClick() {
             $('#currentRecordId').val(id);
         }
         for (var i = 0 ; i < btnsTypes.length; i++){
-            if(dataResponseType == 0 && dataOperationType == btnsTypes[i].btnCode ){//conform  确认框
+            if(dataResponseType == 0){//conform  确认框
                 layui.use("layer",function () {
                     var layer = layui.layer;
                     confirmBtnBox = layer.confirm('您确认执行[ '+btnName+' ]操作吗?', {
@@ -83,7 +103,7 @@ function bindTableBtnsClick() {
                                     icon: 1,
                                     time: 1000
                                 });
-                                reloadTable ();
+                                window.location.href=window.location.href;
                             }
                         });
                     });
@@ -91,7 +111,7 @@ function bindTableBtnsClick() {
                 break;
             }
 
-            if(dataResponseType == 1 && dataOperationType == btnsTypes[i].btnCode){//frame 弹层
+            if(dataResponseType == 1){//frame 弹层
                 if(url != ''){
                     //取出按钮url数据,并判断按钮类型回显数据
                     $.ajax({
@@ -101,12 +121,11 @@ function bindTableBtnsClick() {
                         cache:false,
                         type: 'post',
                         success: function (data) {
-                            doCallback(eval(btnsTypes[i].btnId),[data]);
+                            doCallback(eval(domId),[data]);
                         }
                     });
                 }
                 //弹出相应的弹层框
-                var  DomId = btnsTypes[i].btnId;
                 var width = '970px';
                 var height = '550px';
                 //添加时放大弹框
@@ -119,14 +138,10 @@ function bindTableBtnsClick() {
                     dataBtnBox = layer.open({
                         title:moduleName,
                         type:1,
-                        content: $('#'+DomId),
+                        content: $('#'+domId),
                         area: [width, height]
                     });
                 });
-                //初始化弹层内富文本编辑器
-                if($('#layEditFlag').val() == 1){
-                    initTheLayEdit();
-                }
                 break;
             }
         }

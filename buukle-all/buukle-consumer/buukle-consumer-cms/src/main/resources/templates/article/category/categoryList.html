@@ -31,7 +31,7 @@
         <tr>
             <th colspan="2">
                 <span>节点详情:</span>
-                <span id="nodeName"  style="color: lightseagreen"><span style="color: red">请点击左侧文章分类树查看文章分类节点</span></span>
+                <span id="nodeName"  style="color: red"><span style="color: red">点击左侧文章分类树节点可查看文章分类详情</span></span>
             </th>
         </tr>
         </thead>
@@ -46,23 +46,23 @@
         </tr>
         <tr>
             <td>名称</td>
-            <td id="articleCat">Buukle</td>
+            <td id="articleCat"></td>
         </tr>
         <tr>
             <td>创建者</td>
-            <td id="creator">elvin</td>
+            <td id="creator"></td>
         </tr>
         <tr>
             <td>创建时间</td>
-            <td id="milli">2017-10-25 10:45:54</td>
+            <td id="milli"></td>
         </tr>
         <tr>
             <td>更新者</td>
-            <td id="updateBy">elvin</td>
+            <td id="updateBy"></td>
         </tr>
         <tr>
             <td>更新时间</td>
-            <td id="updateTime">2017-10-25 10:45:54</td>
+            <td id="updateTime"></td>
         </tr>
         <tr>
             <td>描述</td>
@@ -72,7 +72,7 @@
     </table>
     <!--添加-->
     <div class="hiddenForm" id="add">
-        <form id="addCategoryForm" style="height: 312px;">
+        <form id="addCategoryForm" style="height: 220px;">
             <table class="data-table">
                 <tr>
                     <td class="table-property-name"><em class="required">*</em>分类名称 :</td>
@@ -96,32 +96,28 @@
                     </td>
                     <td class="table-property-name">分类描述 :</td>
                     <td class="table-property-value">
-                        <textarea class="layui-textarea add-input" name="description" id="articleCatDescTextarea"></textarea>
+                        <textarea class="layui-textarea add-input" style="resize: none; height: 68px; width: 164px;" name="description" id="articleCatDescTextarea"></textarea>
                     </td>
                 </tr>
             </table>
+            <span class="alert" id="alert">请选择直接父级分类</span>
+            <div class="father-Tree-container" id="fatherCategoryTree">
+                <!--父级分类树-->
+                <div id="fatherCatTreeContain"></div>
+            </div>
         </form>
-        <div style="margin-top: -106px;margin-left: 94px;">
+        <div style="margin-left: 94px;margin-top: -27px;">
             <button class="layui-btn back-button saveBtn theme-btn" data-form-id="addCategoryForm" id="addCategory">
                 保存
             </button>
             <button class="layui-btn layui-btn-primary layui-layer-close back-button" id="cancelAddCategory">取消</button>
         </div>
     </div>
-    <!--父级分类树-->
-    <div class="hiddenForm" id="fatherCategoryTree">
-        <div id="articleCats" style="float:left">
-            <div id="fatherCatTreeContain"></div>
-        </div>
-        <div>
-            <button style="margin-left: 80px !important;" class="layui-btn layui-layer-close buukle-choose-father-tree-btn theme-btn" data-form-id="yes" id="yes">确定</button>
-        </div>
-    </div>
 </div>
     <script src="/static/mods/jquery-3.3.1.min.js"></script>
-    <script src=" /static/ztree/js/jquery.ztree.core.js"></script>
-    <script src=" /static/ztree/js/jquery.ztree.excheck.js"></script>
-    <script src=" /static/ztree/js/jquery.ztree.exedit.js"></script>
+    <script src="/static/ztree/js/jquery.ztree.core.js"></script>
+    <script src="/static/ztree/js/jquery.ztree.excheck.js"></script>
+    <script src="/static/ztree/js/jquery.ztree.exedit.js"></script>
     <script src="/static/layui/layui.js"></script>
     <script src="/static/zElog/js/util/component.js"></script>
     <script src="/static/zElog/js/util/panelPageCommon.js"></script>

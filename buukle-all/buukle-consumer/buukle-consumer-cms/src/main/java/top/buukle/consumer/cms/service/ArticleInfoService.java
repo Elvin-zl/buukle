@@ -88,5 +88,13 @@ public interface ArticleInfoService{
      * @param request
      * @return
      */
-    BaseResponse doPublish(ArticlePublishVo publishVo, HttpServletRequest request) throws InvocationTargetException, IllegalAccessException;
+    BaseResponse doPublish(ArticlePublishVo publishVo, HttpServletRequest request) throws Exception;
+
+    /**
+     * 草稿文章
+     * @param publishVo
+     * @param request
+     * @return
+     */
+    BaseResponse doDraft(ArticlePublishVo publishVo, HttpServletRequest request) throws Exception;
 }

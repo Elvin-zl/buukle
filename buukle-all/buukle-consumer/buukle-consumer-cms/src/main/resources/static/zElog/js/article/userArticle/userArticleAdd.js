@@ -15,8 +15,8 @@ $(function () {
 function bindButtonClick() {
     //保存
     $('#publish').off().on('click',function () {
+        disableThis($('#publish'));
         if(paramValidate()){
-            $(this).html('发布中..');
             //提交
             $.ajax({
                 url: '/articleInfo/publish',
@@ -24,7 +24,7 @@ function bindButtonClick() {
                 data: {'articleCatId' : $('#pid').val().trim(),'articleDesc' : $('#addAbstract').val().trim(),'title' : $('#addTitle').val().trim(),'articleContent' : editor.mdEditor.editorContainerEl.innerText},
                 dataType: 'json',
                 success: function (data) {
-                    $('#publish').html('发布');
+                    releaseThis($('#publish'));
                     var code = data.code;
                     layui.use("layer",function () {
                         layer.msg(data.msg, code == "F" ?  {icon: 2} : {icon: 1});
@@ -35,8 +35,8 @@ function bindButtonClick() {
     })
     //草稿
     $('#draft').off().on('click',function () {
+        disableThis($('#draft'));
         if(paramValidate()){
-            $(this).html('发布中..');
             //提交
             $.ajax({
                 url: '/articleInfo/draft',
@@ -44,7 +44,7 @@ function bindButtonClick() {
                 data: {'articleCatId' : $('#pid').val().trim(),'articleDesc' : $('#addAbstract').val().trim(),'title' : $('#addTitle').val().trim(),'articleContent' : editor.mdEditor.editorContainerEl.innerText},
                 dataType: 'json',
                 success: function (data) {
-                    $('#publish').html('发布');
+                    releaseThis($('#draft'));
                     var code = data.code;
                     layui.use("layer",function () {
                         layer.msg(data.msg, code == "F" ?  {icon: 2} : {icon: 1});
@@ -55,7 +55,7 @@ function bindButtonClick() {
     })
     //返回
     $('#cancel').off().on('click',function () {
-
+        $('.layui-this', window.parent.document).click();
     })
 }
 
@@ -63,18 +63,24 @@ function bindButtonClick() {
 function paramValidate() {
     if(!articleTitleFlag ){
         $('#titleErrorMsg').html("题目格式错误!");
+        releaseThis($('#publish'));
+        releaseThis($('#draft'));
         return false;
     }else{
         $('#titleErrorMsg').html("");
     }
     if(!articleCatFlag ){
         $('#catErrorMsg').html('请选择选择文章类别!');
+        releaseThis($('#draft'));
+        releaseThis($('#publish'));
         return false;
     }else{
         $('#catErrorMsg').html('');
     }
     if(!articleAbstractFlag){
         $('#abstractErrorMsg').html('文章摘要格式错误!');
+        releaseThis($('#draft'));
+        releaseThis($('#publish'));
         return false;
     }else{
         $('#abstractErrorMsg').html('');
