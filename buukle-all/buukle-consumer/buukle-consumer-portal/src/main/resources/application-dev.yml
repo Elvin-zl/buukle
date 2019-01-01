@@ -1,0 +1,67 @@
+##服务配置
+server:
+  port: 9393
+  tomcat:
+    max-threads: 800
+    uri-encoding: utf-8
+##日志配置
+logging:
+  config: classpath:config/spring/springBoot-logbak.xml
+##spring生态配置
+spring:
+  #include
+  profiles:
+    include: dev-security,dev-system
+  #application
+  application:
+      name: buukle-portal
+  #http
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+  #datasource
+  datasource:
+    url: jdbc:mysql://47.95.13.7:3654/buukle-cms?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: A987654321b/
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  #redis
+  redis:
+    database: 5
+    host: 47.95.13.7
+    port: 4376
+    password: zxcvbnmKO),.
+    jedis:
+      pool:
+        max-active: 100
+        max-idle: 100
+        max-wait: -1
+        min-idle: 10
+    timeout: 3000
+
+  ##thymeleaf
+  thymeleaf:
+     cache: false
+     prefix: classpath:/templates/
+     suffix: .html
+     encoding: UTF-8
+     content-type: text/html
+     mode: HTML5
+##eureka
+eureka:
+  instance:
+    hostname: localhost
+    serverport: 9090
+  client:
+    serviceUrl:
+       defaultZone: http://${eureka.instance.hostname}:${eureka.instance.serverport}/eureka/
+##mybatis
+mybatis:
+  mapper-locations: classpath*:/config/mapper/*.xml
+  type-aliases-package: top.buukle.consumer.portal.entity
+
+
+

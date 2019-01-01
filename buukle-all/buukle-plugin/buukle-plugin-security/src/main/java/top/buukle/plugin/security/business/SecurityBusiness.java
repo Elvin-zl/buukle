@@ -24,7 +24,7 @@ public interface SecurityBusiness {
      * @param request
      * @param response
      */
-    void logout(HttpServletRequest request, HttpServletResponse response);
+    BaseResponse logout(HttpServletRequest request, HttpServletResponse response);
 
     /**
      * 登录
@@ -82,4 +82,11 @@ public interface SecurityBusiness {
      * @return
      */
     List<String> getUserSubordinate(String userId);
+
+    /**
+     * 获取文章作者信息
+     * @param userId
+     * @return
+     */
+    User getArticleAuthor(String userId);
 }

@@ -45,4 +45,6 @@ public class NumberUtil extends NumberUtils {
     public static final Integer LONG_ONE_DAY_SECOND = 86400;
     /** 一周秒数*/
     public static final Integer LONG_ONE_WEEK_SECOND = 604800;
+
+    public static final Long LONG_THREE = 3l;
 }

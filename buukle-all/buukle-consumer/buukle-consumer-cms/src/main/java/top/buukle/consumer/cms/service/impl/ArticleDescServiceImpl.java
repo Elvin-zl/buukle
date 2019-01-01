@@ -94,6 +94,15 @@ public class ArticleDescServiceImpl implements ArticleDescService{
     */
     @Override
     public ArticleDesc getArticleDescDetail(ArticleDescQuery query) {
+        //根据文章id查询
+        if(query.getId() == null && query.getArticleInfoId()!=null){
+            ArticleDescExample articleDescExample = new ArticleDescExample();
+            ArticleDescExample.Criteria criteria = articleDescExample.createCriteria();
+            criteria.andArticleInfoIdEqualTo(query.getArticleInfoId());
+            List<ArticleDesc> articleDescs = articleDescMapper.selectByExampleWithBLOBs(articleDescExample);
+            return  CollectionUtils.isEmpty(articleDescs) ? null : articleDescs.get(0);
+        }
+        //根据主键查询
         return articleDescMapper.selectByPrimaryKey(query.getId());
     }
 

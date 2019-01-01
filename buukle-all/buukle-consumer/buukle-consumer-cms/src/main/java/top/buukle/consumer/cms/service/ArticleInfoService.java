@@ -2,11 +2,11 @@ package top.buukle.consumer.cms.service;
 
 import top.buukle.common.response.BaseResponse;
 import top.buukle.common.vo.response.PageResponse;
+import top.buukle.consumer.cms.vo.ArticleInformationVo;
 import top.buukle.consumer.cms.vo.ArticlePublishVo;
 import top.buukle.plugin.security.vo.query.PageBounds;
 import top.buukle.plugin.security.vo.response.FuzzySearchListVo;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import top.buukle.consumer.cms .entity.ArticleInfo;
 import top.buukle.consumer.cms .entity.vo.ArticleInfoQuery;
@@ -97,4 +97,11 @@ public interface ArticleInfoService{
      * @return
      */
     BaseResponse doDraft(ArticlePublishVo publishVo, HttpServletRequest request) throws Exception;
+
+    /**
+     * 查看文章详情
+     * @param query
+     * @return
+     */
+    ArticleInformationVo getArticleAllInformation(ArticleInfoQuery query);
 }

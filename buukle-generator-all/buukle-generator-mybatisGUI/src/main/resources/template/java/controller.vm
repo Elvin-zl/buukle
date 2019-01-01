@@ -34,7 +34,7 @@ public class ${table.entityName}Controller{
     */
     @RequestMapping("/get${table.entityName}List")
     @ResponseBody
-    public PageResponse<${table.entityName}> getUserList(${table.entityName}Query query,PageBounds pageBounds) throws Exception {
+    public PageResponse<${table.entityName}> get${table.entityName}List(${table.entityName}Query query,PageBounds pageBounds) throws Exception {
         return ${table.entityNameFirstLowerCase}Service.get${table.entityName}List(query,pageBounds);
     }
 

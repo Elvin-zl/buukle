@@ -13,7 +13,7 @@ public class SecurityConstants {
 
     /*----------------------------------------系统设置---------------------------------------------------------*/
     /** 系统登录cookie key*/
-    public static final String COOKIE_LOGIN_KEY = "ELOG";
+    public static final String COOKIE_LOGIN_KEY = "BUUKLE";
 
     /*------------------------------------用户自定义设置-------------------------------------------------------*/
     /** 用户登录关闭验证码*/

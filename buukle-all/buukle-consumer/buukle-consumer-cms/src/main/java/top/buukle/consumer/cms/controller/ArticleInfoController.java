@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import top.buukle.common.response.BaseResponse;
+import top.buukle.consumer.cms.vo.ArticleInformationVo;
 import top.buukle.consumer.cms.vo.ArticlePublishVo;
 import top.buukle.plugin.security.vo.query.PageBounds;
 import top.buukle.common.vo.response.PageResponse;
@@ -94,6 +95,18 @@ public class ArticleInfoController{
     @ResponseBody
     public ArticleInfo getArticleInfoDetail(ArticleInfoQuery query) throws Exception {
         return articleInfoService.getArticleInfoDetail(query);
+    }
+
+    /**
+    * 查看文章详情
+    * @param query
+    * @return
+    * @throws Exception
+    */
+    @RequestMapping("/getArticleInformation")
+    @ResponseBody
+    public ArticleInformationVo getArticleAllInformation(ArticleInfoQuery query) throws Exception {
+        return articleInfoService.getArticleAllInformation(query);
     }
 
     /**

@@ -2,6 +2,8 @@ package top.buukle.plugin.security.client;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import top.buukle.common.response.BaseResponse;
+import top.buukle.common.util.logger.BaseLogger;
 import top.buukle.plugin.security.business.SecurityBusiness;
 import top.buukle.plugin.security.entity.Button;
 import top.buukle.plugin.security.entity.ButtonType;
@@ -19,6 +21,7 @@ import java.util.List;
 @Component
 public class SecurityClient {
 
+    private static final BaseLogger LOGGER = BaseLogger.getLogger(SecurityClient.class);
     @Autowired
     private SecurityBusiness securityBusiness;
 
@@ -37,7 +40,16 @@ public class SecurityClient {
      * @return
      */
     public User getUserInfo(HttpServletRequest request){
-        return securityBusiness.getUserInfo(request);
+        User userInfo;
+        try {
+             userInfo = securityBusiness.getUserInfo(request);
+        } catch (Exception e) {
+            LOGGER.info("获取用户信息失败! 原因 : {} ",e.getMessage());
+            User user = new User();
+            user.setUserId("-1");
+            return user;
+        }
+        return userInfo;
     }
 
     /**
@@ -65,5 +77,14 @@ public class SecurityClient {
      */
     public List<String> getUserSubordinate(String userId) {
         return securityBusiness.getUserSubordinate(userId);
+    }
+
+    /**
+     * 获取文章作者信息
+     * @param userId
+     * @return
+     */
+    public User getArticleAuthor(String userId) {
+        return securityBusiness.getArticleAuthor(userId);
     }
 }

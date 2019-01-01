@@ -15,8 +15,8 @@ package top.buukle.common.constants;
  *     1. the length of the string code must be six ,and it must be all number.
  *     2. the first two numbers means every project's code,like :
  *        {01 = security; 02 = cms; 03 = article; 04 = portal; 05 = album; 06 = security-plugin; 99 = system}
- *        the third and fourth number means every project's module code, from 00 - 99;
  *        the third and fourth number means every module's error code code, from 00 - 99;
+ *        the third and fourth number means every project's module code, from 00 - 99;
  * </p>
  */
 public enum BaseResponseCode {
@@ -31,14 +31,15 @@ public enum BaseResponseCode {
     HTTP_CELENE_FAILED(BaseResponseCode.FAILURES, "999899", "通讯失败!"),
 
     /*----------------------------------------------SECURITY--01{**}{**}--------------------------------------------------------------------*/
-    //登录,认证,授权,验签 --0100{**}
+    //登录,验签 --0100{**}
     LOGIN_FAILED(BaseResponseCode.FAILURES, "010000","登录失败,参数错误!" ),
     LOGIN_FAILED_USERNAME_PWD_NULL(BaseResponseCode.FAILURES, "010001","登录失败,用户名或密码为空!"),
     USER_LOGIN_USERNAME_PASSWORD_WRONG(BaseResponseCode.FAILURES, "010002","登录失败,密码错误!"),
     LOGIN_FAILED_USER_LOGIN_STRATEGY_AND_DEFAULT_MAX_AGE_NULL(BaseResponseCode.FAILURES, "010003", "登录失败,用户登陆策略和缺省设置为空!"),
     LOGIN_FAILED_USER_BANED(BaseResponseCode.FAILURES, "010004", "登录失败,用户已经被禁用!"),
+    LOGOUT_FAILED_COOKIE_VALUE_NULL(BaseResponseCode.FAILURES, "010005", "登出失败,用户客户端标识信息为空!"),
 
-    // 用户登录认证错误返回码  --0101{**}
+    // 用户认证授权错误返回码  --0101{**}
     USER_PERMISSION_PARAM_WRONG(BaseResponseCode.FAILURES,"010101","用户认证失败!认证参数错误!" ),
     USER_PERMISSION_GLOBAL_MODULE_LIST_NULL(BaseResponseCode.FAILURES, "010102", "用户授权失败!全局菜单列表为空!"),
     USER_PERMISSION_GLOBAL_BUTTON_LIST_NULL(BaseResponseCode.FAILURES, "010103", "用户授权失败!全局按钮列表为空!"),
@@ -72,6 +73,7 @@ public enum BaseResponseCode {
     USER_SET_ROLE_USER_NULL(BaseResponseCode.FAILURES, "010407","修改用户角色失败,用户id对应用户信息为空!"),
     USER_SET_ROLE_USER_LEVEL_BELONGING_RELATION_WRONG(BaseResponseCode.FAILURES, "010408","修改用户角色失败,用户等级和归属关系不匹配!"),
     USER_SET_ROLE_OPERATOR_PERMISSION_NOT_ENOUGH(BaseResponseCode.FAILURES, "010409","修改用户角色失败,当前用户等级不够!"),
+    USER_GET_ARTICLE_AUTHOR_USER_ID_NULL(BaseResponseCode.FAILURES, "010410","查询作者信息失败,作者id为空!"),
 
     // 系统禁止操作返回码 --0105{**}
     EDIT_FORBIDDEN(BaseResponseCode.FAILURES, "010500","该记录由系统创建,不允许该操作!"),
@@ -117,6 +119,11 @@ public enum BaseResponseCode {
     ARTICLE_PUBLISH_FAILED_CONTENT_NULL(BaseResponseCode.FAILURES, "020100", "文章发布失败,内容为空!"),
     ARTICLE_PUBLISH_FAILED_PID_NULL(BaseResponseCode.FAILURES, "020100", "文章发布失败,文章分类id为空!"),
 
+    /*---------------------------------------------------PORTAL--04{**}{**}-----------------------------------------------------------------*/
+    ARTICLE_PRAISE_FAILED(BaseResponseCode.FAILURES, "040100", "文章赞数更新异常!"),
+
+
+
     /*----------------------------------------------SECURITY-PLUGIN--06{**}{**}-------------------------------------------------------------*/
     // 登录错误返回码 --0600{**}
     USER_LOGIN_VERIFY_CODE_NULL(BaseResponseCode.FAILURES, "060000", "登录失败!验证码为空!"),
@@ -125,6 +132,7 @@ public enum BaseResponseCode {
     USER_LOGIN_USERNAME_PASSWORD_NULL_SSO_PLUGIN(BaseResponseCode.FAILURES, "060003","登录失败!用户名或密码为空!"),
     USER_AUTHENTICATION_FAILED_COOKIE_NULL(BaseResponseCode.FAILURES, "060004","认证失败!客户端标识信息为空!"),
     USER_AUTHENTICATION_FAILED_REQUEST_WRONG(BaseResponseCode.FAILURES, "060005","认证失败!buukle-security配置security.host请求失败!"),
+
 
     ;
 

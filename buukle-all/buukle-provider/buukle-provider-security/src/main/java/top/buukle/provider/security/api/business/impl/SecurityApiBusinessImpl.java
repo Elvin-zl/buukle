@@ -89,6 +89,38 @@ public class SecurityApiBusinessImpl implements SecurityApiBusiness {
     }
 
     /**
+     * 登出
+     * @param baseRequest
+     * @return
+     */
+    @Override
+    public BaseResponse logout(BaseRequest baseRequest) {
+        String cookieValue = (String) baseRequest.getInfo(String.class);
+        if(StringUtil.isEmpty(cookieValue)){
+            throw new BaseException(BaseResponseCode.LOGOUT_FAILED_COOKIE_VALUE_NULL);
+        }
+        User user = UserInvoker.getUser(cookieValue);
+        UserInvoker.logout(cookieValue);
+        //清除用户缓存信息
+        UserInvoker.clearUserCacheInfoByType(null,user.getUserId());
+        return new BaseResponse.Builder().buildSuccess();
+    }
+
+    /**
+     * 查询作者信息
+     * @param baseRequest
+     * @return
+     */
+    @Override
+    public User getArticleAuthor(BaseRequest baseRequest) {
+        String userId = (String) baseRequest.getInfo(String.class);
+        if(StringUtil.isEmpty(userId)){
+            throw new BaseException(BaseResponseCode.USER_GET_ARTICLE_AUTHOR_USER_ID_NULL);
+        }
+        return userMapper.getUserByUserId(userId);
+    }
+
+    /**
      * 根据身份获取用户下级信息
      * @param userInfoForLogin
      * @return
@@ -186,7 +218,6 @@ public class SecurityApiBusinessImpl implements SecurityApiBusiness {
     public List<String> getUserSubordinate(BaseRequest baseRequest) {
         return UserInvoker.getUserSubordinate((String) baseRequest.getInfo());
     }
-
     /**
      * 校验登录参数
      * @param request

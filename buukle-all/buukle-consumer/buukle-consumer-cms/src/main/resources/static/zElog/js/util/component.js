@@ -489,7 +489,8 @@ function bindTableBtnsClick() {
         }
         //iframe 跳转
         if(dataResponseType == 5 ){
-            window.location.href=url;
+            $("#current",window.parent.document).attr('data-id',id);
+            window.location.href=url+"?id="+id;
             return;
         }
     })

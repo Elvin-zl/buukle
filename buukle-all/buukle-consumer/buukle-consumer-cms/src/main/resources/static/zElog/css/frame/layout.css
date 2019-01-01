@@ -41,7 +41,7 @@ a:hover {
     z-index: 101;
     background-color: white;
     width: 78%;
-    border-bottom: 1px solid #96535d;
+    border-bottom: 0px solid #96535d;
 }
 .article-titleAbs-input{
     width: 76%;

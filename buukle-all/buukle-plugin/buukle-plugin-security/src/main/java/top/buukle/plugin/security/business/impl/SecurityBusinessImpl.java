@@ -35,6 +35,8 @@ public class SecurityBusinessImpl implements SecurityBusiness {
 
     @Autowired
     private  SecurityInvoker securityInvoker;
+
+
     /**
      * 登录
      * @param request
@@ -96,6 +98,40 @@ public class SecurityBusinessImpl implements SecurityBusiness {
         }
         return baseResponse;
     }
+
+    /**
+     * 登出
+     * @param request
+     * @param response
+     */
+    @Override
+    public BaseResponse logout(HttpServletRequest request, HttpServletResponse response) {
+        String userCookie = CookieUtil.getUserCookie(request);
+        if(null == request || StringUtil.isEmpty(userCookie)){
+            return new BaseResponse();
+        }
+        return this.logout(userCookie, response, SecurityInterceptor.SSO_DOMAIN, SecurityInterceptor.LOGIN_OUT_STRATEGY, SecurityInterceptor.APPLICATION_NAME);
+    }
+
+    /**
+     * 登出
+     * @param userCookie
+     * @param response
+     */
+    public BaseResponse logout(String userCookie, HttpServletResponse response, String ssoDomain, String loginOutStrategy, String applicationName) {
+        BaseRequest baseRequest = new BaseRequest.Builder().build(applicationName,SecurityInterceptor.APPLICATION_NAME);
+        baseRequest.setInfo(userCookie);
+        BaseResponse baseResponse = securityInvoker.logout(baseRequest);
+        if(baseResponse ==null){
+            return new BaseResponse.Builder().buildFailedInner(BaseResponseCode.USER_AUTHENTICATION_FAILED_REQUEST_WRONG);
+        }
+        //删除cookie
+        if(baseResponse.isSuccess()){
+            CookieUtil.delLocalCookie(response,ssoDomain);
+        }
+        return baseResponse;
+    }
+
 
     /**
      * 认证&授权
@@ -199,6 +235,18 @@ public class SecurityBusinessImpl implements SecurityBusiness {
     }
 
     /**
+     * 获取文章作者信息
+     * @param userId
+     * @return
+     */
+    @Override
+    public User getArticleAuthor(String userId) {
+        BaseRequest baseRequest = new BaseRequest.Builder().build(SecurityInterceptor.APPLICATION_NAME, SecurityInterceptor.APPLICATION_NAME);
+        baseRequest.setInfo(userId);
+        return securityInvoker.getArticleAuthor(baseRequest);
+    }
+
+    /**
      * 认证
      * @param httpServletRequest
      * @param ssoDefaultAge
@@ -232,17 +280,6 @@ public class SecurityBusinessImpl implements SecurityBusiness {
         baseRequest.setInfo(userLoginPermissionQuery);
         return securityInvoker.setPermission(baseRequest);
     }
-
-    /**
-     * 登出
-     * @param request
-     * @param response
-     */
-    @Override
-    public void logout(HttpServletRequest request, HttpServletResponse response) {
-
-    }
-
     /**
      * 校验登录参数
      * @param request

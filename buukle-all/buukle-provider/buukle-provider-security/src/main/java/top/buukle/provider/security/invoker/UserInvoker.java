@@ -348,4 +348,11 @@ public class UserInvoker {
         RedisString.delete(UserInfoCacheConstants.MODULE_BUTTON_LIST_KEY_PREFIX + moduleId);
     }
 
+    /**
+     * 登出
+     * @param cookieValue
+     */
+    public static void logout(String cookieValue) {
+        RedisString.delete(cookieValue);
+    }
 }

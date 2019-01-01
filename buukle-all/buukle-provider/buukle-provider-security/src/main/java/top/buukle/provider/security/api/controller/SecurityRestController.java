@@ -49,6 +49,16 @@ public class SecurityRestController {
     public BaseResponse doLogin(@RequestBody BaseRequest baseRequest) throws Exception {
         return securityApiBusiness.doLogin(baseRequest);
     }
+    /**
+     * 登出接口
+     * @param baseRequest
+     * @return
+     * @throws Exception
+     */
+    @PostMapping(value = "/logout")
+    public BaseResponse logout(@RequestBody BaseRequest baseRequest) throws Exception {
+        return securityApiBusiness.logout(baseRequest);
+    }
 
     /**
      * 认证接口
@@ -118,5 +128,15 @@ public class SecurityRestController {
     @PostMapping(value = "/getUserSubordinate")
     List<String> getUserSubordinate(@RequestBody BaseRequest baseRequest){
         return securityApiBusiness.getUserSubordinate(baseRequest);
+    }
+
+    /**
+     * 获取文章作者信息
+     * @param baseRequest
+     * @return
+     */
+    @PostMapping(value = "/getArticleAuthor")
+    User getArticleAuthor(@RequestBody BaseRequest baseRequest){
+        return securityApiBusiness.getArticleAuthor(baseRequest);
     }
 }

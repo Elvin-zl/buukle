@@ -81,7 +81,7 @@ public class ${table.entityName}ServiceImpl implements ${table.entityName}Servic
     */
     @Override
     public BaseResponse delete${table.entityName}(${table.entityName}Query query, HttpServletRequest request) {
-        if(${table.entityNameFirstLowerCase}Mapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(query,StatusConstants.STATUS_DELETED_CONCELABLE,request)) != 1){
+        if(${table.entityNameFirstLowerCase}Mapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(query,StatusConstants.STATUS_DELETED_CONCEALABLE,request)) != 1){
             throw new BaseException(BaseResponseCode.STATUS_UPDATE_FAIL);
         }
         return new BaseResponse.Builder().buildSuccess();

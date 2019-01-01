@@ -11,6 +11,8 @@ import top.buukle.plugin.security.entity.User;
 import top.buukle.plugin.security.plugins.SecurityInterceptor;
 import top.buukle.plugin.security.vo.response.ModuleNavigationVo;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
@@ -27,6 +29,16 @@ public interface SecurityInvoker{
      */
     @PostMapping(value = SecurityInterceptor.API_URI_PREFIX + "/doLogin")
     BaseResponse doLogin(BaseRequest request);
+
+
+    /**
+     * 登出
+     * @param request
+     * @return
+     */
+    @PostMapping(value = SecurityInterceptor.API_URI_PREFIX + "/logout")
+    BaseResponse logout(BaseRequest request);
+
 
     /**
      * 认证
@@ -91,4 +103,13 @@ public interface SecurityInvoker{
     @InvokerLoggingAnnotation(InvokerLoggingAnnotation.PRINT_FALSE)
     @PostMapping(value = SecurityInterceptor.API_URI_PREFIX + "/getUserSubordinate")
     List<String> getUserSubordinate(BaseRequest baseRequest);
+
+    /**
+     * 获取作者信息
+     * @param baseRequest
+     * @return
+     */
+    @InvokerLoggingAnnotation(InvokerLoggingAnnotation.PRINT_FALSE)
+    @PostMapping(value = SecurityInterceptor.API_URI_PREFIX + "/getArticleAuthor")
+    User getArticleAuthor(BaseRequest baseRequest);
 }

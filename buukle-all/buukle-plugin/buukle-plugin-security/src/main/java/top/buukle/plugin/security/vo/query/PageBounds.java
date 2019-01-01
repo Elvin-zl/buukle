@@ -10,6 +10,13 @@ public class PageBounds {
     private Integer page;
     private Integer limit;
 
+    public PageBounds(int page, int limit) {
+        this.page = page;
+        this.limit = limit;
+    }
+    public PageBounds() {
+
+    }
     public Integer getPage() {
         return page;
     }

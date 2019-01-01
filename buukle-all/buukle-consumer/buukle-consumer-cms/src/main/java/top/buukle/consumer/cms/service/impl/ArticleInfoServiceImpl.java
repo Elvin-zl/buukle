@@ -11,11 +11,14 @@ import top.buukle.common.util.common.DateUtil;
 import top.buukle.common.util.common.StringUtil;
 import top.buukle.common.vo.response.PageResponse;
 import top.buukle.consumer.cms .constants.StatusConstants;
-import top.buukle.consumer.cms .entity.ArticleInfoExample;
+import top.buukle.consumer.cms.entity.*;
+import top.buukle.consumer.cms.entity.vo.ArticleCatQuery;
 import top.buukle.consumer.cms.entity.vo.ArticleContentQuery;
 import top.buukle.consumer.cms.entity.vo.ArticleDescQuery;
+import top.buukle.consumer.cms.service.ArticleCatService;
 import top.buukle.consumer.cms.service.ArticleContentService;
 import top.buukle.consumer.cms.service.ArticleDescService;
+import top.buukle.consumer.cms.vo.ArticleInformationVo;
 import top.buukle.consumer.cms.vo.ArticlePublishVo;
 import top.buukle.plugin.security.client.SecurityClient;
 import top.buukle.plugin.security.entity.User;
@@ -30,7 +33,6 @@ import java.util.*;
 
 import top.buukle.consumer.cms .service.ArticleInfoService;
 import top.buukle.consumer.cms .dao.ArticleInfoMapper;
-import top.buukle.consumer.cms .entity.ArticleInfo;
 import top.buukle.consumer.cms .entity.vo.ArticleInfoQuery;
 
 import javax.servlet.http.HttpServletRequest;
@@ -50,6 +52,9 @@ public class ArticleInfoServiceImpl implements ArticleInfoService{
 
     @Autowired
     private ArticleContentService articleContentService;
+
+    @Autowired
+    private ArticleCatService articleCatService;
 
     @Autowired
     private SecurityClient securityClient;
@@ -229,6 +234,41 @@ public class ArticleInfoServiceImpl implements ArticleInfoService{
         articleContentQuery.setArticleInfoId(articleInfoQuery.getId());
         articleContentService.saveArticleContent(articleContentQuery,request);
         return new BaseResponse.Builder().buildSuccess();
+    }
+
+    /**
+     * 查看文章详情
+     * @param query
+     * @return
+     */
+    @Override
+    public ArticleInformationVo getArticleAllInformation(ArticleInfoQuery query) {
+
+        // 查询文章主表记录
+        ArticleInfo articleInfo = articleInfoMapper.selectByPrimaryKey(query.getId());
+        if(null == articleInfo){
+            return null;
+        }
+        ArticleInformationVo informationVo = new ArticleInformationVo();
+        informationVo.setArticleInfo(articleInfo);
+
+        // 查询文章摘要记录
+        ArticleDescQuery articleDescQuery = new ArticleDescQuery();
+        articleDescQuery.setArticleInfoId(query.getId());
+        ArticleDesc articleDescDetail = articleDescService.getArticleDescDetail(articleDescQuery);
+        informationVo.setArticleDesc(null == articleDescDetail ? "" : articleDescDetail.getArticleDesc());
+
+        // 查询文章内容记录
+        ArticleContentQuery articleContentQuery = new ArticleContentQuery();
+        articleContentQuery.setArticleInfoId(query.getId());
+        ArticleContent articleContentDetail = articleContentService.getArticleContentDetail(articleContentQuery);
+        informationVo.setArticleContent(null == articleContentDetail? "" : articleContentDetail.getArticleContent());
+
+        // 查询文章分类记录
+        ArticleCatQuery articleCatQuery = new ArticleCatQuery();
+        articleCatQuery.setId(articleInfo.getArticleCatId());
+        informationVo.setArticleCat(articleCatService.getArticleCatDetail(articleCatQuery));
+        return informationVo;
     }
 
     /**

@@ -17,8 +17,13 @@ public abstract class SpringAppInitialUtil implements ApplicationListener<Contex
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         LOGGER.info("top.buukle.common.util.common.ApplicationInitialUtil : 应用启动完毕!");
-        init();
+        try {
+            init();
+        } catch (InterruptedException e) {
+            LOGGER.info("top.buukle.common.util.common.ApplicationInitialUtil : 应用启动任务失败 .. ");
+            e.printStackTrace();
+        }
     }
 
-    protected abstract void init();
+    protected abstract void init() throws InterruptedException;
 }

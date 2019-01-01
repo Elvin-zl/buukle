@@ -1,5 +1,7 @@
 package top.buukle.plugin.security.controller;
 
+import org.springframework.web.bind.annotation.ResponseBody;
+import top.buukle.common.response.BaseResponse;
 import top.buukle.plugin.security.constants.SecurityConstants;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -54,14 +56,13 @@ public class PluginSecurityController {
         return modelAndView;
     }
     /**
-     * 去往登出页面
-     * @param modelAndView
+     * 执行登出
      * @return
      */
     @RequestMapping("${"+ SecurityConstants.LOGOUT_PATH_ENVIRONMENT_KEY+"}")
-    public  ModelAndView logout(ModelAndView modelAndView) {
-        modelAndView.setViewName(SecurityConstants.VIEW_NAME_PARAMETERS.getLogoutViewName());
-        return modelAndView;
+    @ResponseBody
+    public BaseResponse logout() {
+        return new BaseResponse.Builder().buildSuccess();
     }
     /**
      * 去往错误页面

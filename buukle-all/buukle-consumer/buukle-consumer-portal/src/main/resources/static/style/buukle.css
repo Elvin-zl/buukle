@@ -1,0 +1,35 @@
+.buukle-navbar-head{
+    margin-left: 40% !important;
+}
+.buukle-navbar-title{
+    background-color: #e8e8e8bf;
+}
+.jumpto input {
+    height: 31px;
+    width: 50px;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: center;
+    display: inline-block;
+}
+a {
+    cursor:pointer;
+}
+.current-articleCat-txt{
+    margin-left: 10px;
+    margin-bottom: 17px;
+    float: left;
+    color: #9e4b18c9;
+}
+.order-active{
+    background-color : #80909c9e;
+}
+.main-nav-active{
+    background-color : #8e8e8e42;
+}
+.article-nav-li-active{
+    background-color : #cfcfd075;
+}
+.praise-active-i{
+    color: #15c71c;
+}

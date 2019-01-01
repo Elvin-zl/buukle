@@ -94,6 +94,13 @@ public class ArticleContentServiceImpl implements ArticleContentService{
     */
     @Override
     public ArticleContent getArticleContentDetail(ArticleContentQuery query) {
+        if(query.getId() == null && query.getArticleInfoId() != null){
+            ArticleContentExample articleContentExample = new ArticleContentExample();
+            ArticleContentExample.Criteria criteria = articleContentExample.createCriteria();
+            criteria.andArticleInfoIdEqualTo(query.getArticleInfoId());
+            List<ArticleContent> articleContents = articleContentMapper.selectByExampleWithBLOBs(articleContentExample);
+            return CollectionUtils.isEmpty(articleContents) ? null : articleContents.get(0);
+        }
         return articleContentMapper.selectByPrimaryKey(query.getId());
     }
 

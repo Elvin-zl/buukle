@@ -7,7 +7,6 @@ import top.buukle.plugin.security.entity.ButtonType;
 import top.buukle.plugin.security.entity.User;
 import top.buukle.plugin.security.vo.response.ModuleNavigationVo;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -59,4 +58,18 @@ public interface SecurityApiBusiness {
      * @return
      */
     List<String> getUserSubordinate(BaseRequest baseRequest);
+
+    /**
+     * 登出
+     * @param baseRequest
+     * @return
+     */
+    BaseResponse logout(BaseRequest baseRequest);
+
+    /**
+     * 查询作者信息
+     * @param baseRequest
+     * @return
+     */
+    User getArticleAuthor(BaseRequest baseRequest);
 }
