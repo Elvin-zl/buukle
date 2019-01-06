@@ -2,8 +2,8 @@ package top.buukle.consumer.cms .service;
 
 import top.buukle.common.response.BaseResponse;
 import top.buukle.common.vo.response.PageResponse;
-import top.buukle.plugin.security.vo.query.PageBounds;
-import top.buukle.plugin.security.vo.response.FuzzySearchListVo;
+import top.buukle.common.vo.page.PageBounds;
+import top.buukle.common.vo.fuuzy.FuzzySearchListVo;
 import java.util.List;
 import top.buukle.consumer.cms .entity.UserImage;
 import top.buukle.consumer.cms .entity.vo.UserImageQuery;

@@ -1,4 +1,4 @@
-package top.buukle.plugin.security.vo.response;
+package top.buukle.common.vo.fuuzy;
 
 /**
  * @Author elvin

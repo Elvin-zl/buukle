@@ -8,9 +8,10 @@
 package top.buukle.provider.security.service;
 
 import top.buukle.common.response.BaseResponse;
+import top.buukle.common.vo.fuuzy.FuzzySearchListVo;
 import top.buukle.plugin.security.entity.Module;
 import top.buukle.plugin.security.vo.query.ModuleQuery;
-import top.buukle.plugin.security.vo.query.PageBounds;
+import top.buukle.common.vo.page.PageBounds;
 import top.buukle.plugin.security.vo.response.*;
 import top.buukle.plugin.security.vo.response.ModuleNavigationVo;
 import top.buukle.common.vo.response.PageResponse;

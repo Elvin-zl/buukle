@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import top.buukle.common.response.BaseResponse;
 import top.buukle.consumer.cms.vo.ArticleInformationVo;
 import top.buukle.consumer.cms.vo.ArticlePublishVo;
-import top.buukle.plugin.security.vo.query.PageBounds;
+import top.buukle.common.vo.page.PageBounds;
 import top.buukle.common.vo.response.PageResponse;
 
 import top.buukle.consumer.cms .service.ArticleInfoService;
 import top.buukle.consumer.cms .entity.ArticleInfo;
 import top.buukle.consumer.cms .entity.vo.ArticleInfoQuery;
-import top.buukle.plugin.security.vo.response.FuzzySearchListVo;
+import top.buukle.common.vo.fuuzy.FuzzySearchListVo;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;

@@ -75,7 +75,7 @@ public class CookieUtil{
     public static void addLocalCookieWithAWeekTime(String token,HttpServletResponse response,String domainHostAndPort){
         LOGGER.info("调用 CookieUtil addLocalCookieWithAWeekTime  接口，请求参数 domainHostAndPort： {}",domainHostAndPort);
         Cookie cookie = new Cookie(SecurityConstants.COOKIE_LOGIN_KEY,token);
-        cookie.setMaxAge(NumberUtil.LONG_ONE_WEEK_SECOND);
+        cookie.setMaxAge(NumberUtil.INTEGER_ONE_WEEK_SECOND);
         LOGGER.info("domian 值 ： domain{} " ,domainHostAndPort);
         cookie.setDomain(domainHostAndPort);
         cookie.setPath("/");

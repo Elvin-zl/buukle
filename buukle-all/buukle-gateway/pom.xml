@@ -15,15 +15,6 @@
     </properties>
     <artifactId>buukle-gateway</artifactId>
     <dependencies>
-        <!--__________________________________________ dataSource _____________________________________________________-->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-        </dependency>
         <!--_____________________________________________ gateway _____________________________________________________-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -33,6 +24,42 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
+        <!--__________________________________________ dataSource _____________________________________________________-->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+        </dependency>
+        <!--分页插件-->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>
+        <!--__________________________________________ utils __________________________________________________________-->
+        <dependency>
+            <groupId>top.buukle</groupId>
+            <artifactId>buukle-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--__________________________________________ buukle-security ________________________________________________-->
+        <dependency>
+            <groupId>top.buukle</groupId>
+            <artifactId>buukle-plugin-security</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <!--______________________________________________ test _______________________________________________________-->
         <dependency>

@@ -14,7 +14,7 @@ function loadUserInfo() {
         success : function(data){
             if(data.userId == "-1"){
                 $('#offlineInfo').html('注册/登录');
-                $('#register').attr('href','register.html');
+                $('#register').attr('href','/register.html');
                 $('#online').hide();
                 $('#offline').show();
                 // 清空用户隐藏信息

@@ -3,32 +3,24 @@ package top.buukle.consumer.portal .service.impl;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 import top.buukle.common.constants.BaseResponseCode;
 import top.buukle.common.exception.BaseException;
 import top.buukle.common.response.BaseResponse;
 import top.buukle.common.util.common.DateUtil;
-import top.buukle.common.util.common.JsonUtil;
 import top.buukle.common.util.common.NumberUtil;
 import top.buukle.common.util.common.StringUtil;
 import top.buukle.common.util.logger.BaseLogger;
 import top.buukle.common.vo.response.PageResponse;
-import top.buukle.consumer.portal.constants.ArticleInfoConstants;
-import top.buukle.consumer.portal.constants.AsyncTaskConstants;
 import top.buukle.consumer.portal .constants.StatusConstants;
 import top.buukle.consumer.portal.entity.ArticleInfo;
-import top.buukle.consumer.portal.entity.AsyncTask;
 import top.buukle.consumer.portal .entity.UserArticlePraiseRelationExample;
 import top.buukle.consumer.portal.entity.vo.ArticleInfoQuery;
 import top.buukle.consumer.portal.invoker.RedisInvoker;
 import top.buukle.consumer.portal.service.ArticleInfoService;
-import top.buukle.consumer.portal.util.ThreadPool.FixedTaskPoolWorker;
-import top.buukle.consumer.portal.util.redis.distributeLock.DistributeCallable;
-import top.buukle.consumer.portal.util.redis.distributeLock.DistributeLock;
 import top.buukle.plugin.security.client.SecurityClient;
 import top.buukle.plugin.security.entity.User;
-import top.buukle.plugin.security.vo.query.PageBounds;
-import top.buukle.plugin.security.vo.response.FuzzySearchListVo;
+import top.buukle.common.vo.page.PageBounds;
+import top.buukle.common.vo.fuuzy.FuzzySearchListVo;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import java.util.ArrayList;
@@ -137,7 +129,8 @@ public class UserArticlePraiseRelationServiceImpl implements UserArticlePraiseRe
      */
     @Override
     public BaseResponse doSwitchPraise(UserArticlePraiseRelationQuery query, HttpServletRequest request) {
-        RedisInvoker.saveUserOperation(query);
+        // TODO 优化成异步消息处理
+        this.updateArticlePraise(query,request);
         return new BaseResponse.Builder().buildSuccess();
     }
 

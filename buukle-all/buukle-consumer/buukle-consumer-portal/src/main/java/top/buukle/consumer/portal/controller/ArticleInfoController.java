@@ -13,8 +13,8 @@ import top.buukle.consumer.portal.entity.vo.ArticleInfoQuery;
 import top.buukle.consumer.portal.service.ArticleInfoService;
 import top.buukle.consumer.portal.vo.ArticleInformationVo;
 import top.buukle.consumer.portal.vo.ArticlePublishVo;
-import top.buukle.plugin.security.vo.query.PageBounds;
-import top.buukle.plugin.security.vo.response.FuzzySearchListVo;
+import top.buukle.common.vo.page.PageBounds;
+import top.buukle.common.vo.fuuzy.FuzzySearchListVo;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Base64;

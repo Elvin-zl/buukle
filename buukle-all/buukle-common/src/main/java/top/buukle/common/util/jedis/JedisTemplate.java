@@ -7,7 +7,7 @@ package top.buukle.common.util.jedis;
  */
 public class JedisTemplate<T> {
 
-    public  T excecute(JedisCallable jedisCallable) {
+    public  T execute(JedisCallable jedisCallable) {
         return (T) jedisCallable.call();
     }
 }

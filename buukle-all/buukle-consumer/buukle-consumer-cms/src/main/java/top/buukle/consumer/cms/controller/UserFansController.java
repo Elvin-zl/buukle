@@ -5,13 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import top.buukle.common.response.BaseResponse;
-import top.buukle.plugin.security.vo.query.PageBounds;
+import top.buukle.common.vo.page.PageBounds;
 import top.buukle.common.vo.response.PageResponse;
 
 import top.buukle.consumer.cms .service.UserFansService;
 import top.buukle.consumer.cms .entity.UserFans;
 import top.buukle.consumer.cms .entity.vo.UserFansQuery;
-import top.buukle.plugin.security.vo.response.FuzzySearchListVo;
+import top.buukle.common.vo.fuuzy.FuzzySearchListVo;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;

@@ -11,8 +11,8 @@ import top.buukle.common.response.BaseResponse;
 import top.buukle.plugin.security.entity.Button;
 import top.buukle.plugin.security.entity.ButtonType;
 import top.buukle.plugin.security.vo.query.ButtonQuery;
-import top.buukle.plugin.security.vo.query.PageBounds;
-import top.buukle.plugin.security.vo.response.FuzzySearchListVo;
+import top.buukle.common.vo.page.PageBounds;
+import top.buukle.common.vo.fuuzy.FuzzySearchListVo;
 import top.buukle.common.vo.response.PageResponse;
 
 import javax.servlet.http.HttpServletRequest;

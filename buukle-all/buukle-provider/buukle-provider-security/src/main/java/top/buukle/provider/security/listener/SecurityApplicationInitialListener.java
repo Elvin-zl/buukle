@@ -2,7 +2,7 @@ package top.buukle.provider.security.listener;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import top.buukle.common.util.common.SpringAppInitialUtil;
+import top.buukle.common.util.common.SpringAppInitialListener;
 import top.buukle.common.util.logger.BaseLogger;
 import top.buukle.provider.security.service.UserService;
 
@@ -12,9 +12,9 @@ import top.buukle.provider.security.service.UserService;
  * @Description :
  */
 @Component
-public class ApplicationInitialListener extends SpringAppInitialUtil{
+public class SecurityApplicationInitialListener extends SpringAppInitialListener {
 
-    final static private BaseLogger LOGGER = BaseLogger.getLogger(ApplicationInitialListener.class);
+    final static private BaseLogger LOGGER = BaseLogger.getLogger(SecurityApplicationInitialListener.class);
     @Autowired
     private UserService userService;
     /**

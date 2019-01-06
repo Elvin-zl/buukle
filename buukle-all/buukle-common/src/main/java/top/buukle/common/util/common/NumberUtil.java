@@ -38,13 +38,15 @@ public class NumberUtil extends NumberUtils {
     /** 1000*/
     public static final Integer INTEGER_THOUSAND = 1000;
     /** 1分钟秒数*/
-    public static final Integer LONG_ONE_MINUTES_SECOND = 60;
+    public static final Long LONG_ONE_MINUTES_SECOND = 60l;
     /** 5分钟秒数*/
-    public static final Integer LONG_FIVE_MINUTES_SECOND = 300;
+    public static final Long LONG_FIVE_MINUTES_SECOND = 300l;
     /** 一天秒数*/
-    public static final Integer LONG_ONE_DAY_SECOND = 86400;
+    public static final Long LONG_ONE_DAY_SECOND = 86400l;
     /** 一周秒数*/
-    public static final Integer LONG_ONE_WEEK_SECOND = 604800;
+    public static final Long LONG_ONE_WEEK_SECOND = 604800l;
+    /** 一周秒数*/
+    public static final Integer INTEGER_ONE_WEEK_SECOND = 604800;
 
     public static final Long LONG_THREE = 3l;
 }

@@ -30,9 +30,9 @@ import top.buukle.provider.security.service.RoleService;
 import top.buukle.provider.security.dao.RoleMapper;
 import top.buukle.plugin.security.entity.Role;
 import top.buukle.provider.security.service.UserService;
-import top.buukle.plugin.security.vo.query.PageBounds;
+import top.buukle.common.vo.page.PageBounds;
 import top.buukle.plugin.security.vo.query.RoleQuery;
-import top.buukle.plugin.security.vo.response.FuzzySearchListVo;
+import top.buukle.common.vo.fuuzy.FuzzySearchListVo;
 import top.buukle.common.vo.response.PageResponse;
 import top.buukle.plugin.security.vo.response.RoleModuleListVo;
 

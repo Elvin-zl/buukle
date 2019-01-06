@@ -21,6 +21,7 @@ import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import redis.clients.jedis.JedisPool;
@@ -177,4 +178,13 @@ public class RedisConfigure extends CachingConfigurerSupport {
             return jedisPoolTemp;
         }
     }
+
+    /**
+     * 注册redisTemplate 作为消息队列的发布者
+     */
+    @Bean
+    public StringRedisTemplate getRedisTemplate(RedisConnectionFactory redisConnectionFactory) {
+        return new StringRedisTemplate(redisConnectionFactory);
+    }
+
 }

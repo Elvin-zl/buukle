@@ -1,5 +1,3 @@
-package com.spawpaw.mybatis.generator.gui;
-
 import com.spawpaw.mybatis.generator.gui.controller.BaseController;
 import com.spawpaw.mybatis.generator.gui.util.Constants;
 

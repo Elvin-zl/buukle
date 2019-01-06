@@ -63,4 +63,5 @@ public interface ArticleInfoMapper {
     /**
      */
     int updateByPrimaryKey(ArticleInfo record);
+
 }

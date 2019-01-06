@@ -4,6 +4,8 @@ server:
 
 ## spring
 spring:
+  profiles:
+    include: prod-security
   ## 应用
   application:
     name: buukle-gateway
@@ -32,6 +34,19 @@ spring:
           uri: lb://BUUKLE-SECURITY
           predicates:
             - Host=security.buukle.top
+  #redis
+  redis:
+    database: 5
+    host: 47.95.13.7
+    port: 4376
+    password: zxcvbnmKO),.
+    jedis:
+      pool:
+        max-active: 100
+        max-idle: 100
+        max-wait: -1
+        min-idle: 10
+    timeout: 3000
 ## 注册中心
 eureka:
   instance:
@@ -40,7 +55,10 @@ eureka:
   client:
     serviceUrl:
        defaultZone: http://${eureka.instance.hostname}:${eureka.instance.serverport}/eureka/
-
+##mybatis
+mybatis:
+  mapper-locations: classpath*:/config/mapper/*.xml
+  type-aliases-package: top.buukle.gateway.entity
 ## 日志
 logging:
   config: classpath:config/spring/springBoot-logbak.xml

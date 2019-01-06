@@ -64,4 +64,6 @@ public interface ArticleInfoMapper {
     /**
      */
     int updateByPrimaryKey(ArticleInfo record);
+
+    List<ArticleInfo> selectByPageForCache(@Param("startIndex") int startIndex,@Param("endIndex") int endIndex);
 }

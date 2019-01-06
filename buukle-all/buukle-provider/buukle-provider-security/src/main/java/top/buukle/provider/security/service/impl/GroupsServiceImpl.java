@@ -26,8 +26,8 @@ import top.buukle.provider.security.service.GroupsService;
 import top.buukle.provider.security.dao.GroupsMapper;
 import top.buukle.plugin.security.entity.Groups;
 import top.buukle.plugin.security.vo.query.GroupsQuery;
-import top.buukle.plugin.security.vo.query.PageBounds;
-import top.buukle.plugin.security.vo.response.FuzzySearchListVo;
+import top.buukle.common.vo.page.PageBounds;
+import top.buukle.common.vo.fuuzy.FuzzySearchListVo;
 import top.buukle.common.vo.response.PageResponse;
 
 import javax.annotation.Resource;

@@ -5,8 +5,8 @@ import top.buukle.common.vo.response.PageResponse;
 import top.buukle.consumer.portal.entity.ArticleCat;
 import top.buukle.consumer.portal.entity.vo.ArticleCatQuery;
 import top.buukle.consumer.portal.vo.ArticleCatTreeNodeVo;
-import top.buukle.plugin.security.vo.query.PageBounds;
-import top.buukle.plugin.security.vo.response.FuzzySearchListVo;
+import top.buukle.common.vo.page.PageBounds;
+import top.buukle.common.vo.fuuzy.FuzzySearchListVo;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;

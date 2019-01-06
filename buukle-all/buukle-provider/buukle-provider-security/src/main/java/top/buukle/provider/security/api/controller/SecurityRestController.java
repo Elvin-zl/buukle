@@ -3,7 +3,9 @@ package top.buukle.provider.security.api.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import top.buukle.common.request.BaseRequest;
+import top.buukle.common.request.out.OutRequest;
 import top.buukle.common.response.BaseResponse;
+import top.buukle.common.vo.response.PageResponse;
 import top.buukle.plugin.security.entity.Button;
 import top.buukle.plugin.security.entity.ButtonType;
 import top.buukle.plugin.security.plugins.SecurityInterceptor;
@@ -28,6 +30,28 @@ public class SecurityRestController {
     private SecurityApiBusiness securityApiBusiness;
     @Autowired
     private UserService userService;
+
+    /**
+     * 添加黑名单
+     * @param outRequest
+     * @return
+     * @throws Exception
+     */
+    @PostMapping(value = "/addIpBlackList")
+    public BaseResponse addIpBlackList(@RequestBody OutRequest outRequest) throws Exception {
+        return securityApiBusiness.addIpBlackList(outRequest);
+    }
+    /**
+     * 查询黑名单
+     * @param outRequest
+     * @return
+     * @throws Exception
+     */
+    @PostMapping(value = "/getIpBlackList")
+    public PageResponse getIpBlackList(@RequestBody OutRequest outRequest) throws Exception {
+        return securityApiBusiness.getIpBlackList(outRequest);
+    }
+
 
     /**
      * 测试 getUserById

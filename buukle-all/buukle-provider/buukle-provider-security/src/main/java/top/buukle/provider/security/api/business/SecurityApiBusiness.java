@@ -1,7 +1,9 @@
 package top.buukle.provider.security.api.business;
 
 import top.buukle.common.request.BaseRequest;
+import top.buukle.common.request.out.OutRequest;
 import top.buukle.common.response.BaseResponse;
+import top.buukle.common.vo.response.PageResponse;
 import top.buukle.plugin.security.entity.Button;
 import top.buukle.plugin.security.entity.ButtonType;
 import top.buukle.plugin.security.entity.User;
@@ -72,4 +74,18 @@ public interface SecurityApiBusiness {
      * @return
      */
     User getArticleAuthor(BaseRequest baseRequest);
+
+    /**
+     * 添加黑名单
+     * @param baseRequest
+     * @return
+     */
+    BaseResponse addIpBlackList(OutRequest baseRequest);
+
+    /**
+     * 查询黑名单
+     * @param baseRequest
+     * @return
+     */
+    PageResponse getIpBlackList(OutRequest baseRequest);
 }

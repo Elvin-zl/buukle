@@ -2,11 +2,14 @@ package top.buukle.consumer.portal.listener;
 
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
-import top.buukle.common.util.common.SpringAppInitialUtil;
+import top.buukle.common.util.common.SpringAppInitialListener;
 import top.buukle.common.util.common.SpringContextUtil;
 import top.buukle.common.util.common.StringUtil;
+import top.buukle.common.util.jedis.RedisZSet;
 import top.buukle.common.util.logger.BaseLogger;
 import top.buukle.consumer.portal.constants.AsyncTaskConstants;
+import top.buukle.consumer.portal.constants.CacheConstants;
+import top.buukle.consumer.portal.service.ArticleInfoService;
 import top.buukle.consumer.portal.util.ThreadPool.FixedTaskPoolHandler;
 import top.buukle.consumer.portal.util.ThreadPool.FixedTaskPoolWorker;
 
@@ -16,10 +19,10 @@ import java.util.concurrent.TimeUnit;
 /**
  * @Author elvin
  * @Date Created by elvin on 2019/1/1.
- * @Description :
+ * @Description : PortalAppInitialListener application启动监听器
  */
 @Component
-public class PortalAppInitialListener extends SpringAppInitialUtil {
+public class PortalAppInitialListener extends SpringAppInitialListener {
 
     private static final BaseLogger LOGGER = BaseLogger.getLogger(PortalAppInitialListener.class);
 
@@ -28,15 +31,15 @@ public class PortalAppInitialListener extends SpringAppInitialUtil {
     @Override
     protected void init() throws InterruptedException {
         // Worker 检查任务收集器
-        this.checkWorker();
+        this.checkTaskWorker();
         // Handler 检查任务处理器
-        this.checkHandler();
+        this.checkTaskHandler();
     }
 
     /**
      * 检查任务处理器
      */
-    private void checkHandler() {
+    private void checkTaskHandler() {
         String online = environment.getProperty("task.online");
         if(Integer.parseInt(online) == 1){
             LOGGER.info("开始执行handle轮询任务!" );
@@ -48,7 +51,7 @@ public class PortalAppInitialListener extends SpringAppInitialUtil {
      * 检查任务收集器
      * @throws InterruptedException
      */
-    private void checkWorker() throws InterruptedException {
+    private void checkTaskWorker() throws InterruptedException {
         String online = environment.getProperty("task.online");
         String delaySize =  StringUtil.isEmpty(environment.getProperty("task.delaySize")) ? AsyncTaskConstants.DEFAULT_DELAY_SIZE+"" : environment.getProperty("task.delaySize");
         String delayTime =  StringUtil.isEmpty(environment.getProperty("task.delayTime")) ? AsyncTaskConstants.DEFAULT_DELAY_TIME+"" : environment.getProperty("task.delayTime");

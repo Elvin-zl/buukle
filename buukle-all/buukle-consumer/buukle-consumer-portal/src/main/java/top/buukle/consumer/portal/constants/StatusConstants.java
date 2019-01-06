@@ -15,24 +15,24 @@ public class StatusConstants {
     /** 通用状态 : 禁用*/
     public static final Integer STATUS_CLOSE = 0;
 
-    /** 文章状态 : 用户假删除*/
+    /** 通用状态 : 用户假删除*/
     public static final Integer STATUS_DELETED_CONCEALABLE = -2;
-    /** 文章状态 : 封禁*/
+    /** 通用状态 : 封禁*/
     public static final Integer STATUS_BANED = 0;
-    /** 文章状态 : 发布成功*/
+    /** 通用状态 : 发布成功*/
     public static final Integer STATUS_PUBLISHED = 1;
-    /** 文章状态 : 真删除*/
+    /** 通用状态 : 真删除*/
     public static final Integer STATUS_DELETED_CANNOT_CONCEL = 2;
-    /** 文章状态 : 发布待审核*/
+    /** 通用状态 : 发布待审核*/
     public static final Integer STATUS_WAITING_FOR_AUDIT_PUBLISH = 3;
-    /** 文章状态 : 解禁待审核*/
+    /** 通用状态 : 解禁待审核*/
     public static final Integer STATUS_WAITING_FOR_AUDIT_RELEASE = 4;
-    /** 文章状态 : 解禁审核不通过*/
+    /** 通用状态 : 解禁审核不通过*/
     public static final Integer STATUS_NOT_RELEASED = 5;
-    /** 文章状态 : 草稿*/
+    /** 通用状态 : 草稿*/
     public static final Integer STATUS_DRAFT = 6;
 
-    /** 可见文章状态值列表*/
+    /** 可见通用状态值列表*/
     public static final List<Integer> ARTICLE_VERSION_STATUS_LIST_CMS = new ArrayList();
     public static final List<Integer> ARTICLE_VERSION_STATUS_LIST_PORTAL =  new ArrayList();
 

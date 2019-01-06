@@ -9,7 +9,9 @@ import top.buukle.common.exception.BaseException;
 import top.buukle.common.response.BaseResponse;
 import top.buukle.common.util.common.DateUtil;
 import top.buukle.common.util.common.StringUtil;
+import top.buukle.common.util.jedis.RedisZSet;
 import top.buukle.common.vo.response.PageResponse;
+import top.buukle.consumer.cms.constants.CacheConstants;
 import top.buukle.consumer.cms .constants.StatusConstants;
 import top.buukle.consumer.cms.entity.*;
 import top.buukle.consumer.cms.entity.vo.ArticleCatQuery;
@@ -22,8 +24,8 @@ import top.buukle.consumer.cms.vo.ArticleInformationVo;
 import top.buukle.consumer.cms.vo.ArticlePublishVo;
 import top.buukle.plugin.security.client.SecurityClient;
 import top.buukle.plugin.security.entity.User;
-import top.buukle.plugin.security.vo.query.PageBounds;
-import top.buukle.plugin.security.vo.response.FuzzySearchListVo;
+import top.buukle.common.vo.page.PageBounds;
+import top.buukle.common.vo.fuuzy.FuzzySearchListVo;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
@@ -235,6 +237,7 @@ public class ArticleInfoServiceImpl implements ArticleInfoService{
         articleContentService.saveArticleContent(articleContentQuery,request);
         return new BaseResponse.Builder().buildSuccess();
     }
+
 
     /**
      * 查看文章详情

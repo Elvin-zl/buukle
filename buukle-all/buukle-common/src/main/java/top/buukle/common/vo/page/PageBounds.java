@@ -1,4 +1,4 @@
-package top.buukle.plugin.security.vo.query;
+package top.buukle.common.vo.page;
 
 /**
  * @Author elvin

@@ -11,7 +11,7 @@ import top.buukle.consumer.portal.constants.AsyncTaskConstants;
 import top.buukle.consumer.portal.entity.AsyncTask;
 import top.buukle.consumer.portal.entity.vo.AsyncTaskQuery;
 import top.buukle.consumer.portal.service.AsyncTaskService;
-import top.buukle.plugin.security.vo.query.PageBounds;
+import top.buukle.common.vo.page.PageBounds;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;

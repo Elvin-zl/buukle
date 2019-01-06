@@ -5,15 +5,19 @@ import com.github.pagehelper.PageInfo;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.stereotype.Service;
 import top.buukle.common.constants.BaseResponseCode;
 import top.buukle.common.exception.BaseException;
 import top.buukle.common.response.BaseResponse;
 import top.buukle.common.util.common.DateUtil;
+import top.buukle.common.util.common.NumberUtil;
 import top.buukle.common.util.common.StringUtil;
+import top.buukle.common.util.jedis.RedisZSet;
 import top.buukle.common.util.logger.BaseLogger;
 import top.buukle.common.vo.response.PageResponse;
 import top.buukle.consumer.portal.constants.ArticleInfoConstants;
+import top.buukle.consumer.portal.constants.CacheConstants;
 import top.buukle.consumer.portal.constants.StatusConstants;
 import top.buukle.consumer.portal.dao.ArticleInfoMapper;
 import top.buukle.consumer.portal.entity.*;
@@ -22,17 +26,15 @@ import top.buukle.consumer.portal.invoker.RedisInvoker;
 import top.buukle.consumer.portal.service.*;
 import top.buukle.consumer.portal.vo.ArticleInformationVo;
 import top.buukle.consumer.portal.vo.ArticlePublishVo;
+import top.buukle.consumer.portal.vo.MapKeyComparator;
 import top.buukle.plugin.security.client.SecurityClient;
 import top.buukle.plugin.security.entity.User;
-import top.buukle.plugin.security.util.CookieUtil;
-import top.buukle.plugin.security.vo.query.PageBounds;
-import top.buukle.plugin.security.vo.response.FuzzySearchListVo;
+import top.buukle.common.vo.page.PageBounds;
+import top.buukle.common.vo.fuuzy.FuzzySearchListVo;
 
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
 * @author elvin
@@ -94,6 +96,15 @@ public class ArticleInfoServiceImpl implements ArticleInfoService {
         BeanUtils.copyProperties(voPageResponse,infoPageResponse);
         voPageResponse.setData(voList);
         return voPageResponse;
+    }
+
+    /**
+     * 查询文章点赞数目
+     * @param id
+     * @return
+     */
+    private Long getArticleLikeNumber(Integer id) {
+        return null;
     }
 
     /**
@@ -266,8 +277,8 @@ public class ArticleInfoServiceImpl implements ArticleInfoService {
             return null;
         }
         ArticleInformationVo informationVo = new ArticleInformationVo();
-        articleInfo.setLikeNumber(RedisInvoker.getUserArticlePraiseCount(articleInfo.getId()));
         informationVo.setArticleInfo(articleInfo);
+        // 发送消息,用于异步统计访问量
         // 查询前台相关记录
         if(isPortal){
             // 查询文章作者记录
@@ -282,7 +293,6 @@ public class ArticleInfoServiceImpl implements ArticleInfoService {
                 LOGGER.info("查询用户信息失败!不能正确显示用户登录信息,原因 : {}",e.getMessage());
             }
             if(null != userInfo){
-                informationVo.setPraiseRelation(RedisInvoker.getUserArticlePraiseRelation(articleInfo.getId()));
             }
 
         }
@@ -316,7 +326,6 @@ public class ArticleInfoServiceImpl implements ArticleInfoService {
             throw new BaseException(BaseResponseCode.STATUS_UPDATE_FAIL);
         }
     }
-
 
     /**
      * 组装提赞参数

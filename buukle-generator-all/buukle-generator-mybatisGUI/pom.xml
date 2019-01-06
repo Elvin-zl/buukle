@@ -13,7 +13,7 @@
     <packaging>jar</packaging>
     <url>http://maven.apache.org</url>
     <properties>
-        <exec.mainClass>com.spawpaw.mybatis.generator.gui.GeneratorGuiRunner</exec.mainClass>
+        <exec.mainClass>GeneratorGuiRunner</exec.mainClass>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!--java version,8 or 9 (you must install jdk 1.8u60+)-->

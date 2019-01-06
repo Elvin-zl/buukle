@@ -10,8 +10,8 @@ package top.buukle.provider.security.service;
 import top.buukle.common.response.BaseResponse;
 import top.buukle.plugin.security.entity.Groups;
 import top.buukle.plugin.security.vo.query.GroupsQuery;
-import top.buukle.plugin.security.vo.query.PageBounds;
-import top.buukle.plugin.security.vo.response.FuzzySearchListVo;
+import top.buukle.common.vo.page.PageBounds;
+import top.buukle.common.vo.fuuzy.FuzzySearchListVo;
 import top.buukle.common.vo.response.PageResponse;
 
 import javax.servlet.http.HttpServletRequest;

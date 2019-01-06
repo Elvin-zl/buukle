@@ -6,9 +6,12 @@ import top.buukle.common.constants.BaseResponseCode;
 import top.buukle.common.dataIsolation.IsolationConstants;
 import top.buukle.common.exception.BaseException;
 import top.buukle.common.request.BaseRequest;
+import top.buukle.common.request.out.OutRequest;
 import top.buukle.common.response.BaseResponse;
 import top.buukle.common.util.common.StringUtil;
 import top.buukle.common.util.logger.BaseLogger;
+import top.buukle.common.vo.page.PageBounds;
+import top.buukle.common.vo.response.PageResponse;
 import top.buukle.plugin.security.entity.*;
 import top.buukle.plugin.security.vo.query.UserQuery;
 import top.buukle.plugin.security.vo.response.ModuleNavigationVo;
@@ -17,8 +20,10 @@ import top.buukle.provider.security.constants.SecurityConstants;
 import top.buukle.provider.security.constants.SecurityStatusConstants;
 import top.buukle.provider.security.dao.UserExpMapper;
 import top.buukle.provider.security.dao.UserMapper;
+import top.buukle.plugin.security.entity.vo.IpBlackListQuery;
 import top.buukle.provider.security.invoker.UserInvoker;
 import top.buukle.provider.security.service.ButtonService;
+import top.buukle.provider.security.service.IpBlackListService;
 import top.buukle.provider.security.service.ModuleService;
 import top.buukle.provider.security.service.UserService;
 
@@ -44,6 +49,8 @@ public class SecurityApiBusinessImpl implements SecurityApiBusiness {
     private ModuleService moduleService;
     @Autowired
     private ButtonService buttonService;
+    @Autowired
+    private IpBlackListService ipBlackListService;
 
     /**
      * 用户登录
@@ -118,6 +125,28 @@ public class SecurityApiBusinessImpl implements SecurityApiBusiness {
             throw new BaseException(BaseResponseCode.USER_GET_ARTICLE_AUTHOR_USER_ID_NULL);
         }
         return userMapper.getUserByUserId(userId);
+    }
+
+    /**
+     * 添加黑名单
+     * @param outRequest
+     * @return
+     */
+    @Override
+    public BaseResponse addIpBlackList(OutRequest outRequest) {
+        return null;
+    }
+
+    /**
+     * 查询黑名单
+     * @param outRequest
+     * @return
+     */
+    @Override
+    public PageResponse getIpBlackList(OutRequest outRequest) {
+        IpBlackListQuery query = (IpBlackListQuery)outRequest.getInfo(IpBlackListQuery.class);
+        PageBounds pageBounds = outRequest.getPageBounds();
+        return ipBlackListService.getIpBlackListList(query, pageBounds);
     }
 
     /**
