@@ -1,7 +1,7 @@
 /*
  * Powered By [rapid-framework]
- * Web Site: http://www.rapid-framework.org.cn
- * Google Code: http://code.google.com/p/rapid-framework/
+ * Web Site: http:// www.rapid-framework.org.cn
+ * Google Code: http:// code.google.com/p/rapid-framework/
  * Since 2008 - 2018
  */
 
@@ -96,7 +96,7 @@ public class ButtonServiceImpl implements ButtonService {
         }
         buttonTypes = buttonTypeMapper.getButtonTypes();
         if(CollectionUtils.isNotEmpty(buttonTypes)){
-            //缓存全局按钮类型列表
+            // 缓存全局按钮类型列表
             buttonBusiness.saveButtonTypes(buttonTypes);
         }
         return buttonTypes;
@@ -148,7 +148,7 @@ public class ButtonServiceImpl implements ButtonService {
             query.setStatus(SecurityStatusConstants.STATUS_OPEN);
         }
         buttonMapper.updateByPrimaryKeySelective(this.assButton(request, query, false));
-        //更新缓存
+        // 更新缓存
         this.refreshButtonCaChe(query.getId());
         return new BaseResponse.Builder().buildSuccess();
     }
@@ -185,9 +185,9 @@ public class ButtonServiceImpl implements ButtonService {
      */
     @Override
     public BaseResponse addButton(HttpServletRequest request, ButtonQuery query) throws InvocationTargetException, IllegalAccessException {
-        //校验参数
+        // 校验参数
         validateAddParam(query);
-        //insert
+        // insert
         buttonMapper.insert(this.assButton(request, query, true));
         // 更新全局按钮缓存
         UserInvoker.clearGlobalCacheInfoByType(Button.class);
@@ -214,11 +214,11 @@ public class ButtonServiceImpl implements ButtonService {
      */
     @Override
     public BaseResponse editButton(HttpServletRequest request, ButtonQuery query, Integer id) throws InvocationTargetException, IllegalAccessException {
-        //检验参数
+        // 检验参数
         this.validateUpdateParam(id,query);
-        //组装并更新
+        // 组装并更新
         if(buttonMapper.updateByPrimaryKeySelective(this.assButton(request,query,false)) > 0){
-            //更新缓存
+            // 更新缓存
             this.refreshButtonCaChe(id);
             return new BaseResponse.Builder().buildSuccess();
         }
@@ -237,7 +237,7 @@ public class ButtonServiceImpl implements ButtonService {
         if(CollectionUtils.isNotEmpty(moduleButtonList)){
             for (ModuleButton moduleButton: moduleButtonList) {
                 UserInvoker.deleteModuleButton(moduleButton.getModuleId());
-                //更新拥有该菜单的用户的按钮缓存 ==>> TODO 此处可优化为异步线程处理
+                // 更新拥有该菜单的用户的按钮缓存 ==>> TODO 此处可优化为异步线程处理
                 List<User> users = userMapper.getUserByModuleId(moduleButton.getModuleId());
                 if(CollectionUtils.isNotEmpty(users)){
                     for (User user : users) {
@@ -299,19 +299,19 @@ public class ButtonServiceImpl implements ButtonService {
     }
 
     private void validateAddParam(ButtonQuery query) {
-        //名称
+        // 名称
         if(StringUtil.isEmpty(query.getButtonName())){
             throw new BaseException(BaseResponseCode.BUTTON_ADD_NAME_NULL);
         }
-        //分布级别
+        // 分布级别
         if(null== query.getLayoutLevel()){
             throw new BaseException(BaseResponseCode.BUTTON_ADD_LAYOUTLEVEL_NULL);
         }
-        //相应类型
+        // 相应类型
         if(null== query.getOperationType()){
             throw new BaseException(BaseResponseCode.BUTTON_ADD_OPERATION_TYPE_NULL);
         }
-        //备注
+        // 备注
         if(null== query.getBak01()){
             throw new BaseException(BaseResponseCode.BUTTON_ADD_REMARK_NULL);
         }

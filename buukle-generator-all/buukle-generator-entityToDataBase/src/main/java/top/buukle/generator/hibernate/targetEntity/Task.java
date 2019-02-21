@@ -1,7 +1,7 @@
 /*
  * Powered By [rapid-framework]
- * Web Site: http://www.rapid-framework.org.cn
- * Google Code: http://code.google.com/p/rapid-framework/
+ * Web Site: http:// www.rapid-framework.org.cn
+ * Google Code: http:// code.google.com/p/rapid-framework/
  * Since 2008 - 2017
  */
 
@@ -12,7 +12,7 @@ package top.buukle.generator.hibernate.targetEntity;
  * @author tengbx
  */
 public class Task implements java.io.Serializable{
-	//columns START
+	// columns START
 	/**
 	 * id
 	 */
@@ -118,7 +118,7 @@ public class Task implements java.io.Serializable{
 	 * 修改时间
 	 */
 	private java.util.Date gmtModified;
-	//columns END
+	// columns END
 
 	public Task() {}
 

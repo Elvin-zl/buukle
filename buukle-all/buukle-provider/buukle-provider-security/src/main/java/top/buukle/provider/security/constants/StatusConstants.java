@@ -34,7 +34,7 @@ public class StatusConstants {
 
     /** 可见通用状态值列表*/
     public static final List<Integer> ARTICLE_VERSION_STATUS_LIST_CMS = new ArrayList();
-    public static final List<Integer> ARTICLE_VERSION_STATUS_LIST_PORTAL =  new ArrayList();
+    public static final List<Integer> ARTICLE_VERSION_STATUS_LIST_WWW =  new ArrayList();
 
     static{
         //初始化cms可见状态列表值
@@ -43,9 +43,9 @@ public class StatusConstants {
         ARTICLE_VERSION_STATUS_LIST_CMS.add(StatusConstants.STATUS_WAITING_FOR_AUDIT_PUBLISH);
         ARTICLE_VERSION_STATUS_LIST_CMS.add(StatusConstants.STATUS_WAITING_FOR_AUDIT_RELEASE);
         ARTICLE_VERSION_STATUS_LIST_CMS.add(StatusConstants.STATUS_NOT_RELEASED);
-        //初始化portal可见状态列表值
-        ARTICLE_VERSION_STATUS_LIST_PORTAL.add(StatusConstants.STATUS_PUBLISHED);
-        ARTICLE_VERSION_STATUS_LIST_PORTAL.add(StatusConstants.STATUS_WAITING_FOR_AUDIT_PUBLISH);
+        //初始化www可见状态列表值
+        ARTICLE_VERSION_STATUS_LIST_WWW.add(StatusConstants.STATUS_PUBLISHED);
+        ARTICLE_VERSION_STATUS_LIST_WWW.add(StatusConstants.STATUS_WAITING_FOR_AUDIT_PUBLISH);
     }
 
 }

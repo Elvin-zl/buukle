@@ -728,7 +728,7 @@
    SELECT DISTINCT
       u.`user_id`
     FROM
-      USER u,
+      user u,
       user_role ur,
       role r,
       role_module rm,
@@ -745,7 +745,7 @@
         SELECT DISTINCT
         u.`user_id`
         FROM
-        USER u,
+        user u,
         user_role ur,
         role r
         WHERE
@@ -757,7 +757,7 @@
         SELECT
         u.*
         FROM
-        USER u
+        user u
         WHERE
         u.`user_id` = #{userId}
     </select>
@@ -765,9 +765,9 @@
         SELECT DISTINCT
         u.`user_id`
         FROM
-        USER u,
+        user u,
         user_group ug,
-        groups g
+        `groups` g
         WHERE
         g.`id` = #{groupsId}
         AND ug.group_id = g.`id`
@@ -800,9 +800,9 @@
     u.modifier, u.modifier_code, u.gmt_modified, u.name_cn, u.full_name_cn, u.name_en, u.full_name_en,
     u.status, u.bak01, u.bak02, u.bak03, u.bak04,u.bak05
         FROM
-        USER u,
+        user u,
         user_group ug,
-        groups g
+        `groups` g
         WHERE
         g.`id` = #{groupsId}
         AND ug.group_id = g.`id`

@@ -19,7 +19,7 @@ import java.util.Properties;
  *
  * @author BenBenShang spawpaw@hotmail.com
  */
-@Ignore//跳过自动测试
+@Ignore// 跳过自动测试
 public class MapperTest {
     private SqlSession session;
     private TestDao mapper;
@@ -37,33 +37,33 @@ public class MapperTest {
         mapper = session.getMapper(TestDao.class);
 
 
-        //清空数据
-        mapper.deleteByExample(null);//deleteByExample
-        Assert.assertEquals(0, mapper.countByExample(null));//countByExample
+        // 清空数据
+        mapper.deleteByExample(null);// deleteByExample
+        Assert.assertEquals(0, mapper.countByExample(null));// countByExample
     }
 
-    //需要进行测试的方法：
-    //deleteByExample+
-    //countByExample+
+    // 需要进行测试的方法：
+    // deleteByExample+
+    // countByExample+
 
-    //insert+
-    //insertSelective+
-    //updateByPrimaryKey+
-    //updateByPrimaryKeySelective+
-    //deleteByPrimaryKey+
-    //batchInsert
-    //batchInsertSelective
-    //updateByExample
-    //updateByExampleSelective
+    // insert+
+    // insertSelective+
+    // updateByPrimaryKey+
+    // updateByPrimaryKeySelective+
+    // deleteByPrimaryKey+
+    // batchInsert
+    // batchInsertSelective
+    // updateByExample
+    // updateByExampleSelective
 
-    //selectByPrimaryKey+
-    //selectByExample
+    // selectByPrimaryKey+
+    // selectByExample
 
 
     @Test
     public void insertAndUpdate() {
 
-        TestEntity testEntity = constructEntityWithRandomParam(); //构造一个随机实体
+        TestEntity testEntity = constructEntityWithRandomParam(); // 构造一个随机实体
         Assert.assertEquals("应成功插入一条数据", 1, mapper.insert(testEntity));
         Assert.assertEquals("应成功插入一条数据", 1, mapper.countByExample(new TestExample().or().andIdEqualTo(testEntity.getId()).example()));
 
@@ -110,7 +110,7 @@ public class MapperTest {
      */
     private TestEntity constructEntityWithRandomParam() {
         return new TestEntity()
-//                .withId(testUtil.nextRandomInteger())
+//                 .withId(testUtil.nextRandomInteger())
                 .withName(testUtil.nextRandomString())
                 .withField_int(testUtil.nextRandomInteger())
                 .withField_boolean(false)
@@ -131,7 +131,7 @@ public class MapperTest {
     }
 
     private void compare(String msg, TestEntity entity1, TestEntity entity2) {
-//        Assert.assertEquals(entity1.getId(), entity2.getId());
+//         Assert.assertEquals(entity1.getId(), entity2.getId());
         Assert.assertEquals(msg, entity1.get_field_test2(), entity2.get_field_test2());
         Assert.assertEquals(msg, entity1.get_fieldTest(), entity2.get_fieldTest());
         Assert.assertEquals(msg, entity1.getDeleted(), entity2.getDeleted());

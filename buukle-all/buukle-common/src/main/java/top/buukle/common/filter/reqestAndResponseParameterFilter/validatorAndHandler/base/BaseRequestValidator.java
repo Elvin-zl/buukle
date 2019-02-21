@@ -19,7 +19,6 @@ import java.io.IOException;
 public abstract class BaseRequestValidator {
 
     private static final BaseLogger LOGGER = BaseLogger.getLogger(BaseRequestValidator.class);
-
     /**
      * 参数校验入口(可重写)
      * @param httpServletRequest
@@ -86,7 +85,7 @@ public abstract class BaseRequestValidator {
      */
     protected void afterValidateHandle(HttpServletRequest httpServletRequest, String handledRequestBody) throws IOException {
        this.setRequestBody(httpServletRequest,handledRequestBody);
-       //do something ...
+       // do something ...
     }
 
     /**

@@ -1,7 +1,7 @@
 /*
  * Powered By [rapid-framework]
- * Web Site: http://www.rapid-framework.org.cn
- * Google Code: http://code.google.com/p/rapid-framework/
+ * Web Site: http:// www.rapid-framework.org.cn
+ * Google Code: http:// code.google.com/p/rapid-framework/
  * Since 2008 - 2018
  */
 
@@ -102,7 +102,7 @@ public class GroupsServiceImpl implements GroupsService {
     @Override
     public BaseResponse addGroups(HttpServletRequest request, GroupsQuery query) throws InvocationTargetException, IllegalAccessException {
         groupsMapper.insert(this.validateAddParam(request, query));
-        //清除组别相关缓存
+        // 清除组别相关缓存
         this.refreshCaChe(query,true);
         return new BaseResponse.Builder().buildSuccess();
     }
@@ -113,10 +113,10 @@ public class GroupsServiceImpl implements GroupsService {
      * @param isAdd
      */
     private void refreshCaChe(GroupsQuery query, boolean isAdd) {
-        //更新全局组别缓存
+        // 更新全局组别缓存
         UserInvoker.clearGlobalCacheInfoByType(Groups.class);
         if(!isAdd){
-            //清除拥有该组别用户的组别缓存 ==>> TODO 此处可优化为异步线程处理
+            // 清除拥有该组别用户的组别缓存 ==>> TODO 此处可优化为异步线程处理
             List<User> users = userMapper.getUserByGroupsId(query.getId());
             if(CollectionUtils.isNotEmpty(users)){
                 for (User user : users) {
@@ -145,12 +145,12 @@ public class GroupsServiceImpl implements GroupsService {
      */
     @Override
     public BaseResponse editGroups(HttpServletRequest request, Integer id, GroupsQuery query) throws InvocationTargetException, IllegalAccessException {
-        //校验参数
+        // 校验参数
         this.validateUpdateParam(query);
         query.setId(id);
         Groups groups = this.assGroups(request, query, false);
         groupsMapper.updateByPrimaryKeySelective(groups);
-        //更新缓存
+        // 更新缓存
         refreshCaChe(query,false);
         return new BaseResponse.Builder().buildSuccess();
     }
@@ -176,7 +176,7 @@ public class GroupsServiceImpl implements GroupsService {
             query.setStatus(SecurityStatusConstants.STATUS_OPEN);
         }
         groupsMapper.updateByPrimaryKeySelective(this.assGroups(request, query, false));
-        //更新缓存
+        // 更新缓存
         this.refreshCaChe(query,false);
         return new BaseResponse.Builder().buildSuccess();
     }

@@ -1,7 +1,7 @@
 /*
  * Powered By [rapid-framework]
- * Web Site: http://www.rapid-framework.org.cn
- * Google Code: http://code.google.com/p/rapid-framework/
+ * Web Site: http:// www.rapid-framework.org.cn
+ * Google Code: http:// code.google.com/p/rapid-framework/
  * Since 2008 - 2018
  */
 
@@ -61,7 +61,7 @@ public interface UserService {
 	 * @return	void
 	 * @Date	2015年6月12日 上午10:29:56 
 	 */
-	public void update(User user) throws Exception;
+	public int update(User user) throws Exception;
 	/** 
 	 * @Description:	删除User
 	 * @param user

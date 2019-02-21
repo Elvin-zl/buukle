@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="top.buukle.consumer.cms.entity.ArticleComment">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="pid" jdbcType="INTEGER" property="pid" />
+    <result column="pid_type" jdbcType="INTEGER" property="pidType" />
     <result column="article_info_id" jdbcType="INTEGER" property="articleInfoId" />
     <result column="comment" jdbcType="VARCHAR" property="comment" />
     <result column="creator" jdbcType="VARCHAR" property="creator" />
@@ -79,8 +80,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, pid, article_info_id, comment, creator, creator_code, gmt_created, modifier, 
-    modifier_code, gmt_modified, status, remark, bak01, bak02, bak03, bak04, bak05
+    id, pid, pid_type, article_info_id, comment, creator, creator_code, gmt_created, 
+    modifier, modifier_code, gmt_modified, status, remark, bak01, bak02, bak03, bak04, 
+    bak05
   </sql>
   <select id="selectByExample" parameterType="top.buukle.consumer.cms.entity.ArticleCommentExample" resultMap="BaseResultMap">
     select
@@ -113,18 +115,20 @@
     </if>
   </delete>
   <insert id="insert" parameterType="top.buukle.consumer.cms.entity.ArticleComment">
-    insert into article_comment (id, pid, article_info_id, 
-      comment, creator, creator_code, 
-      gmt_created, modifier, modifier_code, 
-      gmt_modified, status, remark, 
-      bak01, bak02, bak03, 
-      bak04, bak05)
-    values (#{id,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, #{articleInfoId,jdbcType=INTEGER}, 
-      #{comment,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{creatorCode,jdbcType=VARCHAR}, 
-      #{gmtCreated,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR}, #{modifierCode,jdbcType=VARCHAR}, 
-      #{gmtModified,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, 
-      #{bak01,jdbcType=VARCHAR}, #{bak02,jdbcType=VARCHAR}, #{bak03,jdbcType=VARCHAR}, 
-      #{bak04,jdbcType=VARCHAR}, #{bak05,jdbcType=VARCHAR})
+    insert into article_comment (id, pid, pid_type, 
+      article_info_id, comment, creator, 
+      creator_code, gmt_created, modifier, 
+      modifier_code, gmt_modified, status, 
+      remark, bak01, bak02, 
+      bak03, bak04, bak05
+      )
+    values (#{id,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, #{pidType,jdbcType=INTEGER}, 
+      #{articleInfoId,jdbcType=INTEGER}, #{comment,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, 
+      #{creatorCode,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR}, 
+      #{modifierCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
+      #{remark,jdbcType=VARCHAR}, #{bak01,jdbcType=VARCHAR}, #{bak02,jdbcType=VARCHAR}, 
+      #{bak03,jdbcType=VARCHAR}, #{bak04,jdbcType=VARCHAR}, #{bak05,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="top.buukle.consumer.cms.entity.ArticleComment">
     insert into article_comment
@@ -134,6 +138,9 @@
       </if>
       <if test="pid != null">
         pid,
+      </if>
+      <if test="pidType != null">
+        pid_type,
       </if>
       <if test="articleInfoId != null">
         article_info_id,
@@ -187,6 +194,9 @@
       </if>
       <if test="pid != null">
         #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="pidType != null">
+        #{pidType,jdbcType=INTEGER},
       </if>
       <if test="articleInfoId != null">
         #{articleInfoId,jdbcType=INTEGER},
@@ -250,6 +260,9 @@
       <if test="record.pid != null">
         pid = #{record.pid,jdbcType=INTEGER},
       </if>
+      <if test="record.pidType != null">
+        pid_type = #{record.pidType,jdbcType=INTEGER},
+      </if>
       <if test="record.articleInfoId != null">
         article_info_id = #{record.articleInfoId,jdbcType=INTEGER},
       </if>
@@ -304,6 +317,7 @@
     update article_comment
     set id = #{record.id,jdbcType=INTEGER},
       pid = #{record.pid,jdbcType=INTEGER},
+      pid_type = #{record.pidType,jdbcType=INTEGER},
       article_info_id = #{record.articleInfoId,jdbcType=INTEGER},
       comment = #{record.comment,jdbcType=VARCHAR},
       creator = #{record.creator,jdbcType=VARCHAR},
@@ -328,6 +342,9 @@
     <set>
       <if test="pid != null">
         pid = #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="pidType != null">
+        pid_type = #{pidType,jdbcType=INTEGER},
       </if>
       <if test="articleInfoId != null">
         article_info_id = #{articleInfoId,jdbcType=INTEGER},
@@ -380,6 +397,7 @@
   <update id="updateByPrimaryKey" parameterType="top.buukle.consumer.cms.entity.ArticleComment">
     update article_comment
     set pid = #{pid,jdbcType=INTEGER},
+      pid_type = #{pidType,jdbcType=INTEGER},
       article_info_id = #{articleInfoId,jdbcType=INTEGER},
       comment = #{comment,jdbcType=VARCHAR},
       creator = #{creator,jdbcType=VARCHAR},

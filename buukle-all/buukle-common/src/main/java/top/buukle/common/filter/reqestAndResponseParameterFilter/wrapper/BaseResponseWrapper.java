@@ -14,7 +14,7 @@ import javax.servlet.WriteListener;
  */
 public class BaseResponseWrapper extends HttpServletResponseWrapper{
 
-    //缓冲区，用来存放后台数据
+    // 缓冲区，用来存放后台数据
     private ByteArrayOutputStream cacheStream = new ByteArrayOutputStream();
     private PrintWriter pw =new PrintWriter(cacheStream);
     private ServletOutputStream outputStream ;

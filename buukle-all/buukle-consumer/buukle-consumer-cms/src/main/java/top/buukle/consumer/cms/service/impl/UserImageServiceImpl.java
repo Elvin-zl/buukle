@@ -66,7 +66,7 @@ public class UserImageServiceImpl implements UserImageService{
         if(CollectionUtils.isNotEmpty(list)){
             for (UserImage item: list) {
                 FuzzySearchListVo fuzzySearchListVo = new FuzzySearchListVo();
-                //fuzzySearchListVo.setText(item.getTitle());
+                // fuzzySearchListVo.setText(item.getTitle());
                 fuzzySearchListVos.add(fuzzySearchListVo);
             }
         }
@@ -139,11 +139,11 @@ public class UserImageServiceImpl implements UserImageService{
         query.setGmtCreated(new Date());
         query.setCreator(operator.getUsername());
         query.setCreatorCode(operator.getUserId());
-        //TODO
-        //query.setPlatformId(operator.getPlatformId());
-        //query.setAgentId(operator.getAgentId());
-        //query.setGroupId(operator.getGroupId());
-        //query.setSalesmanId(operator.getSalesmanId());
+        // TODO
+        // query.setPlatformId(operator.getPlatformId());
+        // query.setAgentId(operator.getAgentId());
+        // query.setGroupId(operator.getGroupId());
+        // query.setSalesmanId(operator.getSalesmanId());
         return query;
     }
 
@@ -179,10 +179,10 @@ public class UserImageServiceImpl implements UserImageService{
         if(StringUtil.isNotEmpty(query.getEndTime())){
             criteria.andGmtCreatedLessThanOrEqualTo(DateUtil.parse(query.getEndTime()));
         }
-        //TODO
-        //if(StringUtil.isNotEmpty(query.getTitle())){
-        //    criteria.andTitleEqualTo(query.getTitle());
-        //}
+        // TODO
+        // if(StringUtil.isNotEmpty(query.getTitle())){
+        //     criteria.andTitleEqualTo(query.getTitle());
+        // }
         if(null != query.getStatus()){
             criteria.andStatusEqualTo(query.getStatus());
         }
@@ -197,8 +197,8 @@ public class UserImageServiceImpl implements UserImageService{
     private UserImageExample assFuzzyExample(String fuzzyText) {
         UserImageExample example = new UserImageExample();
         UserImageExample.Criteria criteria = example.createCriteria();
-        //TODO
-        //criteria.andTitleLike("%" + fuzzyText + "%");
+        // TODO
+        // criteria.andTitleLike("%" + fuzzyText + "%");
         return example;
     }
 }

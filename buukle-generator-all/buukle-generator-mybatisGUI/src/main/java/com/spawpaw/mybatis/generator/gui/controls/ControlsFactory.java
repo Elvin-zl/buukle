@@ -16,7 +16,7 @@ public class ControlsFactory {
 
     public static HBox getLayout(Config config, Property value) {
         if (config == null) {
-//            log.info("发现隐藏的配置项, 如要在界面中显示，请为Property添加@Config注解");
+//             log.info("发现隐藏的配置项, 如要在界面中显示，请为Property添加@Config注解");
             return new HBox();
         }
         IControl control;

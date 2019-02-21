@@ -20,7 +20,7 @@ import java.util.List;
  * @Date Created by elvin on 2018/10/1.
  * @Description : 登录登出认证授权 FeignClient代理执行层对象
  */
-@FeignClient(name = "${security.server.name}" ,url = "${security.server.url}")
+@FeignClient(name = "${security.server.name}")
 public interface SecurityInvoker{
     /**
      * 执行登陆
@@ -112,4 +112,13 @@ public interface SecurityInvoker{
     @InvokerLoggingAnnotation(InvokerLoggingAnnotation.PRINT_FALSE)
     @PostMapping(value = SecurityInterceptor.API_URI_PREFIX + "/getArticleAuthor")
     User getArticleAuthor(BaseRequest baseRequest);
+
+    /**
+     * 更新用户基本信息
+     * @param baseRequest
+     * @return
+     */
+    @InvokerLoggingAnnotation(InvokerLoggingAnnotation.PRINT_FALSE)
+    @PostMapping(value = SecurityInterceptor.API_URI_PREFIX + "/updateUserBasicResource")
+    BaseResponse updateUserBasicResource(BaseRequest baseRequest);
 }

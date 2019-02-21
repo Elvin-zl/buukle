@@ -25,13 +25,13 @@ public class BaseRequestWrapper extends HttpServletRequestWrapper {
 
     public BaseRequestWrapper(HttpServletRequest request) throws IOException {
         super(request);
-//        Enumeration e = request.getHeaderNames()   ;
-//        while(e.hasMoreElements()){
-//            String name = (String) e.nextElement();
-//            String value = request.getHeader(name);
-//            System.out.println(name+" = "+value);
+//         Enumeration e = request.getHeaderNames()   ;
+//         while(e.hasMoreElements()){
+//             String name = (String) e.nextElement();
+//             String value = request.getHeader(name);
+//             System.out.println(name+" = "+value);
 //
-//        }
+//         }
         bodyString = HttpHelper.getBodyString(request);
         bodyBytes = bodyString.getBytes(Charset.forName("UTF-8"));
     }

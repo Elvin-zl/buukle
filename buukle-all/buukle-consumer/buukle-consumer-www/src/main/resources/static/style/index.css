@@ -1,0 +1,126 @@
+
+
+.banner {
+    background-repeat: no-repeat;
+    background-color:#ffffff;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    top: 50px;
+    height: 205px;
+}
+
+.bank {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.banner h1.h1 {
+    color: #313131e0;
+    font-size: 34px;
+    margin-top: 47px;
+}
+
+.banner p {
+    color: #4a4a4a;
+    font-size: 15px;
+    font-family: '等线';
+    margin-top: 24px;
+}
+
+.banner .search-box {
+    width: 507px;
+    height: 36px;
+    position: relative;
+    margin-top: 18px;
+}
+
+.banner .search-box-phone {
+    width: 344px;
+    height: 36px;
+    position: relative;
+    margin-top: 18px;
+}
+
+.banner .search-box .search {
+    width: 267px;
+    height: 34px;
+    background-color: #ffffff;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 34px;
+    opacity: 0.8;
+    border: 1px solid rgb(44, 44, 44);
+    color: #020202;
+    transition: all 1.5s ease 0s;
+    font-family: "Microsoft Yahei"
+}
+.banner .search-box .search-phone {
+    width: 108px;
+    height: 34px;
+    background-color: #ffffff;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 34px;
+    opacity: 0.8;
+    border: 1px solid rgb(44, 44, 44);
+    color: #020202;
+    transition: all 1.5s ease 0s;
+    font-family: "Microsoft Yahei"
+}
+
+.banner .search-box i {
+    position: absolute;
+    right: 126px;
+    top: 9px;
+    cursor: pointer;
+}
+
+.banner .search-box i:hover {
+    color: #000000;
+    transition: all 0.5s;
+}
+
+.wrap {
+    position: relative;
+    margin-top: 282px;
+}
+
+.view-more{
+    width: 100%;
+    height: 53px;
+    margin: 20px 0 0 0;
+    display: inline-block;
+    clear: both;
+    margin-bottom: 40px;
+}
+
+.btn-primary{
+    padding: 10px 25px !important;
+}
+
+.user-infos{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.user-center .btn-danger{
+    margin-left: 9px;
+}
+
+.user-infos a{
+    padding: 4px 10px;
+    color: #999;
+}
+
+.right-list{
+    width: 200px;
+}
+a:hover {
+    color: black !important;
+}
+.write-article{
+    margin-top: 15px;
+    float: left;
+}

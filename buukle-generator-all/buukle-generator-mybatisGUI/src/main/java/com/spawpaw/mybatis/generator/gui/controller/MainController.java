@@ -92,14 +92,14 @@ public class MainController extends BaseController implements Initializable {
             vBox.setPadding(Constants.ui.DEFAULT_LAYOUT_INSETS);
             ScrollPane scrollPane = new ScrollPane();
             scrollPane.setContent(vBox);
-            scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);//禁止水平滚动
+            scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);// 禁止水平滚动
             tab.setContent(scrollPane);
             tab.setClosable(false);
             tabPane.getTabs().add(tab);
         }
         tabPane.setPrefHeight(10000);
         tabPane.setPrefWidth(10000);
-        //load tab pane
+        // load tab pane
         main_container.getChildren().clear();
         main_container.getChildren().add(tabPane);
     }
@@ -132,7 +132,7 @@ public class MainController extends BaseController implements Initializable {
                         if (!configs.containsKey(l.tabName()))
                             configs.put(l.tabName(), new ArrayList<>());
                         configs.get(l.tabName()).add(new ConfigWrapper(layout, l.index()));
-//                        System.out.println(String.format("将%-36s加入tab: %s", field.getName(), l.tabName()));
+//                         System.out.println(String.format("将%-36s加入tab: %s", field.getName(), l.tabName()));
                     }
                 } else {
                     System.out.printf("配置项%-36s的类型不正确，配置项的类型必须继承自javafx.beans.property.Property\n", field.getName());
@@ -167,7 +167,7 @@ public class MainController extends BaseController implements Initializable {
             File connectionDir = new File(Constants.CONNECTION_SAVE_PATH);
 
 
-            //load connection list
+            // load connection list
             if (connectionDir.listFiles() != null)
                 for (File file : connectionDir.listFiles()) {
                     DatabaseConfig dbConfig = fxGson.fromJson(FileUtil.readFileAsStr(file), DatabaseConfig.class);
@@ -175,7 +175,7 @@ public class MainController extends BaseController implements Initializable {
                     rootItem.getChildren().add(dbConfigRootItem);
                     databaseConfigHashMap.put(dbConfigRootItem, dbConfig);
                 }
-            //add on selection change listener
+            // add on selection change listener
             tv_connections.setOnMouseClicked(event -> {
                 TreeItem<String> selectedItem = tv_connections.getSelectionModel().getSelectedItem();
                 if (selectedItem == null)
@@ -197,7 +197,7 @@ public class MainController extends BaseController implements Initializable {
                 }
             });
 
-            //add context menu
+            // add context menu
             ContextMenu contextMenu = new ContextMenu();
             MenuItem miCloseConnection = new MenuItem(Constants.getI18nStr("ui.closeConnection"));
             miCloseConnection.setOnAction(event -> {
@@ -270,7 +270,7 @@ public class MainController extends BaseController implements Initializable {
         String msg = "";
         if (selectedDatabaseConfig == null) {
             msg += "\n" + Constants.getI18nStr("msg.error.NoDatabaseSelected");
-        } else if (selectedProjectConfig.selectedTable == null || selectedProjectConfig.selectedTable.getValue().isEmpty()) {  //是否选中表
+        } else if (selectedProjectConfig.selectedTable == null || selectedProjectConfig.selectedTable.getValue().isEmpty()) {  // 是否选中表
             msg += "\n" + Constants.getI18nStr("msg.error.NoTableSelected");
         }
         if (!msg.isEmpty()) {

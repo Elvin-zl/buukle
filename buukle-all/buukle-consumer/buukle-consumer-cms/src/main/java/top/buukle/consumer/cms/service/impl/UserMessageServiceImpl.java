@@ -66,7 +66,7 @@ public class UserMessageServiceImpl implements UserMessageService{
         if(CollectionUtils.isNotEmpty(list)){
             for (UserMessage item: list) {
                 FuzzySearchListVo fuzzySearchListVo = new FuzzySearchListVo();
-                //fuzzySearchListVo.setText(item.getTitle());
+                // fuzzySearchListVo.setText(item.getTitle());
                 fuzzySearchListVos.add(fuzzySearchListVo);
             }
         }
@@ -139,11 +139,11 @@ public class UserMessageServiceImpl implements UserMessageService{
         query.setGmtCreated(new Date());
         query.setCreator(operator.getUsername());
         query.setCreatorCode(operator.getUserId());
-        //TODO
-        //query.setPlatformId(operator.getPlatformId());
-        //query.setAgentId(operator.getAgentId());
-        //query.setGroupId(operator.getGroupId());
-        //query.setSalesmanId(operator.getSalesmanId());
+        // TODO
+        // query.setPlatformId(operator.getPlatformId());
+        // query.setAgentId(operator.getAgentId());
+        // query.setGroupId(operator.getGroupId());
+        // query.setSalesmanId(operator.getSalesmanId());
         return query;
     }
 
@@ -179,10 +179,10 @@ public class UserMessageServiceImpl implements UserMessageService{
         if(StringUtil.isNotEmpty(query.getEndTime())){
             criteria.andGmtCreatedLessThanOrEqualTo(DateUtil.parse(query.getEndTime()));
         }
-        //TODO
-        //if(StringUtil.isNotEmpty(query.getTitle())){
-        //    criteria.andTitleEqualTo(query.getTitle());
-        //}
+        // TODO
+        // if(StringUtil.isNotEmpty(query.getTitle())){
+        //     criteria.andTitleEqualTo(query.getTitle());
+        // }
         if(null != query.getStatus()){
             criteria.andStatusEqualTo(query.getStatus());
         }
@@ -197,8 +197,8 @@ public class UserMessageServiceImpl implements UserMessageService{
     private UserMessageExample assFuzzyExample(String fuzzyText) {
         UserMessageExample example = new UserMessageExample();
         UserMessageExample.Criteria criteria = example.createCriteria();
-        //TODO
-        //criteria.andTitleLike("%" + fuzzyText + "%");
+        // TODO
+        // criteria.andTitleLike("%" + fuzzyText + "%");
         return example;
     }
 }

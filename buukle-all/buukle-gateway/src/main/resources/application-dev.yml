@@ -11,10 +11,10 @@ spring:
     name: buukle-gateway
   ## 数据源
   datasource:
-    url: jdbc:mysql://47.95.13.7:3654/buukle-gateway?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://39.107.78.160:3654/buukle-gateway?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
     password: A987654321b/
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
   ## 网关
   cloud:
@@ -24,25 +24,30 @@ spring:
         locator:
           enabled: true
       routes:
-         ## 网关路由到portal服务
-        - id: portal
-          uri: lb://BUUKLE-PORTAL
+        ## 网关路由到静态服务
+        - id: static
+          uri: lb://BUUKLE-WWW
           predicates:
-            - Host=portal.buukle.top
+            - Host=tstatic.buukle.top
+         ## 网关路由到www服务
+        - id: www
+          uri: lb://BUUKLE-WWW
+          predicates:
+            - Host=twww.buukle.top
          ## 网关路由到cms服务
         - id: cms
           uri: lb://BUUKLE-CMS
           predicates:
-            - Host=cms.buukle.top
+            - Host=tcms.buukle.top
          ## 网关路由到安全服务
         - id: security
           uri: lb://BUUKLE-SECURITY
           predicates:
-            - Host=security.buukle.top
+            - Host=tsecurity.buukle.top
   #redis
   redis:
     database: 5
-    host: 47.95.13.7
+    host: 39.105.74.47
     port: 4376
     password: zxcvbnmKO),.
     jedis:
@@ -55,7 +60,8 @@ spring:
 ## 注册中心
 eureka:
   instance:
-    hostname: localhost
+    hostname: 127.0.0.1
+    prefer-ip-address: true
     serverport: 9090
   client:
     serviceUrl:
@@ -67,4 +73,4 @@ mybatis:
   type-aliases-package: top.buukle.gateway.entity
 ## 日志
 logging:
-  config: classpath:config/spring/springBoot-logbak.xml
+  config: classpath:config/spring/springBoot-logbak-dev.xml

@@ -1,8 +1,0 @@
-## task
-task:
-  # 开关
-  online: 1
-  # 轮询延时时间
-  delayTime: 300000
-  # 每次延时轮询个数
-  delaySize: 10

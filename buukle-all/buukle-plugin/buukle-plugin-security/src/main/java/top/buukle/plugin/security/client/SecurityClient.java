@@ -2,12 +2,16 @@ package top.buukle.plugin.security.client;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import top.buukle.common.constants.BaseResponseCode;
+import top.buukle.common.exception.BaseException;
 import top.buukle.common.response.BaseResponse;
 import top.buukle.common.util.logger.BaseLogger;
 import top.buukle.plugin.security.business.SecurityBusiness;
+import top.buukle.plugin.security.constants.SecurityConstants;
 import top.buukle.plugin.security.entity.Button;
 import top.buukle.plugin.security.entity.ButtonType;
 import top.buukle.plugin.security.entity.User;
+import top.buukle.plugin.security.util.CookieUtil;
 import top.buukle.plugin.security.vo.response.ModuleNavigationVo;
 
 import javax.servlet.http.HttpServletRequest;
@@ -44,9 +48,8 @@ public class SecurityClient {
         try {
              userInfo = securityBusiness.getUserInfo(request);
         } catch (Exception e) {
-            LOGGER.info("获取用户信息失败! 原因 : {} ",e.getMessage());
             User user = new User();
-            user.setUserId("-1");
+            user.setUserId(SecurityConstants.USER_ID_OFFLINE);
             return user;
         }
         return userInfo;
@@ -86,5 +89,22 @@ public class SecurityClient {
      */
     public User getArticleAuthor(String userId) {
         return securityBusiness.getArticleAuthor(userId);
+    }
+
+    /**
+     * 更新用户基本信息
+     * @param user
+     * @param httpServletRequest
+     * @return
+     */
+    public BaseResponse updateUserBasicResource(User user, HttpServletRequest httpServletRequest) {
+        User userInfo = this.getUserInfo(httpServletRequest);
+        if(null == userInfo){
+            throw new BaseException(BaseResponseCode.USER_UPDATE_WRONG_NO_LOGIN);
+        }
+        user.setId(userInfo.getId());
+        user.setUsername(userInfo.getUsername());
+        user.setUserId(userInfo.getUserId());
+        return securityBusiness.updateUserBasicResource(user,httpServletRequest);
     }
 }

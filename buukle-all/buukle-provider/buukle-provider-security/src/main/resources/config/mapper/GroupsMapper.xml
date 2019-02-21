@@ -134,7 +134,7 @@
     </if>
     'true' as QUERYID,
     <include refid="Base_Column_List" />
-    from groups
+    from `groups`
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -145,21 +145,21 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from groups
+    from `groups`
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from groups
+    delete from `groups`
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="top.buukle.plugin.security.entity.GroupsExample" >
-    delete from groups
+    delete from `groups`
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="top.buukle.plugin.security.entity.Groups" >
-    insert into groups (id, pid, name, 
+    insert into `groups` (id, pid, name,
       creator, creator_code, gmt_created, 
       modifier, modifier_code, gmt_modified, 
       status, bak01, bak02, 
@@ -173,7 +173,7 @@
       )
   </insert>
   <insert id="insertSelective" parameterType="top.buukle.plugin.security.entity.Groups" >
-    insert into groups
+    insert into `groups`
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -270,13 +270,13 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="top.buukle.plugin.security.entity.GroupsExample" resultType="java.lang.Integer" >
-    select count(*) from groups
+    select count(*) from `groups`
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update groups
+    update `groups`
     <set >
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
@@ -329,7 +329,7 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update groups
+    update `groups`
     set id = #{record.id,jdbcType=INTEGER},
       pid = #{record.pid,jdbcType=INTEGER},
       name = #{record.name,jdbcType=VARCHAR},
@@ -350,7 +350,7 @@
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="top.buukle.plugin.security.entity.Groups" >
-    update groups
+    update `groups`
     <set >
       <if test="pid != null" >
         pid = #{pid,jdbcType=INTEGER},
@@ -398,7 +398,7 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="top.buukle.plugin.security.entity.Groups" >
-    update groups
+    update `groups`
     set pid = #{pid,jdbcType=INTEGER},
       name = #{name,jdbcType=VARCHAR},
       creator = #{creator,jdbcType=VARCHAR},
@@ -418,10 +418,10 @@
 
     <!--start-->
     <select id="getUserGroupsByUserId" resultMap="BaseResultMap" parameterType="java.lang.String">
-        select g.* from groups g,user_group ug where g.id = ug.group_id and ug.user_id = #{userId}
+        select g.* from `groups` g,user_group ug where g.id = ug.group_id and ug.user_id = #{userId}
     </select>
     <select id="getGroupsList" resultMap="BaseResultMap" parameterType="java.util.Map">
-        select <include refid="Base_Column_List" /> from groups where 1=1
+        select <include refid="Base_Column_List" /> from `groups` where 1=1
         <include refid="Base_Column_where" />
         <if test="startTime != null  and startTime !='' " >
             and gmt_created &gt;= #{startTime}
@@ -432,7 +432,7 @@
         order by gmt_modified DESC
     </select>
     <select id="getGroupsListWithNoIsolation" resultMap="BaseResultMap" parameterType="java.util.Map">
-        select <include refid="Base_Column_List" /> from groups where 1=1
+        select <include refid="Base_Column_List" /> from `groups` where 1=1
         <include refid="Base_Column_where" />
         <if test="startTime != null  and startTime !='' " >
             and gmt_created &gt;= #{startTime}
@@ -443,6 +443,6 @@
         order by gmt_modified DESC
     </select>
     <select id="fuzzySearchByName" resultMap="BaseResultMap" parameterType="java.lang.String">
-        SELECT name FROM  groups  WHERE name LIKE #{fuzzyText};
+        SELECT name FROM  `groups`  WHERE name LIKE #{fuzzyText};
     </select>
 </mapper>

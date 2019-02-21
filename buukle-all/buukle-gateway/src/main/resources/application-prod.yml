@@ -4,17 +4,17 @@ server:
 
 ## spring
 spring:
+  ## 应用
   profiles:
     include: prod-security
-  ## 应用
   application:
     name: buukle-gateway
   ## 数据源
   datasource:
-    url: jdbc:mysql://47.95.13.7:3654/buukle-gateway?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://39.107.78.160:3654/buukle-gateway?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
     password: A987654321b/
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
   ## 网关
   cloud:
@@ -24,6 +24,16 @@ spring:
         locator:
           enabled: true
       routes:
+        ## 网关路由到静态服务
+        - id: static
+          uri: lb://BUUKLE-WWW
+          predicates:
+            - Host=static.buukle.top
+         ## 网关路由到www服务
+        - id: www
+          uri: lb://BUUKLE-WWW
+          predicates:
+            - Host=www.buukle.top
          ## 网关路由到cms服务
         - id: cms
           uri: lb://BUUKLE-CMS
@@ -37,7 +47,7 @@ spring:
   #redis
   redis:
     database: 5
-    host: 47.95.13.7
+    host: 39.105.74.47
     port: 4376
     password: zxcvbnmKO),.
     jedis:
@@ -50,15 +60,17 @@ spring:
 ## 注册中心
 eureka:
   instance:
-    hostname: localhost
+    hostname: 39.105.74.47
+    prefer-ip-address: true
     serverport: 9090
   client:
     serviceUrl:
        defaultZone: http://${eureka.instance.hostname}:${eureka.instance.serverport}/eureka/
+
 ##mybatis
 mybatis:
   mapper-locations: classpath*:/config/mapper/*.xml
   type-aliases-package: top.buukle.gateway.entity
 ## 日志
 logging:
-  config: classpath:config/spring/springBoot-logbak.xml
+  config: classpath:config/spring/springBoot-logbak-prod.xml

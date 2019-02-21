@@ -1,7 +1,7 @@
 /*
  * Powered By [rapid-framework]
- * Web Site: http://www.rapid-framework.org.cn
- * Google Code: http://code.google.com/p/rapid-framework/
+ * Web Site: http:// www.rapid-framework.org.cn
+ * Google Code: http:// code.google.com/p/rapid-framework/
  * Since 2008 - 2018
  */
 
@@ -88,8 +88,8 @@ public class UserServiceImpl implements UserService {
 		userMapper.insert(user);
 	}
 	@Override
-	public void update(User user) throws Exception {
-		userMapper.updateByPrimaryKeySelective(user);
+	public int update(User user) throws Exception {
+		return userMapper.updateByPrimaryKeySelective(user);
     }
 	@Override
 	public void delete(User user) throws Exception {
@@ -105,12 +105,12 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Override
 	public BaseResponse authentication(BaseRequest request) {
-		//初始化认证参数
+		// 初始化认证参数
 		String userCookie = (String) request.getInfo(String.class);
         User user = UserInvoker.getUser(userCookie);
         String ssoDefault = request.getExpandParameterString();
 		if(null != user){
-			//刷新用户缓存失效时间
+			// 刷新用户缓存失效时间
 			UserInvoker.saveUser(user,ssoDefault,request.getRequestHead(),userCookie);
 			return new BaseResponse.Builder().buildSuccess(user);
 		}
@@ -125,39 +125,39 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public BaseResponse setPermission(BaseRequest request) throws Exception {
 		UserLoginPermissionQuery userLoginPermissionQuery = (UserLoginPermissionQuery)request.getInfo(UserLoginPermissionQuery.class);
-		//参数检验
+		// 参数检验
 		this.validatePermissionParam(userLoginPermissionQuery,request.getRequestHead());
-		//初始化认证参数
+		// 初始化认证参数
 		String url = userLoginPermissionQuery.getUrl();
 		User user = (User) userLoginPermissionQuery.getUser();
-		//获取全局菜单缓存
+		// 获取全局菜单缓存
 		List<Module> globalModuleList = this.getGlobalModule();
 		if(CollectionUtils.isEmpty(globalModuleList)){
 			throw new BaseException(BaseResponseCode.USER_PERMISSION_GLOBAL_MODULE_LIST_NULL);
 		}
-		//获取全局按钮缓存
+		// 获取全局按钮缓存
 		List<Button> globalButtonList = this.getGlobalButton();
 		if(CollectionUtils.isEmpty(globalButtonList)){
 			throw new BaseException(BaseResponseCode.USER_PERMISSION_GLOBAL_BUTTON_LIST_NULL);
 		}
-		//判断请求url是否在全局菜单+按钮 列表里
+		// 判断请求url是否在全局菜单+按钮 列表里
 		Boolean isUnderPermission = this.isUnderPermission(url,globalModuleList,globalButtonList);
 		if(!isUnderPermission){
 			return new BaseResponse.Builder().buildSuccess();
 		}
-		//获取用户角色列表缓存
+		// 获取用户角色列表缓存
 		List<Role> userRoleList = this.getUserRole(user.getUserId(),user,request);
 		if(CollectionUtils.isEmpty(userRoleList)){
 			throw new BaseException(BaseResponseCode.USER_PERMISSION_USER_ROLE_LIST_NULL);
 		}
-		//获取用户菜单列表缓存
+		// 获取用户菜单列表缓存
 		List<Module> userModuleList = this.getUserModule(user.getUserId(),userRoleList,request);
 		if(CollectionUtils.isEmpty(userModuleList)){
 			throw new BaseException(BaseResponseCode.USER_PERMISSION_USER_MODULE_LIST_NULL);
 		}
-		//获取用户按钮列表缓存
+		// 获取用户按钮列表缓存
 		List<Button> userButtonList = this.getUserButton(user.getUserId(),userModuleList,request);
-		//判断当前用户是否拥有当前请求url菜单(菜单 + 按钮)
+		// 判断当前用户是否拥有当前请求url菜单(菜单 + 按钮)
 		if(!this.hasPermission(url,userModuleList,userButtonList)){
 			throw new BaseException(BaseResponseCode.USER_PERMISSION_USER_NO_PERMISSION);
 		}
@@ -199,7 +199,7 @@ public class UserServiceImpl implements UserService {
 		if(CollectionUtils.isEmpty(userButtonList)){
 			userButtonList = buttonMapper.getUserButtonListByUserModuleList(userModuleList);
 			if(CollectionUtils.isNotEmpty(userButtonList)){
-				//缓存用户按钮列表缓存
+				// 缓存用户按钮列表缓存
 				UserInvoker.saveUserButton(userButtonList,userId, request.getRequestHead());
 			}
 		}
@@ -292,26 +292,26 @@ public class UserServiceImpl implements UserService {
             user.setUserId(StringGeneratorUtil.generateUserID());
             user.setPassword(MD5Util.MD5WithUTF8(user.getPassword()));
             user.setBak02(SecurityConstants.DELETE_LEVEL_TRUE);
-            //初始化用户的等级
+            // 初始化用户的等级
             user.setUserLevel(operator.getUserLevel());
-            //初始化用户的归属关系
+            // 初始化用户的归属关系
 
-            //platform
+            // platform
             if(operator.getUserLevel().equals(IsolationConstants.USER_LEVEL_PLATFORM)){
                 user.setPlatformId(operator.getPlatformId());
             }
-            //agent
+            // agent
             if(operator.getUserLevel().equals(IsolationConstants.USER_LEVEL_AGENT)){
                 user.setPlatformId(operator.getPlatformId());
                 user.setAgentId(operator.getAgentId());
             }
-            //group
+            // group
             if(operator.getUserLevel().equals(IsolationConstants.USER_LEVEL_GROUP)){
                 user.setPlatformId(operator.getPlatformId());
                 user.setAgentId(operator.getAgentId());
                 user.setGroupId(operator.getGroupId());
             }
-            //salesman
+            // salesman
             if(operator.getUserLevel().equals(IsolationConstants.USER_LEVEL_GROUP)){
                 user.setPlatformId(operator.getPlatformId());
                 user.setAgentId(operator.getAgentId());
@@ -377,7 +377,7 @@ public class UserServiceImpl implements UserService {
         }
 
         User operator = SessionUtil.getOperator(request);
-        //操作人的级别要低于将要设置的级别,返回错误
+        // 操作人的级别要低于将要设置的级别,返回错误
         if(operator.getUserLevel() > userQuery.getUserLevel()){
             throw new BaseException(BaseResponseCode.USER_SET_ROLE_OPERATOR_PERMISSION_NOT_ENOUGH);
         }
@@ -394,7 +394,7 @@ public class UserServiceImpl implements UserService {
             if(StringUtil.isNotEmpty(userQuery.getPlatformId()) || StringUtil.isNotEmpty(userQuery.getAgentId()) || StringUtil.isNotEmpty(userQuery.getGroupId()) || StringUtil.isNotEmpty(userQuery.getSalesmanId())){
                 throw new BaseException(BaseResponseCode.USER_SET_ROLE_USER_LEVEL_BELONGING_RELATION_WRONG);
             }
-            //处理将下级提升为当前用户同级的情况
+            // 处理将下级提升为当前用户同级的情况
             if(operator.getUserLevel().equals(userQuery.getUserLevel())){
                 userQuery.setPlatformId(operator.getPlatformId());
             }
@@ -404,7 +404,7 @@ public class UserServiceImpl implements UserService {
             if(StringUtil.isEmpty(userQuery.getPlatformId()) || StringUtil.isNotEmpty(userQuery.getAgentId()) || StringUtil.isNotEmpty(userQuery.getGroupId()) || StringUtil.isNotEmpty(userQuery.getSalesmanId())){
                 throw new BaseException(BaseResponseCode.USER_SET_ROLE_USER_LEVEL_BELONGING_RELATION_WRONG);
             }
-            //处理将下级提升为当前用户同级的情况
+            // 处理将下级提升为当前用户同级的情况
             if(operator.getUserLevel().equals(userQuery.getUserLevel())){
                 userQuery.setAgentId(operator.getAgentId());
             }
@@ -414,7 +414,7 @@ public class UserServiceImpl implements UserService {
             if(StringUtil.isEmpty(userQuery.getPlatformId()) || StringUtil.isEmpty(userQuery.getAgentId()) || StringUtil.isNotEmpty(userQuery.getGroupId()) || StringUtil.isNotEmpty(userQuery.getSalesmanId())){
                 throw new BaseException(BaseResponseCode.USER_SET_ROLE_USER_LEVEL_BELONGING_RELATION_WRONG);
             }
-            //处理将下级提升为当前用户同级的情况
+            // 处理将下级提升为当前用户同级的情况
             if(operator.getUserLevel().equals(userQuery.getUserLevel())){
                 userQuery.setGroupId(operator.getGroupId());
             }
@@ -424,7 +424,7 @@ public class UserServiceImpl implements UserService {
             if(StringUtil.isEmpty(userQuery.getPlatformId()) || StringUtil.isEmpty(userQuery.getAgentId()) || StringUtil.isEmpty(userQuery.getGroupId()) || StringUtil.isNotEmpty(userQuery.getSalesmanId())){
                 throw new BaseException(BaseResponseCode.USER_SET_ROLE_USER_LEVEL_BELONGING_RELATION_WRONG);
             }
-            //处理将下级提升为当前用户同级的情况
+            // 处理将下级提升为当前用户同级的情况
             if(operator.getUserLevel().equals(userQuery.getUserLevel())){
                 userQuery.setSalesmanId(operator.getSalesmanId());
             }
@@ -435,7 +435,7 @@ public class UserServiceImpl implements UserService {
                 throw new BaseException(BaseResponseCode.USER_SET_ROLE_USER_LEVEL_BELONGING_RELATION_WRONG);
             }
         }
-        //设置用户id
+        // 设置用户id
         userQuery.setId(user.getId());
         return user;
     }
@@ -453,7 +453,7 @@ public class UserServiceImpl implements UserService {
 		if(CollectionUtils.isEmpty(userModuleList)){
 			userModuleList = moduleMapper.getUserModuleListByUserRoleList(userRoleList);
 			if(CollectionUtils.isNotEmpty(userModuleList)){
-				//缓存用户菜单列表缓存
+				// 缓存用户菜单列表缓存
 				UserInvoker.saveUserModule(userModuleList,userId, request.getRequestHead());
 			}
 		}
@@ -474,9 +474,9 @@ public class UserServiceImpl implements UserService {
 		if(CollectionUtils.isEmpty(userRoleList)){
 			userRoleList = roleMapper.getUserRoleListByUserId(user.getUserId());
 			if(CollectionUtils.isNotEmpty(userRoleList)){
-				//绑定用户登录策略到线程本地
+				// 绑定用户登录策略到线程本地
 				ThreadLocalUtil.set(new ThreadParam.Biulder().setLoginStrategy(user.getLoginStrategy()).build());
-				//缓存用户角色列表缓存
+				// 缓存用户角色列表缓存
 				UserInvoker.saveUserRole(userRoleList,userId, request.getRequestHead());
 			}
 		}
@@ -492,7 +492,7 @@ public class UserServiceImpl implements UserService {
 		if(CollectionUtils.isEmpty(globalButtonList)){
 			globalButtonList = buttonMapper.getGlobalButtonList();
 			if(CollectionUtils.isNotEmpty(globalButtonList)){
-				//缓存全局按钮列表缓存
+				// 缓存全局按钮列表缓存
 				UserInvoker.saveGlobalButton(globalButtonList);
 			}
 		}
@@ -508,7 +508,7 @@ public class UserServiceImpl implements UserService {
 		if(CollectionUtils.isEmpty(globalModuleList)){
 			globalModuleList = moduleMapper.getGlobalModuleList();
 			if(CollectionUtils.isNotEmpty(globalModuleList)){
-				//缓存全局菜单列表缓存
+				// 缓存全局菜单列表缓存
 				UserInvoker.saveGlobalModule(globalModuleList);
 			}
 		}
@@ -570,15 +570,15 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public List<UserRoleListVo> getUserRoleForPage(HttpServletRequest request, UserQuery query) throws Exception {
-        //获取全局角色列表
+        // 获取全局角色列表
         List<Role> globalRoleList = this.getGlobalCacheByType(Role.class);
         if(CollectionUtils.isEmpty(globalRoleList)){
             return new ArrayList<>();
         }
-        //获取用户角色列表
+        // 获取用户角色列表
         List<Role> userRoleList = new ArrayList<>();
         User user = this.getUserByUserId(query);
-        //获取用户角色等级,根据用户等级筛选其所能分配的所有角色列表
+        // 获取用户角色等级,根据用户等级筛选其所能分配的所有角色列表
         List<Role> gRoleList = globalRoleList.stream().filter(role -> role.getRoleLevel() >= SessionUtil.getOperator(request).getUserLevel()).collect(Collectors.toList());
         if(null != user){
             userRoleList = roleMapper.getUserRoleListByUserId(user.getUserId());
@@ -590,7 +590,7 @@ public class UserServiceImpl implements UserService {
             }
         }
         List<UserRoleListVo> userRoleListVoList = new ArrayList<>();
-        //设置指定用户角色选中标识
+        // 设置指定用户角色选中标识
         for (Role gRole: gRoleList) {
             UserRoleListVo userRoleListVo = new UserRoleListVo();
             BeanUtils.copyProperties(userRoleListVo,gRole);
@@ -630,9 +630,9 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Override
 	public BaseResponse addUser(HttpServletRequest request, UserQuery userQuery) throws InvocationTargetException, IllegalAccessException {
-        //校验参数
+        // 校验参数
         this.validateAddOrUpdateParam(userQuery,true);
-        //组装user对象,并插入数据库
+        // 组装user对象,并插入数据库
         userMapper.insert(this.assUser(request, userQuery, true));
         return new BaseResponse.Builder().buildSuccess();
 	}
@@ -657,18 +657,18 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public BaseResponse editUser(HttpServletRequest request, UserQuery userQuery, String userId) throws InvocationTargetException, IllegalAccessException {
-        //验证参数
+        // 验证参数
         userQuery.setUserId(userId);
         User user = this.validateAddOrUpdateParam(userQuery, false);
         userQuery.setId(user.getId());
-        //不予许修改用户名密码
+        // 不予许修改用户名密码
         userQuery.setUsername(null);
         userQuery.setPassword(null);
-        //判断删禁级别
+        // 判断删禁级别
         if(user.getBak02().equals(SecurityConstants.DELETE_LEVEL_SYSTEM) && userQuery.getStatus().equals(SecurityStatusConstants.STATUS_CLOSE)){
             throw new BaseException(BaseResponseCode.EDIT_FORBIDDEN);
         }
-        //组装并更新用户
+        // 组装并更新用户
         userMapper.updateByPrimaryKeySelective(this.assUser(request, userQuery, false));
         return new BaseResponse.Builder().buildSuccess();
     }
@@ -682,7 +682,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public PageResponse<UserMemberVo> getMemberList(Integer groupsId, UserQuery userQuery, PageBounds pageBounds) throws InvocationTargetException, IllegalAccessException {
-        //查询用户列表
+        // 查询用户列表
         List<UserMemberVo> voList = new ArrayList<>();
         PageHelper.startPage(pageBounds.getPage(), pageBounds.getLimit());
         userQuery.setGroupsId(groupsId);
@@ -690,7 +690,7 @@ public class UserServiceImpl implements UserService {
         for (User user : list) {
             UserMemberVo userMemberVo = new UserMemberVo();
             BeanUtils.copyProperties(userMemberVo,user);
-            //设置该用户的组别信息
+            // 设置该用户的组别信息
             List<Groups> userGroupsByUserId = groupsMapper.getUserGroupsByUserId(user.getUserId());
             UserGroup userGroupRelation = userGroupMapper.getByUserId(user.getUserId());
             if(CollectionUtils.isNotEmpty(userGroupsByUserId)){
@@ -717,7 +717,7 @@ public class UserServiceImpl implements UserService {
         User operator = SessionUtil.getOperator(request);
         Integer userLevel = operator.getUserLevel();
         List<SelectSearchItemVo> selectSearchItemVos = new ArrayList<>();
-        //尝试为boss用户获取平台列表
+        // 尝试为boss用户获取平台列表
         if(selectType.equals(CommonControllerConstants.SELECT_TYPE_PLATFORM)){
             if(userLevel.equals(IsolationConstants.USER_LEVEL_BOSS)){
                 List<User> userList = userMapper.getSubPlatformSelectItemsForLevelBoss();
@@ -730,7 +730,7 @@ public class UserServiceImpl implements UserService {
                 return selectSearchItemVos;
             }
         }
-        //尝试为platform用户获取代理商列表
+        // 尝试为platform用户获取代理商列表
         if(selectType.equals(CommonControllerConstants.SELECT_TYPE_AGENT)){
             if(StringUtil.isEmpty(superCode)){
                 throw new BaseException(BaseResponseCode.COMMON_SELECT_TYPE_SUPER_CODE_NULL);
@@ -746,7 +746,7 @@ public class UserServiceImpl implements UserService {
                 return selectSearchItemVos;
             }
         }
-        //尝试为agent用户获取区域/组别列表
+        // 尝试为agent用户获取区域/组别列表
         if(selectType.equals(CommonControllerConstants.SELECT_TYPE_GROUP)){
             if(StringUtil.isEmpty(superCode)){
                 throw new BaseException(BaseResponseCode.COMMON_SELECT_TYPE_SUPER_CODE_NULL);
@@ -762,7 +762,7 @@ public class UserServiceImpl implements UserService {
                 return selectSearchItemVos;
             }
         }
-        //尝试为group用户获取业务员
+        // 尝试为group用户获取业务员
         if(selectType.equals(CommonControllerConstants.SELECT_TYPE_SALESMAN)){
             if(StringUtil.isEmpty(superCode)){
                 throw new BaseException(BaseResponseCode.COMMON_SELECT_TYPE_SUPER_CODE_NULL);

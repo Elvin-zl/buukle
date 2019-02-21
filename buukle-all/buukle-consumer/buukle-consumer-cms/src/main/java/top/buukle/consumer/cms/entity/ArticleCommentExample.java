@@ -283,6 +283,66 @@ public class ArticleCommentExample {
             return (Criteria) this;
         }
 
+        public Criteria andPidTypeIsNull() {
+            addCriterion("pid_type is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPidTypeIsNotNull() {
+            addCriterion("pid_type is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPidTypeEqualTo(Integer value) {
+            addCriterion("pid_type =", value, "pidType");
+            return (Criteria) this;
+        }
+
+        public Criteria andPidTypeNotEqualTo(Integer value) {
+            addCriterion("pid_type <>", value, "pidType");
+            return (Criteria) this;
+        }
+
+        public Criteria andPidTypeGreaterThan(Integer value) {
+            addCriterion("pid_type >", value, "pidType");
+            return (Criteria) this;
+        }
+
+        public Criteria andPidTypeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("pid_type >=", value, "pidType");
+            return (Criteria) this;
+        }
+
+        public Criteria andPidTypeLessThan(Integer value) {
+            addCriterion("pid_type <", value, "pidType");
+            return (Criteria) this;
+        }
+
+        public Criteria andPidTypeLessThanOrEqualTo(Integer value) {
+            addCriterion("pid_type <=", value, "pidType");
+            return (Criteria) this;
+        }
+
+        public Criteria andPidTypeIn(List<Integer> values) {
+            addCriterion("pid_type in", values, "pidType");
+            return (Criteria) this;
+        }
+
+        public Criteria andPidTypeNotIn(List<Integer> values) {
+            addCriterion("pid_type not in", values, "pidType");
+            return (Criteria) this;
+        }
+
+        public Criteria andPidTypeBetween(Integer value1, Integer value2) {
+            addCriterion("pid_type between", value1, value2, "pidType");
+            return (Criteria) this;
+        }
+
+        public Criteria andPidTypeNotBetween(Integer value1, Integer value2) {
+            addCriterion("pid_type not between", value1, value2, "pidType");
+            return (Criteria) this;
+        }
+
         public Criteria andArticleInfoIdIsNull() {
             addCriterion("article_info_id is null");
             return (Criteria) this;

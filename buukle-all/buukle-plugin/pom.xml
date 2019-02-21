@@ -13,6 +13,7 @@
     <modules>
         <module>buukle-plugin-security</module>
         <module>buukle-plugin-mq</module>
+        <module>buukle-plugin-upload</module>
     </modules>
     <dependencies>
         <!-- 依赖utils -->

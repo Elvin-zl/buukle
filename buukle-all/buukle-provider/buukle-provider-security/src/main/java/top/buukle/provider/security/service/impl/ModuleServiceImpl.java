@@ -1,7 +1,7 @@
 /*
  * Powered By [rapid-framework]
- * Web Site: http://www.rapid-framework.org.cn
- * Google Code: http://code.google.com/p/rapid-framework/
+ * Web Site: http:// www.rapid-framework.org.cn
+ * Google Code: http:// code.google.com/p/rapid-framework/
  * Since 2008 - 2018
  */
 
@@ -104,16 +104,16 @@ public class ModuleServiceImpl implements ModuleService {
      */
     @Override
     public List<ModuleNavigationVo> getUserModuleTree(String cookie, String applicationName) throws Exception {
-        //获取用户菜单列表
+        // 获取用户菜单列表
         List<Module> userModuleListAll = userService.getUserCacheInfoByType(Module.class,cookie);
         List<Module> userModuleListApplication = new ArrayList<>();
-        //根据应用名过滤
+        // 根据应用名过滤
         for (Module module:  userModuleListAll) {
             if(StringUtil.isNotEmpty(module.getApplicationName()) && module.getApplicationName().equals(applicationName)){
                 userModuleListApplication.add(module);
             }
         }
-        //转换用户菜单列表为菜单树
+        // 转换用户菜单列表为菜单树
         ArrayList<ModuleNavigationVo> moduleNavigationVoList = new ArrayList<>();
         this.converseToTree(userModuleListApplication,moduleNavigationVoList);
         return moduleNavigationVoList;
@@ -150,7 +150,7 @@ public class ModuleServiceImpl implements ModuleService {
             query.setStatus(SecurityStatusConstants.STATUS_OPEN);
         }
         moduleMapper.updateByPrimaryKeySelective(assModule(request,query,false));
-        //刷新菜单缓存
+        // 刷新菜单缓存
         this.refreshModuleCache(query.getId());
         return new BaseResponse.Builder().buildSuccess();
     }
@@ -203,12 +203,12 @@ public class ModuleServiceImpl implements ModuleService {
      */
     @Override
     public List<ModuleButtonListVo> getModuleButtonForPage(HttpServletRequest request, Integer id) throws Exception {
-        //获取全局按钮列表
+        // 获取全局按钮列表
         List<Button> globalButtonList = userService.getGlobalCacheByType(Button.class);
         if(CollectionUtils.isEmpty(globalButtonList)){
             return new ArrayList<>();
         }
-        //获取指定菜单按钮列表
+        // 获取指定菜单按钮列表
         List<Button> moduleButtonList = buttonMapper.getModuleButtons(id);
         List<Integer> moduleButtonIdList = new ArrayList<>();
         if(CollectionUtils.isNotEmpty(moduleButtonList)){
@@ -216,18 +216,18 @@ public class ModuleServiceImpl implements ModuleService {
                 moduleButtonIdList.add(mButton.getId());
             }
         }
-        //初始化返回包装对象
+        // 初始化返回包装对象
         List<ModuleButtonListVo> moduleButtonListVoList = new ArrayList<>();
         List<ButtonType> buttonTypes = buttonTypeMapper.getButtonTypes();
         if(CollectionUtils.isEmpty(buttonTypes)){
             return null;
         }
-        //初始化按钮类型-虚拟按钮 映射map
+        // 初始化按钮类型-虚拟按钮 映射map
         Map<Integer,ModuleButtonListVo> buttonTypeValueMap = new HashMap<>();
-        //初始化按钮类别 虚拟按钮id
+        // 初始化按钮类别 虚拟按钮id
         int vid = -1;
         for (ButtonType buttonType: buttonTypes) {
-            //初始化按钮类别 虚拟按钮 实体
+            // 初始化按钮类别 虚拟按钮 实体
             ModuleButtonListVo ModuleButtonListVo = new ModuleButtonListVo();
             ModuleButtonListVo.setpId(NumberUtil.INTEGER_ZERO);
             ModuleButtonListVo.setChecked(true);
@@ -236,16 +236,16 @@ public class ModuleServiceImpl implements ModuleService {
             moduleButtonListVoList.add(ModuleButtonListVo);
             buttonTypeValueMap.put(Integer.parseInt(buttonType.getTypeValue()),ModuleButtonListVo);
         }
-        //设置指定菜单拥有按钮选中标识,并设置按钮类型与按钮的父子关系
+        // 设置指定菜单拥有按钮选中标识,并设置按钮类型与按钮的父子关系
         for (Button gButton: globalButtonList) {
             ModuleButtonListVo moduleButtonListVo = new ModuleButtonListVo();
             BeanUtils.copyProperties(moduleButtonListVo,gButton);
             moduleButtonListVo.setName(gButton.getButtonName() + "  (" +gButton.getBak01() + ")");
-            //设置选中标识
+            // 设置选中标识
             if(moduleButtonIdList.contains(gButton.getId())){
                 moduleButtonListVo.setChecked(true);
             }
-            //设置按钮类型(虚拟按钮)与按钮的父子关系
+            // 设置按钮类型(虚拟按钮)与按钮的父子关系
             if(buttonTypeValueMap.keySet().contains(gButton.getOperationType())){
                 moduleButtonListVo.setpId(buttonTypeValueMap.get(gButton.getOperationType()).getId());
             }
@@ -277,9 +277,9 @@ public class ModuleServiceImpl implements ModuleService {
                 moduleButtonMapper.insert(moduleButton);
             }
         }
-        //更新菜单下按钮缓存
+        // 更新菜单下按钮缓存
         UserInvoker.deleteModuleButton(query.getId());
-        //更新拥有该菜单的用户的按钮缓存 ==>> TODO 此处可优化为异步线程处理
+        // 更新拥有该菜单的用户的按钮缓存 ==>> TODO 此处可优化为异步线程处理
         List<User> users = userMapper.getUserByModuleId(query.getId());
         if(CollectionUtils.isNotEmpty(users)){
             for (User user : users) {
@@ -320,19 +320,19 @@ public class ModuleServiceImpl implements ModuleService {
         if(StringUtil.isEmpty(applicationName)){
             throw new BaseException(BaseResponseCode.BASE_REQUEST_APPLICATION_NAME_NULL);
         }
-        //获取全局菜单列表
+        // 获取全局菜单列表
         List<Module> globalModuleList = userService.getGlobalCacheByType(Module.class);
         List<Module> globalModuleListForApplication = new ArrayList<>();
-        //根据应用名过滤 -- 暂时不用过滤逻辑
+        // 根据应用名过滤 -- 暂时不用过滤逻辑
         for (Module module:  globalModuleList) {
-//            if(StringUtil.isNotEmpty(module.getApplicationName()) && module.getApplicationName().equals(applicationName)){
-//                globalModuleListForApplication.add(module);
-//            }
+//             if(StringUtil.isNotEmpty(module.getApplicationName()) && module.getApplicationName().equals(applicationName)){
+//                 globalModuleListForApplication.add(module);
+//             }
             globalModuleListForApplication.add(module);
         }
-        //初始化返回对象
+        // 初始化返回对象
         ArrayList<RoleModuleListVo> roleModuleListVos = new ArrayList<>();
-        //初始化根菜单
+        // 初始化根菜单
         Module rootModule = new Module();
         rootModule.setId(0);
         rootModule.setPid(-1);
@@ -361,7 +361,7 @@ public class ModuleServiceImpl implements ModuleService {
     @Override
     public BaseResponse addModule(HttpServletRequest request, ModuleQuery query, String applicationName) throws InvocationTargetException, IllegalAccessException {
         moduleMapper.insert(validateAddOrUpdateParam(request,query,applicationName, true));
-        //清除全局菜单缓存
+        // 清除全局菜单缓存
         UserInvoker.clearGlobalCacheInfoByType(Module.class);
         return new BaseResponse.Builder().buildSuccess();
     }
@@ -392,11 +392,11 @@ public class ModuleServiceImpl implements ModuleService {
      */
     @Override
     public BaseResponse editModule(HttpServletRequest request, Integer id, ModuleQuery query, String applicationName) throws InvocationTargetException, IllegalAccessException {
-        //校验参数
+        // 校验参数
         Module module = validateAddOrUpdateParam(request, query, applicationName, false);
         module.setId(id);
         moduleMapper.updateByPrimaryKeySelective(module);
-        //刷新缓存
+        // 刷新缓存
         this.refreshModuleCache(id);
         return new BaseResponse.Builder().buildSuccess();
     }

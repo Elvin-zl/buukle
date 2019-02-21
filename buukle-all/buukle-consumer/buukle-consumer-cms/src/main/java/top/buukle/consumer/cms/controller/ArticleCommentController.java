@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import top.buukle.common.response.BaseResponse;
 import top.buukle.common.vo.page.PageBounds;
+import top.buukle.common.vo.fuuzy.FuzzySearchListVo;
 import top.buukle.common.vo.response.PageResponse;
-
 import top.buukle.consumer.cms .service.ArticleCommentService;
 import top.buukle.consumer.cms .entity.ArticleComment;
 import top.buukle.consumer.cms .entity.vo.ArticleCommentQuery;
-import top.buukle.common.vo.fuuzy.FuzzySearchListVo;
+
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -34,7 +34,7 @@ public class ArticleCommentController{
     */
     @RequestMapping("/getArticleCommentList")
     @ResponseBody
-    public PageResponse<ArticleComment> getUserList(ArticleCommentQuery query,PageBounds pageBounds) throws Exception {
+    public PageResponse<ArticleComment> getArticleCommentList(ArticleCommentQuery query,PageBounds pageBounds) throws Exception {
         return articleCommentService.getArticleCommentList(query,pageBounds);
     }
 

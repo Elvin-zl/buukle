@@ -62,33 +62,33 @@ public class UserInvoker {
      */
     public static void clearGlobalCacheInfoByType(Class clazz) {
         if(null == clazz){
-            //清除全局按钮缓存
+            // 清除全局按钮缓存
             RedisString.delete(UserInfoCacheConstants.GLOBAL_BUTTON_LIST_KEY);
-            //清除全局菜单缓存
+            // 清除全局菜单缓存
             RedisString.delete(UserInfoCacheConstants.GLOBAL_MODULE_LIST_KEY);
-            //清除全局角色缓存
+            // 清除全局角色缓存
             RedisString.delete(UserInfoCacheConstants.GLOBAL_ROLE_LIST_KEY);
-            //清除全局组别缓存
+            // 清除全局组别缓存
             RedisString.delete(UserInfoCacheConstants.GLOBAL_GROUPS_LIST_KEY);
             return;
         }
         if(clazz.equals(Button.class)){
-            //清除全局按钮缓存
+            // 清除全局按钮缓存
             RedisString.delete(UserInfoCacheConstants.GLOBAL_BUTTON_LIST_KEY);
             return;
         }
         if(clazz.equals(Module.class)){
-            //清除全局菜单缓存
+            // 清除全局菜单缓存
             RedisString.delete(UserInfoCacheConstants.GLOBAL_MODULE_LIST_KEY);
             return;
         }
         if(clazz.equals(Role.class)){
-            //清除全局角色缓存
+            // 清除全局角色缓存
             RedisString.delete(UserInfoCacheConstants.GLOBAL_ROLE_LIST_KEY);
             return;
         }
         if(clazz.equals(Groups.class)){
-            //清除全局组别缓存
+            // 清除全局组别缓存
             RedisString.delete(UserInfoCacheConstants.GLOBAL_GROUPS_LIST_KEY);
             return;
         }
@@ -102,9 +102,19 @@ public class UserInvoker {
      * @param userCookie   userCookie ==null ? "登录调用" : "认证调用";
      */
     public static String saveUser(User user, String defaultMaxAge, RequestHead requestHead, String userCookie) {
-        //将调用方应用指定默认超时时间缓存到redis ,一天后失效
+        // 将调用方应用指定默认超时时间缓存到redis ,一天后失效
         RedisString.setWithExpire(UserInfoCacheConstants.APPLICATION_DEFAULT_MAX_AGE_PREFIX + requestHead.getApplicationName(),defaultMaxAge,NumberUtil.LONG_ONE_DAY_SECOND);
-        //绑定用户登录策略到线程本地
+        // 绑定用户登录策略到线程本地
+        ThreadLocalUtil.set(new ThreadParam.Biulder().setLoginStrategy(user.getLoginStrategy()).build());
+        return UserInvoker.saveUserInfoWithPrefixAndStrategy(UserInfoCacheConstants.USER_INFO_KEY_PREFIX,JSON.toJSONString(user),userCookie,requestHead.getApplicationName());
+    }
+    /**
+     * 更新用户信息
+     * @param user
+     * @param requestHead
+     */
+    public static String updateUser(User user, RequestHead requestHead, String userCookie) {
+        // 绑定用户登录策略到线程本地
         ThreadLocalUtil.set(new ThreadParam.Biulder().setLoginStrategy(user.getLoginStrategy()).build());
         return UserInvoker.saveUserInfoWithPrefixAndStrategy(UserInfoCacheConstants.USER_INFO_KEY_PREFIX,JSON.toJSONString(user),userCookie,requestHead.getApplicationName());
     }
@@ -252,47 +262,47 @@ public class UserInvoker {
      */
     public static void clearUserCacheInfoByType(Class clazz, String userId) {
         if(null == clazz){
-            //清除角色缓存
+            // 清除角色缓存
             RedisString.delete(UserInfoCacheConstants.USER_ROLE_LIST_KEY_PREFIX + userId);
-            //清除菜单缓存
+            // 清除菜单缓存
             RedisString.delete(UserInfoCacheConstants.USER_MODULE_LIST_KEY_PREFIX + userId);
-            //清除按钮缓存
+            // 清除按钮缓存
             RedisString.delete(UserInfoCacheConstants.USER_BUTTON_LIST_KEY_PREFIX + userId);
-            //清除扩展缓存
+            // 清除扩展缓存
             RedisString.delete(UserInfoCacheConstants.USER_EXP_KEY_PREFIX + userId);
-            //清除组别缓存
+            // 清除组别缓存
             RedisString.delete(UserInfoCacheConstants.USER_GROUP_LIST_KEY_PREFIX + userId);
-            //清除下属缓存
+            // 清除下属缓存
             RedisString.delete(UserInfoCacheConstants.USER_SUBORDINATE_LIST_KEY_PREFIX + userId);
             return;
         }
         if(clazz.equals(Role.class)){
-            //清除角色缓存
+            // 清除角色缓存
             RedisString.delete(UserInfoCacheConstants.USER_ROLE_LIST_KEY_PREFIX + userId);
             return;
         }
         if(clazz.equals(Module.class)){
-            //清除菜单缓存
+            // 清除菜单缓存
             RedisString.delete(UserInfoCacheConstants.USER_MODULE_LIST_KEY_PREFIX + userId);
             return;
         }
         if(clazz.equals(Button.class)){
-            //清除按钮缓存
+            // 清除按钮缓存
             RedisString.delete(UserInfoCacheConstants.USER_BUTTON_LIST_KEY_PREFIX + userId);
             return;
         }
         if(clazz.equals(Button.class)){
-            //清除扩展缓存
+            // 清除扩展缓存
             RedisString.delete(UserInfoCacheConstants.USER_EXP_KEY_PREFIX + userId);
             return;
         }
         if(clazz.equals(Button.class)){
-            //清除组别缓存
+            // 清除组别缓存
             RedisString.delete(UserInfoCacheConstants.USER_GROUP_LIST_KEY_PREFIX + userId);
             return;
         }
         if(clazz.equals(Button.class)){
-            //清除下属缓存
+            // 清除下属缓存
             RedisString.delete(UserInfoCacheConstants.USER_SUBORDINATE_LIST_KEY_PREFIX + userId);
         }
     }

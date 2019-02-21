@@ -11,7 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
- * Created By MBG-GUI-EXTENSION https://github.com/spawpaw/mybatis-generator-gui-extension
+ * Created By MBG-GUI-EXTENSION https:// github.com/spawpaw/mybatis-generator-gui-extension
  * Description:
  * 这是数据库中表的注释
  *测试l1

@@ -122,7 +122,7 @@ public class LoginParameters {
 
     /** 开启授权后，指定免授权的路径数组集合*/
     private List<String> freePermissionPathList = new ArrayList<>();
-    //end
+    // end
 
     public LoginParameters() {
     }

@@ -155,7 +155,7 @@ public class BaseResponse<T>{
          * @param errorCount
          * */
         public BaseResponse buildFailedInner(AtomicLong errorCount) {
-            //系统异常计数器加一
+            // 系统异常计数器加一
             errorCount.incrementAndGet() ;
             baseResponse.status = FAILED;
             baseResponse.msg = SYSTEM_BUSY;

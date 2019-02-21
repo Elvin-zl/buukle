@@ -31,9 +31,9 @@ public class ApiSignResponseHandler extends BaseResponseParamHandler {
     protected void doHandle(BaseResponseWrapper baseResponseWrapper) throws IOException {
 
         LOGGER.info("返回值没有处理.. .. ");
-//        String responseBody = baseResponseWrapper.getResponseBody();
-//        BaseResponse baseResponse = JSON.parseObject(responseBody, BaseResponse.class);
-//        baseResponse.setMsg(baseResponse.getMsg()+"--");
-//        this.afterHandle(baseResponseWrapper,JSON.toJSONString(baseResponse));
+//         String responseBody = baseResponseWrapper.getResponseBody();
+//         BaseResponse baseResponse = JSON.parseObject(responseBody, BaseResponse.class);
+//         baseResponse.setMsg(baseResponse.getMsg()+"--");
+//         this.afterHandle(baseResponseWrapper,JSON.toJSONString(baseResponse));
     }
 }

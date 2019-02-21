@@ -33,7 +33,7 @@ public class CookieUtil{
     final public static String COOKIE_MAP_INITIALIZE_STATUS_VALUE_FALSE = "0";
 
     static{
-        //初始化本地COOKIE_MAP初始化状态值
+        // 初始化本地COOKIE_MAP初始化状态值
         COOKIE_MAP.put(COOKIE_MAP_INITIALIZE_STATUS_KEY,COOKIE_MAP_INITIALIZE_STATUS_VALUE_TRUE);
     }
     /**

@@ -30,7 +30,7 @@ public class DataIsolationRequestValidator extends BaseRequestValidator {
      */
     @Override
     public void verify(String requestBody, HttpServletRequest httpServletRequest) {
-        //本拦截器不实现
+        // 本拦截器不实现
     }
 
     /**
@@ -47,9 +47,9 @@ public class DataIsolationRequestValidator extends BaseRequestValidator {
             if(!uri.contains("uploadImageServlet")){
                 String method = httpServletRequest.getMethod();
                 if("POST".equals(method)){
-                    //校验请求参数
+                    // 校验请求参数
                     BaseResponse baseResponse = this.doValidate(httpServletRequest);
-                    //校验失败
+                    // 校验失败
                     if(baseResponse.isSuccess()){
                         this.afterValidateHandle(httpServletRequest,requestBody);
                     }

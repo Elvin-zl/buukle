@@ -32,6 +32,15 @@ public class SecurityRestController {
     private UserService userService;
 
     /**
+     * 基础验签
+     * @return
+     * @throws Exception
+     */
+    @PostMapping(value = "/baseSignVerify")
+    public BaseResponse baseSignVerify(BaseRequest request) throws Exception {
+        return new BaseResponse.Builder().buildSuccess();
+    }
+    /**
      * 添加黑名单
      * @param outRequest
      * @return
@@ -162,5 +171,15 @@ public class SecurityRestController {
     @PostMapping(value = "/getArticleAuthor")
     User getArticleAuthor(@RequestBody BaseRequest baseRequest){
         return securityApiBusiness.getArticleAuthor(baseRequest);
+    }
+
+    /**
+     * 更新用户基本信息
+     * @param baseRequest
+     * @return
+     */
+    @PostMapping(value = "/updateUserBasicResource")
+    BaseResponse updateUserBasicResource(@RequestBody BaseRequest baseRequest) throws Exception {
+        return securityApiBusiness.updateUserBasicResource(baseRequest);
     }
 }

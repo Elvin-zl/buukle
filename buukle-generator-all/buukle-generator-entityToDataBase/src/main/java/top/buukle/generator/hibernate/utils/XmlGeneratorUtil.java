@@ -91,7 +91,7 @@ public class XmlGeneratorUtil extends DataSourceConfig {
                         String classTableName = converseToTableName(className);
 
                         bw.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
-                        bw.write("<!DOCTYPE hibernate-mapping PUBLIC \"-//Hibernate/Hibernate Mapping DTD 3.0//EN\" \"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd\">\r\n");
+                        bw.write("<!DOCTYPE hibernate-mapping PUBLIC \"-// Hibernate/Hibernate Mapping DTD 3.0// EN\" \"http:// www.hibernate.org/dtd/hibernate-mapping-3.0.dtd\">\r\n");
                         bw.write("<hibernate-mapping>\r\n");
                         bw.write("<class name=\"" + classDescriptions + "\" table=\"" + classTableName + "\" lazy=\"false\">\r\n");
 
@@ -147,7 +147,7 @@ public class XmlGeneratorUtil extends DataSourceConfig {
         DataSourceConfig dataConfig = new DataSourceConfig();
         String hibernateCfgXmlFilePathName = System.getProperty(USER_DIR_PROPERTY_KEY) + HIBERNATE_CFG_XML;
         System.out.println(">>>>>>>>>>>>>>生成核心配置文件路径为: " + hibernateCfgXmlFilePathName);
-        //输出数据库连接类型信息
+        // 输出数据库连接类型信息
         if (dataConfig.getDriver().contains("mysql")) {
             System.out.println(">>>>>>>>>>>>>>数据库连接类型:MYSQL(mysql)");
         }
@@ -164,7 +164,7 @@ public class XmlGeneratorUtil extends DataSourceConfig {
             FileWriter fw = new FileWriter(hibernateCfgXmlFile, false);
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
-            bw.write("<!DOCTYPE hibernate-configuration PUBLIC \"-//Hibernate/Hibernate Configuration DTD 3.0//EN\" \"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd\">");
+            bw.write("<!DOCTYPE hibernate-configuration PUBLIC \"-// Hibernate/Hibernate Configuration DTD 3.0// EN\" \"http:// www.hibernate.org/dtd/hibernate-configuration-3.0.dtd\">");
             bw.write("\r\n");
             bw.write("<hibernate-configuration>");
             bw.write("<session-factory>");

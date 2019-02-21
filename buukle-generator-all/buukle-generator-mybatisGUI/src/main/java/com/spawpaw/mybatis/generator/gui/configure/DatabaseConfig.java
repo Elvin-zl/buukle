@@ -71,16 +71,16 @@ public class DatabaseConfig implements Serializable {
     }
 
     private Connection getConnection() throws SQLException {
-        //加载驱动
+        // 加载驱动
         Driver driver = DatabaseType.valueOf(databaseType.getValue()).getDriver();
-        //获得数据库连接
+        // 获得数据库连接
         Properties p = new Properties();
         p.put("user", userName.getValue());
         p.put("password", password.getValue());
-        p.put("useInformationSchema", "true"); //获取表注释
+        p.put("useInformationSchema", "true"); // 获取表注释
         log.info("using connection url:{}", connectionUrl());
         return driver.connect(connectionUrl(), p);
-//        return DriverManager.getConnection(connectionUrl(), userName.getValue(), password.getValue());
+//         return DriverManager.getConnection(connectionUrl(), userName.getValue(), password.getValue());
     }
 
     public void test() throws SQLException {
@@ -119,7 +119,7 @@ public class DatabaseConfig implements Serializable {
         String _tableNamePattern = null;
         String[] types = {"TABLE", "VIEW"};
         String sql;
-        //获取表列表
+        // 获取表列表
         switch (DatabaseType.valueOf(databaseType.getValue())) {
             case MySQL:
                 _catalog = connection.getCatalog();
@@ -178,9 +178,9 @@ public class DatabaseConfig implements Serializable {
 
         List<String> tmpList = new ArrayList<>(tableConfigs.keySet());
         tmpList.sort(Comparator.naturalOrder());
-        //获取每个表中的字段信息
+        // 获取每个表中的字段信息
         for (String tableName : tmpList) {
-            //生成表的基本信息（每个字段的名称、类型）
+            // 生成表的基本信息（每个字段的名称、类型）
             rs = meta.getColumns(_catalog, _schemaPattern, tableName, null);
             while (rs.next()) {
                 TableColumnMetaData columnMetaData = new TableColumnMetaData();
@@ -189,7 +189,7 @@ public class DatabaseConfig implements Serializable {
                 tableConfigs.get(tableName).add(columnMetaData);
             }
 
-            //生成TreeView
+            // 生成TreeView
             TreeItem<String> item = new TreeItem<>(tableName);
             rootItem.getChildren().add(item);
             rootItem.setExpanded(true);
@@ -197,14 +197,14 @@ public class DatabaseConfig implements Serializable {
         connection.close();
     }
 
-    //关闭连接,清空ListView
+    // 关闭连接,清空ListView
     public void close() {
         if (rootItem != null)
             rootItem.getChildren().clear();
     }
 
 
-    //获取数据库连接的配置表单
+    // 获取数据库连接的配置表单
     public VBox getLayout() {
         VBox vBox = new VBox();
         try {

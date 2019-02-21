@@ -55,7 +55,7 @@ public class AppConfigure implements WebMvcConfigurer {
      */
     @Bean
     public Retryer feignRetryer() {
-        //超时后每隔200ms ~ 2000ms 重试一次,最多重试0次;
+        // 超时后每隔200ms ~ 2000ms 重试一次,最多重试0次;
         return new Retryer.Default(200,2000,0);
     }
 
@@ -76,7 +76,7 @@ public class AppConfigure implements WebMvcConfigurer {
         registry.addInterceptor(getSecurityInterceptor())
                 .addPathPatterns("/**")
                 .excludePathPatterns("/static/**")
-                //放行錯誤請求
+                // 放行錯誤請求
                 .excludePathPatterns("/error")
         ;
     }

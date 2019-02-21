@@ -89,4 +89,12 @@ public interface SecurityBusiness {
      * @return
      */
     User getArticleAuthor(String userId);
+
+    /**
+     * 更新用户基本信息
+     * @param user
+     * @param httpServletRequest
+     * @return
+     */
+    BaseResponse updateUserBasicResource(User user, HttpServletRequest httpServletRequest);
 }

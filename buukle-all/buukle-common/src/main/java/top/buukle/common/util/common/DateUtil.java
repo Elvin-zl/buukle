@@ -2078,47 +2078,47 @@ public class DateUtil {
 	}
 	
 	public static void main(String args[]) {
-//		System.out.println(parseLast24Hour().toString());
-//		
-//		
-//		System.out.println(DateUtil.getBetweenDates(DateUtil.addDayOnDate(parse("2017-01-07 00:00:00"), NumberUtil.INTEGER_ONE), DateUtil.addDayOnDate(parse("2017-01-07 23:59:59"), NumberUtil.INTEGER_ONE)));
-//		System.out.println(DateUtil.getBetweenDates(DateUtil.addDayOnDate(parse("2017-01-07 00:00:00"), NumberUtil.INTEGER_ONE), DateUtil.addDayOnDate(parse("2017-01-08 23:59:59"), NumberUtil.INTEGER_ONE)));
-//		System.out.println(shortDate(addDayOnDate(parse("2017-01-07 13:22:13"), 1)));
-//		System.out.println(shortDate(addDayOnDate(parse("2017-01-07"), 1)));
-//		System.out.println(getDateStart("2017-09-10"));
-//		System.out.println(getDateEnd("2017-09-10"));
-//		
-//		System.out.println(getTomorrowSeconds(new Date()));
-//		System.out.println(DateUtil.getPreDateStart(DateUtil.parse("20171027"), 5));
-//		System.out.println(DateUtil.getAfterDateEnd(DateUtil.parse("20171027"), 3));
-//		System.out.println(DateUtil.getPreDateStart(DateUtil.parse("20171026 23:23:23"), 5));
-//		System.out.println(DateUtil.getAfterDateEnd(DateUtil.parse("20171026 23:23:23"), 3));
-//		Calendar dateCalendar = Calendar.getInstance();
-//		int conditionYear = dateCalendar.get(Calendar.YEAR);
-//		dateCalendar.setTime(DateUtil.parse("20170909"));
-//		//获取传入时间的年与月 
-//		System.out.println(dateCalendar.get(Calendar.YEAR));
-//		System.out.println(dateCalendar.get(Calendar.MONTH) + 1);
-//		
-//		
-//		
-//		System.out.println(DateUtil.longDate(new Date()) + "dd");
-//		System.out.println(DateUtil.getPreDate(new Date(), 2) + "dd");
-//		System.out.println(getLastFirstDayOfMonth(new Date()));
-//		System.out.println(getLastMaxMonthDate(new Date()));
-//		
-//		
-//		System.out.println(DateUtil.getBetweenDates(DateUtil.parse("2017-09-10 23:23:23"), DateUtil.parse("2017-10-06 10:09:09")));
-//		System.out.println(DateUtil.longDate(DateUtil.parse(DateUtil.getPreDate(new Date()))));
-//		System.out.println(DateUtil.getPreDate(new Date()));
-//		System.out.println(shortMonth(addMonthOnDate(new Date(), 1)));
-//		Date date = DateUtil.AddDayDate(new Date(), 1);
-//		System.out.println(date);
-//		System.out.println(DateUtil.formatDate("yyyy-MM-dd", date));
-//		System.out.println(new Date(1490856684180l));
-//		System.out.println(parseLastDayTime(7));
-//		
-//		System.out.println(parse("20170322 15:37:38  ")+"  ---");
+// 		System.out.println(parseLast24Hour().toString());
+//
+//
+// 		System.out.println(DateUtil.getBetweenDates(DateUtil.addDayOnDate(parse("2017-01-07 00:00:00"), NumberUtil.INTEGER_ONE), DateUtil.addDayOnDate(parse("2017-01-07 23:59:59"), NumberUtil.INTEGER_ONE)));
+// 		System.out.println(DateUtil.getBetweenDates(DateUtil.addDayOnDate(parse("2017-01-07 00:00:00"), NumberUtil.INTEGER_ONE), DateUtil.addDayOnDate(parse("2017-01-08 23:59:59"), NumberUtil.INTEGER_ONE)));
+// 		System.out.println(shortDate(addDayOnDate(parse("2017-01-07 13:22:13"), 1)));
+// 		System.out.println(shortDate(addDayOnDate(parse("2017-01-07"), 1)));
+// 		System.out.println(getDateStart("2017-09-10"));
+// 		System.out.println(getDateEnd("2017-09-10"));
+//
+// 		System.out.println(getTomorrowSeconds(new Date()));
+// 		System.out.println(DateUtil.getPreDateStart(DateUtil.parse("20171027"), 5));
+// 		System.out.println(DateUtil.getAfterDateEnd(DateUtil.parse("20171027"), 3));
+// 		System.out.println(DateUtil.getPreDateStart(DateUtil.parse("20171026 23:23:23"), 5));
+// 		System.out.println(DateUtil.getAfterDateEnd(DateUtil.parse("20171026 23:23:23"), 3));
+// 		Calendar dateCalendar = Calendar.getInstance();
+// 		int conditionYear = dateCalendar.get(Calendar.YEAR);
+// 		dateCalendar.setTime(DateUtil.parse("20170909"));
+// 		// 获取传入时间的年与月
+// 		System.out.println(dateCalendar.get(Calendar.YEAR));
+// 		System.out.println(dateCalendar.get(Calendar.MONTH) + 1);
+//
+//
+//
+// 		System.out.println(DateUtil.longDate(new Date()) + "dd");
+// 		System.out.println(DateUtil.getPreDate(new Date(), 2) + "dd");
+// 		System.out.println(getLastFirstDayOfMonth(new Date()));
+// 		System.out.println(getLastMaxMonthDate(new Date()));
+//
+//
+// 		System.out.println(DateUtil.getBetweenDates(DateUtil.parse("2017-09-10 23:23:23"), DateUtil.parse("2017-10-06 10:09:09")));
+// 		System.out.println(DateUtil.longDate(DateUtil.parse(DateUtil.getPreDate(new Date()))));
+// 		System.out.println(DateUtil.getPreDate(new Date()));
+// 		System.out.println(shortMonth(addMonthOnDate(new Date(), 1)));
+// 		Date date = DateUtil.AddDayDate(new Date(), 1);
+// 		System.out.println(date);
+// 		System.out.println(DateUtil.formatDate("yyyy-MM-dd", date));
+// 		System.out.println(new Date(1490856684180l));
+// 		System.out.println(parseLastDayTime(7));
+//
+// 		System.out.println(parse("20170322 15:37:38  ")+"  ---");
 		
 		// System.out.println(">>>>" + parseTime(new Date(), "1610"));
 		// System.out.println(">>>>" + hoursBetween(new Date(), parseTime(new
@@ -2202,7 +2202,7 @@ public class DateUtil {
 		// Calendar cNow = Calendar.getInstance();
 		// cNow.set(2009, 10, 26, 13, 50, 0);
 		// Date date2 = cNow.getTime();
-//		System.out.println(parseHamInfantDate("2006-03-01"));
+// 		System.out.println(parseHamInfantDate("2006-03-01"));
 		// Calendar aCalendar = Calendar.getInstance();
 		// // 里面野可以直接插入date类型
 		// aCalendar.setTime(parse("2005-02-01"));
@@ -2243,12 +2243,12 @@ public class DateUtil {
 		// System.out.println(date1);
 		// System.out.println(date2);
 		// System.out.println(secobdsBetween(date2, date1));
-//		System.out.println(longWholeDate(new Date()));
-//		System.out.println(getPreDateStart(new Date()));
-//		System.out.println(getPreDateEnd(new Date()));
-//		System.out.println(getDate(new Date()));
-//		System.out.println(addDayOnToday(-1));
-//		System.out.println(addHourOnDate(new Date(), -24));
+// 		System.out.println(longWholeDate(new Date()));
+// 		System.out.println(getPreDateStart(new Date()));
+// 		System.out.println(getPreDateEnd(new Date()));
+// 		System.out.println(getDate(new Date()));
+// 		System.out.println(addDayOnToday(-1));
+// 		System.out.println(addHourOnDate(new Date(), -24));
 		String formatDate = formatDate("yyyy-MM-dd HH:mm:ss", addHourOnDate(new Date(), -24));
 		System.out.println(formatDate);
 	}

@@ -8,11 +8,11 @@ import javafx.scene.layout.HBox;
  * @author BenBenShang spawpaw@hotmail.com
  */
 public class ConfigWrapper {
-    //    Config config;
-//    ExportToTab[] exportToTabs;
-//    ExportToPlugin[] exportToPlugins;
-//    EnablePlugin[] enablePlugins;
-//    Property property;
+    //     Config config;
+//     ExportToTab[] exportToTabs;
+//     ExportToPlugin[] exportToPlugins;
+//     EnablePlugin[] enablePlugins;
+//     Property property;
     public HBox layout;
     public int index;
 

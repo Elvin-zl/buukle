@@ -124,7 +124,7 @@ function renderYoutube(wrapperId, youtubeId) {
 }
 ```
 
-Reload the browser and write below in *markdown view*.
+Reload the browser and write below in *markdown areView*.
 ````markdown
 ```youtube
 XGSy3_Czz8k

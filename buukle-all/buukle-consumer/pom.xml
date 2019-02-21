@@ -12,7 +12,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>buukle-consumer-cms</module>
-        <module>buukle-consumer-portal</module>
+        <module>buukle-consumer-www</module>
     </modules>
     <dependencies>
         <!-- 依赖utils -->

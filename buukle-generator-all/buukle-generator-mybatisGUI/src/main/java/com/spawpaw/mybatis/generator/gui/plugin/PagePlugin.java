@@ -27,7 +27,7 @@ public class PagePlugin extends PluginAdapter {
 
         PrimitiveTypeWrapper integerWrapper = FullyQualifiedJavaType.getIntInstance().getPrimitiveTypeWrapper();
 
-        //field
+        // field
         Field limit = new Field();
         limit.setName("limit");
         limit.setVisibility(JavaVisibility.PRIVATE);
@@ -40,7 +40,7 @@ public class PagePlugin extends PluginAdapter {
         offset.setType(integerWrapper);
         topLevelClass.addField(offset);
 
-        //getter && setter
+        // getter && setter
         Method setLimit = new Method();
         setLimit.setVisibility(JavaVisibility.PUBLIC);
         setLimit.setName("setLimit");

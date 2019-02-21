@@ -30,15 +30,15 @@ public class GenerationProgressController extends BaseController {
      */
     public void beginGenerate(boolean generateAll) {
         ta_msg.setText("start...");
-        //check
+        // check
         String msg = "";
-        //是否选中数据库
+        // 是否选中数据库
         if (selectedDatabaseConfig == null) {
             msg += "\n" + Constants.getI18nStr("msg.error.NoDatabaseSelected");
-        } else if (!generateAll && (selectedProjectConfig.selectedTable == null || selectedProjectConfig.selectedTable.getValue().isEmpty())) {  //是否选中表
+        } else if (!generateAll && (selectedProjectConfig.selectedTable == null || selectedProjectConfig.selectedTable.getValue().isEmpty())) {  // 是否选中表
             msg += "\n" + Constants.getI18nStr("msg.error.NoTableSelected");
         } else {
-            //是否填写 Mapper目录、包名，接口目录、包名，Mapper名称
+            // 是否填写 Mapper目录、包名，接口目录、包名，Mapper名称
             if (selectedProjectConfig.mapperDir.getValue().isEmpty())
                 msg += "\n" + Constants.getI18nStr("msg.error.MapperDirNotConfigured");
             if (selectedProjectConfig.mapperPackage.getValue().isEmpty())
@@ -62,7 +62,7 @@ public class GenerationProgressController extends BaseController {
             return;
         }
 
-        int tableCount = generateAll ? selectedDatabaseConfig.tableConfigs.keySet().size() : 1;//表的数量
+        int tableCount = generateAll ? selectedDatabaseConfig.tableConfigs.keySet().size() : 1;// 表的数量
         int generatedTableCount = 0;
         try {
             if (generateAll) {

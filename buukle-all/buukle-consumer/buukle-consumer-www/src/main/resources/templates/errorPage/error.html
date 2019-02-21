@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>buukle-错误</title>
+    <link href="/static/style/frame/common.css" type="text/css" rel="stylesheet">
+    <link href="/static/style/user/user.css" type="text/css" rel="stylesheet">
+    <link href="/static/style/frame/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="/static/style/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+    <style>
+        input:focus { outline: none; }
+    </style>
+</head>
+<body>
+<!--导航部分-->
+<nav class="navbar navbar-inverse navbar-fixed-top" id="navbar"> </nav>
+<!--导航部分-->
+
+<div class="container user">
+    <div class="position clearfix">错误!</div>
+    <div class="user-cont clearfix" style='background-image: url("/static/images/error.jpg");height: 640px'>
+        <div class="error-info">
+            <h3 th:text="(${viewException?.msg} == '') ? '出现错误!' :  ${viewException?.msg}"></h3>
+            <button id="lookBig" type="button" class="btn btn-default" style="margin-left: 25%;">
+                <span id="showInfo">查看详情</span>
+            </button>
+        </div>
+        <textarea id="info" style="display: none;width:100%;height: 400px" disabled th:text="(${viewException?.info} == '') ? '出现错误!' :  ${viewException?.info}"></textarea>
+    </div>
+</div>
+
+<nav class="foot navbar-inverse navbar-fixed-bottom" id="foot"> </nav>
+<script src="/static/js/frame/jquery.min.js" type="application/javascript"></script>
+<script src="/static/js/frame/bootstrap.min.js" type="text/javascript"></script>
+<script src="/static/js/frame/common.js" type="text/javascript"></script>
+<script>
+    var isShow = false;
+    $('#showInfo').off().on('click',function () {
+        if($('#info').html() == ''){
+            $(this).html('没有详情');
+            return;
+        }
+        if(!isShow){
+            $('#info').show();
+            $(this).html('隐藏详情');
+            isShow = true;
+        }else{
+            isShow = false;
+            $(this).html('查看详情');
+            $('#info').hide();
+        }
+    });
+    var scrollTop = 0;
+    $(window).scroll(function () {
+        var nowScrollTop = $(document).scrollTop();
+        if (nowScrollTop > scrollTop) {
+            $('.wrap').addClass('hide-wrap');
+        } else {
+            $('.wrap').removeClass('hide-wrap');
+        }
+        scrollTop = nowScrollTop;
+    });
+
+    $('.nav-tabs li a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show')
+    });
+    $('#navbar').load("/static/views/common/head.html");
+    $('#foot').load("/static/views/common/foot.html");
+</script>
+</body>
+</html>

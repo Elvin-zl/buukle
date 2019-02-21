@@ -16,6 +16,6 @@ public  class DefaultResponseParamHandler extends BaseResponseParamHandler {
      */
     @Override
     protected void doHandle(BaseResponseWrapper baseResponseWrapper) {
-        //默认不作处理
+        // 默认不作处理
     }
 }

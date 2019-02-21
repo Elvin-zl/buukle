@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>buukle-个人中心</title>
+    <link href="/static/style/frame/common.css" type="text/css" rel="stylesheet">
+    <link href="/static/style/user/user.css" type="text/css" rel="stylesheet">
+    <link href="/static/style/frame/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="/static/style/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+    <style>
+        input:focus { outline: none; }
+    </style>
+</head>
+<body>
+<!--导航部分-->
+<nav class="navbar navbar-inverse navbar-fixed-top" id="navbar"> </nav>
+<!--导航部分-->
+
+<div class="container user">
+    <div class="position clearfix">个人中心</div>
+    <div class="user-cont clearfix">
+        <div class="col-md-4 user-left">
+            <div class="user-left-n clearfix">
+                <a href="#" class="user-headimg f"><img  th:attr="src=${userInfo?.headImageUrl}"></a>
+                <div class="user-name f">
+                    <h4 th:text="${userInfo?.username}"></h4>
+                    <p th:text="${userInfo?.slogen}"></p>
+                </div>
+            </div>
+            <div class="user-left-n clearfix">
+                <ul class="list-group">
+                    <a class="list-group-item" href="javascript:void(0)">
+                        <span class="badge red">0</span>
+                        <i class="fa fa-book"></i>&nbsp;文章数量
+                    </a>
+                    <a class="list-group-item" href="javascript:void(0)">
+                        <span class="badge">0</span>
+                        <i class="fa fa-heart"></i>&nbsp;送出赞数
+                    </a>
+                    <li class="list-group-item" href="javascript:void(0)">
+                        <span class="badge">0</span>
+                        <i class="fa fa-star"></i>&nbsp;收到赞数
+                    </li>
+                </ul>
+                <!--<a href="#" class="btn btn-success infos">&nbsp;个人资料</a>-->
+                <!--<a href="#" class="btn btn-success infos">&nbsp;我的足迹</a>-->
+                <!--<a href="#" class="btn btn-success infos">&nbsp;撰写文章</a>-->
+            </div>
+        </div>
+        <div class="col-md-8 user-right">
+            <div class="user-right-n clearfix">
+                <ul id="right-tab" class="nav nav-tabs">
+                    <li role="presentation" class="active">
+                        <a href="#baseicResource" id="home-tab1" data-toggle="tab"><i class="fa fa-edit"></i>&nbsp;基本资料</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#moreResource" id="home-tab2" data-toggle="tab"><i class="fa fa-book"></i>&nbsp;更多资料</a>
+                    </li>
+                    <!--<li role="presentation">-->
+                        <!--<a href="#myPraise" id="home-tab3" data-toggle="tab"><i class="fa fa-heart"></i>&nbsp;我赞过的</a>-->
+                    <!--</li>-->
+                    <!--<li role="presentation">-->
+                        <!--<a href="#myPublish" id="home-tab4" data-toggle="tab"><i class="fa fa-pencil"></i>&nbsp;撰写文章</a>-->
+                    <!--</li>-->
+                    <!--<li role="presentation">-->
+                        <!--<a href="#myDraft" id="home-tab5" data-toggle="tab"><i class="fa fa-code"></i>&nbsp;草稿箱</a>-->
+                    <!--</li>-->
+                </ul>
+
+                <div class="user-right-n clearfix tab-content">
+                    <input id="headImgFile" type="file" style="width: 0;height: 0">
+                    <!--基本资料-->
+                    <div role="tabpanel" class="tab-pane active" id="baseicResource">
+                        <form id="userBasicResource">
+                            <div class="art-row" style="padding-left: 40%;">
+                                <button id="edit" type="button" class="btn btn-default" style="background-color:#e8ecef">
+                                    编辑
+                                </button>
+                            </div>
+                            <div class="art-row"  style="border-bottom: 0 solid #e8e8e8;">
+                                <a style="margin-left: 40%;" href="#" class="user-headimg"><img id="headImage" th:attr="src=${userInfo?.headImageUrl}"></a>
+                            </div>
+                            <div id="editHeadImg" class="art-row art-row-center">
+                                <button id="lookBig" type="button" class="btn btn-default">
+                                    <span> 查看大图</span>
+                                </button>
+                                <button style="display: none" id="editImg" type="button" class="btn btn-default">
+                                    <span> 修改头像</span>
+                                </button>
+                            </div>
+                            <input id="headImgUrl" name="headImageUrl" type="hidden">
+                            <div class="art-row">
+                                <table class="user-center-tab">
+                                    <tr>
+                                        <td style="padding-bottom: 7px;">
+                                            签名
+                                        </td>
+                                        <td>
+                                            <input th:attr="value=${userInfo?.slogen}" type="text" name="slogen" autocomplete="off" class="user-center none-border user-center-input" disabled placeholder="签名" id="slogen">
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="art-row">
+                                <table class="user-center-tab">
+                                    <tr>
+                                        <td style="padding-bottom: 7px;">
+                                            用户名
+                                        </td>
+                                        <td>
+                                            <input type="text" th:attr="value=${userInfo?.username}" name="username" autocomplete="off" class=" user-center none-border user-center-input-1" disabled placeholder="用户名" id="username">
+                                        </td>
+                                        <td style="padding-bottom: 7px;">
+                                            性别
+                                        </td>
+                                        <td>
+                                            <input type="text" name="gender" th:attr="value=${userInfo?.gender} ==1 ? '男' : '女' "  autocomplete="off" class=" user-center none-border user-center-input" disabled placeholder="性别" id="gender">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-bottom: 7px;">
+                                            手机号
+                                        </td>
+                                        <td>
+                                            <input type="text" name="phone" th:attr="value=${userInfo?.phone}" autocomplete="off" class=" user-center none-border user-center-input" disabled placeholder="手机号" id="phone">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </form>
+                    </div>
+                    <!--更多资料-->
+                    <div role="tabpanel" class="tab-pane" id="moreResource">
+                        暂未开放!
+                    </div>
+                    <!--&lt;!&ndash;我的文章&ndash;&gt;-->
+                    <!--<div role="tabpanel" class="tab-pane" id="myArticle">-->
+                        <!--<div class="art-row">-->
+                            <!--<a href="javascript:void(0)" class="author"><i class="fa fa-user"></i>&nbsp;<span>笨笨熊喜欢吃饼干</span></a> <a href="javascript:void(0)" class="time"><i class="fa fa-clock-o"></i>&nbsp;<span>2016-7-17 14:24</span></a> <a href="javascript:void(0)" class="time"><i class="fa fa-list-ul"></i>&nbsp;发表在:&nbsp;<span>前端</span></a>-->
+                            <!--<h4><a href="" class="title">myArticle</a></h4>-->
+                            <!--<a href="javascript:void(0)" class="author"><i class="fa fa-comment"></i>&nbsp;评论:&nbsp;<span>125</span></a> <a href="javascript:void(0)" class="time"><i class="fa fa-eye"></i>&nbsp;阅读:&nbsp;<span>151</span></a> <a href="javascript:void(0)" class="time"><i class="fa fa-heart"></i>&nbsp;收藏:&nbsp;<span>151</span></a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;我赞过的&ndash;&gt;-->
+                    <!--<div role="tabpanel" class="tab-pane" id="myPraise">-->
+                        <!--<div class="art-row">-->
+                            <!--<a href="javascript:void(0)" class="author"><i class="fa fa-user"></i>&nbsp;<span>笨笨熊喜欢吃饼干</span></a> <a href="javascript:void(0)" class="time"><i class="fa fa-clock-o"></i>&nbsp;<span>2016-7-17 14:24</span></a> <a href="javascript:void(0)" class="time"><i class="fa fa-list-ul"></i>&nbsp;发表在:&nbsp;<span>前端</span></a>-->
+                            <!--<h4><a href="javascript:void(0)" class="title">myPraise</a></h4>-->
+                            <!--<a href="javascript:void(0)" class="author"><i class="fa fa-comment"></i>&nbsp;评论:&nbsp;<span>125</span></a> <a href="javascript:void(0)" class="time"><i class="fa fa-eye"></i>&nbsp;阅读:&nbsp;<span>151</span></a> <a href="javascript:void(0)" class="time"><i class="fa fa-heart"></i>&nbsp;收藏:&nbsp;<span>151</span></a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;写文章&ndash;&gt;-->
+                    <!--<div role="tabpanel" class="tab-pane" id="myPublish">-->
+                        <!--<div class="art-row">-->
+                            <!--<a href="javascript:void(0)" class="author"><i class="fa fa-user"></i>&nbsp;<span>笨笨熊喜欢吃饼干</span></a> <a href="javascript:void(0)" class="time"><i class="fa fa-clock-o"></i>&nbsp;<span>2016-7-17 14:24</span></a> <a href="javascript:void(0)" class="time"><i class="fa fa-list-ul"></i>&nbsp;发表在:&nbsp;<span>前端</span></a>-->
+                            <!--<h4><a href="javascript:void(0)" class="title">myPublish</a></h4>-->
+                            <!--<a href="javascript:void(0)" class="author"><i class="fa fa-comment"></i>&nbsp;评论:&nbsp;<span>125</span></a> <a href="javascript:void(0)" class="time"><i class="fa fa-eye"></i>&nbsp;阅读:&nbsp;<span>151</span></a> <a href="javascript:void(0)" class="time"><i class="fa fa-heart"></i>&nbsp;收藏:&nbsp;<span>151</span></a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;草稿箱&ndash;&gt;-->
+                    <!--<div role="tabpanel" class="tab-pane" id="myDraft">-->
+                        <!--<div class="art-row">-->
+                            <!--<a href="javascript:void(0)" class="author"><i class="fa fa-user"></i>&nbsp;<span>笨笨熊喜欢吃饼干</span></a> <a href="javascript:void(0)" class="time"><i class="fa fa-clock-o"></i>&nbsp;<span>2016-7-17 14:24</span></a> <a href="javascript:void(0)" class="time"><i class="fa fa-list-ul"></i>&nbsp;发表在:&nbsp;<span>前端</span></a>-->
+                            <!--<h4><a href="javascript:void(0)" class="title">myDraft</a></h4>-->
+                            <!--<a href="javascript:void(0)" class="author"><i class="fa fa-comment"></i>&nbsp;评论:&nbsp;<span>125</span></a> <a href="javascript:void(0)" class="time"><i class="fa fa-eye"></i>&nbsp;阅读:&nbsp;<span>151</span></a> <a href="javascript:void(0)" class="time"><i class="fa fa-heart"></i>&nbsp;收藏:&nbsp;<span>151</span></a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<nav class="foot navbar-inverse navbar-fixed-bottom" id="foot"> </nav>
+<script src="/static/js/frame/jquery.min.js" type="application/javascript"></script>
+<script src="/static/js/frame/bootstrap.min.js" type="text/javascript"></script>
+<script src="/static/js/frame/common.js" type="text/javascript"></script>
+<script src="/static/js/user/userCenter.js" type="text/javascript"></script>
+<script>
+    var scrollTop = 0;
+    $(window).scroll(function () {
+        var nowScrollTop = $(document).scrollTop();
+        if (nowScrollTop > scrollTop) {
+            $('.wrap').addClass('hide-wrap');
+        } else {
+            $('.wrap').removeClass('hide-wrap');
+        }
+        scrollTop = nowScrollTop;
+    });
+
+    $('.nav-tabs li a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show')
+    });
+    $('#navbar').load("/static/views/common/head.html");
+    $('#foot').load("/static/views/common/foot.html");
+</script>
+</body>
+</html>

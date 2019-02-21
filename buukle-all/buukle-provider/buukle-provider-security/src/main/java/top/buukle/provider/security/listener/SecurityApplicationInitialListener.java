@@ -22,7 +22,7 @@ public class SecurityApplicationInitialListener extends SpringAppInitialListener
      */
     @Override
     protected void init() {
-        //缓存全局角色列表信息
+        // 缓存全局角色列表信息
         userService.getGlobalRole();
         LOGGER.info("缓存全局角色列表信息完成!");
         userService.getGlobalGroups();

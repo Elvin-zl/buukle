@@ -8,6 +8,7 @@ import top.buukle.common.constants.BaseResponseCode;
 import top.buukle.common.exception.BaseException;
 import top.buukle.common.response.BaseResponse;
 import top.buukle.common.util.common.DateUtil;
+import top.buukle.common.util.common.NumberUtil;
 import top.buukle.common.util.common.StringUtil;
 import top.buukle.common.util.jedis.RedisZSet;
 import top.buukle.common.vo.response.PageResponse;
@@ -331,6 +332,10 @@ public class ArticleInfoServiceImpl implements ArticleInfoService{
         query.setGmtCreated(new Date());
         query.setCreator(operator.getUsername());
         query.setCreatorCode(operator.getUserId());
+        query.setArticleAuthor(operator.getUsername());
+        query.setUserId(operator.getUserId());
+        query.setLikeNumber(NumberUtil.LONG_ZERO);
+        query.setBak01(NumberUtil.LONG_ZERO.toString());
         query.setPlatformId(operator.getPlatformId());
         query.setAgentId(operator.getAgentId());
         query.setGroupId(operator.getGroupId());

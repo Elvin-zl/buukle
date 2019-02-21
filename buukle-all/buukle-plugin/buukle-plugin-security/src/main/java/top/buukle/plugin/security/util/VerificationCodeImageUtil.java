@@ -63,7 +63,7 @@ public class VerificationCodeImageUtil {
         // 图像buffer
         buffImg = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         Graphics g = buffImg.getGraphics();
-        //Graphics2D g = buffImg.createGraphics();
+        // Graphics2D g = buffImg.createGraphics();
         // 设置背景色
         g.setColor(getRandColor(200, 250));
         g.fillRect(0, 0, width, height);
@@ -71,7 +71,7 @@ public class VerificationCodeImageUtil {
 
 
         // 设置字体
-        //Font font1 = getFont(fontHeight);
+        // Font font1 = getFont(fontHeight);
         Font font = new Font("Fixedsys", Font.BOLD, fontHeight);
         g.setFont(font);
 
@@ -216,11 +216,11 @@ public class VerificationCodeImageUtil {
         return code.toLowerCase();
     }
 
-    //使用方法
+    // 使用方法
     public static String getCode3(HttpServletRequest req, HttpServletResponse response, String getVerifyKey) throws IOException{
         // 设置响应的类型格式为图片格式
         response.setContentType("image/jpeg");
-        //禁止图像缓存。
+        // 禁止图像缓存。
         response.setHeader("Pragma", "no-cache");
         response.setHeader("Cache-Control", "no-cache");
         response.setDateHeader("Expires", 0);

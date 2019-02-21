@@ -31,18 +31,18 @@ public  class ResponseBusiness <T>  {
 
     public ResponseBusiness(T t) {
 
-        //返回第三方业务错误信息
+        // 返回第三方业务错误信息
         if(t instanceof BaseResponseCode){
             BaseResponseCode baseResponseCode = (BaseResponseCode) t;
             this.status = baseResponseCode.getStatus();
             this.msg = baseResponseCode.getMsg();
         }
-        //返回第三方业务 list 数据
+        // 返回第三方业务 list 数据
         else if(t instanceof List){
             this.status = BaseResponse.SUCCESS;
             this.dataList = (List<T>) t;
         }
-        //返回第三方业务 object 数据
+        // 返回第三方业务 object 数据
         else {
             this.status = BaseResponse.SUCCESS;
             List<T> list = new ArrayList<>();

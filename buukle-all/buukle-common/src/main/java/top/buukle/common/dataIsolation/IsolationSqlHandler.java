@@ -61,7 +61,7 @@ public class IsolationSqlHandler {
         if((null == isolationRelation || isolationRelation.getUserLevel() == null) && StringUtil.isEmpty(isolationFiledName)){
             throw new Exception(EXCEPTION_MSG_RELATION_NULL);
         }
-        //具有自定义隔离字段
+        // 具有自定义隔离字段
         if(StringUtil.notEmpty(isolationFiledName)){
             codeInCondition = new StringBuilder(isolationFiledName).append(CODE_IN_PREFIX).append(getCodeStringSeparatedByComma(isolationRelation.getSubCodeList())).append(CODE_IN_SUFFIX).toString();
         }else{
@@ -178,21 +178,21 @@ public class IsolationSqlHandler {
 	 */
 	public static String splicingSql(String sql, String tableNameAndCondition) {
 		int index = sql.indexOf(SPLICING_WHERE);
-		//处理 where
+		// 处理 where
 		if (index > 0) {
 			return sql.replace(SPLICING_WHERE, SPLICING_WHERE + tableNameAndCondition + SPLICING_AND);
 		} else {
-			//处理 group by
+			// 处理 group by
 			index = sql.indexOf(SPLICING_GROUP);
 			if (index > 0) {
 				return sql.replace(SPLICING_GROUP, SPLICING_WHERE + tableNameAndCondition + SPLICING_GROUP);
 			}
-			//处理 order by
+			// 处理 order by
 			index = sql.indexOf(SPLICING_ORDER);
 			if (index > 0) {
 				return sql.replace(SPLICING_ORDER, SPLICING_WHERE + tableNameAndCondition + SPLICING_ORDER);
 			}
-			//处理 默认情况
+			// 处理 默认情况
 			else {
 				return sql + SPLICING_WHERE + tableNameAndCondition;
 			}

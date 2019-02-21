@@ -42,12 +42,12 @@ public class MyShellCallback implements ShellCallback {
 
         File project = new File(targetProject);
         if (!project.isDirectory()) {
-            throw new ShellException(getString("Warning.9", //$NON-NLS-1$
+            throw new ShellException(getString("Warning.9", // $NON-NLS-1$
                     targetProject));
         }
 
         StringBuilder sb = new StringBuilder();
-        StringTokenizer st = new StringTokenizer(targetPackage, "."); //$NON-NLS-1$
+        StringTokenizer st = new StringTokenizer(targetPackage, "."); // $NON-NLS-1$
         while (st.hasMoreTokens()) {
             sb.append(st.nextToken());
             sb.append(File.separatorChar);
@@ -57,7 +57,7 @@ public class MyShellCallback implements ShellCallback {
         if (!directory.isDirectory()) {
             boolean rc = directory.mkdirs();
             if (!rc) {
-                throw new ShellException(getString("Warning.10", //$NON-NLS-1$
+                throw new ShellException(getString("Warning.10", // $NON-NLS-1$
                         directory.getAbsolutePath()));
             }
         }
@@ -99,11 +99,11 @@ public class MyShellCallback implements ShellCallback {
     private CompilationUnit mergeCompilationUnit(CompilationUnit oldCompilationUnit, CompilationUnit newCompilationUnit) {
         CompilationUnit finalCompilationUnit = new CompilationUnit();
 
-        //修改包名为新类的包名
+        // 修改包名为新类的包名
         if (newCompilationUnit.getPackageDeclaration().isPresent())
             finalCompilationUnit.setPackageDeclaration(newCompilationUnit.getPackageDeclaration().get());
 
-        //合并import
+        // 合并import
         Set<ImportDeclaration> importSet = new HashSet<>();
         importSet.addAll(oldCompilationUnit.getImports());
         importSet.addAll(newCompilationUnit.getImports());
@@ -112,7 +112,7 @@ public class MyShellCallback implements ShellCallback {
         imports.addAll(importSet);
         finalCompilationUnit.setImports(imports);
 
-        //合并topLevelClass
+        // 合并topLevelClass
         finalCompilationUnit.setTypes(mergeTypes(oldCompilationUnit.getTypes(), newCompilationUnit.getTypes()));
 
 
@@ -128,10 +128,10 @@ public class MyShellCallback implements ShellCallback {
             finalTypes.put(newType.getNameAsString(), newType);
         }
 
-        for (TypeDeclaration<?> oldType : oldTypes) {//对于旧CompilationUnit中的每一个TopLevelClass
-            if (finalTypes.containsKey(oldType.getNameAsString())) {//如果存在同名类则合并
+        for (TypeDeclaration<?> oldType : oldTypes) {// 对于旧CompilationUnit中的每一个TopLevelClass
+            if (finalTypes.containsKey(oldType.getNameAsString())) {// 如果存在同名类则合并
                 finalTypes.put(oldType.getNameAsString(), mergeType(oldType, finalTypes.get(oldType.getNameAsString())));
-            } else if (!isGeneratedNode(oldType)) {//如果不存在同名类且不是生成的类
+            } else if (!isGeneratedNode(oldType)) {// 如果不存在同名类且不是生成的类
                 finalTypes.put(oldType.getNameAsString(), mergeType(oldType, finalTypes.get(oldType.getNameAsString())));
             }
         }
@@ -149,41 +149,41 @@ public class MyShellCallback implements ShellCallback {
             ClassOrInterfaceDeclaration oldClass = oldType.asClassOrInterfaceDeclaration();
             ClassOrInterfaceDeclaration newClass = newType.asClassOrInterfaceDeclaration();
 
-            //设置修饰符及类名
-            finalTypeDeclaration.setModifiers(newClass.getModifiers());//修饰符
-            finalTypeDeclaration.asClassOrInterfaceDeclaration().setInterface(//是否为接口
+            // 设置修饰符及类名
+            finalTypeDeclaration.setModifiers(newClass.getModifiers());// 修饰符
+            finalTypeDeclaration.asClassOrInterfaceDeclaration().setInterface(// 是否为接口
                     newClass.isInterface()
             );
-            finalTypeDeclaration.setName(newClass.getName());//类名
-            finalTypeDeclaration.asClassOrInterfaceDeclaration().setExtendedTypes(newClass.getExtendedTypes());//继承的类
-            finalTypeDeclaration.asClassOrInterfaceDeclaration().setImplementedTypes(newClass.getImplementedTypes());//继承的接口
-            finalTypeDeclaration.asClassOrInterfaceDeclaration().setAnnotations(newClass.getAnnotations());//注解
-            if (newClass.getComment().isPresent())//注释
+            finalTypeDeclaration.setName(newClass.getName());// 类名
+            finalTypeDeclaration.asClassOrInterfaceDeclaration().setExtendedTypes(newClass.getExtendedTypes());// 继承的类
+            finalTypeDeclaration.asClassOrInterfaceDeclaration().setImplementedTypes(newClass.getImplementedTypes());// 继承的接口
+            finalTypeDeclaration.asClassOrInterfaceDeclaration().setAnnotations(newClass.getAnnotations());// 注解
+            if (newClass.getComment().isPresent())// 注释
                 finalTypeDeclaration.asClassOrInterfaceDeclaration().setComment(newClass.getComment().get());
 
 
-            //合并initializer(possibly static)
-            //保留所有旧类中的initializer（MBG并不会生成initializer，不考虑保留旧initializer会出现的问题）
+            // 合并initializer(possibly static)
+            // 保留所有旧类中的initializer（MBG并不会生成initializer，不考虑保留旧initializer会出现的问题）
             for (BodyDeclaration<?> bodyDeclaration : oldClass.getMembers())
                 if (bodyDeclaration.isInitializerDeclaration())
                     finalTypeDeclaration.addMember(bodyDeclaration);
 
-            //合并构造函数
+            // 合并构造函数
             for (ConstructorDeclaration constructorDeclaration : mergeConstructors(oldClass.getConstructors(), newClass.getConstructors())) {
                 finalTypeDeclaration.addMember(constructorDeclaration);
             }
 
-            //合并Field
+            // 合并Field
             for (FieldDeclaration fieldDeclaration : mergeFields(oldClass.getFields(), newClass.getFields())) {
                 finalTypeDeclaration.addMember(fieldDeclaration);
             }
 
-            //合并Method
+            // 合并Method
             for (MethodDeclaration methodDeclaration : mergeMethods(oldClass.getMethods(), newClass.getMethods())) {
                 finalTypeDeclaration.addMember(methodDeclaration);
             }
 
-            //合并内部类（class/enum/interface）
+            // 合并内部类（class/enum/interface）
             NodeList<TypeDeclaration<?>> oldTypes = new NodeList<>();
             NodeList<TypeDeclaration<?>> newTypes = new NodeList<>();
             for (BodyDeclaration<?> bodyDeclaration : oldClass.getMembers()) {
@@ -191,7 +191,7 @@ public class MyShellCallback implements ShellCallback {
                         bodyDeclaration.isEnumDeclaration() ||
                         bodyDeclaration.isAnnotationDeclaration()) {
                     oldTypes.add(bodyDeclaration.asTypeDeclaration());
-//                    System.out.println("旧内部类：" + bodyDeclaration.asTypeDeclaration().getNameAsString());
+//                     System.out.println("旧内部类：" + bodyDeclaration.asTypeDeclaration().getNameAsString());
                 }
             }
             for (BodyDeclaration<?> bodyDeclaration : newClass.getMembers()) {
@@ -199,8 +199,8 @@ public class MyShellCallback implements ShellCallback {
                         bodyDeclaration.isEnumDeclaration() ||
                         bodyDeclaration.isAnnotationDeclaration()) {
                     newTypes.add(bodyDeclaration.asTypeDeclaration());
-//                    System.out.println("新内部类：" + bodyDeclaration.asTypeDeclaration().getNameAsString());
-//                    System.out.println("新内部类修饰符：" + bodyDeclaration.asTypeDeclaration().getModifiers());
+//                     System.out.println("新内部类：" + bodyDeclaration.asTypeDeclaration().getNameAsString());
+//                     System.out.println("新内部类修饰符：" + bodyDeclaration.asTypeDeclaration().getModifiers());
                 }
             }
             for (TypeDeclaration<?> typeDeclaration : mergeTypes(oldTypes, newTypes)) {
@@ -216,7 +216,7 @@ public class MyShellCallback implements ShellCallback {
             return newType;
         } else {
             throw new RuntimeException(String.format("新类和旧类的类型不一样，无法判断该以何种方式合并，请删除旧文件或者将旧文件更改为正确的类型 (类名：%s)", newType.getNameAsString()));
-//            return newType;
+//             return newType;
         }
     }
 
@@ -228,13 +228,13 @@ public class MyShellCallback implements ShellCallback {
         Map<String, ConstructorDeclaration> constructorDeclarationMap = new Hashtable<>();//
         for (ConstructorDeclaration newConstructor : newConstructors) {
             if (!constructorDeclarationMap.containsKey(newConstructor.getDeclarationAsString(false, false, false))
-                    && !isGeneratedNode(newConstructor)) {//如果新生成的类中不包含该构造函数且该构造函数不是自动生成的
+                    && !isGeneratedNode(newConstructor)) {// 如果新生成的类中不包含该构造函数且该构造函数不是自动生成的
                 constructorDeclarationMap.put(newConstructor.getDeclarationAsString(false, false, false), newConstructor);
             }
         }
         for (ConstructorDeclaration oldConstructor : oldConstructors) {
             constructorDeclarationMap.put(oldConstructor.getDeclarationAsString(false, false, false), oldConstructor);
-//            System.out.println("构造函数：" + oldConstructor.getDeclarationAsString(true, true, false));
+//             System.out.println("构造函数：" + oldConstructor.getDeclarationAsString(true, true, false));
         }
         return new ArrayList<>(constructorDeclarationMap.values());
     }
@@ -245,7 +245,7 @@ public class MyShellCallback implements ShellCallback {
     private List<FieldDeclaration> mergeFields(List<FieldDeclaration> oldFields, List<FieldDeclaration> newFields) {
         Map<String, FieldDeclaration> fieldDeclarationMap = new Hashtable<>();//
         for (FieldDeclaration newField : newFields) {
-            //mbg生成的一个变量声明不会包含多个变量
+            // mbg生成的一个变量声明不会包含多个变量
             String key = "";
             for (VariableDeclarator variableDeclarator : newField.getVariables()) {
                 key += variableDeclarator.getNameAsString() + ",";

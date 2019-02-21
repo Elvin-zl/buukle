@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
 public class TableColumnEditorController extends BaseController implements Initializable {
 
     transient org.slf4j.Logger log = LoggerFactory.getLogger(BaseController.class);
-    //    public TextField tf_filter;
+    //     public TextField tf_filter;
     public TableView<TableColumnMetaData> table_view;
     public TableColumn<TableColumnMetaData, Boolean> c_checked;
     public TableColumn<TableColumnMetaData, String> c_column_name;

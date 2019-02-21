@@ -41,13 +41,17 @@ public class SecurityConstants {
     /*-----------------------------------常量设置--------------------------------------------------------------------*/
 
     public static final String LOGIN_PATH_ENVIRONMENT_KEY = "LOGIN_PATH_ENVIRONMENT_KEY";
+    public static final String LOGIN_VERIFY_ENVIRONMENT_KEY = "LOGIN_VERIFY_ENVIRONMENT_KEY";
     public static final String INDEX_PATH_ENVIRONMENT_KEY = "INDEX_PATH_ENVIRONMENT_KEY";
     public static final String OUT_OF_TIME_PATH_LOGIN_PATH_ENVIRONMENT_KEY = "OUT_OF_TIME_PATH_LOGIN_PATH_ENVIRONMENT_KEY";
     public static final String NO_PERMISSION_PATH_ENVIRONMENT_KEY = "NO_PERMISSION_PATH_ENVIRONMENT_KEY";
     public static final String ERROR_PAGE_PATH_ENVIRONMENT_KEY = "ERROR_PAGE_PATH_ENVIRONMENT_KEY";
     public static final String LOGOUT_PATH_ENVIRONMENT_KEY = "LOGOUT_PATH_ENVIRONMENT_KEY";
+    public static final String DOLOGIN_PATH_ENVIRONMENT_KEY = "DOLOGIN_PATH_ENVIRONMENT_KEY";
 
     /** 用户指定视图缓存对象 (通过securityController动态返回用户配置的指定sso视图名称)*/
     public static final ViewNameParameters VIEW_NAME_PARAMETERS = new ViewNameParameters();
 
+    /** 空的用户名*/
+    public static final String USER_ID_OFFLINE = "-1";
 }

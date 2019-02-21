@@ -70,7 +70,7 @@ public class ArticleCatServiceImpl implements ArticleCatService{
         if(CollectionUtils.isNotEmpty(list)){
             for (ArticleCat item: list) {
                 FuzzySearchListVo fuzzySearchListVo = new FuzzySearchListVo();
-                //fuzzySearchListVo.setText(item.getTitle());
+                // fuzzySearchListVo.setText(item.getTitle());
                 fuzzySearchListVos.add(fuzzySearchListVo);
             }
         }
@@ -88,7 +88,7 @@ public class ArticleCatServiceImpl implements ArticleCatService{
         if(articleCatMapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(query,StatusConstants.STATUS_DELETED_CONCEALABLE,request)) != 1){
             throw new BaseException(BaseResponseCode.STATUS_UPDATE_FAIL);
         }
-        //更新分类树缓存
+        // 更新分类树缓存
         RedisInvoker.saveArticleCatList(new ArrayList<>());
         return new BaseResponse.Builder().buildSuccess();
     }
@@ -111,12 +111,12 @@ public class ArticleCatServiceImpl implements ArticleCatService{
     */
     @Override
     public BaseResponse saveArticleCat(ArticleCatQuery query, HttpServletRequest request) {
-        //处理根分类
+        // 处理根分类
         if(query.getPid().intValue() == -1){
             query.setPid(0l);
         }
         articleCatMapper.insert(this.assQueryForInsert(query,request));
-        //更新分类树缓存
+        // 更新分类树缓存
         RedisInvoker.saveArticleCatList(new ArrayList<>());
         return new BaseResponse.Builder().buildSuccess();
     }
@@ -174,7 +174,7 @@ public class ArticleCatServiceImpl implements ArticleCatService{
                 this.assArticleCatSonsForTree(articleCats,articleCatTreeNodeVo);
             }
 
-            //将列表存入缓存
+            // 将列表存入缓存
             RedisInvoker.saveArticleCatList(articleCatTreeNodeVoList);
             return articleCatTreeNodeVoList;
         }
@@ -268,10 +268,10 @@ public class ArticleCatServiceImpl implements ArticleCatService{
         if(StringUtil.isNotEmpty(query.getEndTime())){
             criteria.andGmtCreatedLessThanOrEqualTo(DateUtil.parse(query.getEndTime()));
         }
-        //TODO
-        //if(StringUtil.isNotEmpty(query.getTitle())){
-        //    criteria.andTitleEqualTo(query.getTitle());
-        //}
+        // TODO
+        // if(StringUtil.isNotEmpty(query.getTitle())){
+        //     criteria.andTitleEqualTo(query.getTitle());
+        // }
         if(null != query.getStatus()){
             criteria.andStatusEqualTo(query.getStatus());
         }
@@ -286,8 +286,8 @@ public class ArticleCatServiceImpl implements ArticleCatService{
     private ArticleCatExample assFuzzyExample(String fuzzyText) {
         ArticleCatExample example = new ArticleCatExample();
         ArticleCatExample.Criteria criteria = example.createCriteria();
-        //TODO
-        //criteria.andTitleLike("%" + fuzzyText + "%");
+        // TODO
+        // criteria.andTitleLike("%" + fuzzyText + "%");
         return example;
     }
 }

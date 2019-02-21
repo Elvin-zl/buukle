@@ -16,13 +16,13 @@ import java.util.Map;
  * @author BenBenShang spawpaw@hotmail.com
  */
 public class Column extends ConfigMatcher {
-    public final String actualName;//真实列名称
-    public final String fieldName;//该字段entity中的变量名称
-    public final String fieldType;//该字段的类型
-    public final String getterName;//该字段在entity中的getter名称
-    public final String setterName;//该字段在entity中的setter名称
+    public final String actualName;// 真实列名称
+    public final String fieldName;// 该字段entity中的变量名称
+    public final String fieldType;// 该字段的类型
+    public final String getterName;// 该字段在entity中的getter名称
+    public final String setterName;// 该字段在entity中的setter名称
 
-    //以下为该字段在Example类中的方法名
+    // 以下为该字段在Example类中的方法名
     public final String betweenMethod;
     public final String notBetweenMethod;
     public final String equalMethod;
@@ -37,9 +37,9 @@ public class Column extends ConfigMatcher {
     public final String notLikeMethod;
     public final String notNullMethod;
     public final String nullMethod;
-    //基本属性
-    int index;//该列的显示顺序
-    boolean disable = true;//当没有配置该字段时，默认为true，当配置该字段时，默认为false
+    // 基本属性
+    int index;// 该列的显示顺序
+    boolean disable = true;// 当没有配置该字段时，默认为true，当配置该字段时，默认为false
 
 
     public Column(Context context, IntrospectedTable introspectedTable, IntrospectedColumn introspectedColumn, Map<String, String> parent) {

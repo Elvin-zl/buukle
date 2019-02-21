@@ -26,6 +26,15 @@ public class PluginSecurityController {
         return modelAndView;
     }
     /**
+     * 生成验证码路径
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping("${"+ SecurityConstants.LOGIN_VERIFY_ENVIRONMENT_KEY+"}")
+    public  ModelAndView getVerificationImg(ModelAndView modelAndView) {
+        return null;
+    }
+    /**
      * 去往首页页面
      * @param modelAndView
      * @return
@@ -62,6 +71,16 @@ public class PluginSecurityController {
     @RequestMapping("${"+ SecurityConstants.LOGOUT_PATH_ENVIRONMENT_KEY+"}")
     @ResponseBody
     public BaseResponse logout() {
+        return new BaseResponse.Builder().buildSuccess();
+    }
+
+    /**
+     * 执行登录
+     * @return
+     */
+    @RequestMapping("${"+ SecurityConstants.DOLOGIN_PATH_ENVIRONMENT_KEY+"}")
+    @ResponseBody
+    public BaseResponse doLogin() {
         return new BaseResponse.Builder().buildSuccess();
     }
     /**

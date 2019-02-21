@@ -27,6 +27,7 @@ import top.buukle.provider.security.service.IpBlackListService;
 import top.buukle.provider.security.service.ModuleService;
 import top.buukle.provider.security.service.UserService;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -108,7 +109,7 @@ public class SecurityApiBusinessImpl implements SecurityApiBusiness {
         }
         User user = UserInvoker.getUser(cookieValue);
         UserInvoker.logout(cookieValue);
-        //清除用户缓存信息
+        // 清除用户缓存信息
         UserInvoker.clearUserCacheInfoByType(null,user.getUserId());
         return new BaseResponse.Builder().buildSuccess();
     }
@@ -150,45 +151,67 @@ public class SecurityApiBusinessImpl implements SecurityApiBusiness {
     }
 
     /**
+     * 更新用户基本信息
+     * @param baseRequest
+     * @return
+     */
+    @Override
+    public BaseResponse updateUserBasicResource(BaseRequest baseRequest) throws Exception {
+        User user = (User)baseRequest.getInfo(User.class);
+        user.setGmtModified(new Date());
+        user.setModifier(user.getUsername());
+        user.setModifierCode(user.getUserId());
+        user.setUsername(null);
+        if(userService.update(user) ==1){
+            User userInfo = userMapper.selectByPrimaryKey(user.getId());
+            // 更新缓存
+            UserInvoker.updateUser(userInfo,baseRequest.getRequestHead(),baseRequest.getExpandParameterString());
+            return new BaseResponse.Builder().buildSuccess();
+        }else{
+            throw new BaseException(BaseResponseCode.USER_UPDATE_BASE_RESOURCE_FAILED);
+        }
+    }
+
+    /**
      * 根据身份获取用户下级信息
      * @param userInfoForLogin
      * @return
      */
     private List<String> getUserSubordinateByUserLevel(User userInfoForLogin) {
         UserQuery userQuery = new UserQuery();
-        //0 boss级别
+        // 0 boss级别
         if(userInfoForLogin.getUserLevel().equals(IsolationConstants.USER_LEVEL_BOSS)){
             return userMapper.getUserSubordinateByUserLevel(userQuery);
         }
-        //1 平台级别
+        // 1 平台级别
         if(userInfoForLogin.getUserLevel().equals(IsolationConstants.USER_LEVEL_PLATFORM)){
             userQuery.setPlatformId(userInfoForLogin.getPlatformId());
             List<String> userSubordinateByUserLevel = userMapper.getUserSubordinateByUserLevel(userQuery);
             userSubordinateByUserLevel.add(userInfoForLogin.getUserId());
             return userSubordinateByUserLevel;
         }
-        //2 代理级别
+        // 2 代理级别
         if(userInfoForLogin.getUserLevel().equals(IsolationConstants.USER_LEVEL_AGENT)){
             userQuery.setAgentId(userInfoForLogin.getAgentId());
             List<String> userSubordinateByUserLevel = userMapper.getUserSubordinateByUserLevel(userQuery);
             userSubordinateByUserLevel.add(userInfoForLogin.getUserId());
             return userSubordinateByUserLevel;
         }
-        //3 区域/组别级别
+        // 3 区域/组别级别
         if(userInfoForLogin.getUserLevel().equals(IsolationConstants.USER_LEVEL_GROUP)){
             userQuery.setGroupId(userInfoForLogin.getGroupId());
             List<String> userSubordinateByUserLevel = userMapper.getUserSubordinateByUserLevel(userQuery);
             userSubordinateByUserLevel.add(userInfoForLogin.getUserId());
             return userSubordinateByUserLevel;
         }
-        //4 业务员级别
+        // 4 业务员级别
         if(userInfoForLogin.getUserLevel().equals(IsolationConstants.USER_LEVEL_SALESMAN)){
             userQuery.setSalesmanId(userInfoForLogin.getSalesmanId());
             List<String> userSubordinateByUserLevel = userMapper.getUserSubordinateByUserLevel(userQuery);
             userSubordinateByUserLevel.add(userInfoForLogin.getUserId());
             return userSubordinateByUserLevel;
         }
-        //5 小白级别
+        // 5 小白级别
         if(userInfoForLogin.getUserLevel().equals(IsolationConstants.USER_LEVEL_CREATOR)){
             userQuery.setCreatorCode(userInfoForLogin.getUserId());
             List<String> userSubordinateByUserLevel = userMapper.getUserSubordinateByUserLevel(userQuery);

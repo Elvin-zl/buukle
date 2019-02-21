@@ -18,18 +18,18 @@ public class BaseException extends RuntimeException {
     /** 信息*/
     private String msg;
 
-    public BaseException(BaseResponseCode ssoResponseCode) {
-        super(ssoResponseCode.getMsg());
-        this.status = ssoResponseCode.getStatus();
-        this.code = ssoResponseCode.getCode();
-        this.msg = ssoResponseCode.getMsg();
+    public BaseException(BaseResponseCode baseResponseCode) {
+        super(baseResponseCode.getMsg());
+        this.status = baseResponseCode.getStatus();
+        this.code = baseResponseCode.getCode();
+        this.msg = baseResponseCode.getMsg();
     }
 
     public BaseException(BaseResponseCode ssoResponseCode, String thirdMessage) {
         super(thirdMessage);
         this.status = ssoResponseCode.getStatus();
         this.code = ssoResponseCode.getCode();
-        this.msg = thirdMessage;
+        this.msg = ssoResponseCode.getMsg() + thirdMessage;
     }
 
     public BaseException(BaseResponse baseResponse) {

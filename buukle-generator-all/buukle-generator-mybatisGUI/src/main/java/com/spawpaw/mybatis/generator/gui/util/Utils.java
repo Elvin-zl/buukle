@@ -36,10 +36,10 @@ public class Utils {
     public static <T> void injectFieldsFromProperties(T obj, Properties properties) {
         for (Field field : obj.getClass().getDeclaredFields()) {
             field.setAccessible(true);
-            //如果field对应的property为null
+            // 如果field对应的property为null
             if (properties.get(field.getName()) == null)
                 continue;
-            //如果不为null,注入所有属性（仅支持string,int,integer和boolean的注入）
+            // 如果不为null,注入所有属性（仅支持string,int,integer和boolean的注入）
             try {
                 if (field.getType().getSimpleName().equalsIgnoreCase("String"))
                     field.set(obj, properties.get(field.getName()));
@@ -76,7 +76,7 @@ public class Utils {
             if (Integer.valueOf(s) != 0) return true;
             else if (Integer.valueOf(s) == 0) return false;
         } catch (Exception e) {
-            //do nothing;
+            // do nothing;
         }
         log.warn("您为一个boolean类型的字段指定了错误的值，应为true/false，实际为：{}", s);
         return false;
@@ -109,21 +109,21 @@ public class Utils {
      * 2.3.否则按照CamelCase处理
      */
     public static String getUpperCamelCase(String s) {
-        //0.
+        // 0.
         s = s.replace("-", "_");
-        //1.
+        // 1.
         if (s.startsWith("_"))
             return s;
 
-        //2.1去掉尾巴
+        // 2.1去掉尾巴
         if (s.endsWith("_")) {
             s = s.replaceAll("(_)+$", "");
         }
-        //2.2.如果全大写，或包含_
+        // 2.2.如果全大写，或包含_
         if (s.replaceAll("[A-Z]+", "").isEmpty() || s.replaceAll("[a-z]+", "").isEmpty() || s.contains("_")) {
             return CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, s.toUpperCase());
         }
-        //2.3.如果不包含下划线
+        // 2.3.如果不包含下划线
         return CaseFormat.LOWER_CAMEL.to(CaseFormat.UPPER_CAMEL, s);
     }
 

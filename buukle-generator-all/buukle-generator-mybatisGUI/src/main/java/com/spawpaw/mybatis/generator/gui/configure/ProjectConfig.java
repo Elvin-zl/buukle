@@ -21,9 +21,9 @@ import static com.spawpaw.mybatis.generator.gui.util.Constants.tabs.*;
 public class ProjectConfig {
     public StringProperty selectedTable = new SimpleStringProperty("");
     /****基本配置******************************************************************************************************/
-//    @ExportToTab(tabName = tabs.BASIC_SETTINGS, index = 1)
-//    @Config(bundle = "project.savedName", helpText = "保存的名称")
-//    public SimpleStringProperty savedName = new SimpleStringProperty("untitled");
+//     @ExportToTab(tabName = tabs.BASIC_SETTINGS, index = 1)
+//     @Config(bundle = "project.savedName", helpText = "保存的名称")
+//     public SimpleStringProperty savedName = new SimpleStringProperty("untitled");
     @ExportToTab(tabName = tabs.BASIC_SETTINGS, index = 1)
     @ExportToTab(tabName = SHORTCUT, index = 1)
     @ExportToPlugin(plugin = DeclaredPlugins.SCVXGeneratorPlugin)
@@ -34,7 +34,7 @@ public class ProjectConfig {
     public SimpleStringProperty basePackage = new SimpleStringProperty("");
 
     @ExportToTab(tabName = tabs.BASIC_SETTINGS, index = 1)
-    //生成代码文件的编码方式
+    // 生成代码文件的编码方式
     @Config(bundle = "project.javaFileEncoding", type = ConfigType.ChoiceBox, testRegex = "UTF-8|GBK|UTF-16BE|UTF-16LE|UTF-16|US-ASCII|ISO-8859-1")
     public SimpleStringProperty javaFileEncoding = new SimpleStringProperty("UTF-8");
     @Config(bundle = "project.reduceTablePrefix", testRegex = "(t|T)_\n[a-z|A-Z]{0,2}_"/*这里用\n隔开*/, type = ConfigType.ComboBox)
@@ -198,10 +198,10 @@ public class ProjectConfig {
     public SimpleStringProperty entityObjName = new SimpleStringProperty("");
 
     @ExportToPlugin(plugin = DeclaredPlugins.RenameExampleClassPlugin, key = "searchString")
-    public SimpleStringProperty exampleSearchString = new SimpleStringProperty("[a-zA-Z0-9$]+$");//替换Example类名
+    public SimpleStringProperty exampleSearchString = new SimpleStringProperty("[a-zA-Z0-9$]+$");// 替换Example类名
     @ExportToPlugin(plugin = DeclaredPlugins.SCVXGeneratorPlugin)
     @EnablePlugin(DeclaredPlugins.RenameExampleClassPlugin)
-    @ExportToPlugin(plugin = DeclaredPlugins.RenameExampleClassPlugin, key = "replaceString")//替换字符串为正则式，若其中含$等特殊字符需转义
+    @ExportToPlugin(plugin = DeclaredPlugins.RenameExampleClassPlugin, key = "replaceString")// 替换字符串为正则式，若其中含$等特殊字符需转义
     @Config(bundle = "project.exampleObjName", type = ConfigType.TextField)
     public SimpleStringProperty exampleObjName = new SimpleStringProperty("");
     @Config(bundle = "project.entityRootClass", type = ConfigType.CheckableTextField)
@@ -266,7 +266,7 @@ public class ProjectConfig {
     @ExportToPlugin(plugin = DeclaredPlugins.CommentPlugin)
     @Config(bundle = "project.fileHeader", type = ConfigType.TextArea)
     public SimpleStringProperty fileHeader = new SimpleStringProperty("/**\n" +
-            " * Created By MBG-GUI-EXTENSION https://github.com/spawpaw/mybatis-generator-gui-extension\n" +
+            " * Created By MBG-GUI-EXTENSION https:// github.com/spawpaw/mybatis-generator-gui-extension\n" +
             " * Description:\n" +
             " * ${tableComment}\n" +
             " *\n" +
@@ -341,7 +341,7 @@ public class ProjectConfig {
 
         selectedTable.addListener((observable, oldValue, newValue) -> updateClassName());
 
-        //表名获取、Example增强、批量插入 插件联动
+        // 表名获取、Example增强、批量插入 插件联动
         enableExampleEnhancedPlugin.addListener((observable, oldValue, newValue) -> {
             if (!newValue) {
                 enableBatchInsertPlugin.setValue(false);
@@ -393,13 +393,13 @@ public class ProjectConfig {
      * 获取字符串的大骆驼峰形式
      */
     private String getUpperCamel(String s) {
-        //如果全大写，且包含下划线
+        // 如果全大写，且包含下划线
         if (s.replaceAll("[A-Z]+", "").equals(s) && s.contains("_"))
             return CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, s);
-        //如果不包含下划线
+        // 如果不包含下划线
         if (!s.contains("_") && s.length() > 2)
             return s.toUpperCase().charAt(0) + s.substring(1);
-        //如果不全为大写，且包含下划线
+        // 如果不全为大写，且包含下划线
         return CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, s.toLowerCase());
     }
 }

@@ -50,7 +50,7 @@ buukle-all\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---------buukle-consumer-cms\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---------buukle-consumer-portal\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---------buukle-consumer-www\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---------buukle-consumer-article\
@@ -149,7 +149,7 @@ buukle-all\
     不同身份角色的用户,通过不同的菜单按钮实现文章的发布,流程的控制
     等功能,主要分为几个核心模块: 首页 | 文章管理 | 数据统计 | 系统设置 等;分别对应不同的功能和流程;
 ````
-#### 2.2.1.6.2 buukle-consumer-portal 门户系统(executable jar)
+#### 2.2.1.6.2 buukle-consumer-www 门户系统(executable jar)
 ````
  此工程主要为项目提供用户门户服务,未登录用户可通过门户完成 :
         

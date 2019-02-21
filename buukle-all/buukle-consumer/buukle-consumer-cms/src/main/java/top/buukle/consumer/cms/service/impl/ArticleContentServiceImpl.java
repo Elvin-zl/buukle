@@ -66,7 +66,7 @@ public class ArticleContentServiceImpl implements ArticleContentService{
         if(CollectionUtils.isNotEmpty(list)){
             for (ArticleContent item: list) {
                 FuzzySearchListVo fuzzySearchListVo = new FuzzySearchListVo();
-                //fuzzySearchListVo.setText(item.getTitle());
+                // fuzzySearchListVo.setText(item.getTitle());
                 fuzzySearchListVos.add(fuzzySearchListVo);
             }
         }
@@ -146,11 +146,11 @@ public class ArticleContentServiceImpl implements ArticleContentService{
         query.setGmtCreated(new Date());
         query.setCreator(operator.getUsername());
         query.setCreatorCode(operator.getUserId());
-        //TODO
-        //query.setPlatformId(operator.getPlatformId());
-        //query.setAgentId(operator.getAgentId());
-        //query.setGroupId(operator.getGroupId());
-        //query.setSalesmanId(operator.getSalesmanId());
+        // TODO
+        // query.setPlatformId(operator.getPlatformId());
+        // query.setAgentId(operator.getAgentId());
+        // query.setGroupId(operator.getGroupId());
+        // query.setSalesmanId(operator.getSalesmanId());
         return query;
     }
 
@@ -186,10 +186,10 @@ public class ArticleContentServiceImpl implements ArticleContentService{
         if(StringUtil.isNotEmpty(query.getEndTime())){
             criteria.andGmtCreatedLessThanOrEqualTo(DateUtil.parse(query.getEndTime()));
         }
-        //TODO
-        //if(StringUtil.isNotEmpty(query.getTitle())){
-        //    criteria.andTitleEqualTo(query.getTitle());
-        //}
+        // TODO
+        // if(StringUtil.isNotEmpty(query.getTitle())){
+        //     criteria.andTitleEqualTo(query.getTitle());
+        // }
         if(null != query.getStatus()){
             criteria.andStatusEqualTo(query.getStatus());
         }
@@ -204,8 +204,8 @@ public class ArticleContentServiceImpl implements ArticleContentService{
     private ArticleContentExample assFuzzyExample(String fuzzyText) {
         ArticleContentExample example = new ArticleContentExample();
         ArticleContentExample.Criteria criteria = example.createCriteria();
-        //TODO
-        //criteria.andTitleLike("%" + fuzzyText + "%");
+        // TODO
+        // criteria.andTitleLike("%" + fuzzyText + "%");
         return example;
     }
 }

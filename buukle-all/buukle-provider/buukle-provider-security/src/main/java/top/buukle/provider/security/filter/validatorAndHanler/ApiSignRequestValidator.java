@@ -41,7 +41,7 @@ public class ApiSignRequestValidator extends BaseRequestValidator {
         Boolean verify;
         BaseRequest baseRequest;
         try {
-            //获取公钥
+            // 获取公钥
             baseRequest = JsonUtil.parseObject(requestBody, BaseRequest.class);
             String applicationName = baseRequest.getRequestHead().getApplicationName();
             String operationId = baseRequest.getRequestHead().getOperationId();
@@ -88,9 +88,9 @@ public class ApiSignRequestValidator extends BaseRequestValidator {
                 String reqMethod = httpServletRequest.getMethod();
                 if("POST".equals(reqMethod)){
                     if(uri.startsWith("/api/")){
-                        //校验请求参数
+                        // 校验请求参数
                         BaseResponse baseResponse = this.doValidate(requestBody);
-                        //校验失败
+                        // 校验失败
                         if(!baseResponse.isSuccess()){
                             this.afterValidateWrong(servletResponse,baseResponse);
                         }else{

@@ -8256,7 +8256,7 @@ hljs.registerLanguage('julia', function(hljs) {
     keyword:
       'in isa where ' +
       'baremodule begin break catch ccall const continue do else elseif end export false finally for function ' +
-      'global if import importall let local macro module quote return true try using while ' +
+      'global if import imwwwl let local macro module quote return true try using while ' +
       // legacy, to be deprecated in the next release
       'type immutable abstract bitstype typealias ',
 
@@ -8618,7 +8618,7 @@ hljs.registerLanguage('lasso', function(hljs) {
       'link_currentaction link_currentgroup link_currentrecord link_detail ' +
       'link_firstgroup link_firstrecord link_lastgroup link_lastrecord ' +
       'link_nextgroup link_nextrecord link_prevgroup link_prevrecord log ' +
-      'loop namespace_using output_none portal private protect records ' +
+      'loop namespace_using output_none www private protect records ' +
       'referer referrer repeating resultset rows search_args ' +
       'search_arguments select sort_args sort_arguments thread_atomic ' +
       'value_list while abort case else fail_if fail_ifnot fail if_empty ' +

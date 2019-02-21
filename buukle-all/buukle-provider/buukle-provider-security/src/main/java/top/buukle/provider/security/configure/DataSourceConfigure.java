@@ -30,26 +30,26 @@ class DataSourceConfigure {
     public DataSource dataSource() {
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setUrl(env.getProperty("spring.datasource.url"));
-        //用户名
+        // 用户名
         dataSource.setUsername(env.getProperty("spring.datasource.username"));
-        //密码
+        // 密码
         dataSource.setPassword(env.getProperty("spring.datasource.password"));
         dataSource.setDriverClassName(env.getProperty("spring.datasource.driver-class-name"));
-        //初始化时建立物理连接的个数
+        // 初始化时建立物理连接的个数
         dataSource.setInitialSize(NumberUtil.INTEGER_TWO);
-        //最小连接池数量
+        // 最小连接池数量
         dataSource.setMinIdle(NumberUtil.INTEGER_ZERO);
-        //最大连接池数量
+        // 最大连接池数量
         dataSource.setMaxActive(NumberUtil.INTEGER_NINE * NumberUtil.INTEGER_TWO);
-        //获取连接时最大等待时间，单位毫秒。
+        // 获取连接时最大等待时间，单位毫秒。
         dataSource.setMaxWait(60000);
-        //用来检测连接是否有效的sql
+        // 用来检测连接是否有效的sql
         dataSource.setValidationQuery("SELECT 1");
-        //申请连接时执行validationQuery检测连接是否有效
+        // 申请连接时执行validationQuery检测连接是否有效
         dataSource.setTestOnBorrow(false);
-        //建议配置为true，不影响性能，并且保证安全性。
+        // 建议配置为true，不影响性能，并且保证安全性。
         dataSource.setTestWhileIdle(true);
-        //是否缓存preparedStatement，也就是PSCache
+        // 是否缓存preparedStatement，也就是PSCache
         dataSource.setPoolPreparedStatements(false);
         return dataSource;
     }

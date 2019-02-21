@@ -6,7 +6,7 @@ package com.spawpaw.mybatis.generator.gui.enums;
  * @author BenBenShang spawpaw@hotmail.com
  */
 public class DeclaredPlugins {
-    //mbg自带插件
+    // mbg自带插件
     public static final String CachePlugin = "org.mybatis.generator.plugins.CachePlugin";
     public static final String CaseInsensitiveLikePlugin = "org.mybatis.generator.plugins.CaseInsensitiveLikePlugin";
     public static final String EqualsHashCodePlugin = "org.mybatis.generator.plugins.EqualsHashCodePlugin";
@@ -20,13 +20,13 @@ public class DeclaredPlugins {
     public static final String ToStringPlugin = "org.mybatis.generator.plugins.ToStringPlugin";
     public static final String VirtualPrimaryKeyPlugin = "org.mybatis.generator.plugins.VirtualPrimaryKeyPlugin";
 
-    //github开源项目https://github.com/itfsw/mybatis-generator-plugin中的插件
+    // github开源项目https:// github.com/itfsw/mybatis-generator-plugin中的插件
     public static final String ExampleEnhancedPlugin = "com.itfsw.mybatis.generator.plugins.ExampleEnhancedPlugin";
     public static final String LogicalDeletePlugin = "com.itfsw.mybatis.generator.plugins.LogicalDeletePlugin";
     public static final String BatchInsertPlugin = "com.itfsw.mybatis.generator.plugins.BatchInsertPlugin";
     public static final String ModelColumnPlugin = "com.itfsw.mybatis.generator.plugins.ModelColumnPlugin";
 
-    //my plugin
+    // my plugin
     public static final String CommentPlugin = "com.spawpaw.mybatis.generator.gui.plugin.CommentPlugin";
     public static final String PagePlugin = "com.spawpaw.mybatis.generator.gui.plugin.PagePlugin";
     public static final String SCVXGeneratorPlugin = "com.spawpaw.mybatis.generator.gui.plugin.SCVXGeneratorPlugin";

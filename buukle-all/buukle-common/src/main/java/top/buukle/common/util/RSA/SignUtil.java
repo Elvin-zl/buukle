@@ -60,7 +60,7 @@ public class SignUtil {
      * @return
      */
     public static String sign(String data, String privateKey) throws Exception {
-        return RSACoder.sign(data.getBytes(), privateKey).replace("\r\n","");
+        return RSACoder.sign(data.getBytes(), privateKey).replace("\r\n","").replace("\n","");
     }
 
     /**
@@ -76,7 +76,7 @@ public class SignUtil {
     @Test
     public void signTest() {
         try {
-            //签名
+            // 签名
             BaseRequest baseRequest = new BaseRequest();
             RequestHead requestHead = new RequestHead();
             requestHead.setApplicationName("test");
@@ -86,7 +86,7 @@ public class SignUtil {
             String data = JsonUtil.toJSONString(baseRequest);
             String sign = sign(data, PRIVATE_KEY);
 
-            //验签
+            // 验签
             boolean verify = verify(data, PUBLIC_KEY, sign);
             System.out.println(verify);
 

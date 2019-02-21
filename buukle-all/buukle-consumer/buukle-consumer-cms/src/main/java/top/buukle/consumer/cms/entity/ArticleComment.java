@@ -17,10 +17,16 @@ public class ArticleComment implements Serializable {
     private Integer id;
 
     /**
-     * 父评论id
+     * 父级id
      *
      */
     private Integer pid;
+
+    /**
+     * 父级类型 0 : 评论 ; 1 : 文章
+     *
+     */
+    private Integer pidType;
 
     /**
      * 文章主表id
@@ -163,6 +169,31 @@ public class ArticleComment implements Serializable {
      */
     public void setPid(Integer pid) {
         this.pid = pid;
+    }
+
+    /**
+     * This method returns the value of the database column buukle-cms..article_comment.pid_type
+     *
+     * @return the value of buukle-cms..article_comment.pid_type
+     */
+    public Integer getPidType() {
+        return pidType;
+    }
+
+    /**
+     */
+    public ArticleComment withPidType(Integer pidType) {
+        this.setPidType(pidType);
+        return this;
+    }
+
+    /**
+     * This method sets the value of the database column buukle-cms..article_comment.pid_type
+     *
+     * @param pidType the value for buukle-cms..article_comment.pid_type
+     */
+    public void setPidType(Integer pidType) {
+        this.pidType = pidType;
     }
 
     /**
@@ -550,6 +581,7 @@ public class ArticleComment implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
         sb.append(", pid=").append(pid);
+        sb.append(", pidType=").append(pidType);
         sb.append(", articleInfoId=").append(articleInfoId);
         sb.append(", comment=").append(comment);
         sb.append(", creator=").append(creator);
@@ -585,6 +617,7 @@ public class ArticleComment implements Serializable {
         ArticleComment other = (ArticleComment) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getPid() == null ? other.getPid() == null : this.getPid().equals(other.getPid()))
+            && (this.getPidType() == null ? other.getPidType() == null : this.getPidType().equals(other.getPidType()))
             && (this.getArticleInfoId() == null ? other.getArticleInfoId() == null : this.getArticleInfoId().equals(other.getArticleInfoId()))
             && (this.getComment() == null ? other.getComment() == null : this.getComment().equals(other.getComment()))
             && (this.getCreator() == null ? other.getCreator() == null : this.getCreator().equals(other.getCreator()))
@@ -610,6 +643,7 @@ public class ArticleComment implements Serializable {
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
         result = prime * result + ((getPid() == null) ? 0 : getPid().hashCode());
+        result = prime * result + ((getPidType() == null) ? 0 : getPidType().hashCode());
         result = prime * result + ((getArticleInfoId() == null) ? 0 : getArticleInfoId().hashCode());
         result = prime * result + ((getComment() == null) ? 0 : getComment().hashCode());
         result = prime * result + ((getCreator() == null) ? 0 : getCreator().hashCode());

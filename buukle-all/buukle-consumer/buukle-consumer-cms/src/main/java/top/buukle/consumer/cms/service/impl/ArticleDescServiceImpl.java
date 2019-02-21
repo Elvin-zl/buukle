@@ -66,7 +66,7 @@ public class ArticleDescServiceImpl implements ArticleDescService{
         if(CollectionUtils.isNotEmpty(list)){
             for (ArticleDesc item: list) {
                 FuzzySearchListVo fuzzySearchListVo = new FuzzySearchListVo();
-                //fuzzySearchListVo.setText(item.getTitle());
+                // fuzzySearchListVo.setText(item.getTitle());
                 fuzzySearchListVos.add(fuzzySearchListVo);
             }
         }
@@ -94,7 +94,7 @@ public class ArticleDescServiceImpl implements ArticleDescService{
     */
     @Override
     public ArticleDesc getArticleDescDetail(ArticleDescQuery query) {
-        //根据文章id查询
+        // 根据文章id查询
         if(query.getId() == null && query.getArticleInfoId()!=null){
             ArticleDescExample articleDescExample = new ArticleDescExample();
             ArticleDescExample.Criteria criteria = articleDescExample.createCriteria();
@@ -102,7 +102,7 @@ public class ArticleDescServiceImpl implements ArticleDescService{
             List<ArticleDesc> articleDescs = articleDescMapper.selectByExampleWithBLOBs(articleDescExample);
             return  CollectionUtils.isEmpty(articleDescs) ? null : articleDescs.get(0);
         }
-        //根据主键查询
+        // 根据主键查询
         return articleDescMapper.selectByPrimaryKey(query.getId());
     }
 
@@ -148,11 +148,11 @@ public class ArticleDescServiceImpl implements ArticleDescService{
         query.setGmtCreated(new Date());
         query.setCreator(operator.getUsername());
         query.setCreatorCode(operator.getUserId());
-        //TODO
-        //query.setPlatformId(operator.getPlatformId());
-        //query.setAgentId(operator.getAgentId());
-        //query.setGroupId(operator.getGroupId());
-        //query.setSalesmanId(operator.getSalesmanId());
+        // TODO
+        // query.setPlatformId(operator.getPlatformId());
+        // query.setAgentId(operator.getAgentId());
+        // query.setGroupId(operator.getGroupId());
+        // query.setSalesmanId(operator.getSalesmanId());
         return query;
     }
 
@@ -188,10 +188,10 @@ public class ArticleDescServiceImpl implements ArticleDescService{
         if(StringUtil.isNotEmpty(query.getEndTime())){
             criteria.andGmtCreatedLessThanOrEqualTo(DateUtil.parse(query.getEndTime()));
         }
-        //TODO
-        //if(StringUtil.isNotEmpty(query.getTitle())){
-        //    criteria.andTitleEqualTo(query.getTitle());
-        //}
+        // TODO
+        // if(StringUtil.isNotEmpty(query.getTitle())){
+        //     criteria.andTitleEqualTo(query.getTitle());
+        // }
         if(null != query.getStatus()){
             criteria.andStatusEqualTo(query.getStatus());
         }
@@ -206,8 +206,8 @@ public class ArticleDescServiceImpl implements ArticleDescService{
     private ArticleDescExample assFuzzyExample(String fuzzyText) {
         ArticleDescExample example = new ArticleDescExample();
         ArticleDescExample.Criteria criteria = example.createCriteria();
-        //TODO
-        //criteria.andTitleLike("%" + fuzzyText + "%");
+        // TODO
+        // criteria.andTitleLike("%" + fuzzyText + "%");
         return example;
     }
 }

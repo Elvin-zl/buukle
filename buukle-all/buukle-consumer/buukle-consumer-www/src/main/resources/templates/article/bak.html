@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加文章</title>
+    <link href="../../style/frame/common.css" type="text/css" rel="stylesheet">
+    <link href="../../style/user.css" type="text/css" rel="stylesheet">
+    <link href="../../style/frame/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="../../style/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+    <link href="../../style/edit/css/wangEditor.min.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<!--导航部分-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">下拉菜单</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a href="/" class="logo"><img src="../../images/logo.png"></a>
+        </div>
+
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href=""><i class="fa fa-code"></i>在线代码</a></li>
+                <li><a href=""><i class="fa fa-download"></i>jQuery下载</a></li>
+                <li><a href=""><i class="fa fa-rocket"></i>CDN加速</a></li>
+                <li><a href=""><i class="fa fa-book"></i>在线手册</a></li>
+                <li><a href=""><i class="fa fa-weibo"></i>jQuery插件库微博</a></li>
+                <li><a href=""><i class="fa fa-user"></i>注册/登录</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--导航部分-->
+
+<!--主导航部分-->
+<div class="wrap container-fluid">
+    <div class="container wrap-cont">
+        <a class="nzz" href="#"><span class="sort"><i class="fa fa-paint-brush"></i> &nbsp;UI <i
+                class="fa fa-angle-down"></i></span></a>|
+        <a class="nzz" href="#"><span class="sort"><i class="fa fa-keyboard-o"></i> &nbsp;输入 <i
+                class="fa fa-angle-down"></i></span></a>|
+        <a class="nzz" href="#"><span class="sort"><i class="fa fa-film"></i> &nbsp;媒体 <i class="fa fa-angle-down"></i></span></a>|
+        <a class="nzz" href="#"><span class="sort "><i class="fa fa-paper-plane-o"></i> &nbsp;导航 <i
+                class="fa fa-angle-down"></i></span></a>|
+        <a class="nzz" href="#"><span class="sort"><i class="fa fa-dropbox"></i> &nbsp;其他 <i
+                class="fa fa-angle-down"></i></span></a>|
+        <a href="#"><span class="sort"><i class="fa fa-code"></i> &nbsp;在线代码</span></a>|
+        <a href="#"><span class="sort">JSON在线工具</span></a>
+    </div>
+
+    <div class="container-fluid"></div>
+</div>
+<!--主导航部分-->
+
+<div class="container user">
+    <div class="position clearfix"><a href="#">首页</a> / 个人中心</div>
+    <div class="user-cont clearfix">
+        <div class="col-md-4 user-left">
+            <div class="user-left-n clearfix">
+                <h6>PROMULGATOR</h6>
+                <a href="#" class="user-headimg f"><img src="../../images/lo.png"></a>
+                <div class="user-name f">
+                    <h4>笨笨熊喜欢吃饼干</h4>
+                    <p>hello,world</p>
+                </div>
+            </div>
+            <div class="user-left-n clearfix">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <i class="fa fa-user-secret"></i>&nbsp;第 1 位会员
+                    </li>
+                    <a class="list-group-item" href="">
+                        <span class="badge red">0</span>
+                        <i class="fa fa-book"></i>&nbsp;我的文章
+                    </a>
+                    <a class="list-group-item" href="">
+                        <span class="badge">0</span>
+                        <i class="fa fa-heart"></i>&nbsp;我收藏的文章
+                    </a>
+                    <li class="list-group-item" href="">
+                        <span class="badge">0</span>
+                        <i class="fa fa-star"></i>&nbsp;关注我的人数
+                    </li>
+                </ul>
+                <a href="#" class="btn btn-success infos"><i class="fa fa-pencil"></i>&nbsp;开始写作</a>
+                <a href="#" class="btn btn-info"><i class="fa fa-cogs"></i>&nbsp;修改个人资料</a>
+            </div>
+            <div class="user-left-n clearfix">
+                <div class="alert alert-warning">
+                    <i class="fa fa-lightbulb-o"></i>&nbsp;修改个人资料功能未完善<br>
+                    <i class="fa fa-lightbulb-o"></i>&nbsp;暂时不能查看关注我的用户<br>
+                    <i class="fa fa-lightbulb-o"></i>&nbsp;暂时不能修改个人头像<br><br>
+                    <p>请用户耐心等待技术人员的修复，一旦修复完成我们将发送邮件到您的注册邮箱</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 user-right">
+            <div class="user-right-n clearfix">
+                <h4><strong>发表新文章</strong></h4>
+                <input type="text" class="art-tit ipt" id="art-tit" placeholder="在这里输入文章标题">
+                <p class="art-name"><i class="fa fa-user"></i>&nbsp;笨笨熊喜欢吃饼干</p>
+                <input type="text" class="art-type ipt" id="art-type" placeholder="在这里输入文章分类标签">
+                <div class="art-wrap">
+                    <div id="editor">
+
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-success sub">发表文章</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<nav class="foot navbar-inverse navbar-fixed-bottom">
+    <ul class="list-inline">
+        <li class="footer-ss"><a href="">在线反馈</a></li>
+        <li class="footer-ss"><a href="">帮助中心</a></li>
+        <li>Copyright © 2014-2016 千寻博客 Thousands Find 备案号:赣ICP备13043785号-1.</li>
+    </ul>
+</nav>
+<script src="../../js/frame/jquery.min.js" type="application/javascript"></script>
+<script src="../../js/frame/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../js/frame/common.js" type="text/javascript"></script>
+<script src="../../js/frame/wangEditor.min.js" type="text/javascript"></script>
+<script src="../../js/frame/editor.js" type="text/javascript"></script>
+<script>
+    var scrollTop = 0;
+    $(window).scroll(function () {
+        var nowScrollTop = $(document).scrollTop();
+        if (nowScrollTop > scrollTop) {
+            $('.wrap').addClass('hide-wrap');
+        } else {
+            $('.wrap').removeClass('hide-wrap');
+        }
+        scrollTop = nowScrollTop;
+    });
+
+    $('.nav-tabs li a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show')
+    });
+</script>
+</body>
+</html>

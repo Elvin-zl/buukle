@@ -49,12 +49,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
-        <!--__________________________________________ utils __________________________________________________________-->
-        <dependency>
-            <groupId>top.buukle</groupId>
-            <artifactId>buukle-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
         <!--__________________________________________ buukle-security ________________________________________________-->
         <dependency>
             <groupId>top.buukle</groupId>

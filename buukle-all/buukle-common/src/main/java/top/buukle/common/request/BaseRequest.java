@@ -31,7 +31,7 @@ public class BaseRequest<T>{
     }
 
     public T getInfo(Class<T> clazz) {
-        return JSON.parseObject(JSON.toJSONString(info),clazz);
+        return (T)JSON.parseObject(JSON.toJSONString(info),clazz);
     }
 
     public List<T> getInfoList(Class<T> clazz) {
@@ -82,7 +82,7 @@ public class BaseRequest<T>{
 
         /** 请求操作人姓名*/
         public Builder setOperationName(String operationName){
-            headBuilder.setOperationLoginName(operationName);
+            headBuilder.setOperationName(operationName);
             return this;
         }
         /** 请求操作人Id*/
@@ -93,9 +93,15 @@ public class BaseRequest<T>{
         /** 基础build*/
         public BaseRequest build(String applicationName, String operationId) {
             this.setOperationLoginName(DEFAULT_LOGIN_NAME);
-            this.setOperationName(DEFAULT_OPERATION_NAME);
             this.setOperationId(operationId);
+            this.setOperationName(DEFAULT_OPERATION_NAME);
             baseRequest.requestHead = headBuilder.build(applicationName);
+            return baseRequest;
+        }
+        /** 基础build*/
+        public BaseRequest build(String applicationName) {
+            headBuilder.setApplicationName(applicationName);
+            baseRequest.requestHead =  headBuilder.build(applicationName);
             return baseRequest;
         }
     }

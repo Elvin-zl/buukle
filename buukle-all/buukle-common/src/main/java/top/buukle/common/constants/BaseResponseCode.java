@@ -14,7 +14,7 @@ package top.buukle.common.constants;
  * <p>the field 'code' must follow this rule :
  *     1. the length of the string code must be six ,and it must be all number.
  *     2. the first two numbers means every project's code,like :
- *        {01 = security; 02 = cms; 03 = article; 04 = portal; 05 = album; 06 = security-plugin; 99 = system}
+ *        {01 = security; 02 = cms; 03 = article; 04 = www; 05 = album; 06 = security-plugin; 99 = system}
  *        the third and fourth number means every module's error code code, from 00 - 99;
  *        the third and fourth number means every project's module code, from 00 - 99;
  * </p>
@@ -23,15 +23,15 @@ public enum BaseResponseCode {
 
 
     /*----------------------------------------------SYSTEM--99{**}{**}--------------------------------------------------------------------*/
-    //全局积极,消极响应 --9999{**}
+    // 全局积极,消极响应 --9999{**}
     SUCCESS(BaseResponseCode.SUCCESSFUL,"999999","成功!"),
     FAILED(BaseResponseCode.FAILURES,"999998","失败!"),
-
-    //通讯响应 --9998{**}
+    NOT_FOUND(BaseResponseCode.FAILURES,"999997","页面走丢了!"),
+    // 通讯响应 --9998{**}
     HTTP_CELENE_FAILED(BaseResponseCode.FAILURES, "999899", "通讯失败!"),
 
     /*----------------------------------------------SECURITY--01{**}{**}--------------------------------------------------------------------*/
-    //登录,验签 --0100{**}
+    // 登录,验签 --0100{**}
     LOGIN_FAILED(BaseResponseCode.FAILURES, "010000","登录失败,参数错误!" ),
     LOGIN_FAILED_USERNAME_PWD_NULL(BaseResponseCode.FAILURES, "010001","登录失败,用户名或密码为空!"),
     USER_LOGIN_USERNAME_PASSWORD_WRONG(BaseResponseCode.FAILURES, "010002","登录失败,密码错误!"),
@@ -74,6 +74,7 @@ public enum BaseResponseCode {
     USER_SET_ROLE_USER_LEVEL_BELONGING_RELATION_WRONG(BaseResponseCode.FAILURES, "010408","修改用户角色失败,用户等级和归属关系不匹配!"),
     USER_SET_ROLE_OPERATOR_PERMISSION_NOT_ENOUGH(BaseResponseCode.FAILURES, "010409","修改用户角色失败,当前用户等级不够!"),
     USER_GET_ARTICLE_AUTHOR_USER_ID_NULL(BaseResponseCode.FAILURES, "010410","查询作者信息失败,作者id为空!"),
+    USER_UPDATE_BASE_RESOURCE_FAILED(BaseResponseCode.FAILURES, "010411","用户更新基本信息出现异常!"),
 
     // 系统禁止操作返回码 --0105{**}
     EDIT_FORBIDDEN(BaseResponseCode.FAILURES, "010500","该记录由系统创建,不允许该操作!"),
@@ -100,7 +101,7 @@ public enum BaseResponseCode {
     BUTTON_ADD_REMARK_NULL(BaseResponseCode.FAILURES, "010903","添加按钮参数检验格式不通过,按钮备注为空!" ),
     BUTTON_EDIT_EXCEPTION(BaseResponseCode.FAILURES, "010904","更新按钮失败!"),
 
-    //参数响应 --0110{**}
+    // 参数响应 --0110{**}
     BASE_REQUEST_NULL(BaseResponseCode.FAILURES, "011000", "参数错误!"),
     BASE_REQUEST_APPLICATION_NAME_NULL(BaseResponseCode.FAILURES, "011001", "参数错误!调用方应用名为空!"),
     BASE_REQUEST_FORMAT_INFO_LIST_WRONG(BaseResponseCode.FAILURES, "011002", "请求转换异常!"),
@@ -110,19 +111,31 @@ public enum BaseResponseCode {
     BASE_REQUEST_SIGN_PUBLIC_KEY_NULL(BaseResponseCode.FAILURES, "011006", "验签异常,该机构公钥不存在!"),
 
     /*------------------------------------------------------CMS--02{**}{**}-----------------------------------------------------------------*/
-    //状态操作返回码 --0200{**}
+    // 状态操作返回码 --0200{**}
     STATUS_UPDATE_FAIL(BaseResponseCode.FAILURES, "020000", "状态变更失败!"),
 
-    //文章发布返回码 --0201{**}
+    // 文章发布返回码 --0201{**}
     ARTICLE_PUBLISH_FAILED_TITLE_NULL(BaseResponseCode.FAILURES, "020100", "文章发布失败,题目为空!"),
     ARTICLE_PUBLISH_FAILED_DESC_NULL(BaseResponseCode.FAILURES, "020100", "文章发布失败,摘要为空!"),
     ARTICLE_PUBLISH_FAILED_CONTENT_NULL(BaseResponseCode.FAILURES, "020100", "文章发布失败,内容为空!"),
     ARTICLE_PUBLISH_FAILED_PID_NULL(BaseResponseCode.FAILURES, "020100", "文章发布失败,文章分类id为空!"),
 
-    /*---------------------------------------------------PORTAL--04{**}{**}-----------------------------------------------------------------*/
+    /*---------------------------------------------------WWW--04{**}{**}-----------------------------------------------------------------*/
+    // 文章操作返回码 --0401{**}
     ARTICLE_PRAISE_FAILED(BaseResponseCode.FAILURES, "040100", "文章赞数更新异常!"),
+    ARTICLE_QUERY_FAILED(BaseResponseCode.FAILURES, "040101", "文章加载异常,文章id解析错误!"),
+    ARTICLE_QUERY_ID_NOT_EXIST(BaseResponseCode.FAILURES, "040102", "文章id不存在!"),
+    // 图片上传操作返回码 --0402{**}
+    UPLOAD_IMAGE_NULL(BaseResponseCode.FAILURES, "040200", "图片上传失败,图片内容为空!"),
+    UPLOAD_IMAGE_FORMAT_ERROR(BaseResponseCode.FAILURES, "040201", "图片上传失败,图片格式不正确!"),
+    UPLOAD_IMAGE_OFFLINE(BaseResponseCode.FAILURES, "040202", "图片上传失败,离线状态不能上传!"),
+    UPLOAD_IMAGE_WRONG(BaseResponseCode.FAILURES, "040203", "图片上传失败,原因:{}"),
+    UPLOAD_IMAGE_WRONG_APPLICATION_NULL(BaseResponseCode.FAILURES, "040204", "图片上传失败,应用名为空!"),
+    UPLOAD_IMAGE_WRONG_USER_INFO_NULL(BaseResponseCode.FAILURES, "040205", "图片上传失败,未登录或登录超时,不能上传图片!"),
+    UPLOAD_IMAGE_WRONG_SIGN_EXCEPTION(BaseResponseCode.FAILURES, "040206", "图片上传失败,验签异常!"),
 
-
+    // 文章操作返回码 --0402{**}
+    ARTICLE_ADD_EXCEPTION(BaseResponseCode.FAILURES, "040300", "请先登录在写文章!"),
 
     /*----------------------------------------------SECURITY-PLUGIN--06{**}{**}-------------------------------------------------------------*/
     // 登录错误返回码 --0600{**}
@@ -132,7 +145,7 @@ public enum BaseResponseCode {
     USER_LOGIN_USERNAME_PASSWORD_NULL_SSO_PLUGIN(BaseResponseCode.FAILURES, "060003","登录失败!用户名或密码为空!"),
     USER_AUTHENTICATION_FAILED_COOKIE_NULL(BaseResponseCode.FAILURES, "060004","认证失败!客户端标识信息为空!"),
     USER_AUTHENTICATION_FAILED_REQUEST_WRONG(BaseResponseCode.FAILURES, "060005","认证失败!buukle-security配置security.host请求失败!"),
-
+    USER_UPDATE_WRONG_NO_LOGIN(BaseResponseCode.FAILURES, "060006","更新失败!用户登录状态不正确,请重新登陆后再次尝试!"),
 
     ;
 

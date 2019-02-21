@@ -2,7 +2,7 @@ package top.buukle.generator.hibernate.config;
 
 public class DataSourceConfig {
 	
-	//for mysql
+	// for mysql
 	/** 用户名*/
 	private  String username = "root";
 	/** 密码*/
@@ -12,21 +12,21 @@ public class DataSourceConfig {
 	/** 创建策略*/
 	private  String generateStrategy = "create";
 	/** 驱动*/
-	private  String driver = "com.mysql.jdbc.Driver";
+	private  String driver = "com.mysql.cj.jdbc.Driver";
 	/** 主键*/
 	private  String primareyStrategy = "native";
 	/** url*/
-	private  String jdbcUrl = "jdbc:mysql://47.95.13.7:3654/test";
+	private  String jdbcUrl = "jdbc:mysql:// 39.105.74.47:3654/test";
 
-	//for postgreySQL
-//	private  String jdbcUrl = "jdbc:postgresql://localhost:5432/GEO";
-//	private  String username = "postgres";
-//	private  String password = "zxcvbnmKO),.";
-//	private  String generateStrategy = "create";
-//	private  String dialect = "org.hibernate.dialect.PostgreSQLDialect";
+	// for postgreySQL
+// 	private  String jdbcUrl = "jdbc:postgresql:// localhost:5432/GEO";
+// 	private  String username = "postgres";
+// 	private  String password = "zxcvbnmKO),.";
+// 	private  String generateStrategy = "create";
+// 	private  String dialect = "org.hibernate.dialect.PostgreSQLDialect";
 //
-//	private  String driver = "org.postgresql.Driver";
-//	private  String primareyStrategy = "native";
+// 	private  String driver = "org.postgresql.Driver";
+// 	private  String primareyStrategy = "native";
 
 	public String getJdbcUrl() {
 		return jdbcUrl;

@@ -45,23 +45,23 @@ public class MBGRunner {
 
     public String generate() throws SQLException {
         config = new Configuration();
-        //default model type
+        // default model type
         if (projectConfig.defaultModelType.getValue().equalsIgnoreCase("CONDITIONAL"))
             context = new Context(ModelType.CONDITIONAL);
         else if (projectConfig.defaultModelType.getValue().equalsIgnoreCase("FLAT"))
             context = new Context(ModelType.FLAT);
         else context = new Context(ModelType.HIERARCHICAL);
 
-        context.setId("mybatis generator gui extension");//id
-        context.setTargetRuntime("MyBatis3");//targetRuntime
+        context.setId("mybatis generator gui extension");// id
+        context.setTargetRuntime("MyBatis3");// targetRuntime
         context.addProperty("javaFileEncoding", projectConfig.javaFileEncoding.getValue());
 
-        //=====================================================================================================加载插件
-        //initialize plugin data
+        // =====================================================================================================加载插件
+        // initialize plugin data
         initPluginConfigs();
         addPlugins();
 
-        //====================================================================================================注释生成器
+        // ====================================================================================================注释生成器
         if (projectConfig.enableComment.getValue()) {
             CommentGeneratorConfiguration commentGeneratorConfiguration = new CommentGeneratorConfiguration();
             commentGeneratorConfiguration.setConfigurationType(DeclaredPlugins.CommentPlugin);
@@ -78,35 +78,35 @@ public class MBGRunner {
             context.setCommentGeneratorConfiguration(commentGeneratorConfiguration);
         }
 
-        //==============================================================================================jdbc connection
+        // ==============================================================================================jdbc connection
         JDBCConnectionConfiguration jdbcConnectionConfiguration = new JDBCConnectionConfiguration();
         jdbcConnectionConfiguration.setDriverClass(databaseConfig.driver());
         jdbcConnectionConfiguration.setConnectionURL(databaseConfig.connectionUrl());
         jdbcConnectionConfiguration.setUserId(databaseConfig.userName.getValue());
         jdbcConnectionConfiguration.setPassword(databaseConfig.password.getValue());
-        //手动添加获取表注释的参数，这里仅找到了这几个数据库的获取方式，如有有获取其他数据库表注释的方法请提issue
+        // 手动添加获取表注释的参数，这里仅找到了这几个数据库的获取方式，如有有获取其他数据库表注释的方法请提issue
         switch (DatabaseType.valueOf(databaseConfig.databaseType.get())) {
             case MySQL:
-                jdbcConnectionConfiguration.addProperty("useInformationSchema", "true");//获取Mysql的表注释
+                jdbcConnectionConfiguration.addProperty("useInformationSchema", "true");// 获取Mysql的表注释
                 break;
             case Oracle:
             case Oracle_SID:
             case Oracle_ServiceName:
             case Oracle_TNSEntryString:
             case Oracle_TNSName:
-                jdbcConnectionConfiguration.addProperty("remarksReporting", "true");//获取Oracle的表注释
+                jdbcConnectionConfiguration.addProperty("remarksReporting", "true");// 获取Oracle的表注释
                 break;
             default:
                 break;
         }
         context.setJdbcConnectionConfiguration(jdbcConnectionConfiguration);
 
-        //=============================================================================================javaTypeResolver
+        // =============================================================================================javaTypeResolver
         JavaTypeResolverConfiguration javaTypeResolverConfiguration = new JavaTypeResolverConfiguration();
         javaTypeResolverConfiguration.addProperty("forceBigDecimals", "false");
         context.setJavaTypeResolverConfiguration(javaTypeResolverConfiguration);
 
-        //========================================================================================================model
+        // ========================================================================================================model
         JavaModelGeneratorConfiguration javaModelGeneratorConfiguration = new JavaModelGeneratorConfiguration();
         javaModelGeneratorConfiguration.setTargetPackage(projectConfig.entityPackage.getValue().replace(" ", ""));
         javaModelGeneratorConfiguration.setTargetProject(projectDir() + projectConfig.entityDir.getValue());
@@ -117,7 +117,7 @@ public class MBGRunner {
             javaModelGeneratorConfiguration.addProperty("rootClass", projectConfig.entityRootClass.getValue());
         context.setJavaModelGeneratorConfiguration(javaModelGeneratorConfiguration);
 
-        //=======================================================================================================mapper
+        // =======================================================================================================mapper
         SqlMapGeneratorConfiguration sqlMapGeneratorConfiguration = new SqlMapGeneratorConfiguration();
         sqlMapGeneratorConfiguration.setTargetProject(projectDir() + projectConfig.mapperDir.getValue());
         sqlMapGeneratorConfiguration.setTargetPackage(projectConfig.mapperPackage.getValue());
@@ -125,7 +125,7 @@ public class MBGRunner {
         sqlMapGeneratorConfiguration.addProperty("enableSubPackages", "true");
         context.setSqlMapGeneratorConfiguration(sqlMapGeneratorConfiguration);
 
-        //==========================================================================================================dao
+        // ==========================================================================================================dao
         JavaClientGeneratorConfiguration javaClientGeneratorConfiguration = new JavaClientGeneratorConfiguration();
         javaClientGeneratorConfiguration.setConfigurationType(projectConfig.javaClientMapperType.getValue());
         javaClientGeneratorConfiguration.setTargetProject(projectDir() + projectConfig.daoDir.getValue());
@@ -134,7 +134,7 @@ public class MBGRunner {
         sqlMapGeneratorConfiguration.addProperty("enableSubPackages", "true");
         context.setJavaClientGeneratorConfiguration(javaClientGeneratorConfiguration);
 
-        //========================================================================================================table
+        // ========================================================================================================table
         TableConfiguration tableConfiguration = new TableConfiguration(context);
         tableConfiguration.setCatalog(databaseConfig.catalog());
         tableConfiguration.setSchema(databaseConfig.schema());
@@ -154,21 +154,21 @@ public class MBGRunner {
         tableConfiguration.setDeleteByPrimaryKeyStatementEnabled(projectConfig.enableDeleteByPrimaryKey.getValue());
         tableConfiguration.setDeleteByExampleStatementEnabled(projectConfig.enableDeleteByExample.getValue());
         tableConfiguration.setCountByExampleStatementEnabled(projectConfig.enableCountByExample.getValue());
-        tableConfiguration.addProperty("useActualColumnNames", projectConfig.useActualColumnNames.getValue().toString());//使用小骆驼峰替代原列名
-        tableConfiguration.addProperty("ignoreQualifiersAtRuntime", "true");//使用小骆驼峰替代原列名
+        tableConfiguration.addProperty("useActualColumnNames", projectConfig.useActualColumnNames.getValue().toString());// 使用小骆驼峰替代原列名
+        tableConfiguration.addProperty("ignoreQualifiersAtRuntime", "true");// 使用小骆驼峰替代原列名
 
         if (!projectConfig.enableVirtualPrimaryKeyPlugin.getValue().isEmpty())
             tableConfiguration.addProperty("virtualKeyColumns", projectConfig.enableVirtualPrimaryKeyPlugin.getValue());
 
-        //see http://www.mybatis.org/generator/configreference/generatedKey.html  ,JDBC is a database independent method of obtaining the value from identity columns,only for Mybatis3+
+        // see http:// www.mybatis.org/generator/configreference/generatedKey.html  ,JDBC is a database independent method of obtaining the value from identity columns,only for Mybatis3+
         if (!projectConfig.primaryKey.getValue().isEmpty()) {
             String sqlStatement = DatabaseType.valueOf(databaseConfig.databaseType.getValue()).getSqlStatement();
-            if (!projectConfig.lastInsertIdSqlStatement.getValue().trim().isEmpty())//如果指定了获取自增主键的sql，则覆盖默认的配置
+            if (!projectConfig.lastInsertIdSqlStatement.getValue().trim().isEmpty())// 如果指定了获取自增主键的sql，则覆盖默认的配置
                 sqlStatement = projectConfig.lastInsertIdSqlStatement.getValue();
             tableConfiguration.setGeneratedKey(new GeneratedKey(projectConfig.primaryKey.getValue(), sqlStatement, true, null));
         }
 
-        //添加忽略列/列覆写
+        // 添加忽略列/列覆写
         for (TableColumnMetaData column : databaseConfig.tableConfigs.get(projectConfig.selectedTable.getValue())) {
             if (!column.getChecked()) {
                 log.info("忽略列：{}", column.getColumnName());
@@ -177,7 +177,7 @@ public class MBGRunner {
                 ColumnOverride columnOverride = new ColumnOverride(column.getColumnName());
                 columnOverride.setJavaProperty(column.getPropertyName());
                 columnOverride.setJavaType(column.getJavaType());
-//                columnOverride.setJdbcType(column.getJdbcType());
+//                 columnOverride.setJdbcType(column.getJdbcType());
                 columnOverride.setTypeHandler(column.getTypeHandler());
                 tableConfiguration.addColumnOverride(columnOverride);
             }
@@ -191,7 +191,7 @@ public class MBGRunner {
             context.addProperty("beginningDelimiter", projectConfig.autoDelimitKeywords.getValue());
             context.addProperty("endingDelimiter", projectConfig.autoDelimitKeywords.getValue());
             tableConfiguration.setDelimitIdentifiers(true);
-//            tableConfiguration.setAllColumnDelimitingEnabled(true);//将此行取消注释即可delimit所有字段
+//             tableConfiguration.setAllColumnDelimitingEnabled(true);// 将此行取消注释即可delimit所有字段
         }
 
         config.addContext(context);
@@ -225,27 +225,27 @@ public class MBGRunner {
         try {
             for (Field field : ProjectConfig.class.getFields()) {
                 String valueOfField;
-                //获取配置项的值
+                // 获取配置项的值
                 if (field.get(projectConfig) instanceof Property)
                     valueOfField = ((Property) field.get(projectConfig)).getValue().toString();
                 else {
                     log.info("initPluginConfigs:不支持的配置:{},类型不是Property", field.getName());
                     continue;
                 }
-                //如果该配置项设置了启动某个Plugin的Trigger，将启用指定的plugin
+                // 如果该配置项设置了启动某个Plugin的Trigger，将启用指定的plugin
                 for (EnablePlugin enablePlugin : field.getAnnotationsByType(EnablePlugin.class)) {
                     if (!valueOfField.isEmpty() && !valueOfField.equals("false")) {
                         enabledPlugins.add(enablePlugin.value());
                     }
                 }
-                //将配置项的值加入到plugin的properties中,如果没有指定key，则使用变量名称
+                // 将配置项的值加入到plugin的properties中,如果没有指定key，则使用变量名称
                 for (ExportToPlugin exportToPlugin : field.getAnnotationsByType(ExportToPlugin.class)) {
                     log.info("配置:{},值：{},,plugin:{}   key:{}", field.getName(), valueOfField, exportToPlugin.plugin(), exportToPlugin.key());
                     pluginConfigs.putIfAbsent(exportToPlugin.plugin(), new HashMap<>());
                     pluginConfigs.get(exportToPlugin.plugin()).put(exportToPlugin.key().isEmpty() ? field.getName() : exportToPlugin.key(), valueOfField);
                 }
             }
-            //如果方法上包含ExportToPlugin注释，则使用返回值的toString方法
+            // 如果方法上包含ExportToPlugin注释，则使用返回值的toString方法
             for (Method method : ProjectConfig.class.getMethods()) {
                 for (ExportToPlugin exportToPlugin : method.getAnnotationsByType(ExportToPlugin.class)) {
                     pluginConfigs.putIfAbsent(exportToPlugin.plugin(), new HashMap<>());

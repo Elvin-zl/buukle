@@ -28,13 +28,20 @@ public class BaseRequestParamValidateFilter implements Filter{
         this.validator = new DefaultRequestValidator();
     }
 
+    private static final String STATIC_RESOURCE = "/static/";
+
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
-        BaseRequestWrapper baseRequestWrapper = new BaseRequestWrapper(httpServletRequest);
-        String requestBody = baseRequestWrapper.getRequestBody();
-        validator.doValidate(baseRequestWrapper,requestBody,servletResponse);
-        filterChain.doFilter(baseRequestWrapper,servletResponse);
+        // 静态资源不做过滤
+        if(httpServletRequest.getRequestURI().startsWith(STATIC_RESOURCE)){
+            filterChain.doFilter(servletRequest,servletResponse);
+        }else{
+            BaseRequestWrapper baseRequestWrapper = new BaseRequestWrapper(httpServletRequest);
+            String requestBody = baseRequestWrapper.getRequestBody();
+            validator.doValidate(baseRequestWrapper,requestBody,servletResponse);
+            filterChain.doFilter(baseRequestWrapper,servletResponse);
+        }
     }
     @Override
     public void destroy() {

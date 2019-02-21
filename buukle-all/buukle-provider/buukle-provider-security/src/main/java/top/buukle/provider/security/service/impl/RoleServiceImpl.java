@@ -1,7 +1,7 @@
 /*
  * Powered By [rapid-framework]
- * Web Site: http://www.rapid-framework.org.cn
- * Google Code: http://code.google.com/p/rapid-framework/
+ * Web Site: http:// www.rapid-framework.org.cn
+ * Google Code: http:// code.google.com/p/rapid-framework/
  * Since 2008 - 2018
  */
 
@@ -154,12 +154,12 @@ public class RoleServiceImpl implements RoleService {
 	 */
 	@Override
 	public List<RoleModuleListVo> getRoleModuleForPage(HttpServletRequest request, Integer id) throws Exception {
-        //获取全局菜单列表
+        // 获取全局菜单列表
         List<Module> globalModuleList = userService.getGlobalCacheByType(Module.class);
         if(CollectionUtils.isEmpty(globalModuleList)){
             return new ArrayList<>();
         }
-        //获取指定角色菜单列表
+        // 获取指定角色菜单列表
         List<Role> list = new ArrayList<>();
         list.add(new Role(id));
         List<Module> roleModuleList = moduleMapper.getUserModuleListByUserRoleList(list);
@@ -170,7 +170,7 @@ public class RoleServiceImpl implements RoleService {
             }
         }
         List<RoleModuleListVo> roleModuleListVoList = new ArrayList<>();
-        //设置指定角色拥有菜单选中标识
+        // 设置指定角色拥有菜单选中标识
         for (Module gModule: globalModuleList) {
             RoleModuleListVo roleModuleListVo = new RoleModuleListVo();
             BeanUtils.copyProperties(roleModuleListVo,gModule);
@@ -246,7 +246,7 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public BaseResponse addRole(HttpServletRequest request, RoleQuery query) throws InvocationTargetException, IllegalAccessException {
         roleMapper.insert(this.validateAddParam(request, query));
-        //清除角色相关缓存
+        // 清除角色相关缓存
         this.refreshCaChe(query,true);
         return new BaseResponse.Builder().buildSuccess();
     }
@@ -270,12 +270,12 @@ public class RoleServiceImpl implements RoleService {
      */
     @Override
     public BaseResponse editRole(HttpServletRequest request, Integer id, RoleQuery query) throws InvocationTargetException, IllegalAccessException {
-        //校验参数
+        // 校验参数
         this.validateParam(query);
         query.setId(id);
         Role role = this.assRole(request, query, false);
         roleMapper.updateByPrimaryKeySelective(role);
-        //更新缓存
+        // 更新缓存
         refreshCaChe(query,false);
         return new BaseResponse.Builder().buildSuccess();
     }
@@ -308,9 +308,9 @@ public class RoleServiceImpl implements RoleService {
      * @param query
      */
     private void refreshCaChe(RoleQuery query,Boolean isAdd) {
-        //更新全局角色缓存
+        // 更新全局角色缓存
         UserInvoker.clearGlobalCacheInfoByType(Role.class);
-        //更新全局菜单缓存
+        // 更新全局菜单缓存
         UserInvoker.clearGlobalCacheInfoByType(Module.class);
         if(!isAdd){
             // 更新拥有该角色的用户的角色&菜单缓存 ==>> TODO 此处可优化为异步线程处理

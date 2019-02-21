@@ -55,7 +55,7 @@ public class SCVXGeneratorPlugin extends PluginAdapter {
         templateContext.put("table", table);
         templateContext.put("projectDir.ss", projectDir);
 
-        //输出测试数据
+        // 输出测试数据
         String content;
         content = renderTemplateAsString("test.vm", templateContext);
         log.info("hierarchical table structure: {}", content);
@@ -73,20 +73,20 @@ public class SCVXGeneratorPlugin extends PluginAdapter {
                     + destPackage.replace(".", "/")
                     + "/"
                     + destFileName;
-            absPath = absPath.replace("//", "/");
+            absPath = absPath.replace("// ", "/");
             absPath = absPath.replace("${entityName}", table.getEntityName());
             absPath = absPath.replace("${entityLowerCamel}", table.getEntityLowerCamel());
             absPath = absPath.replace("${basePackage}", basePackage.replace(".", "/"));
             log.info("generate file `{}` from template `{}`", absPath, template);
 
             content = renderTemplateAsString(config.getTemplate(), templateContext);
-            //写入文件
+            // 写入文件
             try {
                 FileUtil.writeStringToFile(absPath, content);
             } catch (IOException e) {
                 log.error(e.getMessage());
             }
-//            log.info("content: {}", content);
+//             log.info("content: {}", content);
         }
         log.info("<<< generated extra files.");
         return null;

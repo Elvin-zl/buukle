@@ -21,7 +21,7 @@ import java.io.IOException;
  */
 public class BaseController extends Application {
 
-    //stages
+    // stages
     public transient static Stage primaryStage;
     public transient static MainController primaryStageController;
 
@@ -76,27 +76,27 @@ public class BaseController extends Application {
 
     private void initializeStages() {
         try {
-            //get fxml loader
+            // get fxml loader
             FXMLLoader primaryStageLoader = getFxmlLoader("main.fxml");
             FXMLLoader customize_columns_editor_loader = getFxmlLoader("table_columns_editor.fxml");
             FXMLLoader database_config_editor_loader = getFxmlLoader("database_config_editor.fxml");
             FXMLLoader generation_progress_loader = getFxmlLoader("generation_progress.fxml");
             FXMLLoader about_loader = getFxmlLoader("About.fxml");
 
-            //load fxml
+            // load fxml
             Parent primary_stage_scene = primaryStageLoader.load();
             Parent customize_columns_editor_scene = customize_columns_editor_loader.load();
             Parent database_config_editor_scene = database_config_editor_loader.load();
             Parent generation_progress_scene = generation_progress_loader.load();
             Parent about = about_loader.load();
 
-            //set controller
+            // set controller
             primaryStageController = primaryStageLoader.getController();
             databaseEditorStageController = database_config_editor_loader.getController();
             tableColumnEditorStageController = customize_columns_editor_loader.getController();
             generationProgressController = generation_progress_loader.getController();
 
-            //set scene
+            // set scene
             primaryStage.setScene(new Scene(primary_stage_scene));
 
             databaseEditorStage = new Stage();

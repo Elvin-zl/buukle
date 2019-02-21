@@ -578,7 +578,7 @@
     DISTINCT m.*
     FROM
     module m,
-    USER u,
+    user u,
     role r,
     user_role ur,
     role_module rm

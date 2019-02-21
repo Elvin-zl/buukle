@@ -46,26 +46,26 @@ public class SecurityBusinessImpl implements SecurityBusiness {
      */
     @Override
     public BaseResponse doLogin(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        //关闭验证码
+        // 关闭验证码
         if(StringUtil.isNotEmpty(SecurityInterceptor.CLOSE_VERIFICATION) && SecurityInterceptor.CLOSE_VERIFICATION.equals(SecurityConstants.CLOSE_VERIFY_TRUE)){
-            //登录
+            // 登录
             return this.doLogin(request, SecurityInterceptor.CACHE_CATEGORY_KEY, SecurityInterceptor.SSO_DEFAULT_AGE, response, SecurityInterceptor.SSO_DOMAIN, SecurityInterceptor.LOGIN_OUT_STRATEGY, SecurityInterceptor.APPLICATION_NAME);
         }
-        //开启验证码
-        //缓存request验证码
+        // 开启验证码
+        // 缓存request验证码
         String requestVerificationCode = request.getParameter(SecurityInterceptor.VERIFICATION_CODE_KEY);
         if(StringUtil.isEmpty(requestVerificationCode)){
             return new BaseResponse.Builder().buildFailedInner(BaseResponseCode.USER_LOGIN_VERIFY_CODE_NULL);
         }
-        //缓存session验证码
+        // 缓存session验证码
         String sessionVerificationCode = (String) request.getSession().getAttribute(SecurityConstants.VERIFY_CODE_KEY_PREFIX + SecurityInterceptor.VERIFICATION_CODE_KEY);
-        //移除session验证码
+        // 移除session验证码
         request.getSession().removeAttribute(SecurityConstants.VERIFY_CODE_KEY_PREFIX+ SecurityInterceptor.VERIFICATION_CODE_KEY);
-        //验证码错误
+        // 验证码错误
         if(!requestVerificationCode.equals(sessionVerificationCode)){
             return new BaseResponse.Builder().buildFailedInner(BaseResponseCode.USER_LOGIN_VERIFY_CODE_WRONG);
         }
-        //登录
+        // 登录
         return this.doLogin(request, SecurityInterceptor.CACHE_CATEGORY_KEY, SecurityInterceptor.SSO_DEFAULT_AGE,response, SecurityInterceptor.SSO_DOMAIN, SecurityInterceptor.LOGIN_OUT_STRATEGY, SecurityInterceptor.APPLICATION_NAME);
     }
 
@@ -82,13 +82,13 @@ public class SecurityBusinessImpl implements SecurityBusiness {
      * @throws Exception
      */
     private BaseResponse doLogin(HttpServletRequest request, String cacheCategoryKey, String ssoDefaultAge, HttpServletResponse response, String ssoDomain, String loginOutStrategy, String applicationName) throws Exception {
-        //校验参数
+        // 校验参数
         User user = this.validateLoginParam(request,cacheCategoryKey);
         BaseRequest baseRequest = new BaseRequest.Builder().build(applicationName,SecurityInterceptor.APPLICATION_NAME);
         baseRequest.setInfo(user);
         baseRequest.setExpandParameterString(ssoDefaultAge);
         BaseResponse baseResponse = securityInvoker.doLogin(baseRequest);
-        //成功,回写cookie
+        // 成功,回写cookie
         if(baseResponse ==null){
             return new BaseResponse.Builder().buildFailedInner(BaseResponseCode.USER_AUTHENTICATION_FAILED_REQUEST_WRONG);
         }
@@ -125,7 +125,7 @@ public class SecurityBusinessImpl implements SecurityBusiness {
         if(baseResponse ==null){
             return new BaseResponse.Builder().buildFailedInner(BaseResponseCode.USER_AUTHENTICATION_FAILED_REQUEST_WRONG);
         }
-        //删除cookie
+        // 删除cookie
         if(baseResponse.isSuccess()){
             CookieUtil.delLocalCookie(response,ssoDomain);
         }
@@ -144,15 +144,15 @@ public class SecurityBusinessImpl implements SecurityBusiness {
      */
     @Override
     public BaseResponse authAndSetPermission(HttpServletRequest request, HttpServletResponse response, String uri, String ssoDefaultAge,  String applicationName) throws Exception {
-        //无cookie
+        // 无cookie
         if(StringUtil.isEmpty(CookieUtil.getUserCookie(request))){
             return new BaseResponse.Builder().buildFailed(SecurityConstants.NO_LOGIN);
         }
-        //无来源url
+        // 无来源url
         if(StringUtil.isEmpty(request.getHeader(SecurityInterceptor.REQUEST_HEADER_REFEREE)) && !uri.equals(SecurityInterceptor.INDEX_PATH)){
             return new BaseResponse.Builder().buildFailed(SecurityConstants.NO_REEFER_PATH);
         }
-        //认证
+        // 认证
         BaseResponse authResponse = this.authentication(request, ssoDefaultAge, applicationName);
         if(null == authResponse){
             return new BaseResponse.Builder().buildFailedInner(BaseResponseCode.USER_AUTHENTICATION_FAILED_REQUEST_WRONG);
@@ -161,7 +161,7 @@ public class SecurityBusinessImpl implements SecurityBusiness {
             authResponse.setMsg(SecurityInterceptor.NO_AUTHENTICATION_PATH);
             return authResponse;
         }
-        //授权
+        // 授权
         BaseResponse baseResponse = this.setPermission(uri, request, SecurityInterceptor.APPLICATION_NAME, authResponse);
         if(!baseResponse.isSuccess()){
             baseResponse.setMsg(SecurityInterceptor.NO_PERMISSION_PATH);
@@ -176,7 +176,7 @@ public class SecurityBusinessImpl implements SecurityBusiness {
      */
     @Override
     public List<ModuleNavigationVo> getUserModuleTree(HttpServletRequest httpServletRequest) {
-        //校验参数
+        // 校验参数
         String userCookie = this.validateAuthenticationParam(httpServletRequest,SecurityInterceptor.APPLICATION_NAME);
         BaseRequest baseRequest = new BaseRequest.Builder().build(SecurityInterceptor.APPLICATION_NAME, SecurityInterceptor.APPLICATION_NAME);
         baseRequest.setInfo(userCookie);
@@ -190,7 +190,7 @@ public class SecurityBusinessImpl implements SecurityBusiness {
      */
     @Override
     public User getUserInfo(HttpServletRequest request) {
-        //校验参数
+        // 校验参数
         String userCookie = this.validateAuthenticationParam(request,SecurityInterceptor.APPLICATION_NAME);
         BaseRequest baseRequest = new BaseRequest.Builder().build(SecurityInterceptor.APPLICATION_NAME, SecurityInterceptor.APPLICATION_NAME);
         baseRequest.setInfo(userCookie);
@@ -215,7 +215,7 @@ public class SecurityBusinessImpl implements SecurityBusiness {
      */
     @Override
     public List<Button> getModuleButtons(HttpServletRequest request, Integer moduleId) {
-        //校验参数
+        // 校验参数
         this.validateAuthenticationParam(request,SecurityInterceptor.APPLICATION_NAME);
         BaseRequest baseRequest = new BaseRequest.Builder().build(SecurityInterceptor.APPLICATION_NAME, SecurityInterceptor.APPLICATION_NAME);
         baseRequest.setInfo(moduleId);
@@ -247,6 +247,22 @@ public class SecurityBusinessImpl implements SecurityBusiness {
     }
 
     /**
+     * 更新用户基本信息
+     * @param user
+     * @param httpServletRequest
+     * @return
+     */
+    @Override
+    public BaseResponse updateUserBasicResource(User user, HttpServletRequest httpServletRequest) {
+        BaseRequest baseRequest = new BaseRequest.Builder().build(SecurityInterceptor.APPLICATION_NAME, SecurityInterceptor.APPLICATION_NAME);
+        user.setGender(user.getGender().equals("男") ? "1" : "0");
+        baseRequest.setInfo(user);
+        String userCookie = CookieUtil.getUserCookie(httpServletRequest);
+        baseRequest.setExpandParameterString(userCookie);
+        return securityInvoker.updateUserBasicResource(baseRequest);
+    }
+
+    /**
      * 认证
      * @param httpServletRequest
      * @param ssoDefaultAge
@@ -254,7 +270,7 @@ public class SecurityBusinessImpl implements SecurityBusiness {
      * @return
      */
     private BaseResponse authentication(HttpServletRequest httpServletRequest, String ssoDefaultAge, String applicationName) throws Exception {
-        //校验参数
+        // 校验参数
         String userCookie = this.validateAuthenticationParam(httpServletRequest,applicationName);
         BaseRequest baseRequest = new BaseRequest.Builder().build(applicationName, SecurityInterceptor.APPLICATION_NAME);
         baseRequest.setInfo(userCookie);

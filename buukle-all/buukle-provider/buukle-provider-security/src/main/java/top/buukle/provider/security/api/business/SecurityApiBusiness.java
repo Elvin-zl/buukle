@@ -88,4 +88,11 @@ public interface SecurityApiBusiness {
      * @return
      */
     PageResponse getIpBlackList(OutRequest baseRequest);
+
+    /**
+     * 更新用户基本信息
+     * @param baseRequest
+     * @return
+     */
+    BaseResponse updateUserBasicResource(BaseRequest baseRequest) throws Exception;
 }
