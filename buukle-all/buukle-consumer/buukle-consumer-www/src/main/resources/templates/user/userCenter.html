@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>buukle-个人中心</title>
+    <title  th:text=" '布壳儿-个人中心-'+ ${userInfo?.username}"></title>
     <link href="/static/style/frame/common.css" type="text/css" rel="stylesheet">
     <link href="/static/style/user/user.css" type="text/css" rel="stylesheet">
     <link href="/static/style/frame/bootstrap.min.css" type="text/css" rel="stylesheet">
@@ -21,7 +21,9 @@
     <div class="user-cont clearfix">
         <div class="col-md-4 user-left">
             <div class="user-left-n clearfix">
-                <a href="#" class="user-headimg f"><img  th:attr="src=${userInfo?.headImageUrl}"></a>
+                <a href="#" class="user-headimg f">
+                    <img style="margin-left: -5px; margin-top: -6px;" th:attr="src=${userInfo?.headImageUrl}">
+                </a>
                 <div class="user-name f">
                     <h4 th:text="${userInfo?.username}"></h4>
                     <p th:text="${userInfo?.slogen}"></p>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <title th:text="${articleInformationVo?.articleInfo?.title}"> </title>
+    <title th:text=" '布壳儿-'+ ${articleInformationVo?.articleInfo?.title}"> </title>
     <link href="/static/style/frame/common.css" type="text/css" rel="stylesheet">
     <link href="/static/style/frame/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="/static/style/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet">
@@ -53,7 +53,10 @@
                 <div class="project-header clearfix">
                     <!--title-->
                     <input type="hidden" id="articleId" th:attr="value=${articleInformationVo?.articleInfo?.id}">
-                    <h1 style="margin-left: 3%;" th:text="${articleInformationVo?.articleInfo?.title}"></h1>
+                    <input type="hidden" id="articleDesc" th:attr="value=${articleInformationVo?.articleDesc}">
+                    <input type="hidden" id="titleImage" th:attr="value=${articleInformationVo?.articleInfo?.images}">
+
+                    <h1 id="title" style="margin-left: 3%;" th:text="${articleInformationVo?.articleInfo?.title}"></h1>
                     <!--category-->
                     <p style="margin-left: 3%;" th:text="'分类 : ' + ${articleInformationVo?.articleCat?.articleCat} +'  作者 : ' + ${articleInformationVo?.articleAuthor?.username}"> </p>
                     <div style="margin-left: 3%;" class="l">
@@ -193,6 +196,7 @@
 <script src="/static/js/editormd/flowchart.min.js" type="text/javascript"></script>
 <script src="/static/js/editormd/jquery.flowchart.min.js" type="text/javascript"></script>
 <script src="/static/js/editormd/editormd.min.js" type="text/javascript"></script>
+<script src="/static/js/wechat/jweixin-1.0.0.js" type="text/javascript"></script>
 
 <!--<script src="/static/js/showdown/showdown.min.js"></script>-->
 <!--<script src="/static/js/showdown/showdown-table.min.js"></script>-->

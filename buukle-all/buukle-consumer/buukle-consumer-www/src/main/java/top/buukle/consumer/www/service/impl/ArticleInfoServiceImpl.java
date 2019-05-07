@@ -243,6 +243,10 @@ public class ArticleInfoServiceImpl implements ArticleInfoService {
      */
     @Override
     public BaseResponse doPublish(ArticlePublishVo publishVo, HttpServletRequest request) throws Exception {
+        User operator = securityClient.getUserInfo(request);
+        if(operator.getUserId().equals(SecurityConstants.USER_ID_OFFLINE)){
+            throw new BaseException(BaseResponseCode.ARTICLE_ADD_EXCEPTION);
+        }
         this.paramValidate(publishVo);
         // 组装并保存文章
         ArticleInfoQuery articleInfoQuery = new ArticleInfoQuery();
@@ -516,10 +520,10 @@ public class ArticleInfoServiceImpl implements ArticleInfoService {
             example.orderBy("gmt_created desc");
         }
         if(query.getOrderFlag().equals(ArticleInfoConstants.ORDER_BY_PRAISE)){
-            example.orderBy("like_number desc");
+            example.orderBy("like_number+0 desc");
         }
         if(query.getOrderFlag().equals(ArticleInfoConstants.ORDER_BY_SCAN)){
-            example.orderBy("bak01 desc");
+            example.orderBy("bak01+0 desc");
         }
         return example;
     }

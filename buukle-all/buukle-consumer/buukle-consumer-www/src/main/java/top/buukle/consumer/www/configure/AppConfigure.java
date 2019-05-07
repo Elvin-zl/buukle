@@ -55,10 +55,14 @@ public class AppConfigure implements WebMvcConfigurer {
             registry.addResourceHandler("/static/**").addResourceLocations(ResourceUtils.FILE_URL_PREFIX + "///D:/static/").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX+"/static/");
             registry.addResourceHandler("/index.html").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX+"/static/");
             registry.addResourceHandler("/login.html").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX+"/static/");
+            // 微信jssdk认证文件
+            registry.addResourceHandler("/MP_verify_US52gdEq9VtZd8kr.txt").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX+"/static/");
         }else{
             registry.addResourceHandler("/static/**").addResourceLocations(ResourceUtils.FILE_URL_PREFIX +"/static/").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX+"/static/");
             registry.addResourceHandler("/index.html").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX+"/static/");
             registry.addResourceHandler("/login.html").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX+"/static/");
+            // 微信jssdk认证文件
+            registry.addResourceHandler("/MP_verify_US52gdEq9VtZd8kr.txt").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX+"/static/");
         }
     }
 
