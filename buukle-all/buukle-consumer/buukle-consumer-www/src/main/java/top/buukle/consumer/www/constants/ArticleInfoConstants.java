@@ -18,4 +18,12 @@ public class ArticleInfoConstants {
 
     /*更新文章赞数锁名称前缀*/
     public static final String LOCK_NAME_UPDATE_PRAISE_NUMBER_PREFIX = "LOCK_NAME_UPDATE_PRAISE_NUMBER_PREFIX :";
+    /*文章重复访问无效计数时间段前缀*/
+    public static final String VISIT_EXPIRE_PREFIX = "VISIT_EXPIRE_PREFIX :";
+    /*文章重复访问无效计数时间段*/
+    public static final Long VISIT_EXPIRE_TIME_ZONE_SECONDED = 60l;
+    /*更新文章浏览量前缀*/
+    public static final String VISIT_PREFIX = "VISIT_PREFIX :";
+    /*文章访问次数缓存大小*/
+    public static final Long VISIT_CACHE_LIMIT = 10L;
 }

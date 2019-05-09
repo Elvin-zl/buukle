@@ -23,4 +23,10 @@ public class RedisString {
         return JedisCommands.delete(key);
     }
 
+    public static Long incre(String key) {
+        return JedisCommands.incre(key);
+    }
+    public static Boolean setIfAbsent(String key,String value,Long expire) {
+        return JedisCommands.setIfAbsent(key,value,expire);
+    }
 }
