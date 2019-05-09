@@ -350,7 +350,7 @@ public class ArticleInfoServiceImpl implements ArticleInfoService {
                 informationVo.setPraiseRelation(userArticlePraiseRelationService.getUserArticlePraiseRelation(userArticlePraiseRelation));
             }
             // 判断是否是有效访问 (ArticleInfoConstants.VISIT_EXPIRE_TIME_ZONE_SECONDED 秒内的重复访问即为无效)
-            if( RedisString.setIfAbsent(ArticleInfoConstants.VISIT_EXPIRE_PREFIX,"0",ArticleInfoConstants.VISIT_EXPIRE_TIME_ZONE_SECONDED)){
+            if( RedisString.setIfAbsent(ArticleInfoConstants.VISIT_EXPIRE_PREFIX + query.getId(),"0",ArticleInfoConstants.VISIT_EXPIRE_TIME_ZONE_SECONDED)){
                // 添加文章访问记录到redis缓存,解决并发访问问题
                Long currentCacheVisit = RedisString.incre(ArticleInfoConstants.VISIT_PREFIX + query.getId());
                // 本条记录达到缓存上限后落到数据库
@@ -363,9 +363,13 @@ public class ArticleInfoServiceImpl implements ArticleInfoService {
                    articleInfo1.setBak01(Integer.parseInt(StringUtil.isEmpty(articleInfo.getBak01()) ? "0" : articleInfo.getBak01())+currentCacheVisit +"");
                    articleInfoMapper.updateByPrimaryKeySelective(articleInfo1);
                }
-           }else{
-                // 组装访问量
-                articleInfo.setBak01(Integer.parseInt(StringUtil.isEmpty(articleInfo.getBak01()) ? "0" : articleInfo.getBak01())+RedisString.get(ArticleInfoConstants.VISIT_PREFIX + query.getId()) +"");
+               // 组装页面访问量并返回
+               articleInfo.setBak01(Integer.parseInt(StringUtil.isEmpty(articleInfo.getBak01()) ? "0" : articleInfo.getBak01())+currentCacheVisit + "");
+           }
+            // 无效访问
+            else{
+                // 组装页面访问量并返回
+                articleInfo.setBak01(Integer.parseInt(StringUtil.isEmpty(articleInfo.getBak01()) ? "0" : articleInfo.getBak01())+(StringUtil.isEmpty(RedisString.get(ArticleInfoConstants.VISIT_PREFIX + query.getId())) ? 0 : Integer.parseInt(RedisString.get(ArticleInfoConstants.VISIT_PREFIX + query.getId()))) + "");
             }
         }
         // 查询文章摘要记录
