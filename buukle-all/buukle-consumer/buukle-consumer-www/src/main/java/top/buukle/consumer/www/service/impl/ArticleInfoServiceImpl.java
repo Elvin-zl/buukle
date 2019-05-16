@@ -97,7 +97,9 @@ public class ArticleInfoServiceImpl implements ArticleInfoService {
         // 查询文章摘要和分类信息 TODO 优化成一条sql
         for (ArticleInfo articleInfo: articleInfos) {
             ArticleInformationVo articleInformationVo = new ArticleInformationVo();
+            String currentVistors = RedisString.get(ArticleInfoConstants.VISIT_PREFIX + articleInfo.getId());
             // 组装articleInfo
+            articleInfo.setBak01(Integer.parseInt(StringUtil.isEmpty(articleInfo.getBak01()) ? "0" : articleInfo.getBak01())+(StringUtil.isEmpty(currentVistors) ? 0 : Integer.parseInt(currentVistors)) + StringUtil.EMPTY);
             articleInformationVo.setArticleInfo(articleInfo);
             // 查询并组装articleDesc
             ArticleDescQuery articleDescQuery = new ArticleDescQuery();
