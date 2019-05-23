@@ -174,6 +174,16 @@ public class SecurityRestController {
     }
 
     /**
+     * 注册新用户
+     * @param baseRequest
+     * @return
+     */
+    @PostMapping(value = "/doRegister")
+    BaseResponse doRegister(@RequestBody BaseRequest baseRequest) throws Exception {
+        return securityApiBusiness.doRegister(baseRequest);
+    }
+
+    /**
      * 更新用户基本信息
      * @param baseRequest
      * @return

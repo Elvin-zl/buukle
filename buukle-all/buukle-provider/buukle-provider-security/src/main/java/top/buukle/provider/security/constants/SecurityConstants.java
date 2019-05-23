@@ -14,4 +14,6 @@ public class SecurityConstants {
     public static final String DELETE_LEVEL_SYSTEM = "0";
     /** 删禁级别 : 1 允许删禁*/
     public static final String DELETE_LEVEL_TRUE = "1";
+    /** 自主注册*/
+    public static final String USER_REGISTER_SELF = "SELF_REGISTER";
 }

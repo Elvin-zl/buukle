@@ -75,6 +75,16 @@ public class PluginSecurityController {
     }
 
     /**
+     * 执行注册
+     * @return
+     */
+    @RequestMapping("${"+ SecurityConstants.DOREGISTER_PATH_ENVIRONMENT_KEY+"}")
+    @ResponseBody
+    public BaseResponse doRegister() {
+        return new BaseResponse.Builder().buildSuccess();
+    }
+
+    /**
      * 执行登录
      * @return
      */
@@ -83,6 +93,7 @@ public class PluginSecurityController {
     public BaseResponse doLogin() {
         return new BaseResponse.Builder().buildSuccess();
     }
+
     /**
      * 去往错误页面
      * @param modelAndView

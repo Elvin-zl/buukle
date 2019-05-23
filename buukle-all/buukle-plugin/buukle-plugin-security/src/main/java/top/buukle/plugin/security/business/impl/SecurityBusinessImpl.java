@@ -263,6 +263,58 @@ public class SecurityBusinessImpl implements SecurityBusiness {
     }
 
     /**
+     * 注册新用户
+     * @param request
+     * @param response
+     * @return
+     */
+    @Override
+    public BaseResponse doRegister(HttpServletRequest request, HttpServletResponse response) {
+        // 校验参数
+        User user = this.validateLoginParamForRegister(request);
+        BaseRequest baseRequest = new BaseRequest.Builder().build(SecurityInterceptor.APPLICATION_NAME, SecurityInterceptor.APPLICATION_NAME);
+        baseRequest.setInfo(user);
+        return securityInvoker.doRegister(baseRequest);
+    }
+
+    /**
+     * 校验注册参数
+     * @param request
+     * @return
+     */
+    private User validateLoginParamForRegister(HttpServletRequest request) {
+        String username = request.getParameter("usernameRegister");
+        String password = request.getParameter("passwordRegister");
+        String passwordRegisterConfirm = request.getParameter("passwordRegisterConfirm");
+
+        // 校验验证码
+        String verificationCode = request.getParameter(SecurityInterceptor.VERIFICATION_CODE_KEY);
+        if(StringUtil.isEmpty(verificationCode)){
+            throw new BaseException(BaseResponseCode.USER_LOGIN_VERIFY_CODE_NULL);
+        }
+        // 缓存session验证码
+        String sessionVerificationCode = (String) request.getSession().getAttribute(SecurityConstants.VERIFY_CODE_KEY_PREFIX + SecurityInterceptor.VERIFICATION_CODE_KEY);
+        // 移除session验证码
+        request.getSession().removeAttribute(SecurityConstants.VERIFY_CODE_KEY_PREFIX+ SecurityInterceptor.VERIFICATION_CODE_KEY);
+        // 验证码错误
+        if(!verificationCode.equals(sessionVerificationCode)){
+            throw new BaseException(BaseResponseCode.USER_LOGIN_VERIFY_CODE_WRONG);
+        }
+        // 用户名,密码验空
+        if(StringUtil.isEmpty(username) || StringUtil.isEmpty(password)){
+            throw new BaseException(BaseResponseCode.USER_REGISTER_FAILED_USERNAME_OR_PWD_NULL);
+        }
+        // 校验密码与确认密码
+        if(!password.equals(passwordRegisterConfirm)){
+            throw new BaseException(BaseResponseCode.USER_REGISTER_FAILED_CONFIRM_PWD_WRONG);
+        }
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(password);
+        return user;
+    }
+
+    /**
      * 认证
      * @param httpServletRequest
      * @param ssoDefaultAge

@@ -95,4 +95,11 @@ public interface SecurityApiBusiness {
      * @return
      */
     BaseResponse updateUserBasicResource(BaseRequest baseRequest) throws Exception;
+
+    /**
+     * 注册新用户
+     * @param baseRequest
+     * @return
+     */
+    BaseResponse doRegister(BaseRequest baseRequest);
 }

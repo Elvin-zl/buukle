@@ -64,6 +64,10 @@ public class LoginParameters {
     @Value("${security.doLoginPath:}")
     private String doLoginPath;
 
+    /** 执行注册路径*/
+    @Value("${security.doRegisterPath:}")
+    private String doRegisterPath;
+
     /** 未开启授权应用获取用户信息路径*/
     @Value("${security.autoLoginPath:}")
     private String autoLoginPath;
@@ -325,5 +329,13 @@ public class LoginParameters {
 
     public void setFreePermissionPathList(List<String> freePermissionPathList) {
         this.freePermissionPathList = freePermissionPathList;
+    }
+
+    public String getDoRegisterPath() {
+        return doRegisterPath;
+    }
+
+    public void setDoRegisterPath(String doRegisterPath) {
+        this.doRegisterPath = doRegisterPath;
     }
 }

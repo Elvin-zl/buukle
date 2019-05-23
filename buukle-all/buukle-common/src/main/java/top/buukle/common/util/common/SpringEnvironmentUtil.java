@@ -16,7 +16,7 @@ import java.util.Properties;
 public class SpringEnvironmentUtil implements EnvironmentAware {
 
     /** 默认命名空间*/
-    private static final String SSO_PROPERTIES = "ssoProperties";
+    private static final String SECURITY_PROPERTIES = "securityProperties";
 
     private  static ConfigurableEnvironment configurableEnvironment = null;
 
@@ -33,12 +33,12 @@ public class SpringEnvironmentUtil implements EnvironmentAware {
      */
     public static void setEnvironmentProperty(String key,String value) {
         MutablePropertySources m = configurableEnvironment.getPropertySources();
-        PropertySource<?> ssoPropertyPropertySource = m.get(SSO_PROPERTIES);
+        PropertySource<?> ssoPropertyPropertySource = m.get(SECURITY_PROPERTIES);
         if(null == ssoPropertyPropertySource){
             Properties p = new Properties();
-            m.addLast(new PropertiesPropertySource(SSO_PROPERTIES, p));
+            m.addLast(new PropertiesPropertySource(SECURITY_PROPERTIES, p));
         }
-        ssoPropertyPropertySource = m.get(SSO_PROPERTIES);
+        ssoPropertyPropertySource = m.get(SECURITY_PROPERTIES);
         Hashtable<String,String> table = (Hashtable<String, String>) ssoPropertyPropertySource.getSource();
         table.put(key, value);
     }

@@ -139,13 +139,16 @@ public enum BaseResponseCode {
 
     /*----------------------------------------------SECURITY-PLUGIN--06{**}{**}-------------------------------------------------------------*/
     // 登录错误返回码 --0600{**}
-    USER_LOGIN_VERIFY_CODE_NULL(BaseResponseCode.FAILURES, "060000", "登录失败!验证码为空!"),
-    USER_LOGIN_VERIFY_CODE_WRONG(BaseResponseCode.FAILURES, "060001", "登录失败!验证码错误!"),
+    USER_LOGIN_VERIFY_CODE_NULL(BaseResponseCode.FAILURES, "060000", "失败!验证码为空!"),
+    USER_LOGIN_VERIFY_CODE_WRONG(BaseResponseCode.FAILURES, "060001", "失败!验证码错误!"),
     USER_PERMISSION_OPEN_AUTH_NULL(BaseResponseCode.FAILURES, "060002", "授权失败! 请指定授权策略!"),
     USER_LOGIN_USERNAME_PASSWORD_NULL_SSO_PLUGIN(BaseResponseCode.FAILURES, "060003","登录失败!用户名或密码为空!"),
     USER_AUTHENTICATION_FAILED_COOKIE_NULL(BaseResponseCode.FAILURES, "060004","认证失败!客户端标识信息为空!"),
     USER_AUTHENTICATION_FAILED_REQUEST_WRONG(BaseResponseCode.FAILURES, "060005","认证失败!buukle-security配置security.host请求失败!"),
     USER_UPDATE_WRONG_NO_LOGIN(BaseResponseCode.FAILURES, "060006","更新失败!用户登录状态不正确,请重新登陆后再次尝试!"),
+    USER_REGISTER_FAILED_CONFIRM_PWD_WRONG(BaseResponseCode.FAILURES, "060007","用户注册失败!确认密码与密码不一致!"),
+    USER_REGISTER_FAILED_USERNAME_OR_PWD_NULL(BaseResponseCode.FAILURES, "060008","用户注册失败!用户名或密码不能为空!"),
+    USER_REGISTER_FAILED_USERNAME_DUPLICATED(BaseResponseCode.FAILURES, "060009","用户注册失败!用户名已经被占用!"),
 
     ;
 

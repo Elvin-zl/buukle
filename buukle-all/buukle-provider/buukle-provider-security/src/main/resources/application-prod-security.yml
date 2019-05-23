@@ -19,6 +19,8 @@ security:
   ssoDomain: buukle.top
   ## 指定 :执行登录path
   doLoginPath: /doLogin
+  ## 指定 :执行注册path
+  doRegisterPath: /doRegister
   ## 指定 :登录页面路径path
   loginPath: /login
   ## 指定 :登录页面视图名ViewName

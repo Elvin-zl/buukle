@@ -97,4 +97,13 @@ public interface SecurityBusiness {
      * @return
      */
     BaseResponse updateUserBasicResource(User user, HttpServletRequest httpServletRequest);
+
+    /**
+     * 注册新用户
+     * @param request
+     * @param response
+     * @return
+     */
+    BaseResponse doRegister(HttpServletRequest request, HttpServletResponse response);
+
 }
