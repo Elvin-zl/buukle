@@ -105,4 +105,19 @@ public interface ArticleInfoService{
      */
     ArticleInformationVo getArticleAllInformation(ArticleInfoQuery query);
 
+    /**
+     * 审核文章
+     * @param articleInfo
+     * @param request
+     * @return
+     */
+    BaseResponse auditArticle(ArticleInfo articleInfo, HttpServletRequest request);
+
+    /**
+     * 审核文章--审核
+     * @param query
+     * @param request
+     * @return
+     */
+    ArticleInformationVo getArticleInformationForAudit(ArticleInfoQuery query, HttpServletRequest request);
 }

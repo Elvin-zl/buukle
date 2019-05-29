@@ -108,6 +108,17 @@ public class ArticleInfoController{
     public ArticleInformationVo getArticleAllInformation(ArticleInfoQuery query) throws Exception {
         return articleInfoService.getArticleAllInformation(query);
     }
+    /**
+    * 查看文章详情--审核用
+    * @param query
+    * @return
+    * @throws Exception
+    */
+    @RequestMapping("/getArticleInformationForAudit")
+    @ResponseBody
+    public ArticleInformationVo getArticleInformationForAudit(ArticleInfoQuery query,HttpServletRequest request) throws Exception {
+        return articleInfoService.getArticleInformationForAudit(query,request);
+    }
 
     /**
     * 新增记录
@@ -161,4 +172,16 @@ public class ArticleInfoController{
         return articleInfoService.doDraft(publishVo,request);
     }
 
+    /**
+     * 审核文章
+     * @param articleInfo
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/auditArticle")
+    @ResponseBody
+    public BaseResponse auditArticle(ArticleInfo articleInfo, HttpServletRequest request) throws Exception {
+        return articleInfoService.auditArticle(articleInfo,request);
+    }
 }

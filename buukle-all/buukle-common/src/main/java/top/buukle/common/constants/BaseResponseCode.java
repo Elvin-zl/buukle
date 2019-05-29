@@ -120,6 +120,9 @@ public enum BaseResponseCode {
     ARTICLE_PUBLISH_FAILED_CONTENT_NULL(BaseResponseCode.FAILURES, "020100", "文章发布失败,内容为空!"),
     ARTICLE_PUBLISH_FAILED_PID_NULL(BaseResponseCode.FAILURES, "020100", "文章发布失败,文章分类id为空!"),
 
+    // 文章审核返回码 --0202{**}
+    ARTICLE_AUDIT_FAILED_STATUS_WRONG(BaseResponseCode.FAILURES, "020200", "文章审核失败,非处理中的文章不能审核!"),
+
     /*---------------------------------------------------WWW--04{**}{**}-----------------------------------------------------------------*/
     // 文章操作返回码 --0401{**}
     ARTICLE_PRAISE_FAILED(BaseResponseCode.FAILURES, "040100", "文章赞数更新异常!"),
@@ -136,6 +139,7 @@ public enum BaseResponseCode {
 
     // 文章操作返回码 --0402{**}
     ARTICLE_ADD_EXCEPTION(BaseResponseCode.FAILURES, "040300", "请先登录在写文章!"),
+    ARTICLE_DETAIL_EXCEPTION_BANED(BaseResponseCode.FAILURES, "040301", "查看失败,文章已经被删除或封禁!"),
 
     /*----------------------------------------------SECURITY-PLUGIN--06{**}{**}-------------------------------------------------------------*/
     // 登录错误返回码 --0600{**}

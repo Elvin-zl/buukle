@@ -31,6 +31,8 @@ public class StatusConstants {
     public static final Integer STATUS_NOT_RELEASED = 5;
     /** 通用状态 : 草稿*/
     public static final Integer STATUS_DRAFT = 6;
+    /** 通用状态 : 审核中/处理中*/
+    public static final Integer STATUS_AUDITING = 7;
 
     /** 可见通用状态值列表*/
     public static final List<Integer> ARTICLE_VERSION_STATUS_LIST_CMS = new ArrayList<>();
@@ -46,6 +48,7 @@ public class StatusConstants {
         // 初始化www可见状态列表值
         ARTICLE_VERSION_STATUS_LIST_WWW.add(StatusConstants.STATUS_PUBLISHED);
         ARTICLE_VERSION_STATUS_LIST_WWW.add(StatusConstants.STATUS_WAITING_FOR_AUDIT_PUBLISH);
+        ARTICLE_VERSION_STATUS_LIST_WWW.add(StatusConstants.STATUS_AUDITING);
     }
 
 }

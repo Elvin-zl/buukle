@@ -325,6 +325,11 @@ public class ArticleInfoServiceImpl implements ArticleInfoService {
             }else{
                 throw new BaseException(BaseResponseCode.ARTICLE_QUERY_ID_NOT_EXIST);
             }
+        }else{
+            // 被封禁,删除直接抛出异常
+            if(isPortal && !StatusConstants.ARTICLE_VERSION_STATUS_LIST_WWW.contains(articleInfo.getStatus())){
+                throw new ViewException(BaseResponseCode.ARTICLE_DETAIL_EXCEPTION_BANED);
+            }
         }
         ArticleInformationVo informationVo = new ArticleInformationVo();
         informationVo.setArticleInfo(articleInfo);

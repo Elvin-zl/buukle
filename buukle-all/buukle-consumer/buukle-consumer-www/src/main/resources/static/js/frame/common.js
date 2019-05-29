@@ -1,5 +1,5 @@
 /**
- * Created by elvi
+ * Created by elvin
  */
 
 $('[data-toggle="tooltip"]').tooltip();

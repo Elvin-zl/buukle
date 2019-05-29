@@ -29,5 +29,7 @@ public class StatusConstants {
     public static Integer STATUS_NOT_RELEASED = 5;
     /** 文章状态 : 草稿*/
     public static Integer STATUS_DRAFT = 6;
+    /** 文章状态 : 处理中/审核中*/
+    public static Integer STATUS_AUDITING = 7;
 
 }

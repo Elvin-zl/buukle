@@ -10,68 +10,73 @@
 	<link href="/static/markdown/lib/highlightjs/styles/github.css" rel="stylesheet" />
 	<link href="/static/markdown/css/explain.css" rel="stylesheet"/>
 	<link href="/static/markdown/dist/tui-editor.css" rel="stylesheet" />
-	<link href="/static/markdown/dist/tui-editor-contents.css"rel="stylesheet" />
-	<link href="/static/markdown/lib/tui-color-picker/dist/tui-color-picker.css"rel="stylesheet" />
-	<link href="/static/markdown/lib/tui-chart/dist/tui-chart.css"rel="stylesheet" />
+	<link href="/static/markdown/dist/tui-editor-contents.css" rel="stylesheet" />
+	<link href="/static/markdown/lib/tui-color-picker/dist/tui-color-picker.css" rel="stylesheet" />
+	<link href="/static/markdown/lib/tui-chart/dist/tui-chart.css" rel="stylesheet" />
 	<link rel="stylesheet" href="/static/layui/css/layui.css">
-	<link href="/static/zElog/css/frame/layout.css"rel="stylesheet" />
+	<link href="/static/zElog/css/frame/layout.css" rel="stylesheet" />
+	<link href="/static/zElog/css/form.css" rel="stylesheet" />
 	<link rel="stylesheet" href="" id="btnThemeCss">
+	<!--markdown-->
+	<link href="/static/markdown/css/edit/css/editormd.preview.min.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 	<div class="htmleaf-container">
 		<div class="crumbs-div">
-			<div class="crumbs-inner-div">
-				<a class="crumbs" style="margin-left: 8px;"> 当前位置>></a><a class="crumbs">buukle内容管理系统/</a><a class="crumbs">我的文章/</a><a class="crumbs"> 审核文章</a>
-			</div>
-			<span  class="layui-btn search-btn theme-btn" id="cancel" style="margin-left: 107%;  width: 64px; margin-top: 12px;">返回</span>
+			<span  class="layui-btn search-btn theme-btn" id="cancel" style="margin-left: 96%;  width: 64px; margin-top: 45px;">返回</span>
 		</div>
-		<div class="container" style="margin-top:50px;margin-bottom:50px;width: 80%;">
-			<div class="article-titleAbs"  id="articleTitleAbs" style="margin-top: 0px; background-color: #eaeaeaed;">
-				<div class="explain" style="border: 0px solid #777;">
+		<div class="container" style="margin-top:50px;margin-bottom:50px;width: 80%;background-color: #ebf1f3;">
+			<div class="article-titleAbs"  id="articleTitleAbs">
+				<div class="explain" >
 					文章标题 :
-					<input value="加载中... " maxlength="64" style="width: 28%;background-color: #ececec;" type="text" required name="title" class="article-titleAbs-input" id="title">
-					文章分类 ：
-					<input value="加载中... " style="width: 37%; background-color: #ececec;" type="text" required name="cat" id="articleCat" class="article-titleAbs-input">
+					<input readonly maxlength="64" style="width: 28%;" type="text"   class="article-titleAbs-input" id="title">
+					文章分类 :
+					<input readonly style="width: 37%; " type="text"   id="articleCat" class="article-titleAbs-input">
 				</div>
-				<div class="explain" style="border: 0px solid #777;">
-					   作者 :
-					<input value="加载中... " maxlength="64" style="width: 28%;background-color: #ececec;" type="text" required name="title" class="article-titleAbs-input" id="creator">
-					创建时间 ：
-					<input value="加载中... " style="width: 37%; background-color: #ececec;" type="text" required name="cat" id="gmtCreated" class="article-titleAbs-input">
+				<div class="explain" >
+					文章作者 :
+					<input readonly maxlength="64" style="width: 28%;" type="text"   class="article-titleAbs-input" id="creator">
+					创建时间 :
+					<input readonly style="width: 37%; " type="text"   id="gmtCreated" class="article-titleAbs-input">
 				</div>
-				<div class="explain" style="border: 0px solid #777;">
+				<div class="explain" >
 					修改时间 :
-					<input value="加载中... " maxlength="64" style="width: 28%;background-color: #ececec;" type="text" required name="title" class="article-titleAbs-input" id="gmtModified">
-					  审核者 ：
-					<input value="加载中... " style="width: 37%; background-color: #ececec;" type="text" required name="cat" id="auditor" class="article-titleAbs-input">
+					<input readonly maxlength="64" style="width: 28%;" type="text"   class="article-titleAbs-input" id="gmtModified">
+					  审核者 :
+					<input readonly style="width: 37%; " type="text"   id="auditor" class="article-titleAbs-input">
 				</div>
-				<div class="explain" style="border: 0px solid #777;">
+				<div class="explain" >
 					文章摘要 :
-					<input value="加载中... " maxlength="128"  style="background-color: #ececec;" type="text" required name="articleDesc" id="articleDesc" class="article-titleAbs-input" >
+					<input readonly maxlength="128"  style="" type="text"  name="articleDesc" id="articleDesc" class="article-titleAbs-input" >
 				</div>
-				<div class="explain" style="border-width: 0px;">
-					正文
+				<div class="explain" style="border-width: 0 ;border-bottom: solid 1px #ebf1f3;">
+					正文 :
 				</div>
 			</div>
-			<div class="code-html" style="margin-top: 217px; z-index: 100;">
-				<div id="viewerSection"></div>
+			<div id="articleContent" style="margin-top: 210px;">
+				<textarea id="append-test" style="display: none">  </textarea>
 			</div>
+			<div class="buukle-audit-btn">
+				<span id="auditPass" class="layui-btn theme-btn" style="margin-left: 39%;">通过</span>
+				<span id="auditReject" class="layui-btn theme-btn" style="" >不通过</span>
+			</div>
+			审核备注 :
+			<textarea id="audit-remark" name="remark" class="buukle-audit-textareea"></textarea>
 		</div>
 	</div>
 	<script src="/static/mods/jquery-3.3.1.min.js"></script>
-	<script src="/static/markdown/lib/markdown-it/dist/markdown-it.js"></script>
-	<script src="/static/markdown/lib/toMark/dist/toMark.js"></script>
-	<script src="/static/markdown/lib/tui-code-snippet/dist/tui-code-snippet.js"></script>
-	<script src="/static/markdown/lib/tui-color-picker/dist/tui-color-picker.js"></script>
-	<script src="/static/markdown/lib/codemirror/lib/codemirror.js"></script>
-	<script src="/static/markdown/lib/highlightjs/highlight.pack.js"></script>
-	<script src="/static/markdown/lib/squire-rte/build/squire-raw.js"></script>
-	<script src="/static/markdown/lib/plantuml-encoder/dist/plantuml-encoder.js"></script>
-	<script src="/static/markdown/lib/raphael/raphael.js"></script>
-	<script src="/static/markdown/lib/tui-chart/dist/tui-chart.js"></script>
-	<script src="/static/markdown/dist/tui-editor-Editor-all.js"></script>
+	<!--markdown-->
+	<script src="/static/markdown/editormd/marked.min.js" type="text/javascript"></script>
+	<script src="/static/markdown/editormd/prettify.min.js" type="text/javascript"></script>
+	<script src="/static/markdown/editormd/raphael.min.js" type="text/javascript"></script>
+	<script src="/static/markdown/editormd/underscore.min.js" type="text/javascript"></script>
+	<script src="/static/markdown/editormd/sequence-diagram.min.js" type="text/javascript"></script>
+	<script src="/static/markdown/editormd/flowchart.min.js" type="text/javascript"></script>
+	<script src="/static/markdown/editormd/jquery.flowchart.min.js" type="text/javascript"></script>
+	<script src="/static/markdown/editormd/editormd.min.js" type="text/javascript"></script>
 	<script src="/static/layui/layui.js"></script>
 	<script src="/static/zElog/js/util/component.js"></script>
+	<script src="/static/zElog/js/util/common.js"></script>
 	<script src="/static/zElog/js/article/auditArticle/auditArticle.js"></script>
 </body>
 </html>
