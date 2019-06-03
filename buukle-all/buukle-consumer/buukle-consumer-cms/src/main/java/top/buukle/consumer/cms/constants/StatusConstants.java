@@ -1,5 +1,8 @@
 package top.buukle.consumer.cms.constants;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @Author elvin
  * @Date Created by elvin on 2018/12/21.
@@ -31,5 +34,15 @@ public class StatusConstants {
     public static Integer STATUS_DRAFT = 6;
     /** 文章状态 : 处理中/审核中*/
     public static Integer STATUS_AUDITING = 7;
+    /** 文章状态 : 可审核状态*/
+    public static List<Integer> STATUS_AUDIT_AVAILABLE = new ArrayList<>();
+
+    static{
+        STATUS_AUDIT_AVAILABLE.add(STATUS_WAITING_FOR_AUDIT_PUBLISH);
+        STATUS_AUDIT_AVAILABLE.add(STATUS_WAITING_FOR_AUDIT_RELEASE);
+        STATUS_AUDIT_AVAILABLE.add(STATUS_AUDITING);
+    }
+
+
 
 }

@@ -29,17 +29,17 @@ function bindButtonClick() {
     });
     // 审核通过
     $('#auditPass').off().on('click',function () {
-        if(banThis($(this),"审核中...")){
+        var _this = $(this);
+        if(banThis(_this,"审核中...")){
             $.ajax({
                 url:'/articleInfo/auditArticle',
                 data:{"id" : $("#current",window.parent.document).attr('data-id'),"status" : 1},
                 dataType:'json',
                 type:'post',
                 success:function (data) {
-                    if(data.code == 'S'){
-
-                    }
-                    freeThis($(this),"通过");
+                    alert(data.msg);
+                    freeThis(_this,"通过");
+                    window.location = "/articleInfo/getAuditArticleInfoList";
                 }
             });
         }

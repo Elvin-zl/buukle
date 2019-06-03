@@ -121,7 +121,7 @@ public enum BaseResponseCode {
     ARTICLE_PUBLISH_FAILED_PID_NULL(BaseResponseCode.FAILURES, "020100", "文章发布失败,文章分类id为空!"),
 
     // 文章审核返回码 --0202{**}
-    ARTICLE_AUDIT_FAILED_STATUS_WRONG(BaseResponseCode.FAILURES, "020200", "文章审核失败,非处理中的文章不能审核!"),
+    ARTICLE_AUDIT_FAILED_STATUS_WRONG(BaseResponseCode.FAILURES, "020200", "文章审核失败,文章审核状态不正确或已被他人审核!"),
 
     /*---------------------------------------------------WWW--04{**}{**}-----------------------------------------------------------------*/
     // 文章操作返回码 --0401{**}

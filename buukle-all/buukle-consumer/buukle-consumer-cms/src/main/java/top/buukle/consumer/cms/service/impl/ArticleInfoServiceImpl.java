@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import top.buukle.common.constants.BaseResponseCode;
 import top.buukle.common.exception.BaseException;
+import top.buukle.common.exception.ViewException;
 import top.buukle.common.response.BaseResponse;
 import top.buukle.common.util.common.DateUtil;
 import top.buukle.common.util.common.NumberUtil;
@@ -246,6 +247,10 @@ public class ArticleInfoServiceImpl implements ArticleInfoService{
      */
     @Override
     public ArticleInformationVo getArticleInformationForAudit(ArticleInfoQuery query, HttpServletRequest request) {
+        ArticleInfo articleInfo = articleInfoMapper.selectByPrimaryKey(query.getId());
+        if(!StatusConstants.STATUS_AUDIT_AVAILABLE.contains(articleInfo.getStatus())){
+            throw new BaseException(BaseResponseCode.ARTICLE_AUDIT_FAILED_STATUS_WRONG);
+        }
         articleInfoMapper.updateByPrimaryKeySelective(this.assArticleInfoForAuditing(query,request));
         return getArticleAllInformation(query);
     }
