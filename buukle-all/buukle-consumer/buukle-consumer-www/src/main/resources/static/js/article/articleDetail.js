@@ -1,5 +1,4 @@
 $(function(){
-
     // 绑定滚屏
     bindScroll();
     //渲染文章内容
@@ -8,8 +7,67 @@ $(function(){
     bindPraiseClick();
     //渲染评论
     renderComment();
+    //渲染微信jsapi
+    renderWeChatJsApi();
 });
 
+/*渲染微信jsapi*/
+function renderWeChatJsApi() {
+    // 请求后台获取appid,生成签名的时间戳,签名
+    var urlh = location.href.split('#')[0];
+    $.ajax({
+        url : "/wechatApi/initWXJSInterface",
+        method : "post",
+        dataType : 'json',
+        data : {'url' : urlh},
+        success : function(data){
+            var url = data.url;
+
+            wx.config({
+                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                appId: data.appIds, // 必填，公众号的唯一标识
+                timestamp: data.timestamps, // 必填，生成签名的时间戳
+                nonceStr: data.nonceStrs, // 必填，生成签名的随机串
+                signature: data.signatures,// 必填，签名
+                jsApiList: [
+                    // 所有要调用的 API 都要加到这个列表中
+                    'checkJsApi',
+                    'openLocation',
+                    'getLocation',
+                    'onMenuShareTimeline',
+                    'onMenuShareAppMessage'
+                ]
+            });
+            // 设置分享效果
+            wx.ready(function(){
+                wx.onMenuShareAppMessage({
+                    title: $('#title').html(),
+                    desc: $('#articleDesc').val(),
+                    link: url,
+                    imgUrl: $('#titleImage').val(),
+                    success : function () {
+                        alert("发送成功!");
+                    },
+                    cancel: function () {
+                        alert("取消成功!");
+                    }
+                });
+                wx.onMenuShareTimeline({
+                    title: $('#title').html(),
+                    desc: $('#articleDesc').val(),
+                    link: url,
+                    imgUrl: $('#titleImage').val(),
+                    success : function () {
+                        alert("发送成功!");
+                    },
+                    cancel: function () {
+                        alert("取消成功!");
+                    }
+                });
+            });
+        }
+    });
+}
 /*绑定滚屏*/
 function bindScroll() {
     var scrollTop = 0;

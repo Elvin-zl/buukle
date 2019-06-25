@@ -18,7 +18,7 @@ public class PageBounds {
 
     }
     public Integer getPage() {
-        return page;
+        return null == page ? 0 : page;
     }
 
     public void setPage(Integer page) {
@@ -26,7 +26,7 @@ public class PageBounds {
     }
 
     public Integer getLimit() {
-        return limit;
+        return null == limit ? 10 : limit;
     }
 
     public void setLimit(Integer limit) {

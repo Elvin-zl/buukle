@@ -302,7 +302,7 @@ function formatUserHandle(inputState,id,name) {
         // 1. 处理常规按钮渲染展示
         if(buttons[i].operationType != 4 && buttons[i].operationType != 5 && buttons[i].operationType != 6){
             //详情
-            if(buttons[i].operationType == 3){
+            if(buttons[i].operationType == 3 || buttons[i].operationType == 1){
                 html += '<a class="layui-btn layui-btn-mini theme-btn buukle-table-btn" data-name="'+name+'" data-responseDomId="'+buttons[i].responseDomId+'" data-responseType="'+buttons[i].responseType+'" data-operationType="'+buttons[i].operationType+'" data-state="'+inputState+'" data-id="'+id+'" data-url="'+buttons[i].url+'">'+buttons[i].buttonName+'</a>'
             }
             //修改
@@ -328,7 +328,7 @@ function formatUserHandle(inputState,id,name) {
             }
         }
         //3. 处理( [审核] ...等)变更状态按钮动态展示
-        else if(buttons[i].operationType == 5 && (inputState == 3 ||inputState == 4)){
+        else if(buttons[i].operationType == 5 && (inputState == 3 ||inputState == 4 ||inputState == 7)){
             html += '<a style="background-color: #5f6b70;" class="layui-btn layui-btn-mini buukle-table-btn" data-name="'+name+'" data-responseDomId="'+buttons[i].responseDomId+'" data-responseType="'+buttons[i].responseType+'" data-operationType="'+buttons[i].operationType+'" data-state="'+inputState+'" data-id="'+id+'" data-url="'+buttons[i].url+'">'+buttons[i].buttonName+'</a>'
         }
         //4. 处理 [启/停用] 按钮动态展示
@@ -622,6 +622,8 @@ function formatArticleManagerStatus(inputState) {
         status = "<span style='color: #6e5f5f;'>[解禁]待审核</span>";
     }else if(inputState == 5){
         status = "<span style='color: red;'>审核不通过</span>";
+    }else if(inputState == 7){
+        status = "<span style='color: #6e5f5f;'>审核中</span>";
     }
     return  status;
 }

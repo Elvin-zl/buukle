@@ -2,12 +2,14 @@ package top.buukle.provider.security.api.business.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
 import top.buukle.common.constants.BaseResponseCode;
 import top.buukle.common.dataIsolation.IsolationConstants;
 import top.buukle.common.exception.BaseException;
 import top.buukle.common.request.BaseRequest;
 import top.buukle.common.request.out.OutRequest;
 import top.buukle.common.response.BaseResponse;
+import top.buukle.common.util.common.MD5Util;
 import top.buukle.common.util.common.StringUtil;
 import top.buukle.common.util.logger.BaseLogger;
 import top.buukle.common.vo.page.PageBounds;
@@ -26,6 +28,7 @@ import top.buukle.provider.security.service.ButtonService;
 import top.buukle.provider.security.service.IpBlackListService;
 import top.buukle.provider.security.service.ModuleService;
 import top.buukle.provider.security.service.UserService;
+import top.buukle.provider.security.util.StringGeneratorUtil;
 
 import java.util.Date;
 import java.util.List;
@@ -173,12 +176,40 @@ public class SecurityApiBusinessImpl implements SecurityApiBusiness {
     }
 
     /**
+     * 注册新用户
+     * @param baseRequest
+     * @return
+     */
+    @Override
+    public BaseResponse doRegister(BaseRequest baseRequest) {
+        User user = (User)baseRequest.getInfo(User.class);
+        user.setGmtCreated(new Date());
+        List<User> userByUsername = userMapper.getUserByUsername(user.getUsername());
+        if(!CollectionUtils.isEmpty(userByUsername)){
+            throw new BaseException(BaseResponseCode.USER_REGISTER_FAILED_USERNAME_DUPLICATED);
+        }
+        String userId = StringGeneratorUtil.generateUserID();
+        user.setGmtCreated(new Date());
+        user.setCreator(user.getUsername());
+        user.setGmtModified(new Date());
+        user.setModifier(user.getUsername());
+        user.setModifierCode(userId);
+        user.setUserId(userId);
+        user.setBak02(SecurityConstants.DELETE_LEVEL_TRUE);
+        user.setStatus(SecurityStatusConstants.STATUS_OPEN);
+        user.setBak01(SecurityConstants.USER_REGISTER_SELF);
+        user.setUserLevel(IsolationConstants.USER_LEVEL_CREATOR);
+        userMapper.insert(user);
+        return new BaseResponse.Builder().buildSuccess();
+    }
+
+    /**
      * 根据身份获取用户下级信息
      * @param userInfoForLogin
      * @return
      */
     private List<String> getUserSubordinateByUserLevel(User userInfoForLogin) {
-        UserQuery userQuery = new UserQuery();
+            UserQuery userQuery = new UserQuery();
         // 0 boss级别
         if(userInfoForLogin.getUserLevel().equals(IsolationConstants.USER_LEVEL_BOSS)){
             return userMapper.getUserSubordinateByUserLevel(userQuery);

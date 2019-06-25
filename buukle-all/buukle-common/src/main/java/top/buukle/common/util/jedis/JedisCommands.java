@@ -53,6 +53,22 @@ public class JedisCommands {
             }
         });
     }
+    public static Long incre(String key) {
+        return (Long) TEMPLATE.execute(new JedisCallable<Long>() {
+            @Override
+            Long call() {
+                return JedisFactory.getTemplate().opsForValue().increment(key);
+            }
+        });
+    }
+    public static Boolean setIfAbsent(String key,String value,Long expire) {
+        return (Boolean) TEMPLATE.execute(new JedisCallable<Boolean>() {
+            @Override
+            Boolean call() {
+                return JedisFactory.getTemplate().opsForValue().setIfAbsent(key,value,expire,TimeUnit.SECONDS);
+            }
+        });
+    }
 
 /*hash*/
 

@@ -116,4 +116,13 @@ public interface ArticleInfoService{
      * @param request
      */
     void updateLikeNumber(ArticleInfoQuery articleInfoQuery, HttpServletRequest request);
+
+    /**
+     * @description 更新文章
+     * @param articleInfo
+     * @return void
+     * @Author elvin
+     * @Date 2019/6/25
+     */
+    void updateArticleInfo(ArticleInfo articleInfo);
 }

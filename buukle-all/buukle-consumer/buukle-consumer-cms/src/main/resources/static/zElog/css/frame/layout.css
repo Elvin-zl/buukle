@@ -15,7 +15,7 @@ a:hover {
 .crumbs-div {
     position: fixed;
     margin-left: -1px;
-    width: 87%;
+    width: 98%;
     background-color: white;
     z-index: 101;
     height: 59px;
@@ -36,7 +36,6 @@ a:hover {
     color: #c8d5e0;
 }
 .article-titleAbs{
-    margin-top: 15px;
     position: fixed;
     z-index: 101;
     background-color: white;

@@ -12,7 +12,6 @@ import top.buukle.consumer.www.service.UserArticlePraiseRelationService;
  */
 public class PraiseTask {
 
-
     private UserArticlePraiseRelationService userArticlePraiseRelationService = SpringContextUtil.getBean(UserArticlePraiseRelationService.class);
 
     public void execute(String parameter) throws InterruptedException {

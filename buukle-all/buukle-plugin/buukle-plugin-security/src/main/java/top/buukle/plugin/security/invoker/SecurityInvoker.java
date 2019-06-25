@@ -121,4 +121,13 @@ public interface SecurityInvoker{
     @InvokerLoggingAnnotation(InvokerLoggingAnnotation.PRINT_FALSE)
     @PostMapping(value = SecurityInterceptor.API_URI_PREFIX + "/updateUserBasicResource")
     BaseResponse updateUserBasicResource(BaseRequest baseRequest);
+
+    /**
+     * 注册新用户
+     * @param baseRequest
+     * @return
+     */
+    @InvokerLoggingAnnotation(InvokerLoggingAnnotation.PRINT_FALSE)
+    @PostMapping(value = SecurityInterceptor.API_URI_PREFIX + "/doRegister")
+    BaseResponse doRegister(BaseRequest baseRequest);
 }

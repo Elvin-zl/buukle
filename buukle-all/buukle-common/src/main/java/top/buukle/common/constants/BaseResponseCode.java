@@ -120,6 +120,9 @@ public enum BaseResponseCode {
     ARTICLE_PUBLISH_FAILED_CONTENT_NULL(BaseResponseCode.FAILURES, "020100", "文章发布失败,内容为空!"),
     ARTICLE_PUBLISH_FAILED_PID_NULL(BaseResponseCode.FAILURES, "020100", "文章发布失败,文章分类id为空!"),
 
+    // 文章审核返回码 --0202{**}
+    ARTICLE_AUDIT_FAILED_STATUS_WRONG(BaseResponseCode.FAILURES, "020200", "文章审核失败,文章审核状态不正确或已被他人审核!"),
+
     /*---------------------------------------------------WWW--04{**}{**}-----------------------------------------------------------------*/
     // 文章操作返回码 --0401{**}
     ARTICLE_PRAISE_FAILED(BaseResponseCode.FAILURES, "040100", "文章赞数更新异常!"),
@@ -136,16 +139,20 @@ public enum BaseResponseCode {
 
     // 文章操作返回码 --0402{**}
     ARTICLE_ADD_EXCEPTION(BaseResponseCode.FAILURES, "040300", "请先登录在写文章!"),
+    ARTICLE_DETAIL_EXCEPTION_BANED(BaseResponseCode.FAILURES, "040301", "查看失败,文章已经被删除或封禁!"),
 
     /*----------------------------------------------SECURITY-PLUGIN--06{**}{**}-------------------------------------------------------------*/
     // 登录错误返回码 --0600{**}
-    USER_LOGIN_VERIFY_CODE_NULL(BaseResponseCode.FAILURES, "060000", "登录失败!验证码为空!"),
-    USER_LOGIN_VERIFY_CODE_WRONG(BaseResponseCode.FAILURES, "060001", "登录失败!验证码错误!"),
+    USER_LOGIN_VERIFY_CODE_NULL(BaseResponseCode.FAILURES, "060000", "失败!验证码为空!"),
+    USER_LOGIN_VERIFY_CODE_WRONG(BaseResponseCode.FAILURES, "060001", "失败!验证码错误!"),
     USER_PERMISSION_OPEN_AUTH_NULL(BaseResponseCode.FAILURES, "060002", "授权失败! 请指定授权策略!"),
     USER_LOGIN_USERNAME_PASSWORD_NULL_SSO_PLUGIN(BaseResponseCode.FAILURES, "060003","登录失败!用户名或密码为空!"),
     USER_AUTHENTICATION_FAILED_COOKIE_NULL(BaseResponseCode.FAILURES, "060004","认证失败!客户端标识信息为空!"),
     USER_AUTHENTICATION_FAILED_REQUEST_WRONG(BaseResponseCode.FAILURES, "060005","认证失败!buukle-security配置security.host请求失败!"),
     USER_UPDATE_WRONG_NO_LOGIN(BaseResponseCode.FAILURES, "060006","更新失败!用户登录状态不正确,请重新登陆后再次尝试!"),
+    USER_REGISTER_FAILED_CONFIRM_PWD_WRONG(BaseResponseCode.FAILURES, "060007","用户注册失败!确认密码与密码不一致!"),
+    USER_REGISTER_FAILED_USERNAME_OR_PWD_NULL(BaseResponseCode.FAILURES, "060008","用户注册失败!用户名或密码不能为空!"),
+    USER_REGISTER_FAILED_USERNAME_DUPLICATED(BaseResponseCode.FAILURES, "060009","用户注册失败!用户名已经被占用!"),
 
     ;
 

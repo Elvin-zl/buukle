@@ -6,13 +6,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import top.buukle.common.constants.BaseResponseCode;
 import top.buukle.common.exception.BaseException;
+import top.buukle.common.exception.ViewException;
 import top.buukle.common.response.BaseResponse;
 import top.buukle.common.util.common.DateUtil;
 import top.buukle.common.util.common.NumberUtil;
 import top.buukle.common.util.common.StringUtil;
-import top.buukle.common.util.jedis.RedisZSet;
 import top.buukle.common.vo.response.PageResponse;
-import top.buukle.consumer.cms.constants.CacheConstants;
 import top.buukle.consumer.cms .constants.StatusConstants;
 import top.buukle.consumer.cms.entity.*;
 import top.buukle.consumer.cms.entity.vo.ArticleCatQuery;
@@ -174,12 +173,13 @@ public class ArticleInfoServiceImpl implements ArticleInfoService{
      */
     @Override
     public PageResponse<ArticleInfo> getAuditArticleInfoList(ArticleInfoQuery query, PageBounds pageBounds) {
-        List<Integer> statusList = new ArrayList();
+        List<Integer> statusList = new ArrayList<>();
         statusList.add(StatusConstants.STATUS_PUBLISHED);
         statusList.add(StatusConstants.STATUS_BANED);
         statusList.add(StatusConstants.STATUS_WAITING_FOR_AUDIT_PUBLISH);
         statusList.add(StatusConstants.STATUS_WAITING_FOR_AUDIT_RELEASE);
         statusList.add(StatusConstants.STATUS_NOT_RELEASED);
+        statusList.add(StatusConstants.STATUS_AUDITING);
         PageHelper.startPage(pageBounds.getPage(), pageBounds.getLimit());
         return new PageResponse.Builder().build(new PageInfo<>(articleInfoMapper.selectByExample(this.assExampleForList(query,statusList))));
     }
@@ -239,6 +239,39 @@ public class ArticleInfoServiceImpl implements ArticleInfoService{
         return new BaseResponse.Builder().buildSuccess();
     }
 
+    /**
+     * 查看文章 -- 审核
+     * @param query
+     * @param request
+     * @return
+     */
+    @Override
+    public ArticleInformationVo getArticleInformationForAudit(ArticleInfoQuery query, HttpServletRequest request) {
+        ArticleInfo articleInfo = articleInfoMapper.selectByPrimaryKey(query.getId());
+        if(!StatusConstants.STATUS_AUDIT_AVAILABLE.contains(articleInfo.getStatus())){
+            throw new BaseException(BaseResponseCode.ARTICLE_AUDIT_FAILED_STATUS_WRONG);
+        }
+        articleInfoMapper.updateByPrimaryKeySelective(this.assArticleInfoForAuditing(query,request));
+        return getArticleAllInformation(query);
+    }
+
+    /**
+     * 组装审核实体
+     * @param query
+     * @param request
+     * @return
+     */
+    private ArticleInfo assArticleInfoForAuditing(ArticleInfoQuery query, HttpServletRequest request) {
+        ArticleInfo articleInfo = new ArticleInfo();
+        articleInfo.setId(query.getId());
+        articleInfo.setStatus(StatusConstants.STATUS_AUDITING);
+        User operator = securityClient.getUserInfo(request);
+        articleInfo.setModifierCode(operator.getUserId());
+        articleInfo.setGmtModified(new Date());
+        articleInfo.setModifier(operator.getUsername());
+        articleInfo.setBak02(operator.getUsername());
+        return articleInfo;
+    }
 
     /**
      * 查看文章详情
@@ -247,7 +280,6 @@ public class ArticleInfoServiceImpl implements ArticleInfoService{
      */
     @Override
     public ArticleInformationVo getArticleAllInformation(ArticleInfoQuery query) {
-
         // 查询文章主表记录
         ArticleInfo articleInfo = articleInfoMapper.selectByPrimaryKey(query.getId());
         if(null == articleInfo){
@@ -255,24 +287,43 @@ public class ArticleInfoServiceImpl implements ArticleInfoService{
         }
         ArticleInformationVo informationVo = new ArticleInformationVo();
         informationVo.setArticleInfo(articleInfo);
-
         // 查询文章摘要记录
         ArticleDescQuery articleDescQuery = new ArticleDescQuery();
         articleDescQuery.setArticleInfoId(query.getId());
         ArticleDesc articleDescDetail = articleDescService.getArticleDescDetail(articleDescQuery);
         informationVo.setArticleDesc(null == articleDescDetail ? "" : articleDescDetail.getArticleDesc());
-
         // 查询文章内容记录
         ArticleContentQuery articleContentQuery = new ArticleContentQuery();
         articleContentQuery.setArticleInfoId(query.getId());
         ArticleContent articleContentDetail = articleContentService.getArticleContentDetail(articleContentQuery);
         informationVo.setArticleContent(null == articleContentDetail? "" : articleContentDetail.getArticleContent());
-
         // 查询文章分类记录
         ArticleCatQuery articleCatQuery = new ArticleCatQuery();
         articleCatQuery.setId(articleInfo.getArticleCatId());
         informationVo.setArticleCat(articleCatService.getArticleCatDetail(articleCatQuery));
         return informationVo;
+    }
+
+
+    /**
+     * 审核文章
+     * @param articleInfo
+     * @param request
+     * @return
+     */
+    @Override
+    public BaseResponse auditArticle(ArticleInfo articleInfo, HttpServletRequest request) {
+        ArticleInfo articleInfoDB = articleInfoMapper.selectByPrimaryKey(articleInfo.getId());
+        if(!articleInfoDB.getStatus().equals(StatusConstants.STATUS_AUDITING)){
+            throw new BaseException(BaseResponseCode.ARTICLE_AUDIT_FAILED_STATUS_WRONG);
+        }
+        User operator = securityClient.getUserInfo(request);
+        articleInfo.setModifier(operator.getUsername());
+        articleInfo.setGmtModified(new Date());
+        articleInfo.setModifierCode(operator.getUserId());
+        articleInfo.setBak02(operator.getUsername());
+        articleInfoMapper.updateByPrimaryKeySelective(articleInfo);
+        return new BaseResponse.Builder().buildSuccess();
     }
 
     /**
@@ -300,7 +351,7 @@ public class ArticleInfoServiceImpl implements ArticleInfoService{
      * @param statusList
      * @return
      */
-    private ArticleInfoExample assExampleForList(ArticleInfoQuery query, List statusList) {
+    private ArticleInfoExample assExampleForList(ArticleInfoQuery query, List<Integer> statusList) {
         ArticleInfoExample example = new ArticleInfoExample();
         ArticleInfoExample.Criteria criteria = example.createCriteria();
         if(StringUtil.isNotEmpty(query.getStartTime())){
@@ -317,6 +368,7 @@ public class ArticleInfoServiceImpl implements ArticleInfoService{
         }else{
             criteria.andStatusEqualTo(query.getStatus());
         }
+        example.orderBy("gmt_created desc");
         return example;
     }
 

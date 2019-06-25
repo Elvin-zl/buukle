@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import top.buukle.common.constants.BaseResponseCode;
 import top.buukle.common.exception.BaseException;
+import top.buukle.common.exception.ViewException;
 import top.buukle.common.response.BaseResponse;
 import top.buukle.common.vo.response.PageResponse;
 import top.buukle.consumer.www.entity.ArticleInfo;
@@ -18,6 +19,7 @@ import top.buukle.consumer.www.vo.ArticlePublishVo;
 import top.buukle.common.vo.page.PageBounds;
 import top.buukle.common.vo.fuuzy.FuzzySearchListVo;
 import top.buukle.plugin.security.client.SecurityClient;
+import top.buukle.plugin.security.constants.SecurityConstants;
 import top.buukle.plugin.security.entity.User;
 
 import javax.servlet.http.HttpServletRequest;
@@ -190,8 +192,8 @@ public class ArticleInfoController{
     @RequestMapping("/toAddArticle")
     public ModelAndView toAddArticle(HttpServletRequest request) throws Exception {
         User userInfo = securityClient.getUserInfo(request);
-        if(userInfo == null){
-            throw new BaseException(BaseResponseCode.ARTICLE_ADD_EXCEPTION);
+        if(userInfo.getUserId().equals(SecurityConstants.USER_ID_OFFLINE)){
+            throw new ViewException(BaseResponseCode.ARTICLE_ADD_EXCEPTION);
         }
         return new ModelAndView("article/articleAdd");
     }

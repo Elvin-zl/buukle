@@ -1,10 +1,8 @@
 package top.buukle.consumer.www.invoker;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 import top.buukle.common.request.BaseRequest;
 import top.buukle.common.response.BaseResponse;
-import top.buukle.plugin.security.constants.SecurityConstants;
 import top.buukle.plugin.security.entity.User;
 import top.buukle.plugin.security.plugins.SecurityInterceptor;
 import top.buukle.plugin.upload.client.UploadCinent;

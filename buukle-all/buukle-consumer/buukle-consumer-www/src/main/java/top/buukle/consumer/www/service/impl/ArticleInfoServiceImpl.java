@@ -4,7 +4,6 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.collections.CollectionUtils;
-import org.bouncycastle.cmc.CMCException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.buukle.common.constants.BaseResponseCode;
@@ -14,6 +13,7 @@ import top.buukle.common.response.BaseResponse;
 import top.buukle.common.util.common.DateUtil;
 import top.buukle.common.util.common.JsonUtil;
 import top.buukle.common.util.common.StringUtil;
+import top.buukle.common.util.jedis.RedisString;
 import top.buukle.common.util.logger.BaseLogger;
 import top.buukle.common.vo.fuuzy.FuzzySearchListVo;
 import top.buukle.common.vo.page.PageBounds;
@@ -26,7 +26,6 @@ import top.buukle.consumer.www.dao.ArticleInfoMapper;
 import top.buukle.consumer.www.entity.*;
 import top.buukle.consumer.www.entity.vo.*;
 import top.buukle.consumer.www.service.*;
-import top.buukle.consumer.www.vo.ArticleCatTreeNodeVo;
 import top.buukle.consumer.www.vo.ArticleInformationVo;
 import top.buukle.consumer.www.vo.ArticlePublishVo;
 import top.buukle.plugin.security.client.SecurityClient;
@@ -98,7 +97,9 @@ public class ArticleInfoServiceImpl implements ArticleInfoService {
         // 查询文章摘要和分类信息 TODO 优化成一条sql
         for (ArticleInfo articleInfo: articleInfos) {
             ArticleInformationVo articleInformationVo = new ArticleInformationVo();
+            String currentVistors = RedisString.get(ArticleInfoConstants.VISIT_PREFIX + articleInfo.getId());
             // 组装articleInfo
+            articleInfo.setBak01(Integer.parseInt(StringUtil.isEmpty(articleInfo.getBak01()) ? "0" : articleInfo.getBak01())+(StringUtil.isEmpty(currentVistors) ? 0 : Integer.parseInt(currentVistors)) + StringUtil.EMPTY);
             articleInformationVo.setArticleInfo(articleInfo);
             // 查询并组装articleDesc
             ArticleDescQuery articleDescQuery = new ArticleDescQuery();
@@ -243,6 +244,10 @@ public class ArticleInfoServiceImpl implements ArticleInfoService {
      */
     @Override
     public BaseResponse doPublish(ArticlePublishVo publishVo, HttpServletRequest request) throws Exception {
+        User operator = securityClient.getUserInfo(request);
+        if(operator.getUserId().equals(SecurityConstants.USER_ID_OFFLINE)){
+            throw new BaseException(BaseResponseCode.ARTICLE_ADD_EXCEPTION);
+        }
         this.paramValidate(publishVo);
         // 组装并保存文章
         ArticleInfoQuery articleInfoQuery = new ArticleInfoQuery();
@@ -320,6 +325,11 @@ public class ArticleInfoServiceImpl implements ArticleInfoService {
             }else{
                 throw new BaseException(BaseResponseCode.ARTICLE_QUERY_ID_NOT_EXIST);
             }
+        }else{
+            // 被封禁,删除直接抛出异常
+            if(isPortal && !StatusConstants.ARTICLE_VERSION_STATUS_LIST_WWW.contains(articleInfo.getStatus())){
+                throw new ViewException(BaseResponseCode.ARTICLE_DETAIL_EXCEPTION_BANED);
+            }
         }
         ArticleInformationVo informationVo = new ArticleInformationVo();
         informationVo.setArticleInfo(articleInfo);
@@ -346,11 +356,28 @@ public class ArticleInfoServiceImpl implements ArticleInfoService {
                 userArticlePraiseRelation.setArticleId(articleInfo.getId());
                 informationVo.setPraiseRelation(userArticlePraiseRelationService.getUserArticlePraiseRelation(userArticlePraiseRelation));
             }
-            // 添加文章访问记录
-            ArticleInfo articleInfo1 = new ArticleInfo();
-            articleInfo1.setId(query.getId());
-            articleInfo1.setBak01(Integer.parseInt(StringUtil.isEmpty(articleInfo.getBak01()) ? "0" : articleInfo.getBak01())+1 +"");
-            articleInfoMapper.updateByPrimaryKeySelective(articleInfo1);
+            // 判断是否是有效访问 (ArticleInfoConstants.VISIT_EXPIRE_TIME_ZONE_SECONDED 秒内的重复访问即为无效)
+            if( RedisString.setIfAbsent(ArticleInfoConstants.VISIT_EXPIRE_PREFIX + query.getId(),"0",ArticleInfoConstants.VISIT_EXPIRE_TIME_ZONE_SECONDED)){
+               // 添加文章访问记录到redis缓存,解决并发访问问题
+               Long currentCacheVisit = RedisString.incre(ArticleInfoConstants.VISIT_PREFIX + query.getId());
+               // 本条记录达到缓存上限后落到数据库
+               if(currentCacheVisit >= ArticleInfoConstants.VISIT_CACHE_LIMIT){
+                   // 清空redis缓存访问量
+                   RedisString.set(ArticleInfoConstants.VISIT_PREFIX + query.getId(),"0");
+                   ArticleInfo articleInfo1 = new ArticleInfo();
+                   articleInfo1.setId(query.getId());
+                   // 合并访问量更新数据库
+                   articleInfo1.setBak01(Integer.parseInt(StringUtil.isEmpty(articleInfo.getBak01()) ? "0" : articleInfo.getBak01())+currentCacheVisit +"");
+                   articleInfoMapper.updateByPrimaryKeySelective(articleInfo1);
+               }
+               // 组装页面访问量并返回
+               articleInfo.setBak01(Integer.parseInt(StringUtil.isEmpty(articleInfo.getBak01()) ? "0" : articleInfo.getBak01())+currentCacheVisit + "");
+           }
+            // 无效访问
+            else{
+                // 组装页面访问量并返回
+                articleInfo.setBak01(Integer.parseInt(StringUtil.isEmpty(articleInfo.getBak01()) ? "0" : articleInfo.getBak01())+(StringUtil.isEmpty(RedisString.get(ArticleInfoConstants.VISIT_PREFIX + query.getId())) ? 0 : Integer.parseInt(RedisString.get(ArticleInfoConstants.VISIT_PREFIX + query.getId()))) + "");
+            }
         }
         // 查询文章摘要记录
         ArticleDescQuery articleDescQuery = new ArticleDescQuery();
@@ -381,6 +408,18 @@ public class ArticleInfoServiceImpl implements ArticleInfoService {
         if(articleInfoMapper.updateByPrimaryKeySelective(this.assQueryForUpdateAddLikeNumber(articleInfoQuery)) != 1){
             throw new BaseException(BaseResponseCode.STATUS_UPDATE_FAIL);
         }
+    }
+
+    /**
+     * @description 更新文章信息
+     * @param articleInfo
+     * @return void
+     * @Author elvin
+     * @Date 2019/6/25
+     */
+    @Override
+    public void updateArticleInfo(ArticleInfo articleInfo) {
+        articleInfoMapper.updateByPrimaryKey(articleInfo);
     }
 
 
@@ -516,10 +555,10 @@ public class ArticleInfoServiceImpl implements ArticleInfoService {
             example.orderBy("gmt_created desc");
         }
         if(query.getOrderFlag().equals(ArticleInfoConstants.ORDER_BY_PRAISE)){
-            example.orderBy("like_number desc");
+            example.orderBy("like_number+0 desc");
         }
         if(query.getOrderFlag().equals(ArticleInfoConstants.ORDER_BY_SCAN)){
-            example.orderBy("bak01 desc");
+            example.orderBy("bak01+0 desc");
         }
         return example;
     }

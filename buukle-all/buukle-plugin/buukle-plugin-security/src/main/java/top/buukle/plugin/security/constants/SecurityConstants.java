@@ -48,6 +48,7 @@ public class SecurityConstants {
     public static final String ERROR_PAGE_PATH_ENVIRONMENT_KEY = "ERROR_PAGE_PATH_ENVIRONMENT_KEY";
     public static final String LOGOUT_PATH_ENVIRONMENT_KEY = "LOGOUT_PATH_ENVIRONMENT_KEY";
     public static final String DOLOGIN_PATH_ENVIRONMENT_KEY = "DOLOGIN_PATH_ENVIRONMENT_KEY";
+    public static final String DOREGISTER_PATH_ENVIRONMENT_KEY = "DOREGISTER_PATH_ENVIRONMENT_KEY";
 
     /** 用户指定视图缓存对象 (通过securityController动态返回用户配置的指定sso视图名称)*/
     public static final ViewNameParameters VIEW_NAME_PARAMETERS = new ViewNameParameters();

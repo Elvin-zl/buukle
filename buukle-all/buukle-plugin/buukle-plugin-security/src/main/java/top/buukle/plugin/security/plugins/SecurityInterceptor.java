@@ -108,6 +108,11 @@ public class SecurityInterceptor implements HandlerInterceptor {
             this.isSuccess(request, response, authAndPermBusiness.doLogin(request,response),true);
             return false;
         }
+        // 执行注册
+        if(uri.equals(DO_REGISTER_PATH)){
+            this.isSuccess(request, response, authAndPermBusiness.doRegister(request,response),true);
+            return false;
+        }
         // 执行登出
         if(uri.equals(LOGOUT_PATH)){
             authAndPermBusiness.logout(request,response);
@@ -155,17 +160,17 @@ public class SecurityInterceptor implements HandlerInterceptor {
      * @param request
      * @param response
      * @param baseResponse
-     * @param isLogin
+     * @param isLoginOrRegist
      * @return
      */
-    private boolean isSuccess(HttpServletRequest request, HttpServletResponse response, BaseResponse baseResponse, boolean isLogin) throws IOException {
+    private boolean isSuccess(HttpServletRequest request, HttpServletResponse response, BaseResponse baseResponse, boolean isLoginOrRegist) throws IOException {
         if(baseResponse.isSuccess()){
-            if(isLogin){
-                this.successHandle(request,response,baseResponse,isLogin);
+            if(isLoginOrRegist){
+                this.successHandle(request,response,baseResponse,isLoginOrRegist);
             }
             return true;
         }
-        this.errorHandle(request,response,baseResponse,isLogin);
+        this.errorHandle(request,response,baseResponse,isLoginOrRegist);
         return false;
     }
 
@@ -278,6 +283,8 @@ public class SecurityInterceptor implements HandlerInterceptor {
     public static String GET_VERIFICATION_IMG_PATH ;
     /** 执行登陆路径*/
     public static String DO_LOGIN_PATH ;
+    /** 执行注册路径*/
+    public static String DO_REGISTER_PATH ;
     /** 未开启授权应用获取用户信息路径*/
 
     /*-------------------------------设置指定跳转视图的Path映射 (requestMapping) 路径---------------------------*/
@@ -375,6 +382,12 @@ public class SecurityInterceptor implements HandlerInterceptor {
                 loginParameters.getCloseVerification()) ? getDefaultValueAndPrintLog("CloseVerification","0"):
                 loginParameters.getCloseVerification();
         /*--------------------------------设置指定返回json，stram 等非视图资源的Path 路径---------------------------*/
+        // 执行注册路径
+        SecurityInterceptor.DO_REGISTER_PATH =
+                StringUtil.isEmpty(
+                loginParameters.getDoRegisterPath()) ? getDefaultValueAndPrintLog("DoRegisterPath","/doRegister"):
+                loginParameters.getDoRegisterPath();
+        SpringEnvironmentUtil.setEnvironmentProperty(SecurityConstants.DOREGISTER_PATH_ENVIRONMENT_KEY, SecurityInterceptor.DO_REGISTER_PATH);
         // 执行登陆路径
         SecurityInterceptor.DO_LOGIN_PATH =
                 StringUtil.isEmpty(

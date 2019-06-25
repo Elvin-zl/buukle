@@ -19,12 +19,12 @@ $(function(){
 /*绑定写文章按钮*/
 function bindWhiteClick() {
     // 绑定新增文章
-    $('#whiteArticle').off().on('click',function () {
+    $('#writeArticle').off().on('click',function () {
         window.open('/articleInfo/toAddArticle','_blank');
     });
-    // 绑定新增说说
-    $('#whiteShorts').off().on('click',function () {
-        alert();
+    // 绑定新增时间线
+    $('#writeTimeline').off().on('click',function () {
+        window.open('/articleInfo/toAddTimeline','_blank');
     });
 }
 /*绑定搜索框响应式*/
