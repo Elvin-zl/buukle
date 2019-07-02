@@ -1,0 +1,950 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>Logback Log Messages</title>
+<style  type="text/css">
+table { margin-left: 2em; margin-right: 2em; border-left: 2px solid #AAA; }
+TR.even { background: #FFFFFF; }
+TR.odd { background: #EAEAEA; }
+TR.warn TD.Level, TR.error TD.Level, TR.fatal TD.Level {font-weight: bold; color: #FF4040 }
+TD { padding-right: 1ex; padding-left: 1ex; border-right: 2px solid #AAA; }
+TD.Time, TD.Date { text-align: right; font-family: courier, monospace; font-size: smaller; }
+TD.Thread { text-align: left; }
+TD.Level { text-align: right; }
+TD.Logger { text-align: left; }
+TR.header { background: #596ED5; color: #FFF; font-weight: bold; font-size: larger; }
+TD.Exception { background: #A2AEE8; font-family: courier, monospace;}
+</style>
+
+  </head>
+<body>
+<hr/>
+<p>Log session start time Thu Jun 27 10:54:32 CST 2019</p><p></p>
+
+<table cellspacing="0">
+<tr class="header">
+<td class="Level">Level</td>
+<td class="Date">Date</td>
+<td class="Message">Message</td>
+<td class="MethodOfCaller">MethodOfCaller</td>
+<td class="FileOfCaller">FileOfCaller</td>
+<td class="LineOfCaller">LineOfCaller</td>
+</tr>
+
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:32,196</td>
+<td class="Message">The following profiles are active: dev,dev-security,dev-system</td>
+<td class="MethodOfCaller">logStartupProfileInfo</td>
+<td class="FileOfCaller">SpringApplication.java</td>
+<td class="LineOfCaller">679</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:34,500</td>
+<td class="Message">Create JedisConnectionFactory successful</td>
+<td class="MethodOfCaller">jedisConnectionFactory</td>
+<td class="FileOfCaller">RedisConfigure.java</td>
+<td class="LineOfCaller">157</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:35,512</td>
+<td class="Message">top.buukle.common.util.common.ApplicationInitialUtil : 应用启动完毕!</td>
+<td class="MethodOfCaller">onApplicationEvent</td>
+<td class="FileOfCaller">SpringAppInitialListener.java</td>
+<td class="LineOfCaller">18</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:35,524</td>
+<td class="Message">top.buukle.consumer.www.listener.WwwAppInitialListener.checkTaskWorker(WwwAppInitialListener.java:99)[sid:[currentId=1]] online配置,online :0 ,delaySize :10,delayTime: 300000</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:35,531</td>
+<td class="Message">top.buukle.consumer.www.listener.WwwAppInitialListener.checkWechatAccessTokenGeter(WwwAppInitialListener.java:67)[sid:[currentId=1]] 开始执行检查微信授权码开关并获取授权码任务!</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:35,532</td>
+<td class="Message">top.buukle.consumer.www.listener.WwwAppInitialListener.checkJsApiTicketGeter(WwwAppInitialListener.java:52)[sid:[currentId=1]] 开始执行检查微信jsapi通行证开关并获取通行证任务!</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:35,740</td>
+<td class="Message">top.buukle.common.util.common.ApplicationInitialUtil : 应用启动完毕!</td>
+<td class="MethodOfCaller">onApplicationEvent</td>
+<td class="FileOfCaller">SpringAppInitialListener.java</td>
+<td class="LineOfCaller">18</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:35,741</td>
+<td class="Message">top.buukle.consumer.www.listener.WwwAppInitialListener.checkTaskWorker(WwwAppInitialListener.java:99)[sid:[currentId=1]] online配置,online :0 ,delaySize :10,delayTime: 300000</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:35,746</td>
+<td class="Message">top.buukle.consumer.www.listener.WwwAppInitialListener.checkWechatAccessTokenGeter(WwwAppInitialListener.java:67)[sid:[currentId=1]] 开始执行检查微信授权码开关并获取授权码任务!</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:35,747</td>
+<td class="Message">top.buukle.consumer.www.listener.WwwAppInitialListener.checkJsApiTicketGeter(WwwAppInitialListener.java:52)[sid:[currentId=1]] 开始执行检查微信jsapi通行证开关并获取通行证任务!</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:36,890</td>
+<td class="Message">JedisPool init successful，host -&gt; [39.105.74.47]；port -&gt; [4376]</td>
+<td class="MethodOfCaller">redisPoolFactory</td>
+<td class="FileOfCaller">RedisConfigure.java</td>
+<td class="LineOfCaller">168</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2019-06-27 10:54:37,622</td>
+<td class="Message">No URLs will be polled as dynamic configuration sources.</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">URLConfigurationSource.java</td>
+<td class="LineOfCaller">121</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:37,628</td>
+<td class="Message">To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">URLConfigurationSource.java</td>
+<td class="LineOfCaller">122</td>
+</tr>
+
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2019-06-27 10:54:37,656</td>
+<td class="Message">No URLs will be polled as dynamic configuration sources.</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">URLConfigurationSource.java</td>
+<td class="LineOfCaller">121</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:37,670</td>
+<td class="Message">To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">URLConfigurationSource.java</td>
+<td class="LineOfCaller">122</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:40,995</td>
+<td class="Message">Initializing Eureka in region us-east-1</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">349</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:41,382</td>
+<td class="Message">Using JSON encoding codec LegacyJacksonJson</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryJerseyProvider.java</td>
+<td class="LineOfCaller">70</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:41,382</td>
+<td class="Message">Using JSON decoding codec LegacyJacksonJson</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryJerseyProvider.java</td>
+<td class="LineOfCaller">71</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:41,587</td>
+<td class="Message">Using XML encoding codec XStreamXml</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryJerseyProvider.java</td>
+<td class="LineOfCaller">80</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:41,588</td>
+<td class="Message">Using XML decoding codec XStreamXml</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryJerseyProvider.java</td>
+<td class="LineOfCaller">81</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:42,077</td>
+<td class="Message">Disable delta property : false</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">958</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:42,078</td>
+<td class="Message">Single vip registry refresh property : null</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">959</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:42,079</td>
+<td class="Message">Force full registry fetch : false</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">960</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:42,079</td>
+<td class="Message">Application is null : false</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">961</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:42,084</td>
+<td class="Message">Registered Applications size is zero : true</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">962</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:42,085</td>
+<td class="Message">Application version is -1: true</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">964</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:42,086</td>
+<td class="Message">Getting all instance registry info from the eureka server</td>
+<td class="MethodOfCaller">getAndStoreFullRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">1047</td>
+</tr>
+
+<tr class="error odd">
+<td class="Level">ERROR</td>
+<td class="Date">2019-06-27 10:54:43,214</td>
+<td class="Message">Request execution error. endpoint=DefaultEndpoint{ serviceUrl=&#39;http://127.0.0.1:9090/eureka/}</td>
+<td class="MethodOfCaller">execute</td>
+<td class="FileOfCaller">RedirectingEurekaHttpClient.java</td>
+<td class="LineOfCaller">83</td>
+</tr>
+<tr><td class="Exception" colspan="6">com.sun.jersey.api.client.ClientHandlerException: java.net.ConnectException: Connection refused: connect
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.jersey.client.apache4.ApacheHttpClient4Handler.handle(ApacheHttpClient4Handler.java:187)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.jersey.api.client.filter.GZIPContentEncodingFilter.handle(GZIPContentEncodingFilter.java:123)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.EurekaIdentityHeaderFilter.handle(EurekaIdentityHeaderFilter.java:27)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.jersey.api.client.Client.handle(Client.java:652)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.jersey.api.client.WebResource.handle(WebResource.java:682)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.jersey.api.client.WebResource.access$200(WebResource.java:74)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.jersey.api.client.WebResource$Builder.get(WebResource.java:509)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.jersey.AbstractJerseyEurekaHttpClient.getApplicationsInternal(AbstractJerseyEurekaHttpClient.java:194)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.jersey.AbstractJerseyEurekaHttpClient.getApplications(AbstractJerseyEurekaHttpClient.java:165)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$6.execute(EurekaHttpClientDecorator.java:137)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.MetricsCollectingEurekaHttpClient.execute(MetricsCollectingEurekaHttpClient.java:73)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$6.execute(EurekaHttpClientDecorator.java:137)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:118)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:79)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$6.execute(EurekaHttpClientDecorator.java:137)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$6.execute(EurekaHttpClientDecorator.java:137)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.DiscoveryClient.getAndStoreFullRegistry(DiscoveryClient.java:1051)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.DiscoveryClient.fetchRegistry(DiscoveryClient.java:965)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.DiscoveryClient.&lt;init&gt;(DiscoveryClient.java:414)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.DiscoveryClient.&lt;init&gt;(DiscoveryClient.java:269)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.netflix.eureka.CloudEurekaClient.&lt;init&gt;(CloudEurekaClient.java:63)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration$RefreshableEurekaClientConfiguration.eurekaClient(EurekaClientAutoConfiguration.java:302)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration$RefreshableEurekaClientConfiguration$$EnhancerBySpringCGLIB$$d8855059.CGLIB$eurekaClient$0(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration$RefreshableEurekaClientConfiguration$$EnhancerBySpringCGLIB$$d8855059$$FastClassBySpringCGLIB$$1382ea92.invoke(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration$RefreshableEurekaClientConfiguration$$EnhancerBySpringCGLIB$$d8855059.eurekaClient(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Method.invoke(Method.java:498)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:622)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:607)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1288)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1127)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$1(AbstractBeanFactory.java:356)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.getBean(GenericScope.java:390)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.context.scope.GenericScope.get(GenericScope.java:184)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:353)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.target.SimpleBeanTargetSource.getTarget(SimpleBeanTargetSource.java:35)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.proxy.$Proxy156.getEurekaClientConfig(Unknown Source)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.netflix.eureka.EurekaDiscoveryClient.getOrder(EurekaDiscoveryClient.java:139)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.core.OrderComparator.findOrder(OrderComparator.java:141)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.core.annotation.AnnotationAwareOrderComparator.findOrder(AnnotationAwareOrderComparator.java:65)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.core.OrderComparator.getOrder(OrderComparator.java:124)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.core.OrderComparator.getOrder(OrderComparator.java:112)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.core.OrderComparator.doCompare(OrderComparator.java:82)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.core.OrderComparator.lambda$withSourceProvider$0(OrderComparator.java:63)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.TimSort.countRunAndMakeAscending(TimSort.java:355)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.TimSort.sort(TimSort.java:220)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.Arrays.sort(Arrays.java:1512)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.ArrayList.sort(ArrayList.java:1462)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1321)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1195)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1164)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:857)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:760)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:509)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1288)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1127)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:846)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:863)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:127)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:246)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)
+<br />Caused by: java.net.ConnectException: Connection refused: connect
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.Socket.connect(Socket.java:589)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:121)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:180)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:144)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:134)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:835)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:118)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.jersey.client.apache4.ApacheHttpClient4Handler.handle(ApacheHttpClient4Handler.java:173)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;	... 109 common frames omitted
+</td></tr>
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2019-06-27 10:54:43,226</td>
+<td class="Message">Request execution failed with message: java.net.ConnectException: Connection refused: connect</td>
+<td class="MethodOfCaller">execute</td>
+<td class="FileOfCaller">RetryableEurekaHttpClient.java</td>
+<td class="LineOfCaller">130</td>
+</tr>
+
+<tr class="error odd">
+<td class="Level">ERROR</td>
+<td class="Date">2019-06-27 10:54:43,227</td>
+<td class="Message">DiscoveryClient_BUUKLE-WWW/JRA1W1PC0T4QFD.JDJR.360buyAD.local:buukle-www:-1 - was unable to refresh its cache! status = Cannot execute request on any known server</td>
+<td class="MethodOfCaller">fetchRegistry</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">972</td>
+</tr>
+<tr><td class="Exception" colspan="6">com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$6.execute(EurekaHttpClientDecorator.java:137)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.DiscoveryClient.getAndStoreFullRegistry(DiscoveryClient.java:1051)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.DiscoveryClient.fetchRegistry(DiscoveryClient.java:965)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.DiscoveryClient.&lt;init&gt;(DiscoveryClient.java:414)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.DiscoveryClient.&lt;init&gt;(DiscoveryClient.java:269)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.netflix.eureka.CloudEurekaClient.&lt;init&gt;(CloudEurekaClient.java:63)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration$RefreshableEurekaClientConfiguration.eurekaClient(EurekaClientAutoConfiguration.java:302)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration$RefreshableEurekaClientConfiguration$$EnhancerBySpringCGLIB$$d8855059.CGLIB$eurekaClient$0(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration$RefreshableEurekaClientConfiguration$$EnhancerBySpringCGLIB$$d8855059$$FastClassBySpringCGLIB$$1382ea92.invoke(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration$RefreshableEurekaClientConfiguration$$EnhancerBySpringCGLIB$$d8855059.eurekaClient(&lt;generated&gt;)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Method.invoke(Method.java:498)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:622)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:607)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1288)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1127)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$1(AbstractBeanFactory.java:356)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.getBean(GenericScope.java:390)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.context.scope.GenericScope.get(GenericScope.java:184)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:353)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.target.SimpleBeanTargetSource.getTarget(SimpleBeanTargetSource.java:35)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:193)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.proxy.$Proxy156.getEurekaClientConfig(Unknown Source)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.netflix.eureka.EurekaDiscoveryClient.getOrder(EurekaDiscoveryClient.java:139)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.core.OrderComparator.findOrder(OrderComparator.java:141)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.core.annotation.AnnotationAwareOrderComparator.findOrder(AnnotationAwareOrderComparator.java:65)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.core.OrderComparator.getOrder(OrderComparator.java:124)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.core.OrderComparator.getOrder(OrderComparator.java:112)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.core.OrderComparator.doCompare(OrderComparator.java:82)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.core.OrderComparator.lambda$withSourceProvider$0(OrderComparator.java:63)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.TimSort.countRunAndMakeAscending(TimSort.java:355)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.TimSort.sort(TimSort.java:220)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.Arrays.sort(Arrays.java:1512)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.ArrayList.sort(ArrayList.java:1462)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1321)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1195)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1164)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:857)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:760)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:509)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1288)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1127)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:846)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:863)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:127)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:246)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)
+</td></tr>
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2019-06-27 10:54:43,229</td>
+<td class="Message">Using default backup registry implementation which does not do anything.</td>
+<td class="MethodOfCaller">get</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">290</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:43,230</td>
+<td class="Message">Starting heartbeat executor: renew interval is: 30</td>
+<td class="MethodOfCaller">initScheduledTasks</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">1270</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:43,252</td>
+<td class="Message">InstanceInfoReplicator onDemand update allowed rate per min is 4</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">InstanceInfoReplicator.java</td>
+<td class="LineOfCaller">60</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:43,257</td>
+<td class="Message">Discovery Client initialized at timestamp 1561604083255 with initial instances count: 0</td>
+<td class="MethodOfCaller">&lt;init&gt;</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">449</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:43,583</td>
+<td class="Message">top.buukle.common.util.common.ApplicationInitialUtil : 应用启动完毕!</td>
+<td class="MethodOfCaller">onApplicationEvent</td>
+<td class="FileOfCaller">SpringAppInitialListener.java</td>
+<td class="LineOfCaller">18</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:43,584</td>
+<td class="Message">top.buukle.consumer.www.listener.WwwAppInitialListener.checkTaskWorker(WwwAppInitialListener.java:99)[sid:[currentId=1]] online配置,online :0 ,delaySize :10,delayTime: 300000</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:43,584</td>
+<td class="Message">top.buukle.consumer.www.listener.WwwAppInitialListener.checkWechatAccessTokenGeter(WwwAppInitialListener.java:67)[sid:[currentId=1]] 开始执行检查微信授权码开关并获取授权码任务!</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:43,585</td>
+<td class="Message">top.buukle.consumer.www.listener.WwwAppInitialListener.checkJsApiTicketGeter(WwwAppInitialListener.java:52)[sid:[currentId=1]] 开始执行检查微信jsapi通行证开关并获取通行证任务!</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">BaseLogger.java</td>
+<td class="LineOfCaller">97</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:43,588</td>
+<td class="Message">Started AspectTest in 12.86 seconds (JVM running for 15.481)</td>
+<td class="MethodOfCaller">logStarted</td>
+<td class="FileOfCaller">StartupInfoLogger.java</td>
+<td class="LineOfCaller">59</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:44,366</td>
+<td class="Message">{dataSource-1} inited</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">Log4j2Impl.java</td>
+<td class="LineOfCaller">106</td>
+</tr>
+
+<tr class="debug even">
+<td class="Level">DEBUG</td>
+<td class="Date">2019-06-27 10:54:52,145</td>
+<td class="Message">==&gt;  Preparing: update article_info set article_cat_id = ?, title = ?, like_number = ?, article_author = ?, user_id = ?, salesman_id = ?, group_id = ?, agent_id = ?, platform_id = ?, creator = ?, creator_code = ?, gmt_created = ?, modifier = ?, modifier_code = ?, gmt_modified = ?, status = ?, remark = ?, bak01 = ?, bak02 = ?, bak03 = ?, bak04 = ?, bak05 = ? where id = ? </td>
+<td class="MethodOfCaller">debug</td>
+<td class="FileOfCaller">BaseJdbcLogger.java</td>
+<td class="LineOfCaller">159</td>
+</tr>
+
+<tr class="debug odd">
+<td class="Level">DEBUG</td>
+<td class="Date">2019-06-27 10:54:52,411</td>
+<td class="Message">==&gt; Parameters: null, 压力测试001(String), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 93(Integer)</td>
+<td class="MethodOfCaller">debug</td>
+<td class="FileOfCaller">BaseJdbcLogger.java</td>
+<td class="LineOfCaller">159</td>
+</tr>
+
+<tr class="debug even">
+<td class="Level">DEBUG</td>
+<td class="Date">2019-06-27 10:54:52,435</td>
+<td class="Message">&lt;==    Updates: 1</td>
+<td class="MethodOfCaller">debug</td>
+<td class="FileOfCaller">BaseJdbcLogger.java</td>
+<td class="LineOfCaller">159</td>
+</tr>
+
+<tr class="error odd">
+<td class="Level">ERROR</td>
+<td class="Date">2019-06-27 10:54:56,068</td>
+<td class="Message">--------------------------文章题目更新了!------------------------</td>
+<td class="MethodOfCaller">aroundUpdateByPrimaryKey</td>
+<td class="FileOfCaller">ArticleInfoAspect.java</td>
+<td class="LineOfCaller">25</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2019-06-27 10:54:56,098</td>
+<td class="Message">Saw local status change event StatusChangeEvent [timestamp=1561604096098, current=DOWN, previous=STARTING]</td>
+<td class="MethodOfCaller">notify</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">1303</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:56,102</td>
+<td class="Message">DiscoveryClient_BUUKLE-WWW/JRA1W1PC0T4QFD.JDJR.360buyAD.local:buukle-www:-1: registering service...</td>
+<td class="MethodOfCaller">register</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">826</td>
+</tr>
+
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:56,122</td>
+<td class="Message">{dataSource-1} closed</td>
+<td class="MethodOfCaller">info</td>
+<td class="FileOfCaller">Log4j2Impl.java</td>
+<td class="LineOfCaller">106</td>
+</tr>
+
+<tr class="info odd">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:56,123</td>
+<td class="Message">Shutting down DiscoveryClient ...</td>
+<td class="MethodOfCaller">shutdown</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">888</td>
+</tr>
+
+<tr class="error even">
+<td class="Level">ERROR</td>
+<td class="Date">2019-06-27 10:54:57,124</td>
+<td class="Message">Request execution error. endpoint=DefaultEndpoint{ serviceUrl=&#39;http://127.0.0.1:9090/eureka/}</td>
+<td class="MethodOfCaller">execute</td>
+<td class="FileOfCaller">RedirectingEurekaHttpClient.java</td>
+<td class="LineOfCaller">83</td>
+</tr>
+<tr><td class="Exception" colspan="6">com.sun.jersey.api.client.ClientHandlerException: java.net.ConnectException: Connection refused: connect
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.jersey.client.apache4.ApacheHttpClient4Handler.handle(ApacheHttpClient4Handler.java:187)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.jersey.api.client.filter.GZIPContentEncodingFilter.handle(GZIPContentEncodingFilter.java:123)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.EurekaIdentityHeaderFilter.handle(EurekaIdentityHeaderFilter.java:27)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.jersey.api.client.Client.handle(Client.java:652)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.jersey.api.client.WebResource.handle(WebResource.java:682)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.jersey.api.client.WebResource.access$200(WebResource.java:74)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.jersey.api.client.WebResource$Builder.post(WebResource.java:570)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.jersey.AbstractJerseyEurekaHttpClient.register(AbstractJerseyEurekaHttpClient.java:56)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.MetricsCollectingEurekaHttpClient.execute(MetricsCollectingEurekaHttpClient.java:73)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:118)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:79)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:829)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.InstanceInfoReplicator$1.run(InstanceInfoReplicator.java:101)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.FutureTask.run(FutureTask.java)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.Thread.run(Thread.java:748)
+<br />Caused by: java.net.ConnectException: Connection refused: connect
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.Socket.connect(Socket.java:589)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:121)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:180)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:144)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:134)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:835)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:118)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.jersey.client.apache4.ApacheHttpClient4Handler.handle(ApacheHttpClient4Handler.java:173)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;	... 31 common frames omitted
+</td></tr>
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2019-06-27 10:54:57,133</td>
+<td class="Message">Request execution failed with message: java.net.ConnectException: Connection refused: connect</td>
+<td class="MethodOfCaller">execute</td>
+<td class="FileOfCaller">RetryableEurekaHttpClient.java</td>
+<td class="LineOfCaller">130</td>
+</tr>
+
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2019-06-27 10:54:57,143</td>
+<td class="Message">DiscoveryClient_BUUKLE-WWW/JRA1W1PC0T4QFD.JDJR.360buyAD.local:buukle-www:-1 - registration failed Cannot execute request on any known server</td>
+<td class="MethodOfCaller">register</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">831</td>
+</tr>
+<tr><td class="Exception" colspan="6">com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:829)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.InstanceInfoReplicator$1.run(InstanceInfoReplicator.java:101)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.FutureTask.run(FutureTask.java)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.Thread.run(Thread.java:748)
+</td></tr>
+<tr class="warn odd">
+<td class="Level">WARN</td>
+<td class="Date">2019-06-27 10:54:57,144</td>
+<td class="Message">There was a problem with the instance info replicator</td>
+<td class="MethodOfCaller">run</td>
+<td class="FileOfCaller">InstanceInfoReplicator.java</td>
+<td class="LineOfCaller">125</td>
+</tr>
+<tr><td class="Exception" colspan="6">com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:829)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.InstanceInfoReplicator$1.run(InstanceInfoReplicator.java:101)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.FutureTask.run(FutureTask.java)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.Thread.run(Thread.java:748)
+</td></tr>
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:57,162</td>
+<td class="Message">Unregistering ...</td>
+<td class="MethodOfCaller">unregister</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">922</td>
+</tr>
+
+<tr class="error odd">
+<td class="Level">ERROR</td>
+<td class="Date">2019-06-27 10:54:58,168</td>
+<td class="Message">Request execution error. endpoint=DefaultEndpoint{ serviceUrl=&#39;http://127.0.0.1:9090/eureka/}</td>
+<td class="MethodOfCaller">execute</td>
+<td class="FileOfCaller">RedirectingEurekaHttpClient.java</td>
+<td class="LineOfCaller">83</td>
+</tr>
+<tr><td class="Exception" colspan="6">com.sun.jersey.api.client.ClientHandlerException: java.net.ConnectException: Connection refused: connect
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.jersey.client.apache4.ApacheHttpClient4Handler.handle(ApacheHttpClient4Handler.java:187)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.jersey.api.client.filter.GZIPContentEncodingFilter.handle(GZIPContentEncodingFilter.java:123)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.EurekaIdentityHeaderFilter.handle(EurekaIdentityHeaderFilter.java:27)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.jersey.api.client.Client.handle(Client.java:652)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.jersey.api.client.WebResource.handle(WebResource.java:682)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.jersey.api.client.WebResource.access$200(WebResource.java:74)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.jersey.api.client.WebResource$Builder.delete(WebResource.java:591)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.jersey.AbstractJerseyEurekaHttpClient.cancel(AbstractJerseyEurekaHttpClient.java:76)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.MetricsCollectingEurekaHttpClient.execute(MetricsCollectingEurekaHttpClient.java:73)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:118)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:79)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:923)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:901)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Method.invoke(Method.java:498)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:363)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:321)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:156)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:240)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:233)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:404)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:139)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:256)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1052)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1059)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1035)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1011)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:931)
+<br />Caused by: java.net.ConnectException: Connection refused: connect
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.net.Socket.connect(Socket.java:589)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:121)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:180)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:144)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:134)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:835)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:118)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.sun.jersey.client.apache4.ApacheHttpClient4Handler.handle(ApacheHttpClient4Handler.java:173)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;	... 42 common frames omitted
+</td></tr>
+<tr class="warn even">
+<td class="Level">WARN</td>
+<td class="Date">2019-06-27 10:54:58,179</td>
+<td class="Message">Request execution failed with message: java.net.ConnectException: Connection refused: connect</td>
+<td class="MethodOfCaller">execute</td>
+<td class="FileOfCaller">RetryableEurekaHttpClient.java</td>
+<td class="LineOfCaller">130</td>
+</tr>
+
+<tr class="error odd">
+<td class="Level">ERROR</td>
+<td class="Date">2019-06-27 10:54:58,179</td>
+<td class="Message">DiscoveryClient_BUUKLE-WWW/JRA1W1PC0T4QFD.JDJR.360buyAD.local:buukle-www:-1 - de-registration failedCannot execute request on any known server</td>
+<td class="MethodOfCaller">unregister</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">926</td>
+</tr>
+<tr><td class="Exception" colspan="6">com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:923)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:901)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Method.invoke(Method.java:498)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:363)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:321)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:156)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:240)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:233)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:404)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:139)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:256)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1052)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1059)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1035)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1011)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:931)
+</td></tr>
+<tr class="info even">
+<td class="Level">INFO</td>
+<td class="Date">2019-06-27 10:54:58,201</td>
+<td class="Message">Completed shut down of DiscoveryClient</td>
+<td class="MethodOfCaller">shutdown</td>
+<td class="FileOfCaller">DiscoveryClient.java</td>
+<td class="LineOfCaller">911</td>
+</tr>
