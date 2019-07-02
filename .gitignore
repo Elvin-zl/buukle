@@ -14,7 +14,7 @@ target
   
 # generated files  
 bin/  
-gen/  
+gen/
   
 # Eclipse project files  
 .classpath  
