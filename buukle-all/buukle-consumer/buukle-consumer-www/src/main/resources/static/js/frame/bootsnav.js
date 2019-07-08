@@ -589,7 +589,7 @@
 
     //加载分类导航
     $.ajax({
-        url : 'articleCat/getArticleCatTree',
+        url : '/articleCat/getArticleCatTree',
         data : '',
         dataType : 'json',
         method : '',
@@ -686,7 +686,7 @@ function loadArticleContainer(page,tempId) {
     articleCatId = tempId;
     loadLock = false;
     $.ajax({
-        url : 'articleInfo/getArticleInfoList',
+        url : '/articleInfo/getArticleInfoList',
         data : {"articleCatId" : tempId,"page" : page,"limit" : 12,"orderFlag" :$('#orderFlag').val()},
         dataType : 'json',
         method : 'post',

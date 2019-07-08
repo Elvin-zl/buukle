@@ -1,0 +1,842 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.buukle.consumer.www.dao.TimelineInfoMapper">
+  <resultMap id="BaseResultMap" type="top.buukle.consumer.www.entity.TimelineInfo">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Thu Jul 04 15:39:50 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="topic" jdbcType="VARCHAR" property="topic" />
+    <result column="like_number" jdbcType="INTEGER" property="likeNumber" />
+    <result column="scan_number" jdbcType="INTEGER" property="scanNumber" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="salesman_id" jdbcType="VARCHAR" property="salesmanId" />
+    <result column="group_id" jdbcType="VARCHAR" property="groupId" />
+    <result column="agent_id" jdbcType="VARCHAR" property="agentId" />
+    <result column="platform_id" jdbcType="VARCHAR" property="platformId" />
+    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="creator_code" jdbcType="VARCHAR" property="creatorCode" />
+    <result column="gmt_created" jdbcType="TIMESTAMP" property="gmtCreated" />
+    <result column="modifier" jdbcType="VARCHAR" property="modifier" />
+    <result column="modifier_code" jdbcType="VARCHAR" property="modifierCode" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+    <result column="auditor_code" jdbcType="VARCHAR" property="auditorCode" />
+    <result column="auditor" jdbcType="VARCHAR" property="auditor" />
+    <result column="gmt_auditor" jdbcType="TIMESTAMP" property="gmtAuditor" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="bak01" jdbcType="VARCHAR" property="bak01" />
+    <result column="bak02" jdbcType="VARCHAR" property="bak02" />
+    <result column="bak03" jdbcType="VARCHAR" property="bak03" />
+    <result column="bak04" jdbcType="VARCHAR" property="bak04" />
+    <result column="bak05" jdbcType="VARCHAR" property="bak05" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="top.buukle.consumer.www.entity.TimelineInfo">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Thu Jul 04 15:39:50 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+    <result column="images" jdbcType="LONGVARCHAR" property="images" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Thu Jul 04 15:39:50 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Thu Jul 04 15:39:50 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Thu Jul 04 15:39:50 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    id, topic, like_number, scan_number, author, user_id, salesman_id, group_id, agent_id, 
+    platform_id, creator, creator_code, gmt_created, modifier, modifier_code, gmt_modified, 
+    auditor_code, auditor, gmt_auditor, status, remark, bak01, bak02, bak03, bak04, bak05
+  </sql>
+  <sql id="Blob_Column_List">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Thu Jul 04 15:39:50 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    content, images
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="top.buukle.consumer.www.entity.TimelineInfoExample" resultMap="ResultMapWithBLOBs">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Thu Jul 04 15:39:50 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from timeline_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="top.buukle.consumer.www.entity.TimelineInfoExample" resultMap="BaseResultMap">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Thu Jul 04 15:39:50 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from timeline_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Thu Jul 04 15:39:50 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from timeline_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Thu Jul 04 15:39:50 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    delete from timeline_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="top.buukle.consumer.www.entity.TimelineInfoExample">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Thu Jul 04 15:39:50 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    delete from timeline_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="top.buukle.consumer.www.entity.TimelineInfo">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Thu Jul 04 15:39:50 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    insert into timeline_info (id, topic, like_number, 
+      scan_number, author, user_id, 
+      salesman_id, group_id, agent_id, 
+      platform_id, creator, creator_code, 
+      gmt_created, modifier, modifier_code, 
+      gmt_modified, auditor_code, auditor, 
+      gmt_auditor, status, remark, 
+      bak01, bak02, bak03, 
+      bak04, bak05, content, 
+      images)
+    values (#{id,jdbcType=INTEGER}, #{topic,jdbcType=VARCHAR}, #{likeNumber,jdbcType=INTEGER}, 
+      #{scanNumber,jdbcType=INTEGER}, #{author,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
+      #{salesmanId,jdbcType=VARCHAR}, #{groupId,jdbcType=VARCHAR}, #{agentId,jdbcType=VARCHAR}, 
+      #{platformId,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{creatorCode,jdbcType=VARCHAR}, 
+      #{gmtCreated,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR}, #{modifierCode,jdbcType=VARCHAR}, 
+      #{gmtModified,jdbcType=TIMESTAMP}, #{auditorCode,jdbcType=VARCHAR}, #{auditor,jdbcType=VARCHAR}, 
+      #{gmtAuditor,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, 
+      #{bak01,jdbcType=VARCHAR}, #{bak02,jdbcType=VARCHAR}, #{bak03,jdbcType=VARCHAR}, 
+      #{bak04,jdbcType=VARCHAR}, #{bak05,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR}, 
+      #{images,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="top.buukle.consumer.www.entity.TimelineInfo">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Thu Jul 04 15:39:50 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    insert into timeline_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="topic != null">
+        topic,
+      </if>
+      <if test="likeNumber != null">
+        like_number,
+      </if>
+      <if test="scanNumber != null">
+        scan_number,
+      </if>
+      <if test="author != null">
+        author,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="salesmanId != null">
+        salesman_id,
+      </if>
+      <if test="groupId != null">
+        group_id,
+      </if>
+      <if test="agentId != null">
+        agent_id,
+      </if>
+      <if test="platformId != null">
+        platform_id,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="creatorCode != null">
+        creator_code,
+      </if>
+      <if test="gmtCreated != null">
+        gmt_created,
+      </if>
+      <if test="modifier != null">
+        modifier,
+      </if>
+      <if test="modifierCode != null">
+        modifier_code,
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified,
+      </if>
+      <if test="auditorCode != null">
+        auditor_code,
+      </if>
+      <if test="auditor != null">
+        auditor,
+      </if>
+      <if test="gmtAuditor != null">
+        gmt_auditor,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="bak01 != null">
+        bak01,
+      </if>
+      <if test="bak02 != null">
+        bak02,
+      </if>
+      <if test="bak03 != null">
+        bak03,
+      </if>
+      <if test="bak04 != null">
+        bak04,
+      </if>
+      <if test="bak05 != null">
+        bak05,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="images != null">
+        images,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="topic != null">
+        #{topic,jdbcType=VARCHAR},
+      </if>
+      <if test="likeNumber != null">
+        #{likeNumber,jdbcType=INTEGER},
+      </if>
+      <if test="scanNumber != null">
+        #{scanNumber,jdbcType=INTEGER},
+      </if>
+      <if test="author != null">
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="salesmanId != null">
+        #{salesmanId,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null">
+        #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="agentId != null">
+        #{agentId,jdbcType=VARCHAR},
+      </if>
+      <if test="platformId != null">
+        #{platformId,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorCode != null">
+        #{creatorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreated != null">
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null">
+        #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifierCode != null">
+        #{modifierCode,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditorCode != null">
+        #{auditorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="auditor != null">
+        #{auditor,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtAuditor != null">
+        #{gmtAuditor,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="bak01 != null">
+        #{bak01,jdbcType=VARCHAR},
+      </if>
+      <if test="bak02 != null">
+        #{bak02,jdbcType=VARCHAR},
+      </if>
+      <if test="bak03 != null">
+        #{bak03,jdbcType=VARCHAR},
+      </if>
+      <if test="bak04 != null">
+        #{bak04,jdbcType=VARCHAR},
+      </if>
+      <if test="bak05 != null">
+        #{bak05,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="images != null">
+        #{images,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="top.buukle.consumer.www.entity.TimelineInfoExample" resultType="java.lang.Long">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Thu Jul 04 15:39:50 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    select count(*) from timeline_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Thu Jul 04 15:39:50 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    update timeline_info
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.topic != null">
+        topic = #{record.topic,jdbcType=VARCHAR},
+      </if>
+      <if test="record.likeNumber != null">
+        like_number = #{record.likeNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.scanNumber != null">
+        scan_number = #{record.scanNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.author != null">
+        author = #{record.author,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.salesmanId != null">
+        salesman_id = #{record.salesmanId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.groupId != null">
+        group_id = #{record.groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.agentId != null">
+        agent_id = #{record.agentId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.platformId != null">
+        platform_id = #{record.platformId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creator != null">
+        creator = #{record.creator,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creatorCode != null">
+        creator_code = #{record.creatorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gmtCreated != null">
+        gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifier != null">
+        modifier = #{record.modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifierCode != null">
+        modifier_code = #{record.modifierCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gmtModified != null">
+        gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.auditorCode != null">
+        auditor_code = #{record.auditorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.auditor != null">
+        auditor = #{record.auditor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gmtAuditor != null">
+        gmt_auditor = #{record.gmtAuditor,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.remark != null">
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bak01 != null">
+        bak01 = #{record.bak01,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bak02 != null">
+        bak02 = #{record.bak02,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bak03 != null">
+        bak03 = #{record.bak03,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bak04 != null">
+        bak04 = #{record.bak04,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bak05 != null">
+        bak05 = #{record.bak05,jdbcType=VARCHAR},
+      </if>
+      <if test="record.content != null">
+        content = #{record.content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.images != null">
+        images = #{record.images,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Thu Jul 04 15:39:50 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    update timeline_info
+    set id = #{record.id,jdbcType=INTEGER},
+      topic = #{record.topic,jdbcType=VARCHAR},
+      like_number = #{record.likeNumber,jdbcType=INTEGER},
+      scan_number = #{record.scanNumber,jdbcType=INTEGER},
+      author = #{record.author,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=VARCHAR},
+      salesman_id = #{record.salesmanId,jdbcType=VARCHAR},
+      group_id = #{record.groupId,jdbcType=VARCHAR},
+      agent_id = #{record.agentId,jdbcType=VARCHAR},
+      platform_id = #{record.platformId,jdbcType=VARCHAR},
+      creator = #{record.creator,jdbcType=VARCHAR},
+      creator_code = #{record.creatorCode,jdbcType=VARCHAR},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      modifier = #{record.modifier,jdbcType=VARCHAR},
+      modifier_code = #{record.modifierCode,jdbcType=VARCHAR},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      auditor_code = #{record.auditorCode,jdbcType=VARCHAR},
+      auditor = #{record.auditor,jdbcType=VARCHAR},
+      gmt_auditor = #{record.gmtAuditor,jdbcType=TIMESTAMP},
+      status = #{record.status,jdbcType=INTEGER},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      bak01 = #{record.bak01,jdbcType=VARCHAR},
+      bak02 = #{record.bak02,jdbcType=VARCHAR},
+      bak03 = #{record.bak03,jdbcType=VARCHAR},
+      bak04 = #{record.bak04,jdbcType=VARCHAR},
+      bak05 = #{record.bak05,jdbcType=VARCHAR},
+      content = #{record.content,jdbcType=LONGVARCHAR},
+      images = #{record.images,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Thu Jul 04 15:39:50 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    update timeline_info
+    set id = #{record.id,jdbcType=INTEGER},
+      topic = #{record.topic,jdbcType=VARCHAR},
+      like_number = #{record.likeNumber,jdbcType=INTEGER},
+      scan_number = #{record.scanNumber,jdbcType=INTEGER},
+      author = #{record.author,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=VARCHAR},
+      salesman_id = #{record.salesmanId,jdbcType=VARCHAR},
+      group_id = #{record.groupId,jdbcType=VARCHAR},
+      agent_id = #{record.agentId,jdbcType=VARCHAR},
+      platform_id = #{record.platformId,jdbcType=VARCHAR},
+      creator = #{record.creator,jdbcType=VARCHAR},
+      creator_code = #{record.creatorCode,jdbcType=VARCHAR},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      modifier = #{record.modifier,jdbcType=VARCHAR},
+      modifier_code = #{record.modifierCode,jdbcType=VARCHAR},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      auditor_code = #{record.auditorCode,jdbcType=VARCHAR},
+      auditor = #{record.auditor,jdbcType=VARCHAR},
+      gmt_auditor = #{record.gmtAuditor,jdbcType=TIMESTAMP},
+      status = #{record.status,jdbcType=INTEGER},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      bak01 = #{record.bak01,jdbcType=VARCHAR},
+      bak02 = #{record.bak02,jdbcType=VARCHAR},
+      bak03 = #{record.bak03,jdbcType=VARCHAR},
+      bak04 = #{record.bak04,jdbcType=VARCHAR},
+      bak05 = #{record.bak05,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="top.buukle.consumer.www.entity.TimelineInfo">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Thu Jul 04 15:39:50 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    update timeline_info
+    <set>
+      <if test="topic != null">
+        topic = #{topic,jdbcType=VARCHAR},
+      </if>
+      <if test="likeNumber != null">
+        like_number = #{likeNumber,jdbcType=INTEGER},
+      </if>
+      <if test="scanNumber != null">
+        scan_number = #{scanNumber,jdbcType=INTEGER},
+      </if>
+      <if test="author != null">
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="salesmanId != null">
+        salesman_id = #{salesmanId,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null">
+        group_id = #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="agentId != null">
+        agent_id = #{agentId,jdbcType=VARCHAR},
+      </if>
+      <if test="platformId != null">
+        platform_id = #{platformId,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorCode != null">
+        creator_code = #{creatorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreated != null">
+        gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null">
+        modifier = #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifierCode != null">
+        modifier_code = #{modifierCode,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditorCode != null">
+        auditor_code = #{auditorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="auditor != null">
+        auditor = #{auditor,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtAuditor != null">
+        gmt_auditor = #{gmtAuditor,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="bak01 != null">
+        bak01 = #{bak01,jdbcType=VARCHAR},
+      </if>
+      <if test="bak02 != null">
+        bak02 = #{bak02,jdbcType=VARCHAR},
+      </if>
+      <if test="bak03 != null">
+        bak03 = #{bak03,jdbcType=VARCHAR},
+      </if>
+      <if test="bak04 != null">
+        bak04 = #{bak04,jdbcType=VARCHAR},
+      </if>
+      <if test="bak05 != null">
+        bak05 = #{bak05,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="images != null">
+        images = #{images,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="top.buukle.consumer.www.entity.TimelineInfo">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Thu Jul 04 15:39:50 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    update timeline_info
+    set topic = #{topic,jdbcType=VARCHAR},
+      like_number = #{likeNumber,jdbcType=INTEGER},
+      scan_number = #{scanNumber,jdbcType=INTEGER},
+      author = #{author,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=VARCHAR},
+      salesman_id = #{salesmanId,jdbcType=VARCHAR},
+      group_id = #{groupId,jdbcType=VARCHAR},
+      agent_id = #{agentId,jdbcType=VARCHAR},
+      platform_id = #{platformId,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      creator_code = #{creatorCode,jdbcType=VARCHAR},
+      gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      modifier = #{modifier,jdbcType=VARCHAR},
+      modifier_code = #{modifierCode,jdbcType=VARCHAR},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      auditor_code = #{auditorCode,jdbcType=VARCHAR},
+      auditor = #{auditor,jdbcType=VARCHAR},
+      gmt_auditor = #{gmtAuditor,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      bak01 = #{bak01,jdbcType=VARCHAR},
+      bak02 = #{bak02,jdbcType=VARCHAR},
+      bak03 = #{bak03,jdbcType=VARCHAR},
+      bak04 = #{bak04,jdbcType=VARCHAR},
+      bak05 = #{bak05,jdbcType=VARCHAR},
+      content = #{content,jdbcType=LONGVARCHAR},
+      images = #{images,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="top.buukle.consumer.www.entity.TimelineInfo">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Thu Jul 04 15:39:50 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    update timeline_info
+    set topic = #{topic,jdbcType=VARCHAR},
+      like_number = #{likeNumber,jdbcType=INTEGER},
+      scan_number = #{scanNumber,jdbcType=INTEGER},
+      author = #{author,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=VARCHAR},
+      salesman_id = #{salesmanId,jdbcType=VARCHAR},
+      group_id = #{groupId,jdbcType=VARCHAR},
+      agent_id = #{agentId,jdbcType=VARCHAR},
+      platform_id = #{platformId,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      creator_code = #{creatorCode,jdbcType=VARCHAR},
+      gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      modifier = #{modifier,jdbcType=VARCHAR},
+      modifier_code = #{modifierCode,jdbcType=VARCHAR},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      auditor_code = #{auditorCode,jdbcType=VARCHAR},
+      auditor = #{auditor,jdbcType=VARCHAR},
+      gmt_auditor = #{gmtAuditor,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      bak01 = #{bak01,jdbcType=VARCHAR},
+      bak02 = #{bak02,jdbcType=VARCHAR},
+      bak03 = #{bak03,jdbcType=VARCHAR},
+      bak04 = #{bak04,jdbcType=VARCHAR},
+      bak05 = #{bak05,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <insert id="batchInsert" parameterType="map">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Thu Jul 04 15:39:50 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    insert into timeline_info
+    (id, topic, like_number, scan_number, author, user_id, salesman_id, group_id, agent_id, 
+      platform_id, creator, creator_code, gmt_created, modifier, modifier_code, gmt_modified, 
+      auditor_code, auditor, gmt_auditor, status, remark, bak01, bak02, bak03, bak04, 
+      bak05, content, images)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.id,jdbcType=INTEGER}, #{item.topic,jdbcType=VARCHAR}, #{item.likeNumber,jdbcType=INTEGER}, 
+        #{item.scanNumber,jdbcType=INTEGER}, #{item.author,jdbcType=VARCHAR}, #{item.userId,jdbcType=VARCHAR}, 
+        #{item.salesmanId,jdbcType=VARCHAR}, #{item.groupId,jdbcType=VARCHAR}, #{item.agentId,jdbcType=VARCHAR}, 
+        #{item.platformId,jdbcType=VARCHAR}, #{item.creator,jdbcType=VARCHAR}, #{item.creatorCode,jdbcType=VARCHAR}, 
+        #{item.gmtCreated,jdbcType=TIMESTAMP}, #{item.modifier,jdbcType=VARCHAR}, #{item.modifierCode,jdbcType=VARCHAR}, 
+        #{item.gmtModified,jdbcType=TIMESTAMP}, #{item.auditorCode,jdbcType=VARCHAR}, #{item.auditor,jdbcType=VARCHAR}, 
+        #{item.gmtAuditor,jdbcType=TIMESTAMP}, #{item.status,jdbcType=INTEGER}, #{item.remark,jdbcType=VARCHAR}, 
+        #{item.bak01,jdbcType=VARCHAR}, #{item.bak02,jdbcType=VARCHAR}, #{item.bak03,jdbcType=VARCHAR}, 
+        #{item.bak04,jdbcType=VARCHAR}, #{item.bak05,jdbcType=VARCHAR}, #{item.content,jdbcType=LONGVARCHAR}, 
+        #{item.images,jdbcType=LONGVARCHAR})
+    </foreach>
+  </insert>
+  <insert id="batchInsertSelective" parameterType="map">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Thu Jul 04 15:39:50 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    insert into timeline_info (
+    <foreach collection="selective" item="column" separator=",">
+      ${column.escapedColumnName}
+    </foreach>
+    )
+    values
+    <foreach collection="list" item="item" separator=",">
+      (
+      <foreach collection="selective" item="column" separator=",">
+        <if test="'id'.toString() == column.value">
+          #{item.id,jdbcType=INTEGER}
+        </if>
+        <if test="'topic'.toString() == column.value">
+          #{item.topic,jdbcType=VARCHAR}
+        </if>
+        <if test="'like_number'.toString() == column.value">
+          #{item.likeNumber,jdbcType=INTEGER}
+        </if>
+        <if test="'scan_number'.toString() == column.value">
+          #{item.scanNumber,jdbcType=INTEGER}
+        </if>
+        <if test="'author'.toString() == column.value">
+          #{item.author,jdbcType=VARCHAR}
+        </if>
+        <if test="'user_id'.toString() == column.value">
+          #{item.userId,jdbcType=VARCHAR}
+        </if>
+        <if test="'salesman_id'.toString() == column.value">
+          #{item.salesmanId,jdbcType=VARCHAR}
+        </if>
+        <if test="'group_id'.toString() == column.value">
+          #{item.groupId,jdbcType=VARCHAR}
+        </if>
+        <if test="'agent_id'.toString() == column.value">
+          #{item.agentId,jdbcType=VARCHAR}
+        </if>
+        <if test="'platform_id'.toString() == column.value">
+          #{item.platformId,jdbcType=VARCHAR}
+        </if>
+        <if test="'creator'.toString() == column.value">
+          #{item.creator,jdbcType=VARCHAR}
+        </if>
+        <if test="'creator_code'.toString() == column.value">
+          #{item.creatorCode,jdbcType=VARCHAR}
+        </if>
+        <if test="'gmt_created'.toString() == column.value">
+          #{item.gmtCreated,jdbcType=TIMESTAMP}
+        </if>
+        <if test="'modifier'.toString() == column.value">
+          #{item.modifier,jdbcType=VARCHAR}
+        </if>
+        <if test="'modifier_code'.toString() == column.value">
+          #{item.modifierCode,jdbcType=VARCHAR}
+        </if>
+        <if test="'gmt_modified'.toString() == column.value">
+          #{item.gmtModified,jdbcType=TIMESTAMP}
+        </if>
+        <if test="'auditor_code'.toString() == column.value">
+          #{item.auditorCode,jdbcType=VARCHAR}
+        </if>
+        <if test="'auditor'.toString() == column.value">
+          #{item.auditor,jdbcType=VARCHAR}
+        </if>
+        <if test="'gmt_auditor'.toString() == column.value">
+          #{item.gmtAuditor,jdbcType=TIMESTAMP}
+        </if>
+        <if test="'status'.toString() == column.value">
+          #{item.status,jdbcType=INTEGER}
+        </if>
+        <if test="'remark'.toString() == column.value">
+          #{item.remark,jdbcType=VARCHAR}
+        </if>
+        <if test="'bak01'.toString() == column.value">
+          #{item.bak01,jdbcType=VARCHAR}
+        </if>
+        <if test="'bak02'.toString() == column.value">
+          #{item.bak02,jdbcType=VARCHAR}
+        </if>
+        <if test="'bak03'.toString() == column.value">
+          #{item.bak03,jdbcType=VARCHAR}
+        </if>
+        <if test="'bak04'.toString() == column.value">
+          #{item.bak04,jdbcType=VARCHAR}
+        </if>
+        <if test="'bak05'.toString() == column.value">
+          #{item.bak05,jdbcType=VARCHAR}
+        </if>
+        <if test="'content'.toString() == column.value">
+          #{item.content,jdbcType=LONGVARCHAR}
+        </if>
+        <if test="'images'.toString() == column.value">
+          #{item.images,jdbcType=LONGVARCHAR}
+        </if>
+      </foreach>
+      )
+    </foreach>
+  </insert>
+</mapper>

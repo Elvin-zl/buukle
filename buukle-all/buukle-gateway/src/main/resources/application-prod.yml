@@ -24,22 +24,27 @@ spring:
         locator:
           enabled: true
       routes:
-        ## 网关路由到静态服务
+        ## 网关路由到 static 服务
         - id: static
           uri: lb://BUUKLE-WWW
           predicates:
             - Host=static.buukle.top
-         ## 网关路由到www服务
+         ## 网关路由到 www 服务
         - id: www
           uri: lb://BUUKLE-WWW
           predicates:
             - Host=www.buukle.top
-         ## 网关路由到cms服务
+         ## 网关路由到 timeline 服务 (暂时与www在同一项目开发)
+        - id: timeline
+          uri: lb://BUUKLE-WWW
+          predicates:
+            - Host=timeline.buukle.top
+         ## 网关路由到 cms 服务
         - id: cms
           uri: lb://BUUKLE-CMS
           predicates:
             - Host=cms.buukle.top
-         ## 网关路由到安全服务
+         ## 网关路由到 security 服务
         - id: security
           uri: lb://BUUKLE-SECURITY
           predicates:

@@ -9,19 +9,19 @@ import java.util.List;
  * @Date Created by elvin on 2019/1/14.
  * @Description :
  */
-public class ArticleCommentResponseVo  extends ArticleComment {
+public class CommentResponseVo extends ArticleComment {
 
     /** 回复列表*/
-    private List<ArticleCommentResponseVo> sons;
+    private List<CommentResponseVo> sons;
 
     /** 是否是作者*/
     private boolean authorFlag;
 
-    public List<ArticleCommentResponseVo> getSons() {
+    public List<CommentResponseVo> getSons() {
         return sons;
     }
 
-    public void setSons(List<ArticleCommentResponseVo> sons) {
+    public void setSons(List<CommentResponseVo> sons) {
         this.sons = sons;
     }
 

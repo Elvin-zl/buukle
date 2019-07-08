@@ -11,7 +11,7 @@
 ````
 ### 0.2 本期开发需求要点
 ````
-对一期技术升级:
+对一期技术升级 :
     1. dubbo --> spring-cloud 添加restful接口支持;
     2. ssm   --> springBoot [2.0.5] + spring-data-mybatis 发布形式改为jar包部署发布;
 对一期项目结构重构 : 

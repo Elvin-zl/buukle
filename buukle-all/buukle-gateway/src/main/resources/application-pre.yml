@@ -6,7 +6,7 @@ server:
 spring:
   ## 应用
   profiles:
-    include: dev-security
+    include: pre-security
   application:
     name: buukle-gateway
   ## 数据源
@@ -24,22 +24,28 @@ spring:
         locator:
           enabled: true
       routes:
-        ## 网关路由到静态服务
+        ## 网关路由到 static 服务
         - id: static
           uri: lb://BUUKLE-WWW
           predicates:
             - Host=tstatic.buukle.top
-         ## 网关路由到www服务
+         ## 网关路由到 www 服务
         - id: www
           uri: lb://BUUKLE-WWW
           predicates:
             - Host=twww.buukle.top
-         ## 网关路由到cms服务
+         ## 网关路由到 timeline 服务 (暂时与www在同一项目开发)
+        - id: timeline
+          uri: lb://BUUKLE-WWW
+          ## uri: lb://BUUKLE-TIMELINE
+          predicates:
+            - Host=timeline.buukle.top
+         ## 网关路由到 cms 服务
         - id: cms
           uri: lb://BUUKLE-CMS
           predicates:
             - Host=tcms.buukle.top
-         ## 网关路由到安全服务
+         ## 网关路由到 security 服务
         - id: security
           uri: lb://BUUKLE-SECURITY
           predicates:
@@ -73,4 +79,4 @@ mybatis:
   type-aliases-package: top.buukle.gateway.entity
 ## 日志
 logging:
-  config: classpath:config/spring/springBoot-logbak-dev.xml
+  config: classpath:config/spring/springBoot-logbak-pre.xml

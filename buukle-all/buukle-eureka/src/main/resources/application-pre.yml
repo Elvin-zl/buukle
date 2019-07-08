@@ -27,4 +27,4 @@ eureka:
 
 ##日志配置
 logging:
-  config: classpath:config/spring/springBoot-logbak-dev.xml
+  config: classpath:config/spring/springBoot-logbak-pre.xml

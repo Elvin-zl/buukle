@@ -6,12 +6,12 @@ server:
     uri-encoding: utf-8
 ##日志配置
 logging:
-  config: classpath:config/spring/springBoot-logbak-dev.xml
+  config: classpath:config/spring/springBoot-logbak-pre.xml
 ##spring生态配置
 spring:
   #include
   profiles:
-    include: dev-security,dev-system
+    include: pre-security,pre-system
   #application
   application:
       name: buukle-www

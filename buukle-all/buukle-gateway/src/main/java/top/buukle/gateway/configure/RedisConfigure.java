@@ -139,7 +139,7 @@ public class RedisConfigure extends CachingConfigurerSupport {
         private  String host;
         @Value("${spring.redis.port}")
         private  int port;
-        @Value("${spring.redis.password}")
+        @Value("${spring.redis.password:}")
         private  String password;
         @Value("${spring.redis.timeout}")
         private  int timeout;
