@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.ApplicationContext;
 
-@SpringBootApplication(scanBasePackages={"top.buukle.common", "top.buukle.plugin.upload","top.buukle.consumer.www","top.buukle.plugin.security"})
+@SpringBootApplication(scanBasePackages={"top.buukle.common", "top.buukle.plugin.upload","top.buukle.consumer.www","top.buukle.consumer.timeline","top.buukle.plugin.security"})
 @EnableFeignClients(basePackages = {"top.buukle.consumer.www.invoker","top.buukle.plugin.security.invoker","top.buukle.plugin.upload.invoker"})
 public class WwwApplication {
     private static volatile boolean RUNNING = true;

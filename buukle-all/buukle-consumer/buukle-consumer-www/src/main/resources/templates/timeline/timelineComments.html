@@ -1,0 +1,29 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="renderTimelineComment(timelineCommentList)">
+    <div th:each="comment : ${timelineCommentList}">
+        <div class="pl-content clearfix">
+            <div class="tx"><a href=""><img src="../../images/lo.png"></a></div>
+            <div class="pl-header clearfix">
+                <ul>
+                    <li class="pl-user" th:text="${comment.creator}"></li>
+                    <li class="pl-time"  th:text=" ${#dates.format(comment.gmtCreated , 'yyyy-MM-dd')} "></li>
+
+                    <li class="pl-time pl-delete">
+                        <a th:attr=" id= ${comment.id}" href="javascript:void(0)" class="qx deleteComment" th:if="${comment.authorFlag == true} and ${comment.status != -2} ">删除</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="pl-wrap clearfix" th:text="${comment.status == -2} ? '该评论已经被删除!' : ${comment.comment}"> </div>
+            <div th:unless="${#lists.isEmpty(comment.sons)}" th:include="this::renderTimelineComment(${comment.sons})"> </div>
+            <a href="javascript:void(0)" th:attr=" class= ${comment.status == -2} ? 'pl-callback-disabled' : 'pl-callback'">回复</a>
+        </div>
+        <div class="callback-txt clearfix center-block">
+            <a th:attr=" id= 'del-text' + ${comment.id}" href="javascript:void(0)" class="qx">取消回复</a>
+            <div class="alert alert-danger false"><i class="fa fa-smile-o"></i>&nbsp;<span>只有登录之后才能评论哦。</span></div>
+            <textarea th:attr=" id= 'pl-text' + ${comment.id}" class="form-control" placeholder="回复内容..."></textarea>
+            <button type="button" data-pidType="0" th:attr="data-commentId=${comment.id}" class="btn btn-success pl-sub">回复</button>
+        </div>
+    </div>
+</div>
+<script src="/static/js/frame/common.js" type="text/javascript"></script>
+<script src="/static/js/square/timelineComments.js" type="text/javascript"></script>

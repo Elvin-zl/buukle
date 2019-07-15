@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title th:text=" '布壳儿-'+ ${timelineInfo?.topic}"> </title>
+    <link href="/static/style/frame/common.css" type="text/css" rel="stylesheet">
+    <link href="/static/style/frame/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="/static/style/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+    <link href="/static/style/buukle.css" type="text/css" rel="stylesheet">
+    <link href="/static/style/article/article.css" type="text/css" rel="stylesheet">
+
+    <!--markdown-->
+    <link href="/static/style/edit/css/editormd.preview.min.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<input type="hidden" id="mainNavActiveIndex" value="0">
+<!--主导航部分-->
+<nav class="navbar navbar-inverse navbar-fixed-top" id="navbar"> </nav>
+<!--副导航部分-->
+<!--<div class="wrap container-fluid">-->
+    <!--<div class="container wrap-cont">-->
+        <!--<a class="nzz" href="#"><span class="sort"><i class="fa fa-paint-brush"></i> &nbsp;UI <i-->
+                <!--class="fa fa-angle-down"></i></span></a>|-->
+        <!--<a class="nzz" href="#"><span class="sort"><i class="fa fa-keyboard-o"></i> &nbsp;输入 <i-->
+                <!--class="fa fa-angle-down"></i></span></a>|-->
+        <!--<a class="nzz" href="#"><span class="sort"><i class="fa fa-film"></i> &nbsp;媒体 <i class="fa fa-angle-down"></i></span></a>|-->
+        <!--<a class="nzz" href="#"><span class="sort "><i class="fa fa-paper-plane-o"></i> &nbsp;导航 <i-->
+                <!--class="fa fa-angle-down"></i></span></a>|-->
+        <!--<a class="nzz" href="#"><span class="sort"><i class="fa fa-dropbox"></i> &nbsp;其他 <i-->
+                <!--class="fa fa-angle-down"></i></span></a>|-->
+        <!--<a href="#"><span class="sort"><i class="fa fa-code"></i> &nbsp;在线代码</span></a>|-->
+        <!--<a href="#"><span class="sort">JSON在线工具</span></a>-->
+    <!--</div>-->
+    <!--<div class="container-fluid"></div>-->
+<!--</div>-->
+
+<div class="container-fluid content-box" style="margin-top: 50px;" id="article">
+    <div class="container content">
+        <!-- left -->
+        <div class="col-lg-9 col-md-12 col-sm-12">
+            <div class="project">
+                <!-- head -->
+                <div class="project-header clearfix">
+                    <!--title-->
+                    <input type="hidden" id="timelineInfoId" th:attr="value=${timelineInfo?.id}">
+                    <input type="hidden" id="titleImage" th:attr="value=${timelineInfo?.images}">
+
+                    <h1 id="title" style="margin-left: 3%;" th:text="${timelineInfo?.topic}"></h1>
+                    <!--category-->
+                    <p style="margin-left: 3%;" th:text="'分类 : ' + ${timelineInfo?.topic} +'  作者 : ' + ${timelineInfo?.author}"> </p>
+                    <div style="margin-left: 3%;" class="l">
+                        <span data-toggle="tooltip" data-placement="bottom" data-original-title="更新时间" data-container="#article">
+                            <i class="fa fa-clock-o"></i>
+                            <span th:text="${timelineInfo?.gmtModified} == null ? ${#dates.format(timelineInfo.gmtCreated , 'yyyy-MM-dd')} : ${#dates.format(timelineInfo.gmtModified, 'yyyy-MM-dd')}">
+                            </span>
+                        </span>
+                        <span data-toggle="tooltip" data-placement="bottom" data-original-title="浏览量" data-container="#article">
+                            <i class="fa fa-eye"></i>
+                             <span th:text="${timelineInfo?.scanNumber}"></span>
+                        </span>
+                        <span data-toggle="tooltip" data-placement="bottom" data-original-title="点赞数" data-container="#article">
+                            <i class="fa fa-heart"></i>
+                            <span th:text="${timelineInfo?.likeNumber}"></span>
+                        </span>
+                        <span style="border-right: none" data-toggle="tooltip" data-placement="bottom" data-original-title="评论数" data-container="#article">
+                            <i class="fa fa-comment"></i>
+                            <span th:text="${timelineInfo?.bak01} == null ? 0 : ${timelineInfo?.bak01}"></span>
+                        </span>
+                    </div>
+                </div>
+                <!-- head -->
+
+                <!-- content -->
+                <div class="project-content clearfix">
+                    <div id="timelineContent">
+                     <!--   <textarea id="articleContentTxt" style="display: none" th:value="${timelineInfo??.articleContent}" ></textarea>-->
+                        <textarea id="append-test" style="display: none" th:value="${timelineInfo?.content}" th:text="${timelineInfo?.content}">  </textarea>
+                    </div>
+                    <!--praise-->
+<!--                    <button id="praise" type="button" class="btn btn-default btn-zan">-->
+<!--                        <i id="praiseIcon" class="fa fa-heart-o" th:classappend="${timelineInfo??.praiseRelation?.userId} ? 'praise-active-i' "></i>-->
+<!--                        <input type="hidden" id="praiseUserId" th:attr="value=${timelineInfo??.praiseRelation?.userId}">-->
+<!--                        <span id="praiseTxt" th:text="${timelineInfo??.praiseRelation?.userId} ? '取消赞' : '点赞' "></span>-->
+<!--                    </button>-->
+                    <!--license-->
+                    <div th:text="'Notice: 本文著作权归作者所有，转载请联系作者获得授权，并注明作者 : \'' + ${timelineInfo?.author} + '\''" class="alert alert-info info" role="alert"> </div>
+                </div>
+                <!-- content -->
+
+                <!-- advice -->
+                <!--<div class="about-article clearfix">-->
+                    <!--<div class="about-tit">相关文章</div>-->
+                    <!--<div class="col-lg-4 col-md-3 col-sm-4">-->
+                        <!--<a href=""><img src="../../images/1.png" alt="" title=""></a>-->
+                        <!--<div class="art-info">-->
+                            <!--<h4><a href=""> OrgChart组织架构图控件</a></h4>-->
+                            <!--<small>jQuery OrgChart 是一个用来绘制组织结构图的 jQuery 插件。 可以自己定加载自己想要的组织架构，通过json的形式</small>-->
+                        <!--</div>-->
+                        <!--<div class="art-fields">-->
+                            <!--<i class="fa fa-list-ul"></i>-->
+                            <!--&nbsp;-->
+                            <!--<span>jQuery插件</span>-->
+                        <!--</div>-->
+                        <!--<div class="art-stars">-->
+                            <!--<i class="fa fa-eye"></i>-->
+                            <!--<span class="eye">&nbsp;105</span>-->
+                            <!--<i class="fa fa-heart"></i>-->
+                            <!--<span class="star">&nbsp;105</span>-->
+                            <!--<div class="art-author">-->
+                                <!--<a href="" data-toggle="tooltip" data-placement="top" data-container="#article"-->
+                                   <!--data-original-title="笨笨熊喜欢吃饼干"><i class="fa fa-user-secret"></i></a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!-- advice -->
+
+                <!-- comment -->
+                <div class="pl clearfix">
+                    <h4 >评论这条想法（<span th:text="${timelineInfo?.bak01} == null ? 0 : ${timelineInfo?.bak01}"></span>）</h4>
+                    <div id="comments"> </div>
+                </div>
+                <!-- comment -->
+
+                <!-- comment commit -->
+                <div id="commitComment" class="pl clearfix"></div>
+                <!-- comment commit -->
+            </div>
+        </div>
+        <!-- left/ -->
+
+        <!-- right -->
+        <div class="col-lg-2" id="right">
+            <!-- author -->
+            <div class="user-center clearfix">
+                <span class="headimg center-block"><a href=""><img th:attr="src=${timelineInfo?.images}"></a></span>
+                <div class="user-info clearfix">
+                    <a href="" class="user-name"><h4 th:text="'作者 : ' + ${timelineInfo?.author}"></h4></a>
+                    <!--<small th:text="${timelineInfo?.}"></small>-->
+<!--                    <small th:text="(${timelineInfo??.articleAuthor?.slogen} == '') ? '这个人很懒~' :  ${timelineInfo??.articleAuthor?.slogen}"> </small>-->
+                </div>
+                <!--<button type="button" class="btn btn-default"><i class="fa fa-plus-circle"></i>&nbsp;关注作者</button>-->
+                <!--<button type="button" class="btn btn-default"><i class="fa fa-heart-o"></i>&nbsp;点赞</button>-->
+            </div>
+            <!-- author -->
+
+            <!-- search -->
+            <div class="art-search input-group clearfix">
+                <input type="text" class="form-control" placeholder="搜索文章..." id="txt">
+                <span class="input-group-btn"><button type="button" class="btn btn-default" id="sr"><i class="fa fa-search"></i></button></span>
+            </div>
+            <!-- search -->
+
+            <!-- menu -->
+            <!--<div class="right-list clearfix">-->
+                <!--<ul class="list-group">-->
+                    <!--<a class="list-group-item" href=""><i class="fa fa-flag"></i> &nbsp;最新发布</a>-->
+                    <!--<a class="list-group-item" href=""><i class="fa fa-heart"></i> &nbsp;最多收藏</a>-->
+                    <!--<a class="list-group-item" href=""><i class="fa fa-comments-o"></i> &nbsp;最多评论</a>-->
+                    <!--<a class="list-group-item" href=""><i class="fa fa-arrow-circle-o-down"></i> &nbsp;最多下载</a>-->
+                    <!--<a class="list-group-item" href=""><i class="fa fa-bus"></i> &nbsp;兼容IE8</a>-->
+                    <!--<a class="list-group-item" href=""><i class="fa fa-motorcycle"></i> &nbsp;兼容IE6</a>-->
+                <!--</ul>-->
+            <!--</div>-->
+            <!-- menu -->
+
+            <!--<button type="button" class="btn btn-success pl-sub" id="write"><i class="fa fa-pencil"></i>&nbsp;&nbsp;&nbsp;开始写作 </button>-->
+        </div>
+        <!-- right/ -->
+    </div>
+</div>
+
+<nav class="foot navbar-inverse navbar-fixed-bottom" id="foot"> </nav>
+
+<script src="/static/js/frame/jquery.min.js" type="text/javascript"></script>
+<script src="/static/js/frame/bootstrap.min.js" type="text/javascript"></script>
+<script src="/static/js/frame/common.js" type="text/javascript"></script>
+<script src="/static/js/frame/article.js" type="text/javascript"></script>
+<!--markdown-->
+<script src="/static/js/editormd/marked.min.js" type="text/javascript"></script>
+<script src="/static/js/editormd/prettify.min.js" type="text/javascript"></script>
+<script src="/static/js/editormd/raphael.min.js" type="text/javascript"></script>
+<script src="/static/js/editormd/underscore.min.js" type="text/javascript"></script>
+<script src="/static/js/editormd/sequence-diagram.min.js" type="text/javascript"></script>
+<script src="/static/js/editormd/flowchart.min.js" type="text/javascript"></script>
+<script src="/static/js/editormd/jquery.flowchart.min.js" type="text/javascript"></script>
+<script src="/static/js/editormd/editormd.min.js" type="text/javascript"></script>
+<script src="/static/js/wechat/jweixin-1.0.0.js" type="text/javascript"></script>
+<!--buukle-->
+<script src="/static/js/square/timelineDetail.js"></script>
+<script>
+    $('#navbar').load("/static/views/common/head.html");
+    $('#foot').load("/static/views/common/foot.html");
+</script>
+</body>
+</html>

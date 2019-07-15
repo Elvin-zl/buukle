@@ -51,10 +51,19 @@ ul.navbar-nav > li > a > i {
     .content-box{
         margin-top: 278px;
     }
+    /*.content-box-timeline{*/
+    /*    margin-top: 282px;*/
+    /*}*/
     .col-md-3{
         margin-left: 0 !important;
         margin-right: 0 !important;
     }
+}
+
+@media (min-width: 768px){
+    /*.content-box-timeline{*/
+    /*    margin-top: 44px;*/
+    /*}*/
 }
 
 @media (max-width: 1200px){
@@ -115,6 +124,17 @@ ul.navbar-nav > li > a > i {
     padding-top: 20px;
     padding-bottom: 20px;
     font-family: '等线';
+}
+.content-box-timeline {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    background: #F4F4F4;
+    position: relative;
+    z-index: 4;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-family: '等线';
+    margin-top: -128px;
 }
 
 .content {
@@ -321,7 +341,7 @@ ul{
 }
 
 .foot li.footer-ss{
-    border-right: 1px solid #d8cbcb;
+    border-right: 0px solid #d8cbcb;
     padding-right: 12px;
 }
 

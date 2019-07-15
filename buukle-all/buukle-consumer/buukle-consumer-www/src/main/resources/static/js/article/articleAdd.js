@@ -88,7 +88,7 @@ function renderMarkdownEditor() {
         //启动本地图片上传功能
         imageUpload:true,
         emoji:true,
-    imageFormats   : ["jpg", "jpeg", "gif", "png"],
+        imageFormats   : ["jpg", "jpeg", "gif", "png"],
         imageUploadURL : "/upload/uploadImageMarkdown"
     });
 }

@@ -15,7 +15,7 @@ import top.buukle.consumer.www.constants.StatusConstants;
 import top.buukle.consumer.www.dao.ArticleInfoMapper;
 import top.buukle.consumer.www.entity.ArticleCommentExample;
 import top.buukle.consumer.www.entity.ArticleInfo;
-import top.buukle.consumer.www.entity.vo.ArticleCommentResponseVo;
+import top.buukle.consumer.www.entity.vo.CommentResponseVo;
 import top.buukle.plugin.security.client.SecurityClient;
 import top.buukle.plugin.security.entity.User;
 import top.buukle.common.vo.page.PageBounds;
@@ -153,7 +153,7 @@ public class ArticleCommentServiceImpl implements ArticleCommentService{
 //        PageHelper.startPage(pageBounds.getPage(), pageBounds.getLimit());
         // 查询文章评论
         List<ArticleComment> articleCommentList = articleCommentMapper.selectByExample(articleCommentExample);
-        List<ArticleCommentResponseVo> responseVoList = new ArrayList<>();
+        List<CommentResponseVo> responseVoList = new ArrayList<>();
         if(org.springframework.util.CollectionUtils.isEmpty(articleCommentList)){
             return new BaseResponse.Builder().buildSuccess();
         }
@@ -192,9 +192,9 @@ public class ArticleCommentServiceImpl implements ArticleCommentService{
      * @param pageBounds
      * @param isAuthor
      */
-    private void assSonComments(List<ArticleCommentResponseVo> responseVoList, List<ArticleComment> articleCommentList, PageBounds pageBounds, Boolean isAuthor) {
+    private void assSonComments(List<CommentResponseVo> responseVoList, List<ArticleComment> articleCommentList, PageBounds pageBounds, Boolean isAuthor) {
         for (ArticleComment articleComment: articleCommentList) {
-            ArticleCommentResponseVo responseVo = new ArticleCommentResponseVo();
+            CommentResponseVo responseVo = new CommentResponseVo();
             BeanUtils.copyProperties(articleComment,responseVo);
             responseVo.setAuthorFlag(isAuthor);
             responseVoList.add(responseVo);
@@ -208,7 +208,7 @@ public class ArticleCommentServiceImpl implements ArticleCommentService{
      * @param pageBounds
      * @param isAuthor
      */
-    private void getSonComments(ArticleCommentResponseVo responseVo, PageBounds pageBounds, Boolean isAuthor) {
+    private void getSonComments(CommentResponseVo responseVo, PageBounds pageBounds, Boolean isAuthor) {
         ArticleCommentExample articleCommentExample = new ArticleCommentExample();
         ArticleCommentExample.Criteria criteria = articleCommentExample.createCriteria();
         criteria.andPidEqualTo(responseVo.getId());
@@ -217,7 +217,7 @@ public class ArticleCommentServiceImpl implements ArticleCommentService{
         if(org.springframework.util.CollectionUtils.isEmpty(sonCommentList)){
             return;
         }
-        List<ArticleCommentResponseVo> responseVoList = new ArrayList<>();
+        List<CommentResponseVo> responseVoList = new ArrayList<>();
         this.assSonComments(responseVoList,sonCommentList,pageBounds, isAuthor);
         responseVo.setSons(responseVoList);
     }

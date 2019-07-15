@@ -1,0 +1,16 @@
+## task
+task:
+  # 开关
+  online: 0
+  # 轮询延时时间
+  delayTime: 300000
+  # 每次延时轮询个数
+  delaySize: 10
+## wechat
+wechat:
+  # 开关
+  online: 1
+  # 微信公众号id
+  appid: wx4f1f1d9ae3608b31
+  # 微信公众号秘钥
+  appsecret: c2cf50f7ba95b53f5c7f59e9012e3661

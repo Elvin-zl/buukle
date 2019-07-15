@@ -43,6 +43,7 @@ public class WechatApiUtil {
             } catch (Exception e) {
                 try {
                     LOGGER.info("出现异常,线程进入休眠等待一分钟，再次请求");
+                    e.printStackTrace();
                     Thread.sleep(60 * 1000);
                 } catch (Exception ex) {
                     ex.printStackTrace();

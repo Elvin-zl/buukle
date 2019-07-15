@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * @Author elvin
  * @Date Created by elvin on 2019/1/29.
- * @Description :
+ * @Description : 上传图片 business
  */
 @Component
 public class UploadBusinessImpl implements UploadBusiness{

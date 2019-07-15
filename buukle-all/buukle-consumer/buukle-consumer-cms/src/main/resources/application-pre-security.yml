@@ -1,0 +1,51 @@
+## security 服务 server-name
+security:
+  server:
+    name: buukle-security
+    url: http://security.buukle.top
+  ## 指定 : 用户登录是否关闭验证码验证 1 : 关闭 无 : 开启
+  closeVerification: 0
+  ## 指定 :获取验证码path
+  verificationImgPath: /getVerificationImg
+  ## 指定 : 用户请求验证码参数名 key
+  verificationCodeKey: verificationCode
+  ## 指定 : 自动登录策略参数名 key
+  caCheStrategyKey: caCheStrategyKey
+  ## 指定 : 缺醒自动登录时长(秒)
+  defaultMaxAge: 300000
+  ## 指定 : 是否开启授权
+  openAuth: 1
+  ## 指定 :sso domain
+  ssoDomain: buukle.top
+  ## 指定 :执行登录path
+  doLoginPath: /doLogin
+  ## 指定 :执行注册path
+  doRegisterPath: /doRegister
+  ## 指定 :登录页面路径path
+  loginPath: /login
+  ## 指定 :登录页面视图名ViewName
+  loginViewName: login
+  ## 指定 :首页页面路径path
+  indexPath: /index
+  ## 指定 :首页页面视图名ViewName
+  indexViewName: index
+  ## 指定 :超时页面路径path
+  outOfTimePath: /outOfTime
+  ## 指定 :超时页面视图名ViewName
+  outOfTimeViewName: outOfTime
+  ## 指定 :越权页面路径path
+  noPermissionPath: /noPermissions
+  ## 指定 :越权页面视图名ViewName
+  noPermissionViewName: noPermissions
+  ## 指定 :错误页面路径path
+  errorPagePath: /errors
+  ## 指定 :越权页面视图名ViewName
+  errorPageViewName: error
+  ## 指定 :登出页面路径path
+  logoutPath: /logout
+  ## 指定 :登出页面视图名ViewName(此处跳转登录页面)
+  logoutViewName: index
+  ## 指定 :登录登出策略 1 : 单点 0 : 多点
+  loginOutStrategy: 0
+  ## 指定 :免认证客户端获取用户信息path
+  autoLoginPath: /autoLoginPath

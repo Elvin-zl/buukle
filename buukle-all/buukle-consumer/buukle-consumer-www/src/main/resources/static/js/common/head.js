@@ -74,7 +74,7 @@ function bindLogoutClick() {
             dataType : 'json',
             success : function (data) {
                 if(data.status=="S"){
-                    location.href="/login.html";
+                    location.href="http://www.buukle.top/login.html";
                 }
             }
         })

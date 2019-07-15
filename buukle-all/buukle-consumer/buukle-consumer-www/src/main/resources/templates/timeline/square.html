@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>布壳儿-广场</title>
+    <link href="/static/layui/css/layui.css" type="text/css" rel="stylesheet" media="all">
+    <link href="/static/style/frame/common.css" type="text/css" rel="stylesheet">
+    <link href="/static/style/user/user.css" type="text/css" rel="stylesheet">
+    <link href="/static/style/frame/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="/static/style/frame/bootsnav.css" type="text/css" rel="stylesheet">
+    <link href="/static/style/frame/bootsnav.css" type="text/css" rel="stylesheet">
+    <link href="/static/style/index.css" type="text/css" rel="stylesheet">
+    <link href="/static/style/buukle.css" type="text/css" rel="stylesheet">
+    <link href="/static/style/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+<input type="hidden" id="mainNavActiveIndex" value="1">
+<input type="hidden" id="operation"  th:attr="value=${operation}">
+<!--head-->
+<nav class="navbar navbar-inverse navbar-fixed-top" id="navbar"> </nav>
+<!--head-->
+
+<!--banner-->
+<!--<div class="container-fluid banner bank" style='background-image: url("http://static.buukle.top/static/54420b81ae9c4c528a7d3f1389018111.jpg")'>-->
+<div class="container-fluid banner bank">
+    <h1 class="text-center h1">There is no certainty, only opportunity.</h1>
+    <p class="text-center">广场 ♫ </p>
+    <div id="searchBox" class="search-box center-block">
+        <input id="searchInput" type="text" class="search center-block" placeholder="#话题">
+        <i class="fa fa-search"></i>
+    </div>
+</div>
+<!--banner-->
+
+<!--navigation-->
+<div class="" style="margin-top: 204px;">
+    <nav class="navbar navbar-default navbar-mobile bootsnav" style="background-color: #f0ffff00;z-index: 0;">
+    </nav>
+</div>
+
+<!--body-->
+<div class="container-fluid content-box-timeline" id="article">
+    <div class="container content">
+        <!--article container-->
+        <div>
+            <div class="col-lg-9 col-md-12 col-sm-12">
+                <span class="current-articleCat-txt" >当前话题 : <span id="currentTopic">所有</span></span>
+                <span class="current-articleCat-txt" > | </span>
+                <span class="current-articleCat-txt" >当前排序 : <span id="currentTopicOrder">最新发布</span></span>
+            </div>
+            <div class="col-lg-9 col-md-12 col-sm-12" id="timelineContainer"></div>
+        </div>
+
+        <!--userInfo-->
+        <div class="col-lg-2" id="right">
+            <div class="user-center clearfix">
+                <span class="headimg center-block" style="border: solid 1px #b3aaaa66 !important;"><a href="javascript:void(0)"><img class="user-headImg" src=""></a></span>
+                <div class="user-info clearfix">
+                    <a href="javascript:void(0)"><h4 class="user-username"></h4></a>
+                    <small class="user-slogen"></small>
+                </div>
+
+                <!--<div class="user-infos clearfix">-->
+                    <!--<a href="#"><i class="fa fa-book" data-toggle="tooltip" data-placement="top" data-original-title="我的文章" data-container="#right"></i></a>|-->
+                    <!--<a href="#"><i class="fa fa-heart" data-toggle="tooltip" data-placement="top" data-original-title="我的收藏" data-container="#right"></i></a>|-->
+                    <!--<a href="#"><i class="fa fa-font" data-toggle="tooltip" data-placement="top" data-original-title="我的字数" data-container="#right"></i></a>-->
+                <!--</div>-->
+
+                <button data-method="setTop" id="writeTimeline" type="button" class="btn btn-success write-article">
+                    <i class="fa fa-book" data-toggle="tooltip" data-placement="top" data-original-title="写说说" data-container="#right"></i>
+                    写想法
+                </button>
+                <button id="writeArticle" type="button" class="btn btn-danger write-article" style="float: left;">
+                    <i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" data-original-title="写文章" data-container="#right"></i>
+                    写文章
+                </button>
+            </div>
+            <div class="right-list clearfix">
+                <input type="hidden" id="orderFlag" value="0">
+                <ul class="list-group">
+                    <span style="padding-left: 37%;" class="list-group-item " href="javascript:void(0)">排序方式</span>
+                    <a data-type="1" data-txt="最新发布" class="list-group-item order-item order-active" href="javascript:void(0)"><i class="fa fa-flag"></i> &nbsp;最新发布</a>
+                    <a data-type="2" data-txt="最多点赞" class="list-group-item order-item" href="javascript:void(0)"><i class="fa fa-heart"></i> &nbsp;最多点赞</a>
+
+                    <!--<a class="list-group-item" href=""><i class="fa fa-arrow-circle-o-down"></i> &nbsp;最多下载</a>-->
+                    <!--<a class="list-group-item" href=""><i class="fa fa-bus"></i> &nbsp;兼容IE8</a>-->
+                    <!--<a class="list-group-item" href=""><i class="fa fa-motorcycle"></i> &nbsp;兼容IE6</a>-->
+                </ul>
+            </div>
+        </div>
+        <div style="display: none" class="areView-more">
+            <ul id="page"></ul>
+        </div>
+    </div>
+</div>
+<nav class="foot navbar-inverse navbar-fixed-bottom" id="foot"> </nav>
+<script src="/static/js/frame/jquery.min.js" type="text/javascript"></script>
+<script src="/static/js/util/base64.js" type="text/javascript"></script>
+<script src="/static/layui/layui.all.js" type="text/javascript"></script>
+<script src="/static/js/frame/bootstrap.min.js" type="text/javascript"></script>
+<script src="/static/js/frame/common.js" type="text/javascript"></script>
+<script src="/static/js/square/square.js" type="text/javascript"></script>
+<script>
+    $('#navbar').load("/static/views/common/head.html");
+    $('#foot').load("/static/views/common/foot.html");
+</script>
+</body>
+</html>

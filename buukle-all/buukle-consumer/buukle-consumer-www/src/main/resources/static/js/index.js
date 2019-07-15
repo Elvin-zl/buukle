@@ -20,11 +20,11 @@ $(function(){
 function bindWhiteClick() {
     // 绑定新增文章
     $('#writeArticle').off().on('click',function () {
-        window.open('/articleInfo/toAddArticle','_blank');
+        window.open('http://www.buukle.top/articleInfo/toAddArticle','_blank');
     });
-    // 绑定新增时间线
+    // 绑定新增想法
     $('#writeTimeline').off().on('click',function () {
-        window.open('/articleInfo/toAddTimeline','_blank');
+        window.open('http://timeline.buukle.top/timelineInfo/square?operation=add','_blank');
     });
 }
 /*绑定搜索框响应式*/
