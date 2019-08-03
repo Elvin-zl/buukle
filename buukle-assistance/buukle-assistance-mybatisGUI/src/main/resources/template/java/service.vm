@@ -1,0 +1,30 @@
+package $!table.get("basePackage") .service;
+
+
+import top.buukle.common.call.CommonResponse;
+import top.buukle.common.call.FuzzyResponse;
+import top.buukle.common.call.PageResponse;
+import $!table.get("basePackage") .entity.${table.entityName};
+import $!table.get("basePackage") .entity.vo.${table.entityName}Query;
+
+import javax.servlet.http.HttpServletRequest;
+
+/**
+* @author elvin
+* @description ${table.entityName}Service 接口类
+*/
+public interface ${table.entityName}Service {
+
+
+    PageResponse getPageList(${table.entityName}Query query) ;
+
+    FuzzyResponse fuzzySearch(String fuzzyText, String fieldName);
+
+    CommonResponse delete(${table.entityName}Query query, HttpServletRequest request);
+
+    ${table.entityName} getById(${table.entityName}Query query);
+
+    CommonResponse save(${table.entityName}Query query, HttpServletRequest request);
+
+    CommonResponse update(${table.entityName}Query query, HttpServletRequest request);
+}

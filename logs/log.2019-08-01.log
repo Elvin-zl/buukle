@@ -1,0 +1,2178 @@
+2019-08-01 00:51:29.822 [JavaFX Application Thread] INFO  DatabaseConfig.java->getConnection, line81: using connection url:jdbc:mysql:// localhost:3654/buukle-security?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=UTC&allowPublicKeyRetrieval=true
+2019-08-01 00:52:22.651 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:projectDir,值：D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security,,plugin:com.spawpaw.mybatis.generator.gui.plugin.SCVXGeneratorPlugin   key:
+2019-08-01 00:52:22.651 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:basePackage,值：top.buukle.security,,plugin:com.spawpaw.mybatis.generator.gui.plugin.SCVXGeneratorPlugin   key:
+2019-08-01 00:52:22.658 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:mapperDir,值：src/main/resources,,plugin:com.spawpaw.mybatis.generator.gui.plugin.SCVXGeneratorPlugin   key:
+2019-08-01 00:52:22.658 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:mapperPackage,值：/config/mapper,,plugin:com.spawpaw.mybatis.generator.gui.plugin.SCVXGeneratorPlugin   key:
+2019-08-01 00:52:22.659 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:daoDir,值：src/main/java,,plugin:com.spawpaw.mybatis.generator.gui.plugin.SCVXGeneratorPlugin   key:
+2019-08-01 00:52:22.659 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:daoPackage,值：top.buukle.security.dao,,plugin:com.spawpaw.mybatis.generator.gui.plugin.SCVXGeneratorPlugin   key:
+2019-08-01 00:52:22.659 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:daoObjName,值：UserMapper,,plugin:com.spawpaw.mybatis.generator.gui.plugin.SCVXGeneratorPlugin   key:
+2019-08-01 00:52:22.659 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:logicalDeleteColumn,值：IS_DELETE,,plugin:com.itfsw.mybatis.generator.plugins.LogicalDeletePlugin   key:
+2019-08-01 00:52:22.659 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:logicalDeleteValue,值：1,,plugin:com.itfsw.mybatis.generator.plugins.LogicalDeletePlugin   key:
+2019-08-01 00:52:22.660 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:logicalUnDeleteValue,值：0,,plugin:com.itfsw.mybatis.generator.plugins.LogicalDeletePlugin   key:
+2019-08-01 00:52:22.660 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:logicalDeleteConstName,值：DELETED,,plugin:com.itfsw.mybatis.generator.plugins.LogicalDeletePlugin   key:
+2019-08-01 00:52:22.660 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:logicalUnDeleteConstName,值：NOT_DELETED,,plugin:com.itfsw.mybatis.generator.plugins.LogicalDeletePlugin   key:
+2019-08-01 00:52:22.660 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:entityDir,值：src/main/java,,plugin:com.spawpaw.mybatis.generator.gui.plugin.SCVXGeneratorPlugin   key:
+2019-08-01 00:52:22.660 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:entityPackage,值：top.buukle.security.entity,,plugin:com.spawpaw.mybatis.generator.gui.plugin.SCVXGeneratorPlugin   key:
+2019-08-01 00:52:22.660 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:entityObjName,值：User,,plugin:com.spawpaw.mybatis.generator.gui.plugin.SCVXGeneratorPlugin   key:
+2019-08-01 00:52:22.661 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:exampleSearchString,值：[a-zA-Z0-9$]+$,,plugin:org.mybatis.generator.plugins.RenameExampleClassPlugin   key:searchString
+2019-08-01 00:52:22.661 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:exampleObjName,值：UserExample,,plugin:com.spawpaw.mybatis.generator.gui.plugin.SCVXGeneratorPlugin   key:
+2019-08-01 00:52:22.661 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:exampleObjName,值：UserExample,,plugin:org.mybatis.generator.plugins.RenameExampleClassPlugin   key:replaceString
+2019-08-01 00:52:22.661 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:primaryKey,值：,,plugin:com.spawpaw.mybatis.generator.gui.plugin.SCVXGeneratorPlugin   key:
+2019-08-01 00:52:22.661 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:enableVirtualPrimaryKeyPlugin,值：,,plugin:org.mybatis.generator.plugins.VirtualPrimaryKeyPlugin   key:virtualKeyColumns
+2019-08-01 00:52:22.662 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:generateJPA,值：false,,plugin:com.spawpaw.mybatis.generator.gui.plugin.CommentPlugin   key:
+2019-08-01 00:52:22.662 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:useToStringFromRoot,值：false,,plugin:org.mybatis.generator.plugins.ToStringPlugin   key:useToStringFromRoot
+2019-08-01 00:52:22.662 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:useEqualsHashCodeFromRoot,值：false,,plugin:org.mybatis.generator.plugins.EqualsHashCodePlugin   key:useEqualsHashCodeFromRoot
+2019-08-01 00:52:22.663 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:enableComment,值：true,,plugin:com.spawpaw.mybatis.generator.gui.plugin.CommentPlugin   key:
+2019-08-01 00:52:22.663 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:enableMbgGenerated,值：true,,plugin:com.spawpaw.mybatis.generator.gui.plugin.CommentPlugin   key:
+2019-08-01 00:52:22.663 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:enableCorrespondingTable,值：false,,plugin:com.spawpaw.mybatis.generator.gui.plugin.CommentPlugin   key:
+2019-08-01 00:52:22.663 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:fileHeader,值：/**
+ * Created By MBG-GUI-EXTENSION https:// github.com/spawpaw/mybatis-generator-gui-extension
+ * Description:
+ * ${tableComment}
+ *
+ * @author 
+ */,,plugin:com.spawpaw.mybatis.generator.gui.plugin.CommentPlugin   key:
+2019-08-01 00:52:22.663 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:cache_eviction,值：,,plugin:org.mybatis.generator.plugins.CachePlugin   key:
+2019-08-01 00:52:22.663 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:cache_flushInterval,值：,,plugin:org.mybatis.generator.plugins.CachePlugin   key:
+2019-08-01 00:52:22.663 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:cache_readOnly,值：,,plugin:org.mybatis.generator.plugins.CachePlugin   key:
+2019-08-01 00:52:22.663 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:cache_size,值：,,plugin:org.mybatis.generator.plugins.CachePlugin   key:
+2019-08-01 00:52:22.664 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:cache_type,值：,,plugin:org.mybatis.generator.plugins.CachePlugin   key:
+2019-08-01 00:52:22.664 [JavaFX Application Thread] INFO  MBGRunner.java->initPluginConfigs, line247: 配置:scvxConfigYml,值：# 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+,,plugin:com.spawpaw.mybatis.generator.gui.plugin.SCVXGeneratorPlugin   key:
+2019-08-01 00:52:22.664 [JavaFX Application Thread] INFO  MBGRunner.java->addPlugins, line266: 启用插件：com.spawpaw.mybatis.generator.gui.plugin.SCVXGeneratorPlugin
+2019-08-01 00:52:22.665 [JavaFX Application Thread] INFO  MBGRunner.java->addPlugins, line266: 启用插件：org.mybatis.generator.plugins.FluentBuilderMethodsPlugin
+2019-08-01 00:52:22.665 [JavaFX Application Thread] INFO  MBGRunner.java->addPlugins, line266: 启用插件：org.mybatis.generator.plugins.MapperAnnotationPlugin
+2019-08-01 00:52:22.665 [JavaFX Application Thread] INFO  MBGRunner.java->addPlugins, line266: 启用插件：org.mybatis.generator.plugins.ToStringPlugin
+2019-08-01 00:52:22.665 [JavaFX Application Thread] INFO  MBGRunner.java->addPlugins, line266: 启用插件：org.mybatis.generator.plugins.SerializablePlugin
+2019-08-01 00:52:22.665 [JavaFX Application Thread] INFO  MBGRunner.java->addPlugins, line266: 启用插件：org.mybatis.generator.plugins.CaseInsensitiveLikePlugin
+2019-08-01 00:52:22.665 [JavaFX Application Thread] INFO  MBGRunner.java->addPlugins, line266: 启用插件：com.itfsw.mybatis.generator.plugins.ExampleEnhancedPlugin
+2019-08-01 00:52:22.665 [JavaFX Application Thread] INFO  MBGRunner.java->addPlugins, line266: 启用插件：org.mybatis.generator.plugins.EqualsHashCodePlugin
+2019-08-01 00:52:22.665 [JavaFX Application Thread] INFO  MBGRunner.java->addPlugins, line266: 启用插件：org.mybatis.generator.plugins.RenameExampleClassPlugin
+2019-08-01 00:52:22.669 [JavaFX Application Thread] INFO  DatabaseConfig.java->getConnection, line81: using connection url:jdbc:mysql:// localhost:3654/buukle-security?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=UTC&allowPublicKeyRetrieval=true
+2019-08-01 00:52:22.676 [JavaFX Application Thread] INFO  DatabaseConfig.java->catalog, line55: catalog:buukle-security
+2019-08-01 00:52:22.676 [JavaFX Application Thread] INFO  DatabaseConfig.java->getConnection, line81: using connection url:jdbc:mysql:// localhost:3654/buukle-security?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=UTC&allowPublicKeyRetrieval=true
+2019-08-01 00:52:22.681 [JavaFX Application Thread] INFO  DatabaseConfig.java->getConnection, line81: using connection url:jdbc:mysql:// localhost:3654/buukle-security?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=UTC&allowPublicKeyRetrieval=true
+2019-08-01 00:52:22.697 [JavaFX Application Thread] INFO  DatabaseConfig.java->schema, line60: schema:null
+2019-08-01 00:52:22.697 [JavaFX Application Thread] INFO  DatabaseConfig.java->getConnection, line81: using connection url:jdbc:mysql:// localhost:3654/buukle-security?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=UTC&allowPublicKeyRetrieval=true
+2019-08-01 00:52:22.801 [JavaFX Application Thread] INFO  SCVXGeneratorPlugin.java->contextGenerateAdditionalJavaFiles, line46: >>>> generating extra files...
+2019-08-01 00:52:22.803 [JavaFX Application Thread] INFO  Table.java-><init>, line36: >>>>>> begin initialize table configuration
+2019-08-01 00:52:22.820 [JavaFX Application Thread] INFO  Table.java-><init>, line54: <<<<<< initialized table configuration
+
+2019-08-01 00:52:22.953 [JavaFX Application Thread] INFO  SCVXGeneratorPlugin.java->contextGenerateAdditionalJavaFiles, line61: hierarchical table structure: 
+
+table.actualName            :user                    table.entityPackage         :/config/mapper                 table.entityName            :User                    table.entityLowerCamel      :user              table.exampleName           :top.buukle.security.entity.UserExample                   table.exampleLowerCamel     :top.buukle.security.entity.UserExample             table.mapperPackage         :${table.mapperPackage}                 table.mapperName            :User                    table.mapperLowerCamel      :user              
+columns:
+                                     column:id                                               actualName               :id                        fieldName                :id                         fieldType                :java.lang.Integer                         getterName               :getId                        setterName               :setId                        betweenMethod            :andIdBetween                     notBetweenMethod         :andIdNotBetween                  equalMethod              :andIdEqualTo                       notEqualMethod           :andIdNotEqualTo                    greaterThanMethod        :andIdGreaterThan                 greaterThenOrEqualMethod :andIdGreaterThanOrEqualTo          lessThanMethod           :andIdLessThan                    lessThanOrEqualMethod    :andIdLessThanOrEqualTo             inMethod                 :andIdIn                          notInMethod              :andIdNotIn                       likeMethod               :andIdLike                        notLikeMethod            :andIdNotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andIdIsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:user_id                                               actualName               :user_id                        fieldName                :userId                         fieldType                :java.lang.String                         getterName               :getUserId                        setterName               :setUserId                        betweenMethod            :andUserIdBetween                     notBetweenMethod         :andUserIdNotBetween                  equalMethod              :andUserIdEqualTo                       notEqualMethod           :andUserIdNotEqualTo                    greaterThanMethod        :andUserIdGreaterThan                 greaterThenOrEqualMethod :andUserIdGreaterThanOrEqualTo          lessThanMethod           :andUserIdLessThan                    lessThanOrEqualMethod    :andUserIdLessThanOrEqualTo             inMethod                 :andUserIdIn                          notInMethod              :andUserIdNotIn                       likeMethod               :andUserIdLike                        notLikeMethod            :andUserIdNotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andUserIdIsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:area_id                                               actualName               :area_id                        fieldName                :areaId                         fieldType                :java.lang.Integer                         getterName               :getAreaId                        setterName               :setAreaId                        betweenMethod            :andAreaIdBetween                     notBetweenMethod         :andAreaIdNotBetween                  equalMethod              :andAreaIdEqualTo                       notEqualMethod           :andAreaIdNotEqualTo                    greaterThanMethod        :andAreaIdGreaterThan                 greaterThenOrEqualMethod :andAreaIdGreaterThanOrEqualTo          lessThanMethod           :andAreaIdLessThan                    lessThanOrEqualMethod    :andAreaIdLessThanOrEqualTo             inMethod                 :andAreaIdIn                          notInMethod              :andAreaIdNotIn                       likeMethod               :andAreaIdLike                        notLikeMethod            :andAreaIdNotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andAreaIdIsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:area_admin                                               actualName               :area_admin                        fieldName                :areaAdmin                         fieldType                :java.lang.Integer                         getterName               :getAreaAdmin                        setterName               :setAreaAdmin                        betweenMethod            :andAreaAdminBetween                     notBetweenMethod         :andAreaAdminNotBetween                  equalMethod              :andAreaAdminEqualTo                       notEqualMethod           :andAreaAdminNotEqualTo                    greaterThanMethod        :andAreaAdminGreaterThan                 greaterThenOrEqualMethod :andAreaAdminGreaterThanOrEqualTo          lessThanMethod           :andAreaAdminLessThan                    lessThanOrEqualMethod    :andAreaAdminLessThanOrEqualTo             inMethod                 :andAreaAdminIn                          notInMethod              :andAreaAdminNotIn                       likeMethod               :andAreaAdminLike                        notLikeMethod            :andAreaAdminNotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andAreaAdminIsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:username                                               actualName               :username                        fieldName                :username                         fieldType                :java.lang.String                         getterName               :getUsername                        setterName               :setUsername                        betweenMethod            :andUsernameBetween                     notBetweenMethod         :andUsernameNotBetween                  equalMethod              :andUsernameEqualTo                       notEqualMethod           :andUsernameNotEqualTo                    greaterThanMethod        :andUsernameGreaterThan                 greaterThenOrEqualMethod :andUsernameGreaterThanOrEqualTo          lessThanMethod           :andUsernameLessThan                    lessThanOrEqualMethod    :andUsernameLessThanOrEqualTo             inMethod                 :andUsernameIn                          notInMethod              :andUsernameNotIn                       likeMethod               :andUsernameLike                        notLikeMethod            :andUsernameNotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andUsernameIsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:password                                               actualName               :password                        fieldName                :password                         fieldType                :java.lang.String                         getterName               :getPassword                        setterName               :setPassword                        betweenMethod            :andPasswordBetween                     notBetweenMethod         :andPasswordNotBetween                  equalMethod              :andPasswordEqualTo                       notEqualMethod           :andPasswordNotEqualTo                    greaterThanMethod        :andPasswordGreaterThan                 greaterThenOrEqualMethod :andPasswordGreaterThanOrEqualTo          lessThanMethod           :andPasswordLessThan                    lessThanOrEqualMethod    :andPasswordLessThanOrEqualTo             inMethod                 :andPasswordIn                          notInMethod              :andPasswordNotIn                       likeMethod               :andPasswordLike                        notLikeMethod            :andPasswordNotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andPasswordIsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:name_cn                                               actualName               :name_cn                        fieldName                :nameCn                         fieldType                :java.lang.String                         getterName               :getNameCn                        setterName               :setNameCn                        betweenMethod            :andNameCnBetween                     notBetweenMethod         :andNameCnNotBetween                  equalMethod              :andNameCnEqualTo                       notEqualMethod           :andNameCnNotEqualTo                    greaterThanMethod        :andNameCnGreaterThan                 greaterThenOrEqualMethod :andNameCnGreaterThanOrEqualTo          lessThanMethod           :andNameCnLessThan                    lessThanOrEqualMethod    :andNameCnLessThanOrEqualTo             inMethod                 :andNameCnIn                          notInMethod              :andNameCnNotIn                       likeMethod               :andNameCnLike                        notLikeMethod            :andNameCnNotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andNameCnIsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:full_name_cn                                               actualName               :full_name_cn                        fieldName                :fullNameCn                         fieldType                :java.lang.String                         getterName               :getFullNameCn                        setterName               :setFullNameCn                        betweenMethod            :andFullNameCnBetween                     notBetweenMethod         :andFullNameCnNotBetween                  equalMethod              :andFullNameCnEqualTo                       notEqualMethod           :andFullNameCnNotEqualTo                    greaterThanMethod        :andFullNameCnGreaterThan                 greaterThenOrEqualMethod :andFullNameCnGreaterThanOrEqualTo          lessThanMethod           :andFullNameCnLessThan                    lessThanOrEqualMethod    :andFullNameCnLessThanOrEqualTo             inMethod                 :andFullNameCnIn                          notInMethod              :andFullNameCnNotIn                       likeMethod               :andFullNameCnLike                        notLikeMethod            :andFullNameCnNotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andFullNameCnIsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:name_en                                               actualName               :name_en                        fieldName                :nameEn                         fieldType                :java.lang.String                         getterName               :getNameEn                        setterName               :setNameEn                        betweenMethod            :andNameEnBetween                     notBetweenMethod         :andNameEnNotBetween                  equalMethod              :andNameEnEqualTo                       notEqualMethod           :andNameEnNotEqualTo                    greaterThanMethod        :andNameEnGreaterThan                 greaterThenOrEqualMethod :andNameEnGreaterThanOrEqualTo          lessThanMethod           :andNameEnLessThan                    lessThanOrEqualMethod    :andNameEnLessThanOrEqualTo             inMethod                 :andNameEnIn                          notInMethod              :andNameEnNotIn                       likeMethod               :andNameEnLike                        notLikeMethod            :andNameEnNotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andNameEnIsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:full_name_en                                               actualName               :full_name_en                        fieldName                :fullNameEn                         fieldType                :java.lang.String                         getterName               :getFullNameEn                        setterName               :setFullNameEn                        betweenMethod            :andFullNameEnBetween                     notBetweenMethod         :andFullNameEnNotBetween                  equalMethod              :andFullNameEnEqualTo                       notEqualMethod           :andFullNameEnNotEqualTo                    greaterThanMethod        :andFullNameEnGreaterThan                 greaterThenOrEqualMethod :andFullNameEnGreaterThanOrEqualTo          lessThanMethod           :andFullNameEnLessThan                    lessThanOrEqualMethod    :andFullNameEnLessThanOrEqualTo             inMethod                 :andFullNameEnIn                          notInMethod              :andFullNameEnNotIn                       likeMethod               :andFullNameEnLike                        notLikeMethod            :andFullNameEnNotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andFullNameEnIsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:praise                                               actualName               :praise                        fieldName                :praise                         fieldType                :java.lang.Integer                         getterName               :getPraise                        setterName               :setPraise                        betweenMethod            :andPraiseBetween                     notBetweenMethod         :andPraiseNotBetween                  equalMethod              :andPraiseEqualTo                       notEqualMethod           :andPraiseNotEqualTo                    greaterThanMethod        :andPraiseGreaterThan                 greaterThenOrEqualMethod :andPraiseGreaterThanOrEqualTo          lessThanMethod           :andPraiseLessThan                    lessThanOrEqualMethod    :andPraiseLessThanOrEqualTo             inMethod                 :andPraiseIn                          notInMethod              :andPraiseNotIn                       likeMethod               :andPraiseLike                        notLikeMethod            :andPraiseNotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andPraiseIsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:fans                                               actualName               :fans                        fieldName                :fans                         fieldType                :java.lang.Integer                         getterName               :getFans                        setterName               :setFans                        betweenMethod            :andFansBetween                     notBetweenMethod         :andFansNotBetween                  equalMethod              :andFansEqualTo                       notEqualMethod           :andFansNotEqualTo                    greaterThanMethod        :andFansGreaterThan                 greaterThenOrEqualMethod :andFansGreaterThanOrEqualTo          lessThanMethod           :andFansLessThan                    lessThanOrEqualMethod    :andFansLessThanOrEqualTo             inMethod                 :andFansIn                          notInMethod              :andFansNotIn                       likeMethod               :andFansLike                        notLikeMethod            :andFansNotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andFansIsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:email                                               actualName               :email                        fieldName                :email                         fieldType                :java.lang.String                         getterName               :getEmail                        setterName               :setEmail                        betweenMethod            :andEmailBetween                     notBetweenMethod         :andEmailNotBetween                  equalMethod              :andEmailEqualTo                       notEqualMethod           :andEmailNotEqualTo                    greaterThanMethod        :andEmailGreaterThan                 greaterThenOrEqualMethod :andEmailGreaterThanOrEqualTo          lessThanMethod           :andEmailLessThan                    lessThanOrEqualMethod    :andEmailLessThanOrEqualTo             inMethod                 :andEmailIn                          notInMethod              :andEmailNotIn                       likeMethod               :andEmailLike                        notLikeMethod            :andEmailNotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andEmailIsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:phone                                               actualName               :phone                        fieldName                :phone                         fieldType                :java.lang.Integer                         getterName               :getPhone                        setterName               :setPhone                        betweenMethod            :andPhoneBetween                     notBetweenMethod         :andPhoneNotBetween                  equalMethod              :andPhoneEqualTo                       notEqualMethod           :andPhoneNotEqualTo                    greaterThanMethod        :andPhoneGreaterThan                 greaterThenOrEqualMethod :andPhoneGreaterThanOrEqualTo          lessThanMethod           :andPhoneLessThan                    lessThanOrEqualMethod    :andPhoneLessThanOrEqualTo             inMethod                 :andPhoneIn                          notInMethod              :andPhoneNotIn                       likeMethod               :andPhoneLike                        notLikeMethod            :andPhoneNotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andPhoneIsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:sex                                               actualName               :sex                        fieldName                :sex                         fieldType                :java.lang.Integer                         getterName               :getSex                        setterName               :setSex                        betweenMethod            :andSexBetween                     notBetweenMethod         :andSexNotBetween                  equalMethod              :andSexEqualTo                       notEqualMethod           :andSexNotEqualTo                    greaterThanMethod        :andSexGreaterThan                 greaterThenOrEqualMethod :andSexGreaterThanOrEqualTo          lessThanMethod           :andSexLessThan                    lessThanOrEqualMethod    :andSexLessThanOrEqualTo             inMethod                 :andSexIn                          notInMethod              :andSexNotIn                       likeMethod               :andSexLike                        notLikeMethod            :andSexNotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andSexIsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:age                                               actualName               :age                        fieldName                :age                         fieldType                :java.lang.Integer                         getterName               :getAge                        setterName               :setAge                        betweenMethod            :andAgeBetween                     notBetweenMethod         :andAgeNotBetween                  equalMethod              :andAgeEqualTo                       notEqualMethod           :andAgeNotEqualTo                    greaterThanMethod        :andAgeGreaterThan                 greaterThenOrEqualMethod :andAgeGreaterThanOrEqualTo          lessThanMethod           :andAgeLessThan                    lessThanOrEqualMethod    :andAgeLessThanOrEqualTo             inMethod                 :andAgeIn                          notInMethod              :andAgeNotIn                       likeMethod               :andAgeLike                        notLikeMethod            :andAgeNotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andAgeIsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:sign                                               actualName               :sign                        fieldName                :sign                         fieldType                :java.lang.String                         getterName               :getSign                        setterName               :setSign                        betweenMethod            :andSignBetween                     notBetweenMethod         :andSignNotBetween                  equalMethod              :andSignEqualTo                       notEqualMethod           :andSignNotEqualTo                    greaterThanMethod        :andSignGreaterThan                 greaterThenOrEqualMethod :andSignGreaterThanOrEqualTo          lessThanMethod           :andSignLessThan                    lessThanOrEqualMethod    :andSignLessThanOrEqualTo             inMethod                 :andSignIn                          notInMethod              :andSignNotIn                       likeMethod               :andSignLike                        notLikeMethod            :andSignNotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andSignIsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:login_strategy                                               actualName               :login_strategy                        fieldName                :loginStrategy                         fieldType                :java.lang.Integer                         getterName               :getLoginStrategy                        setterName               :setLoginStrategy                        betweenMethod            :andLoginStrategyBetween                     notBetweenMethod         :andLoginStrategyNotBetween                  equalMethod              :andLoginStrategyEqualTo                       notEqualMethod           :andLoginStrategyNotEqualTo                    greaterThanMethod        :andLoginStrategyGreaterThan                 greaterThenOrEqualMethod :andLoginStrategyGreaterThanOrEqualTo          lessThanMethod           :andLoginStrategyLessThan                    lessThanOrEqualMethod    :andLoginStrategyLessThanOrEqualTo             inMethod                 :andLoginStrategyIn                          notInMethod              :andLoginStrategyNotIn                       likeMethod               :andLoginStrategyLike                        notLikeMethod            :andLoginStrategyNotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andLoginStrategyIsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:head_url                                               actualName               :head_url                        fieldName                :headUrl                         fieldType                :java.lang.String                         getterName               :getHeadUrl                        setterName               :setHeadUrl                        betweenMethod            :andHeadUrlBetween                     notBetweenMethod         :andHeadUrlNotBetween                  equalMethod              :andHeadUrlEqualTo                       notEqualMethod           :andHeadUrlNotEqualTo                    greaterThanMethod        :andHeadUrlGreaterThan                 greaterThenOrEqualMethod :andHeadUrlGreaterThanOrEqualTo          lessThanMethod           :andHeadUrlLessThan                    lessThanOrEqualMethod    :andHeadUrlLessThanOrEqualTo             inMethod                 :andHeadUrlIn                          notInMethod              :andHeadUrlNotIn                       likeMethod               :andHeadUrlLike                        notLikeMethod            :andHeadUrlNotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andHeadUrlIsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:theme                                               actualName               :theme                        fieldName                :theme                         fieldType                :java.lang.String                         getterName               :getTheme                        setterName               :setTheme                        betweenMethod            :andThemeBetween                     notBetweenMethod         :andThemeNotBetween                  equalMethod              :andThemeEqualTo                       notEqualMethod           :andThemeNotEqualTo                    greaterThanMethod        :andThemeGreaterThan                 greaterThenOrEqualMethod :andThemeGreaterThanOrEqualTo          lessThanMethod           :andThemeLessThan                    lessThanOrEqualMethod    :andThemeLessThanOrEqualTo             inMethod                 :andThemeIn                          notInMethod              :andThemeNotIn                       likeMethod               :andThemeLike                        notLikeMethod            :andThemeNotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andThemeIsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:theme_id                                               actualName               :theme_id                        fieldName                :themeId                         fieldType                :java.lang.Integer                         getterName               :getThemeId                        setterName               :setThemeId                        betweenMethod            :andThemeIdBetween                     notBetweenMethod         :andThemeIdNotBetween                  equalMethod              :andThemeIdEqualTo                       notEqualMethod           :andThemeIdNotEqualTo                    greaterThanMethod        :andThemeIdGreaterThan                 greaterThenOrEqualMethod :andThemeIdGreaterThanOrEqualTo          lessThanMethod           :andThemeIdLessThan                    lessThanOrEqualMethod    :andThemeIdLessThanOrEqualTo             inMethod                 :andThemeIdIn                          notInMethod              :andThemeIdNotIn                       likeMethod               :andThemeIdLike                        notLikeMethod            :andThemeIdNotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andThemeIdIsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:remark                                               actualName               :remark                        fieldName                :remark                         fieldType                :java.lang.String                         getterName               :getRemark                        setterName               :setRemark                        betweenMethod            :andRemarkBetween                     notBetweenMethod         :andRemarkNotBetween                  equalMethod              :andRemarkEqualTo                       notEqualMethod           :andRemarkNotEqualTo                    greaterThanMethod        :andRemarkGreaterThan                 greaterThenOrEqualMethod :andRemarkGreaterThanOrEqualTo          lessThanMethod           :andRemarkLessThan                    lessThanOrEqualMethod    :andRemarkLessThanOrEqualTo             inMethod                 :andRemarkIn                          notInMethod              :andRemarkNotIn                       likeMethod               :andRemarkLike                        notLikeMethod            :andRemarkNotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andRemarkIsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:gmt_last_login                                               actualName               :gmt_last_login                        fieldName                :gmtLastLogin                         fieldType                :java.util.Date                         getterName               :getGmtLastLogin                        setterName               :setGmtLastLogin                        betweenMethod            :andGmtLastLoginBetween                     notBetweenMethod         :andGmtLastLoginNotBetween                  equalMethod              :andGmtLastLoginEqualTo                       notEqualMethod           :andGmtLastLoginNotEqualTo                    greaterThanMethod        :andGmtLastLoginGreaterThan                 greaterThenOrEqualMethod :andGmtLastLoginGreaterThanOrEqualTo          lessThanMethod           :andGmtLastLoginLessThan                    lessThanOrEqualMethod    :andGmtLastLoginLessThanOrEqualTo             inMethod                 :andGmtLastLoginIn                          notInMethod              :andGmtLastLoginNotIn                       likeMethod               :andGmtLastLoginLike                        notLikeMethod            :andGmtLastLoginNotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andGmtLastLoginIsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:gmt_created                                               actualName               :gmt_created                        fieldName                :gmtCreated                         fieldType                :java.util.Date                         getterName               :getGmtCreated                        setterName               :setGmtCreated                        betweenMethod            :andGmtCreatedBetween                     notBetweenMethod         :andGmtCreatedNotBetween                  equalMethod              :andGmtCreatedEqualTo                       notEqualMethod           :andGmtCreatedNotEqualTo                    greaterThanMethod        :andGmtCreatedGreaterThan                 greaterThenOrEqualMethod :andGmtCreatedGreaterThanOrEqualTo          lessThanMethod           :andGmtCreatedLessThan                    lessThanOrEqualMethod    :andGmtCreatedLessThanOrEqualTo             inMethod                 :andGmtCreatedIn                          notInMethod              :andGmtCreatedNotIn                       likeMethod               :andGmtCreatedLike                        notLikeMethod            :andGmtCreatedNotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andGmtCreatedIsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:creator                                               actualName               :creator                        fieldName                :creator                         fieldType                :java.lang.String                         getterName               :getCreator                        setterName               :setCreator                        betweenMethod            :andCreatorBetween                     notBetweenMethod         :andCreatorNotBetween                  equalMethod              :andCreatorEqualTo                       notEqualMethod           :andCreatorNotEqualTo                    greaterThanMethod        :andCreatorGreaterThan                 greaterThenOrEqualMethod :andCreatorGreaterThanOrEqualTo          lessThanMethod           :andCreatorLessThan                    lessThanOrEqualMethod    :andCreatorLessThanOrEqualTo             inMethod                 :andCreatorIn                          notInMethod              :andCreatorNotIn                       likeMethod               :andCreatorLike                        notLikeMethod            :andCreatorNotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andCreatorIsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:creator_code                                               actualName               :creator_code                        fieldName                :creatorCode                         fieldType                :java.lang.String                         getterName               :getCreatorCode                        setterName               :setCreatorCode                        betweenMethod            :andCreatorCodeBetween                     notBetweenMethod         :andCreatorCodeNotBetween                  equalMethod              :andCreatorCodeEqualTo                       notEqualMethod           :andCreatorCodeNotEqualTo                    greaterThanMethod        :andCreatorCodeGreaterThan                 greaterThenOrEqualMethod :andCreatorCodeGreaterThanOrEqualTo          lessThanMethod           :andCreatorCodeLessThan                    lessThanOrEqualMethod    :andCreatorCodeLessThanOrEqualTo             inMethod                 :andCreatorCodeIn                          notInMethod              :andCreatorCodeNotIn                       likeMethod               :andCreatorCodeLike                        notLikeMethod            :andCreatorCodeNotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andCreatorCodeIsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:gmt_modified                                               actualName               :gmt_modified                        fieldName                :gmtModified                         fieldType                :java.util.Date                         getterName               :getGmtModified                        setterName               :setGmtModified                        betweenMethod            :andGmtModifiedBetween                     notBetweenMethod         :andGmtModifiedNotBetween                  equalMethod              :andGmtModifiedEqualTo                       notEqualMethod           :andGmtModifiedNotEqualTo                    greaterThanMethod        :andGmtModifiedGreaterThan                 greaterThenOrEqualMethod :andGmtModifiedGreaterThanOrEqualTo          lessThanMethod           :andGmtModifiedLessThan                    lessThanOrEqualMethod    :andGmtModifiedLessThanOrEqualTo             inMethod                 :andGmtModifiedIn                          notInMethod              :andGmtModifiedNotIn                       likeMethod               :andGmtModifiedLike                        notLikeMethod            :andGmtModifiedNotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andGmtModifiedIsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:modifier                                               actualName               :modifier                        fieldName                :modifier                         fieldType                :java.lang.String                         getterName               :getModifier                        setterName               :setModifier                        betweenMethod            :andModifierBetween                     notBetweenMethod         :andModifierNotBetween                  equalMethod              :andModifierEqualTo                       notEqualMethod           :andModifierNotEqualTo                    greaterThanMethod        :andModifierGreaterThan                 greaterThenOrEqualMethod :andModifierGreaterThanOrEqualTo          lessThanMethod           :andModifierLessThan                    lessThanOrEqualMethod    :andModifierLessThanOrEqualTo             inMethod                 :andModifierIn                          notInMethod              :andModifierNotIn                       likeMethod               :andModifierLike                        notLikeMethod            :andModifierNotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andModifierIsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:modifier_code                                               actualName               :modifier_code                        fieldName                :modifierCode                         fieldType                :java.lang.String                         getterName               :getModifierCode                        setterName               :setModifierCode                        betweenMethod            :andModifierCodeBetween                     notBetweenMethod         :andModifierCodeNotBetween                  equalMethod              :andModifierCodeEqualTo                       notEqualMethod           :andModifierCodeNotEqualTo                    greaterThanMethod        :andModifierCodeGreaterThan                 greaterThenOrEqualMethod :andModifierCodeGreaterThanOrEqualTo          lessThanMethod           :andModifierCodeLessThan                    lessThanOrEqualMethod    :andModifierCodeLessThanOrEqualTo             inMethod                 :andModifierCodeIn                          notInMethod              :andModifierCodeNotIn                       likeMethod               :andModifierCodeLike                        notLikeMethod            :andModifierCodeNotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andModifierCodeIsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:type                                               actualName               :type                        fieldName                :type                         fieldType                :java.lang.Integer                         getterName               :getStatus                        setterName               :setStatus                        betweenMethod            :andStatusBetween                     notBetweenMethod         :andStatusNotBetween                  equalMethod              :andStatusEqualTo                       notEqualMethod           :andStatusNotEqualTo                    greaterThanMethod        :andStatusGreaterThan                 greaterThenOrEqualMethod :andStatusGreaterThanOrEqualTo          lessThanMethod           :andStatusLessThan                    lessThanOrEqualMethod    :andStatusLessThanOrEqualTo             inMethod                 :andStatusIn                          notInMethod              :andStatusNotIn                       likeMethod               :andStatusLike                        notLikeMethod            :andStatusNotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andStatusIsNotNull
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:bak01                                               actualName               :bak01                        fieldName                :bak01                         fieldType                :java.lang.String                         getterName               :getBak01                        setterName               :setBak01                        betweenMethod            :andBak01Between                     notBetweenMethod         :andBak01NotBetween                  equalMethod              :andBak01EqualTo                       notEqualMethod           :andBak01NotEqualTo                    greaterThanMethod        :andBak01GreaterThan                 greaterThenOrEqualMethod :andBak01GreaterThanOrEqualTo          lessThanMethod           :andBak01LessThan                    lessThanOrEqualMethod    :andBak01LessThanOrEqualTo             inMethod                 :andBak01In                          notInMethod              :andBak01NotIn                       likeMethod               :andBak01Like                        notLikeMethod            :andBak01NotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andBak01IsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:bak02                                               actualName               :bak02                        fieldName                :bak02                         fieldType                :java.lang.String                         getterName               :getBak02                        setterName               :setBak02                        betweenMethod            :andBak02Between                     notBetweenMethod         :andBak02NotBetween                  equalMethod              :andBak02EqualTo                       notEqualMethod           :andBak02NotEqualTo                    greaterThanMethod        :andBak02GreaterThan                 greaterThenOrEqualMethod :andBak02GreaterThanOrEqualTo          lessThanMethod           :andBak02LessThan                    lessThanOrEqualMethod    :andBak02LessThanOrEqualTo             inMethod                 :andBak02In                          notInMethod              :andBak02NotIn                       likeMethod               :andBak02Like                        notLikeMethod            :andBak02NotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andBak02IsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:bak03                                               actualName               :bak03                        fieldName                :bak03                         fieldType                :java.lang.String                         getterName               :getBak03                        setterName               :setBak03                        betweenMethod            :andBak03Between                     notBetweenMethod         :andBak03NotBetween                  equalMethod              :andBak03EqualTo                       notEqualMethod           :andBak03NotEqualTo                    greaterThanMethod        :andBak03GreaterThan                 greaterThenOrEqualMethod :andBak03GreaterThanOrEqualTo          lessThanMethod           :andBak03LessThan                    lessThanOrEqualMethod    :andBak03LessThanOrEqualTo             inMethod                 :andBak03In                          notInMethod              :andBak03NotIn                       likeMethod               :andBak03Like                        notLikeMethod            :andBak03NotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andBak03IsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:bak04                                               actualName               :bak04                        fieldName                :bak04                         fieldType                :java.lang.String                         getterName               :getBak04                        setterName               :setBak04                        betweenMethod            :andBak04Between                     notBetweenMethod         :andBak04NotBetween                  equalMethod              :andBak04EqualTo                       notEqualMethod           :andBak04NotEqualTo                    greaterThanMethod        :andBak04GreaterThan                 greaterThenOrEqualMethod :andBak04GreaterThanOrEqualTo          lessThanMethod           :andBak04LessThan                    lessThanOrEqualMethod    :andBak04LessThanOrEqualTo             inMethod                 :andBak04In                          notInMethod              :andBak04NotIn                       likeMethod               :andBak04Like                        notLikeMethod            :andBak04NotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andBak04IsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+                                     column:bak05                                               actualName               :bak05                        fieldName                :bak05                         fieldType                :java.lang.String                         getterName               :getBak05                        setterName               :setBak05                        betweenMethod            :andBak05Between                     notBetweenMethod         :andBak05NotBetween                  equalMethod              :andBak05EqualTo                       notEqualMethod           :andBak05NotEqualTo                    greaterThanMethod        :andBak05GreaterThan                 greaterThenOrEqualMethod :andBak05GreaterThanOrEqualTo          lessThanMethod           :andBak05LessThan                    lessThanOrEqualMethod    :andBak05LessThanOrEqualTo             inMethod                 :andBak05In                          notInMethod              :andBak05NotIn                       likeMethod               :andBak05Like                        notLikeMethod            :andBak05NotLike                     isNullMethod             :${column.isNullMethod}                      notNullMethod            :andBak05IsNotNull             
+                                key-values:
+                    key:projectDir       ->   D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security
+                    key:scvxConfigYml       ->   # 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+
+
+                    key:entityObjName       ->   User
+                    key:basePackage       ->   top.buukle.security
+                    key:mapperPackage       ->   /config/mapper
+                    key:daoPackage       ->   top.buukle.security.dao
+                    key:exampleObjName       ->   UserExample
+                    key:entityDir       ->   src/main/java
+                    key:daoObjName       ->   UserMapper
+                    key:daoDir       ->   src/main/java
+                    key:entityPackage       ->   top.buukle.security.entity
+                    key:mapperDir       ->   src/main/resources
+                    key:primaryKey       ->   
+        
+
+2019-08-01 00:52:23.018 [JavaFX Application Thread] INFO  SCVXGeneratorPlugin.java->contextGenerateAdditionalJavaFiles, line83: generate file `D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security/buukle-security-controller/src/main/java/top/buukle/security/controller/UserController.java` from template `java/controller.vm`
+2019-08-01 00:52:23.024 [JavaFX Application Thread] INFO  SCVXGeneratorPlugin.java->contextGenerateAdditionalJavaFiles, line83: generate file `D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security/buukle-security-service/src/main/java/top/buukle/security/service/UserService.java` from template `java/service.vm`
+2019-08-01 00:52:23.028 [JavaFX Application Thread] INFO  SCVXGeneratorPlugin.java->contextGenerateAdditionalJavaFiles, line83: generate file `D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security/buukle-security-service/src/main/java/top/buukle/security/service/impl/UserServiceImpl.java` from template `java/serviceImpl.vm`
+2019-08-01 00:52:23.034 [JavaFX Application Thread] INFO  SCVXGeneratorPlugin.java->contextGenerateAdditionalJavaFiles, line83: generate file `D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security/buukle-security-entity/src/main/java/top/buukle/security/entity/vo/UserQuery.java` from template `java/query.vm`
+2019-08-01 00:52:23.039 [JavaFX Application Thread] INFO  SCVXGeneratorPlugin.java->contextGenerateAdditionalJavaFiles, line83: generate file `D:\Java_dev_pro_repo\aliClound_git_repo\myPro\private_pro\buukle\buukle-main\buukle-security/buukle-security-service/src/main/java/top/buukle/security/service/constants/UserEnums.java` from template `java/enums.vm`
+2019-08-01 00:52:23.154 [JavaFX Application Thread] INFO  SCVXGeneratorPlugin.java->contextGenerateAdditionalJavaFiles, line94: <<< generated extra files.

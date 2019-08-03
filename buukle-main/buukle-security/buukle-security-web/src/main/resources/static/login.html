@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>布壳儿-欢迎登录</title>
+		<link rel="stylesheet" type="text/css" href="/static/security/layui/css/layui.css" />
+		<link rel="stylesheet" type="text/css" href="/static/security/css/login.css" />
+	</head>
+
+	<body style="font-family: '等线';">
+		<div class="m-login-bg">
+			<div class="m-login">
+				<div class="m-login-warp">
+					<form id="loginForm" class="layui-form">
+						<div class="layui-form-item" style="margin-top: 37px;">
+							<span class="login-title"> 布壳儿 </span>
+						</div>
+						<div class="layui-form-item" style="margin-top: 58px;">
+							<span class="login-subTitle">登录布壳儿 多一点趣味</span>
+						</div>
+						<div class="layui-form-item" style="margin-top: 76px;">
+							<input type="text" name="username" required lay-verify="required" placeholder="用户名" autocomplete="off" class="clearAble layui-input">
+						</div>
+						<div class="layui-form-item">
+							<input type="password" name="password" id="password" required lay-verify="required" placeholder="密码" autocomplete="off" class="clearAble layui-input">
+						</div>
+						<div class="layui-form-item">
+							<div class="verify-wrap" id="buukle-verify-wrap"></div>
+						</div>
+						<div class="layui-form-item m-login-btn"  style="margin-top: 92px;">
+							<div class="layui-inline">
+								<div class="layui-btn layui-btn-normal login-button" id="login">登录</div>
+							</div>
+							<div class="layui-inline">
+								<div type="reset"  id="toRegister" class="layui-btn layui-btn-primary login-button">注册
+									<i class="layui-icon">&#xe602;</i>
+								</div>
+							</div>
+						</div>
+						<div class="layui-form-item m-login-btn">
+							<a href="javascript:;" id="goVisit" style="margin-left: 185px; color: #6f8ba3;">不注册，去首页看看
+								<i class="layui-icon">&#xe64b;</i>
+							</a>
+						</div>
+					</form>
+					<form id="registerForm" class="layui-form" style="display: none">
+						<div class="layui-form-item" style="margin-top: 37px;">
+							<span class="login-title"> 布壳儿 </span>
+						</div>
+						<div class="layui-form-item" style="margin-top: 58px;">
+							<span class="login-subTitle">注册布壳儿 或许有所帮助</span>
+						</div>
+						<div class="layui-form-item" style="margin-top: 76px;">
+							<input type="text" name="username" placeholder="用户名" autocomplete="off" class="clearAble layui-input">
+						</div>
+						<div class="layui-form-item">
+							<input type="password" name="password" placeholder="密码" autocomplete="off" class="clearAble layui-input">
+						</div>
+						<div class="layui-form-item">
+							<input type="password" name="rPassword"  placeholder="确认密码" autocomplete="off" class="clearAble layui-input">
+						</div>
+						<div class="layui-form-item">
+							<input type="text" name="buukleCode" placeholder="邀请码" autocomplete="off" class="clearAble layui-input">
+						</div>
+						<div class="layui-form-item m-login-btn">
+							<div class="layui-inline">
+								<div class="layui-btn  layui-btn-primary login-button" id="toLogin">
+									<i class="layui-icon">&#xe603;</i>
+									登录
+								</div>
+							</div>
+							<div class="layui-inline">
+								<div type="reset" id="register" class="layui-btn layui-btn-normal login-button">注册</div>
+							</div>
+						</div>
+						<div class="layui-form-item m-login-btn">
+							<a href="javascript:;" id="getBuukleCode" style="margin-left: 254px; color: #6f8ba3;">获取邀请码</a>
+						</div>
+					</form>
+				</div>
+				<p class="copyright">Copyright 2017-2019 by elvin</p>
+			</div>
+		</div>
+		<script src="/static/security/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/security/js/login/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/security/js/login/jq-slideVerify.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/security/js/jqueryValidate/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/security/js/login/md5.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/security/js/login/login.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

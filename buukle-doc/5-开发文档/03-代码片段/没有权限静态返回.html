@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>buukle-超时</title>
+<link rel="stylesheet" type="text/css" href="">
+</head>
+<style type="text/css">
+html,body{height:100%;overflow:hidden;}
+body,div,h2{margin:0;padding:0;}
+center{padding-top:10px;}
+button{cursor:pointer;margin: auto;}
+#overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:#000;opacity:0.5;filter:alpha(opacity=50);}
+#win{position:absolute;top:50%;left:50%;width:400px;height:200px;background:#fff;solid #f90;margin:-102px 0 0 -202px;}
+h2{font-size:14px;text-align:right;background:rgba(73, 195, 145, 0.77); solid #f90;padding:5px;}
+h2 span{color:#f90;cursor:pointer;background:#fff;border:1px solid #f90;padding:0 2px;}
+</style>
+<body style="font-family: '等线'">
+  <div  id="overlay" >	
+  </div>
+  <div id="win" >
+  	<h2>buukle提示</h2>
+	<div style='font-family : "等线"; margin-top: 13%; font-family: "等线"; padding: 6px 34px;'>布壳儿:用户未认证或认证已超时!
+	<a id='jumpTo' onclick="jumpTo()" href= 'javascript:;'> 点击跳转登录页面   </a>    <span style='color:red' id='seconds'>5</span>秒后将自动跳转...
+</div>
+  </div>
+</body>
+<script>  
+var surl = 'http://tpassport.buukle.top/static/login.html?returnUrl=http://tsecurity.buukle.top/security/home';
+countDown(5); 
+function jumpTo(){
+top.location.href=surl;
+}
+function countDown(secs){
+var seconds = document.getElementById('seconds');     
+seconds.innerHTML=secs; 
+secs--;
+if(secs>=0){ 
+setTimeout("countDown("+secs+")",1000);   
+}else{
+//jumpTo();
+return;
+} 
+}
+</script>
+</html>

@@ -1,0 +1,43 @@
+# 每项配置有以下四个属性：
+# template:    模板文件名
+# destDir:     目标文件夹
+# destPackage: 目标包
+# destFileName:目标文件名
+#
+# 支持如下变量：
+# ${basePackage}  在创建文件时该变量将替换为根包名
+# ${entityName}   在创建文件时该变量将替换为实体名
+templateConfig:
+
+  # Controller
+  - template: java/controller.vm
+    destDir: modulePrefix-controller/src/main/java
+    destPackage: ${basePackage}.controller
+    destFileName: ${entityName}Controller.java
+
+  # Service
+  - template: java/service.vm
+    destDir:  modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service
+    destFileName: ${entityName}Service.java
+
+  # ServiceImpl
+  - template: java/serviceImpl.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.impl
+    destFileName: ${entityName}ServiceImpl.java
+
+  # queryVo
+  - template: java/query.vm
+    destDir: modulePrefix-entity/src/main/java
+    destPackage: ${basePackage}.entity.vo
+    destFileName: ${entityName}Query.java
+
+  # enums
+  - template: java/enums.vm
+    destDir: modulePrefix-service/src/main/java
+    destPackage: ${basePackage}.service.constants
+    destFileName: ${entityName}Enums.java
+
+
+

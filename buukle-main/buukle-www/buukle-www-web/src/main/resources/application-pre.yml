@@ -1,0 +1,82 @@
+##服务配置
+server:
+  port: 9393
+  tomcat:
+    max-threads: 800
+    uri-encoding: utf-8
+##日志配置
+logging:
+  config: classpath:config/spring/springBoot-logbak-pre.xml
+##spring生态配置
+spring:
+  #include
+  profiles:
+    include: pre-security,pre-system
+  #application
+  application:
+      name: buukle-www
+  aop:
+    proxy-target-class: true
+  #http
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+  #datasource
+  datasource:
+    url: jdbc:mysql://39.107.78.160:3654/buukle-cms?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: A987654321b/
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  #redis
+  redis:
+    database: 6
+    host: 39.105.74.47
+    port: 4376
+    password: zxcvbnmKO),.
+    timeout: 3000
+    jedis:
+      pool:
+        max-active: 100
+        max-idle: 100
+        max-wait: -1
+        min-idle: 10
+  ## session 共享
+  session:
+    store-type: redis
+    ### Session 过期时间，单位s
+    timeout: 600
+    redis:
+      ### Sessions 刷新模式
+      flush-mode: ON_SAVE
+      namespace:  BUUKLE_SESSIONS
+  ##thymeleaf
+  thymeleaf:
+     cache: false
+     prefix: classpath:/templates/www
+     suffix: .html
+     encoding: UTF-8
+     mode: HTML5
+  ##mvc
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
+##eureka
+eureka:
+  instance:
+    hostname: 127.0.0.1
+    prefer-ip-address: true
+    serverport: 9090
+  client:
+    serviceUrl:
+       defaultZone: http://${eureka.instance.hostname}:${eureka.instance.serverport}/eureka/
+##mybatis
+mybatis:
+  mapper-locations: classpath*:/config/mapper/*.xml
+  type-aliases-package: top.buukle.www.entity
+
+
+

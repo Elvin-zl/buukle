@@ -1,0 +1,32 @@
+package $!table.get("basePackage") .controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+import $!table.get("basePackage") .entity.vo.${table.entityName}Query;
+import $!table.get("basePackage") .service.${table.entityName}Service;
+
+/**
+* @author elvin
+* @description ${table.entityName} controller
+*/
+@Controller
+@RequestMapping("/${table.entityNameFirstLowerCase}")
+public class ${table.entityName}Controller {
+
+    @Autowired
+    private ${table.entityName}Service ${table.entityNameFirstLowerCase}Service;
+
+    /**
+    * 获取列表
+    * @return
+    * @throws Exception
+    */
+    @RequestMapping("/getPageList")
+    public ModelAndView getPageList(${table.entityName}Query query, ModelAndView modelAndView) throws Exception {
+        modelAndView.addObject("response", ${table.entityNameFirstLowerCase}Service.getPageList(query));
+        modelAndView.setViewName("${table.entityNameFirstLowerCase}/${table.entityNameFirstLowerCase}Data");
+        return modelAndView;
+    }
+}

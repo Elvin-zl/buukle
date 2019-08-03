@@ -1,0 +1,192 @@
+package $!table.get("basePackage") .service.impl;
+
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import $!table.get("basePackage") .dao.${table.entityName}Mapper;
+import $!table.get("basePackage") .entity.${table.entityName};
+import $!table.get("basePackage") .entity.${table.entityName}Example;
+import $!table.get("basePackage") .entity.vo.${table.entityName}Query;
+import $!table.get("basePackage") .service.${table.entityName}Service;
+import $!table.get("basePackage") .service.constants.${table.entityName}Enums;
+import $!table.get("basePackage") .service.constants.SystemReturnEnum;
+import $!table.get("basePackage") .service.exception.SystemException;
+import top.buukle.common.call.CommonResponse;
+import top.buukle.common.call.FuzzyResponse;
+import top.buukle.common.call.PageResponse;
+import top.buukle.util.util.DateUtil;
+import top.buukle.util.util.StringUtil;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
+import java.util.List;
+
+/**
+* @author elvin
+* @description ${table.entityName}Service实现类
+*/
+@Service
+public class ${table.entityName}ServiceImpl implements ${table.entityName}Service{
+
+
+    @Autowired
+    private ${table.entityName}Mapper ${table.entityNameFirstLowerCase}Mapper;
+
+    /**
+     * 分页获取列表
+     * @param query 查询对象
+     * @return PageResponse
+     */
+    @Override
+    public PageResponse getPageList(${table.entityName}Query query) {
+        PageHelper.startPage(query.getPage(),query.getPageSize());
+        List<${table.entityName}> list = ${table.entityNameFirstLowerCase}Mapper.selectByExample(this.assExampleForList(query));
+        PageInfo<${table.entityName}> pageInfo = new PageInfo<>(list);
+        return new PageResponse.Builder().build(list,pageInfo.getPageNum(),pageInfo.getPageSize(),pageInfo.getTotal());
+    }
+
+    /**
+     * 模糊搜素
+     * @param fuzzyText 模糊的字符
+     * @param fieldName 模糊字段名
+     * @return FuzzyResponse
+     */
+    @Override
+    public FuzzyResponse fuzzySearch(String fuzzyText, String fieldName) {
+        // TODO 先暂时需要手动实现mybatis的mapper文件sql
+        // return new FuzzyResponse.Builder().build(${table.entityNameFirstLowerCase}Mapper.fuzzySearch(fuzzyText,fieldName));
+        return null;
+    }
+
+    /**
+     * 保存记录
+     * @param query  查询实体
+     * @param request httpServletRequest
+     * @return
+     */
+    @Override
+    public CommonResponse save(${table.entityName}Query query, HttpServletRequest request) {
+        ${table.entityNameFirstLowerCase}Mapper.insert(this.assQueryForInsert(query,request));
+        return new CommonResponse.Builder().buildSuccess();
+    }
+
+    /**
+     * 根据id删除记录状态数据
+     * @param query 更新数据实例
+     * @param request httpServletRequest
+     * @return
+     */
+    @Override
+    public CommonResponse delete(${table.entityName}Query query, HttpServletRequest request) {
+        if(${table.entityNameFirstLowerCase}Mapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(query, ${table.entityName}Enums.status.DELETED.value(),request)) != 1){
+            throw new SystemException(SystemReturnEnum.DELETE_INFO_EXCEPTION);
+        }
+        return new CommonResponse.Builder().buildSuccess();
+    }
+
+
+    /**
+     * 更新记录
+     * @param query
+     * @param request
+     * @return
+     */
+    @Override
+    public CommonResponse update(${table.entityName}Query query, HttpServletRequest request) {
+        ${table.entityName}Example example = new ${table.entityName}Example();
+        ${table.entityName}Example.Criteria criteria = example.createCriteria();
+        criteria.andIdEqualTo(query.getId());
+//        ${table.entityName} operator = securityClient.get${table.entityName}Info(request);
+        query.setGmtModified(new Date());
+//        query.setModifier(operator.get${table.entityName}name());
+//        query.setModifierCode(operator.get${table.entityName}Id());
+        ${table.entityNameFirstLowerCase}Mapper.updateByExampleSelective(query,example);
+        return new CommonResponse.Builder().buildSuccess();
+    }
+
+    /**
+     * 查询记录详情
+     * @param query 查询实体
+     * @return ${table.entityName}
+     */
+    @Override
+    public ${table.entityName} getById(${table.entityName}Query query) {
+        return ${table.entityNameFirstLowerCase}Mapper.selectByPrimaryKey(query.getId());
+    }
+
+    /**
+     * 组装文章查询Example实体
+     * @param query
+     * @param statusList
+     * @return
+     */
+    private ${table.entityName}Example assExampleForList(${table.entityName}Query query, List<Integer> statusList) {
+        ${table.entityName}Example example = new ${table.entityName}Example();
+        ${table.entityName}Example.Criteria criteria = example.createCriteria();
+        if(StringUtils.isNotEmpty(query.getStartTime())){
+            criteria.andGmtCreatedGreaterThanOrEqualTo(DateUtil.parse(query.getStartTime()));
+        }
+        if(StringUtil.isNotEmpty(query.getEndTime())){
+            criteria.andGmtCreatedLessThanOrEqualTo(DateUtil.parse(query.getEndTime()));
+        }
+        if(null == query.getStatus()){
+            criteria.andStatusIn(statusList);
+        }else{
+            criteria.andStatusEqualTo(query.getStatus());
+        }
+        example.orderBy("gmt_created desc");
+        return example;
+    }
+
+
+    /**
+     * 组装新增实体
+     * @param query
+     * @param request
+     * @return
+     */
+    private ${table.entityName} assQueryForInsert(${table.entityName}Query query, HttpServletRequest request) {
+        return query;
+    }
+
+    /**
+     * 组装更新状态实体
+     * @param query
+     * @param status
+     * @param request
+     * @return
+     */
+    private ${table.entityName} assQueryForUpdateStatus(${table.entityName}Query query, Integer status, HttpServletRequest request) {
+//      User operator = securityClient.get${table.entityName}Info(request);
+        ${table.entityName}Query infoQuery = new ${table.entityName}Query();
+        infoQuery.setId(query.getId());
+        infoQuery.setStatus(status);
+        infoQuery.setGmtModified(new Date());
+//        infoQuery.setModifier(operator.getUsername());
+//        infoQuery.setModifierCode(operator.getUserId());
+        return infoQuery;
+    }
+
+    /**
+     * 组装分页参数
+     * @param query
+     * @return
+     */
+    private ${table.entityName}Example assExampleForList(${table.entityName}Query query) {
+        ${table.entityName}Example example = new ${table.entityName}Example();
+        ${table.entityName}Example.Criteria criteria = example.createCriteria();
+        if(StringUtil.isNotEmpty(query.getStartTime())){
+            criteria.andGmtCreatedGreaterThanOrEqualTo(DateUtil.parse(query.getStartTime()));
+        }
+        if(StringUtil.isNotEmpty(query.getEndTime())){
+            criteria.andGmtCreatedLessThanOrEqualTo(DateUtil.parse(query.getEndTime()));
+        }
+        if(null != query.getStatus()){
+            criteria.andStatusEqualTo(query.getStatus());
+        }
+        return example;
+    }
+}

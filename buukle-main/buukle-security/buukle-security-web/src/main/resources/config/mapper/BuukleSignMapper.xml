@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.buukle.security.dao.BuukleSignMapper">
+  <resultMap id="BaseResultMap" type="top.buukle.security.entity.BuukleSign">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="partner_name" jdbcType="VARCHAR" property="partnerName" />
+    <result column="partner_id" jdbcType="VARCHAR" property="partnerId" />
+    <result column="partner_type" jdbcType="INTEGER" property="partnerType" />
+    <result column="partner_key_valid" jdbcType="TIMESTAMP" property="partnerKeyValid" />
+    <result column="partner_key_endvalid" jdbcType="TIMESTAMP" property="partnerKeyEndvalid" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="gmt_created" jdbcType="TIMESTAMP" property="gmtCreated" />
+    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="creator_code" jdbcType="VARCHAR" property="creatorCode" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+    <result column="modifier" jdbcType="VARCHAR" property="modifier" />
+    <result column="modifier_code" jdbcType="VARCHAR" property="modifierCode" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="bak01" jdbcType="VARCHAR" property="bak01" />
+    <result column="bak02" jdbcType="VARCHAR" property="bak02" />
+    <result column="bak03" jdbcType="VARCHAR" property="bak03" />
+    <result column="bak04" jdbcType="VARCHAR" property="bak04" />
+    <result column="bak05" jdbcType="VARCHAR" property="bak05" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="top.buukle.security.entity.BuukleSign">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    <result column="partner_key" jdbcType="LONGVARCHAR" property="partnerKey" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    id, partner_name, partner_id, partner_type, partner_key_valid, partner_key_endvalid, 
+    remark, gmt_created, creator, creator_code, gmt_modified, modifier, modifier_code, 
+    status, bak01, bak02, bak03, bak04, bak05
+  </sql>
+  <sql id="Blob_Column_List">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    partner_key
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="top.buukle.security.entity.BuukleSignExample" resultMap="ResultMapWithBLOBs">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from buukle_sign
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="top.buukle.security.entity.BuukleSignExample" resultMap="BaseResultMap">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from buukle_sign
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from buukle_sign
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    delete from buukle_sign
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="top.buukle.security.entity.BuukleSignExample">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    delete from buukle_sign
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="top.buukle.security.entity.BuukleSign">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    insert into buukle_sign (id, partner_name, partner_id, 
+      partner_type, partner_key_valid, partner_key_endvalid, 
+      remark, gmt_created, creator, 
+      creator_code, gmt_modified, modifier, 
+      modifier_code, status, bak01, 
+      bak02, bak03, bak04, 
+      bak05, partner_key)
+    values (#{id,jdbcType=INTEGER}, #{partnerName,jdbcType=VARCHAR}, #{partnerId,jdbcType=VARCHAR}, 
+      #{partnerType,jdbcType=INTEGER}, #{partnerKeyValid,jdbcType=TIMESTAMP}, #{partnerKeyEndvalid,jdbcType=TIMESTAMP}, 
+      #{remark,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, 
+      #{creatorCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR}, 
+      #{modifierCode,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{bak01,jdbcType=VARCHAR}, 
+      #{bak02,jdbcType=VARCHAR}, #{bak03,jdbcType=VARCHAR}, #{bak04,jdbcType=VARCHAR}, 
+      #{bak05,jdbcType=VARCHAR}, #{partnerKey,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="top.buukle.security.entity.BuukleSign">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    insert into buukle_sign
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="partnerName != null">
+        partner_name,
+      </if>
+      <if test="partnerId != null">
+        partner_id,
+      </if>
+      <if test="partnerType != null">
+        partner_type,
+      </if>
+      <if test="partnerKeyValid != null">
+        partner_key_valid,
+      </if>
+      <if test="partnerKeyEndvalid != null">
+        partner_key_endvalid,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="gmtCreated != null">
+        gmt_created,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="creatorCode != null">
+        creator_code,
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified,
+      </if>
+      <if test="modifier != null">
+        modifier,
+      </if>
+      <if test="modifierCode != null">
+        modifier_code,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="bak01 != null">
+        bak01,
+      </if>
+      <if test="bak02 != null">
+        bak02,
+      </if>
+      <if test="bak03 != null">
+        bak03,
+      </if>
+      <if test="bak04 != null">
+        bak04,
+      </if>
+      <if test="bak05 != null">
+        bak05,
+      </if>
+      <if test="partnerKey != null">
+        partner_key,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="partnerName != null">
+        #{partnerName,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerId != null">
+        #{partnerId,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerType != null">
+        #{partnerType,jdbcType=INTEGER},
+      </if>
+      <if test="partnerKeyValid != null">
+        #{partnerKeyValid,jdbcType=TIMESTAMP},
+      </if>
+      <if test="partnerKeyEndvalid != null">
+        #{partnerKeyEndvalid,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreated != null">
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorCode != null">
+        #{creatorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null">
+        #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifierCode != null">
+        #{modifierCode,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="bak01 != null">
+        #{bak01,jdbcType=VARCHAR},
+      </if>
+      <if test="bak02 != null">
+        #{bak02,jdbcType=VARCHAR},
+      </if>
+      <if test="bak03 != null">
+        #{bak03,jdbcType=VARCHAR},
+      </if>
+      <if test="bak04 != null">
+        #{bak04,jdbcType=VARCHAR},
+      </if>
+      <if test="bak05 != null">
+        #{bak05,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerKey != null">
+        #{partnerKey,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="top.buukle.security.entity.BuukleSignExample" resultType="java.lang.Long">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    select count(*) from buukle_sign
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    update buukle_sign
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.partnerName != null">
+        partner_name = #{record.partnerName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.partnerId != null">
+        partner_id = #{record.partnerId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.partnerType != null">
+        partner_type = #{record.partnerType,jdbcType=INTEGER},
+      </if>
+      <if test="record.partnerKeyValid != null">
+        partner_key_valid = #{record.partnerKeyValid,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.partnerKeyEndvalid != null">
+        partner_key_endvalid = #{record.partnerKeyEndvalid,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.remark != null">
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gmtCreated != null">
+        gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.creator != null">
+        creator = #{record.creator,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creatorCode != null">
+        creator_code = #{record.creatorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gmtModified != null">
+        gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifier != null">
+        modifier = #{record.modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifierCode != null">
+        modifier_code = #{record.modifierCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.bak01 != null">
+        bak01 = #{record.bak01,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bak02 != null">
+        bak02 = #{record.bak02,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bak03 != null">
+        bak03 = #{record.bak03,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bak04 != null">
+        bak04 = #{record.bak04,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bak05 != null">
+        bak05 = #{record.bak05,jdbcType=VARCHAR},
+      </if>
+      <if test="record.partnerKey != null">
+        partner_key = #{record.partnerKey,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    update buukle_sign
+    set id = #{record.id,jdbcType=INTEGER},
+      partner_name = #{record.partnerName,jdbcType=VARCHAR},
+      partner_id = #{record.partnerId,jdbcType=VARCHAR},
+      partner_type = #{record.partnerType,jdbcType=INTEGER},
+      partner_key_valid = #{record.partnerKeyValid,jdbcType=TIMESTAMP},
+      partner_key_endvalid = #{record.partnerKeyEndvalid,jdbcType=TIMESTAMP},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      creator = #{record.creator,jdbcType=VARCHAR},
+      creator_code = #{record.creatorCode,jdbcType=VARCHAR},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      modifier = #{record.modifier,jdbcType=VARCHAR},
+      modifier_code = #{record.modifierCode,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=INTEGER},
+      bak01 = #{record.bak01,jdbcType=VARCHAR},
+      bak02 = #{record.bak02,jdbcType=VARCHAR},
+      bak03 = #{record.bak03,jdbcType=VARCHAR},
+      bak04 = #{record.bak04,jdbcType=VARCHAR},
+      bak05 = #{record.bak05,jdbcType=VARCHAR},
+      partner_key = #{record.partnerKey,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    update buukle_sign
+    set id = #{record.id,jdbcType=INTEGER},
+      partner_name = #{record.partnerName,jdbcType=VARCHAR},
+      partner_id = #{record.partnerId,jdbcType=VARCHAR},
+      partner_type = #{record.partnerType,jdbcType=INTEGER},
+      partner_key_valid = #{record.partnerKeyValid,jdbcType=TIMESTAMP},
+      partner_key_endvalid = #{record.partnerKeyEndvalid,jdbcType=TIMESTAMP},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      creator = #{record.creator,jdbcType=VARCHAR},
+      creator_code = #{record.creatorCode,jdbcType=VARCHAR},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      modifier = #{record.modifier,jdbcType=VARCHAR},
+      modifier_code = #{record.modifierCode,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=INTEGER},
+      bak01 = #{record.bak01,jdbcType=VARCHAR},
+      bak02 = #{record.bak02,jdbcType=VARCHAR},
+      bak03 = #{record.bak03,jdbcType=VARCHAR},
+      bak04 = #{record.bak04,jdbcType=VARCHAR},
+      bak05 = #{record.bak05,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="top.buukle.security.entity.BuukleSign">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    update buukle_sign
+    <set>
+      <if test="partnerName != null">
+        partner_name = #{partnerName,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerId != null">
+        partner_id = #{partnerId,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerType != null">
+        partner_type = #{partnerType,jdbcType=INTEGER},
+      </if>
+      <if test="partnerKeyValid != null">
+        partner_key_valid = #{partnerKeyValid,jdbcType=TIMESTAMP},
+      </if>
+      <if test="partnerKeyEndvalid != null">
+        partner_key_endvalid = #{partnerKeyEndvalid,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreated != null">
+        gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorCode != null">
+        creator_code = #{creatorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null">
+        modifier = #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifierCode != null">
+        modifier_code = #{modifierCode,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="bak01 != null">
+        bak01 = #{bak01,jdbcType=VARCHAR},
+      </if>
+      <if test="bak02 != null">
+        bak02 = #{bak02,jdbcType=VARCHAR},
+      </if>
+      <if test="bak03 != null">
+        bak03 = #{bak03,jdbcType=VARCHAR},
+      </if>
+      <if test="bak04 != null">
+        bak04 = #{bak04,jdbcType=VARCHAR},
+      </if>
+      <if test="bak05 != null">
+        bak05 = #{bak05,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerKey != null">
+        partner_key = #{partnerKey,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="top.buukle.security.entity.BuukleSign">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    update buukle_sign
+    set partner_name = #{partnerName,jdbcType=VARCHAR},
+      partner_id = #{partnerId,jdbcType=VARCHAR},
+      partner_type = #{partnerType,jdbcType=INTEGER},
+      partner_key_valid = #{partnerKeyValid,jdbcType=TIMESTAMP},
+      partner_key_endvalid = #{partnerKeyEndvalid,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      creator = #{creator,jdbcType=VARCHAR},
+      creator_code = #{creatorCode,jdbcType=VARCHAR},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      modifier = #{modifier,jdbcType=VARCHAR},
+      modifier_code = #{modifierCode,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      bak01 = #{bak01,jdbcType=VARCHAR},
+      bak02 = #{bak02,jdbcType=VARCHAR},
+      bak03 = #{bak03,jdbcType=VARCHAR},
+      bak04 = #{bak04,jdbcType=VARCHAR},
+      bak05 = #{bak05,jdbcType=VARCHAR},
+      partner_key = #{partnerKey,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="top.buukle.security.entity.BuukleSign">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    update buukle_sign
+    set partner_name = #{partnerName,jdbcType=VARCHAR},
+      partner_id = #{partnerId,jdbcType=VARCHAR},
+      partner_type = #{partnerType,jdbcType=INTEGER},
+      partner_key_valid = #{partnerKeyValid,jdbcType=TIMESTAMP},
+      partner_key_endvalid = #{partnerKeyEndvalid,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      creator = #{creator,jdbcType=VARCHAR},
+      creator_code = #{creatorCode,jdbcType=VARCHAR},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      modifier = #{modifier,jdbcType=VARCHAR},
+      modifier_code = #{modifierCode,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      bak01 = #{bak01,jdbcType=VARCHAR},
+      bak02 = #{bak02,jdbcType=VARCHAR},
+      bak03 = #{bak03,jdbcType=VARCHAR},
+      bak04 = #{bak04,jdbcType=VARCHAR},
+      bak05 = #{bak05,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

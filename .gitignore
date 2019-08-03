@@ -24,6 +24,7 @@ gen/
 # IDEA files
 */.idea/* 
 */*.iml
+*.iml
 
 #dubbo cache files 
 *.cache/**  
