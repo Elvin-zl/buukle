@@ -14,7 +14,6 @@ import top.buukle.security.entity.User;
 import top.buukle.security.plugin.constants.SecurityInterceptorConstants;
 import top.buukle.security.plugin.enums.SecurityExceptionEnum;
 import top.buukle.security.plugin.exception.SecurityPluginException;
-import top.buukle.util.JsonUtil;
 import top.buukle.util.NumberUtil;
 import top.buukle.util.StringUtil;
 
@@ -61,8 +60,7 @@ public class SessionUtil {
      */
     public static User getUser(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession(false);
-        String requestURI = request.getRequestURI();
-        if(session!=null){
+        if(session != null){
             String userCookie = CookieUtil.getUserCookie(request);
             if(StringUtil.isNotEmpty(userCookie)){
                 User user = (User) session.getAttribute(userCookie);
@@ -75,6 +73,21 @@ public class SessionUtil {
             }
         }
         return null;
+    }
+    /**
+     * @description 获取session用户信息
+     * @param request
+     * @param response
+     * @return top.buukle.security.entity.User
+     * @Author zhanglei1102
+     * @Date 2019/8/2
+     */
+    public static User getOperator(HttpServletRequest request, HttpServletResponse response) {
+        User user = getUser(request, response);
+        if(user == null){
+            throw new SecurityPluginException(SecurityExceptionEnum.SYSTEM_OUT_OF_TIME);
+        }
+        return user;
     }
 
     /**

@@ -18,6 +18,8 @@ public class UserQuery extends User implements BaseQuery{
     private String endTime;
     /** 状态*/
     private String states;
+    /** 状态*/
+    private String rPassword;
 
     public String getStates() {
         if("null".equals(states)){
@@ -63,5 +65,13 @@ public class UserQuery extends User implements BaseQuery{
 
     public void setEndTime(String endTime) {
         this.endTime = endTime;
+    }
+
+    public String getrPassword() {
+        return rPassword;
+    }
+
+    public void setrPassword(String rPassword) {
+        this.rPassword = rPassword;
     }
 }

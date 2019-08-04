@@ -18,6 +18,7 @@ import top.buukle.util.StringUtil;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -75,6 +76,10 @@ public class ApiUserServiceImpl implements ApiUserService{
             SessionUtil.cache(request,SessionUtil.USER_URL_LIST_KEY,this.assUserMenuUrlList(menuList,buttonList));
         }
         // 缓存用户信息
+        User user1 = new User();
+        user1.setId(userInfo.getId());
+        user1.setGmtLastLogin(new Date());
+        userMapper.updateByPrimaryKeySelective(user1);
         SessionUtil.cacheUser(userInfo,request,response);
         return new CommonResponse.Builder().buildSuccess();
     }

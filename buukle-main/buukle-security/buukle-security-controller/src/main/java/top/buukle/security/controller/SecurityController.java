@@ -64,7 +64,7 @@ public class SecurityController {
         }
         if(operationAndViewName.endsWith("CrudJson")){
             webApplicationContext = WebApplicationContextUtils.getWebApplicationContext(request.getServletContext());
-            o = ((BaseService) webApplicationContext.getBean(entity + "Service")).delete(id,request);
+            o = ((BaseService) webApplicationContext.getBean(entity + "Service")).delete(id,request,response);
             response.setHeader("Content-type", "text/html;charset=UTF-8");
             response.setCharacterEncoding("UTF-8");
             response.getWriter().write(JsonUtil.toJSONString(o));
@@ -72,7 +72,7 @@ public class SecurityController {
         }
         if(operationAndViewName.endsWith("BatchDeleteJson")){
             webApplicationContext = WebApplicationContextUtils.getWebApplicationContext(request.getServletContext());
-            o = ((BaseService) webApplicationContext.getBean(entity + "Service")).deleteBatch(ids,request);
+            o = ((BaseService) webApplicationContext.getBean(entity + "Service")).deleteBatch(ids,request,response);
             response.setHeader("Content-type", "text/html;charset=UTF-8");
             response.setCharacterEncoding("UTF-8");
             response.getWriter().write(JsonUtil.toJSONString(o));

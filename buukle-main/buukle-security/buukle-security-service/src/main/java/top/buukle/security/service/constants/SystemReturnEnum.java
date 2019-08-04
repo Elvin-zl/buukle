@@ -18,11 +18,16 @@ public enum SystemReturnEnum {
     DELETE_INFO_EXCEPTION("F","010000","删除失败!更新状态异常!"),
 
     /*--api 返回码{02}{**}{**}*/
-    /**应用不存在*/
     APP_RESOURCE_EXCEPTION("F","020000","应用获取资源列表异常,应用不存在!"),
 
     /*--user 返回码{03}{**}{**}*/
-    USER_BATCH_IDS_NULL("F","030000","批量删除用户失败,参数错误!");
+    USER_BATCH_DELETE_IDS_NULL("F","030000","批量删除用户失败,参数错误!"),
+    USER_SAVE_OR_EDIT_PARAM_WRONG("F","030001","保存或更新用户失败,用户UID信息异常!"),
+    USER_SAVE_OR_EDIT_USERNAME_NULL("F","030002","保存或更新用户失败,用户名为空!"),
+    USER_SAVE_OR_EDIT_PASSWORD_NULL("F","030003","保存或更新用户失败,密码为空!"),
+    USER_SAVE_OR_EDIT_RPASSWORD_NULL("F","030004","保存或更新用户失败,确认密码为空!"),
+    USER_SAVE_OR_EDIT_TWO_PED_NOT_SAME("F","030005","保存或更新用户失败,确认密码与密码不一致!"),
+    USER_SAVE_OR_EDIT_USERNAME_EXIST("F","030006","保存或更新用户失败,用户名已存在!");
 
 
     private String status;
