@@ -5,11 +5,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import top.buukle.common.call.AppResourceResponse;
 import top.buukle.common.call.CommonRequest;
-import top.buukle.common.call.code.BaseReturnEnum;
 import top.buukle.common.exception.CommonException;
 import top.buukle.common.status.StatusConstants;
+import top.buukle.security.api.ApiAppService;
 import top.buukle.security.dao.*;
-import top.buukle.security.api.AppResourceService;
 import top.buukle.security.entity.*;
 import top.buukle.security.service.constants.SystemReturnEnum;
 import top.buukle.security.service.exception.SystemException;
@@ -22,7 +21,7 @@ import java.util.List;
 * @description UserService实现类
 */
 @Service
-public class AppResourceServiceImpl implements AppResourceService{
+public class ApiAppServiceImpl implements ApiAppService {
 
 
     @Autowired

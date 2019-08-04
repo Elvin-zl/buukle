@@ -13,8 +13,8 @@ $(function () {
 /** 绑定刷新*/
 function bindRefresh() {
     $('#refresh').off().on('click',function () {
-        loadPage($('#pageSign').val(),$('#page').val());
-        doPage($('#pageSign').val());
+        loadPage($('#page').val());
+        doPage();
     })
 }
 /** 初始化静态多选下拉框*/
@@ -35,7 +35,7 @@ function bindClear() {
 /** 加载第一页*/
 function loadFirstPage() {
     document.getElementById("shadow").style.display ="block";
-    $('#table-list').load("/"+ $('#pageSign').val() +"/getPageList",function () {
+    $('#table-list').load($('#table-list').attr('data-url'),function () {
         initCommonPage();
         document.getElementById("shadow").style.display ="none";
     });
@@ -79,7 +79,7 @@ function loadFuzzySearch() {
             ajax: {
                 type:'get',
                 url: function(params){
-                    return '/'+ $('#pageSign').val() +'/fuzzySearch?fieldName=' + $(obj).attr('data-fieldName');
+                    return  $(this).attr('data-url')+'?fieldName=' + $(obj).attr('data-fieldName');
                 },
                 dataType:'json',
                 //输入的内容

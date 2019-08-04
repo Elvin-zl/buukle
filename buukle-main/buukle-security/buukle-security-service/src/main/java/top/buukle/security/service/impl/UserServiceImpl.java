@@ -6,15 +6,15 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import org.springframework.util.CollectionUtils;
 import top.buukle.common.call.code.BaseReturnEnum;
 import top.buukle.common.call.vo.FuzzyVo;
 import top.buukle.common.exception.CommonException;
+import top.buukle.common.status.StatusConstants;
 import top.buukle.security .dao.UserMapper;
 import top.buukle.security .entity.User;
 import top.buukle.security .entity.UserExample;
+import top.buukle.security.entity.vo.BaseQuery;
 import top.buukle.security .entity.vo.UserQuery;
-import top.buukle.security.plugin.util.SessionUtil;
 import top.buukle.security .service.UserService;
 import top.buukle.security .service.constants.UserEnums;
 import top.buukle.security .service.constants.SystemReturnEnum;
@@ -23,11 +23,12 @@ import top.buukle.common.call.CommonResponse;
 import top.buukle.common.call.FuzzyResponse;
 import top.buukle.common.call.PageResponse;
 import top.buukle.util.DateUtil;
+import top.buukle.util.JsonUtil;
 import top.buukle.util.StringUtil;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -35,9 +36,8 @@ import java.util.List;
 * @author elvin
 * @description UserService实现类
 */
-@Service
+@Service("userService")
 public class UserServiceImpl implements UserService{
-
 
     @Autowired
     private UserMapper userMapper;
@@ -48,9 +48,9 @@ public class UserServiceImpl implements UserService{
      * @return PageResponse
      */
     @Override
-    public PageResponse getPageList(UserQuery query) {
-        PageHelper.startPage(query.getPage(),query.getPageSize());
-        List<User> list = userMapper.selectByExample(this.assExampleForList(query));
+    public PageResponse userPage(BaseQuery query) {
+        PageHelper.startPage(((UserQuery)query).getPage(),((UserQuery)query).getPageSize());
+        List<User> list = userMapper.selectByExample(this.assExampleForList(((UserQuery)query)));
         PageInfo<User> pageInfo = new PageInfo<>(list);
         return new PageResponse.Builder().build(list,pageInfo.getPageNum(),pageInfo.getPageSize(),pageInfo.getTotal());
     }
@@ -76,20 +76,20 @@ public class UserServiceImpl implements UserService{
      * @return
      */
     @Override
-    public CommonResponse save(UserQuery query, HttpServletRequest request) {
-        userMapper.insert(this.assQueryForInsert(query,request));
+    public CommonResponse save(BaseQuery query, HttpServletRequest request) {
+        userMapper.insert(this.assQueryForInsert((UserQuery)query,request));
         return new CommonResponse.Builder().buildSuccess();
     }
 
     /**
      * 根据id删除记录状态数据
-     * @param query 更新数据实例
+     * @param id 删除数据实例
      * @param request httpServletRequest
      * @return
      */
     @Override
-    public CommonResponse delete(UserQuery query, HttpServletRequest request) {
-        if(userMapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(query, UserEnums.status.DELETED.value(),request)) != 1){
+    public CommonResponse delete(Integer id, HttpServletRequest request) {
+        if(userMapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(id, UserEnums.status.DELETED.value(),request)) != 1){
             throw new SystemException(SystemReturnEnum.DELETE_INFO_EXCEPTION);
         }
         return new CommonResponse.Builder().buildSuccess();
@@ -103,15 +103,40 @@ public class UserServiceImpl implements UserService{
      * @return
      */
     @Override
-    public CommonResponse update(UserQuery query, HttpServletRequest request) {
+    public CommonResponse update(BaseQuery query, HttpServletRequest request) {
         UserExample example = new UserExample();
         UserExample.Criteria criteria = example.createCriteria();
-        criteria.andIdEqualTo(query.getId());
+        criteria.andIdEqualTo(((UserQuery)query).getId());
 //        User operator = securityClient.getUserInfo(request);
-        query.setGmtModified(new Date());
+        ((UserQuery)query).setGmtModified(new Date());
 //        query.setModifier(operator.getUsername());
 //        query.setModifierCode(operator.getUserId());
-        userMapper.updateByExampleSelective(query,example);
+        userMapper.updateByExampleSelective((UserQuery)query,example);
+        return new CommonResponse.Builder().buildSuccess();
+    }
+
+    /**
+     * @description 批量删除
+     * @param ids
+     * @param request
+     * @return top.buukle.common.call.CommonResponse
+     * @Author elvin
+     * @Date 2019/8/4
+     */
+    @Override
+    public CommonResponse deleteBatch(String ids, HttpServletRequest request) {
+        String trimIds = ids.trim();
+        String[] split = trimIds.split(",");
+        if(StringUtil.isEmpty(trimIds) || split.length<1){
+            throw new SystemException(SystemReturnEnum.USER_BATCH_IDS_NULL);
+        }
+        List<Integer> idList = JsonUtil.parseArray(JsonUtil.toJSONString(Arrays.asList(split)), Integer.class);
+        UserExample userExample = new UserExample();
+        UserExample.Criteria criteria = userExample.createCriteria();
+        criteria.andIdIn(idList);
+        User user = new User();
+        user.setStatus(UserEnums.status.DELETED.value());
+        userMapper.updateByExampleSelective(user,userExample);
         return new CommonResponse.Builder().buildSuccess();
     }
 
@@ -129,16 +154,6 @@ public class UserServiceImpl implements UserService{
         if(StringUtil.isEmpty(user.getUsername()) || StringUtil.isEmpty(user.getPassword())){
             throw new CommonException(BaseReturnEnum.LOGIN_FAILED_PARAM_NULL);
         }
-    }
-
-    /**
-     * 查询记录详情
-     * @param query 查询实体
-     * @return User
-     */
-    @Override
-    public User getById(UserQuery query) {
-        return userMapper.selectByPrimaryKey(query.getId());
     }
 
     /**
@@ -178,15 +193,15 @@ public class UserServiceImpl implements UserService{
 
     /**
      * 组装更新状态实体
-     * @param query
+     * @param id
      * @param status
      * @param request
      * @return
      */
-    private User assQueryForUpdateStatus(UserQuery query, Integer status, HttpServletRequest request) {
+    private User assQueryForUpdateStatus(Integer id, Integer status, HttpServletRequest request) {
 //      User operator = securityClient.getUserInfo(request);
         UserQuery infoQuery = new UserQuery();
-        infoQuery.setId(query.getId());
+        infoQuery.setId(id);
         infoQuery.setStatus(status);
         infoQuery.setGmtModified(new Date());
 //        infoQuery.setModifier(operator.getUsername());
@@ -227,7 +242,24 @@ public class UserServiceImpl implements UserService{
             }
             criteria.andStatusIn(list);
         }
+        criteria.andStatusNotEqualTo(StatusConstants.DELETED);
         example.setOrderByClause("gmt_modified desc");
         return example;
+    }
+
+    /**
+     * @description 根据id查询
+     * @param id
+     * @return top.buukle.security.entity.User
+     * @Author elvin
+     * @Date 2019/8/4
+     */
+    @Override
+    public User selectByPrimaryKey(Integer id) {
+        if(id == null){
+            return new User();
+        }
+        User user = userMapper.selectByPrimaryKey(id);
+        return user == null ? new User() : user;
     }
 }

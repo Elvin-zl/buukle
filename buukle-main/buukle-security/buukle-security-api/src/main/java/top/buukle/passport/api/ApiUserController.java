@@ -28,8 +28,8 @@ import javax.servlet.http.HttpServletResponse;
  * @since 1.0.0
  */
 @Controller
-@RequestMapping("/api/passport/login")
-public class LoginController {
+@RequestMapping("/api/user/")
+public class ApiUserController {
 
 
     @Autowired

@@ -6,9 +6,9 @@ import top.buukle.common.call.CommonRequest;
 
 /**
 * @author elvin
-* @description AppResourceService 接口类
+* @description ApiAppService 接口类
 */
-public interface AppResourceService {
+public interface ApiAppService {
 
 
 

@@ -15,7 +15,7 @@
 	</thead>
 	<tbody id="tbody-user">
 		<tr th:each="user:${response?.body?.list}">
-			<td><input type="checkbox" name="" lay-skin="primary" th:attr="data-id = ${user?.userId}" /></td>
+			<td><input type="checkbox" name="batchCheckBox" lay-skin="primary" th:attr="data-id = ${user?.id} , data-userId = ${user?.userId}"  /></td>
 			<td th:text="${user?.userId}" class="hidden-xs"></td>
 			<td th:text="${user?.username}"></td>
 			<td th:text="${(user?.nameCn == null ? '-' : user?.nameCn) +' / ' + (user?.nameEn == null ? '-' : user?.nameEn) }"></td>
@@ -27,15 +27,17 @@
 			<td th:text="${(user?.fans == '' || user?.fans == null )? 0 : user?.fans}"></td>
 			<td th:text="${#dates.format(user?.gmtLastLogin, 'yyyy-MM-dd HH:mm')} == null ? '-' : ${#dates.format(user?.gmtLastLogin, 'yyyy-MM-dd HH:mm')}"></td>
 			<td th:switch="${user?.status}">
-				<button th:case="0" class="layui-btn layui-btn-mini layui-btn-danger"> 禁用</button>
-				<button th:case="1" class="layui-btn layui-btn-mini layui-btn-normal"> 启用</button>
-				<button th:case="2" class="layui-btn layui-btn-mini layui-btn-default"> 冻结</button>
+				<button th:case="0" class="layui-btn layui-btn-mini layui-btn-danger" > 初始化</button>
+				<button th:case="1" class="layui-btn layui-btn-mini layui-btn-normal" > 处理中</button>
+				<button th:case="2" class="layui-btn layui-btn-mini layui-btn-default"> 审核通过</button>
+				<button th:case="3" class="layui-btn layui-btn-mini layui-btn-default"> 审核不通过</button>
+				<button th:case="4" class="layui-btn layui-btn-mini layui-btn-default"> 已被封禁</button>
 				<button th:case="*" class="layui-btn layui-btn-mini layui-btn-unknown"> 未知</button>
 			</td>
 			<td>
 				<div class="layui-inline">
-					<button class="layui-btn layui-btn-small layui-btn-normal go-btn" data-id="1" data-url="/security/user/userDetail"><i class="layui-icon">&#xe642;</i></button>
-					<button class="layui-btn layui-btn-small layui-btn-danger del-btn" data-id="2" data-url="/security/user/userDetail"><i class="layui-icon">&#xe640;</i></button>
+					<div class="layui-btn layui-btn-small layui-btn-normal editBtn" th:attr="data-id = ${user?.id} , data-userId = ${user?.userId}" data-url="/security/user/userCrudView"><i class="layui-icon">&#xe642;</i></div>
+					<div class="layui-btn layui-btn-small layui-btn-danger delOneBtn" th:attr="data-id = ${user?.id} , data-userId = ${user?.userId}" data-url="/security/user/userCrudJson"><i class="layui-icon">&#xe640;</i></div>
 				</div>
 			</td>
 		</tr>

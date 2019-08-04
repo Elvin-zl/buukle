@@ -10,6 +10,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import top.buukle.security.plugin.client.SecurityInterceptor;
+import top.buukle.security.web.view.HpDialect;
 
 /**
  * @Author elvin
@@ -25,8 +26,11 @@ public class AppConfigure implements WebMvcConfigurer {
     public static int readTimeOutMillis = 6000;
 
     /**
-     * 重写静态资源处理
+     * @description 重写静态资源处理
      * @param registry
+     * @return void
+     * @Author elvin
+     * @Date 2019/8/4
      */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -34,8 +38,11 @@ public class AppConfigure implements WebMvcConfigurer {
     }
 
     /**
-     * 注册 feign-http 超时设置实体
-     * @return
+     * @description 注册 feign-http 超时设置实体
+     * @param
+     * @return feign.Request.Options
+     * @Author elvin
+     * @Date 2019/8/4
      */
     @Bean
     public Request.Options options() {
@@ -43,8 +50,11 @@ public class AppConfigure implements WebMvcConfigurer {
     }
 
     /**
-     * 注册 feign-http 重试机制设置实体
-     * @return
+     * @description 注册 feign-http 重试机制设置实体
+     * @param
+     * @return feign.Retryer
+     * @Author elvin
+     * @Date 2019/8/4
      */
     @Bean
     public Retryer feignRetryer() {
@@ -53,16 +63,23 @@ public class AppConfigure implements WebMvcConfigurer {
     }
 
     /**
-     * 注册 buukle-security 拦截器插件实体
-     * */
+     * @description 注册 buukle-security 拦截器插件实体
+     * @param
+     * @return top.buukle.security.plugin.client.SecurityInterceptor
+     * @Author elvin
+     * @Date 2019/8/4
+     */
     @Bean
     SecurityInterceptor getSecurityInterceptor() {
         return new SecurityInterceptor();
     }
 
     /**
-     * 配置插入 buukle-security 拦截器插件
+     * @description 配置插入 buukle-security 拦截器插件
      * @param registry
+     * @return void
+     * @Author elvin
+     * @Date 2019/8/4
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
@@ -75,5 +92,15 @@ public class AppConfigure implements WebMvcConfigurer {
                 .excludePathPatterns("/error")
         ;
     }
-
+    /**
+     * @description 配置自定义方言处理器
+     * @param
+     * @return top.buukle.security.web.view.HpDialect
+     * @Author elvin
+     * @Date 2019/8/4
+     */
+    @Bean
+    public HpDialect hpDialect(){
+        return new HpDialect();
+    }
 }

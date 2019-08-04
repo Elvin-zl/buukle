@@ -29,5 +29,7 @@ public final class StatusConstants {
     public static final Integer OPEN = 1;
     /** 禁用*/
     public static final Integer BAN  = 0;
+    /** 删除*/
+    public static final Integer DELETED  = -1;
 
 }

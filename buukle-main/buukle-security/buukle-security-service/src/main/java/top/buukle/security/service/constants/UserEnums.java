@@ -8,12 +8,12 @@ public class UserEnums {
 
     public enum status {
 
+        DELETED(-1,"已经删除"),
         INIT(0,"初始化"),
         HANDLING(1,"处理中"),
         REJECT(2,"审核不通过"),
         PUBLISED(3,"审核通过"),
-        DELETED(4,"已经删除"),
-        BAN(5,"已被封禁"),
+        BAN(4,"已被封禁"),
         ;
 
         private Integer status;

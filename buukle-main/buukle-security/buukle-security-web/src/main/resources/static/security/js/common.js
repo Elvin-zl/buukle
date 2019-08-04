@@ -1,47 +1,69 @@
 layui.config({
-    base: '../../static/security/js/module/'
+    base: '/static/security/js/module/'
 }).extend({
     dialog: 'dialog',
 });
 layui.use(['form', 'jquery', 'laydate', 'layer', 'laypage', 'dialog',   'element'], function() {
-    layer = layui.layer, $ = layui.jquery,  dialog = layui.dialog;
-    //获取当前iframe的name值
-    var iframeObj = $(window.frameElement).attr('name');
-    //顶部添加
-    $('.addBtn').click(function() {
+    layer = layui.layer, $ = layui.jquery,  dialog = layui.dialog; var iframeObj = $(window.frameElement).attr('name');
+    // 绑定添加
+    bindAdd(iframeObj);
+    // 绑定批删
+    bindDelBitch();
+    // 绑定查询
+    bindSearch();
+
+});
+
+/** 绑定查询*/
+function bindSearch() {
+    $('#search').off('click').on('click',function () {
+        loadPage(1);
+    })
+}
+
+/** 绑定添加*/
+function bindAdd(iframeObj) {
+    $('.addBtn').off('click').click(function() {
         var url=$(this).attr('data-url');
-        //将iframeObj传递给父级窗口,执行操作完成刷新
-        parent.page("菜单添加", url, iframeObj, w = "700px", h = "620px");
+        parent.page("添加", url, iframeObj, w = "700px", h = "620px");
         return false;
     }).mouseenter(function() {
         dialog.tips('添加', '.addBtn');
     })
-    //顶部排序
-    $('.listOrderBtn').click(function() {
+}
+
+/** 绑定批删*/
+function bindDelBitch() {
+    $('.delBtn').off('click').click(function() {
         var url=$(this).attr('data-url');
         dialog.confirm({
-            message:'您确定要进行排序吗？',
+            message:'您确定要删除选中项?',
             success:function(){
-                layer.msg('确定了')
+                banThis($(this),'删除中..');
+                var thisObj =  $(this);
+                var ids= [];
+                $("input[name='batchCheckBox']:checked").each(function(i){
+                    ids.push($(this).attr('data-id'));
+
+                });
+                $.ajax({
+                    url : url,
+                    method : 'post',
+                    dataType : 'json',
+                    data:{"ids": ids.toString()},
+                    success : function (data) {
+                        if(data.head.status=='S'){
+                            layer.msg('删除成功!');
+                            $('#refresh').click();
+                        }else{
+                            layer.msg(data.head.msg);
+                        }
+                        releaseThis(thisObj,'删除');
+                    }
+                })
             },
             cancel:function(){
-                layer.msg('取消了')
-            }
-        })
-        return false;
-    }).mouseenter(function() {
-        dialog.tips('批量排序', '.listOrderBtn');
-    })
-    //顶部批量删除
-    $('.delBtn').click(function() {
-        var url=$(this).attr('data-url');
-        dialog.confirm({
-            message:'您确定要删除选中项',
-            success:function(){
-                layer.msg('删除了')
-            },
-            cancel:function(){
-                layer.msg('取消了')
+                layer.msg('您取消了删除选中项操作')
             }
         })
         return false;
@@ -49,16 +71,10 @@ layui.use(['form', 'jquery', 'laydate', 'layer', 'laypage', 'dialog',   'element
     }).mouseenter(function() {
         dialog.tips('批量删除', '.delBtn');
     })
-    // 查询
-    $('#search').off().on('click',function () {
-        loadPage($(this).attr('data-pageSign'),1);
-    })
-});
-/**
- * 控制iframe窗口的刷新操作
- */
+}
+
+/** 控制iframe窗口的刷新操作 */
 var iframeObjName;
-//父级弹出页面
 function page(title, url, obj, w, h) {
     if(title == null || title == '') {
         title = false;
@@ -93,9 +109,8 @@ function page(title, url, obj, w, h) {
         });
     }
 }
-/**
- * 刷新子页,关闭弹窗
- */
+
+/** 刷新子页,关闭弹窗 */
 function refresh() {
     //根据传递的name值，获取子iframe窗口，执行刷新
     if(window.frames[iframeObjName]) {
@@ -104,4 +119,13 @@ function refresh() {
         window.location.reload();
     }
     layer.closeAll();
+}
+function banThis(obj,msg){
+    obj.html(msg);
+    obj.attr("disabled",true);
+}
+function releaseThis(obj,msg){
+    $('.clearAble').val('');
+    obj.html(msg);
+    obj.attr("disabled",false);
 }

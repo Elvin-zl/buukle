@@ -70,7 +70,7 @@ layui.use(['form', 'layedit', 'laydate','jquery'], function() {
         }
         $('#password').val(hex_md5($('#password').val()));
         $.ajax({
-            url:'/api/passport/login/innerLogin',
+            url:'/api/user/innerLogin',
             method:'POST',
             dataType:'json',
             data:$('#loginForm').serialize(),

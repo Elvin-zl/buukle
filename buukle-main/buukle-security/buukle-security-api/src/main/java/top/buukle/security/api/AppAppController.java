@@ -24,11 +24,11 @@ import top.buukle.common.call.CommonRequest;
  * @since 1.0.0
  */
 @Controller
-@RequestMapping("/api/security/appResource")
-public class AppResourceController {
+@RequestMapping("/api/app/")
+public class AppAppController {
 
     @Autowired
-    private AppResourceService appResourceService;
+    private ApiAppService appResourceService;
 
     /**
      * @description 获取app资源目录

@@ -19,8 +19,10 @@ public enum SystemReturnEnum {
 
     /*--api 返回码{02}{**}{**}*/
     /**应用不存在*/
-    APP_RESOURCE_EXCEPTION("F","020000","应用获取资源列表异常,应用不存在!")
-    ;
+    APP_RESOURCE_EXCEPTION("F","020000","应用获取资源列表异常,应用不存在!"),
+
+    /*--user 返回码{03}{**}{**}*/
+    USER_BATCH_IDS_NULL("F","030000","批量删除用户失败,参数错误!");
 
 
     private String status;

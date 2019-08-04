@@ -30,7 +30,6 @@ public interface SecurityInterceptorInvoker {
      * @Author elvin
      * @Date 2019/8/2
      */
-//    @PostMapping(value = SecurityInterceptorConstants.SECURITY_API_URI_PREFIX + "/appResource/getAppResource")
     @PostMapping(value = "${security.server.appResourceURI}")
     AppResourceResponse getApplicationResource(CommonRequest request);
 }

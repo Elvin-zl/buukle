@@ -1,28 +1,29 @@
 $(function () {
     // 分页
-    doPage($('#pageSign').val());
+    doPage();
 })
+
 /** 分页*/
-function doPage(pageSign) {
-    layui.use(['form', 'jquery', 'laydate', 'layer', 'laypage', 'dialog',   'element'], function() {
+function doPage() {
+    layui.use(['laypage','layer'], function() {
         var laypage = layui.laypage;
         laypage({
             cont: 'pageBar'
             ,pages: $('#totalPage').val()
             ,curr: $('#page').val()
             ,skin: '#1E9FFF'
-            ,layout : 'count'
+            ,layout : ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
             ,limits : '[10, 20, 30, 40, 50]'
             ,jump: function(obj, first){
                 if(!first){
-                    loadPage(pageSign,obj.curr);
+                    loadPage(obj.curr);
                 }
             }
         });
     })
 }
 /** 加载页面*/
-function loadPage(pageSign,page) {
+function loadPage(page) {
     // 显示遮罩
     showdiv();
     var multiSelects = $('.multiSelect');
@@ -31,7 +32,7 @@ function loadPage(pageSign,page) {
         $(obj).select2({placeholder:$(obj).attr('data-multiHolder')});
         params+= "&" +$(obj).attr('data-multiField') + "=" + $(obj).val();
     })
-    $('#table-list').load("/"+ pageSign +"/getPageList",$('#searchForm').serialize() + "&page=" +  page + params,function (responseTxt,statusTxt,xhr) {
+    $('#table-list').load($('#table-list').attr('data-url'),$('#searchForm').serialize() + "&page=" +  page + params,function (responseTxt,statusTxt,xhr) {
         if(statusTxt=="success"){
             // 初始化页面脚本
             initCommonPage();
@@ -49,15 +50,12 @@ function initCommonPage() {
     layui.use(['form', 'jquery', 'laydate', 'layer', 'laypage', 'dialog',   'element'], function() {
         var form = layui.form(),  $ = layui.jquery, dialog = layui.dialog;
         var iframeObj = $(window.frameElement).attr('name');
-        var tableList = $('#table-list');
         // 全选
         bindChooseAll(form);
-        // 增
-        bindAdd(tableList,iframeObj);
         // 删
-        bindDel(tableList,dialog);
+        bindDel(dialog);
         // 改
-        bindEdit(tableList,iframeObj);
+        bindEdit(iframeObj);
         // 跳
         bindGo();
     });
@@ -82,46 +80,57 @@ function showdiv() {
 function hidediv() {
     document.getElementById("shadow").style.display ='none';
 }
-/** 添加*/
-function bindAdd(tableList,iframeObj) {
-    tableList.on('click', '.add-btn', function() {
-        var url=$(this).attr('data-url');
-        //将iframeObj传递给父级窗口
-        parent.page("菜单添加", url, iframeObj, w = "700px", h = "620px");
-        return false;
-    });
-}
 /** 删除*/
-function bindDel(tableList,dialog) {
-    tableList.on('click', '.del-btn', function() {
+function bindDel(dialog) {
+    $('.delOneBtn').off().on('click', function() {
         var url=$(this).attr('data-url');
-        var id = $(this).attr('data-id');
+        var userId=$(this).attr('data-userId');
+        url = url + "?id=" + $(this).attr('data-id') + ((userId =="" || userId==undefined) ? "" : "&userId=" + userId);
         dialog.confirm({
-            message:'您确定要进行删除吗？',
+            message:'您确定删除本条记录吗？',
             success:function(){
-                layer.msg('确定了')
+                banThis($(this),'删除中..');
+                var thisObj =  $(this);
+                $.ajax({
+                    url : url,
+                    method : 'post',
+                    dataType : 'json',
+                    success : function (data) {
+                        if(data.head.status=='S'){
+                            layer.msg('删除成功!');
+                            $('#refresh').click();
+                        }else{
+                            layer.msg(data.head.msg);
+                        }
+                        releaseThis(thisObj,'删除');
+                    }
+                })
             },
             cancel:function(){
-                layer.msg('取消了')
+                layer.msg('您取消了删除本条记录操作')
             }
         });
         return false;
+    }).mouseenter(function() {
+        dialog.tips('删除本条', '.delOneBtn');
     });
 }
 /** 修改*/
-function bindEdit(tableList, iframeObj) {
-    tableList.on('click', '.edit-btn', function() {
-        var That = $(this);
-        var id = That.attr('data-id');
-        var url=That.attr('data-url');
-        //将iframeObj传递给父级窗口
-        parent.page("菜单编辑", url + "?id=" + id, iframeObj, w = "700px", h = "620px");
+function bindEdit(iframeObj) {
+    $('.editBtn').off().on('click', function() {
+        var url=$(this).attr('data-url');
+        var userId=$(this).attr('data-userId');
+        url = url + "?id=" + $(this).attr('data-id') + ((userId =="" || userId==undefined) ? "" : "&userId=" + userId);
+        parent.page("编辑", url, iframeObj, w = "700px", h = "620px");
         return false;
+    }).mouseenter(function() {
+        dialog.tips('编辑', '.editBtn');
     })
 }
+
 /** 跳转*/
 function bindGo() {
-    $('#table-list,.tool-btn').on('click', '.go-btn', function() {
+    $('.goBtn').off().on('click', function() {
         var url=$(this).attr('data-url');
         var id = $(this).attr('data-id');
         window.location.href=url+"?id="+id;

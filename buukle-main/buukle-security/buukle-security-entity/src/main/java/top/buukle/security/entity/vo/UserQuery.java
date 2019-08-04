@@ -6,7 +6,7 @@ import top.buukle.security .entity. User;
 * @author elvin
 * @description  User 查询包装类
 */
-public class UserQuery extends User {
+public class UserQuery extends User implements BaseQuery{
 
     /** 当前页码*/
     private Integer page;

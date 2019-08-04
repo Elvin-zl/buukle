@@ -41,7 +41,7 @@
                         <option value="1">隐藏</option>
                     </select>
                 </div>
-                <div style="margin-top: -5px;" class="layui-btn layui-btn-normal" data-pageSign="${table.entityNameFirstLowerCase}" id="search">搜索</div>
+                <div style="margin-top: -5px;" class="layui-btn layui-btn-normal"  id="search">搜索</div>
             </div>
         </form>
         <!--查询列表-->
@@ -57,7 +57,7 @@
 <script src="/static/security/js/common.js" type="text/javascript" charset="utf-8"></script>
 <script src="/static/security/select2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="/static/security/select2/select2.full.js"type="text/javascript" charset="utf-8"></script>
-<script src="/static/security/js/commonList.js" type="text/javascript" charset="utf-8"></script>
+<script src="/static/security/js/commonHome.js" type="text/javascript" charset="utf-8"></script>
 <script>
     layui.use(['jquery'], function() {
         document.getElementById("shadow").style.display ="block";

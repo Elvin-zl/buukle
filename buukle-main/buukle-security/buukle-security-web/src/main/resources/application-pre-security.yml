@@ -4,7 +4,7 @@ security:
     ### security.server.name ,调用security的服务名称
     name: buukle-security
     ### security.server.appResourceURI ,调用security的服务appResource资源的URI
-    appResourceURI: /api/security/appResource/getAppResource
+    appResourceURI: /api/app/getAppResource
   ### security.openAuth 是否开启认证 : 1,开启 (默认不开启)
   openAuth: 1
   ### security.openAuth 是否开启授权 : 1,开启 (默认不开启)
