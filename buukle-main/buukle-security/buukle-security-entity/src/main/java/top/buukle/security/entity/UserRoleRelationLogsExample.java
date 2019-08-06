@@ -7,25 +7,25 @@ import java.util.List;
 public class UserRoleRelationLogsExample {
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:54 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
      */
     protected String orderByClause;
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:54 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
      */
     protected boolean distinct;
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:54 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
      */
     protected List<Criteria> oredCriteria;
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:54 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
      */
     public UserRoleRelationLogsExample() {
         oredCriteria = new ArrayList<Criteria>();
@@ -33,7 +33,7 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:54 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -41,7 +41,7 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:54 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -49,7 +49,7 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:54 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -57,7 +57,7 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:54 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
      */
     public boolean isDistinct() {
         return distinct;
@@ -65,7 +65,7 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:54 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -73,7 +73,7 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:54 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -81,7 +81,7 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:54 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -91,7 +91,7 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:54 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
      */
     public UserRoleRelationLogsExample orderBy(String orderByClause) {
         this.setOrderByClause(orderByClause);
@@ -100,7 +100,7 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:54 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
      */
     public UserRoleRelationLogsExample orderBy(String ... orderByClauses) {
         StringBuffer sb = new StringBuffer();
@@ -116,7 +116,7 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:54 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -128,7 +128,7 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:54 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria(this);
@@ -137,7 +137,7 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:54 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
      */
     public void clear() {
         oredCriteria.clear();
@@ -147,7 +147,7 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:54 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
      */
     public static Criteria newAndCreateCriteria() {
         UserRoleRelationLogsExample example = new UserRoleRelationLogsExample();
@@ -156,7 +156,7 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:54 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -396,6 +396,76 @@ public class UserRoleRelationLogsExample {
 
         public Criteria andRoleIdCollectionNotBetween(String value1, String value2) {
             addCriterion("role_id_collection not between", value1, value2, "roleIdCollection");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionIsNull() {
+            addCriterion("description is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionIsNotNull() {
+            addCriterion("description is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionEqualTo(String value) {
+            addCriterion("description =", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionNotEqualTo(String value) {
+            addCriterion("description <>", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionGreaterThan(String value) {
+            addCriterion("description >", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionGreaterThanOrEqualTo(String value) {
+            addCriterion("description >=", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionLessThan(String value) {
+            addCriterion("description <", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionLessThanOrEqualTo(String value) {
+            addCriterion("description <=", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionLike(String value) {
+            addCriterion("description like", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionNotLike(String value) {
+            addCriterion("description not like", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionIn(List<String> values) {
+            addCriterion("description in", values, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionNotIn(List<String> values) {
+            addCriterion("description not in", values, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionBetween(String value1, String value2) {
+            addCriterion("description between", value1, value2, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionNotBetween(String value1, String value2) {
+            addCriterion("description not between", value1, value2, "description");
             return (Criteria) this;
         }
 
@@ -1289,6 +1359,11 @@ public class UserRoleRelationLogsExample {
             return (Criteria) this;
         }
 
+        public Criteria andDescriptionLikeInsensitive(String value) {
+            addCriterion("upper(description) like", value.toUpperCase(), "description");
+            return (Criteria) this;
+        }
+
         public Criteria andRemarkLikeInsensitive(String value) {
             addCriterion("upper(remark) like", value.toUpperCase(), "remark");
             return (Criteria) this;
@@ -1342,18 +1417,18 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated do_not_delete_during_merge Sat Aug 03 21:36:54 CST 2019
+     * @mbg.generated do_not_delete_during_merge Tue Aug 06 18:33:06 CST 2019
      */
     public static class Criteria extends GeneratedCriteria {
         /**
          *
-         * @mbg.generated Sat Aug 03 21:36:54 CST 2019
+         * @mbg.generated Tue Aug 06 18:33:06 CST 2019
          */
         private UserRoleRelationLogsExample example;
 
         /**
          *
-         * @mbg.generated Sat Aug 03 21:36:54 CST 2019
+         * @mbg.generated Tue Aug 06 18:33:06 CST 2019
          */
         protected Criteria(UserRoleRelationLogsExample example) {
             super();
@@ -1362,7 +1437,7 @@ public class UserRoleRelationLogsExample {
 
         /**
          *
-         * @mbg.generated Sat Aug 03 21:36:54 CST 2019
+         * @mbg.generated Tue Aug 06 18:33:06 CST 2019
          */
         public UserRoleRelationLogsExample example() {
             return this.example;
@@ -1370,7 +1445,7 @@ public class UserRoleRelationLogsExample {
 
         /**
          *
-         * @mbg.generated Sat Aug 03 21:36:54 CST 2019
+         * @mbg.generated Tue Aug 06 18:33:06 CST 2019
          */
         public Criteria andIf(boolean ifAdd, ICriteriaAdd add) {
             if (ifAdd) {
@@ -1382,7 +1457,7 @@ public class UserRoleRelationLogsExample {
         public interface ICriteriaAdd {
             /**
              *
-             * @mbg.generated Sat Aug 03 21:36:54 CST 2019
+             * @mbg.generated Tue Aug 06 18:33:06 CST 2019
              */
             Criteria add(Criteria add);
         }
@@ -1390,7 +1465,7 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:54 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
      */
     public static class Criterion {
         private String condition;

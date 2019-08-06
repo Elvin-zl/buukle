@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * Created By MBG-GUI-EXTENSION https:// github.com/spawpaw/mybatis-generator-gui-extension
  * Description:
- * 
+ * 用户轨迹表
  *
  * @author 
  */
@@ -14,154 +14,165 @@ public class UserTrail implements Serializable {
     /**
      *
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     private Integer id;
 
     /**
      *
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     private String userId;
 
     /**
+     * 所属应用id
      *
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     private Integer applicationId;
 
     /**
+     * 所属菜单id
      *
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     private Integer menuId;
 
     /**
+     * 按钮id
      *
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     private Integer buttonId;
 
     /**
      *
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     private String name;
 
     /**
      *
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     private String url;
 
     /**
+     * 验签类型 : 0 不需要验签 ;1 需要验签
      *
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     private Integer signType;
 
     /**
      *
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
+     */
+    private String description;
+
+    /**
+     *
+     *
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     private String remark;
 
     /**
      *
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     private Date gmtCreated;
 
     /**
      *
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     private String creator;
 
     /**
      *
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     private String creatorCode;
 
     /**
      *
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     private Date gmtModified;
 
     /**
      *
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     private String modifier;
 
     /**
      *
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     private String modifierCode;
 
     /**
-     * ״̬
+     * 状态
      *
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     private Integer status;
 
     /**
      *
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     private String bak01;
 
     /**
      *
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     private String bak02;
 
     /**
      *
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     private String bak03;
 
     /**
      *
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     private String bak04;
 
     /**
      *
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     private String bak05;
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     private static final long serialVersionUID = 1L;
 
@@ -170,7 +181,7 @@ public class UserTrail implements Serializable {
      *
      * @return the value of buukle-security..user_trail.id
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public Integer getId() {
         return id;
@@ -178,7 +189,7 @@ public class UserTrail implements Serializable {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public UserTrail withId(Integer id) {
         this.setId(id);
@@ -190,7 +201,7 @@ public class UserTrail implements Serializable {
      *
      * @param id the value for buukle-security..user_trail.id
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public void setId(Integer id) {
         this.id = id;
@@ -201,7 +212,7 @@ public class UserTrail implements Serializable {
      *
      * @return the value of buukle-security..user_trail.user_id
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public String getUserId() {
         return userId;
@@ -209,7 +220,7 @@ public class UserTrail implements Serializable {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public UserTrail withUserId(String userId) {
         this.setUserId(userId);
@@ -221,7 +232,7 @@ public class UserTrail implements Serializable {
      *
      * @param userId the value for buukle-security..user_trail.user_id
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public void setUserId(String userId) {
         this.userId = userId == null ? null : userId.trim();
@@ -232,7 +243,7 @@ public class UserTrail implements Serializable {
      *
      * @return the value of buukle-security..user_trail.application_id
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public Integer getApplicationId() {
         return applicationId;
@@ -240,7 +251,7 @@ public class UserTrail implements Serializable {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public UserTrail withApplicationId(Integer applicationId) {
         this.setApplicationId(applicationId);
@@ -252,7 +263,7 @@ public class UserTrail implements Serializable {
      *
      * @param applicationId the value for buukle-security..user_trail.application_id
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public void setApplicationId(Integer applicationId) {
         this.applicationId = applicationId;
@@ -263,7 +274,7 @@ public class UserTrail implements Serializable {
      *
      * @return the value of buukle-security..user_trail.menu_id
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public Integer getMenuId() {
         return menuId;
@@ -271,7 +282,7 @@ public class UserTrail implements Serializable {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public UserTrail withMenuId(Integer menuId) {
         this.setMenuId(menuId);
@@ -283,7 +294,7 @@ public class UserTrail implements Serializable {
      *
      * @param menuId the value for buukle-security..user_trail.menu_id
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public void setMenuId(Integer menuId) {
         this.menuId = menuId;
@@ -294,7 +305,7 @@ public class UserTrail implements Serializable {
      *
      * @return the value of buukle-security..user_trail.button_id
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public Integer getButtonId() {
         return buttonId;
@@ -302,7 +313,7 @@ public class UserTrail implements Serializable {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public UserTrail withButtonId(Integer buttonId) {
         this.setButtonId(buttonId);
@@ -314,7 +325,7 @@ public class UserTrail implements Serializable {
      *
      * @param buttonId the value for buukle-security..user_trail.button_id
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public void setButtonId(Integer buttonId) {
         this.buttonId = buttonId;
@@ -325,7 +336,7 @@ public class UserTrail implements Serializable {
      *
      * @return the value of buukle-security..user_trail.name
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public String getName() {
         return name;
@@ -333,7 +344,7 @@ public class UserTrail implements Serializable {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public UserTrail withName(String name) {
         this.setName(name);
@@ -345,7 +356,7 @@ public class UserTrail implements Serializable {
      *
      * @param name the value for buukle-security..user_trail.name
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
@@ -356,7 +367,7 @@ public class UserTrail implements Serializable {
      *
      * @return the value of buukle-security..user_trail.url
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public String getUrl() {
         return url;
@@ -364,7 +375,7 @@ public class UserTrail implements Serializable {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public UserTrail withUrl(String url) {
         this.setUrl(url);
@@ -376,7 +387,7 @@ public class UserTrail implements Serializable {
      *
      * @param url the value for buukle-security..user_trail.url
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public void setUrl(String url) {
         this.url = url == null ? null : url.trim();
@@ -387,7 +398,7 @@ public class UserTrail implements Serializable {
      *
      * @return the value of buukle-security..user_trail.sign_type
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public Integer getSignType() {
         return signType;
@@ -395,7 +406,7 @@ public class UserTrail implements Serializable {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public UserTrail withSignType(Integer signType) {
         this.setSignType(signType);
@@ -407,10 +418,41 @@ public class UserTrail implements Serializable {
      *
      * @param signType the value for buukle-security..user_trail.sign_type
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public void setSignType(Integer signType) {
         this.signType = signType;
+    }
+
+    /**
+     * This method returns the value of the database column buukle-security..user_trail.description
+     *
+     * @return the value of buukle-security..user_trail.description
+     *
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     *
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
+     */
+    public UserTrail withDescription(String description) {
+        this.setDescription(description);
+        return this;
+    }
+
+    /**
+     * This method sets the value of the database column buukle-security..user_trail.description
+     *
+     * @param description the value for buukle-security..user_trail.description
+     *
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
+     */
+    public void setDescription(String description) {
+        this.description = description == null ? null : description.trim();
     }
 
     /**
@@ -418,7 +460,7 @@ public class UserTrail implements Serializable {
      *
      * @return the value of buukle-security..user_trail.remark
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public String getRemark() {
         return remark;
@@ -426,7 +468,7 @@ public class UserTrail implements Serializable {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public UserTrail withRemark(String remark) {
         this.setRemark(remark);
@@ -438,7 +480,7 @@ public class UserTrail implements Serializable {
      *
      * @param remark the value for buukle-security..user_trail.remark
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
@@ -449,7 +491,7 @@ public class UserTrail implements Serializable {
      *
      * @return the value of buukle-security..user_trail.gmt_created
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public Date getGmtCreated() {
         return gmtCreated;
@@ -457,7 +499,7 @@ public class UserTrail implements Serializable {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public UserTrail withGmtCreated(Date gmtCreated) {
         this.setGmtCreated(gmtCreated);
@@ -469,7 +511,7 @@ public class UserTrail implements Serializable {
      *
      * @param gmtCreated the value for buukle-security..user_trail.gmt_created
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public void setGmtCreated(Date gmtCreated) {
         this.gmtCreated = gmtCreated;
@@ -480,7 +522,7 @@ public class UserTrail implements Serializable {
      *
      * @return the value of buukle-security..user_trail.creator
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public String getCreator() {
         return creator;
@@ -488,7 +530,7 @@ public class UserTrail implements Serializable {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public UserTrail withCreator(String creator) {
         this.setCreator(creator);
@@ -500,7 +542,7 @@ public class UserTrail implements Serializable {
      *
      * @param creator the value for buukle-security..user_trail.creator
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public void setCreator(String creator) {
         this.creator = creator == null ? null : creator.trim();
@@ -511,7 +553,7 @@ public class UserTrail implements Serializable {
      *
      * @return the value of buukle-security..user_trail.creator_code
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public String getCreatorCode() {
         return creatorCode;
@@ -519,7 +561,7 @@ public class UserTrail implements Serializable {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public UserTrail withCreatorCode(String creatorCode) {
         this.setCreatorCode(creatorCode);
@@ -531,7 +573,7 @@ public class UserTrail implements Serializable {
      *
      * @param creatorCode the value for buukle-security..user_trail.creator_code
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public void setCreatorCode(String creatorCode) {
         this.creatorCode = creatorCode == null ? null : creatorCode.trim();
@@ -542,7 +584,7 @@ public class UserTrail implements Serializable {
      *
      * @return the value of buukle-security..user_trail.gmt_modified
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public Date getGmtModified() {
         return gmtModified;
@@ -550,7 +592,7 @@ public class UserTrail implements Serializable {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public UserTrail withGmtModified(Date gmtModified) {
         this.setGmtModified(gmtModified);
@@ -562,7 +604,7 @@ public class UserTrail implements Serializable {
      *
      * @param gmtModified the value for buukle-security..user_trail.gmt_modified
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public void setGmtModified(Date gmtModified) {
         this.gmtModified = gmtModified;
@@ -573,7 +615,7 @@ public class UserTrail implements Serializable {
      *
      * @return the value of buukle-security..user_trail.modifier
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public String getModifier() {
         return modifier;
@@ -581,7 +623,7 @@ public class UserTrail implements Serializable {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public UserTrail withModifier(String modifier) {
         this.setModifier(modifier);
@@ -593,7 +635,7 @@ public class UserTrail implements Serializable {
      *
      * @param modifier the value for buukle-security..user_trail.modifier
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public void setModifier(String modifier) {
         this.modifier = modifier == null ? null : modifier.trim();
@@ -604,7 +646,7 @@ public class UserTrail implements Serializable {
      *
      * @return the value of buukle-security..user_trail.modifier_code
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public String getModifierCode() {
         return modifierCode;
@@ -612,7 +654,7 @@ public class UserTrail implements Serializable {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public UserTrail withModifierCode(String modifierCode) {
         this.setModifierCode(modifierCode);
@@ -624,7 +666,7 @@ public class UserTrail implements Serializable {
      *
      * @param modifierCode the value for buukle-security..user_trail.modifier_code
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public void setModifierCode(String modifierCode) {
         this.modifierCode = modifierCode == null ? null : modifierCode.trim();
@@ -635,7 +677,7 @@ public class UserTrail implements Serializable {
      *
      * @return the value of buukle-security..user_trail.status
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public Integer getStatus() {
         return status;
@@ -643,7 +685,7 @@ public class UserTrail implements Serializable {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public UserTrail withStatus(Integer status) {
         this.setStatus(status);
@@ -655,7 +697,7 @@ public class UserTrail implements Serializable {
      *
      * @param status the value for buukle-security..user_trail.status
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public void setStatus(Integer status) {
         this.status = status;
@@ -666,7 +708,7 @@ public class UserTrail implements Serializable {
      *
      * @return the value of buukle-security..user_trail.bak01
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public String getBak01() {
         return bak01;
@@ -674,7 +716,7 @@ public class UserTrail implements Serializable {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public UserTrail withBak01(String bak01) {
         this.setBak01(bak01);
@@ -686,7 +728,7 @@ public class UserTrail implements Serializable {
      *
      * @param bak01 the value for buukle-security..user_trail.bak01
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public void setBak01(String bak01) {
         this.bak01 = bak01 == null ? null : bak01.trim();
@@ -697,7 +739,7 @@ public class UserTrail implements Serializable {
      *
      * @return the value of buukle-security..user_trail.bak02
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public String getBak02() {
         return bak02;
@@ -705,7 +747,7 @@ public class UserTrail implements Serializable {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public UserTrail withBak02(String bak02) {
         this.setBak02(bak02);
@@ -717,7 +759,7 @@ public class UserTrail implements Serializable {
      *
      * @param bak02 the value for buukle-security..user_trail.bak02
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public void setBak02(String bak02) {
         this.bak02 = bak02 == null ? null : bak02.trim();
@@ -728,7 +770,7 @@ public class UserTrail implements Serializable {
      *
      * @return the value of buukle-security..user_trail.bak03
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public String getBak03() {
         return bak03;
@@ -736,7 +778,7 @@ public class UserTrail implements Serializable {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public UserTrail withBak03(String bak03) {
         this.setBak03(bak03);
@@ -748,7 +790,7 @@ public class UserTrail implements Serializable {
      *
      * @param bak03 the value for buukle-security..user_trail.bak03
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public void setBak03(String bak03) {
         this.bak03 = bak03 == null ? null : bak03.trim();
@@ -759,7 +801,7 @@ public class UserTrail implements Serializable {
      *
      * @return the value of buukle-security..user_trail.bak04
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public String getBak04() {
         return bak04;
@@ -767,7 +809,7 @@ public class UserTrail implements Serializable {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public UserTrail withBak04(String bak04) {
         this.setBak04(bak04);
@@ -779,7 +821,7 @@ public class UserTrail implements Serializable {
      *
      * @param bak04 the value for buukle-security..user_trail.bak04
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public void setBak04(String bak04) {
         this.bak04 = bak04 == null ? null : bak04.trim();
@@ -790,7 +832,7 @@ public class UserTrail implements Serializable {
      *
      * @return the value of buukle-security..user_trail.bak05
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public String getBak05() {
         return bak05;
@@ -798,7 +840,7 @@ public class UserTrail implements Serializable {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public UserTrail withBak05(String bak05) {
         this.setBak05(bak05);
@@ -810,7 +852,7 @@ public class UserTrail implements Serializable {
      *
      * @param bak05 the value for buukle-security..user_trail.bak05
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     public void setBak05(String bak05) {
         this.bak05 = bak05 == null ? null : bak05.trim();
@@ -818,7 +860,7 @@ public class UserTrail implements Serializable {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     @Override
     public String toString() {
@@ -834,6 +876,7 @@ public class UserTrail implements Serializable {
         sb.append(", name=").append(name);
         sb.append(", url=").append(url);
         sb.append(", signType=").append(signType);
+        sb.append(", description=").append(description);
         sb.append(", remark=").append(remark);
         sb.append(", gmtCreated=").append(gmtCreated);
         sb.append(", creator=").append(creator);
@@ -853,7 +896,7 @@ public class UserTrail implements Serializable {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     @Override
     public boolean equals(Object that) {
@@ -875,6 +918,7 @@ public class UserTrail implements Serializable {
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
             && (this.getUrl() == null ? other.getUrl() == null : this.getUrl().equals(other.getUrl()))
             && (this.getSignType() == null ? other.getSignType() == null : this.getSignType().equals(other.getSignType()))
+            && (this.getDescription() == null ? other.getDescription() == null : this.getDescription().equals(other.getDescription()))
             && (this.getRemark() == null ? other.getRemark() == null : this.getRemark().equals(other.getRemark()))
             && (this.getGmtCreated() == null ? other.getGmtCreated() == null : this.getGmtCreated().equals(other.getGmtCreated()))
             && (this.getCreator() == null ? other.getCreator() == null : this.getCreator().equals(other.getCreator()))
@@ -892,7 +936,7 @@ public class UserTrail implements Serializable {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:57 CST 2019
+     * @mbg.generated Tue Aug 06 18:33:09 CST 2019
      */
     @Override
     public int hashCode() {
@@ -906,6 +950,7 @@ public class UserTrail implements Serializable {
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
         result = prime * result + ((getUrl() == null) ? 0 : getUrl().hashCode());
         result = prime * result + ((getSignType() == null) ? 0 : getSignType().hashCode());
+        result = prime * result + ((getDescription() == null) ? 0 : getDescription().hashCode());
         result = prime * result + ((getRemark() == null) ? 0 : getRemark().hashCode());
         result = prime * result + ((getGmtCreated() == null) ? 0 : getGmtCreated().hashCode());
         result = prime * result + ((getCreator() == null) ? 0 : getCreator().hashCode());

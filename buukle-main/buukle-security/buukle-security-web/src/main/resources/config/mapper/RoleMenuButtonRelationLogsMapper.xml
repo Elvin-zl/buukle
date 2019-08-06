@@ -3,12 +3,13 @@
 <mapper namespace="top.buukle.security.dao.RoleMenuButtonRelationLogsMapper">
   <resultMap id="BaseResultMap" type="top.buukle.security.entity.RoleMenuButtonRelationLogs">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:47 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:59 CST 2019. by MyBatis Generator, do not modify.
     -->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="role_id" jdbcType="INTEGER" property="roleId" />
     <result column="menu_id_collections" jdbcType="INTEGER" property="menuIdCollections" />
     <result column="button_id_collections" jdbcType="INTEGER" property="buttonIdCollections" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
     <result column="remark" jdbcType="VARCHAR" property="remark" />
     <result column="gmt_created" jdbcType="TIMESTAMP" property="gmtCreated" />
     <result column="creator" jdbcType="VARCHAR" property="creator" />
@@ -25,7 +26,7 @@
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:47 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:59 CST 2019. by MyBatis Generator, do not modify.
     -->
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -57,7 +58,7 @@
   </sql>
   <sql id="Update_By_Example_Where_Clause">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:47 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:59 CST 2019. by MyBatis Generator, do not modify.
     -->
     <where>
       <foreach collection="example.oredCriteria" item="criteria" separator="or">
@@ -89,15 +90,15 @@
   </sql>
   <sql id="Base_Column_List">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:47 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:59 CST 2019. by MyBatis Generator, do not modify.
     -->
-    id, role_id, menu_id_collections, button_id_collections, remark, gmt_created, creator, 
-    creator_code, gmt_modified, modifier, modifier_code, status, bak01, bak02, bak03, 
-    bak04, bak05
+    id, role_id, menu_id_collections, button_id_collections, description, remark, gmt_created, 
+    creator, creator_code, gmt_modified, modifier, modifier_code, status, bak01, bak02, 
+    bak03, bak04, bak05
   </sql>
   <select id="selectByExample" parameterType="top.buukle.security.entity.RoleMenuButtonRelationLogsExample" resultMap="BaseResultMap">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:47 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:59 CST 2019. by MyBatis Generator, do not modify.
     -->
     select
     <if test="distinct">
@@ -114,7 +115,7 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:47 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:59 CST 2019. by MyBatis Generator, do not modify.
     -->
     select 
     <include refid="Base_Column_List" />
@@ -123,14 +124,14 @@
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:47 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:59 CST 2019. by MyBatis Generator, do not modify.
     -->
     delete from role_menu_button_relation_logs
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="top.buukle.security.entity.RoleMenuButtonRelationLogsExample">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:47 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:59 CST 2019. by MyBatis Generator, do not modify.
     -->
     delete from role_menu_button_relation_logs
     <if test="_parameter != null">
@@ -139,24 +140,26 @@
   </delete>
   <insert id="insert" parameterType="top.buukle.security.entity.RoleMenuButtonRelationLogs">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:47 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:59 CST 2019. by MyBatis Generator, do not modify.
     -->
     insert into role_menu_button_relation_logs (id, role_id, menu_id_collections, 
-      button_id_collections, remark, gmt_created, 
-      creator, creator_code, gmt_modified, 
-      modifier, modifier_code, status, 
-      bak01, bak02, bak03, 
-      bak04, bak05)
+      button_id_collections, description, remark, 
+      gmt_created, creator, creator_code, 
+      gmt_modified, modifier, modifier_code, 
+      status, bak01, bak02, 
+      bak03, bak04, bak05
+      )
     values (#{id,jdbcType=INTEGER}, #{roleId,jdbcType=INTEGER}, #{menuIdCollections,jdbcType=INTEGER}, 
-      #{buttonIdCollections,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, 
-      #{creator,jdbcType=VARCHAR}, #{creatorCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, 
-      #{modifier,jdbcType=VARCHAR}, #{modifierCode,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
-      #{bak01,jdbcType=VARCHAR}, #{bak02,jdbcType=VARCHAR}, #{bak03,jdbcType=VARCHAR}, 
-      #{bak04,jdbcType=VARCHAR}, #{bak05,jdbcType=VARCHAR})
+      #{buttonIdCollections,jdbcType=INTEGER}, #{description,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{gmtCreated,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, #{creatorCode,jdbcType=VARCHAR}, 
+      #{gmtModified,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR}, #{modifierCode,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{bak01,jdbcType=VARCHAR}, #{bak02,jdbcType=VARCHAR}, 
+      #{bak03,jdbcType=VARCHAR}, #{bak04,jdbcType=VARCHAR}, #{bak05,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="top.buukle.security.entity.RoleMenuButtonRelationLogs">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:47 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:59 CST 2019. by MyBatis Generator, do not modify.
     -->
     insert into role_menu_button_relation_logs
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -171,6 +174,9 @@
       </if>
       <if test="buttonIdCollections != null">
         button_id_collections,
+      </if>
+      <if test="description != null">
+        description,
       </if>
       <if test="remark != null">
         remark,
@@ -225,6 +231,9 @@
       <if test="buttonIdCollections != null">
         #{buttonIdCollections,jdbcType=INTEGER},
       </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
       <if test="remark != null">
         #{remark,jdbcType=VARCHAR},
       </if>
@@ -268,7 +277,7 @@
   </insert>
   <select id="countByExample" parameterType="top.buukle.security.entity.RoleMenuButtonRelationLogsExample" resultType="java.lang.Long">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:47 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:59 CST 2019. by MyBatis Generator, do not modify.
     -->
     select count(*) from role_menu_button_relation_logs
     <if test="_parameter != null">
@@ -277,7 +286,7 @@
   </select>
   <update id="updateByExampleSelective" parameterType="map">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:47 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:59 CST 2019. by MyBatis Generator, do not modify.
     -->
     update role_menu_button_relation_logs
     <set>
@@ -292,6 +301,9 @@
       </if>
       <if test="record.buttonIdCollections != null">
         button_id_collections = #{record.buttonIdCollections,jdbcType=INTEGER},
+      </if>
+      <if test="record.description != null">
+        description = #{record.description,jdbcType=VARCHAR},
       </if>
       <if test="record.remark != null">
         remark = #{record.remark,jdbcType=VARCHAR},
@@ -339,13 +351,14 @@
   </update>
   <update id="updateByExample" parameterType="map">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:47 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:59 CST 2019. by MyBatis Generator, do not modify.
     -->
     update role_menu_button_relation_logs
     set id = #{record.id,jdbcType=INTEGER},
       role_id = #{record.roleId,jdbcType=INTEGER},
       menu_id_collections = #{record.menuIdCollections,jdbcType=INTEGER},
       button_id_collections = #{record.buttonIdCollections,jdbcType=INTEGER},
+      description = #{record.description,jdbcType=VARCHAR},
       remark = #{record.remark,jdbcType=VARCHAR},
       gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
       creator = #{record.creator,jdbcType=VARCHAR},
@@ -365,7 +378,7 @@
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="top.buukle.security.entity.RoleMenuButtonRelationLogs">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:47 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:59 CST 2019. by MyBatis Generator, do not modify.
     -->
     update role_menu_button_relation_logs
     <set>
@@ -377,6 +390,9 @@
       </if>
       <if test="buttonIdCollections != null">
         button_id_collections = #{buttonIdCollections,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
       </if>
       <if test="remark != null">
         remark = #{remark,jdbcType=VARCHAR},
@@ -422,12 +438,13 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="top.buukle.security.entity.RoleMenuButtonRelationLogs">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:47 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:59 CST 2019. by MyBatis Generator, do not modify.
     -->
     update role_menu_button_relation_logs
     set role_id = #{roleId,jdbcType=INTEGER},
       menu_id_collections = #{menuIdCollections,jdbcType=INTEGER},
       button_id_collections = #{buttonIdCollections,jdbcType=INTEGER},
+      description = #{description,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=VARCHAR},
       gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
       creator = #{creator,jdbcType=VARCHAR},

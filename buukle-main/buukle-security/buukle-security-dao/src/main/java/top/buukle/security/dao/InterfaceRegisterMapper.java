@@ -10,67 +10,67 @@ import top.buukle.security.entity.InterfaceRegisterExample;
 public interface InterfaceRegisterMapper {
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:32 CST 2019
+     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
      */
     long countByExample(InterfaceRegisterExample example);
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:32 CST 2019
+     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
      */
     int deleteByExample(InterfaceRegisterExample example);
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:32 CST 2019
+     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
      */
     int deleteByPrimaryKey(Integer id);
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:32 CST 2019
+     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
      */
     int insert(InterfaceRegister record);
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:32 CST 2019
+     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
      */
     int insertSelective(InterfaceRegister record);
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:32 CST 2019
+     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
      */
     List<InterfaceRegister> selectByExample(InterfaceRegisterExample example);
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:32 CST 2019
+     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
      */
     InterfaceRegister selectByPrimaryKey(Integer id);
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:32 CST 2019
+     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
      */
     int updateByExampleSelective(@Param("record") InterfaceRegister record, @Param("example") InterfaceRegisterExample example);
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:32 CST 2019
+     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
      */
     int updateByExample(@Param("record") InterfaceRegister record, @Param("example") InterfaceRegisterExample example);
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:32 CST 2019
+     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
      */
     int updateByPrimaryKeySelective(InterfaceRegister record);
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:36:32 CST 2019
+     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
      */
     int updateByPrimaryKey(InterfaceRegister record);
 }

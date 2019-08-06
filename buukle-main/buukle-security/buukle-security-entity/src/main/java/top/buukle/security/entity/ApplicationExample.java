@@ -7,25 +7,25 @@ import java.util.List;
 public class ApplicationExample {
     /**
      *
-     * @mbg.generated Sat Aug 03 21:35:16 CST 2019
+     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
      */
     protected String orderByClause;
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:35:16 CST 2019
+     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
      */
     protected boolean distinct;
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:35:16 CST 2019
+     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
      */
     protected List<Criteria> oredCriteria;
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:35:16 CST 2019
+     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
      */
     public ApplicationExample() {
         oredCriteria = new ArrayList<Criteria>();
@@ -33,7 +33,7 @@ public class ApplicationExample {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:35:16 CST 2019
+     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -41,7 +41,7 @@ public class ApplicationExample {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:35:16 CST 2019
+     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -49,7 +49,7 @@ public class ApplicationExample {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:35:16 CST 2019
+     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -57,7 +57,7 @@ public class ApplicationExample {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:35:16 CST 2019
+     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
      */
     public boolean isDistinct() {
         return distinct;
@@ -65,7 +65,7 @@ public class ApplicationExample {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:35:16 CST 2019
+     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -73,7 +73,7 @@ public class ApplicationExample {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:35:16 CST 2019
+     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -81,7 +81,7 @@ public class ApplicationExample {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:35:16 CST 2019
+     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -91,7 +91,7 @@ public class ApplicationExample {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:35:16 CST 2019
+     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
      */
     public ApplicationExample orderBy(String orderByClause) {
         this.setOrderByClause(orderByClause);
@@ -100,7 +100,7 @@ public class ApplicationExample {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:35:16 CST 2019
+     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
      */
     public ApplicationExample orderBy(String ... orderByClauses) {
         StringBuffer sb = new StringBuffer();
@@ -116,7 +116,7 @@ public class ApplicationExample {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:35:16 CST 2019
+     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -128,7 +128,7 @@ public class ApplicationExample {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:35:16 CST 2019
+     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria(this);
@@ -137,7 +137,7 @@ public class ApplicationExample {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:35:16 CST 2019
+     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
      */
     public void clear() {
         oredCriteria.clear();
@@ -147,7 +147,7 @@ public class ApplicationExample {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:35:16 CST 2019
+     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
      */
     public static Criteria newAndCreateCriteria() {
         ApplicationExample example = new ApplicationExample();
@@ -156,7 +156,7 @@ public class ApplicationExample {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:35:16 CST 2019
+     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -396,6 +396,146 @@ public class ApplicationExample {
 
         public Criteria andNameNotBetween(String value1, String value2) {
             addCriterion("name not between", value1, value2, "name");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionIsNull() {
+            addCriterion("description is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionIsNotNull() {
+            addCriterion("description is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionEqualTo(String value) {
+            addCriterion("description =", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionNotEqualTo(String value) {
+            addCriterion("description <>", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionGreaterThan(String value) {
+            addCriterion("description >", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionGreaterThanOrEqualTo(String value) {
+            addCriterion("description >=", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionLessThan(String value) {
+            addCriterion("description <", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionLessThanOrEqualTo(String value) {
+            addCriterion("description <=", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionLike(String value) {
+            addCriterion("description like", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionNotLike(String value) {
+            addCriterion("description not like", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionIn(List<String> values) {
+            addCriterion("description in", values, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionNotIn(List<String> values) {
+            addCriterion("description not in", values, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionBetween(String value1, String value2) {
+            addCriterion("description between", value1, value2, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionNotBetween(String value1, String value2) {
+            addCriterion("description not between", value1, value2, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkIsNull() {
+            addCriterion("remark is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkIsNotNull() {
+            addCriterion("remark is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkEqualTo(String value) {
+            addCriterion("remark =", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkNotEqualTo(String value) {
+            addCriterion("remark <>", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkGreaterThan(String value) {
+            addCriterion("remark >", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkGreaterThanOrEqualTo(String value) {
+            addCriterion("remark >=", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkLessThan(String value) {
+            addCriterion("remark <", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkLessThanOrEqualTo(String value) {
+            addCriterion("remark <=", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkLike(String value) {
+            addCriterion("remark like", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkNotLike(String value) {
+            addCriterion("remark not like", value, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkIn(List<String> values) {
+            addCriterion("remark in", values, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkNotIn(List<String> values) {
+            addCriterion("remark not in", values, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkBetween(String value1, String value2) {
+            addCriterion("remark between", value1, value2, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkNotBetween(String value1, String value2) {
+            addCriterion("remark not between", value1, value2, "remark");
             return (Criteria) this;
         }
 
@@ -859,6 +999,356 @@ public class ApplicationExample {
             return (Criteria) this;
         }
 
+        public Criteria andBak01IsNull() {
+            addCriterion("bak01 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak01IsNotNull() {
+            addCriterion("bak01 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak01EqualTo(String value) {
+            addCriterion("bak01 =", value, "bak01");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak01NotEqualTo(String value) {
+            addCriterion("bak01 <>", value, "bak01");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak01GreaterThan(String value) {
+            addCriterion("bak01 >", value, "bak01");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak01GreaterThanOrEqualTo(String value) {
+            addCriterion("bak01 >=", value, "bak01");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak01LessThan(String value) {
+            addCriterion("bak01 <", value, "bak01");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak01LessThanOrEqualTo(String value) {
+            addCriterion("bak01 <=", value, "bak01");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak01Like(String value) {
+            addCriterion("bak01 like", value, "bak01");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak01NotLike(String value) {
+            addCriterion("bak01 not like", value, "bak01");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak01In(List<String> values) {
+            addCriterion("bak01 in", values, "bak01");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak01NotIn(List<String> values) {
+            addCriterion("bak01 not in", values, "bak01");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak01Between(String value1, String value2) {
+            addCriterion("bak01 between", value1, value2, "bak01");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak01NotBetween(String value1, String value2) {
+            addCriterion("bak01 not between", value1, value2, "bak01");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak02IsNull() {
+            addCriterion("bak02 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak02IsNotNull() {
+            addCriterion("bak02 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak02EqualTo(String value) {
+            addCriterion("bak02 =", value, "bak02");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak02NotEqualTo(String value) {
+            addCriterion("bak02 <>", value, "bak02");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak02GreaterThan(String value) {
+            addCriterion("bak02 >", value, "bak02");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak02GreaterThanOrEqualTo(String value) {
+            addCriterion("bak02 >=", value, "bak02");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak02LessThan(String value) {
+            addCriterion("bak02 <", value, "bak02");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak02LessThanOrEqualTo(String value) {
+            addCriterion("bak02 <=", value, "bak02");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak02Like(String value) {
+            addCriterion("bak02 like", value, "bak02");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak02NotLike(String value) {
+            addCriterion("bak02 not like", value, "bak02");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak02In(List<String> values) {
+            addCriterion("bak02 in", values, "bak02");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak02NotIn(List<String> values) {
+            addCriterion("bak02 not in", values, "bak02");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak02Between(String value1, String value2) {
+            addCriterion("bak02 between", value1, value2, "bak02");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak02NotBetween(String value1, String value2) {
+            addCriterion("bak02 not between", value1, value2, "bak02");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak03IsNull() {
+            addCriterion("bak03 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak03IsNotNull() {
+            addCriterion("bak03 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak03EqualTo(String value) {
+            addCriterion("bak03 =", value, "bak03");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak03NotEqualTo(String value) {
+            addCriterion("bak03 <>", value, "bak03");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak03GreaterThan(String value) {
+            addCriterion("bak03 >", value, "bak03");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak03GreaterThanOrEqualTo(String value) {
+            addCriterion("bak03 >=", value, "bak03");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak03LessThan(String value) {
+            addCriterion("bak03 <", value, "bak03");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak03LessThanOrEqualTo(String value) {
+            addCriterion("bak03 <=", value, "bak03");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak03Like(String value) {
+            addCriterion("bak03 like", value, "bak03");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak03NotLike(String value) {
+            addCriterion("bak03 not like", value, "bak03");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak03In(List<String> values) {
+            addCriterion("bak03 in", values, "bak03");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak03NotIn(List<String> values) {
+            addCriterion("bak03 not in", values, "bak03");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak03Between(String value1, String value2) {
+            addCriterion("bak03 between", value1, value2, "bak03");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak03NotBetween(String value1, String value2) {
+            addCriterion("bak03 not between", value1, value2, "bak03");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak04IsNull() {
+            addCriterion("bak04 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak04IsNotNull() {
+            addCriterion("bak04 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak04EqualTo(String value) {
+            addCriterion("bak04 =", value, "bak04");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak04NotEqualTo(String value) {
+            addCriterion("bak04 <>", value, "bak04");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak04GreaterThan(String value) {
+            addCriterion("bak04 >", value, "bak04");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak04GreaterThanOrEqualTo(String value) {
+            addCriterion("bak04 >=", value, "bak04");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak04LessThan(String value) {
+            addCriterion("bak04 <", value, "bak04");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak04LessThanOrEqualTo(String value) {
+            addCriterion("bak04 <=", value, "bak04");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak04Like(String value) {
+            addCriterion("bak04 like", value, "bak04");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak04NotLike(String value) {
+            addCriterion("bak04 not like", value, "bak04");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak04In(List<String> values) {
+            addCriterion("bak04 in", values, "bak04");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak04NotIn(List<String> values) {
+            addCriterion("bak04 not in", values, "bak04");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak04Between(String value1, String value2) {
+            addCriterion("bak04 between", value1, value2, "bak04");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak04NotBetween(String value1, String value2) {
+            addCriterion("bak04 not between", value1, value2, "bak04");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak05IsNull() {
+            addCriterion("bak05 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak05IsNotNull() {
+            addCriterion("bak05 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak05EqualTo(String value) {
+            addCriterion("bak05 =", value, "bak05");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak05NotEqualTo(String value) {
+            addCriterion("bak05 <>", value, "bak05");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak05GreaterThan(String value) {
+            addCriterion("bak05 >", value, "bak05");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak05GreaterThanOrEqualTo(String value) {
+            addCriterion("bak05 >=", value, "bak05");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak05LessThan(String value) {
+            addCriterion("bak05 <", value, "bak05");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak05LessThanOrEqualTo(String value) {
+            addCriterion("bak05 <=", value, "bak05");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak05Like(String value) {
+            addCriterion("bak05 like", value, "bak05");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak05NotLike(String value) {
+            addCriterion("bak05 not like", value, "bak05");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak05In(List<String> values) {
+            addCriterion("bak05 in", values, "bak05");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak05NotIn(List<String> values) {
+            addCriterion("bak05 not in", values, "bak05");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak05Between(String value1, String value2) {
+            addCriterion("bak05 between", value1, value2, "bak05");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak05NotBetween(String value1, String value2) {
+            addCriterion("bak05 not between", value1, value2, "bak05");
+            return (Criteria) this;
+        }
+
         public Criteria andCodeLikeInsensitive(String value) {
             addCriterion("upper(code) like", value.toUpperCase(), "code");
             return (Criteria) this;
@@ -866,6 +1356,16 @@ public class ApplicationExample {
 
         public Criteria andNameLikeInsensitive(String value) {
             addCriterion("upper(name) like", value.toUpperCase(), "name");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionLikeInsensitive(String value) {
+            addCriterion("upper(description) like", value.toUpperCase(), "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkLikeInsensitive(String value) {
+            addCriterion("upper(remark) like", value.toUpperCase(), "remark");
             return (Criteria) this;
         }
 
@@ -888,22 +1388,47 @@ public class ApplicationExample {
             addCriterion("upper(modifier_code) like", value.toUpperCase(), "modifierCode");
             return (Criteria) this;
         }
+
+        public Criteria andBak01LikeInsensitive(String value) {
+            addCriterion("upper(bak01) like", value.toUpperCase(), "bak01");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak02LikeInsensitive(String value) {
+            addCriterion("upper(bak02) like", value.toUpperCase(), "bak02");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak03LikeInsensitive(String value) {
+            addCriterion("upper(bak03) like", value.toUpperCase(), "bak03");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak04LikeInsensitive(String value) {
+            addCriterion("upper(bak04) like", value.toUpperCase(), "bak04");
+            return (Criteria) this;
+        }
+
+        public Criteria andBak05LikeInsensitive(String value) {
+            addCriterion("upper(bak05) like", value.toUpperCase(), "bak05");
+            return (Criteria) this;
+        }
     }
 
     /**
      *
-     * @mbg.generated do_not_delete_during_merge Sat Aug 03 21:35:16 CST 2019
+     * @mbg.generated do_not_delete_during_merge Tue Aug 06 18:29:38 CST 2019
      */
     public static class Criteria extends GeneratedCriteria {
         /**
          *
-         * @mbg.generated Sat Aug 03 21:35:16 CST 2019
+         * @mbg.generated Tue Aug 06 18:29:38 CST 2019
          */
         private ApplicationExample example;
 
         /**
          *
-         * @mbg.generated Sat Aug 03 21:35:16 CST 2019
+         * @mbg.generated Tue Aug 06 18:29:38 CST 2019
          */
         protected Criteria(ApplicationExample example) {
             super();
@@ -912,7 +1437,7 @@ public class ApplicationExample {
 
         /**
          *
-         * @mbg.generated Sat Aug 03 21:35:16 CST 2019
+         * @mbg.generated Tue Aug 06 18:29:38 CST 2019
          */
         public ApplicationExample example() {
             return this.example;
@@ -920,7 +1445,7 @@ public class ApplicationExample {
 
         /**
          *
-         * @mbg.generated Sat Aug 03 21:35:16 CST 2019
+         * @mbg.generated Tue Aug 06 18:29:38 CST 2019
          */
         public Criteria andIf(boolean ifAdd, ICriteriaAdd add) {
             if (ifAdd) {
@@ -932,7 +1457,7 @@ public class ApplicationExample {
         public interface ICriteriaAdd {
             /**
              *
-             * @mbg.generated Sat Aug 03 21:35:16 CST 2019
+             * @mbg.generated Tue Aug 06 18:29:38 CST 2019
              */
             Criteria add(Criteria add);
         }
@@ -940,7 +1465,7 @@ public class ApplicationExample {
 
     /**
      *
-     * @mbg.generated Sat Aug 03 21:35:16 CST 2019
+     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
      */
     public static class Criterion {
         private String condition;

@@ -2,25 +2,33 @@ package $!table.get("basePackage") .service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import $!table.get("basePackage") .dao.${table.entityName}Mapper;
-import $!table.get("basePackage") .entity.${table.entityName};
-import $!table.get("basePackage") .entity.${table.entityName}Example;
-import $!table.get("basePackage") .entity.vo.${table.entityName}Query;
-import $!table.get("basePackage") .service.${table.entityName}Service;
-import $!table.get("basePackage") .service.constants.${table.entityName}Enums;
-import $!table.get("basePackage") .service.constants.SystemReturnEnum;
-import $!table.get("basePackage") .service.exception.SystemException;
 import top.buukle.common.call.CommonResponse;
 import top.buukle.common.call.FuzzyResponse;
 import top.buukle.common.call.PageResponse;
-import top.buukle.util.util.DateUtil;
-import top.buukle.util.util.StringUtil;
+import top.buukle.common.call.vo.FuzzyVo;
+import top.buukle.common.status.StatusConstants;
+
+import $!table.get("basePackage") .dao.${table.entityName}Mapper;
+import $!table.get("basePackage") .entity.User;
+import $!table.get("basePackage") .entity.${table.entityName};
+import $!table.get("basePackage") .entity.${table.entityName}Example;
+import $!table.get("basePackage") .entity.vo.BaseQuery;
+import $!table.get("basePackage") .entity.vo.${table.entityName}Query;
+import $!table.get("basePackage") .plugin.util.SessionUtil;
+import $!table.get("basePackage") .service.${table.entityName}Service;
+import $!table.get("basePackage") .service.constants.SystemReturnEnum;
+import $!table.get("basePackage") .service.constants.${table.entityName}Enums;
+import $!table.get("basePackage") .service.exception.SystemException;
+import top.buukle.util.DateUtil;
+import top.buukle.util.JsonUtil;
+import top.buukle.util.StringUtil;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -28,12 +36,11 @@ import java.util.List;
 * @author elvin
 * @description ${table.entityName}Service实现类
 */
-@Service
+@Service("${table.entityLowerCamel}Service")
 public class ${table.entityName}ServiceImpl implements ${table.entityName}Service{
 
-
     @Autowired
-    private ${table.entityName}Mapper ${table.entityNameFirstLowerCase}Mapper;
+    private ${table.entityName}Mapper ${table.entityLowerCamel}Mapper;
 
     /**
      * 分页获取列表
@@ -41,23 +48,112 @@ public class ${table.entityName}ServiceImpl implements ${table.entityName}Servic
      * @return PageResponse
      */
     @Override
-    public PageResponse getPageList(${table.entityName}Query query) {
-        PageHelper.startPage(query.getPage(),query.getPageSize());
-        List<${table.entityName}> list = ${table.entityNameFirstLowerCase}Mapper.selectByExample(this.assExampleForList(query));
+    public PageResponse getPage(BaseQuery query) {
+        PageHelper.startPage(((${table.entityName}Query)query).getPage(),((${table.entityName}Query)query).getPageSize());
+        List<${table.entityName}> list = ${table.entityLowerCamel}Mapper.selectByExample(this.assExampleForList(((${table.entityName}Query)query)));
         PageInfo<${table.entityName}> pageInfo = new PageInfo<>(list);
         return new PageResponse.Builder().build(list,pageInfo.getPageNum(),pageInfo.getPageSize(),pageInfo.getTotal());
     }
 
     /**
+     * 根据id删除记录状态数据
+     * @param id 删除数据实例
+     * @param request httpServletRequest
+     * @param response
+     * @return
+     */
+    @Override
+    public CommonResponse delete(Integer id, HttpServletRequest request, HttpServletResponse response) {
+        if(${table.entityLowerCamel}Mapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(id, ${table.entityName}Enums.status.DELETED.value(),request,response)) != 1){
+            throw new SystemException(SystemReturnEnum.DELETE_INFO_EXCEPTION);
+        }
+        return new CommonResponse.Builder().buildSuccess();
+    }
+
+    /**
+     * @description 批量删除
+     * @param ids
+     * @param request
+     * @param response
+     * @return top.buukle.common.call.CommonResponse
+     * @Author elvin
+     * @Date 2019/8/4
+     */
+    @Override
+    public CommonResponse deleteBatch(String ids, HttpServletRequest request, HttpServletResponse response) {
+        String trimIds = ids.trim();
+        String[] split = trimIds.split(",");
+        if(StringUtil.isEmpty(trimIds) || split.length<1){
+            throw new SystemException(SystemReturnEnum.USER_BATCH_DELETE_IDS_NULL);
+        }
+        List<Integer> idList = JsonUtil.parseArray(JsonUtil.toJSONString(Arrays.asList(split)), Integer.class);
+        ${table.entityName}Example ${table.entityLowerCamel}Example = new ${table.entityName}Example();
+        ${table.entityName}Example.Criteria criteria = ${table.entityLowerCamel}Example.createCriteria();
+        criteria.andIdIn(idList);
+        ${table.entityName} ${table.entityLowerCamel} = new ${table.entityName}();
+
+        User operator = SessionUtil. getOperator(request, response);
+        ${table.entityLowerCamel}.setGmtModified(new Date());
+        ${table.entityLowerCamel}.setModifier(operator.getUsername());
+        ${table.entityLowerCamel}.setModifierCode(operator.getUserId());
+
+        ${table.entityLowerCamel}.setStatus(${table.entityName}Enums.status.DELETED.value());
+        ${table.entityLowerCamel}Mapper.updateByExampleSelective(${table.entityLowerCamel},${table.entityLowerCamel}Example);
+        return new CommonResponse.Builder().buildSuccess();
+    }
+
+    /**
+     * @description 根据id查询
+     * @param id
+     * @return top.buukle.security.entity.${table.entityName}
+     * @Author elvin
+     * @Date 2019/8/4
+     */
+    @Override
+    public ${table.entityName} selectByPrimaryKey(Integer id) {
+        if(id == null){
+            return new ${table.entityName}();
+        }
+        ${table.entityName} ${table.entityLowerCamel} = ${table.entityLowerCamel}Mapper.selectByPrimaryKey(id);
+        return ${table.entityLowerCamel} == null ? new ${table.entityName}() : ${table.entityLowerCamel};
+    }
+
+    /**
+     * @description 新增或者修改
+     * @param query
+     * @param request
+     * @param response
+     * @return top.buukle.common.call.CommonResponse
+     * @Author elvin
+     * @Date 2019/8/5
+     */
+    @Override
+    public CommonResponse saveOrEdit(${table.entityName}Query query, HttpServletRequest request, HttpServletResponse response) {
+        validateParamForSaveOrEdit(query);
+        // 新增
+        if(query.getId() == null){
+            this.save(query,request,response);
+        }
+        // 更新
+        else{
+            this.update(query,request,response);
+        }
+        return new CommonResponse.Builder().buildSuccess();
+    }
+
+    /**
      * 模糊搜素
-     * @param fuzzyText 模糊的字符
+     * @param text 模糊的字符
      * @param fieldName 模糊字段名
      * @return FuzzyResponse
      */
     @Override
-    public FuzzyResponse fuzzySearch(String fuzzyText, String fieldName) {
-        // TODO 先暂时需要手动实现mybatis的mapper文件sql
-        // return new FuzzyResponse.Builder().build(${table.entityNameFirstLowerCase}Mapper.fuzzySearch(fuzzyText,fieldName));
+    public FuzzyResponse fuzzySearch(String text, String fieldName) {
+        FuzzyVo fuzzyVo = new FuzzyVo();
+        fuzzyVo.setText(text);
+        fuzzyVo.setFieldName(fieldName);
+        // TODO mapper sql 暂时需要手动写入
+        // return new FuzzyResponse.Builder().build(${table.entityLowerCamel}Mapper.fuzzySearch(fuzzyVo));
         return null;
     }
 
@@ -65,108 +161,86 @@ public class ${table.entityName}ServiceImpl implements ${table.entityName}Servic
      * 保存记录
      * @param query  查询实体
      * @param request httpServletRequest
+     * @param response
      * @return
      */
     @Override
-    public CommonResponse save(${table.entityName}Query query, HttpServletRequest request) {
-        ${table.entityNameFirstLowerCase}Mapper.insert(this.assQueryForInsert(query,request));
+    public CommonResponse save(BaseQuery query, HttpServletRequest request, HttpServletResponse response) {
+
+        ${table.entityLowerCamel}Mapper.insert(this.assQueryForInsert((${table.entityName}Query)query,request,response));
         return new CommonResponse.Builder().buildSuccess();
     }
-
-    /**
-     * 根据id删除记录状态数据
-     * @param query 更新数据实例
-     * @param request httpServletRequest
-     * @return
-     */
-    @Override
-    public CommonResponse delete(${table.entityName}Query query, HttpServletRequest request) {
-        if(${table.entityNameFirstLowerCase}Mapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(query, ${table.entityName}Enums.status.DELETED.value(),request)) != 1){
-            throw new SystemException(SystemReturnEnum.DELETE_INFO_EXCEPTION);
-        }
-        return new CommonResponse.Builder().buildSuccess();
-    }
-
 
     /**
      * 更新记录
      * @param query
      * @param request
+     * @param response
      * @return
      */
     @Override
-    public CommonResponse update(${table.entityName}Query query, HttpServletRequest request) {
+    public CommonResponse update(BaseQuery query, HttpServletRequest request, HttpServletResponse response) {
+        ${table.entityName}Query ${table.entityLowerCamel}Query = ((${table.entityName}Query)query);
+
         ${table.entityName}Example example = new ${table.entityName}Example();
         ${table.entityName}Example.Criteria criteria = example.createCriteria();
-        criteria.andIdEqualTo(query.getId());
-//        ${table.entityName} operator = securityClient.get${table.entityName}Info(request);
-        query.setGmtModified(new Date());
-//        query.setModifier(operator.get${table.entityName}name());
-//        query.setModifierCode(operator.get${table.entityName}Id());
-        ${table.entityNameFirstLowerCase}Mapper.updateByExampleSelective(query,example);
+        criteria.andIdEqualTo(${table.entityLowerCamel}Query.getId());
+        User operator = SessionUtil. getOperator(request, response);
+        ${table.entityLowerCamel}Query.setGmtModified(new Date());
+        ${table.entityLowerCamel}Query.setModifier(operator.getUsername());
+        ${table.entityLowerCamel}Query.setModifierCode(operator.getUserId());
+        ${table.entityLowerCamel}Mapper.updateByExampleSelective(${table.entityLowerCamel}Query,example);
         return new CommonResponse.Builder().buildSuccess();
     }
 
     /**
-     * 查询记录详情
-     * @param query 查询实体
-     * @return ${table.entityName}
-     */
-    @Override
-    public ${table.entityName} getById(${table.entityName}Query query) {
-        return ${table.entityNameFirstLowerCase}Mapper.selectByPrimaryKey(query.getId());
-    }
-
-    /**
-     * 组装文章查询Example实体
+     * @description 校验参数 saveOrEdit
      * @param query
-     * @param statusList
-     * @return
+     * @return void
+     * @Author elvin
+     * @Date 2019/8/5
      */
-    private ${table.entityName}Example assExampleForList(${table.entityName}Query query, List<Integer> statusList) {
-        ${table.entityName}Example example = new ${table.entityName}Example();
-        ${table.entityName}Example.Criteria criteria = example.createCriteria();
-        if(StringUtils.isNotEmpty(query.getStartTime())){
-            criteria.andGmtCreatedGreaterThanOrEqualTo(DateUtil.parse(query.getStartTime()));
-        }
-        if(StringUtil.isNotEmpty(query.getEndTime())){
-            criteria.andGmtCreatedLessThanOrEqualTo(DateUtil.parse(query.getEndTime()));
-        }
-        if(null == query.getStatus()){
-            criteria.andStatusIn(statusList);
-        }else{
-            criteria.andStatusEqualTo(query.getStatus());
-        }
-        example.orderBy("gmt_created desc");
-        return example;
+    private void validateParamForSaveOrEdit(${table.entityName}Query query) {
+        // TODO
     }
-
 
     /**
      * 组装新增实体
      * @param query
      * @param request
+     * @param response
      * @return
      */
-    private ${table.entityName} assQueryForInsert(${table.entityName}Query query, HttpServletRequest request) {
+    private ${table.entityName} assQueryForInsert(${table.entityName}Query query, HttpServletRequest request, HttpServletResponse response) {
+        this.validateParamForSaveOrEdit(query);
+        query.setStatus(${table.entityName}Enums.status.INIT.value());
+        query.setGmtCreated(new Date());
+        User operator = SessionUtil.getOperator(request, response);
+        query.setCreator(operator.getUsername());
+        query.setCreatorCode(operator.getUserId());
+        query.setGmtModified(new Date());
+        query.setModifier(operator.getUsername());
+        query.setModifierCode(operator.getUserId());
+
         return query;
     }
 
     /**
      * 组装更新状态实体
-     * @param query
+     * @param id
      * @param status
      * @param request
+     * @param response
      * @return
      */
-    private ${table.entityName} assQueryForUpdateStatus(${table.entityName}Query query, Integer status, HttpServletRequest request) {
-//      User operator = securityClient.get${table.entityName}Info(request);
+    private ${table.entityName} assQueryForUpdateStatus(Integer id, Integer status, HttpServletRequest request, HttpServletResponse response) {
         ${table.entityName}Query infoQuery = new ${table.entityName}Query();
-        infoQuery.setId(query.getId());
+        User operator = SessionUtil. getOperator(request, response);
+        infoQuery.setId(id);
         infoQuery.setStatus(status);
         infoQuery.setGmtModified(new Date());
-//        infoQuery.setModifier(operator.getUsername());
-//        infoQuery.setModifierCode(operator.getUserId());
+        infoQuery.setModifier(operator.getUsername());
+        infoQuery.setModifierCode(operator.getUserId());
         return infoQuery;
     }
 
@@ -184,9 +258,19 @@ public class ${table.entityName}ServiceImpl implements ${table.entityName}Servic
         if(StringUtil.isNotEmpty(query.getEndTime())){
             criteria.andGmtCreatedLessThanOrEqualTo(DateUtil.parse(query.getEndTime()));
         }
-        if(null != query.getStatus()){
-            criteria.andStatusEqualTo(query.getStatus());
+        if(query.getId() != null){
+            criteria.andIdEqualTo(query.getId());
         }
+        // TODO
+        if(StringUtil.isNotEmpty(query.getStates())){
+            List list = new ArrayList();
+            for (String state : query.getStates().split(",")) {
+                list.add(Integer.parseInt(state));
+            }
+            criteria.andStatusIn(list);
+        }
+        criteria.andStatusNotEqualTo(StatusConstants.DELETED);
+        example.setOrderByClause("gmt_modified desc");
         return example;
     }
 }

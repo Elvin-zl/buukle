@@ -39,5 +39,23 @@ templateConfig:
     destPackage: ${basePackage}.service.constants
     destFileName: ${entityName}Enums.java
 
+  # home
+  - template: html/home.vm
+    destDir: modulePrefix-web/src/main/resources/templates/security
+    destPackage: ${entityLowerCamel}
+    destFileName: ${entityLowerCamel}Home.html
+
+  # page
+  - template: html/page.vm
+    destDir: modulePrefix-web/src/main/resources/templates/security
+    destPackage: ${entityLowerCamel}
+    destFileName: ${entityLowerCamel}Page.html
+
+  # crudView
+  - template: html/crudView.vm
+    destDir: modulePrefix-web/src/main/resources/templates/security
+    destPackage: ${entityLowerCamel}
+    destFileName: ${entityLowerCamel}CrudView.html
+
 
 

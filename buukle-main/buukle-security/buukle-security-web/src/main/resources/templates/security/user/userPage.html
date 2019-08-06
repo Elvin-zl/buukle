@@ -29,8 +29,8 @@
 			<td th:switch="${user?.status}">
 				<button th:case="0" class="layui-btn layui-btn-mini layui-btn-danger" > 初始化</button>
 				<button th:case="1" class="layui-btn layui-btn-mini layui-btn-normal" > 处理中</button>
-				<button th:case="2" class="layui-btn layui-btn-mini layui-btn-default"> 审核通过</button>
-				<button th:case="3" class="layui-btn layui-btn-mini layui-btn-default"> 审核不通过</button>
+				<button th:case="2" class="layui-btn layui-btn-mini layui-btn-default"> 审核不通过</button>
+				<button th:case="3" class="layui-btn layui-btn-mini layui-btn-default"> 审核通过</button>
 				<button th:case="4" class="layui-btn layui-btn-mini layui-btn-default"> 已被封禁</button>
 				<button th:case="*" class="layui-btn layui-btn-mini layui-btn-unknown"> 未知</button>
 			</td>

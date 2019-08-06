@@ -3,7 +3,7 @@
 <mapper namespace="top.buukle.security.dao.BuukleSignMapper">
   <resultMap id="BaseResultMap" type="top.buukle.security.entity.BuukleSign">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:44 CST 2019. by MyBatis Generator, do not modify.
     -->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="partner_name" jdbcType="VARCHAR" property="partnerName" />
@@ -11,6 +11,7 @@
     <result column="partner_type" jdbcType="INTEGER" property="partnerType" />
     <result column="partner_key_valid" jdbcType="TIMESTAMP" property="partnerKeyValid" />
     <result column="partner_key_endvalid" jdbcType="TIMESTAMP" property="partnerKeyEndvalid" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
     <result column="remark" jdbcType="VARCHAR" property="remark" />
     <result column="gmt_created" jdbcType="TIMESTAMP" property="gmtCreated" />
     <result column="creator" jdbcType="VARCHAR" property="creator" />
@@ -27,13 +28,13 @@
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="top.buukle.security.entity.BuukleSign">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:44 CST 2019. by MyBatis Generator, do not modify.
     -->
     <result column="partner_key" jdbcType="LONGVARCHAR" property="partnerKey" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:44 CST 2019. by MyBatis Generator, do not modify.
     -->
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -65,7 +66,7 @@
   </sql>
   <sql id="Update_By_Example_Where_Clause">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:44 CST 2019. by MyBatis Generator, do not modify.
     -->
     <where>
       <foreach collection="example.oredCriteria" item="criteria" separator="or">
@@ -97,21 +98,21 @@
   </sql>
   <sql id="Base_Column_List">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:44 CST 2019. by MyBatis Generator, do not modify.
     -->
     id, partner_name, partner_id, partner_type, partner_key_valid, partner_key_endvalid, 
-    remark, gmt_created, creator, creator_code, gmt_modified, modifier, modifier_code, 
-    status, bak01, bak02, bak03, bak04, bak05
+    description, remark, gmt_created, creator, creator_code, gmt_modified, modifier, 
+    modifier_code, status, bak01, bak02, bak03, bak04, bak05
   </sql>
   <sql id="Blob_Column_List">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:44 CST 2019. by MyBatis Generator, do not modify.
     -->
     partner_key
   </sql>
   <select id="selectByExampleWithBLOBs" parameterType="top.buukle.security.entity.BuukleSignExample" resultMap="ResultMapWithBLOBs">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:44 CST 2019. by MyBatis Generator, do not modify.
     -->
     select
     <if test="distinct">
@@ -130,7 +131,7 @@
   </select>
   <select id="selectByExample" parameterType="top.buukle.security.entity.BuukleSignExample" resultMap="BaseResultMap">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:44 CST 2019. by MyBatis Generator, do not modify.
     -->
     select
     <if test="distinct">
@@ -147,7 +148,7 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:44 CST 2019. by MyBatis Generator, do not modify.
     -->
     select 
     <include refid="Base_Column_List" />
@@ -158,14 +159,14 @@
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:44 CST 2019. by MyBatis Generator, do not modify.
     -->
     delete from buukle_sign
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="top.buukle.security.entity.BuukleSignExample">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:44 CST 2019. by MyBatis Generator, do not modify.
     -->
     delete from buukle_sign
     <if test="_parameter != null">
@@ -174,26 +175,28 @@
   </delete>
   <insert id="insert" parameterType="top.buukle.security.entity.BuukleSign">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:44 CST 2019. by MyBatis Generator, do not modify.
     -->
     insert into buukle_sign (id, partner_name, partner_id, 
       partner_type, partner_key_valid, partner_key_endvalid, 
-      remark, gmt_created, creator, 
-      creator_code, gmt_modified, modifier, 
-      modifier_code, status, bak01, 
-      bak02, bak03, bak04, 
-      bak05, partner_key)
+      description, remark, gmt_created, 
+      creator, creator_code, gmt_modified, 
+      modifier, modifier_code, status, 
+      bak01, bak02, bak03, 
+      bak04, bak05, partner_key
+      )
     values (#{id,jdbcType=INTEGER}, #{partnerName,jdbcType=VARCHAR}, #{partnerId,jdbcType=VARCHAR}, 
       #{partnerType,jdbcType=INTEGER}, #{partnerKeyValid,jdbcType=TIMESTAMP}, #{partnerKeyEndvalid,jdbcType=TIMESTAMP}, 
-      #{remark,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, 
-      #{creatorCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR}, 
-      #{modifierCode,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{bak01,jdbcType=VARCHAR}, 
-      #{bak02,jdbcType=VARCHAR}, #{bak03,jdbcType=VARCHAR}, #{bak04,jdbcType=VARCHAR}, 
-      #{bak05,jdbcType=VARCHAR}, #{partnerKey,jdbcType=LONGVARCHAR})
+      #{description,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, 
+      #{creator,jdbcType=VARCHAR}, #{creatorCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{modifier,jdbcType=VARCHAR}, #{modifierCode,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{bak01,jdbcType=VARCHAR}, #{bak02,jdbcType=VARCHAR}, #{bak03,jdbcType=VARCHAR}, 
+      #{bak04,jdbcType=VARCHAR}, #{bak05,jdbcType=VARCHAR}, #{partnerKey,jdbcType=LONGVARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="top.buukle.security.entity.BuukleSign">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:44 CST 2019. by MyBatis Generator, do not modify.
     -->
     insert into buukle_sign
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -214,6 +217,9 @@
       </if>
       <if test="partnerKeyEndvalid != null">
         partner_key_endvalid,
+      </if>
+      <if test="description != null">
+        description,
       </if>
       <if test="remark != null">
         remark,
@@ -277,6 +283,9 @@
       <if test="partnerKeyEndvalid != null">
         #{partnerKeyEndvalid,jdbcType=TIMESTAMP},
       </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
       <if test="remark != null">
         #{remark,jdbcType=VARCHAR},
       </if>
@@ -323,7 +332,7 @@
   </insert>
   <select id="countByExample" parameterType="top.buukle.security.entity.BuukleSignExample" resultType="java.lang.Long">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:44 CST 2019. by MyBatis Generator, do not modify.
     -->
     select count(*) from buukle_sign
     <if test="_parameter != null">
@@ -332,7 +341,7 @@
   </select>
   <update id="updateByExampleSelective" parameterType="map">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:44 CST 2019. by MyBatis Generator, do not modify.
     -->
     update buukle_sign
     <set>
@@ -353,6 +362,9 @@
       </if>
       <if test="record.partnerKeyEndvalid != null">
         partner_key_endvalid = #{record.partnerKeyEndvalid,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.description != null">
+        description = #{record.description,jdbcType=VARCHAR},
       </if>
       <if test="record.remark != null">
         remark = #{record.remark,jdbcType=VARCHAR},
@@ -403,7 +415,7 @@
   </update>
   <update id="updateByExampleWithBLOBs" parameterType="map">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:44 CST 2019. by MyBatis Generator, do not modify.
     -->
     update buukle_sign
     set id = #{record.id,jdbcType=INTEGER},
@@ -412,6 +424,7 @@
       partner_type = #{record.partnerType,jdbcType=INTEGER},
       partner_key_valid = #{record.partnerKeyValid,jdbcType=TIMESTAMP},
       partner_key_endvalid = #{record.partnerKeyEndvalid,jdbcType=TIMESTAMP},
+      description = #{record.description,jdbcType=VARCHAR},
       remark = #{record.remark,jdbcType=VARCHAR},
       gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
       creator = #{record.creator,jdbcType=VARCHAR},
@@ -432,7 +445,7 @@
   </update>
   <update id="updateByExample" parameterType="map">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:44 CST 2019. by MyBatis Generator, do not modify.
     -->
     update buukle_sign
     set id = #{record.id,jdbcType=INTEGER},
@@ -441,6 +454,7 @@
       partner_type = #{record.partnerType,jdbcType=INTEGER},
       partner_key_valid = #{record.partnerKeyValid,jdbcType=TIMESTAMP},
       partner_key_endvalid = #{record.partnerKeyEndvalid,jdbcType=TIMESTAMP},
+      description = #{record.description,jdbcType=VARCHAR},
       remark = #{record.remark,jdbcType=VARCHAR},
       gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
       creator = #{record.creator,jdbcType=VARCHAR},
@@ -460,7 +474,7 @@
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="top.buukle.security.entity.BuukleSign">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:44 CST 2019. by MyBatis Generator, do not modify.
     -->
     update buukle_sign
     <set>
@@ -478,6 +492,9 @@
       </if>
       <if test="partnerKeyEndvalid != null">
         partner_key_endvalid = #{partnerKeyEndvalid,jdbcType=TIMESTAMP},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
       </if>
       <if test="remark != null">
         remark = #{remark,jdbcType=VARCHAR},
@@ -526,7 +543,7 @@
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="top.buukle.security.entity.BuukleSign">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:44 CST 2019. by MyBatis Generator, do not modify.
     -->
     update buukle_sign
     set partner_name = #{partnerName,jdbcType=VARCHAR},
@@ -534,6 +551,7 @@
       partner_type = #{partnerType,jdbcType=INTEGER},
       partner_key_valid = #{partnerKeyValid,jdbcType=TIMESTAMP},
       partner_key_endvalid = #{partnerKeyEndvalid,jdbcType=TIMESTAMP},
+      description = #{description,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=VARCHAR},
       gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
       creator = #{creator,jdbcType=VARCHAR},
@@ -552,7 +570,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="top.buukle.security.entity.BuukleSign">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:29 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:44 CST 2019. by MyBatis Generator, do not modify.
     -->
     update buukle_sign
     set partner_name = #{partnerName,jdbcType=VARCHAR},
@@ -560,6 +578,7 @@
       partner_type = #{partnerType,jdbcType=INTEGER},
       partner_key_valid = #{partnerKeyValid,jdbcType=TIMESTAMP},
       partner_key_endvalid = #{partnerKeyEndvalid,jdbcType=TIMESTAMP},
+      description = #{description,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=VARCHAR},
       gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
       creator = #{creator,jdbcType=VARCHAR},

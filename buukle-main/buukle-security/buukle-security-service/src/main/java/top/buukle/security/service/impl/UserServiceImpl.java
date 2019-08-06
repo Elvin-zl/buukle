@@ -50,7 +50,7 @@ public class UserServiceImpl implements UserService{
      * @return PageResponse
      */
     @Override
-    public PageResponse userPage(BaseQuery query) {
+    public PageResponse getPage(BaseQuery query) {
         PageHelper.startPage(((UserQuery)query).getPage(),((UserQuery)query).getPageSize());
         List<User> list = userMapper.selectByExample(this.assExampleForList(((UserQuery)query)));
         PageInfo<User> pageInfo = new PageInfo<>(list);

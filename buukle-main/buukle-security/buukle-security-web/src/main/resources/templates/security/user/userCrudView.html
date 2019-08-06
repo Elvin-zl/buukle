@@ -71,7 +71,8 @@
 					<div class="layui-form-item">
 						<label class="layui-form-label">是否超管：</label>
 						<div class="layui-input-block">
-							<input type="checkbox" th:field="*{record.bak01}" name="bak01" value="1" lay-skin="switch">
+							<input type="radio" name="loginStrategy" th:field="*{record.superManager}" value="0" title="否" checked>
+							<input type="radio" name="loginStrategy" th:field="*{record.superManager}" value="1"  title="是">
 						</div>
 					</div>
 				</div>
@@ -92,7 +93,7 @@
 	<script src="/static/security/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/static/security/js/common.js" type="text/javascript" charset="utf-8"></script>
 	<script>
-		layui.use(['jquery', 'layer','dialog'], function() {
+		layui.use(['jquery', 'layer','dialog','form'], function() {
 			layer = layui.layer, $ = layui.jquery, dialog = layui.dialog;
             bindSaveOrEdit();
 		});

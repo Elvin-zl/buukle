@@ -3,11 +3,12 @@
 <mapper namespace="top.buukle.security.dao.UserRoleRelationMapper">
   <resultMap id="BaseResultMap" type="top.buukle.security.entity.UserRoleRelation">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:52 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:33:05 CST 2019. by MyBatis Generator, do not modify.
     -->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="role_id" jdbcType="INTEGER" property="roleId" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
     <result column="remark" jdbcType="VARCHAR" property="remark" />
     <result column="gmt_created" jdbcType="TIMESTAMP" property="gmtCreated" />
     <result column="creator" jdbcType="VARCHAR" property="creator" />
@@ -24,7 +25,7 @@
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:52 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:33:05 CST 2019. by MyBatis Generator, do not modify.
     -->
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -56,7 +57,7 @@
   </sql>
   <sql id="Update_By_Example_Where_Clause">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:52 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:33:05 CST 2019. by MyBatis Generator, do not modify.
     -->
     <where>
       <foreach collection="example.oredCriteria" item="criteria" separator="or">
@@ -88,14 +89,14 @@
   </sql>
   <sql id="Base_Column_List">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:52 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:33:05 CST 2019. by MyBatis Generator, do not modify.
     -->
-    id, user_id, role_id, remark, gmt_created, creator, creator_code, gmt_modified, modifier, 
-    modifier_code, status, bak01, bak02, bak03, bak04, bak05
+    id, user_id, role_id, description, remark, gmt_created, creator, creator_code, gmt_modified, 
+    modifier, modifier_code, status, bak01, bak02, bak03, bak04, bak05
   </sql>
   <select id="selectByExample" parameterType="top.buukle.security.entity.UserRoleRelationExample" resultMap="BaseResultMap">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:52 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:33:05 CST 2019. by MyBatis Generator, do not modify.
     -->
     select
     <if test="distinct">
@@ -112,7 +113,7 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:52 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:33:05 CST 2019. by MyBatis Generator, do not modify.
     -->
     select 
     <include refid="Base_Column_List" />
@@ -121,14 +122,14 @@
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:52 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:33:05 CST 2019. by MyBatis Generator, do not modify.
     -->
     delete from user_role_relation
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="top.buukle.security.entity.UserRoleRelationExample">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:52 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:33:05 CST 2019. by MyBatis Generator, do not modify.
     -->
     delete from user_role_relation
     <if test="_parameter != null">
@@ -137,24 +138,24 @@
   </delete>
   <insert id="insert" parameterType="top.buukle.security.entity.UserRoleRelation">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:52 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:33:05 CST 2019. by MyBatis Generator, do not modify.
     -->
     insert into user_role_relation (id, user_id, role_id, 
-      remark, gmt_created, creator, 
-      creator_code, gmt_modified, modifier, 
-      modifier_code, status, bak01, 
-      bak02, bak03, bak04, 
-      bak05)
+      description, remark, gmt_created, 
+      creator, creator_code, gmt_modified, 
+      modifier, modifier_code, status, 
+      bak01, bak02, bak03, 
+      bak04, bak05)
     values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=VARCHAR}, #{roleId,jdbcType=INTEGER}, 
-      #{remark,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, 
-      #{creatorCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR}, 
-      #{modifierCode,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{bak01,jdbcType=VARCHAR}, 
-      #{bak02,jdbcType=VARCHAR}, #{bak03,jdbcType=VARCHAR}, #{bak04,jdbcType=VARCHAR}, 
-      #{bak05,jdbcType=VARCHAR})
+      #{description,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, 
+      #{creator,jdbcType=VARCHAR}, #{creatorCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{modifier,jdbcType=VARCHAR}, #{modifierCode,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{bak01,jdbcType=VARCHAR}, #{bak02,jdbcType=VARCHAR}, #{bak03,jdbcType=VARCHAR}, 
+      #{bak04,jdbcType=VARCHAR}, #{bak05,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="top.buukle.security.entity.UserRoleRelation">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:52 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:33:05 CST 2019. by MyBatis Generator, do not modify.
     -->
     insert into user_role_relation
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -166,6 +167,9 @@
       </if>
       <if test="roleId != null">
         role_id,
+      </if>
+      <if test="description != null">
+        description,
       </if>
       <if test="remark != null">
         remark,
@@ -217,6 +221,9 @@
       <if test="roleId != null">
         #{roleId,jdbcType=INTEGER},
       </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
       <if test="remark != null">
         #{remark,jdbcType=VARCHAR},
       </if>
@@ -260,7 +267,7 @@
   </insert>
   <select id="countByExample" parameterType="top.buukle.security.entity.UserRoleRelationExample" resultType="java.lang.Long">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:52 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:33:05 CST 2019. by MyBatis Generator, do not modify.
     -->
     select count(*) from user_role_relation
     <if test="_parameter != null">
@@ -269,7 +276,7 @@
   </select>
   <update id="updateByExampleSelective" parameterType="map">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:52 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:33:05 CST 2019. by MyBatis Generator, do not modify.
     -->
     update user_role_relation
     <set>
@@ -281,6 +288,9 @@
       </if>
       <if test="record.roleId != null">
         role_id = #{record.roleId,jdbcType=INTEGER},
+      </if>
+      <if test="record.description != null">
+        description = #{record.description,jdbcType=VARCHAR},
       </if>
       <if test="record.remark != null">
         remark = #{record.remark,jdbcType=VARCHAR},
@@ -328,12 +338,13 @@
   </update>
   <update id="updateByExample" parameterType="map">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:52 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:33:05 CST 2019. by MyBatis Generator, do not modify.
     -->
     update user_role_relation
     set id = #{record.id,jdbcType=INTEGER},
       user_id = #{record.userId,jdbcType=VARCHAR},
       role_id = #{record.roleId,jdbcType=INTEGER},
+      description = #{record.description,jdbcType=VARCHAR},
       remark = #{record.remark,jdbcType=VARCHAR},
       gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
       creator = #{record.creator,jdbcType=VARCHAR},
@@ -353,7 +364,7 @@
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="top.buukle.security.entity.UserRoleRelation">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:52 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:33:05 CST 2019. by MyBatis Generator, do not modify.
     -->
     update user_role_relation
     <set>
@@ -362,6 +373,9 @@
       </if>
       <if test="roleId != null">
         role_id = #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
       </if>
       <if test="remark != null">
         remark = #{remark,jdbcType=VARCHAR},
@@ -407,11 +421,12 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="top.buukle.security.entity.UserRoleRelation">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:52 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:33:05 CST 2019. by MyBatis Generator, do not modify.
     -->
     update user_role_relation
     set user_id = #{userId,jdbcType=VARCHAR},
       role_id = #{roleId,jdbcType=INTEGER},
+      description = #{description,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=VARCHAR},
       gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
       creator = #{creator,jdbcType=VARCHAR},

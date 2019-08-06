@@ -3,7 +3,7 @@
 <mapper namespace="top.buukle.security.dao.InterfaceRegisterMapper">
   <resultMap id="BaseResultMap" type="top.buukle.security.entity.InterfaceRegister">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:32 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:46 CST 2019. by MyBatis Generator, do not modify.
     -->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="application_id" jdbcType="INTEGER" property="applicationId" />
@@ -12,6 +12,7 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="url" jdbcType="VARCHAR" property="url" />
     <result column="sign_type" jdbcType="INTEGER" property="signType" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
     <result column="remark" jdbcType="VARCHAR" property="remark" />
     <result column="gmt_created" jdbcType="TIMESTAMP" property="gmtCreated" />
     <result column="creator" jdbcType="VARCHAR" property="creator" />
@@ -28,7 +29,7 @@
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:32 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:46 CST 2019. by MyBatis Generator, do not modify.
     -->
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -60,7 +61,7 @@
   </sql>
   <sql id="Update_By_Example_Where_Clause">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:32 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:46 CST 2019. by MyBatis Generator, do not modify.
     -->
     <where>
       <foreach collection="example.oredCriteria" item="criteria" separator="or">
@@ -92,15 +93,15 @@
   </sql>
   <sql id="Base_Column_List">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:32 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:46 CST 2019. by MyBatis Generator, do not modify.
     -->
-    id, application_id, menu_id, button_id, name, url, sign_type, remark, gmt_created, 
-    creator, creator_code, gmt_modified, modifier, modifier_code, status, bak01, bak02, 
-    bak03, bak04, bak05
+    id, application_id, menu_id, button_id, name, url, sign_type, description, remark, 
+    gmt_created, creator, creator_code, gmt_modified, modifier, modifier_code, status, 
+    bak01, bak02, bak03, bak04, bak05
   </sql>
   <select id="selectByExample" parameterType="top.buukle.security.entity.InterfaceRegisterExample" resultMap="BaseResultMap">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:32 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:46 CST 2019. by MyBatis Generator, do not modify.
     -->
     select
     <if test="distinct">
@@ -117,7 +118,7 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:32 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:46 CST 2019. by MyBatis Generator, do not modify.
     -->
     select 
     <include refid="Base_Column_List" />
@@ -126,14 +127,14 @@
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:32 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:46 CST 2019. by MyBatis Generator, do not modify.
     -->
     delete from interface_register
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="top.buukle.security.entity.InterfaceRegisterExample">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:32 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:46 CST 2019. by MyBatis Generator, do not modify.
     -->
     delete from interface_register
     <if test="_parameter != null">
@@ -142,26 +143,28 @@
   </delete>
   <insert id="insert" parameterType="top.buukle.security.entity.InterfaceRegister">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:32 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:46 CST 2019. by MyBatis Generator, do not modify.
     -->
     insert into interface_register (id, application_id, menu_id, 
       button_id, name, url, 
-      sign_type, remark, gmt_created, 
-      creator, creator_code, gmt_modified, 
-      modifier, modifier_code, status, 
-      bak01, bak02, bak03, 
-      bak04, bak05)
+      sign_type, description, remark, 
+      gmt_created, creator, creator_code, 
+      gmt_modified, modifier, modifier_code, 
+      status, bak01, bak02, 
+      bak03, bak04, bak05
+      )
     values (#{id,jdbcType=INTEGER}, #{applicationId,jdbcType=INTEGER}, #{menuId,jdbcType=INTEGER}, 
       #{buttonId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
-      #{signType,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, 
-      #{creator,jdbcType=VARCHAR}, #{creatorCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, 
-      #{modifier,jdbcType=VARCHAR}, #{modifierCode,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
-      #{bak01,jdbcType=VARCHAR}, #{bak02,jdbcType=VARCHAR}, #{bak03,jdbcType=VARCHAR}, 
-      #{bak04,jdbcType=VARCHAR}, #{bak05,jdbcType=VARCHAR})
+      #{signType,jdbcType=INTEGER}, #{description,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{gmtCreated,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, #{creatorCode,jdbcType=VARCHAR}, 
+      #{gmtModified,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR}, #{modifierCode,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{bak01,jdbcType=VARCHAR}, #{bak02,jdbcType=VARCHAR}, 
+      #{bak03,jdbcType=VARCHAR}, #{bak04,jdbcType=VARCHAR}, #{bak05,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="top.buukle.security.entity.InterfaceRegister">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:32 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:46 CST 2019. by MyBatis Generator, do not modify.
     -->
     insert into interface_register
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -185,6 +188,9 @@
       </if>
       <if test="signType != null">
         sign_type,
+      </if>
+      <if test="description != null">
+        description,
       </if>
       <if test="remark != null">
         remark,
@@ -248,6 +254,9 @@
       <if test="signType != null">
         #{signType,jdbcType=INTEGER},
       </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
       <if test="remark != null">
         #{remark,jdbcType=VARCHAR},
       </if>
@@ -291,7 +300,7 @@
   </insert>
   <select id="countByExample" parameterType="top.buukle.security.entity.InterfaceRegisterExample" resultType="java.lang.Long">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:32 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:46 CST 2019. by MyBatis Generator, do not modify.
     -->
     select count(*) from interface_register
     <if test="_parameter != null">
@@ -300,7 +309,7 @@
   </select>
   <update id="updateByExampleSelective" parameterType="map">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:32 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:46 CST 2019. by MyBatis Generator, do not modify.
     -->
     update interface_register
     <set>
@@ -324,6 +333,9 @@
       </if>
       <if test="record.signType != null">
         sign_type = #{record.signType,jdbcType=INTEGER},
+      </if>
+      <if test="record.description != null">
+        description = #{record.description,jdbcType=VARCHAR},
       </if>
       <if test="record.remark != null">
         remark = #{record.remark,jdbcType=VARCHAR},
@@ -371,7 +383,7 @@
   </update>
   <update id="updateByExample" parameterType="map">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:32 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:46 CST 2019. by MyBatis Generator, do not modify.
     -->
     update interface_register
     set id = #{record.id,jdbcType=INTEGER},
@@ -381,6 +393,7 @@
       name = #{record.name,jdbcType=VARCHAR},
       url = #{record.url,jdbcType=VARCHAR},
       sign_type = #{record.signType,jdbcType=INTEGER},
+      description = #{record.description,jdbcType=VARCHAR},
       remark = #{record.remark,jdbcType=VARCHAR},
       gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
       creator = #{record.creator,jdbcType=VARCHAR},
@@ -400,7 +413,7 @@
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="top.buukle.security.entity.InterfaceRegister">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:32 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:46 CST 2019. by MyBatis Generator, do not modify.
     -->
     update interface_register
     <set>
@@ -421,6 +434,9 @@
       </if>
       <if test="signType != null">
         sign_type = #{signType,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
       </if>
       <if test="remark != null">
         remark = #{remark,jdbcType=VARCHAR},
@@ -466,7 +482,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="top.buukle.security.entity.InterfaceRegister">
     <!--
-      WARNING - @mbg.generated  This element was generated on Sat Aug 03 21:36:32 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:46 CST 2019. by MyBatis Generator, do not modify.
     -->
     update interface_register
     set application_id = #{applicationId,jdbcType=INTEGER},
@@ -475,6 +491,7 @@
       name = #{name,jdbcType=VARCHAR},
       url = #{url,jdbcType=VARCHAR},
       sign_type = #{signType,jdbcType=INTEGER},
+      description = #{description,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=VARCHAR},
       gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
       creator = #{creator,jdbcType=VARCHAR},

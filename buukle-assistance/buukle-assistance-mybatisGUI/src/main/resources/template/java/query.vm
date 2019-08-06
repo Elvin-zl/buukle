@@ -1,12 +1,12 @@
-package $!table.get("basePackage") .entity.vo;
+package top.buukle.security .entity.vo;
 
-import $!table.get("basePackage") .entity. ${table.entityName};
+import top.buukle.security.entity.${table.entityName};
 
 /**
 * @author elvin
-* @description  User 查询包装类
+* @description  ${table.entityName} 查询包装类
 */
-public class ${table.entityName}Query extends ${table.entityName} {
+public class ${table.entityName}Query extends ${table.entityName} implements BaseQuery{
 
     /** 当前页码*/
     private Integer page;
@@ -17,14 +17,20 @@ public class ${table.entityName}Query extends ${table.entityName} {
     /** 截止时间*/
     private String endTime;
     /** 状态*/
-    private Integer states;
+    private String states;
 
-    public Integer getStates() {
-    return super.getStatus();
+    public String getStates() {
+        if("null".equals(states)){
+            return null;
+        }
+        return this.states;
     }
 
-    public void setStates(Integer states) {
-    super.setStatus(states);
+    public void setStates(String states) {
+        if("null".equals(states)){
+            states = null;
+        }
+        this.states = states;
     }
 
     public Integer getPage() {

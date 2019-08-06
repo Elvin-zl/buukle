@@ -3,7 +3,7 @@
 <mapper namespace="top.buukle.security.dao.UserMapper">
   <resultMap id="BaseResultMap" type="top.buukle.security.entity.User">
     <!--
-      WARNING - @mbg.generated  This element was generated on Thu Aug 01 00:52:22 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 17:36:57 CST 2019. by MyBatis Generator, do not modify.
     -->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="user_id" jdbcType="VARCHAR" property="userId" />
@@ -26,6 +26,8 @@
     <result column="head_url" jdbcType="VARCHAR" property="headUrl" />
     <result column="theme" jdbcType="VARCHAR" property="theme" />
     <result column="theme_id" jdbcType="INTEGER" property="themeId" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="super_manager" jdbcType="INTEGER" property="superManager" />
     <result column="remark" jdbcType="VARCHAR" property="remark" />
     <result column="gmt_last_login" jdbcType="TIMESTAMP" property="gmtLastLogin" />
     <result column="gmt_created" jdbcType="TIMESTAMP" property="gmtCreated" />
@@ -41,24 +43,9 @@
     <result column="bak04" jdbcType="VARCHAR" property="bak04" />
     <result column="bak05" jdbcType="VARCHAR" property="bak05" />
   </resultMap>
-
-  <resultMap id="FuzzyResultMap" type="top.buukle.common.call.vo.FuzzyVo">
-    <id column="id" jdbcType="INTEGER" property="identity" />
-    <result column="user_id" jdbcType="VARCHAR" property="userId" />
-
-    <result column="user_id" jdbcType="VARCHAR" property="id" />
-    <result column="user_id" jdbcType="VARCHAR" property="text" />
-
-    <result column="username" jdbcType="VARCHAR" property="id" />
-    <result column="username" jdbcType="VARCHAR" property="text" />
-
-    <result column="name_cn" jdbcType="VARCHAR" property="id" />
-    <result column="name_cn" jdbcType="VARCHAR" property="text" />
-  </resultMap>
-
   <sql id="Example_Where_Clause">
     <!--
-      WARNING - @mbg.generated  This element was generated on Thu Aug 01 00:52:22 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 17:36:57 CST 2019. by MyBatis Generator, do not modify.
     -->
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -90,7 +77,7 @@
   </sql>
   <sql id="Update_By_Example_Where_Clause">
     <!--
-      WARNING - @mbg.generated  This element was generated on Thu Aug 01 00:52:22 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 17:36:57 CST 2019. by MyBatis Generator, do not modify.
     -->
     <where>
       <foreach collection="example.oredCriteria" item="criteria" separator="or">
@@ -122,16 +109,17 @@
   </sql>
   <sql id="Base_Column_List">
     <!--
-      WARNING - @mbg.generated  This element was generated on Thu Aug 01 00:52:22 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 17:36:57 CST 2019. by MyBatis Generator, do not modify.
     -->
     id, user_id, area_id, area_admin, username, password, name_cn, full_name_cn, name_en, 
     full_name_en, praise, fans, email, phone, sex, age, sign, login_strategy, head_url, 
-    theme, theme_id, remark, gmt_last_login, gmt_created, creator, creator_code, gmt_modified, 
-    modifier, modifier_code, status, bak01, bak02, bak03, bak04, bak05
+    theme, theme_id, description, super_manager, remark, gmt_last_login, gmt_created, 
+    creator, creator_code, gmt_modified, modifier, modifier_code, status, bak01, bak02, 
+    bak03, bak04, bak05
   </sql>
   <select id="selectByExample" parameterType="top.buukle.security.entity.UserExample" resultMap="BaseResultMap">
     <!--
-      WARNING - @mbg.generated  This element was generated on Thu Aug 01 00:52:22 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 17:36:57 CST 2019. by MyBatis Generator, do not modify.
     -->
     select
     <if test="distinct">
@@ -148,7 +136,7 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--
-      WARNING - @mbg.generated  This element was generated on Thu Aug 01 00:52:22 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 17:36:57 CST 2019. by MyBatis Generator, do not modify.
     -->
     select 
     <include refid="Base_Column_List" />
@@ -157,14 +145,14 @@
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--
-      WARNING - @mbg.generated  This element was generated on Thu Aug 01 00:52:22 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 17:36:57 CST 2019. by MyBatis Generator, do not modify.
     -->
     delete from user
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="top.buukle.security.entity.UserExample">
     <!--
-      WARNING - @mbg.generated  This element was generated on Thu Aug 01 00:52:22 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 17:36:57 CST 2019. by MyBatis Generator, do not modify.
     -->
     delete from user
     <if test="_parameter != null">
@@ -173,7 +161,7 @@
   </delete>
   <insert id="insert" parameterType="top.buukle.security.entity.User">
     <!--
-      WARNING - @mbg.generated  This element was generated on Thu Aug 01 00:52:22 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 17:36:57 CST 2019. by MyBatis Generator, do not modify.
     -->
     insert into user (id, user_id, area_id, 
       area_admin, username, password, 
@@ -182,11 +170,12 @@
       email, phone, sex, 
       age, sign, login_strategy, 
       head_url, theme, theme_id, 
-      remark, gmt_last_login, gmt_created, 
-      creator, creator_code, gmt_modified, 
-      modifier, modifier_code, status, 
-      bak01, bak02, bak03, 
-      bak04, bak05)
+      description, super_manager, remark, 
+      gmt_last_login, gmt_created, creator, 
+      creator_code, gmt_modified, modifier, 
+      modifier_code, status, bak01, 
+      bak02, bak03, bak04, 
+      bak05)
     values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=VARCHAR}, #{areaId,jdbcType=INTEGER}, 
       #{areaAdmin,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{nameCn,jdbcType=VARCHAR}, #{fullNameCn,jdbcType=VARCHAR}, #{nameEn,jdbcType=VARCHAR}, 
@@ -194,15 +183,16 @@
       #{email,jdbcType=VARCHAR}, #{phone,jdbcType=INTEGER}, #{sex,jdbcType=INTEGER}, 
       #{age,jdbcType=INTEGER}, #{sign,jdbcType=VARCHAR}, #{loginStrategy,jdbcType=INTEGER}, 
       #{headUrl,jdbcType=VARCHAR}, #{theme,jdbcType=VARCHAR}, #{themeId,jdbcType=INTEGER}, 
-      #{remark,jdbcType=VARCHAR}, #{gmtLastLogin,jdbcType=TIMESTAMP}, #{gmtCreated,jdbcType=TIMESTAMP}, 
-      #{creator,jdbcType=VARCHAR}, #{creatorCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, 
-      #{modifier,jdbcType=VARCHAR}, #{modifierCode,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
-      #{bak01,jdbcType=VARCHAR}, #{bak02,jdbcType=VARCHAR}, #{bak03,jdbcType=VARCHAR}, 
-      #{bak04,jdbcType=VARCHAR}, #{bak05,jdbcType=VARCHAR})
+      #{description,jdbcType=VARCHAR}, #{superManager,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, 
+      #{gmtLastLogin,jdbcType=TIMESTAMP}, #{gmtCreated,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, 
+      #{creatorCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR}, 
+      #{modifierCode,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{bak01,jdbcType=VARCHAR}, 
+      #{bak02,jdbcType=VARCHAR}, #{bak03,jdbcType=VARCHAR}, #{bak04,jdbcType=VARCHAR}, 
+      #{bak05,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="top.buukle.security.entity.User">
     <!--
-      WARNING - @mbg.generated  This element was generated on Thu Aug 01 00:52:22 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 17:36:57 CST 2019. by MyBatis Generator, do not modify.
     -->
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -268,6 +258,12 @@
       </if>
       <if test="themeId != null">
         theme_id,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="superManager != null">
+        super_manager,
       </if>
       <if test="remark != null">
         remark,
@@ -376,6 +372,12 @@
       <if test="themeId != null">
         #{themeId,jdbcType=INTEGER},
       </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="superManager != null">
+        #{superManager,jdbcType=INTEGER},
+      </if>
       <if test="remark != null">
         #{remark,jdbcType=VARCHAR},
       </if>
@@ -422,7 +424,7 @@
   </insert>
   <select id="countByExample" parameterType="top.buukle.security.entity.UserExample" resultType="java.lang.Long">
     <!--
-      WARNING - @mbg.generated  This element was generated on Thu Aug 01 00:52:22 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 17:36:57 CST 2019. by MyBatis Generator, do not modify.
     -->
     select count(*) from user
     <if test="_parameter != null">
@@ -431,7 +433,7 @@
   </select>
   <update id="updateByExampleSelective" parameterType="map">
     <!--
-      WARNING - @mbg.generated  This element was generated on Thu Aug 01 00:52:22 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 17:36:57 CST 2019. by MyBatis Generator, do not modify.
     -->
     update user
     <set>
@@ -498,6 +500,12 @@
       <if test="record.themeId != null">
         theme_id = #{record.themeId,jdbcType=INTEGER},
       </if>
+      <if test="record.description != null">
+        description = #{record.description,jdbcType=VARCHAR},
+      </if>
+      <if test="record.superManager != null">
+        super_manager = #{record.superManager,jdbcType=INTEGER},
+      </if>
       <if test="record.remark != null">
         remark = #{record.remark,jdbcType=VARCHAR},
       </if>
@@ -547,7 +555,7 @@
   </update>
   <update id="updateByExample" parameterType="map">
     <!--
-      WARNING - @mbg.generated  This element was generated on Thu Aug 01 00:52:22 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 17:36:57 CST 2019. by MyBatis Generator, do not modify.
     -->
     update user
     set id = #{record.id,jdbcType=INTEGER},
@@ -571,6 +579,8 @@
       head_url = #{record.headUrl,jdbcType=VARCHAR},
       theme = #{record.theme,jdbcType=VARCHAR},
       theme_id = #{record.themeId,jdbcType=INTEGER},
+      description = #{record.description,jdbcType=VARCHAR},
+      super_manager = #{record.superManager,jdbcType=INTEGER},
       remark = #{record.remark,jdbcType=VARCHAR},
       gmt_last_login = #{record.gmtLastLogin,jdbcType=TIMESTAMP},
       gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
@@ -591,7 +601,7 @@
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="top.buukle.security.entity.User">
     <!--
-      WARNING - @mbg.generated  This element was generated on Thu Aug 01 00:52:22 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 17:36:57 CST 2019. by MyBatis Generator, do not modify.
     -->
     update user
     <set>
@@ -655,6 +665,12 @@
       <if test="themeId != null">
         theme_id = #{themeId,jdbcType=INTEGER},
       </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="superManager != null">
+        super_manager = #{superManager,jdbcType=INTEGER},
+      </if>
       <if test="remark != null">
         remark = #{remark,jdbcType=VARCHAR},
       </if>
@@ -702,7 +718,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="top.buukle.security.entity.User">
     <!--
-      WARNING - @mbg.generated  This element was generated on Thu Aug 01 00:52:22 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 17:36:57 CST 2019. by MyBatis Generator, do not modify.
     -->
     update user
     set user_id = #{userId,jdbcType=VARCHAR},
@@ -725,6 +741,8 @@
       head_url = #{headUrl,jdbcType=VARCHAR},
       theme = #{theme,jdbcType=VARCHAR},
       theme_id = #{themeId,jdbcType=INTEGER},
+      description = #{description,jdbcType=VARCHAR},
+      super_manager = #{superManager,jdbcType=INTEGER},
       remark = #{remark,jdbcType=VARCHAR},
       gmt_last_login = #{gmtLastLogin,jdbcType=TIMESTAMP},
       gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
@@ -741,6 +759,20 @@
       bak05 = #{bak05,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <resultMap id="FuzzyResultMap" type="top.buukle.common.call.vo.FuzzyVo">
+    <id column="id" jdbcType="INTEGER" property="identity" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+
+    <result column="user_id" jdbcType="VARCHAR" property="id" />
+    <result column="user_id" jdbcType="VARCHAR" property="text" />
+
+    <result column="username" jdbcType="VARCHAR" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="text" />
+
+    <result column="name_cn" jdbcType="VARCHAR" property="id" />
+    <result column="name_cn" jdbcType="VARCHAR" property="text" />
+  </resultMap>
   <!--fuzzySearch-->
   <select id="fuzzySearch" parameterType="top.buukle.common.call.vo.FuzzyVo" resultMap="FuzzyResultMap">
     select

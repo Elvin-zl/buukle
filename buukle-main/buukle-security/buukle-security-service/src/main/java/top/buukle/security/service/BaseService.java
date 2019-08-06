@@ -18,7 +18,7 @@ public interface BaseService {
 
     Object selectByPrimaryKey(Integer id) ;
 
-    PageResponse userPage(BaseQuery query) ;
+    PageResponse getPage(BaseQuery query) ;
 
     FuzzyResponse fuzzySearch(String text, String fieldName);
 

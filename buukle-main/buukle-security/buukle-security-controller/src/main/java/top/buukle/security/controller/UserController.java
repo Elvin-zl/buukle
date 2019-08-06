@@ -31,7 +31,7 @@ public class UserController {
     */
     @RequestMapping("/{pageName}")
     public ModelAndView userPage(@PathVariable("pageName") String pageName, UserQuery query, ModelAndView modelAndView) throws Exception {
-        modelAndView.addObject("response", userService.userPage(query));
+        modelAndView.addObject("response", userService.getPage(query));
         modelAndView.setViewName("user/" + pageName);
         return modelAndView;
     }

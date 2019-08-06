@@ -11,67 +11,67 @@ import top.buukle.security.entity.UserExample;
 public interface UserMapper {
     /**
      *
-     * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
     long countByExample(UserExample example);
 
     /**
      *
-     * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
     int deleteByExample(UserExample example);
 
     /**
      *
-     * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
     int deleteByPrimaryKey(Integer id);
 
     /**
      *
-     * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
     int insert(User record);
 
     /**
      *
-     * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
     int insertSelective(User record);
 
     /**
      *
-     * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
     List<User> selectByExample(UserExample example);
 
     /**
      *
-     * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
     User selectByPrimaryKey(Integer id);
 
     /**
      *
-     * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
     int updateByExampleSelective(@Param("record") User record, @Param("example") UserExample example);
 
     /**
      *
-     * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
     int updateByExample(@Param("record") User record, @Param("example") UserExample example);
 
     /**
      *
-     * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
     int updateByPrimaryKeySelective(User record);
 
     /**
      *
-     * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
     int updateByPrimaryKey(User record);
 

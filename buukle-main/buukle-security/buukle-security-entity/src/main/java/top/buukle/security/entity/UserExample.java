@@ -7,25 +7,25 @@ import java.util.List;
 public class UserExample {
     /**
      *
-     * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
     protected String orderByClause;
 
     /**
      *
-     * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
     protected boolean distinct;
 
     /**
      *
-     * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
     protected List<Criteria> oredCriteria;
 
     /**
      *
-     * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
     public UserExample() {
         oredCriteria = new ArrayList<Criteria>();
@@ -33,7 +33,7 @@ public class UserExample {
 
     /**
      *
-     * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -41,7 +41,7 @@ public class UserExample {
 
     /**
      *
-     * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -49,7 +49,7 @@ public class UserExample {
 
     /**
      *
-     * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -57,7 +57,7 @@ public class UserExample {
 
     /**
      *
-     * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
     public boolean isDistinct() {
         return distinct;
@@ -65,7 +65,7 @@ public class UserExample {
 
     /**
      *
-     * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -73,7 +73,7 @@ public class UserExample {
 
     /**
      *
-     * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -81,7 +81,7 @@ public class UserExample {
 
     /**
      *
-     * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -91,7 +91,7 @@ public class UserExample {
 
     /**
      *
-     * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
     public UserExample orderBy(String orderByClause) {
         this.setOrderByClause(orderByClause);
@@ -100,7 +100,7 @@ public class UserExample {
 
     /**
      *
-     * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
     public UserExample orderBy(String ... orderByClauses) {
         StringBuffer sb = new StringBuffer();
@@ -116,7 +116,7 @@ public class UserExample {
 
     /**
      *
-     * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -128,7 +128,7 @@ public class UserExample {
 
     /**
      *
-     * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria(this);
@@ -137,7 +137,7 @@ public class UserExample {
 
     /**
      *
-     * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
     public void clear() {
         oredCriteria.clear();
@@ -147,7 +147,7 @@ public class UserExample {
 
     /**
      *
-     * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
     public static Criteria newAndCreateCriteria() {
         UserExample example = new UserExample();
@@ -156,7 +156,7 @@ public class UserExample {
 
     /**
      *
-     * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -1569,6 +1569,136 @@ public class UserExample {
             return (Criteria) this;
         }
 
+        public Criteria andDescriptionIsNull() {
+            addCriterion("description is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionIsNotNull() {
+            addCriterion("description is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionEqualTo(String value) {
+            addCriterion("description =", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionNotEqualTo(String value) {
+            addCriterion("description <>", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionGreaterThan(String value) {
+            addCriterion("description >", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionGreaterThanOrEqualTo(String value) {
+            addCriterion("description >=", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionLessThan(String value) {
+            addCriterion("description <", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionLessThanOrEqualTo(String value) {
+            addCriterion("description <=", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionLike(String value) {
+            addCriterion("description like", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionNotLike(String value) {
+            addCriterion("description not like", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionIn(List<String> values) {
+            addCriterion("description in", values, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionNotIn(List<String> values) {
+            addCriterion("description not in", values, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionBetween(String value1, String value2) {
+            addCriterion("description between", value1, value2, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionNotBetween(String value1, String value2) {
+            addCriterion("description not between", value1, value2, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andSuperManagerIsNull() {
+            addCriterion("super_manager is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSuperManagerIsNotNull() {
+            addCriterion("super_manager is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSuperManagerEqualTo(Integer value) {
+            addCriterion("super_manager =", value, "superManager");
+            return (Criteria) this;
+        }
+
+        public Criteria andSuperManagerNotEqualTo(Integer value) {
+            addCriterion("super_manager <>", value, "superManager");
+            return (Criteria) this;
+        }
+
+        public Criteria andSuperManagerGreaterThan(Integer value) {
+            addCriterion("super_manager >", value, "superManager");
+            return (Criteria) this;
+        }
+
+        public Criteria andSuperManagerGreaterThanOrEqualTo(Integer value) {
+            addCriterion("super_manager >=", value, "superManager");
+            return (Criteria) this;
+        }
+
+        public Criteria andSuperManagerLessThan(Integer value) {
+            addCriterion("super_manager <", value, "superManager");
+            return (Criteria) this;
+        }
+
+        public Criteria andSuperManagerLessThanOrEqualTo(Integer value) {
+            addCriterion("super_manager <=", value, "superManager");
+            return (Criteria) this;
+        }
+
+        public Criteria andSuperManagerIn(List<Integer> values) {
+            addCriterion("super_manager in", values, "superManager");
+            return (Criteria) this;
+        }
+
+        public Criteria andSuperManagerNotIn(List<Integer> values) {
+            addCriterion("super_manager not in", values, "superManager");
+            return (Criteria) this;
+        }
+
+        public Criteria andSuperManagerBetween(Integer value1, Integer value2) {
+            addCriterion("super_manager between", value1, value2, "superManager");
+            return (Criteria) this;
+        }
+
+        public Criteria andSuperManagerNotBetween(Integer value1, Integer value2) {
+            addCriterion("super_manager not between", value1, value2, "superManager");
+            return (Criteria) this;
+        }
+
         public Criteria andRemarkIsNull() {
             addCriterion("remark is null");
             return (Criteria) this;
@@ -2564,6 +2694,11 @@ public class UserExample {
             return (Criteria) this;
         }
 
+        public Criteria andDescriptionLikeInsensitive(String value) {
+            addCriterion("upper(description) like", value.toUpperCase(), "description");
+            return (Criteria) this;
+        }
+
         public Criteria andRemarkLikeInsensitive(String value) {
             addCriterion("upper(remark) like", value.toUpperCase(), "remark");
             return (Criteria) this;
@@ -2617,18 +2752,18 @@ public class UserExample {
 
     /**
      *
-     * @mbg.generated do_not_delete_during_merge Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated do_not_delete_during_merge Tue Aug 06 17:36:57 CST 2019
      */
     public static class Criteria extends GeneratedCriteria {
         /**
          *
-         * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+         * @mbg.generated Tue Aug 06 17:36:57 CST 2019
          */
         private UserExample example;
 
         /**
          *
-         * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+         * @mbg.generated Tue Aug 06 17:36:57 CST 2019
          */
         protected Criteria(UserExample example) {
             super();
@@ -2637,7 +2772,7 @@ public class UserExample {
 
         /**
          *
-         * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+         * @mbg.generated Tue Aug 06 17:36:57 CST 2019
          */
         public UserExample example() {
             return this.example;
@@ -2645,7 +2780,7 @@ public class UserExample {
 
         /**
          *
-         * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+         * @mbg.generated Tue Aug 06 17:36:57 CST 2019
          */
         public Criteria andIf(boolean ifAdd, ICriteriaAdd add) {
             if (ifAdd) {
@@ -2657,7 +2792,7 @@ public class UserExample {
         public interface ICriteriaAdd {
             /**
              *
-             * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+             * @mbg.generated Tue Aug 06 17:36:57 CST 2019
              */
             Criteria add(Criteria add);
         }
@@ -2665,7 +2800,7 @@ public class UserExample {
 
     /**
      *
-     * @mbg.generated Thu Aug 01 00:52:22 CST 2019
+     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
     public static class Criterion {
         private String condition;
