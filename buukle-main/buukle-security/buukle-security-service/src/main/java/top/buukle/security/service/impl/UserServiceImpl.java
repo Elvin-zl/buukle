@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import top.buukle.common.call.vo.FuzzyVo;
 import top.buukle.common.status.StatusConstants;
+import top.buukle.security.dao.CommonMapper;
 import top.buukle.security .dao.UserMapper;
 import top.buukle.security .entity.User;
 import top.buukle.security .entity.UserExample;
@@ -22,6 +23,7 @@ import top.buukle.security .service.exception.SystemException;
 import top.buukle.common.call.CommonResponse;
 import top.buukle.common.call.FuzzyResponse;
 import top.buukle.common.call.PageResponse;
+import top.buukle.security.service.util.ConvertHumpUtil;
 import top.buukle.util.DateUtil;
 import top.buukle.util.JsonUtil;
 import top.buukle.util.MD5Util;
@@ -43,6 +45,8 @@ public class UserServiceImpl implements UserService{
 
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private CommonMapper commonMapper;
 
     /**
      * 分页获取列表
@@ -158,7 +162,8 @@ public class UserServiceImpl implements UserService{
         FuzzyVo fuzzyVo = new FuzzyVo();
         fuzzyVo.setText(text);
         fuzzyVo.setFieldName(fieldName);
-        return new FuzzyResponse.Builder().build(userMapper.fuzzySearch(fuzzyVo));
+        fuzzyVo.setTableName(ConvertHumpUtil.humpToLine("User"));
+        return new FuzzyResponse.Builder().build(commonMapper.fuzzySearch(fuzzyVo));
     }
 
     /**

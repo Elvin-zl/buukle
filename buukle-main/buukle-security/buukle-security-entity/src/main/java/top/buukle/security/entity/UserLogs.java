@@ -15,14 +15,14 @@ public class UserLogs implements Serializable {
      * 主键id
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private Integer id;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private String userId;
 
@@ -30,7 +30,7 @@ public class UserLogs implements Serializable {
      * 区域id
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private Integer areaId;
 
@@ -38,49 +38,49 @@ public class UserLogs implements Serializable {
      * 区域管理员 0 不是 1 是
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private Integer areaAdmin;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private String username;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private String password;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private String nameCn;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private String fullNameCn;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private String nameEn;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private String fullNameEn;
 
@@ -88,7 +88,7 @@ public class UserLogs implements Serializable {
      * 赞数
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private Integer praise;
 
@@ -96,14 +96,14 @@ public class UserLogs implements Serializable {
      * 粉丝数量
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private Integer fans;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private String email;
 
@@ -111,7 +111,7 @@ public class UserLogs implements Serializable {
      * 手机号
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private Integer phone;
 
@@ -119,21 +119,21 @@ public class UserLogs implements Serializable {
      * 性别 : 0 女 1 男
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private Integer sex;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private Integer age;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private String sign;
 
@@ -141,21 +141,21 @@ public class UserLogs implements Serializable {
      * 登录策略 1: 一周 0:系统默认时间
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private Integer loginStrategy;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private String headUrl;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private String theme;
 
@@ -163,14 +163,14 @@ public class UserLogs implements Serializable {
      * 主题id
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private Integer themeId;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private String description;
 
@@ -178,14 +178,14 @@ public class UserLogs implements Serializable {
      * 是否是超管
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private Integer superManager;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private String remark;
 
@@ -193,49 +193,49 @@ public class UserLogs implements Serializable {
      * 最近登陆时间
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private Date gmtLastLogin;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private Date gmtCreated;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private String creator;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private String creatorCode;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private Date gmtModified;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private String modifier;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private String modifierCode;
 
@@ -243,48 +243,48 @@ public class UserLogs implements Serializable {
      * 状态
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private Integer status;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private String bak01;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private String bak02;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private String bak03;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private String bak04;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private String bak05;
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     private static final long serialVersionUID = 1L;
 
@@ -293,7 +293,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.id
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public Integer getId() {
         return id;
@@ -301,7 +301,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withId(Integer id) {
         this.setId(id);
@@ -313,7 +313,7 @@ public class UserLogs implements Serializable {
      *
      * @param id the value for buukle-security..user_logs.id
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setId(Integer id) {
         this.id = id;
@@ -324,7 +324,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.user_id
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public String getUserId() {
         return userId;
@@ -332,7 +332,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withUserId(String userId) {
         this.setUserId(userId);
@@ -344,7 +344,7 @@ public class UserLogs implements Serializable {
      *
      * @param userId the value for buukle-security..user_logs.user_id
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setUserId(String userId) {
         this.userId = userId == null ? null : userId.trim();
@@ -355,7 +355,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.area_id
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public Integer getAreaId() {
         return areaId;
@@ -363,7 +363,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withAreaId(Integer areaId) {
         this.setAreaId(areaId);
@@ -375,7 +375,7 @@ public class UserLogs implements Serializable {
      *
      * @param areaId the value for buukle-security..user_logs.area_id
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setAreaId(Integer areaId) {
         this.areaId = areaId;
@@ -386,7 +386,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.area_admin
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public Integer getAreaAdmin() {
         return areaAdmin;
@@ -394,7 +394,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withAreaAdmin(Integer areaAdmin) {
         this.setAreaAdmin(areaAdmin);
@@ -406,7 +406,7 @@ public class UserLogs implements Serializable {
      *
      * @param areaAdmin the value for buukle-security..user_logs.area_admin
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setAreaAdmin(Integer areaAdmin) {
         this.areaAdmin = areaAdmin;
@@ -417,7 +417,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.username
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public String getUsername() {
         return username;
@@ -425,7 +425,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withUsername(String username) {
         this.setUsername(username);
@@ -437,7 +437,7 @@ public class UserLogs implements Serializable {
      *
      * @param username the value for buukle-security..user_logs.username
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setUsername(String username) {
         this.username = username == null ? null : username.trim();
@@ -448,7 +448,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.password
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public String getPassword() {
         return password;
@@ -456,7 +456,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withPassword(String password) {
         this.setPassword(password);
@@ -468,7 +468,7 @@ public class UserLogs implements Serializable {
      *
      * @param password the value for buukle-security..user_logs.password
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setPassword(String password) {
         this.password = password == null ? null : password.trim();
@@ -479,7 +479,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.name_cn
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public String getNameCn() {
         return nameCn;
@@ -487,7 +487,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withNameCn(String nameCn) {
         this.setNameCn(nameCn);
@@ -499,7 +499,7 @@ public class UserLogs implements Serializable {
      *
      * @param nameCn the value for buukle-security..user_logs.name_cn
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setNameCn(String nameCn) {
         this.nameCn = nameCn == null ? null : nameCn.trim();
@@ -510,7 +510,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.full_name_cn
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public String getFullNameCn() {
         return fullNameCn;
@@ -518,7 +518,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withFullNameCn(String fullNameCn) {
         this.setFullNameCn(fullNameCn);
@@ -530,7 +530,7 @@ public class UserLogs implements Serializable {
      *
      * @param fullNameCn the value for buukle-security..user_logs.full_name_cn
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setFullNameCn(String fullNameCn) {
         this.fullNameCn = fullNameCn == null ? null : fullNameCn.trim();
@@ -541,7 +541,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.name_en
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public String getNameEn() {
         return nameEn;
@@ -549,7 +549,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withNameEn(String nameEn) {
         this.setNameEn(nameEn);
@@ -561,7 +561,7 @@ public class UserLogs implements Serializable {
      *
      * @param nameEn the value for buukle-security..user_logs.name_en
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setNameEn(String nameEn) {
         this.nameEn = nameEn == null ? null : nameEn.trim();
@@ -572,7 +572,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.full_name_en
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public String getFullNameEn() {
         return fullNameEn;
@@ -580,7 +580,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withFullNameEn(String fullNameEn) {
         this.setFullNameEn(fullNameEn);
@@ -592,7 +592,7 @@ public class UserLogs implements Serializable {
      *
      * @param fullNameEn the value for buukle-security..user_logs.full_name_en
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setFullNameEn(String fullNameEn) {
         this.fullNameEn = fullNameEn == null ? null : fullNameEn.trim();
@@ -603,7 +603,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.praise
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public Integer getPraise() {
         return praise;
@@ -611,7 +611,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withPraise(Integer praise) {
         this.setPraise(praise);
@@ -623,7 +623,7 @@ public class UserLogs implements Serializable {
      *
      * @param praise the value for buukle-security..user_logs.praise
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setPraise(Integer praise) {
         this.praise = praise;
@@ -634,7 +634,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.fans
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public Integer getFans() {
         return fans;
@@ -642,7 +642,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withFans(Integer fans) {
         this.setFans(fans);
@@ -654,7 +654,7 @@ public class UserLogs implements Serializable {
      *
      * @param fans the value for buukle-security..user_logs.fans
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setFans(Integer fans) {
         this.fans = fans;
@@ -665,7 +665,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.email
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public String getEmail() {
         return email;
@@ -673,7 +673,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withEmail(String email) {
         this.setEmail(email);
@@ -685,7 +685,7 @@ public class UserLogs implements Serializable {
      *
      * @param email the value for buukle-security..user_logs.email
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setEmail(String email) {
         this.email = email == null ? null : email.trim();
@@ -696,7 +696,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.phone
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public Integer getPhone() {
         return phone;
@@ -704,7 +704,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withPhone(Integer phone) {
         this.setPhone(phone);
@@ -716,7 +716,7 @@ public class UserLogs implements Serializable {
      *
      * @param phone the value for buukle-security..user_logs.phone
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setPhone(Integer phone) {
         this.phone = phone;
@@ -727,7 +727,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.sex
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public Integer getSex() {
         return sex;
@@ -735,7 +735,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withSex(Integer sex) {
         this.setSex(sex);
@@ -747,7 +747,7 @@ public class UserLogs implements Serializable {
      *
      * @param sex the value for buukle-security..user_logs.sex
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setSex(Integer sex) {
         this.sex = sex;
@@ -758,7 +758,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.age
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public Integer getAge() {
         return age;
@@ -766,7 +766,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withAge(Integer age) {
         this.setAge(age);
@@ -778,7 +778,7 @@ public class UserLogs implements Serializable {
      *
      * @param age the value for buukle-security..user_logs.age
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setAge(Integer age) {
         this.age = age;
@@ -789,7 +789,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.sign
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public String getSign() {
         return sign;
@@ -797,7 +797,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withSign(String sign) {
         this.setSign(sign);
@@ -809,7 +809,7 @@ public class UserLogs implements Serializable {
      *
      * @param sign the value for buukle-security..user_logs.sign
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setSign(String sign) {
         this.sign = sign == null ? null : sign.trim();
@@ -820,7 +820,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.login_strategy
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public Integer getLoginStrategy() {
         return loginStrategy;
@@ -828,7 +828,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withLoginStrategy(Integer loginStrategy) {
         this.setLoginStrategy(loginStrategy);
@@ -840,7 +840,7 @@ public class UserLogs implements Serializable {
      *
      * @param loginStrategy the value for buukle-security..user_logs.login_strategy
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setLoginStrategy(Integer loginStrategy) {
         this.loginStrategy = loginStrategy;
@@ -851,7 +851,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.head_url
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public String getHeadUrl() {
         return headUrl;
@@ -859,7 +859,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withHeadUrl(String headUrl) {
         this.setHeadUrl(headUrl);
@@ -871,7 +871,7 @@ public class UserLogs implements Serializable {
      *
      * @param headUrl the value for buukle-security..user_logs.head_url
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setHeadUrl(String headUrl) {
         this.headUrl = headUrl == null ? null : headUrl.trim();
@@ -882,7 +882,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.theme
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public String getTheme() {
         return theme;
@@ -890,7 +890,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withTheme(String theme) {
         this.setTheme(theme);
@@ -902,7 +902,7 @@ public class UserLogs implements Serializable {
      *
      * @param theme the value for buukle-security..user_logs.theme
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setTheme(String theme) {
         this.theme = theme == null ? null : theme.trim();
@@ -913,7 +913,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.theme_id
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public Integer getThemeId() {
         return themeId;
@@ -921,7 +921,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withThemeId(Integer themeId) {
         this.setThemeId(themeId);
@@ -933,7 +933,7 @@ public class UserLogs implements Serializable {
      *
      * @param themeId the value for buukle-security..user_logs.theme_id
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setThemeId(Integer themeId) {
         this.themeId = themeId;
@@ -944,7 +944,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.description
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public String getDescription() {
         return description;
@@ -952,7 +952,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withDescription(String description) {
         this.setDescription(description);
@@ -964,7 +964,7 @@ public class UserLogs implements Serializable {
      *
      * @param description the value for buukle-security..user_logs.description
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setDescription(String description) {
         this.description = description == null ? null : description.trim();
@@ -975,7 +975,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.super_manager
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public Integer getSuperManager() {
         return superManager;
@@ -983,7 +983,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withSuperManager(Integer superManager) {
         this.setSuperManager(superManager);
@@ -995,7 +995,7 @@ public class UserLogs implements Serializable {
      *
      * @param superManager the value for buukle-security..user_logs.super_manager
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setSuperManager(Integer superManager) {
         this.superManager = superManager;
@@ -1006,7 +1006,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.remark
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public String getRemark() {
         return remark;
@@ -1014,7 +1014,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withRemark(String remark) {
         this.setRemark(remark);
@@ -1026,7 +1026,7 @@ public class UserLogs implements Serializable {
      *
      * @param remark the value for buukle-security..user_logs.remark
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
@@ -1037,7 +1037,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.gmt_last_login
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public Date getGmtLastLogin() {
         return gmtLastLogin;
@@ -1045,7 +1045,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withGmtLastLogin(Date gmtLastLogin) {
         this.setGmtLastLogin(gmtLastLogin);
@@ -1057,7 +1057,7 @@ public class UserLogs implements Serializable {
      *
      * @param gmtLastLogin the value for buukle-security..user_logs.gmt_last_login
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setGmtLastLogin(Date gmtLastLogin) {
         this.gmtLastLogin = gmtLastLogin;
@@ -1068,7 +1068,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.gmt_created
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public Date getGmtCreated() {
         return gmtCreated;
@@ -1076,7 +1076,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withGmtCreated(Date gmtCreated) {
         this.setGmtCreated(gmtCreated);
@@ -1088,7 +1088,7 @@ public class UserLogs implements Serializable {
      *
      * @param gmtCreated the value for buukle-security..user_logs.gmt_created
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setGmtCreated(Date gmtCreated) {
         this.gmtCreated = gmtCreated;
@@ -1099,7 +1099,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.creator
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public String getCreator() {
         return creator;
@@ -1107,7 +1107,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withCreator(String creator) {
         this.setCreator(creator);
@@ -1119,7 +1119,7 @@ public class UserLogs implements Serializable {
      *
      * @param creator the value for buukle-security..user_logs.creator
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setCreator(String creator) {
         this.creator = creator == null ? null : creator.trim();
@@ -1130,7 +1130,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.creator_code
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public String getCreatorCode() {
         return creatorCode;
@@ -1138,7 +1138,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withCreatorCode(String creatorCode) {
         this.setCreatorCode(creatorCode);
@@ -1150,7 +1150,7 @@ public class UserLogs implements Serializable {
      *
      * @param creatorCode the value for buukle-security..user_logs.creator_code
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setCreatorCode(String creatorCode) {
         this.creatorCode = creatorCode == null ? null : creatorCode.trim();
@@ -1161,7 +1161,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.gmt_modified
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public Date getGmtModified() {
         return gmtModified;
@@ -1169,7 +1169,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withGmtModified(Date gmtModified) {
         this.setGmtModified(gmtModified);
@@ -1181,7 +1181,7 @@ public class UserLogs implements Serializable {
      *
      * @param gmtModified the value for buukle-security..user_logs.gmt_modified
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setGmtModified(Date gmtModified) {
         this.gmtModified = gmtModified;
@@ -1192,7 +1192,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.modifier
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public String getModifier() {
         return modifier;
@@ -1200,7 +1200,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withModifier(String modifier) {
         this.setModifier(modifier);
@@ -1212,7 +1212,7 @@ public class UserLogs implements Serializable {
      *
      * @param modifier the value for buukle-security..user_logs.modifier
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setModifier(String modifier) {
         this.modifier = modifier == null ? null : modifier.trim();
@@ -1223,7 +1223,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.modifier_code
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public String getModifierCode() {
         return modifierCode;
@@ -1231,7 +1231,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withModifierCode(String modifierCode) {
         this.setModifierCode(modifierCode);
@@ -1243,7 +1243,7 @@ public class UserLogs implements Serializable {
      *
      * @param modifierCode the value for buukle-security..user_logs.modifier_code
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setModifierCode(String modifierCode) {
         this.modifierCode = modifierCode == null ? null : modifierCode.trim();
@@ -1254,7 +1254,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.status
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public Integer getStatus() {
         return status;
@@ -1262,7 +1262,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withStatus(Integer status) {
         this.setStatus(status);
@@ -1274,7 +1274,7 @@ public class UserLogs implements Serializable {
      *
      * @param status the value for buukle-security..user_logs.status
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setStatus(Integer status) {
         this.status = status;
@@ -1285,7 +1285,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.bak01
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public String getBak01() {
         return bak01;
@@ -1293,7 +1293,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withBak01(String bak01) {
         this.setBak01(bak01);
@@ -1305,7 +1305,7 @@ public class UserLogs implements Serializable {
      *
      * @param bak01 the value for buukle-security..user_logs.bak01
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setBak01(String bak01) {
         this.bak01 = bak01 == null ? null : bak01.trim();
@@ -1316,7 +1316,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.bak02
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public String getBak02() {
         return bak02;
@@ -1324,7 +1324,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withBak02(String bak02) {
         this.setBak02(bak02);
@@ -1336,7 +1336,7 @@ public class UserLogs implements Serializable {
      *
      * @param bak02 the value for buukle-security..user_logs.bak02
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setBak02(String bak02) {
         this.bak02 = bak02 == null ? null : bak02.trim();
@@ -1347,7 +1347,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.bak03
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public String getBak03() {
         return bak03;
@@ -1355,7 +1355,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withBak03(String bak03) {
         this.setBak03(bak03);
@@ -1367,7 +1367,7 @@ public class UserLogs implements Serializable {
      *
      * @param bak03 the value for buukle-security..user_logs.bak03
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setBak03(String bak03) {
         this.bak03 = bak03 == null ? null : bak03.trim();
@@ -1378,7 +1378,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.bak04
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public String getBak04() {
         return bak04;
@@ -1386,7 +1386,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withBak04(String bak04) {
         this.setBak04(bak04);
@@ -1398,7 +1398,7 @@ public class UserLogs implements Serializable {
      *
      * @param bak04 the value for buukle-security..user_logs.bak04
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setBak04(String bak04) {
         this.bak04 = bak04 == null ? null : bak04.trim();
@@ -1409,7 +1409,7 @@ public class UserLogs implements Serializable {
      *
      * @return the value of buukle-security..user_logs.bak05
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public String getBak05() {
         return bak05;
@@ -1417,7 +1417,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public UserLogs withBak05(String bak05) {
         this.setBak05(bak05);
@@ -1429,7 +1429,7 @@ public class UserLogs implements Serializable {
      *
      * @param bak05 the value for buukle-security..user_logs.bak05
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     public void setBak05(String bak05) {
         this.bak05 = bak05 == null ? null : bak05.trim();
@@ -1437,7 +1437,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     @Override
     public String toString() {
@@ -1488,7 +1488,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     @Override
     public boolean equals(Object that) {
@@ -1543,7 +1543,7 @@ public class UserLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:02 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:58 CST 2019
      */
     @Override
     public int hashCode() {

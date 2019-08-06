@@ -11,6 +11,7 @@ import top.buukle.common.call.vo.FuzzyVo;
 import top.buukle.common.status.StatusConstants;
 
 import $!table.get("basePackage") .dao.${table.entityName}Mapper;
+import $!table.get("basePackage") .dao.CommonMapper;
 import $!table.get("basePackage") .entity.User;
 import $!table.get("basePackage") .entity.${table.entityName};
 import $!table.get("basePackage") .entity.${table.entityName}Example;
@@ -21,9 +22,11 @@ import $!table.get("basePackage") .service.${table.entityName}Service;
 import $!table.get("basePackage") .service.constants.SystemReturnEnum;
 import $!table.get("basePackage") .service.constants.${table.entityName}Enums;
 import $!table.get("basePackage") .service.exception.SystemException;
+import $!table.get("basePackage") .service.util.ConvertHumpUtil;
 import top.buukle.util.DateUtil;
 import top.buukle.util.JsonUtil;
 import top.buukle.util.StringUtil;
+
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -41,6 +44,9 @@ public class ${table.entityName}ServiceImpl implements ${table.entityName}Servic
 
     @Autowired
     private ${table.entityName}Mapper ${table.entityLowerCamel}Mapper;
+
+    @Autowired
+    private CommonMapper commonMapper;
 
     /**
      * 分页获取列表
@@ -152,9 +158,8 @@ public class ${table.entityName}ServiceImpl implements ${table.entityName}Servic
         FuzzyVo fuzzyVo = new FuzzyVo();
         fuzzyVo.setText(text);
         fuzzyVo.setFieldName(fieldName);
-        // TODO mapper sql 暂时需要手动写入
-        // return new FuzzyResponse.Builder().build(${table.entityLowerCamel}Mapper.fuzzySearch(fuzzyVo));
-        return null;
+        fuzzyVo.setTableName(ConvertHumpUtil.humpToLine("${table.entityName}"));
+        return new FuzzyResponse.Builder().build(commonMapper.fuzzySearch(fuzzyVo));
     }
 
     /**

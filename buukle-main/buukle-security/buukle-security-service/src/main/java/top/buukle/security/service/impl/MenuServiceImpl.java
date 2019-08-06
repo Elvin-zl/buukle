@@ -11,6 +11,7 @@ import top.buukle.common.call.vo.FuzzyVo;
 import top.buukle.common.status.StatusConstants;
 
 import top.buukle.security .dao.MenuMapper;
+import top.buukle.security .dao.CommonMapper;
 import top.buukle.security .entity.User;
 import top.buukle.security .entity.Menu;
 import top.buukle.security .entity.MenuExample;
@@ -21,9 +22,11 @@ import top.buukle.security .service.MenuService;
 import top.buukle.security .service.constants.SystemReturnEnum;
 import top.buukle.security .service.constants.MenuEnums;
 import top.buukle.security .service.exception.SystemException;
+import top.buukle.security .service.util.ConvertHumpUtil;
 import top.buukle.util.DateUtil;
 import top.buukle.util.JsonUtil;
 import top.buukle.util.StringUtil;
+
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -41,6 +44,9 @@ public class MenuServiceImpl implements MenuService{
 
     @Autowired
     private MenuMapper menuMapper;
+
+    @Autowired
+    private CommonMapper commonMapper;
 
     /**
      * 分页获取列表
@@ -152,9 +158,8 @@ public class MenuServiceImpl implements MenuService{
         FuzzyVo fuzzyVo = new FuzzyVo();
         fuzzyVo.setText(text);
         fuzzyVo.setFieldName(fieldName);
-        // TODO mapper sql 暂时需要手动写入
-        // return new FuzzyResponse.Builder().build(menuMapper.fuzzySearch(fuzzyVo));
-        return null;
+        fuzzyVo.setTableName(ConvertHumpUtil.humpToLine("Menu"));
+        return new FuzzyResponse.Builder().build(commonMapper.fuzzySearch(fuzzyVo));
     }
 
     /**

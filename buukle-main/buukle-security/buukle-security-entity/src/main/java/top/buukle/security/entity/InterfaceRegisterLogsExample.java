@@ -7,25 +7,25 @@ import java.util.List;
 public class InterfaceRegisterLogsExample {
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:49 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:45 CST 2019
      */
     protected String orderByClause;
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:49 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:45 CST 2019
      */
     protected boolean distinct;
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:49 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:45 CST 2019
      */
     protected List<Criteria> oredCriteria;
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:49 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:45 CST 2019
      */
     public InterfaceRegisterLogsExample() {
         oredCriteria = new ArrayList<Criteria>();
@@ -33,7 +33,7 @@ public class InterfaceRegisterLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:49 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:45 CST 2019
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -41,7 +41,7 @@ public class InterfaceRegisterLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:49 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:45 CST 2019
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -49,7 +49,7 @@ public class InterfaceRegisterLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:49 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:45 CST 2019
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -57,7 +57,7 @@ public class InterfaceRegisterLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:49 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:45 CST 2019
      */
     public boolean isDistinct() {
         return distinct;
@@ -65,7 +65,7 @@ public class InterfaceRegisterLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:49 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:45 CST 2019
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -73,7 +73,7 @@ public class InterfaceRegisterLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:49 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:45 CST 2019
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -81,7 +81,7 @@ public class InterfaceRegisterLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:49 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:45 CST 2019
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -91,7 +91,7 @@ public class InterfaceRegisterLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:49 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:45 CST 2019
      */
     public InterfaceRegisterLogsExample orderBy(String orderByClause) {
         this.setOrderByClause(orderByClause);
@@ -100,7 +100,7 @@ public class InterfaceRegisterLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:49 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:45 CST 2019
      */
     public InterfaceRegisterLogsExample orderBy(String ... orderByClauses) {
         StringBuffer sb = new StringBuffer();
@@ -116,7 +116,7 @@ public class InterfaceRegisterLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:49 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:45 CST 2019
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -128,7 +128,7 @@ public class InterfaceRegisterLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:49 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:45 CST 2019
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria(this);
@@ -137,7 +137,7 @@ public class InterfaceRegisterLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:49 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:45 CST 2019
      */
     public void clear() {
         oredCriteria.clear();
@@ -147,7 +147,7 @@ public class InterfaceRegisterLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:49 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:45 CST 2019
      */
     public static Criteria newAndCreateCriteria() {
         InterfaceRegisterLogsExample example = new InterfaceRegisterLogsExample();
@@ -156,7 +156,7 @@ public class InterfaceRegisterLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:49 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:45 CST 2019
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -1657,18 +1657,18 @@ public class InterfaceRegisterLogsExample {
 
     /**
      *
-     * @mbg.generated do_not_delete_during_merge Tue Aug 06 18:32:49 CST 2019
+     * @mbg.generated do_not_delete_during_merge Tue Aug 06 21:36:45 CST 2019
      */
     public static class Criteria extends GeneratedCriteria {
         /**
          *
-         * @mbg.generated Tue Aug 06 18:32:49 CST 2019
+         * @mbg.generated Tue Aug 06 21:36:45 CST 2019
          */
         private InterfaceRegisterLogsExample example;
 
         /**
          *
-         * @mbg.generated Tue Aug 06 18:32:49 CST 2019
+         * @mbg.generated Tue Aug 06 21:36:45 CST 2019
          */
         protected Criteria(InterfaceRegisterLogsExample example) {
             super();
@@ -1677,7 +1677,7 @@ public class InterfaceRegisterLogsExample {
 
         /**
          *
-         * @mbg.generated Tue Aug 06 18:32:49 CST 2019
+         * @mbg.generated Tue Aug 06 21:36:45 CST 2019
          */
         public InterfaceRegisterLogsExample example() {
             return this.example;
@@ -1685,7 +1685,7 @@ public class InterfaceRegisterLogsExample {
 
         /**
          *
-         * @mbg.generated Tue Aug 06 18:32:49 CST 2019
+         * @mbg.generated Tue Aug 06 21:36:45 CST 2019
          */
         public Criteria andIf(boolean ifAdd, ICriteriaAdd add) {
             if (ifAdd) {
@@ -1697,7 +1697,7 @@ public class InterfaceRegisterLogsExample {
         public interface ICriteriaAdd {
             /**
              *
-             * @mbg.generated Tue Aug 06 18:32:49 CST 2019
+             * @mbg.generated Tue Aug 06 21:36:45 CST 2019
              */
             Criteria add(Criteria add);
         }
@@ -1705,7 +1705,7 @@ public class InterfaceRegisterLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:49 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:45 CST 2019
      */
     public static class Criterion {
         private String condition;

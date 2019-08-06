@@ -7,25 +7,25 @@ import java.util.List;
 public class UserRoleRelationLogsExample {
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
+     * @mbg.generated Tue Aug 06 21:37:04 CST 2019
      */
     protected String orderByClause;
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
+     * @mbg.generated Tue Aug 06 21:37:04 CST 2019
      */
     protected boolean distinct;
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
+     * @mbg.generated Tue Aug 06 21:37:04 CST 2019
      */
     protected List<Criteria> oredCriteria;
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
+     * @mbg.generated Tue Aug 06 21:37:04 CST 2019
      */
     public UserRoleRelationLogsExample() {
         oredCriteria = new ArrayList<Criteria>();
@@ -33,7 +33,7 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
+     * @mbg.generated Tue Aug 06 21:37:04 CST 2019
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -41,7 +41,7 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
+     * @mbg.generated Tue Aug 06 21:37:04 CST 2019
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -49,7 +49,7 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
+     * @mbg.generated Tue Aug 06 21:37:04 CST 2019
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -57,7 +57,7 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
+     * @mbg.generated Tue Aug 06 21:37:04 CST 2019
      */
     public boolean isDistinct() {
         return distinct;
@@ -65,7 +65,7 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
+     * @mbg.generated Tue Aug 06 21:37:04 CST 2019
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -73,7 +73,7 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
+     * @mbg.generated Tue Aug 06 21:37:04 CST 2019
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -81,7 +81,7 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
+     * @mbg.generated Tue Aug 06 21:37:04 CST 2019
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -91,7 +91,7 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
+     * @mbg.generated Tue Aug 06 21:37:04 CST 2019
      */
     public UserRoleRelationLogsExample orderBy(String orderByClause) {
         this.setOrderByClause(orderByClause);
@@ -100,7 +100,7 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
+     * @mbg.generated Tue Aug 06 21:37:04 CST 2019
      */
     public UserRoleRelationLogsExample orderBy(String ... orderByClauses) {
         StringBuffer sb = new StringBuffer();
@@ -116,7 +116,7 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
+     * @mbg.generated Tue Aug 06 21:37:04 CST 2019
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -128,7 +128,7 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
+     * @mbg.generated Tue Aug 06 21:37:04 CST 2019
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria(this);
@@ -137,7 +137,7 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
+     * @mbg.generated Tue Aug 06 21:37:04 CST 2019
      */
     public void clear() {
         oredCriteria.clear();
@@ -147,7 +147,7 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
+     * @mbg.generated Tue Aug 06 21:37:04 CST 2019
      */
     public static Criteria newAndCreateCriteria() {
         UserRoleRelationLogsExample example = new UserRoleRelationLogsExample();
@@ -156,7 +156,7 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
+     * @mbg.generated Tue Aug 06 21:37:04 CST 2019
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -1417,18 +1417,18 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated do_not_delete_during_merge Tue Aug 06 18:33:06 CST 2019
+     * @mbg.generated do_not_delete_during_merge Tue Aug 06 21:37:04 CST 2019
      */
     public static class Criteria extends GeneratedCriteria {
         /**
          *
-         * @mbg.generated Tue Aug 06 18:33:06 CST 2019
+         * @mbg.generated Tue Aug 06 21:37:04 CST 2019
          */
         private UserRoleRelationLogsExample example;
 
         /**
          *
-         * @mbg.generated Tue Aug 06 18:33:06 CST 2019
+         * @mbg.generated Tue Aug 06 21:37:04 CST 2019
          */
         protected Criteria(UserRoleRelationLogsExample example) {
             super();
@@ -1437,7 +1437,7 @@ public class UserRoleRelationLogsExample {
 
         /**
          *
-         * @mbg.generated Tue Aug 06 18:33:06 CST 2019
+         * @mbg.generated Tue Aug 06 21:37:04 CST 2019
          */
         public UserRoleRelationLogsExample example() {
             return this.example;
@@ -1445,7 +1445,7 @@ public class UserRoleRelationLogsExample {
 
         /**
          *
-         * @mbg.generated Tue Aug 06 18:33:06 CST 2019
+         * @mbg.generated Tue Aug 06 21:37:04 CST 2019
          */
         public Criteria andIf(boolean ifAdd, ICriteriaAdd add) {
             if (ifAdd) {
@@ -1457,7 +1457,7 @@ public class UserRoleRelationLogsExample {
         public interface ICriteriaAdd {
             /**
              *
-             * @mbg.generated Tue Aug 06 18:33:06 CST 2019
+             * @mbg.generated Tue Aug 06 21:37:04 CST 2019
              */
             Criteria add(Criteria add);
         }
@@ -1465,7 +1465,7 @@ public class UserRoleRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:33:06 CST 2019
+     * @mbg.generated Tue Aug 06 21:37:04 CST 2019
      */
     public static class Criterion {
         private String condition;

@@ -7,25 +7,25 @@ import java.util.List;
 public class BuukleSignExample {
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:44 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:40 CST 2019
      */
     protected String orderByClause;
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:44 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:40 CST 2019
      */
     protected boolean distinct;
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:44 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:40 CST 2019
      */
     protected List<Criteria> oredCriteria;
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:44 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:40 CST 2019
      */
     public BuukleSignExample() {
         oredCriteria = new ArrayList<Criteria>();
@@ -33,7 +33,7 @@ public class BuukleSignExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:44 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:40 CST 2019
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -41,7 +41,7 @@ public class BuukleSignExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:44 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:40 CST 2019
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -49,7 +49,7 @@ public class BuukleSignExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:44 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:40 CST 2019
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -57,7 +57,7 @@ public class BuukleSignExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:44 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:40 CST 2019
      */
     public boolean isDistinct() {
         return distinct;
@@ -65,7 +65,7 @@ public class BuukleSignExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:44 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:40 CST 2019
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -73,7 +73,7 @@ public class BuukleSignExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:44 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:40 CST 2019
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -81,7 +81,7 @@ public class BuukleSignExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:44 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:40 CST 2019
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -91,7 +91,7 @@ public class BuukleSignExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:44 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:40 CST 2019
      */
     public BuukleSignExample orderBy(String orderByClause) {
         this.setOrderByClause(orderByClause);
@@ -100,7 +100,7 @@ public class BuukleSignExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:44 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:40 CST 2019
      */
     public BuukleSignExample orderBy(String ... orderByClauses) {
         StringBuffer sb = new StringBuffer();
@@ -116,7 +116,7 @@ public class BuukleSignExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:44 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:40 CST 2019
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -128,7 +128,7 @@ public class BuukleSignExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:44 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:40 CST 2019
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria(this);
@@ -137,7 +137,7 @@ public class BuukleSignExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:44 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:40 CST 2019
      */
     public void clear() {
         oredCriteria.clear();
@@ -147,7 +147,7 @@ public class BuukleSignExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:44 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:40 CST 2019
      */
     public static Criteria newAndCreateCriteria() {
         BuukleSignExample example = new BuukleSignExample();
@@ -156,7 +156,7 @@ public class BuukleSignExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:44 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:40 CST 2019
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -1597,18 +1597,18 @@ public class BuukleSignExample {
 
     /**
      *
-     * @mbg.generated do_not_delete_during_merge Tue Aug 06 18:32:44 CST 2019
+     * @mbg.generated do_not_delete_during_merge Tue Aug 06 21:36:40 CST 2019
      */
     public static class Criteria extends GeneratedCriteria {
         /**
          *
-         * @mbg.generated Tue Aug 06 18:32:44 CST 2019
+         * @mbg.generated Tue Aug 06 21:36:40 CST 2019
          */
         private BuukleSignExample example;
 
         /**
          *
-         * @mbg.generated Tue Aug 06 18:32:44 CST 2019
+         * @mbg.generated Tue Aug 06 21:36:40 CST 2019
          */
         protected Criteria(BuukleSignExample example) {
             super();
@@ -1617,7 +1617,7 @@ public class BuukleSignExample {
 
         /**
          *
-         * @mbg.generated Tue Aug 06 18:32:44 CST 2019
+         * @mbg.generated Tue Aug 06 21:36:40 CST 2019
          */
         public BuukleSignExample example() {
             return this.example;
@@ -1625,7 +1625,7 @@ public class BuukleSignExample {
 
         /**
          *
-         * @mbg.generated Tue Aug 06 18:32:44 CST 2019
+         * @mbg.generated Tue Aug 06 21:36:40 CST 2019
          */
         public Criteria andIf(boolean ifAdd, ICriteriaAdd add) {
             if (ifAdd) {
@@ -1637,7 +1637,7 @@ public class BuukleSignExample {
         public interface ICriteriaAdd {
             /**
              *
-             * @mbg.generated Tue Aug 06 18:32:44 CST 2019
+             * @mbg.generated Tue Aug 06 21:36:40 CST 2019
              */
             Criteria add(Criteria add);
         }
@@ -1645,7 +1645,7 @@ public class BuukleSignExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:44 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:40 CST 2019
      */
     public static class Criterion {
         private String condition;

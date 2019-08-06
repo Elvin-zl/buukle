@@ -14,77 +14,77 @@ public class Application implements Serializable {
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     private Integer id;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     private String code;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     private String name;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     private String description;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     private String remark;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     private Date gmtCreated;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     private String creator;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     private String creatorCode;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     private Date gmtModified;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     private String modifier;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     private String modifierCode;
 
@@ -92,48 +92,48 @@ public class Application implements Serializable {
      * 状态
      *
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     private Integer status;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     private String bak01;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     private String bak02;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     private String bak03;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     private String bak04;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     private String bak05;
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     private static final long serialVersionUID = 1L;
 
@@ -142,7 +142,7 @@ public class Application implements Serializable {
      *
      * @return the value of buukle-security..application.id
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public Integer getId() {
         return id;
@@ -150,7 +150,7 @@ public class Application implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public Application withId(Integer id) {
         this.setId(id);
@@ -162,7 +162,7 @@ public class Application implements Serializable {
      *
      * @param id the value for buukle-security..application.id
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public void setId(Integer id) {
         this.id = id;
@@ -173,7 +173,7 @@ public class Application implements Serializable {
      *
      * @return the value of buukle-security..application.code
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public String getCode() {
         return code;
@@ -181,7 +181,7 @@ public class Application implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public Application withCode(String code) {
         this.setCode(code);
@@ -193,7 +193,7 @@ public class Application implements Serializable {
      *
      * @param code the value for buukle-security..application.code
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public void setCode(String code) {
         this.code = code == null ? null : code.trim();
@@ -204,7 +204,7 @@ public class Application implements Serializable {
      *
      * @return the value of buukle-security..application.name
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public String getName() {
         return name;
@@ -212,7 +212,7 @@ public class Application implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public Application withName(String name) {
         this.setName(name);
@@ -224,7 +224,7 @@ public class Application implements Serializable {
      *
      * @param name the value for buukle-security..application.name
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
@@ -235,7 +235,7 @@ public class Application implements Serializable {
      *
      * @return the value of buukle-security..application.description
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public String getDescription() {
         return description;
@@ -243,7 +243,7 @@ public class Application implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public Application withDescription(String description) {
         this.setDescription(description);
@@ -255,7 +255,7 @@ public class Application implements Serializable {
      *
      * @param description the value for buukle-security..application.description
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public void setDescription(String description) {
         this.description = description == null ? null : description.trim();
@@ -266,7 +266,7 @@ public class Application implements Serializable {
      *
      * @return the value of buukle-security..application.remark
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public String getRemark() {
         return remark;
@@ -274,7 +274,7 @@ public class Application implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public Application withRemark(String remark) {
         this.setRemark(remark);
@@ -286,7 +286,7 @@ public class Application implements Serializable {
      *
      * @param remark the value for buukle-security..application.remark
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
@@ -297,7 +297,7 @@ public class Application implements Serializable {
      *
      * @return the value of buukle-security..application.gmt_created
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public Date getGmtCreated() {
         return gmtCreated;
@@ -305,7 +305,7 @@ public class Application implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public Application withGmtCreated(Date gmtCreated) {
         this.setGmtCreated(gmtCreated);
@@ -317,7 +317,7 @@ public class Application implements Serializable {
      *
      * @param gmtCreated the value for buukle-security..application.gmt_created
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public void setGmtCreated(Date gmtCreated) {
         this.gmtCreated = gmtCreated;
@@ -328,7 +328,7 @@ public class Application implements Serializable {
      *
      * @return the value of buukle-security..application.creator
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public String getCreator() {
         return creator;
@@ -336,7 +336,7 @@ public class Application implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public Application withCreator(String creator) {
         this.setCreator(creator);
@@ -348,7 +348,7 @@ public class Application implements Serializable {
      *
      * @param creator the value for buukle-security..application.creator
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public void setCreator(String creator) {
         this.creator = creator == null ? null : creator.trim();
@@ -359,7 +359,7 @@ public class Application implements Serializable {
      *
      * @return the value of buukle-security..application.creator_code
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public String getCreatorCode() {
         return creatorCode;
@@ -367,7 +367,7 @@ public class Application implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public Application withCreatorCode(String creatorCode) {
         this.setCreatorCode(creatorCode);
@@ -379,7 +379,7 @@ public class Application implements Serializable {
      *
      * @param creatorCode the value for buukle-security..application.creator_code
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public void setCreatorCode(String creatorCode) {
         this.creatorCode = creatorCode == null ? null : creatorCode.trim();
@@ -390,7 +390,7 @@ public class Application implements Serializable {
      *
      * @return the value of buukle-security..application.gmt_modified
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public Date getGmtModified() {
         return gmtModified;
@@ -398,7 +398,7 @@ public class Application implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public Application withGmtModified(Date gmtModified) {
         this.setGmtModified(gmtModified);
@@ -410,7 +410,7 @@ public class Application implements Serializable {
      *
      * @param gmtModified the value for buukle-security..application.gmt_modified
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public void setGmtModified(Date gmtModified) {
         this.gmtModified = gmtModified;
@@ -421,7 +421,7 @@ public class Application implements Serializable {
      *
      * @return the value of buukle-security..application.modifier
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public String getModifier() {
         return modifier;
@@ -429,7 +429,7 @@ public class Application implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public Application withModifier(String modifier) {
         this.setModifier(modifier);
@@ -441,7 +441,7 @@ public class Application implements Serializable {
      *
      * @param modifier the value for buukle-security..application.modifier
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public void setModifier(String modifier) {
         this.modifier = modifier == null ? null : modifier.trim();
@@ -452,7 +452,7 @@ public class Application implements Serializable {
      *
      * @return the value of buukle-security..application.modifier_code
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public String getModifierCode() {
         return modifierCode;
@@ -460,7 +460,7 @@ public class Application implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public Application withModifierCode(String modifierCode) {
         this.setModifierCode(modifierCode);
@@ -472,7 +472,7 @@ public class Application implements Serializable {
      *
      * @param modifierCode the value for buukle-security..application.modifier_code
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public void setModifierCode(String modifierCode) {
         this.modifierCode = modifierCode == null ? null : modifierCode.trim();
@@ -483,7 +483,7 @@ public class Application implements Serializable {
      *
      * @return the value of buukle-security..application.status
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public Integer getStatus() {
         return status;
@@ -491,7 +491,7 @@ public class Application implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public Application withStatus(Integer status) {
         this.setStatus(status);
@@ -503,7 +503,7 @@ public class Application implements Serializable {
      *
      * @param status the value for buukle-security..application.status
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public void setStatus(Integer status) {
         this.status = status;
@@ -514,7 +514,7 @@ public class Application implements Serializable {
      *
      * @return the value of buukle-security..application.bak01
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public String getBak01() {
         return bak01;
@@ -522,7 +522,7 @@ public class Application implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public Application withBak01(String bak01) {
         this.setBak01(bak01);
@@ -534,7 +534,7 @@ public class Application implements Serializable {
      *
      * @param bak01 the value for buukle-security..application.bak01
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public void setBak01(String bak01) {
         this.bak01 = bak01 == null ? null : bak01.trim();
@@ -545,7 +545,7 @@ public class Application implements Serializable {
      *
      * @return the value of buukle-security..application.bak02
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public String getBak02() {
         return bak02;
@@ -553,7 +553,7 @@ public class Application implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public Application withBak02(String bak02) {
         this.setBak02(bak02);
@@ -565,7 +565,7 @@ public class Application implements Serializable {
      *
      * @param bak02 the value for buukle-security..application.bak02
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public void setBak02(String bak02) {
         this.bak02 = bak02 == null ? null : bak02.trim();
@@ -576,7 +576,7 @@ public class Application implements Serializable {
      *
      * @return the value of buukle-security..application.bak03
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public String getBak03() {
         return bak03;
@@ -584,7 +584,7 @@ public class Application implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public Application withBak03(String bak03) {
         this.setBak03(bak03);
@@ -596,7 +596,7 @@ public class Application implements Serializable {
      *
      * @param bak03 the value for buukle-security..application.bak03
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public void setBak03(String bak03) {
         this.bak03 = bak03 == null ? null : bak03.trim();
@@ -607,7 +607,7 @@ public class Application implements Serializable {
      *
      * @return the value of buukle-security..application.bak04
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public String getBak04() {
         return bak04;
@@ -615,7 +615,7 @@ public class Application implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public Application withBak04(String bak04) {
         this.setBak04(bak04);
@@ -627,7 +627,7 @@ public class Application implements Serializable {
      *
      * @param bak04 the value for buukle-security..application.bak04
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public void setBak04(String bak04) {
         this.bak04 = bak04 == null ? null : bak04.trim();
@@ -638,7 +638,7 @@ public class Application implements Serializable {
      *
      * @return the value of buukle-security..application.bak05
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public String getBak05() {
         return bak05;
@@ -646,7 +646,7 @@ public class Application implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public Application withBak05(String bak05) {
         this.setBak05(bak05);
@@ -658,7 +658,7 @@ public class Application implements Serializable {
      *
      * @param bak05 the value for buukle-security..application.bak05
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     public void setBak05(String bak05) {
         this.bak05 = bak05 == null ? null : bak05.trim();
@@ -666,7 +666,7 @@ public class Application implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     @Override
     public String toString() {
@@ -697,7 +697,7 @@ public class Application implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     @Override
     public boolean equals(Object that) {
@@ -732,7 +732,7 @@ public class Application implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:29:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
     @Override
     public int hashCode() {

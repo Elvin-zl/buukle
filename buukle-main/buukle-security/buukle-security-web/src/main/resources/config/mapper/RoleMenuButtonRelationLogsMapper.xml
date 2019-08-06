@@ -3,7 +3,7 @@
 <mapper namespace="top.buukle.security.dao.RoleMenuButtonRelationLogsMapper">
   <resultMap id="BaseResultMap" type="top.buukle.security.entity.RoleMenuButtonRelationLogs">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:59 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:55 CST 2019. by MyBatis Generator, do not modify.
     -->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="role_id" jdbcType="INTEGER" property="roleId" />
@@ -26,7 +26,7 @@
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:59 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:55 CST 2019. by MyBatis Generator, do not modify.
     -->
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -58,7 +58,7 @@
   </sql>
   <sql id="Update_By_Example_Where_Clause">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:59 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:55 CST 2019. by MyBatis Generator, do not modify.
     -->
     <where>
       <foreach collection="example.oredCriteria" item="criteria" separator="or">
@@ -90,7 +90,7 @@
   </sql>
   <sql id="Base_Column_List">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:59 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:55 CST 2019. by MyBatis Generator, do not modify.
     -->
     id, role_id, menu_id_collections, button_id_collections, description, remark, gmt_created, 
     creator, creator_code, gmt_modified, modifier, modifier_code, status, bak01, bak02, 
@@ -98,7 +98,7 @@
   </sql>
   <select id="selectByExample" parameterType="top.buukle.security.entity.RoleMenuButtonRelationLogsExample" resultMap="BaseResultMap">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:59 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:55 CST 2019. by MyBatis Generator, do not modify.
     -->
     select
     <if test="distinct">
@@ -115,7 +115,7 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:59 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:55 CST 2019. by MyBatis Generator, do not modify.
     -->
     select 
     <include refid="Base_Column_List" />
@@ -124,14 +124,14 @@
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:59 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:55 CST 2019. by MyBatis Generator, do not modify.
     -->
     delete from role_menu_button_relation_logs
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="top.buukle.security.entity.RoleMenuButtonRelationLogsExample">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:59 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:55 CST 2019. by MyBatis Generator, do not modify.
     -->
     delete from role_menu_button_relation_logs
     <if test="_parameter != null">
@@ -140,7 +140,7 @@
   </delete>
   <insert id="insert" parameterType="top.buukle.security.entity.RoleMenuButtonRelationLogs">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:59 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:55 CST 2019. by MyBatis Generator, do not modify.
     -->
     insert into role_menu_button_relation_logs (id, role_id, menu_id_collections, 
       button_id_collections, description, remark, 
@@ -159,7 +159,7 @@
   </insert>
   <insert id="insertSelective" parameterType="top.buukle.security.entity.RoleMenuButtonRelationLogs">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:59 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:55 CST 2019. by MyBatis Generator, do not modify.
     -->
     insert into role_menu_button_relation_logs
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -277,7 +277,7 @@
   </insert>
   <select id="countByExample" parameterType="top.buukle.security.entity.RoleMenuButtonRelationLogsExample" resultType="java.lang.Long">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:59 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:55 CST 2019. by MyBatis Generator, do not modify.
     -->
     select count(*) from role_menu_button_relation_logs
     <if test="_parameter != null">
@@ -286,7 +286,7 @@
   </select>
   <update id="updateByExampleSelective" parameterType="map">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:59 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:55 CST 2019. by MyBatis Generator, do not modify.
     -->
     update role_menu_button_relation_logs
     <set>
@@ -351,7 +351,7 @@
   </update>
   <update id="updateByExample" parameterType="map">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:59 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:55 CST 2019. by MyBatis Generator, do not modify.
     -->
     update role_menu_button_relation_logs
     set id = #{record.id,jdbcType=INTEGER},
@@ -378,7 +378,7 @@
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="top.buukle.security.entity.RoleMenuButtonRelationLogs">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:59 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:55 CST 2019. by MyBatis Generator, do not modify.
     -->
     update role_menu_button_relation_logs
     <set>
@@ -438,7 +438,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="top.buukle.security.entity.RoleMenuButtonRelationLogs">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:59 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:55 CST 2019. by MyBatis Generator, do not modify.
     -->
     update role_menu_button_relation_logs
     set role_id = #{roleId,jdbcType=INTEGER},

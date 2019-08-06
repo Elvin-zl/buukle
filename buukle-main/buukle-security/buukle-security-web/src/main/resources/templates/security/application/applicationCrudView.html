@@ -18,9 +18,21 @@
 			<div class="layui-tab-content">
 				<div class="layui-tab-item layui-show">
 					<div class="layui-form-item">
+						<label class="layui-form-label">应用名称：</label>
+						<div class="layui-input-block">
+							<input type="text"  name="name" th:attr="value = ${record?.name}" placeholder="应用名称" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">描述：</label>
+						<div class="layui-input-block">
+							<textarea th:text="${record?.description}" name="description" placeholder="描述" class="layui-textarea"></textarea>
+						</div>
+					</div>
+					<div class="layui-form-item">
 						<label class="layui-form-label">备注：</label>
 						<div class="layui-input-block">
-							<input type="text"  name="remark" th:attr="value = ${record?.remark}" placeholder="remark" autocomplete="off" class="layui-input">
+							<textarea th:text="${record?.remark}" name="remark" placeholder="描述" class="layui-textarea"></textarea>
 						</div>
 					</div>
 				</div>

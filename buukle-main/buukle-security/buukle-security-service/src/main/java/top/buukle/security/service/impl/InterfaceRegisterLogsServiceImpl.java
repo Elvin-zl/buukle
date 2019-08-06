@@ -11,6 +11,7 @@ import top.buukle.common.call.vo.FuzzyVo;
 import top.buukle.common.status.StatusConstants;
 
 import top.buukle.security .dao.InterfaceRegisterLogsMapper;
+import top.buukle.security .dao.CommonMapper;
 import top.buukle.security .entity.User;
 import top.buukle.security .entity.InterfaceRegisterLogs;
 import top.buukle.security .entity.InterfaceRegisterLogsExample;
@@ -21,9 +22,11 @@ import top.buukle.security .service.InterfaceRegisterLogsService;
 import top.buukle.security .service.constants.SystemReturnEnum;
 import top.buukle.security .service.constants.InterfaceRegisterLogsEnums;
 import top.buukle.security .service.exception.SystemException;
+import top.buukle.security .service.util.ConvertHumpUtil;
 import top.buukle.util.DateUtil;
 import top.buukle.util.JsonUtil;
 import top.buukle.util.StringUtil;
+
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -41,6 +44,9 @@ public class InterfaceRegisterLogsServiceImpl implements InterfaceRegisterLogsSe
 
     @Autowired
     private InterfaceRegisterLogsMapper interfaceRegisterLogsMapper;
+
+    @Autowired
+    private CommonMapper commonMapper;
 
     /**
      * 分页获取列表
@@ -152,9 +158,8 @@ public class InterfaceRegisterLogsServiceImpl implements InterfaceRegisterLogsSe
         FuzzyVo fuzzyVo = new FuzzyVo();
         fuzzyVo.setText(text);
         fuzzyVo.setFieldName(fieldName);
-        // TODO mapper sql 暂时需要手动写入
-        // return new FuzzyResponse.Builder().build(interfaceRegisterLogsMapper.fuzzySearch(fuzzyVo));
-        return null;
+        fuzzyVo.setTableName(ConvertHumpUtil.humpToLine("InterfaceRegisterLogs"));
+        return new FuzzyResponse.Builder().build(commonMapper.fuzzySearch(fuzzyVo));
     }
 
     /**

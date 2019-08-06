@@ -15,7 +15,7 @@ public class InterfaceRegister implements Serializable {
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     private Integer id;
 
@@ -23,7 +23,7 @@ public class InterfaceRegister implements Serializable {
      * 所属应用id
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     private Integer applicationId;
 
@@ -31,7 +31,7 @@ public class InterfaceRegister implements Serializable {
      * 所属菜单id
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     private Integer menuId;
 
@@ -39,21 +39,21 @@ public class InterfaceRegister implements Serializable {
      * 按钮id
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     private Integer buttonId;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     private String name;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     private String url;
 
@@ -61,63 +61,63 @@ public class InterfaceRegister implements Serializable {
      * 验签类型 : 0 不需要验签 ;1 需要验签
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     private Integer signType;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     private String description;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     private String remark;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     private Date gmtCreated;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     private String creator;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     private String creatorCode;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     private Date gmtModified;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     private String modifier;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     private String modifierCode;
 
@@ -125,48 +125,48 @@ public class InterfaceRegister implements Serializable {
      * 状态
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     private Integer status;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     private String bak01;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     private String bak02;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     private String bak03;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     private String bak04;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     private String bak05;
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     private static final long serialVersionUID = 1L;
 
@@ -175,7 +175,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @return the value of buukle-security..interface_register.id
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public Integer getId() {
         return id;
@@ -183,7 +183,7 @@ public class InterfaceRegister implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public InterfaceRegister withId(Integer id) {
         this.setId(id);
@@ -195,7 +195,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @param id the value for buukle-security..interface_register.id
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public void setId(Integer id) {
         this.id = id;
@@ -206,7 +206,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @return the value of buukle-security..interface_register.application_id
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public Integer getApplicationId() {
         return applicationId;
@@ -214,7 +214,7 @@ public class InterfaceRegister implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public InterfaceRegister withApplicationId(Integer applicationId) {
         this.setApplicationId(applicationId);
@@ -226,7 +226,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @param applicationId the value for buukle-security..interface_register.application_id
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public void setApplicationId(Integer applicationId) {
         this.applicationId = applicationId;
@@ -237,7 +237,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @return the value of buukle-security..interface_register.menu_id
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public Integer getMenuId() {
         return menuId;
@@ -245,7 +245,7 @@ public class InterfaceRegister implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public InterfaceRegister withMenuId(Integer menuId) {
         this.setMenuId(menuId);
@@ -257,7 +257,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @param menuId the value for buukle-security..interface_register.menu_id
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public void setMenuId(Integer menuId) {
         this.menuId = menuId;
@@ -268,7 +268,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @return the value of buukle-security..interface_register.button_id
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public Integer getButtonId() {
         return buttonId;
@@ -276,7 +276,7 @@ public class InterfaceRegister implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public InterfaceRegister withButtonId(Integer buttonId) {
         this.setButtonId(buttonId);
@@ -288,7 +288,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @param buttonId the value for buukle-security..interface_register.button_id
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public void setButtonId(Integer buttonId) {
         this.buttonId = buttonId;
@@ -299,7 +299,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @return the value of buukle-security..interface_register.name
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public String getName() {
         return name;
@@ -307,7 +307,7 @@ public class InterfaceRegister implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public InterfaceRegister withName(String name) {
         this.setName(name);
@@ -319,7 +319,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @param name the value for buukle-security..interface_register.name
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
@@ -330,7 +330,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @return the value of buukle-security..interface_register.url
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public String getUrl() {
         return url;
@@ -338,7 +338,7 @@ public class InterfaceRegister implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public InterfaceRegister withUrl(String url) {
         this.setUrl(url);
@@ -350,7 +350,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @param url the value for buukle-security..interface_register.url
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public void setUrl(String url) {
         this.url = url == null ? null : url.trim();
@@ -361,7 +361,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @return the value of buukle-security..interface_register.sign_type
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public Integer getSignType() {
         return signType;
@@ -369,7 +369,7 @@ public class InterfaceRegister implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public InterfaceRegister withSignType(Integer signType) {
         this.setSignType(signType);
@@ -381,7 +381,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @param signType the value for buukle-security..interface_register.sign_type
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public void setSignType(Integer signType) {
         this.signType = signType;
@@ -392,7 +392,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @return the value of buukle-security..interface_register.description
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public String getDescription() {
         return description;
@@ -400,7 +400,7 @@ public class InterfaceRegister implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public InterfaceRegister withDescription(String description) {
         this.setDescription(description);
@@ -412,7 +412,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @param description the value for buukle-security..interface_register.description
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public void setDescription(String description) {
         this.description = description == null ? null : description.trim();
@@ -423,7 +423,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @return the value of buukle-security..interface_register.remark
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public String getRemark() {
         return remark;
@@ -431,7 +431,7 @@ public class InterfaceRegister implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public InterfaceRegister withRemark(String remark) {
         this.setRemark(remark);
@@ -443,7 +443,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @param remark the value for buukle-security..interface_register.remark
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
@@ -454,7 +454,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @return the value of buukle-security..interface_register.gmt_created
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public Date getGmtCreated() {
         return gmtCreated;
@@ -462,7 +462,7 @@ public class InterfaceRegister implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public InterfaceRegister withGmtCreated(Date gmtCreated) {
         this.setGmtCreated(gmtCreated);
@@ -474,7 +474,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @param gmtCreated the value for buukle-security..interface_register.gmt_created
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public void setGmtCreated(Date gmtCreated) {
         this.gmtCreated = gmtCreated;
@@ -485,7 +485,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @return the value of buukle-security..interface_register.creator
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public String getCreator() {
         return creator;
@@ -493,7 +493,7 @@ public class InterfaceRegister implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public InterfaceRegister withCreator(String creator) {
         this.setCreator(creator);
@@ -505,7 +505,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @param creator the value for buukle-security..interface_register.creator
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public void setCreator(String creator) {
         this.creator = creator == null ? null : creator.trim();
@@ -516,7 +516,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @return the value of buukle-security..interface_register.creator_code
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public String getCreatorCode() {
         return creatorCode;
@@ -524,7 +524,7 @@ public class InterfaceRegister implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public InterfaceRegister withCreatorCode(String creatorCode) {
         this.setCreatorCode(creatorCode);
@@ -536,7 +536,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @param creatorCode the value for buukle-security..interface_register.creator_code
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public void setCreatorCode(String creatorCode) {
         this.creatorCode = creatorCode == null ? null : creatorCode.trim();
@@ -547,7 +547,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @return the value of buukle-security..interface_register.gmt_modified
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public Date getGmtModified() {
         return gmtModified;
@@ -555,7 +555,7 @@ public class InterfaceRegister implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public InterfaceRegister withGmtModified(Date gmtModified) {
         this.setGmtModified(gmtModified);
@@ -567,7 +567,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @param gmtModified the value for buukle-security..interface_register.gmt_modified
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public void setGmtModified(Date gmtModified) {
         this.gmtModified = gmtModified;
@@ -578,7 +578,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @return the value of buukle-security..interface_register.modifier
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public String getModifier() {
         return modifier;
@@ -586,7 +586,7 @@ public class InterfaceRegister implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public InterfaceRegister withModifier(String modifier) {
         this.setModifier(modifier);
@@ -598,7 +598,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @param modifier the value for buukle-security..interface_register.modifier
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public void setModifier(String modifier) {
         this.modifier = modifier == null ? null : modifier.trim();
@@ -609,7 +609,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @return the value of buukle-security..interface_register.modifier_code
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public String getModifierCode() {
         return modifierCode;
@@ -617,7 +617,7 @@ public class InterfaceRegister implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public InterfaceRegister withModifierCode(String modifierCode) {
         this.setModifierCode(modifierCode);
@@ -629,7 +629,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @param modifierCode the value for buukle-security..interface_register.modifier_code
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public void setModifierCode(String modifierCode) {
         this.modifierCode = modifierCode == null ? null : modifierCode.trim();
@@ -640,7 +640,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @return the value of buukle-security..interface_register.status
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public Integer getStatus() {
         return status;
@@ -648,7 +648,7 @@ public class InterfaceRegister implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public InterfaceRegister withStatus(Integer status) {
         this.setStatus(status);
@@ -660,7 +660,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @param status the value for buukle-security..interface_register.status
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public void setStatus(Integer status) {
         this.status = status;
@@ -671,7 +671,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @return the value of buukle-security..interface_register.bak01
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public String getBak01() {
         return bak01;
@@ -679,7 +679,7 @@ public class InterfaceRegister implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public InterfaceRegister withBak01(String bak01) {
         this.setBak01(bak01);
@@ -691,7 +691,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @param bak01 the value for buukle-security..interface_register.bak01
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public void setBak01(String bak01) {
         this.bak01 = bak01 == null ? null : bak01.trim();
@@ -702,7 +702,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @return the value of buukle-security..interface_register.bak02
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public String getBak02() {
         return bak02;
@@ -710,7 +710,7 @@ public class InterfaceRegister implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public InterfaceRegister withBak02(String bak02) {
         this.setBak02(bak02);
@@ -722,7 +722,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @param bak02 the value for buukle-security..interface_register.bak02
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public void setBak02(String bak02) {
         this.bak02 = bak02 == null ? null : bak02.trim();
@@ -733,7 +733,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @return the value of buukle-security..interface_register.bak03
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public String getBak03() {
         return bak03;
@@ -741,7 +741,7 @@ public class InterfaceRegister implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public InterfaceRegister withBak03(String bak03) {
         this.setBak03(bak03);
@@ -753,7 +753,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @param bak03 the value for buukle-security..interface_register.bak03
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public void setBak03(String bak03) {
         this.bak03 = bak03 == null ? null : bak03.trim();
@@ -764,7 +764,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @return the value of buukle-security..interface_register.bak04
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public String getBak04() {
         return bak04;
@@ -772,7 +772,7 @@ public class InterfaceRegister implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public InterfaceRegister withBak04(String bak04) {
         this.setBak04(bak04);
@@ -784,7 +784,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @param bak04 the value for buukle-security..interface_register.bak04
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public void setBak04(String bak04) {
         this.bak04 = bak04 == null ? null : bak04.trim();
@@ -795,7 +795,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @return the value of buukle-security..interface_register.bak05
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public String getBak05() {
         return bak05;
@@ -803,7 +803,7 @@ public class InterfaceRegister implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public InterfaceRegister withBak05(String bak05) {
         this.setBak05(bak05);
@@ -815,7 +815,7 @@ public class InterfaceRegister implements Serializable {
      *
      * @param bak05 the value for buukle-security..interface_register.bak05
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     public void setBak05(String bak05) {
         this.bak05 = bak05 == null ? null : bak05.trim();
@@ -823,7 +823,7 @@ public class InterfaceRegister implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     @Override
     public String toString() {
@@ -858,7 +858,7 @@ public class InterfaceRegister implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     @Override
     public boolean equals(Object that) {
@@ -897,7 +897,7 @@ public class InterfaceRegister implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:46 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:42 CST 2019
      */
     @Override
     public int hashCode() {

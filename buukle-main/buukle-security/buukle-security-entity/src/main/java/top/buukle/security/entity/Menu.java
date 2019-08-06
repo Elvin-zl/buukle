@@ -15,7 +15,7 @@ public class Menu implements Serializable {
      * 主键id
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     private Integer id;
 
@@ -23,7 +23,7 @@ public class Menu implements Serializable {
      * 是否是系统守护 0 : 否 1: 是
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     private Integer systemFlag;
 
@@ -31,7 +31,7 @@ public class Menu implements Serializable {
      * 父菜单id
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     private Integer pid;
 
@@ -39,98 +39,98 @@ public class Menu implements Serializable {
      * 所属应用id
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     private Integer applicationId;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     private String applicationName;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     private String name;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     private String url;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     private String pageUrl;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     private String icon;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     private String description;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     private String remark;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     private Date gmtCreated;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     private String creator;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     private String creatorCode;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     private Date gmtModified;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     private String modifier;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     private String modifierCode;
 
@@ -138,48 +138,48 @@ public class Menu implements Serializable {
      * 状态
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     private Integer status;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     private String bak01;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     private String bak02;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     private String bak03;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     private String bak04;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     private String bak05;
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     private static final long serialVersionUID = 1L;
 
@@ -188,7 +188,7 @@ public class Menu implements Serializable {
      *
      * @return the value of buukle-security..menu.id
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public Integer getId() {
         return id;
@@ -196,7 +196,7 @@ public class Menu implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public Menu withId(Integer id) {
         this.setId(id);
@@ -208,7 +208,7 @@ public class Menu implements Serializable {
      *
      * @param id the value for buukle-security..menu.id
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public void setId(Integer id) {
         this.id = id;
@@ -219,7 +219,7 @@ public class Menu implements Serializable {
      *
      * @return the value of buukle-security..menu.system_flag
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public Integer getSystemFlag() {
         return systemFlag;
@@ -227,7 +227,7 @@ public class Menu implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public Menu withSystemFlag(Integer systemFlag) {
         this.setSystemFlag(systemFlag);
@@ -239,7 +239,7 @@ public class Menu implements Serializable {
      *
      * @param systemFlag the value for buukle-security..menu.system_flag
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public void setSystemFlag(Integer systemFlag) {
         this.systemFlag = systemFlag;
@@ -250,7 +250,7 @@ public class Menu implements Serializable {
      *
      * @return the value of buukle-security..menu.pid
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public Integer getPid() {
         return pid;
@@ -258,7 +258,7 @@ public class Menu implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public Menu withPid(Integer pid) {
         this.setPid(pid);
@@ -270,7 +270,7 @@ public class Menu implements Serializable {
      *
      * @param pid the value for buukle-security..menu.pid
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public void setPid(Integer pid) {
         this.pid = pid;
@@ -281,7 +281,7 @@ public class Menu implements Serializable {
      *
      * @return the value of buukle-security..menu.application_id
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public Integer getApplicationId() {
         return applicationId;
@@ -289,7 +289,7 @@ public class Menu implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public Menu withApplicationId(Integer applicationId) {
         this.setApplicationId(applicationId);
@@ -301,7 +301,7 @@ public class Menu implements Serializable {
      *
      * @param applicationId the value for buukle-security..menu.application_id
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public void setApplicationId(Integer applicationId) {
         this.applicationId = applicationId;
@@ -312,7 +312,7 @@ public class Menu implements Serializable {
      *
      * @return the value of buukle-security..menu.application_name
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public String getApplicationName() {
         return applicationName;
@@ -320,7 +320,7 @@ public class Menu implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public Menu withApplicationName(String applicationName) {
         this.setApplicationName(applicationName);
@@ -332,7 +332,7 @@ public class Menu implements Serializable {
      *
      * @param applicationName the value for buukle-security..menu.application_name
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public void setApplicationName(String applicationName) {
         this.applicationName = applicationName == null ? null : applicationName.trim();
@@ -343,7 +343,7 @@ public class Menu implements Serializable {
      *
      * @return the value of buukle-security..menu.name
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public String getName() {
         return name;
@@ -351,7 +351,7 @@ public class Menu implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public Menu withName(String name) {
         this.setName(name);
@@ -363,7 +363,7 @@ public class Menu implements Serializable {
      *
      * @param name the value for buukle-security..menu.name
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
@@ -374,7 +374,7 @@ public class Menu implements Serializable {
      *
      * @return the value of buukle-security..menu.url
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public String getUrl() {
         return url;
@@ -382,7 +382,7 @@ public class Menu implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public Menu withUrl(String url) {
         this.setUrl(url);
@@ -394,7 +394,7 @@ public class Menu implements Serializable {
      *
      * @param url the value for buukle-security..menu.url
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public void setUrl(String url) {
         this.url = url == null ? null : url.trim();
@@ -405,7 +405,7 @@ public class Menu implements Serializable {
      *
      * @return the value of buukle-security..menu.page_url
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public String getPageUrl() {
         return pageUrl;
@@ -413,7 +413,7 @@ public class Menu implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public Menu withPageUrl(String pageUrl) {
         this.setPageUrl(pageUrl);
@@ -425,7 +425,7 @@ public class Menu implements Serializable {
      *
      * @param pageUrl the value for buukle-security..menu.page_url
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public void setPageUrl(String pageUrl) {
         this.pageUrl = pageUrl == null ? null : pageUrl.trim();
@@ -436,7 +436,7 @@ public class Menu implements Serializable {
      *
      * @return the value of buukle-security..menu.icon
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public String getIcon() {
         return icon;
@@ -444,7 +444,7 @@ public class Menu implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public Menu withIcon(String icon) {
         this.setIcon(icon);
@@ -456,7 +456,7 @@ public class Menu implements Serializable {
      *
      * @param icon the value for buukle-security..menu.icon
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public void setIcon(String icon) {
         this.icon = icon == null ? null : icon.trim();
@@ -467,7 +467,7 @@ public class Menu implements Serializable {
      *
      * @return the value of buukle-security..menu.description
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public String getDescription() {
         return description;
@@ -475,7 +475,7 @@ public class Menu implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public Menu withDescription(String description) {
         this.setDescription(description);
@@ -487,7 +487,7 @@ public class Menu implements Serializable {
      *
      * @param description the value for buukle-security..menu.description
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public void setDescription(String description) {
         this.description = description == null ? null : description.trim();
@@ -498,7 +498,7 @@ public class Menu implements Serializable {
      *
      * @return the value of buukle-security..menu.remark
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public String getRemark() {
         return remark;
@@ -506,7 +506,7 @@ public class Menu implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public Menu withRemark(String remark) {
         this.setRemark(remark);
@@ -518,7 +518,7 @@ public class Menu implements Serializable {
      *
      * @param remark the value for buukle-security..menu.remark
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
@@ -529,7 +529,7 @@ public class Menu implements Serializable {
      *
      * @return the value of buukle-security..menu.gmt_created
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public Date getGmtCreated() {
         return gmtCreated;
@@ -537,7 +537,7 @@ public class Menu implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public Menu withGmtCreated(Date gmtCreated) {
         this.setGmtCreated(gmtCreated);
@@ -549,7 +549,7 @@ public class Menu implements Serializable {
      *
      * @param gmtCreated the value for buukle-security..menu.gmt_created
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public void setGmtCreated(Date gmtCreated) {
         this.gmtCreated = gmtCreated;
@@ -560,7 +560,7 @@ public class Menu implements Serializable {
      *
      * @return the value of buukle-security..menu.creator
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public String getCreator() {
         return creator;
@@ -568,7 +568,7 @@ public class Menu implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public Menu withCreator(String creator) {
         this.setCreator(creator);
@@ -580,7 +580,7 @@ public class Menu implements Serializable {
      *
      * @param creator the value for buukle-security..menu.creator
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public void setCreator(String creator) {
         this.creator = creator == null ? null : creator.trim();
@@ -591,7 +591,7 @@ public class Menu implements Serializable {
      *
      * @return the value of buukle-security..menu.creator_code
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public String getCreatorCode() {
         return creatorCode;
@@ -599,7 +599,7 @@ public class Menu implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public Menu withCreatorCode(String creatorCode) {
         this.setCreatorCode(creatorCode);
@@ -611,7 +611,7 @@ public class Menu implements Serializable {
      *
      * @param creatorCode the value for buukle-security..menu.creator_code
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public void setCreatorCode(String creatorCode) {
         this.creatorCode = creatorCode == null ? null : creatorCode.trim();
@@ -622,7 +622,7 @@ public class Menu implements Serializable {
      *
      * @return the value of buukle-security..menu.gmt_modified
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public Date getGmtModified() {
         return gmtModified;
@@ -630,7 +630,7 @@ public class Menu implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public Menu withGmtModified(Date gmtModified) {
         this.setGmtModified(gmtModified);
@@ -642,7 +642,7 @@ public class Menu implements Serializable {
      *
      * @param gmtModified the value for buukle-security..menu.gmt_modified
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public void setGmtModified(Date gmtModified) {
         this.gmtModified = gmtModified;
@@ -653,7 +653,7 @@ public class Menu implements Serializable {
      *
      * @return the value of buukle-security..menu.modifier
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public String getModifier() {
         return modifier;
@@ -661,7 +661,7 @@ public class Menu implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public Menu withModifier(String modifier) {
         this.setModifier(modifier);
@@ -673,7 +673,7 @@ public class Menu implements Serializable {
      *
      * @param modifier the value for buukle-security..menu.modifier
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public void setModifier(String modifier) {
         this.modifier = modifier == null ? null : modifier.trim();
@@ -684,7 +684,7 @@ public class Menu implements Serializable {
      *
      * @return the value of buukle-security..menu.modifier_code
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public String getModifierCode() {
         return modifierCode;
@@ -692,7 +692,7 @@ public class Menu implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public Menu withModifierCode(String modifierCode) {
         this.setModifierCode(modifierCode);
@@ -704,7 +704,7 @@ public class Menu implements Serializable {
      *
      * @param modifierCode the value for buukle-security..menu.modifier_code
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public void setModifierCode(String modifierCode) {
         this.modifierCode = modifierCode == null ? null : modifierCode.trim();
@@ -715,7 +715,7 @@ public class Menu implements Serializable {
      *
      * @return the value of buukle-security..menu.status
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public Integer getStatus() {
         return status;
@@ -723,7 +723,7 @@ public class Menu implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public Menu withStatus(Integer status) {
         this.setStatus(status);
@@ -735,7 +735,7 @@ public class Menu implements Serializable {
      *
      * @param status the value for buukle-security..menu.status
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public void setStatus(Integer status) {
         this.status = status;
@@ -746,7 +746,7 @@ public class Menu implements Serializable {
      *
      * @return the value of buukle-security..menu.bak01
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public String getBak01() {
         return bak01;
@@ -754,7 +754,7 @@ public class Menu implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public Menu withBak01(String bak01) {
         this.setBak01(bak01);
@@ -766,7 +766,7 @@ public class Menu implements Serializable {
      *
      * @param bak01 the value for buukle-security..menu.bak01
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public void setBak01(String bak01) {
         this.bak01 = bak01 == null ? null : bak01.trim();
@@ -777,7 +777,7 @@ public class Menu implements Serializable {
      *
      * @return the value of buukle-security..menu.bak02
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public String getBak02() {
         return bak02;
@@ -785,7 +785,7 @@ public class Menu implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public Menu withBak02(String bak02) {
         this.setBak02(bak02);
@@ -797,7 +797,7 @@ public class Menu implements Serializable {
      *
      * @param bak02 the value for buukle-security..menu.bak02
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public void setBak02(String bak02) {
         this.bak02 = bak02 == null ? null : bak02.trim();
@@ -808,7 +808,7 @@ public class Menu implements Serializable {
      *
      * @return the value of buukle-security..menu.bak03
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public String getBak03() {
         return bak03;
@@ -816,7 +816,7 @@ public class Menu implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public Menu withBak03(String bak03) {
         this.setBak03(bak03);
@@ -828,7 +828,7 @@ public class Menu implements Serializable {
      *
      * @param bak03 the value for buukle-security..menu.bak03
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public void setBak03(String bak03) {
         this.bak03 = bak03 == null ? null : bak03.trim();
@@ -839,7 +839,7 @@ public class Menu implements Serializable {
      *
      * @return the value of buukle-security..menu.bak04
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public String getBak04() {
         return bak04;
@@ -847,7 +847,7 @@ public class Menu implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public Menu withBak04(String bak04) {
         this.setBak04(bak04);
@@ -859,7 +859,7 @@ public class Menu implements Serializable {
      *
      * @param bak04 the value for buukle-security..menu.bak04
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public void setBak04(String bak04) {
         this.bak04 = bak04 == null ? null : bak04.trim();
@@ -870,7 +870,7 @@ public class Menu implements Serializable {
      *
      * @return the value of buukle-security..menu.bak05
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public String getBak05() {
         return bak05;
@@ -878,7 +878,7 @@ public class Menu implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public Menu withBak05(String bak05) {
         this.setBak05(bak05);
@@ -890,7 +890,7 @@ public class Menu implements Serializable {
      *
      * @param bak05 the value for buukle-security..menu.bak05
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     public void setBak05(String bak05) {
         this.bak05 = bak05 == null ? null : bak05.trim();
@@ -898,7 +898,7 @@ public class Menu implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     @Override
     public String toString() {
@@ -935,7 +935,7 @@ public class Menu implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     @Override
     public boolean equals(Object that) {
@@ -976,7 +976,7 @@ public class Menu implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:51 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
      */
     @Override
     public int hashCode() {

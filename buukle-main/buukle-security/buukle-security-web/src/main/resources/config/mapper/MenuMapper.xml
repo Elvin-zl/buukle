@@ -3,7 +3,7 @@
 <mapper namespace="top.buukle.security.dao.MenuMapper">
   <resultMap id="BaseResultMap" type="top.buukle.security.entity.Menu">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:51 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:47 CST 2019. by MyBatis Generator, do not modify.
     -->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="system_flag" jdbcType="INTEGER" property="systemFlag" />
@@ -31,7 +31,7 @@
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:51 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:47 CST 2019. by MyBatis Generator, do not modify.
     -->
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -63,7 +63,7 @@
   </sql>
   <sql id="Update_By_Example_Where_Clause">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:51 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:47 CST 2019. by MyBatis Generator, do not modify.
     -->
     <where>
       <foreach collection="example.oredCriteria" item="criteria" separator="or">
@@ -95,7 +95,7 @@
   </sql>
   <sql id="Base_Column_List">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:51 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:47 CST 2019. by MyBatis Generator, do not modify.
     -->
     id, system_flag, pid, application_id, application_name, name, url, page_url, icon, 
     description, remark, gmt_created, creator, creator_code, gmt_modified, modifier, 
@@ -103,7 +103,7 @@
   </sql>
   <select id="selectByExample" parameterType="top.buukle.security.entity.MenuExample" resultMap="BaseResultMap">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:51 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:47 CST 2019. by MyBatis Generator, do not modify.
     -->
     select
     <if test="distinct">
@@ -120,7 +120,7 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:51 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:47 CST 2019. by MyBatis Generator, do not modify.
     -->
     select 
     <include refid="Base_Column_List" />
@@ -129,14 +129,14 @@
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:51 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:47 CST 2019. by MyBatis Generator, do not modify.
     -->
     delete from menu
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="top.buukle.security.entity.MenuExample">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:51 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:47 CST 2019. by MyBatis Generator, do not modify.
     -->
     delete from menu
     <if test="_parameter != null">
@@ -145,7 +145,7 @@
   </delete>
   <insert id="insert" parameterType="top.buukle.security.entity.Menu">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:51 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:47 CST 2019. by MyBatis Generator, do not modify.
     -->
     insert into menu (id, system_flag, pid, 
       application_id, application_name, name, 
@@ -166,7 +166,7 @@
   </insert>
   <insert id="insertSelective" parameterType="top.buukle.security.entity.Menu">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:51 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:47 CST 2019. by MyBatis Generator, do not modify.
     -->
     insert into menu
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -314,7 +314,7 @@
   </insert>
   <select id="countByExample" parameterType="top.buukle.security.entity.MenuExample" resultType="java.lang.Long">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:51 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:47 CST 2019. by MyBatis Generator, do not modify.
     -->
     select count(*) from menu
     <if test="_parameter != null">
@@ -323,7 +323,7 @@
   </select>
   <update id="updateByExampleSelective" parameterType="map">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:51 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:47 CST 2019. by MyBatis Generator, do not modify.
     -->
     update menu
     <set>
@@ -403,7 +403,7 @@
   </update>
   <update id="updateByExample" parameterType="map">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:51 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:47 CST 2019. by MyBatis Generator, do not modify.
     -->
     update menu
     set id = #{record.id,jdbcType=INTEGER},
@@ -435,7 +435,7 @@
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="top.buukle.security.entity.Menu">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:51 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:47 CST 2019. by MyBatis Generator, do not modify.
     -->
     update menu
     <set>
@@ -510,7 +510,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="top.buukle.security.entity.Menu">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:51 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:47 CST 2019. by MyBatis Generator, do not modify.
     -->
     update menu
     set system_flag = #{systemFlag,jdbcType=INTEGER},

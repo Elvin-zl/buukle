@@ -759,25 +759,4 @@
       bak05 = #{bak05,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-
-  <resultMap id="FuzzyResultMap" type="top.buukle.common.call.vo.FuzzyVo">
-    <id column="id" jdbcType="INTEGER" property="identity" />
-    <result column="user_id" jdbcType="VARCHAR" property="userId" />
-
-    <result column="user_id" jdbcType="VARCHAR" property="id" />
-    <result column="user_id" jdbcType="VARCHAR" property="text" />
-
-    <result column="username" jdbcType="VARCHAR" property="id" />
-    <result column="username" jdbcType="VARCHAR" property="text" />
-
-    <result column="name_cn" jdbcType="VARCHAR" property="id" />
-    <result column="name_cn" jdbcType="VARCHAR" property="text" />
-  </resultMap>
-  <!--fuzzySearch-->
-  <select id="fuzzySearch" parameterType="top.buukle.common.call.vo.FuzzyVo" resultMap="FuzzyResultMap">
-    select
-    id,user_id, ${fieldName}
-    from user
-    where ${fieldName}  like '%${text}%';
-  </select>
 </mapper>

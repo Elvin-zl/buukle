@@ -10,6 +10,8 @@ public class FuzzyVo {
     private String id;
     /** 字段名*/
     private String fieldName;
+    /** 字段名*/
+    private String tableName;
     /** 模糊搜索入参*/
     private String text;
     /** 搜索记录中单条记录的id*/
@@ -55,5 +57,13 @@ public class FuzzyVo {
 
     public void setIdentity(Integer identity) {
         this.identity = identity;
+    }
+
+    public String getTableName() {
+        return tableName;
+    }
+
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
     }
 }

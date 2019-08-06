@@ -15,7 +15,7 @@ public class Area implements Serializable {
      * 主键id
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     private Integer id;
 
@@ -23,70 +23,70 @@ public class Area implements Serializable {
      * 上级区域id
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     private Integer pid;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     private String name;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     private String description;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     private String remark;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     private Date gmtCreated;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     private String creator;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     private String creatorCode;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     private Date gmtModified;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     private String modifier;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     private String modifierCode;
 
@@ -94,48 +94,48 @@ public class Area implements Serializable {
      * 状态
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     private Integer status;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     private String bak01;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     private String bak02;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     private String bak03;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     private String bak04;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     private String bak05;
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     private static final long serialVersionUID = 1L;
 
@@ -144,7 +144,7 @@ public class Area implements Serializable {
      *
      * @return the value of buukle-security..area.id
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public Integer getId() {
         return id;
@@ -152,7 +152,7 @@ public class Area implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public Area withId(Integer id) {
         this.setId(id);
@@ -164,7 +164,7 @@ public class Area implements Serializable {
      *
      * @param id the value for buukle-security..area.id
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public void setId(Integer id) {
         this.id = id;
@@ -175,7 +175,7 @@ public class Area implements Serializable {
      *
      * @return the value of buukle-security..area.pid
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public Integer getPid() {
         return pid;
@@ -183,7 +183,7 @@ public class Area implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public Area withPid(Integer pid) {
         this.setPid(pid);
@@ -195,7 +195,7 @@ public class Area implements Serializable {
      *
      * @param pid the value for buukle-security..area.pid
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public void setPid(Integer pid) {
         this.pid = pid;
@@ -206,7 +206,7 @@ public class Area implements Serializable {
      *
      * @return the value of buukle-security..area.name
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public String getName() {
         return name;
@@ -214,7 +214,7 @@ public class Area implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public Area withName(String name) {
         this.setName(name);
@@ -226,7 +226,7 @@ public class Area implements Serializable {
      *
      * @param name the value for buukle-security..area.name
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
@@ -237,7 +237,7 @@ public class Area implements Serializable {
      *
      * @return the value of buukle-security..area.description
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public String getDescription() {
         return description;
@@ -245,7 +245,7 @@ public class Area implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public Area withDescription(String description) {
         this.setDescription(description);
@@ -257,7 +257,7 @@ public class Area implements Serializable {
      *
      * @param description the value for buukle-security..area.description
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public void setDescription(String description) {
         this.description = description == null ? null : description.trim();
@@ -268,7 +268,7 @@ public class Area implements Serializable {
      *
      * @return the value of buukle-security..area.remark
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public String getRemark() {
         return remark;
@@ -276,7 +276,7 @@ public class Area implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public Area withRemark(String remark) {
         this.setRemark(remark);
@@ -288,7 +288,7 @@ public class Area implements Serializable {
      *
      * @param remark the value for buukle-security..area.remark
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
@@ -299,7 +299,7 @@ public class Area implements Serializable {
      *
      * @return the value of buukle-security..area.gmt_created
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public Date getGmtCreated() {
         return gmtCreated;
@@ -307,7 +307,7 @@ public class Area implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public Area withGmtCreated(Date gmtCreated) {
         this.setGmtCreated(gmtCreated);
@@ -319,7 +319,7 @@ public class Area implements Serializable {
      *
      * @param gmtCreated the value for buukle-security..area.gmt_created
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public void setGmtCreated(Date gmtCreated) {
         this.gmtCreated = gmtCreated;
@@ -330,7 +330,7 @@ public class Area implements Serializable {
      *
      * @return the value of buukle-security..area.creator
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public String getCreator() {
         return creator;
@@ -338,7 +338,7 @@ public class Area implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public Area withCreator(String creator) {
         this.setCreator(creator);
@@ -350,7 +350,7 @@ public class Area implements Serializable {
      *
      * @param creator the value for buukle-security..area.creator
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public void setCreator(String creator) {
         this.creator = creator == null ? null : creator.trim();
@@ -361,7 +361,7 @@ public class Area implements Serializable {
      *
      * @return the value of buukle-security..area.creator_code
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public String getCreatorCode() {
         return creatorCode;
@@ -369,7 +369,7 @@ public class Area implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public Area withCreatorCode(String creatorCode) {
         this.setCreatorCode(creatorCode);
@@ -381,7 +381,7 @@ public class Area implements Serializable {
      *
      * @param creatorCode the value for buukle-security..area.creator_code
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public void setCreatorCode(String creatorCode) {
         this.creatorCode = creatorCode == null ? null : creatorCode.trim();
@@ -392,7 +392,7 @@ public class Area implements Serializable {
      *
      * @return the value of buukle-security..area.gmt_modified
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public Date getGmtModified() {
         return gmtModified;
@@ -400,7 +400,7 @@ public class Area implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public Area withGmtModified(Date gmtModified) {
         this.setGmtModified(gmtModified);
@@ -412,7 +412,7 @@ public class Area implements Serializable {
      *
      * @param gmtModified the value for buukle-security..area.gmt_modified
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public void setGmtModified(Date gmtModified) {
         this.gmtModified = gmtModified;
@@ -423,7 +423,7 @@ public class Area implements Serializable {
      *
      * @return the value of buukle-security..area.modifier
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public String getModifier() {
         return modifier;
@@ -431,7 +431,7 @@ public class Area implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public Area withModifier(String modifier) {
         this.setModifier(modifier);
@@ -443,7 +443,7 @@ public class Area implements Serializable {
      *
      * @param modifier the value for buukle-security..area.modifier
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public void setModifier(String modifier) {
         this.modifier = modifier == null ? null : modifier.trim();
@@ -454,7 +454,7 @@ public class Area implements Serializable {
      *
      * @return the value of buukle-security..area.modifier_code
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public String getModifierCode() {
         return modifierCode;
@@ -462,7 +462,7 @@ public class Area implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public Area withModifierCode(String modifierCode) {
         this.setModifierCode(modifierCode);
@@ -474,7 +474,7 @@ public class Area implements Serializable {
      *
      * @param modifierCode the value for buukle-security..area.modifier_code
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public void setModifierCode(String modifierCode) {
         this.modifierCode = modifierCode == null ? null : modifierCode.trim();
@@ -485,7 +485,7 @@ public class Area implements Serializable {
      *
      * @return the value of buukle-security..area.status
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public Integer getStatus() {
         return status;
@@ -493,7 +493,7 @@ public class Area implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public Area withStatus(Integer status) {
         this.setStatus(status);
@@ -505,7 +505,7 @@ public class Area implements Serializable {
      *
      * @param status the value for buukle-security..area.status
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public void setStatus(Integer status) {
         this.status = status;
@@ -516,7 +516,7 @@ public class Area implements Serializable {
      *
      * @return the value of buukle-security..area.bak01
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public String getBak01() {
         return bak01;
@@ -524,7 +524,7 @@ public class Area implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public Area withBak01(String bak01) {
         this.setBak01(bak01);
@@ -536,7 +536,7 @@ public class Area implements Serializable {
      *
      * @param bak01 the value for buukle-security..area.bak01
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public void setBak01(String bak01) {
         this.bak01 = bak01 == null ? null : bak01.trim();
@@ -547,7 +547,7 @@ public class Area implements Serializable {
      *
      * @return the value of buukle-security..area.bak02
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public String getBak02() {
         return bak02;
@@ -555,7 +555,7 @@ public class Area implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public Area withBak02(String bak02) {
         this.setBak02(bak02);
@@ -567,7 +567,7 @@ public class Area implements Serializable {
      *
      * @param bak02 the value for buukle-security..area.bak02
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public void setBak02(String bak02) {
         this.bak02 = bak02 == null ? null : bak02.trim();
@@ -578,7 +578,7 @@ public class Area implements Serializable {
      *
      * @return the value of buukle-security..area.bak03
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public String getBak03() {
         return bak03;
@@ -586,7 +586,7 @@ public class Area implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public Area withBak03(String bak03) {
         this.setBak03(bak03);
@@ -598,7 +598,7 @@ public class Area implements Serializable {
      *
      * @param bak03 the value for buukle-security..area.bak03
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public void setBak03(String bak03) {
         this.bak03 = bak03 == null ? null : bak03.trim();
@@ -609,7 +609,7 @@ public class Area implements Serializable {
      *
      * @return the value of buukle-security..area.bak04
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public String getBak04() {
         return bak04;
@@ -617,7 +617,7 @@ public class Area implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public Area withBak04(String bak04) {
         this.setBak04(bak04);
@@ -629,7 +629,7 @@ public class Area implements Serializable {
      *
      * @param bak04 the value for buukle-security..area.bak04
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public void setBak04(String bak04) {
         this.bak04 = bak04 == null ? null : bak04.trim();
@@ -640,7 +640,7 @@ public class Area implements Serializable {
      *
      * @return the value of buukle-security..area.bak05
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public String getBak05() {
         return bak05;
@@ -648,7 +648,7 @@ public class Area implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public Area withBak05(String bak05) {
         this.setBak05(bak05);
@@ -660,7 +660,7 @@ public class Area implements Serializable {
      *
      * @param bak05 the value for buukle-security..area.bak05
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     public void setBak05(String bak05) {
         this.bak05 = bak05 == null ? null : bak05.trim();
@@ -668,7 +668,7 @@ public class Area implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     @Override
     public String toString() {
@@ -699,7 +699,7 @@ public class Area implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     @Override
     public boolean equals(Object that) {
@@ -734,7 +734,7 @@ public class Area implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 18:32:38 CST 2019
+     * @mbg.generated Tue Aug 06 21:36:34 CST 2019
      */
     @Override
     public int hashCode() {

@@ -3,7 +3,7 @@
 <mapper namespace="top.buukle.security.dao.ButtonMapper">
   <resultMap id="BaseResultMap" type="top.buukle.security.entity.Button">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:41 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:38 CST 2019. by MyBatis Generator, do not modify.
     -->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="system_flag" jdbcType="INTEGER" property="systemFlag" />
@@ -31,7 +31,7 @@
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:41 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:38 CST 2019. by MyBatis Generator, do not modify.
     -->
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -63,7 +63,7 @@
   </sql>
   <sql id="Update_By_Example_Where_Clause">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:41 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:38 CST 2019. by MyBatis Generator, do not modify.
     -->
     <where>
       <foreach collection="example.oredCriteria" item="criteria" separator="or">
@@ -95,7 +95,7 @@
   </sql>
   <sql id="Base_Column_List">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:41 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:38 CST 2019. by MyBatis Generator, do not modify.
     -->
     id, system_flag, application_id, menu_id, url, name, operation_type, response_type, 
     layout_level, description, remark, gmt_created, creator, creator_code, gmt_modified, 
@@ -103,7 +103,7 @@
   </sql>
   <select id="selectByExample" parameterType="top.buukle.security.entity.ButtonExample" resultMap="BaseResultMap">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:41 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:38 CST 2019. by MyBatis Generator, do not modify.
     -->
     select
     <if test="distinct">
@@ -120,7 +120,7 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:41 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:38 CST 2019. by MyBatis Generator, do not modify.
     -->
     select 
     <include refid="Base_Column_List" />
@@ -129,14 +129,14 @@
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:41 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:38 CST 2019. by MyBatis Generator, do not modify.
     -->
     delete from button
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="top.buukle.security.entity.ButtonExample">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:41 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:38 CST 2019. by MyBatis Generator, do not modify.
     -->
     delete from button
     <if test="_parameter != null">
@@ -145,7 +145,7 @@
   </delete>
   <insert id="insert" parameterType="top.buukle.security.entity.Button">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:41 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:38 CST 2019. by MyBatis Generator, do not modify.
     -->
     insert into button (id, system_flag, application_id, 
       menu_id, url, name, 
@@ -166,7 +166,7 @@
   </insert>
   <insert id="insertSelective" parameterType="top.buukle.security.entity.Button">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:41 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:38 CST 2019. by MyBatis Generator, do not modify.
     -->
     insert into button
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -314,7 +314,7 @@
   </insert>
   <select id="countByExample" parameterType="top.buukle.security.entity.ButtonExample" resultType="java.lang.Long">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:41 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:38 CST 2019. by MyBatis Generator, do not modify.
     -->
     select count(*) from button
     <if test="_parameter != null">
@@ -323,7 +323,7 @@
   </select>
   <update id="updateByExampleSelective" parameterType="map">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:41 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:38 CST 2019. by MyBatis Generator, do not modify.
     -->
     update button
     <set>
@@ -403,7 +403,7 @@
   </update>
   <update id="updateByExample" parameterType="map">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:41 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:38 CST 2019. by MyBatis Generator, do not modify.
     -->
     update button
     set id = #{record.id,jdbcType=INTEGER},
@@ -435,7 +435,7 @@
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="top.buukle.security.entity.Button">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:41 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:38 CST 2019. by MyBatis Generator, do not modify.
     -->
     update button
     <set>
@@ -510,7 +510,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="top.buukle.security.entity.Button">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:41 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:38 CST 2019. by MyBatis Generator, do not modify.
     -->
     update button
     set system_flag = #{systemFlag,jdbcType=INTEGER},

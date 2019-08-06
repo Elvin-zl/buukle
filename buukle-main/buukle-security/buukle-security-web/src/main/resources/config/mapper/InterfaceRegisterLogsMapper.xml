@@ -3,7 +3,7 @@
 <mapper namespace="top.buukle.security.dao.InterfaceRegisterLogsMapper">
   <resultMap id="BaseResultMap" type="top.buukle.security.entity.InterfaceRegisterLogs">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:49 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:45 CST 2019. by MyBatis Generator, do not modify.
     -->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="register_id" jdbcType="INTEGER" property="registerId" />
@@ -29,7 +29,7 @@
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:49 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:45 CST 2019. by MyBatis Generator, do not modify.
     -->
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -61,7 +61,7 @@
   </sql>
   <sql id="Update_By_Example_Where_Clause">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:49 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:45 CST 2019. by MyBatis Generator, do not modify.
     -->
     <where>
       <foreach collection="example.oredCriteria" item="criteria" separator="or">
@@ -93,7 +93,7 @@
   </sql>
   <sql id="Base_Column_List">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:49 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:45 CST 2019. by MyBatis Generator, do not modify.
     -->
     id, register_id, application_id, menu_id, button_id, name, url, description, remark, 
     gmt_created, creator, creator_code, gmt_modified, modifier, modifier_code, status, 
@@ -101,7 +101,7 @@
   </sql>
   <select id="selectByExample" parameterType="top.buukle.security.entity.InterfaceRegisterLogsExample" resultMap="BaseResultMap">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:49 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:45 CST 2019. by MyBatis Generator, do not modify.
     -->
     select
     <if test="distinct">
@@ -118,7 +118,7 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:49 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:45 CST 2019. by MyBatis Generator, do not modify.
     -->
     select 
     <include refid="Base_Column_List" />
@@ -127,14 +127,14 @@
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:49 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:45 CST 2019. by MyBatis Generator, do not modify.
     -->
     delete from interface_register_logs
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="top.buukle.security.entity.InterfaceRegisterLogsExample">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:49 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:45 CST 2019. by MyBatis Generator, do not modify.
     -->
     delete from interface_register_logs
     <if test="_parameter != null">
@@ -143,7 +143,7 @@
   </delete>
   <insert id="insert" parameterType="top.buukle.security.entity.InterfaceRegisterLogs">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:49 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:45 CST 2019. by MyBatis Generator, do not modify.
     -->
     insert into interface_register_logs (id, register_id, application_id, 
       menu_id, button_id, name, 
@@ -164,7 +164,7 @@
   </insert>
   <insert id="insertSelective" parameterType="top.buukle.security.entity.InterfaceRegisterLogs">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:49 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:45 CST 2019. by MyBatis Generator, do not modify.
     -->
     insert into interface_register_logs
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -300,7 +300,7 @@
   </insert>
   <select id="countByExample" parameterType="top.buukle.security.entity.InterfaceRegisterLogsExample" resultType="java.lang.Long">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:49 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:45 CST 2019. by MyBatis Generator, do not modify.
     -->
     select count(*) from interface_register_logs
     <if test="_parameter != null">
@@ -309,7 +309,7 @@
   </select>
   <update id="updateByExampleSelective" parameterType="map">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:49 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:45 CST 2019. by MyBatis Generator, do not modify.
     -->
     update interface_register_logs
     <set>
@@ -383,7 +383,7 @@
   </update>
   <update id="updateByExample" parameterType="map">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:49 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:45 CST 2019. by MyBatis Generator, do not modify.
     -->
     update interface_register_logs
     set id = #{record.id,jdbcType=INTEGER},
@@ -413,7 +413,7 @@
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="top.buukle.security.entity.InterfaceRegisterLogs">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:49 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:45 CST 2019. by MyBatis Generator, do not modify.
     -->
     update interface_register_logs
     <set>
@@ -482,7 +482,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="top.buukle.security.entity.InterfaceRegisterLogs">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 18:32:49 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:45 CST 2019. by MyBatis Generator, do not modify.
     -->
     update interface_register_logs
     set register_id = #{registerId,jdbcType=INTEGER},
