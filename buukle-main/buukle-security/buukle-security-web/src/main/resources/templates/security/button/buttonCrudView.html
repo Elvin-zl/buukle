@@ -18,9 +18,41 @@
 			<div class="layui-tab-content">
 				<div class="layui-tab-item layui-show">
 					<div class="layui-form-item">
+						<label class="layui-form-label">所属应用：</label>
+						<div class="layui-input-block">
+							<input type="text"  name="applicationName" th:attr="value = ${record?.id}" placeholder="所属应用" autocomplete="off" class="layui-input">
+							<input type="hidden"  name="applicationId">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">所属菜单：</label>
+						<div class="layui-input-block">
+							<input type="text"  name="menuName" th:attr="value = ${record?.id}" placeholder="所属菜单" autocomplete="off" class="layui-input">
+							<input type="hidden"  name="menuId">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">按钮名称：</label>
+						<div class="layui-input-block">
+							<input type="text"  name="name" th:attr="value = ${record?.name}" placeholder="菜单名称" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">按钮url：</label>
+						<div class="layui-input-block">
+							<input type="text"  name="url" th:attr="value = ${record?.url}" placeholder="菜单url" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">描述：</label>
+						<div class="layui-input-block">
+							<textarea th:text="${record?.description}" name="description" placeholder="描述" class="layui-textarea"></textarea>
+						</div>
+					</div>
+					<div class="layui-form-item">
 						<label class="layui-form-label">备注：</label>
 						<div class="layui-input-block">
-							<input type="text"  name="remark" th:attr="value = ${record?.remark}" placeholder="remark" autocomplete="off" class="layui-input">
+							<textarea th:text="${record?.remark}" name="remark" placeholder="描述" class="layui-textarea"></textarea>
 						</div>
 					</div>
 				</div>
@@ -30,9 +62,9 @@
 		<div class="layui-form-item" style="padding-left: 10px;">
 			<div class="layui-input-block">
 				<!-- 自定义权限标签 -->
-				<hp url="/button/saveOrEdit">
-					<div id="saveOrEdit" class="layui-btn layui-btn-normal">提交</div>
-				</hp>
+				<!--<hp url="/button/saveOrEdit">
+				</hp>-->
+				<div id="saveOrEdit" class="layui-btn layui-btn-normal">提交</div>
 				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
 			</div>
 		</div>

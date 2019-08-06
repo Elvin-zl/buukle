@@ -1,16 +1,14 @@
-package top.buukle.security.web.view;
+package top.buukle.security.web.thymleaf;
  
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.util.CollectionUtils;
 import org.thymeleaf.context.ITemplateContext;
 import org.thymeleaf.context.WebEngineContext;
-import org.thymeleaf.model.IAttribute;
 import org.thymeleaf.model.IProcessableElementTag;
 import org.thymeleaf.processor.element.AbstractElementTagProcessor;
 import org.thymeleaf.processor.element.IElementTagStructureHandler;
 import org.thymeleaf.templatemode.TemplateMode;
-import top.buukle.security.plugin.constants.SecurityInterceptorConstants;
 import top.buukle.security.plugin.util.SessionUtil;
 import top.buukle.util.StringUtil;
 

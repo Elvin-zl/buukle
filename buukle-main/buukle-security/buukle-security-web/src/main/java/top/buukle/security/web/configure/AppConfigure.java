@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import top.buukle.security.plugin.client.SecurityInterceptor;
-import top.buukle.security.web.view.HpDialect;
+import top.buukle.security.web.thymleaf.HpDialect;
 
 /**
  * @Author elvin

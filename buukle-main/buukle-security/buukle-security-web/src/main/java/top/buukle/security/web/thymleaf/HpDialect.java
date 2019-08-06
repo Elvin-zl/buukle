@@ -1,4 +1,4 @@
-package top.buukle.security.web.view;
+package top.buukle.security.web.thymleaf;
 
 import org.thymeleaf.dialect.AbstractProcessorDialect;
 import org.thymeleaf.dialect.IProcessorDialect;

@@ -99,7 +99,7 @@ function loadFuzzySearch() {
                 },
                 cache: true,
             },
-            placeholder:'请输入账号',
+            placeholder:'请输入相应字段值',
             //提示语
             escapeMarkup: function(markup) {
                 return markup

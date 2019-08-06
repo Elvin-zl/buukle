@@ -18,9 +18,33 @@
 			<div class="layui-tab-content">
 				<div class="layui-tab-item layui-show">
 					<div class="layui-form-item">
+						<label class="layui-form-label">所属应用：</label>
+						<div class="layui-input-block">
+							<input type="text"  name="applicationId" th:attr="value = ${record?.applicationId}" placeholder="所属应用" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">角色名称：</label>
+						<div class="layui-input-block">
+							<input type="text"  name="roleName" th:attr="value = ${record?.roleName}" placeholder="角色名称" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">上级角色：</label>
+						<div class="layui-input-block">
+							<input type="text"  name="pid" th:attr="value = ${record?.roleName}" placeholder="上级角色" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">描述：</label>
+						<div class="layui-input-block">
+							<textarea th:text="${record?.description}" name="description" placeholder="描述" class="layui-textarea"></textarea>
+						</div>
+					</div>
+					<div class="layui-form-item">
 						<label class="layui-form-label">备注：</label>
 						<div class="layui-input-block">
-							<input type="text"  name="remark" th:attr="value = ${record?.remark}" placeholder="remark" autocomplete="off" class="layui-input">
+							<textarea th:text="${record?.remark}" name="remark" placeholder="描述" class="layui-textarea"></textarea>
 						</div>
 					</div>
 				</div>
@@ -30,9 +54,9 @@
 		<div class="layui-form-item" style="padding-left: 10px;">
 			<div class="layui-input-block">
 				<!-- 自定义权限标签 -->
-				<hp url="/role/saveOrEdit">
-					<div id="saveOrEdit" class="layui-btn layui-btn-normal">提交</div>
-				</hp>
+				<!--<hp url="/role/saveOrEdit">
+				</hp>-->
+				<div id="saveOrEdit" class="layui-btn layui-btn-normal">提交</div>
 				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
 			</div>
 		</div>

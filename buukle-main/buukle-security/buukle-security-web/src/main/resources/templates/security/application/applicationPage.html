@@ -3,7 +3,7 @@
 	<thead>
 	<tr>
 		<th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose"></th>
-		<th class="hidden-xs">ID</th>
+		<th class="hidden-xs">应用名称</th>
 		<th class="hidden-xs">状态</th>
 		<th>操作</th>
 	</tr>
@@ -11,7 +11,7 @@
 	<tbody id="tbody-application">
 		<tr th:each="applicationRecord:${response?.body?.list}">
 			<td><input type="checkbox" name="batchCheckBox" lay-skin="primary" th:attr="data-id = ${applicationRecord?.id}"  /></td>
-			<td th:text="${applicationRecord?.id}" class="hidden-xs"></td>
+			<td th:text="${applicationRecord?.name}" class="hidden-xs"></td>
 			<td th:switch="${applicationRecord?.status}">
 				<button th:case="0" class="layui-btn layui-btn-mini layui-btn-danger" > 初始化</button>
 				<button th:case="1" class="layui-btn layui-btn-mini layui-btn-normal" > 处理中</button>
