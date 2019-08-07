@@ -1,0 +1,867 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.buukle.security.dao.ItemMapper">
+  <resultMap id="BaseResultMap" type="top.buukle.security.entity.Item">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Wed Aug 07 11:06:51 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="skuId" jdbcType="VARCHAR" property="skuid" />
+    <result column="skuName" jdbcType="VARCHAR" property="skuname" />
+    <result column="bizType" jdbcType="INTEGER" property="biztype" />
+    <result column="productId" jdbcType="INTEGER" property="productid" />
+    <result column="merchantId" jdbcType="VARCHAR" property="merchantid" />
+    <result column="merchantName" jdbcType="VARCHAR" property="merchantname" />
+    <result column="thirdCode" jdbcType="VARCHAR" property="thirdcode" />
+    <result column="itemStatus" jdbcType="INTEGER" property="itemstatus" />
+    <result column="auditStatus" jdbcType="INTEGER" property="auditstatus" />
+    <result column="pin" jdbcType="VARCHAR" property="pin" />
+    <result column="fundCloseEndDate" jdbcType="TIMESTAMP" property="fundcloseenddate" />
+    <result column="fundCloseBeginDate" jdbcType="TIMESTAMP" property="fundclosebegindate" />
+    <result column="fundraisingBeginDate" jdbcType="TIMESTAMP" property="fundraisingbegindate" />
+    <result column="fundraisingEndDate" jdbcType="TIMESTAMP" property="fundraisingenddate" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="gmt_created" jdbcType="TIMESTAMP" property="gmtCreated" />
+    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="creator_code" jdbcType="VARCHAR" property="creatorCode" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+    <result column="modifier" jdbcType="VARCHAR" property="modifier" />
+    <result column="modifier_code" jdbcType="VARCHAR" property="modifierCode" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="bak06" jdbcType="VARCHAR" property="bak06" />
+    <result column="bak07" jdbcType="VARCHAR" property="bak07" />
+    <result column="bak08" jdbcType="VARCHAR" property="bak08" />
+    <result column="bak09" jdbcType="VARCHAR" property="bak09" />
+    <result column="bak10" jdbcType="VARCHAR" property="bak10" />
+    <result column="bak01" jdbcType="VARCHAR" property="bak01" />
+    <result column="bak02" jdbcType="VARCHAR" property="bak02" />
+    <result column="bak03" jdbcType="VARCHAR" property="bak03" />
+    <result column="bak04" jdbcType="VARCHAR" property="bak04" />
+    <result column="bak05" jdbcType="VARCHAR" property="bak05" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="top.buukle.security.entity.Item">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Wed Aug 07 11:06:51 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    <result column="detail" jdbcType="LONGVARCHAR" property="detail" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Wed Aug 07 11:06:51 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Wed Aug 07 11:06:51 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Wed Aug 07 11:06:51 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    id, uuid, skuId, skuName, bizType, productId, merchantId, merchantName, thirdCode, 
+    itemStatus, auditStatus, pin, fundCloseEndDate, fundCloseBeginDate, fundraisingBeginDate, 
+    fundraisingEndDate, version, remark, gmt_created, creator, creator_code, gmt_modified, 
+    modifier, modifier_code, status, bak06, bak07, bak08, bak09, bak10, bak01, bak02, 
+    bak03, bak04, bak05
+  </sql>
+  <sql id="Blob_Column_List">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Wed Aug 07 11:06:51 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    detail
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="top.buukle.security.entity.ItemExample" resultMap="ResultMapWithBLOBs">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Wed Aug 07 11:06:51 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from item
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="top.buukle.security.entity.ItemExample" resultMap="BaseResultMap">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Wed Aug 07 11:06:51 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from item
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Wed Aug 07 11:06:51 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from item
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Wed Aug 07 11:06:51 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    delete from item
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="top.buukle.security.entity.ItemExample">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Wed Aug 07 11:06:51 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    delete from item
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="top.buukle.security.entity.Item">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Wed Aug 07 11:06:51 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    insert into item (id, uuid, skuId, 
+      skuName, bizType, productId, 
+      merchantId, merchantName, thirdCode, 
+      itemStatus, auditStatus, pin, 
+      fundCloseEndDate, fundCloseBeginDate, 
+      fundraisingBeginDate, fundraisingEndDate, 
+      version, remark, gmt_created, 
+      creator, creator_code, gmt_modified, 
+      modifier, modifier_code, status, 
+      bak06, bak07, bak08, 
+      bak09, bak10, bak01, 
+      bak02, bak03, bak04, 
+      bak05, detail)
+    values (#{id,jdbcType=INTEGER}, #{uuid,jdbcType=VARCHAR}, #{skuid,jdbcType=VARCHAR}, 
+      #{skuname,jdbcType=VARCHAR}, #{biztype,jdbcType=INTEGER}, #{productid,jdbcType=INTEGER}, 
+      #{merchantid,jdbcType=VARCHAR}, #{merchantname,jdbcType=VARCHAR}, #{thirdcode,jdbcType=VARCHAR}, 
+      #{itemstatus,jdbcType=INTEGER}, #{auditstatus,jdbcType=INTEGER}, #{pin,jdbcType=VARCHAR}, 
+      #{fundcloseenddate,jdbcType=TIMESTAMP}, #{fundclosebegindate,jdbcType=TIMESTAMP}, 
+      #{fundraisingbegindate,jdbcType=TIMESTAMP}, #{fundraisingenddate,jdbcType=TIMESTAMP}, 
+      #{version,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, 
+      #{creator,jdbcType=VARCHAR}, #{creatorCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{modifier,jdbcType=VARCHAR}, #{modifierCode,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{bak06,jdbcType=VARCHAR}, #{bak07,jdbcType=VARCHAR}, #{bak08,jdbcType=VARCHAR}, 
+      #{bak09,jdbcType=VARCHAR}, #{bak10,jdbcType=VARCHAR}, #{bak01,jdbcType=VARCHAR}, 
+      #{bak02,jdbcType=VARCHAR}, #{bak03,jdbcType=VARCHAR}, #{bak04,jdbcType=VARCHAR}, 
+      #{bak05,jdbcType=VARCHAR}, #{detail,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="top.buukle.security.entity.Item">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Wed Aug 07 11:06:51 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    insert into item
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="uuid != null">
+        uuid,
+      </if>
+      <if test="skuid != null">
+        skuId,
+      </if>
+      <if test="skuname != null">
+        skuName,
+      </if>
+      <if test="biztype != null">
+        bizType,
+      </if>
+      <if test="productid != null">
+        productId,
+      </if>
+      <if test="merchantid != null">
+        merchantId,
+      </if>
+      <if test="merchantname != null">
+        merchantName,
+      </if>
+      <if test="thirdcode != null">
+        thirdCode,
+      </if>
+      <if test="itemstatus != null">
+        itemStatus,
+      </if>
+      <if test="auditstatus != null">
+        auditStatus,
+      </if>
+      <if test="pin != null">
+        pin,
+      </if>
+      <if test="fundcloseenddate != null">
+        fundCloseEndDate,
+      </if>
+      <if test="fundclosebegindate != null">
+        fundCloseBeginDate,
+      </if>
+      <if test="fundraisingbegindate != null">
+        fundraisingBeginDate,
+      </if>
+      <if test="fundraisingenddate != null">
+        fundraisingEndDate,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="gmtCreated != null">
+        gmt_created,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="creatorCode != null">
+        creator_code,
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified,
+      </if>
+      <if test="modifier != null">
+        modifier,
+      </if>
+      <if test="modifierCode != null">
+        modifier_code,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="bak06 != null">
+        bak06,
+      </if>
+      <if test="bak07 != null">
+        bak07,
+      </if>
+      <if test="bak08 != null">
+        bak08,
+      </if>
+      <if test="bak09 != null">
+        bak09,
+      </if>
+      <if test="bak10 != null">
+        bak10,
+      </if>
+      <if test="bak01 != null">
+        bak01,
+      </if>
+      <if test="bak02 != null">
+        bak02,
+      </if>
+      <if test="bak03 != null">
+        bak03,
+      </if>
+      <if test="bak04 != null">
+        bak04,
+      </if>
+      <if test="bak05 != null">
+        bak05,
+      </if>
+      <if test="detail != null">
+        detail,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="skuid != null">
+        #{skuid,jdbcType=VARCHAR},
+      </if>
+      <if test="skuname != null">
+        #{skuname,jdbcType=VARCHAR},
+      </if>
+      <if test="biztype != null">
+        #{biztype,jdbcType=INTEGER},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=INTEGER},
+      </if>
+      <if test="merchantid != null">
+        #{merchantid,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantname != null">
+        #{merchantname,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdcode != null">
+        #{thirdcode,jdbcType=VARCHAR},
+      </if>
+      <if test="itemstatus != null">
+        #{itemstatus,jdbcType=INTEGER},
+      </if>
+      <if test="auditstatus != null">
+        #{auditstatus,jdbcType=INTEGER},
+      </if>
+      <if test="pin != null">
+        #{pin,jdbcType=VARCHAR},
+      </if>
+      <if test="fundcloseenddate != null">
+        #{fundcloseenddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fundclosebegindate != null">
+        #{fundclosebegindate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fundraisingbegindate != null">
+        #{fundraisingbegindate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fundraisingenddate != null">
+        #{fundraisingenddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreated != null">
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorCode != null">
+        #{creatorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null">
+        #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifierCode != null">
+        #{modifierCode,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="bak06 != null">
+        #{bak06,jdbcType=VARCHAR},
+      </if>
+      <if test="bak07 != null">
+        #{bak07,jdbcType=VARCHAR},
+      </if>
+      <if test="bak08 != null">
+        #{bak08,jdbcType=VARCHAR},
+      </if>
+      <if test="bak09 != null">
+        #{bak09,jdbcType=VARCHAR},
+      </if>
+      <if test="bak10 != null">
+        #{bak10,jdbcType=VARCHAR},
+      </if>
+      <if test="bak01 != null">
+        #{bak01,jdbcType=VARCHAR},
+      </if>
+      <if test="bak02 != null">
+        #{bak02,jdbcType=VARCHAR},
+      </if>
+      <if test="bak03 != null">
+        #{bak03,jdbcType=VARCHAR},
+      </if>
+      <if test="bak04 != null">
+        #{bak04,jdbcType=VARCHAR},
+      </if>
+      <if test="bak05 != null">
+        #{bak05,jdbcType=VARCHAR},
+      </if>
+      <if test="detail != null">
+        #{detail,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="top.buukle.security.entity.ItemExample" resultType="java.lang.Long">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Wed Aug 07 11:06:51 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    select count(*) from item
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Wed Aug 07 11:06:51 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    update item
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.uuid != null">
+        uuid = #{record.uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.skuid != null">
+        skuId = #{record.skuid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.skuname != null">
+        skuName = #{record.skuname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.biztype != null">
+        bizType = #{record.biztype,jdbcType=INTEGER},
+      </if>
+      <if test="record.productid != null">
+        productId = #{record.productid,jdbcType=INTEGER},
+      </if>
+      <if test="record.merchantid != null">
+        merchantId = #{record.merchantid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merchantname != null">
+        merchantName = #{record.merchantname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.thirdcode != null">
+        thirdCode = #{record.thirdcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.itemstatus != null">
+        itemStatus = #{record.itemstatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.auditstatus != null">
+        auditStatus = #{record.auditstatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.pin != null">
+        pin = #{record.pin,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fundcloseenddate != null">
+        fundCloseEndDate = #{record.fundcloseenddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.fundclosebegindate != null">
+        fundCloseBeginDate = #{record.fundclosebegindate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.fundraisingbegindate != null">
+        fundraisingBeginDate = #{record.fundraisingbegindate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.fundraisingenddate != null">
+        fundraisingEndDate = #{record.fundraisingenddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.version != null">
+        version = #{record.version,jdbcType=INTEGER},
+      </if>
+      <if test="record.remark != null">
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gmtCreated != null">
+        gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.creator != null">
+        creator = #{record.creator,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creatorCode != null">
+        creator_code = #{record.creatorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gmtModified != null">
+        gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifier != null">
+        modifier = #{record.modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifierCode != null">
+        modifier_code = #{record.modifierCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.bak06 != null">
+        bak06 = #{record.bak06,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bak07 != null">
+        bak07 = #{record.bak07,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bak08 != null">
+        bak08 = #{record.bak08,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bak09 != null">
+        bak09 = #{record.bak09,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bak10 != null">
+        bak10 = #{record.bak10,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bak01 != null">
+        bak01 = #{record.bak01,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bak02 != null">
+        bak02 = #{record.bak02,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bak03 != null">
+        bak03 = #{record.bak03,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bak04 != null">
+        bak04 = #{record.bak04,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bak05 != null">
+        bak05 = #{record.bak05,jdbcType=VARCHAR},
+      </if>
+      <if test="record.detail != null">
+        detail = #{record.detail,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Wed Aug 07 11:06:51 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    update item
+    set id = #{record.id,jdbcType=INTEGER},
+      uuid = #{record.uuid,jdbcType=VARCHAR},
+      skuId = #{record.skuid,jdbcType=VARCHAR},
+      skuName = #{record.skuname,jdbcType=VARCHAR},
+      bizType = #{record.biztype,jdbcType=INTEGER},
+      productId = #{record.productid,jdbcType=INTEGER},
+      merchantId = #{record.merchantid,jdbcType=VARCHAR},
+      merchantName = #{record.merchantname,jdbcType=VARCHAR},
+      thirdCode = #{record.thirdcode,jdbcType=VARCHAR},
+      itemStatus = #{record.itemstatus,jdbcType=INTEGER},
+      auditStatus = #{record.auditstatus,jdbcType=INTEGER},
+      pin = #{record.pin,jdbcType=VARCHAR},
+      fundCloseEndDate = #{record.fundcloseenddate,jdbcType=TIMESTAMP},
+      fundCloseBeginDate = #{record.fundclosebegindate,jdbcType=TIMESTAMP},
+      fundraisingBeginDate = #{record.fundraisingbegindate,jdbcType=TIMESTAMP},
+      fundraisingEndDate = #{record.fundraisingenddate,jdbcType=TIMESTAMP},
+      version = #{record.version,jdbcType=INTEGER},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      creator = #{record.creator,jdbcType=VARCHAR},
+      creator_code = #{record.creatorCode,jdbcType=VARCHAR},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      modifier = #{record.modifier,jdbcType=VARCHAR},
+      modifier_code = #{record.modifierCode,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=INTEGER},
+      bak06 = #{record.bak06,jdbcType=VARCHAR},
+      bak07 = #{record.bak07,jdbcType=VARCHAR},
+      bak08 = #{record.bak08,jdbcType=VARCHAR},
+      bak09 = #{record.bak09,jdbcType=VARCHAR},
+      bak10 = #{record.bak10,jdbcType=VARCHAR},
+      bak01 = #{record.bak01,jdbcType=VARCHAR},
+      bak02 = #{record.bak02,jdbcType=VARCHAR},
+      bak03 = #{record.bak03,jdbcType=VARCHAR},
+      bak04 = #{record.bak04,jdbcType=VARCHAR},
+      bak05 = #{record.bak05,jdbcType=VARCHAR},
+      detail = #{record.detail,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Wed Aug 07 11:06:51 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    update item
+    set id = #{record.id,jdbcType=INTEGER},
+      uuid = #{record.uuid,jdbcType=VARCHAR},
+      skuId = #{record.skuid,jdbcType=VARCHAR},
+      skuName = #{record.skuname,jdbcType=VARCHAR},
+      bizType = #{record.biztype,jdbcType=INTEGER},
+      productId = #{record.productid,jdbcType=INTEGER},
+      merchantId = #{record.merchantid,jdbcType=VARCHAR},
+      merchantName = #{record.merchantname,jdbcType=VARCHAR},
+      thirdCode = #{record.thirdcode,jdbcType=VARCHAR},
+      itemStatus = #{record.itemstatus,jdbcType=INTEGER},
+      auditStatus = #{record.auditstatus,jdbcType=INTEGER},
+      pin = #{record.pin,jdbcType=VARCHAR},
+      fundCloseEndDate = #{record.fundcloseenddate,jdbcType=TIMESTAMP},
+      fundCloseBeginDate = #{record.fundclosebegindate,jdbcType=TIMESTAMP},
+      fundraisingBeginDate = #{record.fundraisingbegindate,jdbcType=TIMESTAMP},
+      fundraisingEndDate = #{record.fundraisingenddate,jdbcType=TIMESTAMP},
+      version = #{record.version,jdbcType=INTEGER},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      creator = #{record.creator,jdbcType=VARCHAR},
+      creator_code = #{record.creatorCode,jdbcType=VARCHAR},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      modifier = #{record.modifier,jdbcType=VARCHAR},
+      modifier_code = #{record.modifierCode,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=INTEGER},
+      bak06 = #{record.bak06,jdbcType=VARCHAR},
+      bak07 = #{record.bak07,jdbcType=VARCHAR},
+      bak08 = #{record.bak08,jdbcType=VARCHAR},
+      bak09 = #{record.bak09,jdbcType=VARCHAR},
+      bak10 = #{record.bak10,jdbcType=VARCHAR},
+      bak01 = #{record.bak01,jdbcType=VARCHAR},
+      bak02 = #{record.bak02,jdbcType=VARCHAR},
+      bak03 = #{record.bak03,jdbcType=VARCHAR},
+      bak04 = #{record.bak04,jdbcType=VARCHAR},
+      bak05 = #{record.bak05,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="top.buukle.security.entity.Item">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Wed Aug 07 11:06:51 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    update item
+    <set>
+      <if test="uuid != null">
+        uuid = #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="skuid != null">
+        skuId = #{skuid,jdbcType=VARCHAR},
+      </if>
+      <if test="skuname != null">
+        skuName = #{skuname,jdbcType=VARCHAR},
+      </if>
+      <if test="biztype != null">
+        bizType = #{biztype,jdbcType=INTEGER},
+      </if>
+      <if test="productid != null">
+        productId = #{productid,jdbcType=INTEGER},
+      </if>
+      <if test="merchantid != null">
+        merchantId = #{merchantid,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantname != null">
+        merchantName = #{merchantname,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdcode != null">
+        thirdCode = #{thirdcode,jdbcType=VARCHAR},
+      </if>
+      <if test="itemstatus != null">
+        itemStatus = #{itemstatus,jdbcType=INTEGER},
+      </if>
+      <if test="auditstatus != null">
+        auditStatus = #{auditstatus,jdbcType=INTEGER},
+      </if>
+      <if test="pin != null">
+        pin = #{pin,jdbcType=VARCHAR},
+      </if>
+      <if test="fundcloseenddate != null">
+        fundCloseEndDate = #{fundcloseenddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fundclosebegindate != null">
+        fundCloseBeginDate = #{fundclosebegindate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fundraisingbegindate != null">
+        fundraisingBeginDate = #{fundraisingbegindate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fundraisingenddate != null">
+        fundraisingEndDate = #{fundraisingenddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreated != null">
+        gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorCode != null">
+        creator_code = #{creatorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null">
+        modifier = #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifierCode != null">
+        modifier_code = #{modifierCode,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="bak06 != null">
+        bak06 = #{bak06,jdbcType=VARCHAR},
+      </if>
+      <if test="bak07 != null">
+        bak07 = #{bak07,jdbcType=VARCHAR},
+      </if>
+      <if test="bak08 != null">
+        bak08 = #{bak08,jdbcType=VARCHAR},
+      </if>
+      <if test="bak09 != null">
+        bak09 = #{bak09,jdbcType=VARCHAR},
+      </if>
+      <if test="bak10 != null">
+        bak10 = #{bak10,jdbcType=VARCHAR},
+      </if>
+      <if test="bak01 != null">
+        bak01 = #{bak01,jdbcType=VARCHAR},
+      </if>
+      <if test="bak02 != null">
+        bak02 = #{bak02,jdbcType=VARCHAR},
+      </if>
+      <if test="bak03 != null">
+        bak03 = #{bak03,jdbcType=VARCHAR},
+      </if>
+      <if test="bak04 != null">
+        bak04 = #{bak04,jdbcType=VARCHAR},
+      </if>
+      <if test="bak05 != null">
+        bak05 = #{bak05,jdbcType=VARCHAR},
+      </if>
+      <if test="detail != null">
+        detail = #{detail,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="top.buukle.security.entity.Item">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Wed Aug 07 11:06:51 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    update item
+    set uuid = #{uuid,jdbcType=VARCHAR},
+      skuId = #{skuid,jdbcType=VARCHAR},
+      skuName = #{skuname,jdbcType=VARCHAR},
+      bizType = #{biztype,jdbcType=INTEGER},
+      productId = #{productid,jdbcType=INTEGER},
+      merchantId = #{merchantid,jdbcType=VARCHAR},
+      merchantName = #{merchantname,jdbcType=VARCHAR},
+      thirdCode = #{thirdcode,jdbcType=VARCHAR},
+      itemStatus = #{itemstatus,jdbcType=INTEGER},
+      auditStatus = #{auditstatus,jdbcType=INTEGER},
+      pin = #{pin,jdbcType=VARCHAR},
+      fundCloseEndDate = #{fundcloseenddate,jdbcType=TIMESTAMP},
+      fundCloseBeginDate = #{fundclosebegindate,jdbcType=TIMESTAMP},
+      fundraisingBeginDate = #{fundraisingbegindate,jdbcType=TIMESTAMP},
+      fundraisingEndDate = #{fundraisingenddate,jdbcType=TIMESTAMP},
+      version = #{version,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      creator = #{creator,jdbcType=VARCHAR},
+      creator_code = #{creatorCode,jdbcType=VARCHAR},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      modifier = #{modifier,jdbcType=VARCHAR},
+      modifier_code = #{modifierCode,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      bak06 = #{bak06,jdbcType=VARCHAR},
+      bak07 = #{bak07,jdbcType=VARCHAR},
+      bak08 = #{bak08,jdbcType=VARCHAR},
+      bak09 = #{bak09,jdbcType=VARCHAR},
+      bak10 = #{bak10,jdbcType=VARCHAR},
+      bak01 = #{bak01,jdbcType=VARCHAR},
+      bak02 = #{bak02,jdbcType=VARCHAR},
+      bak03 = #{bak03,jdbcType=VARCHAR},
+      bak04 = #{bak04,jdbcType=VARCHAR},
+      bak05 = #{bak05,jdbcType=VARCHAR},
+      detail = #{detail,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="top.buukle.security.entity.Item">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Wed Aug 07 11:06:51 CST 2019. by MyBatis Generator, do not modify.
+    -->
+    update item
+    set uuid = #{uuid,jdbcType=VARCHAR},
+      skuId = #{skuid,jdbcType=VARCHAR},
+      skuName = #{skuname,jdbcType=VARCHAR},
+      bizType = #{biztype,jdbcType=INTEGER},
+      productId = #{productid,jdbcType=INTEGER},
+      merchantId = #{merchantid,jdbcType=VARCHAR},
+      merchantName = #{merchantname,jdbcType=VARCHAR},
+      thirdCode = #{thirdcode,jdbcType=VARCHAR},
+      itemStatus = #{itemstatus,jdbcType=INTEGER},
+      auditStatus = #{auditstatus,jdbcType=INTEGER},
+      pin = #{pin,jdbcType=VARCHAR},
+      fundCloseEndDate = #{fundcloseenddate,jdbcType=TIMESTAMP},
+      fundCloseBeginDate = #{fundclosebegindate,jdbcType=TIMESTAMP},
+      fundraisingBeginDate = #{fundraisingbegindate,jdbcType=TIMESTAMP},
+      fundraisingEndDate = #{fundraisingenddate,jdbcType=TIMESTAMP},
+      version = #{version,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      creator = #{creator,jdbcType=VARCHAR},
+      creator_code = #{creatorCode,jdbcType=VARCHAR},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      modifier = #{modifier,jdbcType=VARCHAR},
+      modifier_code = #{modifierCode,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      bak06 = #{bak06,jdbcType=VARCHAR},
+      bak07 = #{bak07,jdbcType=VARCHAR},
+      bak08 = #{bak08,jdbcType=VARCHAR},
+      bak09 = #{bak09,jdbcType=VARCHAR},
+      bak10 = #{bak10,jdbcType=VARCHAR},
+      bak01 = #{bak01,jdbcType=VARCHAR},
+      bak02 = #{bak02,jdbcType=VARCHAR},
+      bak03 = #{bak03,jdbcType=VARCHAR},
+      bak04 = #{bak04,jdbcType=VARCHAR},
+      bak05 = #{bak05,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="itemList" resultMap="ResultMapWithBLOBs">
+   select detail from item where 1=1 ${condition}
+  </select>
+</mapper>

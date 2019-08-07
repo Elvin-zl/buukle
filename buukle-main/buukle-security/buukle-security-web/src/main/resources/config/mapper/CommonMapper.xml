@@ -16,6 +16,9 @@
 
     <result column="name" jdbcType="VARCHAR" property="id" />
     <result column="name" jdbcType="VARCHAR" property="text" />
+
+    <result column="skuname" jdbcType="VARCHAR" property="id" />
+    <result column="skuname" jdbcType="VARCHAR" property="text" />
   </resultMap>
   <!--fuzzySearch-->
   <select id="fuzzySearch" parameterType="top.buukle.common.call.vo.FuzzyVo" resultMap="FuzzyResultMap">

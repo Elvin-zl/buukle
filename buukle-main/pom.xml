@@ -45,6 +45,7 @@
         <commons.beanutils>1.9.2</commons.beanutils>
         <commons.fileupload>1.3.2</commons.fileupload>
         <commons.configuration>1.10</commons.configuration>
+        <com.google.guava>23.2-jre</com.google.guava>
     </properties>
 
     <dependencyManagement>
@@ -125,6 +126,11 @@
                 <groupId>commons-configuration</groupId>
                 <artifactId>commons-configuration</artifactId>
                 <version>${commons.configuration}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${com.google.guava}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
