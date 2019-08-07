@@ -10,67 +10,67 @@ import top.buukle.security.entity.RoleExample;
 public interface RoleMapper {
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:51 CST 2019
+     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
      */
     long countByExample(RoleExample example);
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:51 CST 2019
+     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
      */
     int deleteByExample(RoleExample example);
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:51 CST 2019
+     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
      */
     int deleteByPrimaryKey(Integer id);
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:51 CST 2019
+     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
      */
     int insert(Role record);
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:51 CST 2019
+     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
      */
     int insertSelective(Role record);
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:51 CST 2019
+     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
      */
     List<Role> selectByExample(RoleExample example);
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:51 CST 2019
+     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
      */
     Role selectByPrimaryKey(Integer id);
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:51 CST 2019
+     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
      */
     int updateByExampleSelective(@Param("record") Role record, @Param("example") RoleExample example);
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:51 CST 2019
+     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
      */
     int updateByExample(@Param("record") Role record, @Param("example") RoleExample example);
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:51 CST 2019
+     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
      */
     int updateByPrimaryKeySelective(Role record);
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:51 CST 2019
+     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
      */
     int updateByPrimaryKey(Role record);
 }

@@ -25,15 +25,15 @@
 						</div>
 					</div>
 					<div class="layui-form-item">
-						<label class="layui-form-label">菜单名称：</label>
+						<label class="layui-form-label">上级菜单：</label>
 						<div class="layui-input-block">
-							<input type="text"  name="name" th:attr="value = ${record?.name}" placeholder="菜单名称" autocomplete="off" class="layui-input">
+							<input type="text"  name="pid" th:attr="value = ${record?.pid}" placeholder="上级菜单" autocomplete="off" class="layui-input">
 						</div>
 					</div>
 					<div class="layui-form-item">
-						<label class="layui-form-label">父级菜单：</label>
+						<label class="layui-form-label">菜单名称：</label>
 						<div class="layui-input-block">
-							<input type="text"  name="pid" th:attr="value = ${record?.pid}" placeholder="父级菜单" autocomplete="off" class="layui-input">
+							<input type="text"  name="name" th:attr="value = ${record?.name}" placeholder="菜单名称" autocomplete="off" class="layui-input">
 						</div>
 					</div>
 					<div class="layui-form-item">

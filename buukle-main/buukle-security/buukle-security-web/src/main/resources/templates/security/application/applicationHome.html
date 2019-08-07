@@ -22,7 +22,13 @@
 				<form id="searchForm" class="layui-form" action="">
 					<div class="layui-form-item">
 						<div class="layui-inline">
-							<span> 应用名 ：</span>
+							<span> 应用编码 ：</span>
+							<select class="fuzzy clearAble" data-url="/security/application/fuzzy/search" name="code" data-minimum="5" data-isIdVisual="0" data-fieldName="code" style="width: 200px;height: 10px">
+								<option value="">请输入应用编码</option>
+							</select>
+						</div>
+						<div class="layui-inline">
+							<span> 应用名称 ：</span>
 							<select class="fuzzy clearAble" data-url="/security/application/fuzzy/search" name="name" data-minimum="5" data-isIdVisual="0" data-fieldName="name" style="width: 200px;height: 10px">
 								<option value="">请输入应用名</option>
 							</select>
