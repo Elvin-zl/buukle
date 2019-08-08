@@ -3,9 +3,10 @@
 <mapper namespace="top.buukle.security.dao.RoleMapper">
   <resultMap id="BaseResultMap" type="top.buukle.security.entity.Role">
     <!--
-      WARNING - @mbg.generated  This element was generated on Wed Aug 07 20:02:30 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Thu Aug 08 11:42:39 CST 2019. by MyBatis Generator, do not modify.
     -->
     <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="pid" jdbcType="INTEGER" property="pid" />
     <result column="system_flag" jdbcType="INTEGER" property="systemFlag" />
     <result column="application_id" jdbcType="INTEGER" property="applicationId" />
     <result column="application_name" jdbcType="VARCHAR" property="applicationName" />
@@ -27,7 +28,7 @@
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--
-      WARNING - @mbg.generated  This element was generated on Wed Aug 07 20:02:30 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Thu Aug 08 11:42:39 CST 2019. by MyBatis Generator, do not modify.
     -->
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -59,7 +60,7 @@
   </sql>
   <sql id="Update_By_Example_Where_Clause">
     <!--
-      WARNING - @mbg.generated  This element was generated on Wed Aug 07 20:02:30 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Thu Aug 08 11:42:39 CST 2019. by MyBatis Generator, do not modify.
     -->
     <where>
       <foreach collection="example.oredCriteria" item="criteria" separator="or">
@@ -91,15 +92,15 @@
   </sql>
   <sql id="Base_Column_List">
     <!--
-      WARNING - @mbg.generated  This element was generated on Wed Aug 07 20:02:30 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Thu Aug 08 11:42:39 CST 2019. by MyBatis Generator, do not modify.
     -->
-    id, system_flag, application_id, application_name, role_name, description, remark, 
+    id, pid, system_flag, application_id, application_name, role_name, description, remark, 
     gmt_created, creator, creator_code, gmt_modified, modifier, modifier_code, status, 
     bak01, bak02, bak03, bak04, bak05
   </sql>
   <select id="selectByExample" parameterType="top.buukle.security.entity.RoleExample" resultMap="BaseResultMap">
     <!--
-      WARNING - @mbg.generated  This element was generated on Wed Aug 07 20:02:30 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Thu Aug 08 11:42:39 CST 2019. by MyBatis Generator, do not modify.
     -->
     select
     <if test="distinct">
@@ -116,7 +117,7 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--
-      WARNING - @mbg.generated  This element was generated on Wed Aug 07 20:02:30 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Thu Aug 08 11:42:39 CST 2019. by MyBatis Generator, do not modify.
     -->
     select 
     <include refid="Base_Column_List" />
@@ -125,14 +126,14 @@
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--
-      WARNING - @mbg.generated  This element was generated on Wed Aug 07 20:02:30 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Thu Aug 08 11:42:39 CST 2019. by MyBatis Generator, do not modify.
     -->
     delete from role
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="top.buukle.security.entity.RoleExample">
     <!--
-      WARNING - @mbg.generated  This element was generated on Wed Aug 07 20:02:30 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Thu Aug 08 11:42:39 CST 2019. by MyBatis Generator, do not modify.
     -->
     delete from role
     <if test="_parameter != null">
@@ -141,31 +142,34 @@
   </delete>
   <insert id="insert" parameterType="top.buukle.security.entity.Role">
     <!--
-      WARNING - @mbg.generated  This element was generated on Wed Aug 07 20:02:30 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Thu Aug 08 11:42:39 CST 2019. by MyBatis Generator, do not modify.
     -->
-    insert into role (id, system_flag, application_id, 
-      application_name, role_name, description, 
-      remark, gmt_created, creator, 
-      creator_code, gmt_modified, modifier, 
-      modifier_code, status, bak01, 
-      bak02, bak03, bak04, 
-      bak05)
-    values (#{id,jdbcType=INTEGER}, #{systemFlag,jdbcType=INTEGER}, #{applicationId,jdbcType=INTEGER}, 
-      #{applicationName,jdbcType=VARCHAR}, #{roleName,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
-      #{remark,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, 
-      #{creatorCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR}, 
-      #{modifierCode,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{bak01,jdbcType=VARCHAR}, 
-      #{bak02,jdbcType=VARCHAR}, #{bak03,jdbcType=VARCHAR}, #{bak04,jdbcType=VARCHAR}, 
-      #{bak05,jdbcType=VARCHAR})
+    insert into role (id, pid, system_flag, 
+      application_id, application_name, role_name, 
+      description, remark, gmt_created, 
+      creator, creator_code, gmt_modified, 
+      modifier, modifier_code, status, 
+      bak01, bak02, bak03, 
+      bak04, bak05)
+    values (#{id,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, #{systemFlag,jdbcType=INTEGER}, 
+      #{applicationId,jdbcType=INTEGER}, #{applicationName,jdbcType=VARCHAR}, #{roleName,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, 
+      #{creator,jdbcType=VARCHAR}, #{creatorCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{modifier,jdbcType=VARCHAR}, #{modifierCode,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{bak01,jdbcType=VARCHAR}, #{bak02,jdbcType=VARCHAR}, #{bak03,jdbcType=VARCHAR}, 
+      #{bak04,jdbcType=VARCHAR}, #{bak05,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="top.buukle.security.entity.Role">
     <!--
-      WARNING - @mbg.generated  This element was generated on Wed Aug 07 20:02:30 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Thu Aug 08 11:42:39 CST 2019. by MyBatis Generator, do not modify.
     -->
     insert into role
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
+      </if>
+      <if test="pid != null">
+        pid,
       </if>
       <if test="systemFlag != null">
         system_flag,
@@ -226,6 +230,9 @@
       <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
+      <if test="pid != null">
+        #{pid,jdbcType=INTEGER},
+      </if>
       <if test="systemFlag != null">
         #{systemFlag,jdbcType=INTEGER},
       </if>
@@ -284,7 +291,7 @@
   </insert>
   <select id="countByExample" parameterType="top.buukle.security.entity.RoleExample" resultType="java.lang.Long">
     <!--
-      WARNING - @mbg.generated  This element was generated on Wed Aug 07 20:02:30 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Thu Aug 08 11:42:39 CST 2019. by MyBatis Generator, do not modify.
     -->
     select count(*) from role
     <if test="_parameter != null">
@@ -293,12 +300,15 @@
   </select>
   <update id="updateByExampleSelective" parameterType="map">
     <!--
-      WARNING - @mbg.generated  This element was generated on Wed Aug 07 20:02:30 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Thu Aug 08 11:42:39 CST 2019. by MyBatis Generator, do not modify.
     -->
     update role
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.pid != null">
+        pid = #{record.pid,jdbcType=INTEGER},
       </if>
       <if test="record.systemFlag != null">
         system_flag = #{record.systemFlag,jdbcType=INTEGER},
@@ -361,10 +371,11 @@
   </update>
   <update id="updateByExample" parameterType="map">
     <!--
-      WARNING - @mbg.generated  This element was generated on Wed Aug 07 20:02:30 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Thu Aug 08 11:42:39 CST 2019. by MyBatis Generator, do not modify.
     -->
     update role
     set id = #{record.id,jdbcType=INTEGER},
+      pid = #{record.pid,jdbcType=INTEGER},
       system_flag = #{record.systemFlag,jdbcType=INTEGER},
       application_id = #{record.applicationId,jdbcType=INTEGER},
       application_name = #{record.applicationName,jdbcType=VARCHAR},
@@ -389,10 +400,13 @@
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="top.buukle.security.entity.Role">
     <!--
-      WARNING - @mbg.generated  This element was generated on Wed Aug 07 20:02:30 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Thu Aug 08 11:42:39 CST 2019. by MyBatis Generator, do not modify.
     -->
     update role
     <set>
+      <if test="pid != null">
+        pid = #{pid,jdbcType=INTEGER},
+      </if>
       <if test="systemFlag != null">
         system_flag = #{systemFlag,jdbcType=INTEGER},
       </if>
@@ -452,10 +466,11 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="top.buukle.security.entity.Role">
     <!--
-      WARNING - @mbg.generated  This element was generated on Wed Aug 07 20:02:30 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Thu Aug 08 11:42:39 CST 2019. by MyBatis Generator, do not modify.
     -->
     update role
-    set system_flag = #{systemFlag,jdbcType=INTEGER},
+    set pid = #{pid,jdbcType=INTEGER},
+      system_flag = #{systemFlag,jdbcType=INTEGER},
       application_id = #{applicationId,jdbcType=INTEGER},
       application_name = #{applicationName,jdbcType=VARCHAR},
       role_name = #{roleName,jdbcType=VARCHAR},

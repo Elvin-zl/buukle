@@ -15,15 +15,23 @@ public class Role implements Serializable {
      * 主键id
      *
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     private Integer id;
+
+    /**
+     * 上级角色id
+     *
+     *
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
+     */
+    private Integer pid;
 
     /**
      * 是否是系统守护 0 : 否 1: 是
      *
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     private Integer systemFlag;
 
@@ -31,77 +39,77 @@ public class Role implements Serializable {
      * 所属应用id
      *
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     private Integer applicationId;
 
     /**
      *
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     private String applicationName;
 
     /**
      *
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     private String roleName;
 
     /**
      *
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     private String description;
 
     /**
      *
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     private String remark;
 
     /**
      *
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     private Date gmtCreated;
 
     /**
      *
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     private String creator;
 
     /**
      *
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     private String creatorCode;
 
     /**
      *
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     private Date gmtModified;
 
     /**
      *
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     private String modifier;
 
     /**
      *
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     private String modifierCode;
 
@@ -109,48 +117,48 @@ public class Role implements Serializable {
      * 状态
      *
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     private Integer status;
 
     /**
      *
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     private String bak01;
 
     /**
      *
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     private String bak02;
 
     /**
      *
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     private String bak03;
 
     /**
      *
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     private String bak04;
 
     /**
      *
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     private String bak05;
 
     /**
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     private static final long serialVersionUID = 1L;
 
@@ -159,7 +167,7 @@ public class Role implements Serializable {
      *
      * @return the value of buukle-security..role.id
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public Integer getId() {
         return id;
@@ -167,7 +175,7 @@ public class Role implements Serializable {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public Role withId(Integer id) {
         this.setId(id);
@@ -179,10 +187,41 @@ public class Role implements Serializable {
      *
      * @param id the value for buukle-security..role.id
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    /**
+     * This method returns the value of the database column buukle-security..role.pid
+     *
+     * @return the value of buukle-security..role.pid
+     *
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
+     */
+    public Integer getPid() {
+        return pid;
+    }
+
+    /**
+     *
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
+     */
+    public Role withPid(Integer pid) {
+        this.setPid(pid);
+        return this;
+    }
+
+    /**
+     * This method sets the value of the database column buukle-security..role.pid
+     *
+     * @param pid the value for buukle-security..role.pid
+     *
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
+     */
+    public void setPid(Integer pid) {
+        this.pid = pid;
     }
 
     /**
@@ -190,7 +229,7 @@ public class Role implements Serializable {
      *
      * @return the value of buukle-security..role.system_flag
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public Integer getSystemFlag() {
         return systemFlag;
@@ -198,7 +237,7 @@ public class Role implements Serializable {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public Role withSystemFlag(Integer systemFlag) {
         this.setSystemFlag(systemFlag);
@@ -210,7 +249,7 @@ public class Role implements Serializable {
      *
      * @param systemFlag the value for buukle-security..role.system_flag
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public void setSystemFlag(Integer systemFlag) {
         this.systemFlag = systemFlag;
@@ -221,7 +260,7 @@ public class Role implements Serializable {
      *
      * @return the value of buukle-security..role.application_id
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public Integer getApplicationId() {
         return applicationId;
@@ -229,7 +268,7 @@ public class Role implements Serializable {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public Role withApplicationId(Integer applicationId) {
         this.setApplicationId(applicationId);
@@ -241,7 +280,7 @@ public class Role implements Serializable {
      *
      * @param applicationId the value for buukle-security..role.application_id
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public void setApplicationId(Integer applicationId) {
         this.applicationId = applicationId;
@@ -252,7 +291,7 @@ public class Role implements Serializable {
      *
      * @return the value of buukle-security..role.application_name
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public String getApplicationName() {
         return applicationName;
@@ -260,7 +299,7 @@ public class Role implements Serializable {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public Role withApplicationName(String applicationName) {
         this.setApplicationName(applicationName);
@@ -272,7 +311,7 @@ public class Role implements Serializable {
      *
      * @param applicationName the value for buukle-security..role.application_name
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public void setApplicationName(String applicationName) {
         this.applicationName = applicationName == null ? null : applicationName.trim();
@@ -283,7 +322,7 @@ public class Role implements Serializable {
      *
      * @return the value of buukle-security..role.role_name
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public String getRoleName() {
         return roleName;
@@ -291,7 +330,7 @@ public class Role implements Serializable {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public Role withRoleName(String roleName) {
         this.setRoleName(roleName);
@@ -303,7 +342,7 @@ public class Role implements Serializable {
      *
      * @param roleName the value for buukle-security..role.role_name
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public void setRoleName(String roleName) {
         this.roleName = roleName == null ? null : roleName.trim();
@@ -314,7 +353,7 @@ public class Role implements Serializable {
      *
      * @return the value of buukle-security..role.description
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public String getDescription() {
         return description;
@@ -322,7 +361,7 @@ public class Role implements Serializable {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public Role withDescription(String description) {
         this.setDescription(description);
@@ -334,7 +373,7 @@ public class Role implements Serializable {
      *
      * @param description the value for buukle-security..role.description
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public void setDescription(String description) {
         this.description = description == null ? null : description.trim();
@@ -345,7 +384,7 @@ public class Role implements Serializable {
      *
      * @return the value of buukle-security..role.remark
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public String getRemark() {
         return remark;
@@ -353,7 +392,7 @@ public class Role implements Serializable {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public Role withRemark(String remark) {
         this.setRemark(remark);
@@ -365,7 +404,7 @@ public class Role implements Serializable {
      *
      * @param remark the value for buukle-security..role.remark
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
@@ -376,7 +415,7 @@ public class Role implements Serializable {
      *
      * @return the value of buukle-security..role.gmt_created
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public Date getGmtCreated() {
         return gmtCreated;
@@ -384,7 +423,7 @@ public class Role implements Serializable {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public Role withGmtCreated(Date gmtCreated) {
         this.setGmtCreated(gmtCreated);
@@ -396,7 +435,7 @@ public class Role implements Serializable {
      *
      * @param gmtCreated the value for buukle-security..role.gmt_created
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public void setGmtCreated(Date gmtCreated) {
         this.gmtCreated = gmtCreated;
@@ -407,7 +446,7 @@ public class Role implements Serializable {
      *
      * @return the value of buukle-security..role.creator
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public String getCreator() {
         return creator;
@@ -415,7 +454,7 @@ public class Role implements Serializable {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public Role withCreator(String creator) {
         this.setCreator(creator);
@@ -427,7 +466,7 @@ public class Role implements Serializable {
      *
      * @param creator the value for buukle-security..role.creator
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public void setCreator(String creator) {
         this.creator = creator == null ? null : creator.trim();
@@ -438,7 +477,7 @@ public class Role implements Serializable {
      *
      * @return the value of buukle-security..role.creator_code
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public String getCreatorCode() {
         return creatorCode;
@@ -446,7 +485,7 @@ public class Role implements Serializable {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public Role withCreatorCode(String creatorCode) {
         this.setCreatorCode(creatorCode);
@@ -458,7 +497,7 @@ public class Role implements Serializable {
      *
      * @param creatorCode the value for buukle-security..role.creator_code
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public void setCreatorCode(String creatorCode) {
         this.creatorCode = creatorCode == null ? null : creatorCode.trim();
@@ -469,7 +508,7 @@ public class Role implements Serializable {
      *
      * @return the value of buukle-security..role.gmt_modified
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public Date getGmtModified() {
         return gmtModified;
@@ -477,7 +516,7 @@ public class Role implements Serializable {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public Role withGmtModified(Date gmtModified) {
         this.setGmtModified(gmtModified);
@@ -489,7 +528,7 @@ public class Role implements Serializable {
      *
      * @param gmtModified the value for buukle-security..role.gmt_modified
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public void setGmtModified(Date gmtModified) {
         this.gmtModified = gmtModified;
@@ -500,7 +539,7 @@ public class Role implements Serializable {
      *
      * @return the value of buukle-security..role.modifier
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public String getModifier() {
         return modifier;
@@ -508,7 +547,7 @@ public class Role implements Serializable {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public Role withModifier(String modifier) {
         this.setModifier(modifier);
@@ -520,7 +559,7 @@ public class Role implements Serializable {
      *
      * @param modifier the value for buukle-security..role.modifier
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public void setModifier(String modifier) {
         this.modifier = modifier == null ? null : modifier.trim();
@@ -531,7 +570,7 @@ public class Role implements Serializable {
      *
      * @return the value of buukle-security..role.modifier_code
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public String getModifierCode() {
         return modifierCode;
@@ -539,7 +578,7 @@ public class Role implements Serializable {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public Role withModifierCode(String modifierCode) {
         this.setModifierCode(modifierCode);
@@ -551,7 +590,7 @@ public class Role implements Serializable {
      *
      * @param modifierCode the value for buukle-security..role.modifier_code
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public void setModifierCode(String modifierCode) {
         this.modifierCode = modifierCode == null ? null : modifierCode.trim();
@@ -562,7 +601,7 @@ public class Role implements Serializable {
      *
      * @return the value of buukle-security..role.status
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public Integer getStatus() {
         return status;
@@ -570,7 +609,7 @@ public class Role implements Serializable {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public Role withStatus(Integer status) {
         this.setStatus(status);
@@ -582,7 +621,7 @@ public class Role implements Serializable {
      *
      * @param status the value for buukle-security..role.status
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public void setStatus(Integer status) {
         this.status = status;
@@ -593,7 +632,7 @@ public class Role implements Serializable {
      *
      * @return the value of buukle-security..role.bak01
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public String getBak01() {
         return bak01;
@@ -601,7 +640,7 @@ public class Role implements Serializable {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public Role withBak01(String bak01) {
         this.setBak01(bak01);
@@ -613,7 +652,7 @@ public class Role implements Serializable {
      *
      * @param bak01 the value for buukle-security..role.bak01
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public void setBak01(String bak01) {
         this.bak01 = bak01 == null ? null : bak01.trim();
@@ -624,7 +663,7 @@ public class Role implements Serializable {
      *
      * @return the value of buukle-security..role.bak02
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public String getBak02() {
         return bak02;
@@ -632,7 +671,7 @@ public class Role implements Serializable {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public Role withBak02(String bak02) {
         this.setBak02(bak02);
@@ -644,7 +683,7 @@ public class Role implements Serializable {
      *
      * @param bak02 the value for buukle-security..role.bak02
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public void setBak02(String bak02) {
         this.bak02 = bak02 == null ? null : bak02.trim();
@@ -655,7 +694,7 @@ public class Role implements Serializable {
      *
      * @return the value of buukle-security..role.bak03
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public String getBak03() {
         return bak03;
@@ -663,7 +702,7 @@ public class Role implements Serializable {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public Role withBak03(String bak03) {
         this.setBak03(bak03);
@@ -675,7 +714,7 @@ public class Role implements Serializable {
      *
      * @param bak03 the value for buukle-security..role.bak03
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public void setBak03(String bak03) {
         this.bak03 = bak03 == null ? null : bak03.trim();
@@ -686,7 +725,7 @@ public class Role implements Serializable {
      *
      * @return the value of buukle-security..role.bak04
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public String getBak04() {
         return bak04;
@@ -694,7 +733,7 @@ public class Role implements Serializable {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public Role withBak04(String bak04) {
         this.setBak04(bak04);
@@ -706,7 +745,7 @@ public class Role implements Serializable {
      *
      * @param bak04 the value for buukle-security..role.bak04
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public void setBak04(String bak04) {
         this.bak04 = bak04 == null ? null : bak04.trim();
@@ -717,7 +756,7 @@ public class Role implements Serializable {
      *
      * @return the value of buukle-security..role.bak05
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public String getBak05() {
         return bak05;
@@ -725,7 +764,7 @@ public class Role implements Serializable {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public Role withBak05(String bak05) {
         this.setBak05(bak05);
@@ -737,7 +776,7 @@ public class Role implements Serializable {
      *
      * @param bak05 the value for buukle-security..role.bak05
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     public void setBak05(String bak05) {
         this.bak05 = bak05 == null ? null : bak05.trim();
@@ -745,7 +784,7 @@ public class Role implements Serializable {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     @Override
     public String toString() {
@@ -754,6 +793,7 @@ public class Role implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
+        sb.append(", pid=").append(pid);
         sb.append(", systemFlag=").append(systemFlag);
         sb.append(", applicationId=").append(applicationId);
         sb.append(", applicationName=").append(applicationName);
@@ -778,7 +818,7 @@ public class Role implements Serializable {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     @Override
     public boolean equals(Object that) {
@@ -793,6 +833,7 @@ public class Role implements Serializable {
         }
         Role other = (Role) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
+            && (this.getPid() == null ? other.getPid() == null : this.getPid().equals(other.getPid()))
             && (this.getSystemFlag() == null ? other.getSystemFlag() == null : this.getSystemFlag().equals(other.getSystemFlag()))
             && (this.getApplicationId() == null ? other.getApplicationId() == null : this.getApplicationId().equals(other.getApplicationId()))
             && (this.getApplicationName() == null ? other.getApplicationName() == null : this.getApplicationName().equals(other.getApplicationName()))
@@ -815,13 +856,14 @@ public class Role implements Serializable {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 20:02:30 CST 2019
+     * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
+        result = prime * result + ((getPid() == null) ? 0 : getPid().hashCode());
         result = prime * result + ((getSystemFlag() == null) ? 0 : getSystemFlag().hashCode());
         result = prime * result + ((getApplicationId() == null) ? 0 : getApplicationId().hashCode());
         result = prime * result + ((getApplicationName() == null) ? 0 : getApplicationName().hashCode());
