@@ -2,6 +2,7 @@ package top.buukle.security .service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.buukle.common.call.CommonResponse;
@@ -10,12 +11,16 @@ import top.buukle.common.call.PageResponse;
 import top.buukle.common.call.vo.FuzzyVo;
 import top.buukle.common.status.StatusConstants;
 
+import top.buukle.security.dao.ApplicationMapper;
 import top.buukle.security .dao.RoleMapper;
 import top.buukle.security .dao.CommonMapper;
+import top.buukle.security.entity.Application;
 import top.buukle.security .entity.User;
 import top.buukle.security .entity.Role;
 import top.buukle.security .entity.RoleExample;
 import top.buukle.security .entity.vo.BaseQuery;
+import top.buukle.security.entity.vo.LayUiTreeNode;
+import top.buukle.security.entity.vo.RoleCrudModelVo;
 import top.buukle.security .entity.vo.RoleQuery;
 import top.buukle.security .plugin.util.SessionUtil;
 import top.buukle.security .service.RoleService;
@@ -44,6 +49,8 @@ public class RoleServiceImpl implements RoleService{
 
     @Autowired
     private RoleMapper roleMapper;
+    @Autowired
+    private ApplicationMapper applicationMapper;
 
     @Autowired
     private CommonMapper commonMapper;
@@ -116,12 +123,25 @@ public class RoleServiceImpl implements RoleService{
      * @Date 2019/8/4
      */
     @Override
-    public Role selectByPrimaryKey(Integer id) {
+    public RoleCrudModelVo selectByPrimaryKey(Integer id) {
         if(id == null){
-            return new Role();
+            return new RoleCrudModelVo();
         }
         Role role = roleMapper.selectByPrimaryKey(id);
-        return role == null ? new Role() : role;
+        RoleCrudModelVo vo = null;
+        if(role != null){
+            vo = new RoleCrudModelVo();
+            BeanUtils.copyProperties(role,vo);
+            Application application = applicationMapper.selectByPrimaryKey(vo.getApplicationId());
+            vo.setApplicationCode(application.getCode());
+            if(vo.getPid()!=0){
+                Role superRole = roleMapper.selectByPrimaryKey(vo.getPid());
+                vo.setSuperName(superRole.getRoleName());
+            }else{
+                vo.setSuperName("root");
+            }
+        }
+        return role == null ? new RoleCrudModelVo() : vo;
     }
 
     /**
@@ -145,6 +165,54 @@ public class RoleServiceImpl implements RoleService{
             this.update(query,request,response);
         }
         return new CommonResponse.Builder().buildSuccess();
+    }
+
+    /**
+     * @description 获取上级角色树
+     * @param applicationId
+     *@param request
+     * @param response   @return top.buukle.common.call.PageResponse
+     * @Author elvin
+     * @Date 2019/8/9
+     */
+    @Override
+    public PageResponse getRoleTree(Integer applicationId, HttpServletRequest request, HttpServletResponse response) {
+        RoleExample applicationExample = new RoleExample();
+        RoleExample.Criteria criteria = applicationExample.createCriteria();
+        criteria.andStatusEqualTo(RoleEnums.status.PUBLISED.value());
+        criteria.andApplicationIdEqualTo(applicationId);
+        List<Role> roles = roleMapper.selectByExample(applicationExample);
+        LayUiTreeNode rootNode = new LayUiTreeNode();
+        rootNode.setId(0);
+        rootNode.setName("root");
+        rootNode.setSpread(true);
+        List<LayUiTreeNode> nodes = new ArrayList<>();
+        nodes.add(rootNode);
+        this.findChildren(rootNode,roles);
+        return new PageResponse.Builder().build(nodes,0,0,0);
+    }
+
+    /**
+     * @description 寻找子节点
+     * @param node
+     * @param roles
+     * @return void
+     * @Author elvin
+     * @Date 2019/8/9
+     */
+    private void findChildren(LayUiTreeNode node, List<Role> roles) {
+        List<LayUiTreeNode> nodes = new ArrayList<>();
+        for (Role role: roles) {
+            if(role.getPid().equals(node.getId())){
+                LayUiTreeNode nodeNew = new LayUiTreeNode();
+                nodeNew.setId(role.getId());
+                nodeNew.setName(role.getRoleName());
+                nodeNew.setSpread(true);
+                nodes.add(nodeNew);
+                this.findChildren(nodeNew,roles);
+            }
+        }
+        node.setChildren(nodes);
     }
 
     /**
@@ -206,7 +274,15 @@ public class RoleServiceImpl implements RoleService{
      * @Date 2019/8/5
      */
     private void validateParamForSaveOrEdit(RoleQuery query) {
-        // TODO
+        if(query.getApplicationId() == null){
+            throw new SystemException(SystemReturnEnum.ROLE_SAVE_OR_EDIT_APPID_NULL);
+        }
+        if(query.getPid() == null){
+            throw new SystemException(SystemReturnEnum.ROLE_SAVE_OR_EDIT_PID_NULL);
+        }
+        if(StringUtil.isEmpty(query.getRoleName())){
+            throw new SystemException(SystemReturnEnum.ROLE_SAVE_OR_EDIT_NAME_NULL);
+        }
     }
 
     /**

@@ -19,16 +19,34 @@
 				<div class="layui-tab-item layui-show">
 					<div class="layui-form-item">
 						<label class="layui-form-label">所属应用：</label>
-						<div class="layui-input-block">
-							<input type="text"  name="applicationName" th:attr="value = ${record?.id}" placeholder="所属应用" autocomplete="off" class="layui-input">
-							<input type="hidden"  name="applicationId">
+						<div class="layui-input-inline">
+							<div class="layui-unselect layui-form-select downpanel">
+								<div class="layui-select-title">
+									<span class="layui-input layui-unselect" th:text="${record?.applicationCode} == '' ? '选择应用' : ${record?.applicationCode}" ></span>
+									<input type="hidden" id="applicationId" th:attr="value = ${record?.applicationId}" name="applicationId">
+									<i class="layui-edge"></i>
+								</div>
+								<dl class="layui-anim layui-anim-upbit">
+									<dd>
+										<ul data-subTree="menuTree" id="applicationTree"></ul>
+									</dd>
+								</dl>
+							</div>
 						</div>
-					</div>
-					<div class="layui-form-item">
 						<label class="layui-form-label">所属菜单：</label>
-						<div class="layui-input-block">
-							<input type="text"  name="menuName" th:attr="value = ${record?.id}" placeholder="所属菜单" autocomplete="off" class="layui-input">
-							<input type="hidden"  name="menuId">
+						<div class="layui-input-inline">
+							<div class="layui-unselect layui-form-select downpanel">
+								<div id="superMenu" class="layui-select-title">
+									<span id="menuTreeSpan" class="layui-input layui-unselect" th:text="${record?.superName} == '' ? '选择菜单' : ${record?.superName}" ></span>
+									<input id="menuTreeInput" type="hidden" th:attr="value = ${record?.menuId}" name="menuId">
+									<i class="layui-edge"></i>
+								</div>
+								<dl class="layui-anim layui-anim-upbit">
+									<dd>
+										<ul id="menuTree"></ul>
+									</dd>
+								</dl>
+							</div>
 						</div>
 					</div>
 					<div class="layui-form-item">
@@ -72,10 +90,53 @@
 	<script src="/static/security/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/static/security/js/common.js" type="text/javascript" charset="utf-8"></script>
 	<script>
-		layui.use(['jquery', 'layer','dialog'], function() {
-			layer = layui.layer, $ = layui.jquery, dialog = layui.dialog;
+		layui.use(['jquery', 'layer','dialog','tree'], function() {
+			layer = layui.layer, $ = layui.jquery, dialog = layui.dialog, tree = layui.tree;
+            // 绑定应用选择
+            bindApplicationClick(tree);
+            // 绑定上级角色选择
+            bindPidClick(tree);
+            // 绑定新增更新
             bindSaveOrEdit();
 		});
+        /** 绑定菜单选择*/
+        function bindPidClick(tree) {
+            $('#superMenu').off().on('click',function () {
+                if($('#applicationId').val() == 0){
+                    layer.msg('请先选择所属应用!');
+                    return;
+                }
+                $.ajax({
+                    url:'/menu/getMenuTree/' + $('#applicationId').val(),
+                    method:'post',
+                    dataType:'json',
+                    async:false,
+                    success:function (data) {
+                        if(data.status="S"){
+                            renderSelectedTree(tree,data,"#menuTree",'pid');
+                        }else{
+                            layer.msg(data.head.msg);
+                        }
+                    }
+                })
+            })
+        }
+        /** 绑定应用选择*/
+        function bindApplicationClick(tree) {
+            $.ajax({
+                url:'/application/getApplicationTree',
+                method:'post',
+                dataType:'json',
+                async:true,
+                success:function (data) {
+                    if(data.status="S"){
+                        renderSelectedTree(tree,data,"#applicationTree",'applicationId');
+                    }else{
+                        layer.msg(data.head.msg);
+                    }
+                }
+            })
+        }
 		/** 绑定提交*/
         function bindSaveOrEdit() {
             $('#saveOrEdit').off().on('click',function () {

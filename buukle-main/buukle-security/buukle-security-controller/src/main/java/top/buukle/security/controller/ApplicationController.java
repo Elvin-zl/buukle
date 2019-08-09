@@ -62,6 +62,6 @@ public class ApplicationController {
     @RequestMapping("/getApplicationTree")
     @ResponseBody
     public PageResponse getApplicationTree(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        return applicationService.getApplicationNodes(request,response);
+        return applicationService.getApplicationTree(request,response);
     }
 }

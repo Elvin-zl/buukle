@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import top.buukle.common.call.CommonResponse;
+import top.buukle.common.call.PageResponse;
 import top.buukle.security .entity.vo.RoleQuery;
 import top.buukle.security .service.RoleService;
 
@@ -48,5 +49,19 @@ public class RoleController {
     @ResponseBody
     public CommonResponse saveOrEdit(RoleQuery query, HttpServletRequest request, HttpServletResponse response) throws Exception {
         return roleService.saveOrEdit(query,request,response);
+    }
+
+    /**
+     * @description 获取上级角色
+     * @param request
+     * @param response
+     * @return top.buukle.common.call.PageResponse
+     * @Author elvin
+     * @Date 2019/8/9
+     */
+    @RequestMapping("/getRoleTree/{applicationId}")
+    @ResponseBody
+    public PageResponse getRoleTree(@PathVariable("applicationId") Integer applicationId, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        return roleService.getRoleTree(applicationId,request,response);
     }
 }

@@ -21,6 +21,7 @@ import java.util.List;
 public class LayUiTreeNode {
 
     private String name;
+    private String alias;
     private Integer id;
     private boolean spread = false;
     private List<LayUiTreeNode> children;
@@ -31,6 +32,14 @@ public class LayUiTreeNode {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getAlias() {
+        return alias;
+    }
+
+    public void setAlias(String alias) {
+        this.alias = alias;
     }
 
     public Integer getId() {

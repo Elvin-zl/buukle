@@ -22,25 +22,31 @@
 						<div class="layui-input-inline">
 							<div class="layui-unselect layui-form-select downpanel">
 								<div class="layui-select-title">
-									<span class="layui-input layui-unselect" id="treeclass">选择应用</span>
-									<input type="hidden" name="applicationId" value="0">
+									<span class="layui-input layui-unselect" th:text="${record?.applicationCode} == '' ? '选择应用' : ${record?.applicationCode}" ></span>
+									<input type="hidden" id="applicationId" th:attr="value = ${record?.applicationId}" name="applicationId">
 									<i class="layui-edge"></i>
 								</div>
 								<dl class="layui-anim layui-anim-upbit">
 									<dd>
-										<ul id="applicationTree"></ul>
+										<ul data-subTree="roleTree" id="applicationTree"></ul>
 									</dd>
 								</dl>
 							</div>
 						</div>
-					</div>
-					<div class="layui-form-item">
 						<label class="layui-form-label">上级角色：</label>
-						<div class="layui-input-block">
-							<label id="pidLabel">
-								<input type="text" id="pidName" disabled="disabled" style="cursor: pointer;" th:attr="value = ${record?.pid}" placeholder="上级角色" autocomplete="off" class="layui-input">
-								<input type="hidden" id="pid" name="pid"/>
-							</label>
+						<div class="layui-input-inline">
+							<div class="layui-unselect layui-form-select downpanel">
+								<div id="superRole" class="layui-select-title">
+									<span id="roleTreeSpan" class="layui-input layui-unselect" th:text="${record?.superName} == '' ? '选择应用' : ${record?.superName}" ></span>
+									<input id="roleTreeInput" type="hidden" th:attr="value = ${record?.pid}" name="pid">
+									<i class="layui-edge"></i>
+								</div>
+								<dl class="layui-anim layui-anim-upbit">
+									<dd>
+										<ul id="roleTree"></ul>
+									</dd>
+								</dl>
+							</div>
 						</div>
 					</div>
 					<div class="layui-form-item">
@@ -83,14 +89,30 @@
 			// 绑定应用选择
             bindApplicationClick(tree);
             // 绑定上级角色选择
-            bindPidClick();
+            bindPidClick(tree);
 			// 绑定提交按钮
             bindSaveOrEdit();
 		});
         /** 绑定上级角色选择*/
-        function bindPidClick() {
-            $('#pidLabel').off().on('click',function () {
-                $('#pidName').val('lll');
+        function bindPidClick(tree) {
+        	$('#superRole').off().on('click',function () {
+        	    if($('#applicationId').val() == 0){
+                    layer.msg('请先选择所属应用!');
+					return;
+				}
+                $.ajax({
+                    url:'/role/getRoleTree/' + $('#applicationId').val(),
+                    method:'post',
+                    dataType:'json',
+                    async:false,
+                    success:function (data) {
+                        if(data.status="S"){
+                            renderSelectedTree(tree,data,"#roleTree",'pid');
+                        }else{
+                            layer.msg(data.head.msg);
+                        }
+                    }
+                })
             })
         }
 		/** 绑定应用选择*/
@@ -102,16 +124,7 @@
 				async:true,
 				success:function (data) {
 					if(data.status="S"){
-						renderSelectedTree("#applicationTree",applicationId);
-						tree({
-							elem: "#applicationTree",
-							nodes: data.body.list,
-							click: function (node) {
-								var $select = $($(this)[0].elem).parents(".layui-form-select");
-								$select.removeClass("layui-form-selected").find(".layui-select-title span").html(node.name).end().find("input:hidden[name='applicationId']").val(node.id);
-							}
-						});
-
+						renderSelectedTree(tree,data,"#applicationTree",'applicationId');
 					}else{
 						layer.msg(data.head.msg);
 					}

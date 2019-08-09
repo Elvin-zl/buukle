@@ -2,6 +2,7 @@ package top.buukle.security .service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.buukle.common.call.CommonResponse;
@@ -10,12 +11,16 @@ import top.buukle.common.call.PageResponse;
 import top.buukle.common.call.vo.FuzzyVo;
 import top.buukle.common.status.StatusConstants;
 
+import top.buukle.security.dao.ApplicationMapper;
 import top.buukle.security .dao.MenuMapper;
 import top.buukle.security .dao.CommonMapper;
+import top.buukle.security.entity.Application;
 import top.buukle.security .entity.User;
 import top.buukle.security .entity.Menu;
 import top.buukle.security .entity.MenuExample;
 import top.buukle.security .entity.vo.BaseQuery;
+import top.buukle.security.entity.vo.LayUiTreeNode;
+import top.buukle.security.entity.vo.MenuCrudModelVo;
 import top.buukle.security .entity.vo.MenuQuery;
 import top.buukle.security .plugin.util.SessionUtil;
 import top.buukle.security .service.MenuService;
@@ -44,6 +49,9 @@ public class MenuServiceImpl implements MenuService{
 
     @Autowired
     private MenuMapper menuMapper;
+
+    @Autowired
+    private ApplicationMapper applicationMapper;
 
     @Autowired
     private CommonMapper commonMapper;
@@ -116,12 +124,25 @@ public class MenuServiceImpl implements MenuService{
      * @Date 2019/8/4
      */
     @Override
-    public Menu selectByPrimaryKey(Integer id) {
+    public MenuCrudModelVo selectByPrimaryKey(Integer id) {
         if(id == null){
-            return new Menu();
+            return new MenuCrudModelVo();
         }
         Menu menu = menuMapper.selectByPrimaryKey(id);
-        return menu == null ? new Menu() : menu;
+        MenuCrudModelVo vo = new MenuCrudModelVo();
+        if(menu != null){
+            vo = new MenuCrudModelVo();
+            BeanUtils.copyProperties(menu,vo);
+            Application application = applicationMapper.selectByPrimaryKey(vo.getApplicationId());
+            vo.setApplicationCode(application.getCode());
+            if(vo.getPid()!=0){
+                Menu superMenu = menuMapper.selectByPrimaryKey(vo.getPid());
+                vo.setSuperName(superMenu.getName());
+            }else{
+                vo.setSuperName("root");
+            }
+        }
+        return menu == null ? new MenuCrudModelVo() : vo;
     }
 
     /**
@@ -145,6 +166,55 @@ public class MenuServiceImpl implements MenuService{
             this.update(query,request,response);
         }
         return new CommonResponse.Builder().buildSuccess();
+    }
+
+    /**
+     * @description 获取上级菜单
+     * @param applicationId
+     * @param request
+     * @param response
+     * @return top.buukle.common.call.PageResponse
+     * @Author elvin
+     * @Date 2019/8/10
+     */
+    @Override
+    public PageResponse getMenuTree(Integer applicationId, HttpServletRequest request, HttpServletResponse response) {
+        MenuExample applicationExample = new MenuExample();
+        MenuExample.Criteria criteria = applicationExample.createCriteria();
+        criteria.andStatusEqualTo(MenuEnums.status.PUBLISED.value());
+        criteria.andApplicationIdEqualTo(applicationId);
+        List<Menu> menus = menuMapper.selectByExample(applicationExample);
+        LayUiTreeNode rootNode = new LayUiTreeNode();
+        rootNode.setId(0);
+        rootNode.setName("root");
+        rootNode.setSpread(true);
+        List<LayUiTreeNode> nodes = new ArrayList<>();
+        nodes.add(rootNode);
+        this.findChildren(rootNode,menus);
+        return new PageResponse.Builder().build(nodes,0,0,0);
+    }
+
+    /**
+     * @description 寻找子节点
+     * @param node
+     * @param menus
+     * @return void
+     * @Author elvin
+     * @Date 2019/8/9
+     */
+    private void findChildren(LayUiTreeNode node, List<Menu> menus) {
+        List<LayUiTreeNode> nodes = new ArrayList<>();
+        for (Menu menu: menus) {
+            if(menu.getPid().equals(node.getId())){
+                LayUiTreeNode nodeNew = new LayUiTreeNode();
+                nodeNew.setId(menu.getId());
+                nodeNew.setName(menu.getName());
+                nodeNew.setSpread(true);
+                nodes.add(nodeNew);
+                this.findChildren(nodeNew,menus);
+            }
+        }
+        node.setChildren(nodes);
     }
 
     /**

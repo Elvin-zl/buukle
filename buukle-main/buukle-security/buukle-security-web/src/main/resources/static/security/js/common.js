@@ -129,16 +129,28 @@ function releaseThis(obj,msg){
     obj.html(msg);
     obj.attr("disabled",false);
 }
-function renderSelectedTree(elem,idTarget){
-
-    $(".downpanel").on("click", ".layui-select-title", function (e) {
+function renderSelectedTree(tree,data,elem,idTarget){
+    $(elem).empty();
+    tree({
+        elem: elem,
+        nodes: data.body.list,
+        click: function (node) {
+            var $select = $($(this)[0].elem).parents(".layui-form-select");
+            $select.removeClass("layui-form-selected").find(".layui-select-title span").html(node.name).end().find("input:hidden[name="+idTarget+"]").val(node.id);
+        }
+    });
+    $(elem).parent().parent().parent().off().on("click", ".layui-select-title", function (e) {
         $(".layui-form-select").not($(this).parents(".layui-form-select")).removeClass("layui-form-selected");
         $(this).parents(".downpanel").toggleClass("layui-form-selected");
+        var subId = $(elem).attr('data-subTree');
+        $('#' + subId).empty();
+        $('#' + subId + 'Input').val('');
+        $('#' + subId + 'Span').html('请选择');
         layui.stope(e);
     }).on("click", "dl i", function (e) {
         layui.stope(e);
     });
-    $(document).on("click", function (e) {
+    $(document).off().on("click", function (e) {
         $(".layui-form-select").removeClass("layui-form-selected");
     });
 }

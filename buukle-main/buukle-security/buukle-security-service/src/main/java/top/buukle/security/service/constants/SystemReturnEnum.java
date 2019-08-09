@@ -27,8 +27,15 @@ public enum SystemReturnEnum {
     USER_SAVE_OR_EDIT_PASSWORD_NULL("F","030003","保存或更新用户失败,密码为空!"),
     USER_SAVE_OR_EDIT_RPASSWORD_NULL("F","030004","保存或更新用户失败,确认密码为空!"),
     USER_SAVE_OR_EDIT_TWO_PED_NOT_SAME("F","030005","保存或更新用户失败,确认密码与密码不一致!"),
-    USER_SAVE_OR_EDIT_USERNAME_EXIST("F","030006","保存或更新用户失败,用户名已存在!");
+    USER_SAVE_OR_EDIT_USERNAME_EXIST("F","030006","保存或更新用户失败,用户名已存在!"),
 
+    /*--role 返回码{04}{**}{**}*/
+    ROLE_SAVE_OR_EDIT_APPID_NULL("F","040001","保存或更新用户失败,所属应用id为空!"),
+    ROLE_SAVE_OR_EDIT_PID_NULL("F","040002","保存或更新用户失败,上级角色id为空!"),
+    ROLE_SAVE_OR_EDIT_NAME_NULL("F","040003","保存或更新用户失败,角色名称为空!"),
+
+
+    ;
 
     private String status;
     private String code;
