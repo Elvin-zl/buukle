@@ -129,3 +129,16 @@ function releaseThis(obj,msg){
     obj.html(msg);
     obj.attr("disabled",false);
 }
+function renderSelectedTree(elem,idTarget){
+
+    $(".downpanel").on("click", ".layui-select-title", function (e) {
+        $(".layui-form-select").not($(this).parents(".layui-form-select")).removeClass("layui-form-selected");
+        $(this).parents(".downpanel").toggleClass("layui-form-selected");
+        layui.stope(e);
+    }).on("click", "dl i", function (e) {
+        layui.stope(e);
+    });
+    $(document).on("click", function (e) {
+        $(".layui-form-select").removeClass("layui-form-selected");
+    });
+}

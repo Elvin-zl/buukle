@@ -2,6 +2,7 @@ package top.buukle.security .service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.buukle.common.call.CommonResponse;
@@ -17,6 +18,7 @@ import top.buukle.security .entity.Application;
 import top.buukle.security .entity.ApplicationExample;
 import top.buukle.security .entity.vo.BaseQuery;
 import top.buukle.security .entity.vo.ApplicationQuery;
+import top.buukle.security.entity.vo.LayUiTreeNode;
 import top.buukle.security .plugin.util.SessionUtil;
 import top.buukle.security .service.ApplicationService;
 import top.buukle.security .service.constants.SystemReturnEnum;
@@ -145,6 +147,31 @@ public class ApplicationServiceImpl implements ApplicationService{
             this.update(query,request,response);
         }
         return new CommonResponse.Builder().buildSuccess();
+    }
+
+    /**
+     * @description 获取应用树
+     * @param request
+     * @param response
+     * @return top.buukle.common.call.CommonResponse
+     * @Author zhanglei1102
+     * @Date 2019/8/9
+     */
+    @Override
+    public PageResponse getApplicationNodes(HttpServletRequest request, HttpServletResponse response) {
+        ApplicationExample applicationExample = new ApplicationExample();
+        ApplicationExample.Criteria criteria = applicationExample.createCriteria();
+        criteria.andStatusEqualTo(ApplicationEnums.status.PUBLISED.value());
+        List<Application> applications = applicationMapper.selectByExample(applicationExample);
+        List<LayUiTreeNode> nodes = new ArrayList<>();
+        for (Application application: applications) {
+            LayUiTreeNode node = new LayUiTreeNode();
+            node.setId(application.getId());
+            node.setName(application.getName());
+            node.setSpread(false);
+            nodes.add(node);
+        }
+        return new PageResponse.Builder().build(nodes,0,0,0);
     }
 
     /**

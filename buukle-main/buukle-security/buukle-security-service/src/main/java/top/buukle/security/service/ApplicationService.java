@@ -1,6 +1,7 @@
 package top.buukle.security .service;
 
 import top.buukle.common.call.CommonResponse;
+import top.buukle.common.call.PageResponse;
 import top.buukle.security.entity.vo.ApplicationQuery;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,4 +15,5 @@ public interface ApplicationService extends BaseService{
 
     CommonResponse saveOrEdit(ApplicationQuery query, HttpServletRequest request, HttpServletResponse response);
 
+    PageResponse getApplicationNodes(HttpServletRequest request, HttpServletResponse response);
 }

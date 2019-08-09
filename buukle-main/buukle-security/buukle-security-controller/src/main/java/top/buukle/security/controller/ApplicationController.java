@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import top.buukle.common.call.CommonResponse;
+import top.buukle.common.call.PageResponse;
 import top.buukle.security .entity.vo.ApplicationQuery;
 import top.buukle.security .service.ApplicationService;
 
@@ -48,5 +49,19 @@ public class ApplicationController {
     @ResponseBody
     public CommonResponse saveOrEdit(ApplicationQuery query, HttpServletRequest request, HttpServletResponse response) throws Exception {
         return applicationService.saveOrEdit(query,request,response);
+    }
+
+    /**
+     * @description 获取应用树
+     * @param request
+     * @param response
+     * @return top.buukle.common.call.CommonResponse
+     * @Author zhanglei1102
+     * @Date 2019/8/9
+     */
+    @RequestMapping("/getApplicationTree")
+    @ResponseBody
+    public PageResponse getApplicationTree(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        return applicationService.getApplicationNodes(request,response);
     }
 }

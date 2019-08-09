@@ -19,11 +19,19 @@
 				<div class="layui-tab-item layui-show">
 					<div class="layui-form-item">
 						<label class="layui-form-label">所属应用：</label>
-						<div class="layui-input-block">
-							<label id="applicationLabel">
-								<input type="text" data-url="http://www.baidu.com" a style="cursor: pointer;" id="applicationName" disabled="disabled" name="applicationName" th:attr="value = ${record?.applicationId}" placeholder="所属应用" autocomplete="off" class="layui-input">
-								<input type="hidden" id="applicationId" name="applicationId"/>
-							</label>
+						<div class="layui-input-inline">
+							<div class="layui-unselect layui-form-select downpanel">
+								<div class="layui-select-title">
+									<span class="layui-input layui-unselect" id="treeclass">选择应用</span>
+									<input type="hidden" name="applicationId" value="0">
+									<i class="layui-edge"></i>
+								</div>
+								<dl class="layui-anim layui-anim-upbit">
+									<dd>
+										<ul id="applicationTree"></ul>
+									</dd>
+								</dl>
+							</div>
 						</div>
 					</div>
 					<div class="layui-form-item">
@@ -71,15 +79,13 @@
 	<script src="/static/security/js/common.js" type="text/javascript" charset="utf-8"></script>
 	<script>
 		layui.use(['jquery', 'layer','dialog','tree'], function() {
-			layer = layui.layer, $ = layui.jquery, dialog = layui.dialog,tree=layui.tree();
+			layer = layui.layer, $ = layui.jquery, dialog = layui.dialog, tree = layui.tree;
 			// 绑定应用选择
-            bindApplicationClick();
+            bindApplicationClick(tree);
             // 绑定上级角色选择
             bindPidClick();
 			// 绑定提交按钮
             bindSaveOrEdit();
-            // 渲染树
-            renderTree(tree);
 		});
         /** 绑定上级角色选择*/
         function bindPidClick() {
@@ -88,11 +94,29 @@
             })
         }
 		/** 绑定应用选择*/
-        function bindApplicationClick() {
-            $('#applicationLabel').off().on('click',function () {
+        function bindApplicationClick(tree) {
+        	$.ajax({
+				url:'/application/getApplicationTree',
+				method:'post',
+				dataType:'json',
+				async:true,
+				success:function (data) {
+					if(data.status="S"){
+						renderSelectedTree("#applicationTree",applicationId);
+						tree({
+							elem: "#applicationTree",
+							nodes: data.body.list,
+							click: function (node) {
+								var $select = $($(this)[0].elem).parents(".layui-form-select");
+								$select.removeClass("layui-form-selected").find(".layui-select-title span").html(node.name).end().find("input:hidden[name='applicationId']").val(node.id);
+							}
+						});
 
-                $('#applicationName').val('布壳儿');
-            })
+					}else{
+						layer.msg(data.head.msg);
+					}
+				}
+			})
         }
 		/** 绑定提交*/
         function bindSaveOrEdit() {
@@ -121,136 +145,6 @@
 				})
             })
         }
-        /** 渲染树*/
-		function renderTree(tree){
-			var data = [{
-					title: '一级1'
-					,id: 1
-					,checked: true
-					,spread: true
-					,children: [{
-						title: '二级1-1 可允许跳转'
-						,id: 3
-						,href: 'https://www.layui.com/'
-						,children: [{
-							title: '三级1-1-3'
-							,id: 23
-							,children: [{
-								title: '四级1-1-3-1'
-								,id: 24
-								,children: [{
-									title: '五级1-1-3-1-1'
-									,id: 30
-								},{
-									title: '五级1-1-3-1-2'
-									,id: 31
-								}]
-							}]
-						},{
-							title: '三级1-1-1'
-							,id: 7
-							,children: [{
-								title: '四级1-1-1-1 可允许跳转'
-								,id: 15
-								,href: 'https://www.layui.com/doc/'
-							}]
-						},{
-							title: '三级1-1-2'
-							,id: 8
-							,children: [{
-								title: '四级1-1-2-1'
-								,id: 32
-							}]
-						}]
-					},{
-						title: '二级1-2'
-						,id: 4
-						,spread: true
-						,children: [{
-							title: '三级1-2-1'
-							,id: 9
-							,disabled: true
-						},{
-							title: '三级1-2-2'
-							,id: 10
-						}]
-					},{
-						title: '二级1-3'
-						,id: 20
-						,children: [{
-							title: '三级1-3-1'
-							,id: 21
-						},{
-							title: '三级1-3-2'
-							,id: 22
-						}]
-					}]
-				},{
-					title: '一级2'
-					,id: 2
-					,spread: true
-					,children: [{
-						title: '二级2-1'
-						,id: 5
-						,spread: true
-						,children: [{
-							title: '三级2-1-1'
-							,id: 11
-						},{
-							title: '三级2-1-2'
-							,id: 12
-						}]
-					},{
-						title: '二级2-2'
-						,id: 6
-						,children: [{
-							title: '三级2-2-1'
-							,id: 13
-						},{
-							title: '三级2-2-2'
-							,id: 14
-							,disabled: true
-						}]
-					}]
-				},{
-					title: '一级3'
-					,id: 16
-					,children: [{
-						title: '二级3-1'
-						,id: 17
-						,fixed: true
-						,children: [{
-							title: '三级3-1-1'
-							,id: 18
-						},{
-							title: '三级3-1-2'
-							,id: 19
-						}]
-					},{
-						title: '二级3-2'
-						,id: 27
-						,children: [{
-							title: '三级3-2-1'
-							,id: 28
-						},{
-							title: '三级3-2-2'
-							,id: 29
-						}]
-					}]
-				}]
-			//基本演示
-			tree.render({
-				elem: '#applicationName'
-				,data: data
-				,showCheckbox: true  //是否显示复选框
-				,id: 'demoId1'
-				,isJump: true //是否允许点击节点时弹出新窗口跳转
-				,click: function(obj){
-					var data = obj.data;  //获取当前点击的节点数据
-					layer.msg('状态：'+ obj.state + '<br>节点数据：' + JSON.stringify(data));
-				}
-			});
-		}
 	</script>
 	</body>
 </html>

@@ -21,6 +21,10 @@ public class PageResponse{
         body = new PageBody(list,pageNo,pageSize,total);
     }
 
+    public PageResponse(List<?> list) {
+        head = new ResponseHead.Builder().buildSuccess();
+        body = new PageBody(list);
+    }
     public ResponseHead getHead() {
         return head;
     }
@@ -41,18 +45,23 @@ public class PageResponse{
         public PageResponse build(List<?> list, int pageNo, int pageSize, long total) {
             return new PageResponse(list,pageNo,pageSize,total);
         }
+        public PageResponse buildWithoutPage(List<?> list) {
+            return new PageResponse(list);
+        }
     }
-
     private class PageBody{
-        private Integer pageNo;
-        private Integer pageSize;
+        private Integer pageNo = 1;
+        private Integer pageSize = 10;
         private long total;
         private long totalPage;
         private List<?> list;
         PageBody(List<?> list, int pageNo, int pageSize, long total) {
             this.pageNo =  pageNo;
-            this.pageSize =  pageSize;
+            this.pageSize =  pageSize == 0 ? this.pageSize : pageSize;
             this.total =  total;
+            this.list =  list;
+        }
+        public PageBody(List<?> list) {
             this.list =  list;
         }
         public Integer getPageNo() {
