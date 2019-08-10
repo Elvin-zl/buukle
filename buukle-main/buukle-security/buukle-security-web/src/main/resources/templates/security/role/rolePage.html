@@ -4,6 +4,10 @@
 	<tr>
 		<th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose"></th>
 		<th class="hidden-xs">角色名</th>
+		<th class="hidden-xs">创建者</th>
+		<th class="hidden-xs">创建时间</th>
+		<th class="hidden-xs">修改者</th>
+		<th class="hidden-xs">修改时间</th>
 		<th class="hidden-xs">状态</th>
 		<th>操作</th>
 	</tr>
@@ -12,6 +16,10 @@
 		<tr th:each="roleRecord:${response?.body?.list}">
 			<td><input type="checkbox" name="batchCheckBox" lay-skin="primary" th:attr="data-id = ${roleRecord?.id}"  /></td>
 			<td th:text="${roleRecord?.roleName}" class="hidden-xs"></td>
+			<td th:text="${roleRecord?.creator}" class="hidden-xs"></td>
+			<td th:text="${#dates.format(roleRecord?.gmtCreated,'yyyy-MM-dd HH:mm:ss')}" class="hidden-xs"></td>
+			<td th:text="${roleRecord?.modifier}" class="hidden-xs"></td>
+			<td th:text="${#dates.format(roleRecord?.gmtModified,'yyyy-MM-dd HH:mm:ss')}" class="hidden-xs"></td>
 			<td th:switch="${roleRecord?.status}">
 				<button th:case="0" class="layui-btn layui-btn-mini layui-btn-danger" > 初始化</button>
 				<button th:case="1" class="layui-btn layui-btn-mini layui-btn-normal" > 处理中</button>

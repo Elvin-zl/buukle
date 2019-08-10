@@ -52,13 +52,13 @@
 					<div class="layui-form-item">
 						<label class="layui-form-label">按钮名称：</label>
 						<div class="layui-input-block">
-							<input type="text"  name="name" th:attr="value = ${record?.name}" placeholder="菜单名称" autocomplete="off" class="layui-input">
+							<input type="text"  name="name" th:attr="value = ${record?.name}" placeholder="名称" autocomplete="off" class="layui-input">
 						</div>
 					</div>
 					<div class="layui-form-item">
 						<label class="layui-form-label">按钮url：</label>
 						<div class="layui-input-block">
-							<input type="text"  name="url" th:attr="value = ${record?.url}" placeholder="菜单url" autocomplete="off" class="layui-input">
+							<input type="text"  name="url" th:attr="value = ${record?.url}" placeholder="url" autocomplete="off" class="layui-input">
 						</div>
 					</div>
 					<div class="layui-form-item">
@@ -94,7 +94,7 @@
 			layer = layui.layer, $ = layui.jquery, dialog = layui.dialog, tree = layui.tree;
             // 绑定应用选择
             bindApplicationClick(tree);
-            // 绑定上级角色选择
+            // 绑定上级选择
             bindPidClick(tree);
             // 绑定新增更新
             bindSaveOrEdit();
@@ -113,7 +113,7 @@
                     async:false,
                     success:function (data) {
                         if(data.status="S"){
-                            renderSelectedTree(tree,data,"#menuTree",'pid');
+                            renderSelectedTree(tree,data,"#menuTree",'menuId');
                         }else{
                             layer.msg(data.head.msg);
                         }

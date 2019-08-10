@@ -3,7 +3,11 @@
 	<thead>
 	<tr>
 		<th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose"></th>
-		<th class="hidden-xs">ID</th>
+		<th class="hidden-xs">按钮名称</th>
+		<th class="hidden-xs">创建者</th>
+		<th class="hidden-xs">创建时间</th>
+		<th class="hidden-xs">更新者</th>
+		<th class="hidden-xs">更新时间</th>
 		<th class="hidden-xs">状态</th>
 		<th>操作</th>
 	</tr>
@@ -11,7 +15,11 @@
 	<tbody id="tbody-button">
 		<tr th:each="buttonRecord:${response?.body?.list}">
 			<td><input type="checkbox" name="batchCheckBox" lay-skin="primary" th:attr="data-id = ${buttonRecord?.id}"  /></td>
-			<td th:text="${buttonRecord?.id}" class="hidden-xs"></td>
+			<td th:text="${buttonRecord?.name}" class="hidden-xs"></td>
+			<td th:text="${buttonRecord?.creator}" class="hidden-xs"></td>
+			<td th:text="${#dates.format(buttonRecord?.gmtCreated,'yyyy-MM-dd HH:mm:ss')}" class="hidden-xs"></td>
+			<td th:text="${buttonRecord?.modifier}" class="hidden-xs"></td>
+			<td th:text="${#dates.format(buttonRecord?.gmtModified,'yyyy-MM-dd HH:mm:ss')}" class="hidden-xs"></td>
 			<td th:switch="${buttonRecord?.status}">
 				<button th:case="0" class="layui-btn layui-btn-mini layui-btn-danger" > 初始化</button>
 				<button th:case="1" class="layui-btn layui-btn-mini layui-btn-normal" > 处理中</button>

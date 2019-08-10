@@ -342,7 +342,9 @@ public class RoleServiceImpl implements RoleService{
         if(query.getId() != null){
             criteria.andIdEqualTo(query.getId());
         }
-        // TODO
+        if(StringUtil.isNotEmpty(query.getRoleName())){
+            criteria.andRoleNameEqualTo(query.getRoleName());
+        }
         if(StringUtil.isNotEmpty(query.getStates())){
             List list = new ArrayList();
             for (String state : query.getStates().split(",")) {

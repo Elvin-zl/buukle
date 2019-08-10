@@ -276,7 +276,15 @@ public class MenuServiceImpl implements MenuService{
      * @Date 2019/8/5
      */
     private void validateParamForSaveOrEdit(MenuQuery query) {
-        // TODO
+        if(query.getApplicationId() ==null ){
+            throw new SystemException(SystemReturnEnum.MENU_SAVE_OR_EDIT_APPID_NULL);
+        }
+        if(query.getPid() ==null ){
+            throw new SystemException(SystemReturnEnum.MENU_SAVE_OR_EDIT_PID_NULL);
+        }
+        if(StringUtil.isEmpty(query.getName())){
+            throw new SystemException(SystemReturnEnum.MENU_SAVE_OR_EDIT_NAME_NULL);
+        }
     }
 
     /**
@@ -336,7 +344,9 @@ public class MenuServiceImpl implements MenuService{
         if(query.getId() != null){
             criteria.andIdEqualTo(query.getId());
         }
-        // TODO
+        if(StringUtil.isNotEmpty(query.getName())){
+            criteria.andNameEqualTo(query.getName());
+        }
         if(StringUtil.isNotEmpty(query.getStates())){
             List list = new ArrayList();
             for (String state : query.getStates().split(",")) {
