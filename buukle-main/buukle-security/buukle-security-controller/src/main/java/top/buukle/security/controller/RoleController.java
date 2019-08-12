@@ -64,4 +64,19 @@ public class RoleController {
     public PageResponse getRoleTree(@PathVariable("applicationId") Integer applicationId, HttpServletRequest request, HttpServletResponse response) throws Exception {
         return roleService.getRoleTree(applicationId,request,response);
     }
+
+    /**
+     * @description 获取用户角色树
+     * @param applicationCode
+     * @param userId
+     * @return top.buukle.common.call.PageResponse
+     * @Author zhanglei1102
+     * @Date 2019/8/12
+     */
+    @RequestMapping("/getAppUserRole")
+    @ResponseBody
+    public PageResponse getAppUserRole(String applicationCode,String userId) throws Exception {
+        return roleService.getAppUserRole(applicationCode,userId);
+    }
+
 }

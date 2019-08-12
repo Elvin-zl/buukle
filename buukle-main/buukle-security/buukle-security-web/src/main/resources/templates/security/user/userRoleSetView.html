@@ -1,0 +1,192 @@
+<!DOCTYPE html >
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="renderer" content="webkit">
+  		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>布壳儿网</title>
+		<link rel="stylesheet" type="text/css" href="/static/security/layui/css/layui.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/security/css/admin.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/security/select2/select2.min.css" />
+		<style>
+			/*排除掉layui自带的下拉框 以支持select2*/
+			#conditions .layui-unselect{display: none ;-webkit-user-select:none;-ms-user-select:none;-moz-user-select:none}
+		</style>
+	</head>
+	<body>
+	<!--表单-->
+	<form class="layui-form column-content-detail" id="userRoleSetForm">
+		<!--hidden area-->
+		<input type="hidden" name="id" th:attr="value = ${record?.id}" />
+		<input type="hidden" id="userId" name="userId" th:attr="value = ${record?.userId}" />
+		<div class="layui-tab">
+			<div id="conditions" class="layui-tab-item layui-show">
+				<div class="layui-form-item">
+					<span> 应用编码 ：</span>
+					<select class="fuzzy clearAble" id="applicationCode" data-url="/security/application/fuzzy/search" name="applicationCode" data-minimum="5" data-isIdVisual="0" data-fieldName="code" style="width: 200px;height: 10px">
+						<option value="">请输入应用编码</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<hr/>
+		<div class="layui-tab-item layui-show" style="height: 393px; margin-top: 29px;">
+			<div class="layui-form-item">
+				<span> 选择角色 : </span>
+				<div id="choseRole" style="margin-top: 23px;"></div>
+			</div>
+		</div>
+		<!--操作-->
+		<div class="layui-form-item" style="padding-left: 10px;">
+			<div class="layui-input-block">
+				<!-- 自定义权限标签 暂不开启 -->
+				<!--<hp url="/user/saveOrEdit">-->
+					<!--<div id="saveOrEdit" class="layui-btn layui-btn-normal">提交</div>-->
+				<!--</hp>-->
+				<div id="saveOrEdit" class="layui-btn layui-btn-normal" data-url="/user/userRoleSet">提交</div>
+				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+			</div>
+		</div>
+	</form>
+	<script src="/static/security/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/static/security/js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/static/security/select2/jquery.min.js"type="text/javascript" charset="utf-8"></script>
+	<script src="/static/security/select2/select2.full.js"type="text/javascript" charset="utf-8"></script>
+	<script>
+		layui.use(['jquery', 'layer','dialog','form','tree', 'util'], function() {
+			layer = layui.layer, $ = layui.jquery, dialog = layui.dialog, tree = layui.tree,util = layui.util;
+			// 加载模糊搜索
+			loadFuzzySearch();
+			// 绑定change事件,加载应用所有角色树
+			bindApplicationCodeChange();
+			// 绑定提交按钮
+			bindSaveOrEdit();
+		});
+		/**  绑定change事件,加载应用所有角色树*/
+		function bindApplicationCodeChange() {
+			$('#applicationCode').off().on('change',function () {
+				var applicationCode = $(this).val();
+				$.ajax({
+					url : "/role/getAppUserRole",
+					method : "post",
+					data : {"applicationCode" :applicationCode,"userId" : $('#userId').val()},
+					dataType : "json",
+					success:function (data) {
+						var das = data.body.list;
+                        var checkeds = data.head.msg.split(",");
+						// 渲染树
+						tree.render({
+							elem: '#choseRole'
+							,showCheckbox: true
+							,id: 'roleId'
+							,data: das
+						});
+						// layUI bug ， 先手动选中,不然选中渲染失败
+						for(var i=0;i<checkeds.length; i++){
+                            tree.setChecked('roleId', parseInt(checkeds[i]));
+						}
+					}
+				})
+			})
+		}
+		/** 绑定提交*/
+        function bindSaveOrEdit() {
+            $('#saveOrEdit').off().on('click',function () {
+                var obj = $(this);
+                banThis(obj,"保存中..");
+                $.ajax({
+					url:obj.attr('data-url'),
+					method:"post",
+					dataType:"json",
+					data:$('#userCrudForm').serialize(),
+					success:function (data) {
+						if(data.head.status == 'S'){
+                            banThis(obj,"完成");
+						    layer.msg('操作完成,3秒后将返回列表页...');
+                            window.parent.refresh();
+						    setTimeout(function () {
+                                var index = parent.layer.getFrameIndex(window.name);
+                                parent.layer.close(index);
+                            },3000)
+						}else{
+                            layer.msg(data.head.msg);
+                            releaseThis(obj,"提交");
+						}
+                    }
+				})
+            })
+        }
+		/** 加载模糊搜索*/
+		function loadFuzzySearch() {
+			var fuzzys = $('.fuzzy');
+			$.each(fuzzys, function (i, obj) {
+				$(obj).select2({
+					allowClear: true,
+					minimumInputLength:$(obj).attr('data-minimum'),
+					id: function(data) {
+						return data.id
+					},
+					formatSelection: function (data) { return data.text },
+					ajax: {
+						type:'get',
+						url: function(params){
+							return  $(this).attr('data-url')+'?fieldName=' + $(obj).attr('data-fieldName');
+						},
+						dataType:'json',
+						//输入的内容
+						data: function(params) {
+							return {
+								text:params.term,
+							}
+						},
+						processResults: function (data, page) {
+							if(data.head.status == "S"){
+								return {
+									results: data.body.data
+								};
+							}else{
+								layer.msg('查询异常!');
+							}
+						},
+						cache: true,
+					},
+					placeholder:'请输入相应字段值',
+					//提示语
+					escapeMarkup: function(markup) {
+						return markup
+					},
+					templateResult: formatResult,
+					templateSelection: formatRepoSelection
+				});
+				function formatResult (data) {
+					if (data.loading) {
+						return data.text;
+					}
+
+					var markup = "<div class='select2-result-repository clearfix'>" +
+							"<div class='select2-result-repository__meta'>" ;
+					if($(obj).attr('data-isIdVisual') == 1){
+						if(data.userId !=null && data.userId !=""){
+							// 显示userId
+							markup += "<div class='select2-result-repository__title'>" + data.id+"("+ data.userId + ")" + "</div>";
+						}else{
+							// 显示记录的主键id
+							markup += "<div class='select2-result-repository__title'>" + data.id+"("+ data.identity + ")" + "</div>";
+						}
+					}else{
+						markup += "<div class='select2-result-repository__title'>" + data.id +"</div>";
+					}
+					if (data.description) {
+						markup += "<div class='select2-result-repository__description'>" + data.id + "</div>";
+					}
+					return markup;
+				}
+				function formatRepoSelection (repo) {
+					return repo.text;
+				}
+			});
+		}
+	</script>
+	</body>
+</html>

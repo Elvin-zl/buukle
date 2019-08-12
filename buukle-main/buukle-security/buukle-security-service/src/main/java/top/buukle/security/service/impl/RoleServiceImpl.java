@@ -18,10 +18,7 @@ import top.buukle.security.entity.Application;
 import top.buukle.security .entity.User;
 import top.buukle.security .entity.Role;
 import top.buukle.security .entity.RoleExample;
-import top.buukle.security .entity.vo.BaseQuery;
-import top.buukle.security.entity.vo.LayUiTreeNode;
-import top.buukle.security.entity.vo.RoleCrudModelVo;
-import top.buukle.security .entity.vo.RoleQuery;
+import top.buukle.security.entity.vo.*;
 import top.buukle.security .plugin.util.SessionUtil;
 import top.buukle.security .service.RoleService;
 import top.buukle.security .service.constants.SystemReturnEnum;
@@ -190,6 +187,39 @@ public class RoleServiceImpl implements RoleService{
         nodes.add(rootNode);
         this.findChildren(rootNode,roles);
         return new PageResponse.Builder().build(nodes,0,0,0);
+    }
+
+    /**
+     * @description 获取用户在该app下的角色
+     * @param applicationCode
+     * @param userId
+     * @return top.buukle.common.call.PageResponse
+     * @Author zhanglei1102
+     * @Date 2019/8/12
+     */
+    @Override
+    public PageResponse getAppUserRole(String applicationCode, String userId) {
+
+        List<LayUiSelectTreeNode> layUiSelectTreeNodes = new ArrayList<>();
+
+        LayUiSelectTreeNode layUiSelectTreeNode1 = new LayUiSelectTreeNode();
+        layUiSelectTreeNode1.setTitle("管理员");
+        layUiSelectTreeNode1.setId(2);
+        layUiSelectTreeNode1.setSpread(true);
+        layUiSelectTreeNode1.setChecked(true);
+        layUiSelectTreeNodes.add(layUiSelectTreeNode1);
+
+        List<LayUiSelectTreeNode> layUiSelectTreeNodes1 = new ArrayList<>();
+        LayUiSelectTreeNode layUiSelectTreeNode2 = new LayUiSelectTreeNode();
+        layUiSelectTreeNode2.setTitle("管理员");
+        layUiSelectTreeNode2.setId(1);
+        layUiSelectTreeNode1.setSpread(true);
+        layUiSelectTreeNode2.setChecked(true);
+        layUiSelectTreeNodes1.add(layUiSelectTreeNode2);
+        layUiSelectTreeNode1.setChildren(layUiSelectTreeNodes1);
+        PageResponse res = new PageResponse.Builder().build(layUiSelectTreeNodes, 0, 0, 0);
+        res.getHead().setMsg("1");
+        return res;
     }
 
     /**

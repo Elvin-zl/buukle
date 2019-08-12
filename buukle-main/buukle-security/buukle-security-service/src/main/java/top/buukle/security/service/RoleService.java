@@ -16,4 +16,6 @@ public interface RoleService extends BaseService{
     CommonResponse saveOrEdit(RoleQuery query, HttpServletRequest request, HttpServletResponse response);
 
     PageResponse getRoleTree(Integer applicationId, HttpServletRequest request, HttpServletResponse response);
+
+    PageResponse getAppUserRole(String applicationCode, String userId);
 }

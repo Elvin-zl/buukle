@@ -7,14 +7,11 @@ $(function () {
 function doPage() {
     layui.use(['laypage','layer'], function() {
         var laypage = layui.laypage;
-        laypage({
-            cont: 'pageBar'
-            ,pages: $('#totalPage').val()
-            ,curr: $('#page').val()
-            ,skin: '#1E9FFF'
-            ,layout : ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
-            ,limits : '[10, 20, 30, 40, 50]'
-            ,jump: function(obj, first){
+        laypage.render({
+            elem: 'pageBar'
+            ,count: $('#total').val()
+            ,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
+            ,jump: function(obj,first){
                 if(!first){
                     loadPage(obj.curr);
                 }
@@ -48,7 +45,7 @@ function loadPage(page) {
 /** 初始化*/
 function initCommonPage() {
     layui.use(['form', 'jquery', 'laydate', 'layer', 'laypage', 'dialog',   'element'], function() {
-        var form = layui.form(),  $ = layui.jquery, dialog = layui.dialog;
+        var form = layui.form,  $ = layui.jquery, dialog = layui.dialog;
          iframeObj = $(window.frameElement).attr('name');
         // 全选
         bindChooseAll(form);

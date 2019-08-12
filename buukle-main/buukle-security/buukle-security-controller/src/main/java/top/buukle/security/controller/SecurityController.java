@@ -56,12 +56,21 @@ public class SecurityController {
      * @return
      */
     @RequestMapping("/{entity}/{operationAndViewName}")
-    public ModelAndView security(String ids ,Integer id, HttpServletRequest request, HttpServletResponse response, @PathVariable("entity") String entity , @PathVariable("operationAndViewName")  String operationAndViewName, ModelAndView modelAndView) throws IOException {
+    public ModelAndView security(
+                                 Integer id,
+                                 String ids ,
+                                 HttpServletRequest request,
+                                 HttpServletResponse response,
+                                 @PathVariable("entity") String entity ,
+                                 @PathVariable("operationAndViewName")  String operationAndViewName,
+                                 ModelAndView modelAndView) throws IOException {
         Object o = null;
+        // 增改页面
         if(operationAndViewName.endsWith("CrudView")){
             webApplicationContext = WebApplicationContextUtils.getWebApplicationContext(request.getServletContext());
             o = ((BaseService) webApplicationContext.getBean(entity + "Service")).selectByPrimaryKey(id);
         }
+        // 删除结果
         if(operationAndViewName.endsWith("CrudJson")){
             webApplicationContext = WebApplicationContextUtils.getWebApplicationContext(request.getServletContext());
             o = ((BaseService) webApplicationContext.getBean(entity + "Service")).delete(id,request,response);
@@ -70,6 +79,7 @@ public class SecurityController {
             response.getWriter().write(JsonUtil.toJSONString(o));
             return null;
         }
+        // 批删结果
         if(operationAndViewName.endsWith("BatchDeleteJson")){
             webApplicationContext = WebApplicationContextUtils.getWebApplicationContext(request.getServletContext());
             o = ((BaseService) webApplicationContext.getBean(entity + "Service")).deleteBatch(ids,request,response);
