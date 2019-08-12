@@ -179,11 +179,11 @@ public class RoleServiceImpl implements RoleService{
         criteria.andStatusEqualTo(RoleEnums.status.PUBLISED.value());
         criteria.andApplicationIdEqualTo(applicationId);
         List<Role> roles = roleMapper.selectByExample(applicationExample);
-        LayUiTreeNode rootNode = new LayUiTreeNode();
+        LayUiSelectTreeNode rootNode = new LayUiSelectTreeNode();
         rootNode.setId(0);
-        rootNode.setName("root");
+        rootNode.setTitle("root");
         rootNode.setSpread(true);
-        List<LayUiTreeNode> nodes = new ArrayList<>();
+        List<LayUiSelectTreeNode> nodes = new ArrayList<>();
         nodes.add(rootNode);
         this.findChildren(rootNode,roles);
         return new PageResponse.Builder().build(nodes,0,0,0);
@@ -230,13 +230,13 @@ public class RoleServiceImpl implements RoleService{
      * @Author elvin
      * @Date 2019/8/9
      */
-    private void findChildren(LayUiTreeNode node, List<Role> roles) {
-        List<LayUiTreeNode> nodes = new ArrayList<>();
+    private void findChildren(LayUiSelectTreeNode node, List<Role> roles) {
+        List<LayUiSelectTreeNode> nodes = new ArrayList<>();
         for (Role role: roles) {
             if(role.getPid().equals(node.getId())){
-                LayUiTreeNode nodeNew = new LayUiTreeNode();
+                LayUiSelectTreeNode nodeNew = new LayUiSelectTreeNode();
                 nodeNew.setId(role.getId());
-                nodeNew.setName(role.getRoleName());
+                nodeNew.setTitle(role.getRoleName());
                 nodeNew.setSpread(true);
                 nodes.add(nodeNew);
                 this.findChildren(nodeNew,roles);

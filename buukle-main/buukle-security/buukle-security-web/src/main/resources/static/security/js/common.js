@@ -131,13 +131,14 @@ function releaseThis(obj,msg){
 }
 function renderSelectedTree(tree,data,elem,idTarget){
     $(elem).empty();
-    tree({
-        elem: elem,
-        nodes: data.body.list,
-        click: function (node) {
-            var $select = $($(this)[0].elem).parents(".layui-form-select");
-            $select.removeClass("layui-form-selected").find(".layui-select-title span").html(node.name).end().find("input:hidden[name="+idTarget+"]").val(node.id);
+    tree.render({
+        elem: elem
+        ,data: data.body.list
+        ,click: function(obj){
+            $("input:hidden[name="+idTarget+"]").val(obj.data.id);
+            $("input:hidden[name="+idTarget+"]").prev().html(obj.data.title);
         }
+
     });
     $(elem).parent().parent().parent().off().on("click", ".layui-select-title", function (e) {
         $(".layui-form-select").not($(this).parents(".layui-form-select")).removeClass("layui-form-selected");

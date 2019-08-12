@@ -22,7 +22,7 @@
 						<div class="layui-input-inline">
 							<div class="layui-unselect layui-form-select downpanel">
 								<div class="layui-select-title">
-									<span class="layui-input layui-unselect" th:text="${record?.applicationCode} == '' ? '选择应用' : ${record?.applicationCode}" ></span>
+									<span style="padding-top: 10px;" class="layui-input layui-unselect" th:text="${record?.applicationCode} == '' ? '选择应用' : ${record?.applicationCode}" ></span>
 									<input type="hidden" id="applicationId" th:attr="value = ${record?.applicationId}" name="applicationId">
 									<i class="layui-edge"></i>
 								</div>
@@ -37,7 +37,7 @@
 						<div class="layui-input-inline">
 							<div class="layui-unselect layui-form-select downpanel">
 								<div id="superMenu" class="layui-select-title">
-									<span id="menuTreeSpan" class="layui-input layui-unselect" th:text="${record?.superName} == '' ? '选择应用' : ${record?.superName}" ></span>
+									<span style="padding-top: 10px;" id="menuTreeSpan" class="layui-input layui-unselect" th:text="${record?.superName} == '' ? '选择应用' : ${record?.superName}" ></span>
 									<input id="menuTreeInput" type="hidden" th:attr="value = ${record?.pid}" name="pid">
 									<i class="layui-edge"></i>
 								</div>

@@ -18,6 +18,7 @@ import top.buukle.security .entity.Application;
 import top.buukle.security .entity.ApplicationExample;
 import top.buukle.security .entity.vo.BaseQuery;
 import top.buukle.security .entity.vo.ApplicationQuery;
+import top.buukle.security.entity.vo.LayUiSelectTreeNode;
 import top.buukle.security.entity.vo.LayUiTreeNode;
 import top.buukle.security .plugin.util.SessionUtil;
 import top.buukle.security .service.ApplicationService;
@@ -163,12 +164,11 @@ public class ApplicationServiceImpl implements ApplicationService{
         ApplicationExample.Criteria criteria = applicationExample.createCriteria();
         criteria.andStatusEqualTo(ApplicationEnums.status.PUBLISED.value());
         List<Application> applications = applicationMapper.selectByExample(applicationExample);
-        List<LayUiTreeNode> nodes = new ArrayList<>();
+        List<LayUiSelectTreeNode> nodes = new ArrayList<>();
         for (Application application: applications) {
-            LayUiTreeNode node = new LayUiTreeNode();
+            LayUiSelectTreeNode node = new LayUiSelectTreeNode();
             node.setId(application.getId());
-            node.setName(application.getCode());
-            node.setAlias(application.getName());
+            node.setTitle(application.getCode());
             node.setSpread(false);
             nodes.add(node);
         }

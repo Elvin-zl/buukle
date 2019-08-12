@@ -18,10 +18,7 @@ import top.buukle.security.entity.Application;
 import top.buukle.security .entity.User;
 import top.buukle.security .entity.Menu;
 import top.buukle.security .entity.MenuExample;
-import top.buukle.security .entity.vo.BaseQuery;
-import top.buukle.security.entity.vo.LayUiTreeNode;
-import top.buukle.security.entity.vo.MenuCrudModelVo;
-import top.buukle.security .entity.vo.MenuQuery;
+import top.buukle.security.entity.vo.*;
 import top.buukle.security .plugin.util.SessionUtil;
 import top.buukle.security .service.MenuService;
 import top.buukle.security .service.constants.SystemReturnEnum;
@@ -184,11 +181,11 @@ public class MenuServiceImpl implements MenuService{
         criteria.andStatusEqualTo(MenuEnums.status.PUBLISED.value());
         criteria.andApplicationIdEqualTo(applicationId);
         List<Menu> menus = menuMapper.selectByExample(applicationExample);
-        LayUiTreeNode rootNode = new LayUiTreeNode();
+        LayUiSelectTreeNode rootNode = new LayUiSelectTreeNode();
         rootNode.setId(0);
-        rootNode.setName("root");
+        rootNode.setTitle("root");
         rootNode.setSpread(true);
-        List<LayUiTreeNode> nodes = new ArrayList<>();
+        List<LayUiSelectTreeNode> nodes = new ArrayList<>();
         nodes.add(rootNode);
         this.findChildren(rootNode,menus);
         return new PageResponse.Builder().build(nodes,0,0,0);
@@ -202,13 +199,13 @@ public class MenuServiceImpl implements MenuService{
      * @Author elvin
      * @Date 2019/8/9
      */
-    private void findChildren(LayUiTreeNode node, List<Menu> menus) {
-        List<LayUiTreeNode> nodes = new ArrayList<>();
+    private void findChildren(LayUiSelectTreeNode node, List<Menu> menus) {
+        List<LayUiSelectTreeNode> nodes = new ArrayList<>();
         for (Menu menu: menus) {
             if(menu.getPid().equals(node.getId())){
-                LayUiTreeNode nodeNew = new LayUiTreeNode();
+                LayUiSelectTreeNode nodeNew = new LayUiSelectTreeNode();
                 nodeNew.setId(menu.getId());
-                nodeNew.setName(menu.getName());
+                nodeNew.setTitle(menu.getName());
                 nodeNew.setSpread(true);
                 nodes.add(nodeNew);
                 this.findChildren(nodeNew,menus);
