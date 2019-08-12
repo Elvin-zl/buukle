@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import top.buukle.common.call.CommonResponse;
+import top.buukle.common.call.PageResponse;
 import top.buukle.security .entity.vo.MenuQuery;
 import top.buukle.security .service.MenuService;
 
@@ -48,5 +49,19 @@ public class MenuController {
     @ResponseBody
     public CommonResponse saveOrEdit(MenuQuery query, HttpServletRequest request, HttpServletResponse response) throws Exception {
         return menuService.saveOrEdit(query,request,response);
+    }
+    /**
+     * @description 获取上级菜单
+     * @param applicationId
+     * @param request
+     * @param response
+     * @return top.buukle.common.call.PageResponse
+     * @Author elvin
+     * @Date 2019/8/10
+     */
+    @RequestMapping("/getMenuTree/{applicationId}")
+    @ResponseBody
+    public PageResponse getMenuTree(@PathVariable("applicationId") Integer applicationId, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        return menuService.getMenuTree(applicationId,request,response);
     }
 }

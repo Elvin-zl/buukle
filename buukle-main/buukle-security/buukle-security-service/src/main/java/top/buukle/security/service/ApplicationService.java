@@ -15,5 +15,5 @@ public interface ApplicationService extends BaseService{
 
     CommonResponse saveOrEdit(ApplicationQuery query, HttpServletRequest request, HttpServletResponse response);
 
-    PageResponse getApplicationNodes(HttpServletRequest request, HttpServletResponse response);
+    PageResponse getApplicationTree(HttpServletRequest request, HttpServletResponse response);
 }

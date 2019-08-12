@@ -49,7 +49,7 @@ function loadPage(page) {
 function initCommonPage() {
     layui.use(['form', 'jquery', 'laydate', 'layer', 'laypage', 'dialog',   'element'], function() {
         var form = layui.form(),  $ = layui.jquery, dialog = layui.dialog;
-        var iframeObj = $(window.frameElement).attr('name');
+         iframeObj = $(window.frameElement).attr('name');
         // 全选
         bindChooseAll(form);
         // 删

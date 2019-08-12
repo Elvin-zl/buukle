@@ -158,7 +158,7 @@ public class ApplicationServiceImpl implements ApplicationService{
      * @Date 2019/8/9
      */
     @Override
-    public PageResponse getApplicationNodes(HttpServletRequest request, HttpServletResponse response) {
+    public PageResponse getApplicationTree(HttpServletRequest request, HttpServletResponse response) {
         ApplicationExample applicationExample = new ApplicationExample();
         ApplicationExample.Criteria criteria = applicationExample.createCriteria();
         criteria.andStatusEqualTo(ApplicationEnums.status.PUBLISED.value());
@@ -167,7 +167,8 @@ public class ApplicationServiceImpl implements ApplicationService{
         for (Application application: applications) {
             LayUiTreeNode node = new LayUiTreeNode();
             node.setId(application.getId());
-            node.setName(application.getName());
+            node.setName(application.getCode());
+            node.setAlias(application.getName());
             node.setSpread(false);
             nodes.add(node);
         }

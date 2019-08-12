@@ -2,6 +2,7 @@ package top.buukle.security .service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.buukle.common.call.CommonResponse;
@@ -10,12 +11,13 @@ import top.buukle.common.call.PageResponse;
 import top.buukle.common.call.vo.FuzzyVo;
 import top.buukle.common.status.StatusConstants;
 
+import top.buukle.security.dao.ApplicationMapper;
 import top.buukle.security .dao.ButtonMapper;
 import top.buukle.security .dao.CommonMapper;
-import top.buukle.security .entity.User;
-import top.buukle.security .entity.Button;
-import top.buukle.security .entity.ButtonExample;
+import top.buukle.security.dao.MenuMapper;
+import top.buukle.security.entity.*;
 import top.buukle.security .entity.vo.BaseQuery;
+import top.buukle.security.entity.vo.ButtonCrudModelVo;
 import top.buukle.security .entity.vo.ButtonQuery;
 import top.buukle.security .plugin.util.SessionUtil;
 import top.buukle.security .service.ButtonService;
@@ -44,9 +46,12 @@ public class ButtonServiceImpl implements ButtonService{
 
     @Autowired
     private ButtonMapper buttonMapper;
-
+    @Autowired
+    private ApplicationMapper applicationMapper;
     @Autowired
     private CommonMapper commonMapper;
+    @Autowired
+    private MenuMapper menuMapper;
 
     /**
      * 分页获取列表
@@ -116,12 +121,25 @@ public class ButtonServiceImpl implements ButtonService{
      * @Date 2019/8/4
      */
     @Override
-    public Button selectByPrimaryKey(Integer id) {
+    public ButtonCrudModelVo selectByPrimaryKey(Integer id) {
         if(id == null){
-            return new Button();
+            return new ButtonCrudModelVo();
         }
         Button button = buttonMapper.selectByPrimaryKey(id);
-        return button == null ? new Button() : button;
+        ButtonCrudModelVo vo = null;
+        if(button != null){
+            vo = new ButtonCrudModelVo();
+            BeanUtils.copyProperties(button,vo);
+            Application application = applicationMapper.selectByPrimaryKey(vo.getApplicationId());
+            vo.setApplicationCode(application.getCode());
+            if(vo.getMenuId()!=0){
+                Menu menu = menuMapper.selectByPrimaryKey(vo.getMenuId());
+                vo.setSuperName(menu.getName());
+            }else{
+                vo.setSuperName("root");
+            }
+        }
+        return button == null ? new ButtonCrudModelVo() : vo;
     }
 
     /**
@@ -206,7 +224,15 @@ public class ButtonServiceImpl implements ButtonService{
      * @Date 2019/8/5
      */
     private void validateParamForSaveOrEdit(ButtonQuery query) {
-        // TODO
+        if(query.getApplicationId() == null){
+            throw new SystemException(SystemReturnEnum.BUTTON_SAVE_OR_EDIT_APPID_NULL);
+        }
+        if(query.getMenuId() == null){
+            throw new SystemException(SystemReturnEnum.BUTTON_SAVE_OR_EDIT_MENUID_NULL);
+        }
+        if(StringUtil.isEmpty(query.getName())){
+            throw new SystemException(SystemReturnEnum.BUTTON_SAVE_OR_EDIT_NAME_NULL);
+        }
     }
 
     /**
@@ -266,7 +292,9 @@ public class ButtonServiceImpl implements ButtonService{
         if(query.getId() != null){
             criteria.andIdEqualTo(query.getId());
         }
-        // TODO
+        if(StringUtil.isNotEmpty(query.getName())){
+            criteria.andNameEqualTo(query.getName());
+        }
         if(StringUtil.isNotEmpty(query.getStates())){
             List list = new ArrayList();
             for (String state : query.getStates().split(",")) {
