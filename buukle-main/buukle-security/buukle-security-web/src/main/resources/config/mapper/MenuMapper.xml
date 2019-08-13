@@ -548,8 +548,11 @@
     `menu` m
     WHERE ur.`user_id` = "111"
     AND rmb.`role_id` = ur.`role_id`
-    AND r.`status` = 1
+    AND r.`status` = 3
     AND rmb.`menu_id` = m.`id`
-    AND m.`status` = 1
+    AND m.`status` = 3
+  </select>
+  <select id="getRoleMenuListByRoleId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select * from menu m , role_menu_button_relation rmb  where rmb.role_id = #{roleId} and m.status = 3
   </select>
 </mapper>

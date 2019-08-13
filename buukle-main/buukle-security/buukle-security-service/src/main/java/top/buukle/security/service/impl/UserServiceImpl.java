@@ -2,16 +2,15 @@ package top.buukle.security .service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import org.springframework.util.CollectionUtils;
 import top.buukle.common.call.vo.FuzzyVo;
 import top.buukle.common.status.StatusConstants;
-import top.buukle.security.dao.CommonMapper;
-import top.buukle.security .dao.UserMapper;
-import top.buukle.security .entity.User;
-import top.buukle.security .entity.UserExample;
+import top.buukle.security.dao.*;
+import top.buukle.security.entity.*;
 import top.buukle.security.entity.vo.BaseQuery;
 import top.buukle.security .entity.vo.UserQuery;
 import top.buukle.security.plugin.util.SessionUtil;
@@ -44,7 +43,15 @@ import java.util.List;
 public class UserServiceImpl implements UserService{
 
     @Autowired
+    private ApplicationMapper applicationMapper;
+    @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private RoleMapper roleMapper;
+    @Autowired
+    private UserRoleRelationMapper userRoleRelationMapper;
+    @Autowired
+    private UserRoleRelationLogsMapper userRoleRelationLogsMapper;
     @Autowired
     private CommonMapper commonMapper;
 
@@ -152,6 +159,67 @@ public class UserServiceImpl implements UserService{
     }
 
     /**
+     * @description 设置用户角色
+     * @param applicationCode
+     * @param ids
+     * @param query
+     * @param request
+     * @param response
+     * @return top.buukle.common.call.CommonResponse
+     * @Author zhanglei1102
+     * @Date 2019/8/13
+     */
+    @Override
+    public CommonResponse userRoleSet(String applicationCode, String ids, UserQuery query, HttpServletRequest request, HttpServletResponse response) {
+        // 查询应用
+        ApplicationExample applicationExample = new ApplicationExample();
+        ApplicationExample.Criteria applicationCriteria = applicationExample.createCriteria();
+        applicationCriteria.andCodeEqualTo(applicationCode);
+        List<Application> applications = applicationMapper.selectByExample(applicationExample);
+        if(CollectionUtils.isEmpty(applications) || applications.size() > 1 ){
+            throw new SystemException(SystemReturnEnum.USER_SET_USER_ROLE_PRE_APP_CODE_WRONG);
+        }
+        User operator = SessionUtil.getOperator(request, response);
+        // 查询现有角色
+        List<Role> userRoles = roleMapper.getUserRoleWithAppId(query.getUserId(), applications.get(0).getId());
+        String roleIdCollection = StringUtil.EMPTY;
+        if(!CollectionUtils.isEmpty(userRoles)){
+            for (Role role: userRoles) {
+                // 缓存用户历史角色id
+                roleIdCollection += role.getId() + StringUtil.COMMA;
+                // 清空该用户的角色
+                UserRoleRelationExample userRoleRelationExample = new UserRoleRelationExample();
+                UserRoleRelationExample.Criteria criteria = userRoleRelationExample.createCriteria();
+                criteria.andUserIdEqualTo(query.getUserId());
+                criteria.andRoleIdEqualTo(role.getId());
+                userRoleRelationMapper.deleteByExample(userRoleRelationExample);
+            }
+        }
+        // 重新设置角色
+        if(StringUtil.isNotEmpty(ids)){
+            for (String idStr : ids.split(",")) {
+                UserRoleRelation userRoleRelation = new UserRoleRelation();
+                userRoleRelation.setCreator(operator.getUsername());
+                userRoleRelation.setGmtCreated(new Date());
+                userRoleRelation.setCreatorCode(operator.getUserId());
+                userRoleRelation.setUserId(query.getUserId());
+                userRoleRelation.setRoleId(Integer.parseInt(idStr));
+                userRoleRelationMapper.insert(userRoleRelation);
+            }
+        }
+        // 组装日志实体
+        UserRoleRelationLogs userRoleRelationLogs = new UserRoleRelationLogs();
+        userRoleRelationLogs.setGmtCreated(new Date());
+        userRoleRelationLogs.setCreator(operator.getUsername());
+        userRoleRelationLogs.setCreatorCode(operator.getUserId());
+        userRoleRelationLogs.setRoleIdCollection(roleIdCollection);
+        userRoleRelationLogs.setUserId(query.getUserId());
+        // 记录日志
+        userRoleRelationLogsMapper.insert(userRoleRelationLogs);
+        return new CommonResponse.Builder().buildSuccess();
+    }
+
+    /**
      * 模糊搜素
      * @param text 模糊的字符
      * @param fieldName 模糊字段名
@@ -175,7 +243,6 @@ public class UserServiceImpl implements UserService{
      */
     @Override
     public CommonResponse save(BaseQuery query, HttpServletRequest request, HttpServletResponse response) {
-
         userMapper.insert(this.assQueryForInsert((UserQuery)query,request,response));
         return new CommonResponse.Builder().buildSuccess();
     }

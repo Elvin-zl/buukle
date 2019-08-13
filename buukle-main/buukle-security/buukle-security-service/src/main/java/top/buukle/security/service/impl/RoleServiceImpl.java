@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 import top.buukle.common.call.CommonResponse;
 import top.buukle.common.call.FuzzyResponse;
 import top.buukle.common.call.PageResponse;
@@ -12,12 +13,10 @@ import top.buukle.common.call.vo.FuzzyVo;
 import top.buukle.common.status.StatusConstants;
 
 import top.buukle.security.dao.ApplicationMapper;
+import top.buukle.security.dao.MenuMapper;
 import top.buukle.security .dao.RoleMapper;
 import top.buukle.security .dao.CommonMapper;
-import top.buukle.security.entity.Application;
-import top.buukle.security .entity.User;
-import top.buukle.security .entity.Role;
-import top.buukle.security .entity.RoleExample;
+import top.buukle.security.entity.*;
 import top.buukle.security.entity.vo.*;
 import top.buukle.security .plugin.util.SessionUtil;
 import top.buukle.security .service.RoleService;
@@ -48,7 +47,8 @@ public class RoleServiceImpl implements RoleService{
     private RoleMapper roleMapper;
     @Autowired
     private ApplicationMapper applicationMapper;
-
+    @Autowired
+    private MenuMapper menuMapper;
     @Autowired
     private CommonMapper commonMapper;
 
@@ -179,11 +179,11 @@ public class RoleServiceImpl implements RoleService{
         criteria.andStatusEqualTo(RoleEnums.status.PUBLISED.value());
         criteria.andApplicationIdEqualTo(applicationId);
         List<Role> roles = roleMapper.selectByExample(applicationExample);
-        LayUiSelectTreeNode rootNode = new LayUiSelectTreeNode();
+        SelectTreeNodeResult rootNode = new SelectTreeNodeResult();
         rootNode.setId(0);
         rootNode.setTitle("root");
         rootNode.setSpread(true);
-        List<LayUiSelectTreeNode> nodes = new ArrayList<>();
+        List<SelectTreeNodeResult> nodes = new ArrayList<>();
         nodes.add(rootNode);
         this.findChildren(rootNode,roles);
         return new PageResponse.Builder().build(nodes,0,0,0);
@@ -193,33 +193,67 @@ public class RoleServiceImpl implements RoleService{
      * @description 获取用户在该app下的角色
      * @param applicationCode
      * @param userId
+     * @param request
      * @return top.buukle.common.call.PageResponse
      * @Author zhanglei1102
      * @Date 2019/8/12
      */
     @Override
-    public PageResponse getAppUserRole(String applicationCode, String userId) {
+    public PageResponse getAppUserRole(String applicationCode, String userId, HttpServletRequest request) {
+        // 查询应用
+        ApplicationExample applicationExample = new ApplicationExample();
+        ApplicationExample.Criteria applicationCriteria = applicationExample.createCriteria();
+        applicationCriteria.andCodeEqualTo(applicationCode);
+        List<Application> applications = applicationMapper.selectByExample(applicationExample);
+        if(CollectionUtils.isEmpty(applications) || applications.size() > 1 ){
+            throw new SystemException(SystemReturnEnum.USER_SET_USER_ROLE_PRE_APP_CODE_WRONG);
+        }
+        // 查询用户在app拥有的角色列表
+        List<Role> userRoles = roleMapper.getUserRoleWithAppId(userId,applications.get(0).getId());
+        // 查询app角色列表
+        RoleExample roleExample = new RoleExample();
+        RoleExample.Criteria criteria = roleExample.createCriteria();
+        criteria.andStatusEqualTo(RoleEnums.status.PUBLISED.value());
+        criteria.andApplicationIdEqualTo(applications.get(0).getId());
+        List<Role> appRoles = roleMapper.selectByExample(roleExample);
+        List<RoleTreeResult> roleTree = new ArrayList<>();
+        for (Role role: appRoles) {
+            RoleTreeResult roleTreeResult = new RoleTreeResult();
+            BeanUtils.copyProperties(role,roleTreeResult);
+            roleTreeResult.setChecked(!CollectionUtils.isEmpty(userRoles) && userRoles.contains(role));
+            roleTree.add(roleTreeResult);
+        }
+        return new PageResponse.Builder().build(roleTree, 0, 0, 0);
+    }
 
-        List<LayUiSelectTreeNode> layUiSelectTreeNodes = new ArrayList<>();
+    /**
+     * @description 获取角色在其应用下的菜单树
+     * @param id
+     * @param request
+     * @return top.buukle.common.call.PageResponse
+     * @Author zhanglei1102
+     * @Date 2019/8/13
+     */
+    @Override
+    public PageResponse getRoleMenuTree(Integer id, HttpServletRequest request) {
+        // 查询角色
+        Role role = roleMapper.selectByPrimaryKey(id);
+        // 查询应用下的菜单树
+        MenuExample menuExample = new MenuExample();
+        MenuExample.Criteria criteria = menuExample.createCriteria();
+        criteria.andApplicationIdEqualTo(role.getApplicationId());
+        List<Menu> menus = menuMapper.selectByExample(menuExample);
+        List<MenuTreeResult> menuTreeResultList = new ArrayList<>();
+        // 查询角色所拥有的菜单和按钮
+        List<Menu> roleMenu = menuMapper.getRoleMenuListByRoleId(id);
+        if(!CollectionUtils.isEmpty(menus)){
+            for (Menu menu: menus) {
+                MenuTreeResult menuTreeResult = new MenuTreeResult();
 
-        LayUiSelectTreeNode layUiSelectTreeNode1 = new LayUiSelectTreeNode();
-        layUiSelectTreeNode1.setTitle("管理员");
-        layUiSelectTreeNode1.setId(2);
-        layUiSelectTreeNode1.setSpread(true);
-        layUiSelectTreeNode1.setChecked(true);
-        layUiSelectTreeNodes.add(layUiSelectTreeNode1);
-
-        List<LayUiSelectTreeNode> layUiSelectTreeNodes1 = new ArrayList<>();
-        LayUiSelectTreeNode layUiSelectTreeNode2 = new LayUiSelectTreeNode();
-        layUiSelectTreeNode2.setTitle("管理员");
-        layUiSelectTreeNode2.setId(1);
-        layUiSelectTreeNode1.setSpread(true);
-        layUiSelectTreeNode2.setChecked(true);
-        layUiSelectTreeNodes1.add(layUiSelectTreeNode2);
-        layUiSelectTreeNode1.setChildren(layUiSelectTreeNodes1);
-        PageResponse res = new PageResponse.Builder().build(layUiSelectTreeNodes, 0, 0, 0);
-        res.getHead().setMsg("1");
-        return res;
+//                menuTreeResultList.add();
+            }
+        }
+        return null;
     }
 
     /**
@@ -230,11 +264,11 @@ public class RoleServiceImpl implements RoleService{
      * @Author elvin
      * @Date 2019/8/9
      */
-    private void findChildren(LayUiSelectTreeNode node, List<Role> roles) {
-        List<LayUiSelectTreeNode> nodes = new ArrayList<>();
+    private void findChildren(SelectTreeNodeResult node, List<Role> roles) {
+        List<SelectTreeNodeResult> nodes = new ArrayList<>();
         for (Role role: roles) {
             if(role.getPid().equals(node.getId())){
-                LayUiSelectTreeNode nodeNew = new LayUiSelectTreeNode();
+                SelectTreeNodeResult nodeNew = new SelectTreeNodeResult();
                 nodeNew.setId(role.getId());
                 nodeNew.setTitle(role.getRoleName());
                 nodeNew.setSpread(true);

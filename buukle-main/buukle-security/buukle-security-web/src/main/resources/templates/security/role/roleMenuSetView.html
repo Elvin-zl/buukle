@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tree-table</title>
+    <link rel="stylesheet" type="text/css" href="/static/security/layui/css/layui.css"/>
+    <style>
+        .layui-btn:not(.layui-btn-lg ):not(.layui-btn-sm):not(.layui-btn-xs) {
+            height: 34px;
+            line-height: 34px;
+            padding: 0 8px;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-container layui-text">
+    <table id="roleMenuTable" class="layui-table" lay-filter="roleMenuTable"></table>
+    <br>
+    <div class="layui-btn-group">
+        <button class="layui-btn" id="btn-refresh">重置</button>
+    </div>
+</div>
+<!-- 操作列 -->
+<script type="text/html" id="oper-col">
+    <input type="checkbox" name="menuId" lay-skin="primary" title="">
+</script>
+<script src="/static/security/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    layui.config({
+        base: '/static/security/layui/lay/modules/'
+    }).extend({
+        treetable: 'treetable-lay/treetable'
+    });
+    layui.use(['layer', 'table', 'treetable'], function () {
+        let $ = layui.jquery;
+        let table = layui.table;
+        let layer = layui.layer;
+        let treetable = layui.treetable;
+        // 渲染表格
+        let renderTable = function () {
+            layer.load(2);
+            treetable.render({
+                treeColIndex: 1,
+                treeSpid: -1,
+                treeIdName: 'id',
+                treePidName: 'pid',
+                treeDefaultClose: false,
+                treeLinkage: false,
+                elem: '#roleMenuTable',
+                url: '/static/security/layui/lay/modules/treetable-lay/data.json',
+                page: false,
+                cols: [
+                        [
+                        {templet: '#oper-col', title: '勾选菜单'},
+                        {field: 'name', title: '菜单名称'},
+                        {field: 'buttons', title: '按钮'}
+
+                    ]
+                ],
+                done: function () {
+                    layer.closeAll('loading');
+                }
+            });
+        };
+        renderTable();
+        $('#btn-expand').click(function () {
+            treetable.expandAll('#roleMenuTable');
+        });
+        $('#btn-fold').click(function () {
+            treetable.foldAll('#roleMenuTable');
+        });
+        $('#btn-refresh').click(function () {
+            var elems = $('input:checked [name="menuId"]');
+            alert(elems.length);
+            renderTable();
+        });
+        //监听工具条
+        table.on('tool(roleMenuTable)', function (obj) {
+            var data = obj.data;
+            var layEvent = obj.event;
+            if (layEvent === 'del') {
+                layer.msg('删除' + data.id);
+            } else if (layEvent === 'edit') {
+                layer.msg('修改' + data.id);
+            }
+        });
+    });
+</script>
+</body>
+</html>

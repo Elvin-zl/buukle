@@ -155,3 +155,46 @@ function renderSelectedTree(tree,data,elem,idTarget){
         $(".layui-form-select").removeClass("layui-form-selected");
     });
 }
+/**
+ * 渲染简单的复选框树
+ * @param zTreeObj   接收树初始化前对象
+ * @param data       节点数据
+ * @param treeId     渲染树的载体id
+ * @returns zTreeObj 返回树初始化后对象
+ */
+function renderSimpleCheckboxZTree(zTreeObj , data, treeId) {
+    var setting = {
+        view: {
+            dblClickExpand: false,
+            showLine: true,
+            selectedMulti: false
+        },
+        check: {
+        },
+        data: {
+            simpleData: {
+                enable:true,
+                idKey: "id",
+                pIdKey: "pid",
+                rootPId: ""
+            }
+        }
+    };
+    setting.check.enable = true;
+    // setting.check.chkboxType = { "Y" : "ps", "N" : "ps" };   父子关联
+    setting.check.chkboxType = { "Y" : '', "N" : '' };
+    var zNodes = data;
+    var t = $("#"+ treeId);
+    zTreeObj = $.fn.zTree.init(t, setting, zNodes);
+    return zTreeObj;
+}
+
+/*获取zTree选中id值*/
+function getZTreeSelected(setModuleZTreeObj) {
+    var ids ='';
+    var nodes = setModuleZTreeObj.getCheckedNodes(true);
+    for(var i=0;i<nodes.length;i++){
+        ids = ids + nodes[i].id + ',';
+    }
+    return ids;
+}

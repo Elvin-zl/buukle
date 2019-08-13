@@ -73,4 +73,24 @@ public interface RoleMapper {
      * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
     int updateByPrimaryKey(Role record);
+
+
+    /**
+     * @description 查询用户所有角色
+     * @param userId
+     * @return java.util.List<top.buukle.security.entity.Role>
+     * @Author zhanglei1102
+     * @Date 2019/8/13
+     */
+    List<Role> selectUserRoles(@Param("userId") String userId);
+
+    /**
+     * @description 查询用户在app下的角色
+     * @param userId
+     * @param applicationId
+     * @return java.util.List<top.buukle.security.entity.Role>
+     * @Author zhanglei1102
+     * @Date 2019/8/13
+     */
+    List<Role> getUserRoleWithAppId(@Param("userId") String userId, @Param("applicationId") Integer applicationId);
 }

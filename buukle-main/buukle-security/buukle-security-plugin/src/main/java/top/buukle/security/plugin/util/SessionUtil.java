@@ -31,6 +31,7 @@ public class SessionUtil {
 
     public static final String USER_MENU_TREE_KEY = "USER_MENU_TREE_KEY";
     public static final String USER_BUTTON_LIST_KEY = "USER_BUTTON_LIST_KEY";
+    public static final String USER_ROLE_LIST_KEY = "USER_ROLE_LIST_KEY";
     public static final String USER_URL_LIST_KEY = "USER_URL_LIST_KEY";
 
     /**

@@ -181,11 +181,11 @@ public class MenuServiceImpl implements MenuService{
         criteria.andStatusEqualTo(MenuEnums.status.PUBLISED.value());
         criteria.andApplicationIdEqualTo(applicationId);
         List<Menu> menus = menuMapper.selectByExample(applicationExample);
-        LayUiSelectTreeNode rootNode = new LayUiSelectTreeNode();
+        SelectTreeNodeResult rootNode = new SelectTreeNodeResult();
         rootNode.setId(0);
         rootNode.setTitle("root");
         rootNode.setSpread(true);
-        List<LayUiSelectTreeNode> nodes = new ArrayList<>();
+        List<SelectTreeNodeResult> nodes = new ArrayList<>();
         nodes.add(rootNode);
         this.findChildren(rootNode,menus);
         return new PageResponse.Builder().build(nodes,0,0,0);
@@ -199,11 +199,11 @@ public class MenuServiceImpl implements MenuService{
      * @Author elvin
      * @Date 2019/8/9
      */
-    private void findChildren(LayUiSelectTreeNode node, List<Menu> menus) {
-        List<LayUiSelectTreeNode> nodes = new ArrayList<>();
+    private void findChildren(SelectTreeNodeResult node, List<Menu> menus) {
+        List<SelectTreeNodeResult> nodes = new ArrayList<>();
         for (Menu menu: menus) {
             if(menu.getPid().equals(node.getId())){
-                LayUiSelectTreeNode nodeNew = new LayUiSelectTreeNode();
+                SelectTreeNodeResult nodeNew = new SelectTreeNodeResult();
                 nodeNew.setId(menu.getId());
                 nodeNew.setTitle(menu.getName());
                 nodeNew.setSpread(true);

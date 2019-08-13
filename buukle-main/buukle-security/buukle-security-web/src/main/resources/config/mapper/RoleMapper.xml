@@ -490,4 +490,10 @@
       bak05 = #{bak05,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="selectUserRoles" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select r.* from role r , user_role_relation ur where ur.user_id = #{userId} and ur.role_id = r.id and r.status = 3
+  </select>
+  <select id="getUserRoleWithAppId" resultMap="BaseResultMap">
+    select r.* from role r , user_role_relation ur where ur.user_id = #{userId} and ur.role_id = r.id and r.status = 3 and r.application_id = #{applicationId}
+  </select>
 </mapper>

@@ -18,13 +18,13 @@ import java.util.List;
  * @create 2019/8/9
  * @since 1.0.0
  */
-public class LayUiSelectTreeNode {
+public class SelectTreeNodeResult {
 
     private String title;
     private Integer id;
     private boolean checked;
     private boolean spread;
-    private List<LayUiSelectTreeNode> children;
+    private List<SelectTreeNodeResult> children;
 
     public String getTitle() {
         return title;
@@ -59,11 +59,11 @@ public class LayUiSelectTreeNode {
         this.spread = spread;
     }
 
-    public List<LayUiSelectTreeNode> getChildren() {
+    public List<SelectTreeNodeResult> getChildren() {
         return children;
     }
 
-    public void setChildren(List<LayUiSelectTreeNode> children) {
+    public void setChildren(List<SelectTreeNodeResult> children) {
         this.children = children;
     }
 }

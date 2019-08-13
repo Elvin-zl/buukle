@@ -66,7 +66,7 @@ public class SecurityController {
                                  ModelAndView modelAndView) throws IOException {
         Object o = null;
         // 增改页面
-        if(operationAndViewName.endsWith("CrudView")){
+        if(operationAndViewName.endsWith("CrudView") || operationAndViewName.endsWith("SetView")){
             webApplicationContext = WebApplicationContextUtils.getWebApplicationContext(request.getServletContext());
             o = ((BaseService) webApplicationContext.getBean(entity + "Service")).selectByPrimaryKey(id);
         }

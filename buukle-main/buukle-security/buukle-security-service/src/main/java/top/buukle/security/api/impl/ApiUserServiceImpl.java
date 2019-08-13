@@ -34,6 +34,8 @@ public class ApiUserServiceImpl implements ApiUserService{
     @Autowired
     private MenuMapper menuMapper;
     @Autowired
+    private RoleMapper roleMapper;
+    @Autowired
     private ButtonMapper buttonMapper;
 
     /**
@@ -68,6 +70,8 @@ public class ApiUserServiceImpl implements ApiUserService{
             this.assUserMenuTree(rootNode,menuList);
             // 缓存用户菜单树
             SessionUtil.cache(request,SessionUtil.USER_MENU_TREE_KEY,rootNode);
+            // 缓存用户角色目录
+            SessionUtil.cache(request,SessionUtil.USER_ROLE_LIST_KEY,roleMapper.selectUserRoles(userInfo.getUserId()));
             // 查询用户按钮目录
             List<Button> buttonList = this.getUserButtonList(menuList);
             // 缓存用户按钮目录

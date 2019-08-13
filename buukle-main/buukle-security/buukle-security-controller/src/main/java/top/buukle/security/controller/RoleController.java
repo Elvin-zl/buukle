@@ -75,8 +75,22 @@ public class RoleController {
      */
     @RequestMapping("/getAppUserRole")
     @ResponseBody
-    public PageResponse getAppUserRole(String applicationCode,String userId) throws Exception {
-        return roleService.getAppUserRole(applicationCode,userId);
+    public PageResponse getAppUserRole(String applicationCode,String userId,HttpServletRequest request) throws Exception {
+        return roleService.getAppUserRole(applicationCode,userId,request);
+    }
+
+    /**
+     * @description 获取角色菜单树
+     * @param id
+     * @param request
+     * @return top.buukle.common.call.PageResponse
+     * @Author zhanglei1102
+     * @Date 2019/8/13
+     */
+    @RequestMapping("/getRoleMenuTree")
+    @ResponseBody
+    public PageResponse getRoleMenuTree(Integer id,HttpServletRequest request) throws Exception {
+        return roleService.getRoleMenuTree(id,request);
     }
 
 }

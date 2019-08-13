@@ -49,4 +49,20 @@ public class UserController {
     public CommonResponse saveOrEdit(UserQuery query, HttpServletRequest request, HttpServletResponse response) throws Exception {
         return userService.saveOrEdit(query,request,response);
     }
+
+    /**
+     * @description 设置用户角色
+     * @param ids
+     * @param query
+     * @param request
+     * @param response
+     * @return top.buukle.common.call.CommonResponse
+     * @Author zhanglei1102
+     * @Date 2019/8/13
+     */
+    @RequestMapping("/userRoleSet")
+    @ResponseBody
+    public CommonResponse userRoleSet(String applicationCode,String ids, UserQuery query, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        return userService.userRoleSet(applicationCode,ids,query,request,response);
+    }
 }

@@ -75,4 +75,6 @@ public interface MenuMapper {
     int updateByPrimaryKey(Menu record);
 
     List<Menu> getUserMenuListByUserId(String userId);
+
+    List<Menu> getRoleMenuListByRoleId(@Param("roleId") Integer roleId);
 }

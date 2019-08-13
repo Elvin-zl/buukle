@@ -32,6 +32,7 @@
 				<div class="layui-inline">
 					<div class="layui-btn layui-btn-sm layui-btn-normal editBtn" th:attr="data-id = ${roleRecord?.id}" data-url="/security/role/roleCrudView"><i class="layui-icon">&#xe642;</i></div>
 					<div class="layui-btn layui-btn-sm layui-btn-danger delOneBtn" th:attr="data-id = ${roleRecord?.id}" data-url="/security/role/roleCrudJson"><i class="layui-icon">&#xe640;</i></div>
+					<div class="layui-btn layui-btn-sm layui-btn-danger setRoleMenuBtn" th:attr="data-id = ${roleRecord?.id}" data-url="/security/role/roleMenuSetView"><i class="layui-icon">&#xe857;</i></div>
 				</div>
 			</td>
 		</tr>
@@ -42,4 +43,20 @@
 </table>
 <div id="pageBar" class="page-wrap"> </div>
 <script src="/static/security/js/commonPage.js" type="text/javascript" charset="utf-8"></script>
+<script>
+	// 绑定分配菜单
+	bindSetRoleMenu();
+	/** 绑定分配菜单*/
+	function bindSetRoleMenu() {
+		$('.setRoleMenuBtn').off().on('click', function() {
+			var url=$(this).attr('data-url');
+			var userId=$(this).attr('data-userId');
+			url = url + "?id=" + $(this).attr('data-id') + ((userId =="" || userId==undefined) ? "" : "&userId=" + userId);
+			parent.page("分配菜单", url, iframeObj, w = "700px", h = "620px");
+			return false;
+		}).mouseenter(function() {
+			dialog.tips('分配菜单', '.setRoleMenuBtn');
+		})
+	}
+</script>
 

@@ -2,7 +2,6 @@ package top.buukle.security .service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.buukle.common.call.CommonResponse;
@@ -18,8 +17,7 @@ import top.buukle.security .entity.Application;
 import top.buukle.security .entity.ApplicationExample;
 import top.buukle.security .entity.vo.BaseQuery;
 import top.buukle.security .entity.vo.ApplicationQuery;
-import top.buukle.security.entity.vo.LayUiSelectTreeNode;
-import top.buukle.security.entity.vo.LayUiTreeNode;
+import top.buukle.security.entity.vo.SelectTreeNodeResult;
 import top.buukle.security .plugin.util.SessionUtil;
 import top.buukle.security .service.ApplicationService;
 import top.buukle.security .service.constants.SystemReturnEnum;
@@ -164,9 +162,9 @@ public class ApplicationServiceImpl implements ApplicationService{
         ApplicationExample.Criteria criteria = applicationExample.createCriteria();
         criteria.andStatusEqualTo(ApplicationEnums.status.PUBLISED.value());
         List<Application> applications = applicationMapper.selectByExample(applicationExample);
-        List<LayUiSelectTreeNode> nodes = new ArrayList<>();
+        List<SelectTreeNodeResult> nodes = new ArrayList<>();
         for (Application application: applications) {
-            LayUiSelectTreeNode node = new LayUiSelectTreeNode();
+            SelectTreeNodeResult node = new SelectTreeNodeResult();
             node.setId(application.getId());
             node.setTitle(application.getCode());
             node.setSpread(false);

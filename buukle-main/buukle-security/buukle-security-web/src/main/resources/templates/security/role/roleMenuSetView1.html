@@ -19,24 +19,14 @@
 	<!--表单-->
 	<form class="layui-form column-content-detail" id="userRoleSetForm">
 		<!--hidden area-->
-		<input type="hidden" name="id" th:attr="value = ${record?.id}" />
+		<input type="hidden" id="id" name="id" th:attr="value = ${record?.id}" />
 		<input type="hidden" id="userId" name="userId" th:attr="value = ${record?.userId}" />
 		<input type="hidden" id="ids" name="ids" />
-		<div class="layui-tab">
-			<div id="conditions" class="layui-tab-item layui-show">
-				<div class="layui-form-item">
-					<span> 应用编码 ：</span>
-					<select class="fuzzy clearAble" id="applicationCode" data-url="/security/application/fuzzy/search" name="applicationCode" data-minimum="5" data-isIdVisual="0" data-fieldName="code" style="width: 200px;height: 10px">
-						<option value="">请输入应用编码</option>
-					</select>
-				</div>
-			</div>
-		</div>
 		<hr/>
 		<div class="layui-tab-item layui-show" style="height: 393px; margin-top: 29px;">
 			<div class="layui-form-item">
-				<span> 选择角色 : <span id="choseRoleNotice" style="color:red">（请先选择应用~）</span></span>
-				<div id="choseRole" style="margin-top: 23px;">
+				<span> 选择菜单 : </span>
+				<div id="choseMenu" style="margin-top: 23px;">
 					<ul id="tree" class="ztree buukle-zTree"></ul>
 				</div>
 			</div>
@@ -48,7 +38,7 @@
 				<!--<hp url="/user/saveOrEdit">-->
 					<!--<div id="saveOrEdit" class="layui-btn layui-btn-normal">提交</div>-->
 				<!--</hp>-->
-				<div id="saveOrEdit" class="layui-btn layui-btn-normal" data-url="/user/userRoleSet">提交</div>
+				<div id="saveOrEdit" class="layui-btn layui-btn-normal" data-url="/role/roleMenuSet">提交</div>
 				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
 			</div>
 		</div>
@@ -61,45 +51,31 @@
 	<script src="/static/security/plugin/ztree/js/jquery.ztree.excheck.js"type="text/javascript" charset="utf-8"></script>
 	<script src="/static/security/plugin/ztree/js/jquery.ztree.exedit.js"type="text/javascript" charset="utf-8"></script>
 	<script>
+		var roleMenuTree;
 		layui.use(['jquery', 'layer','dialog','form','tree', 'util'], function() {
 			layer = layui.layer, $ = layui.jquery, dialog = layui.dialog, tree = layui.tree,util = layui.util;
-			// 加载模糊搜索
-			loadFuzzySearch();
-			// 绑定change事件,加载应用所有角色树
-			bindApplicationCodeChange();
 			// 绑定提交按钮
 			bindSaveOrEdit();
+			// 加载菜单树
+			loadMenuTree();
+
 		});
-		var userRoleTree;
-		/**  绑定change事件,加载应用所有角色树*/
-		function bindApplicationCodeChange() {
-			$('#applicationCode').off().on('change',function () {
-				var applicationCode = $(this).val();
-				$.ajax({
-					url : "/role/getAppUserRole",
-					method : "post",
-					data : {"applicationCode" :applicationCode,"userId" : $('#userId').val()},
-					dataType : "json",
-					success:function (data) {
-						if(data.head.status == 'S'){
-							$('#choseRoleNotice').hide();
-							if(data.body.list.length > 0){
-								// 渲染树
-								userRoleTree = renderSimpleCheckboxZTree(userRoleTree,data.body.list,'tree');
-							}else{
-								$('#tree').html('暂无数据！');
-							}
-						}else{
-							layer.msg(data.head.msg);
-						}
-					}
-				})
+		/** 加载角色菜单树*/
+		function loadMenuTree() {
+			$.ajax({
+				url:"/role/getRoleMenuTree",
+				method:"post",
+				dataType:"json",
+				data:{"id" : $('#id').val()},
+				success : function (data) {
+					roleMenuTree = renderSimpleCheckboxZTree(roleMenuTree,data.body.list,'tree');
+				}
 			})
 		}
 		/** 绑定提交*/
         function bindSaveOrEdit() {
             $('#saveOrEdit').off().on('click',function () {
-				$('#ids').val(getZTreeSelected(userRoleTree));
+				$('#ids').val(getZTreeSelected(roleMenuTree));
                 var obj = $(this);
                 banThis(obj,"保存中..");
                 $.ajax({
