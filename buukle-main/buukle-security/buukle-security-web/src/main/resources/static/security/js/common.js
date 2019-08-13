@@ -17,7 +17,8 @@ layui.use(['form', 'jquery', 'laydate', 'layer', 'laypage', 'dialog',   'element
 /** 绑定查询*/
 function bindSearch() {
     $('#search').off('click').on('click',function () {
-        loadPage(1);
+        // 重新分页
+        loadPage(1,true);
     })
 }
 

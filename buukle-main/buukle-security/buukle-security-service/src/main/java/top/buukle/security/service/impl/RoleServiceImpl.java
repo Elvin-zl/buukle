@@ -244,7 +244,7 @@ public class RoleServiceImpl implements RoleService{
         criteria.andApplicationIdEqualTo(role.getApplicationId());
         List<Menu> menus = menuMapper.selectByExample(menuExample);
         List<MenuTreeResult> menuTreeResultList = new ArrayList<>();
-        // 查询角色所拥有的菜单和按钮
+        // 查询角色所拥有的菜单
         List<Menu> roleMenu = menuMapper.getRoleMenuListByRoleId(id);
         if(!CollectionUtils.isEmpty(menus)){
             for (Menu menu: menus) {

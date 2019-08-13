@@ -289,10 +289,16 @@ public class ApplicationServiceImpl implements ApplicationService{
         if(StringUtil.isNotEmpty(query.getEndTime())){
             criteria.andGmtCreatedLessThanOrEqualTo(DateUtil.parse(query.getEndTime()));
         }
+        if(StringUtil.isNotEmpty(query.getName())){
+            criteria.andNameEqualTo(query.getName());
+        }
+        if(StringUtil.isNotEmpty(query.getCode())){
+            criteria.andCodeEqualTo(query.getCode());
+        }
         if(query.getId() != null){
             criteria.andIdEqualTo(query.getId());
         }
-        // TODO
+
         if(StringUtil.isNotEmpty(query.getStates())){
             List list = new ArrayList();
             for (String state : query.getStates().split(",")) {

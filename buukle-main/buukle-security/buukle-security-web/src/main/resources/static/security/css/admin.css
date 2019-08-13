@@ -2146,7 +2146,7 @@
   position: absolute;
   top:50%;
   left: 50%;
-  background-color: azure;
+  /*background-color: azure;*/
   width: 70px;
   transform: translate(-50%,-50%);
 }
