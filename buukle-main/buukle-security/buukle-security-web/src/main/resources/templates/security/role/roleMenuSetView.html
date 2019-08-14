@@ -21,11 +21,10 @@
 		<!--hidden area-->
 		<input type="hidden" id="id" name="id" th:attr="value = ${record?.id}" />
 		<input type="hidden" id="ids" name="ids" />
-		<hr/>
 		<div class="layui-tab-item layui-show" style="height: 393px; margin-top: 29px;">
 			<div class="layui-form-item">
-				<span> 选择菜单 : </span>
-				<div id="choseMenu" style="margin-top: 23px;">
+				<span> 选择资源 : </span>
+				<div id="choseMenu" style="margin-top: 23px;    margin-top: 23px;  height: 342px; overflow: auto; background-color: #4c786c2e;">
 					<ul id="tree" class="ztree buukle-zTree"></ul>
 				</div>
 			</div>
@@ -39,6 +38,7 @@
 				<!--</hp>-->
 				<div id="saveOrEdit" class="layui-btn layui-btn-normal" data-url="/role/roleMenuSet">提交</div>
 				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+				<div id="back" data-url="/user/saveOrEdit" class="layui-btn layui-btn-primary">取消</div>
 			</div>
 		</div>
 	</form>
@@ -67,7 +67,11 @@
 				dataType:"json",
 				data:{"id" : $('#id').val()},
 				success : function (data) {
-					roleMenuTree = renderSimpleCheckboxZTree(roleMenuTree,data.body.list,'tree');
+				    if(data.head.status=='S'){
+                        roleMenuTree = renderSimpleCheckboxZTree(roleMenuTree,data.body.list,'tree');
+                    }else{
+                        layer.msg(data.head.msg);
+                    }
 				}
 			})
 		}
@@ -75,7 +79,6 @@
         function bindSaveOrEdit() {
             $('#saveOrEdit').off().on('click',function () {
 				$('#ids').val(getZTreeSelected(roleMenuTree));
-                alert($('#ids').val());
 				var obj = $(this);
                 banThis(obj,"保存中..");
                 $.ajax({
@@ -100,76 +103,6 @@
 				})
             })
         }
-		/** 加载模糊搜索*/
-		function loadFuzzySearch() {
-			var fuzzys = $('.fuzzy');
-			$.each(fuzzys, function (i, obj) {
-				$(obj).select2({
-					allowClear: true,
-					minimumInputLength:$(obj).attr('data-minimum'),
-					id: function(data) {
-						return data.id
-					},
-					formatSelection: function (data) { return data.text },
-					ajax: {
-						type:'get',
-						url: function(params){
-							return  $(this).attr('data-url')+'?fieldName=' + $(obj).attr('data-fieldName');
-						},
-						dataType:'json',
-						//输入的内容
-						data: function(params) {
-							return {
-								text:params.term,
-							}
-						},
-						processResults: function (data, page) {
-							if(data.head.status == "S"){
-								return {
-									results: data.body.data
-								};
-							}else{
-								layer.msg('查询异常!');
-							}
-						},
-						cache: true,
-					},
-					placeholder:'请输入相应字段值',
-					//提示语
-					escapeMarkup: function(markup) {
-						return markup
-					},
-					templateResult: formatResult,
-					templateSelection: formatRepoSelection
-				});
-				function formatResult (data) {
-					if (data.loading) {
-						return data.text;
-					}
-
-					var markup = "<div class='select2-result-repository clearfix'>" +
-							"<div class='select2-result-repository__meta'>" ;
-					if($(obj).attr('data-isIdVisual') == 1){
-						if(data.userId !=null && data.userId !=""){
-							// 显示userId
-							markup += "<div class='select2-result-repository__title'>" + data.id+"("+ data.userId + ")" + "</div>";
-						}else{
-							// 显示记录的主键id
-							markup += "<div class='select2-result-repository__title'>" + data.id+"("+ data.identity + ")" + "</div>";
-						}
-					}else{
-						markup += "<div class='select2-result-repository__title'>" + data.id +"</div>";
-					}
-					if (data.description) {
-						markup += "<div class='select2-result-repository__description'>" + data.id + "</div>";
-					}
-					return markup;
-				}
-				function formatRepoSelection (repo) {
-					return repo.text;
-				}
-			});
-		}
 	</script>
 	</body>
 </html>

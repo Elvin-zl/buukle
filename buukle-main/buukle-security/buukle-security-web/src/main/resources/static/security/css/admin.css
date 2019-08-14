@@ -1631,7 +1631,7 @@
   color: #49c391a3;
 }
 .main-layout-side .layui-nav-tree .layui-this > a {
-  background-color: rgba(46, 148, 129, 0.8);
+  background-color: #00968840;
   color: #fff;
 }
 .main-layout-side .layui-nav-tree .layui-this > a .iconfont {
@@ -1677,7 +1677,7 @@
   background: transparent;
 }
 .main-layout-header .layui-nav li {
-  border-left: 1px solid #f2f3f5;
+  /*border-left: 1px solid #f2f3f5;*/
 }
 .main-layout-header .layui-nav .layui-nav-item > a:hover {
   color: #999;
@@ -2166,4 +2166,10 @@
 }
 body{
   font-family: '等线';
+}
+.buukle-them{
+  background-color: #444c63 !important;
+}
+.buukle-them-switch{
+  color: #adb2bfd9 !important;
 }

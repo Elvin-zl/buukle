@@ -22,7 +22,7 @@
 						<div class="layui-input-inline">
 							<div class="layui-unselect layui-form-select downpanel">
 								<div class="layui-select-title">
-									<span class="layui-input layui-unselect" th:text="${record?.applicationCode} == '' ? '选择应用' : ${record?.applicationCode}" ></span>
+									<span style="padding-top: 10px;"  class="layui-input layui-unselect" th:text="${record?.applicationCode} == '' ? '选择应用' : ${record?.applicationCode}" ></span>
 									<input type="hidden" id="applicationId" th:attr="value = ${record?.applicationId}" name="applicationId">
 									<i class="layui-edge"></i>
 								</div>
@@ -36,8 +36,8 @@
 						<label class="layui-form-label">所属菜单：</label>
 						<div class="layui-input-inline">
 							<div class="layui-unselect layui-form-select downpanel">
-								<div id="superMenu" class="layui-select-title">
-									<span id="menuTreeSpan" class="layui-input layui-unselect" th:text="${record?.superName} == '' ? '选择菜单' : ${record?.superName}" ></span>
+								<div   id="superMenu" class="layui-select-title">
+									<span style="padding-top: 10px;" id="menuTreeSpan" class="layui-input layui-unselect" th:text="${record?.superName} == '' ? '选择菜单' : ${record?.superName}" ></span>
 									<input id="menuTreeInput" type="hidden" th:attr="value = ${record?.menuId}" name="menuId">
 									<i class="layui-edge"></i>
 								</div>
@@ -82,8 +82,9 @@
 				<!-- 自定义权限标签 -->
 				<!--<hp url="/button/saveOrEdit">
 				</hp>-->
-				<div id="saveOrEdit" class="layui-btn layui-btn-normal">提交</div>
+				<div id="saveOrEdit" data-url="/button/saveOrEdit" class="layui-btn layui-btn-normal">提交</div>
 				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+				<div id="back" data-url="/user/saveOrEdit" class="layui-btn layui-btn-primary">取消</div>
 			</div>
 		</div>
 	</form>
@@ -143,7 +144,7 @@
                 var obj = $(this);
                 banThis(obj,"保存中..");
                 $.ajax({
-					url:"/button/saveOrEdit",
+					url:obj.attr('data-url'),
 					method:"post",
 					dataType:"json",
 					data:$('#buttonCrudForm').serialize(),

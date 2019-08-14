@@ -16,6 +16,11 @@ public class SystemException extends CommonException{
     public SystemException(SystemReturnEnum securityReturnEnum) {
         super(securityReturnEnum.getStatus(), securityReturnEnum.getCode(), securityReturnEnum.getMsg());
     }
+
+    public SystemException(SystemReturnEnum securityReturnEnum, String msg) {
+        super(securityReturnEnum.getStatus(), securityReturnEnum.getCode(), securityReturnEnum.getMsg() + msg);
+    }
+
     public static CommonException convert(SystemException s ,CommonException c){
         c.setCode(s.getCode());
         c.setStatus(s.getStatus());

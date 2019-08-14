@@ -88,6 +88,7 @@ public class AppConfigure implements WebMvcConfigurer {
                 .excludePathPatterns("/static/**")
                 .excludePathPatterns("/api/**")
                 .excludePathPatterns("/login.html")
+                .excludePathPatterns("/logout")
                 // 放行錯誤請求
                 .excludePathPatterns("/error")
         ;

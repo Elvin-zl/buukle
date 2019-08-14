@@ -385,7 +385,7 @@ public class RoleServiceImpl implements RoleService{
                                 roleMenuButtonRelation.setRoleId(id);
                                 roleMenuButtonRelationMapper.insert(roleMenuButtonRelation);
                             }else{
-                                throw new SystemException(SystemReturnEnum.ROLE_SET_MENU_WRONG_MENU_BTN_NOT_MATCH);
+                                throw new SystemException(SystemReturnEnum.ROLE_SET_MENU_WRONG_MENU_BTN_NOT_MATCH,button.getName() +"(按钮) 所属菜单应被勾选!");
                             }
                         }
                     }

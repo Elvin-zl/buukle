@@ -122,4 +122,19 @@ public class SessionUtil {
             session.setAttribute(key,object);
         }
     }
+
+    /**
+     * @description 登出
+     * @param request
+     * @param response
+     * @return void
+     * @Author elvin
+     * @Date 2019/8/15
+     */
+    public static void logout(HttpServletRequest request, HttpServletResponse response) {
+        HttpSession session = request.getSession(false);
+        if(session!=null){
+            session.invalidate();
+        }
+    }
 }

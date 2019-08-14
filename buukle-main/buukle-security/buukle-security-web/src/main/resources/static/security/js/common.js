@@ -7,6 +7,8 @@ layui.use(['form', 'jquery', 'laydate', 'layer', 'laypage', 'dialog',   'element
     layer = layui.layer, $ = layui.jquery,  dialog = layui.dialog; var iframeObj = $(window.frameElement).attr('name');
     // 绑定添加
     bindAdd(iframeObj);
+    // 绑定取消
+    bindBack();
     // 绑定批删
     bindDelBitch();
     // 绑定查询
@@ -14,6 +16,12 @@ layui.use(['form', 'jquery', 'laydate', 'layer', 'laypage', 'dialog',   'element
 
 });
 
+/** 绑定取消*/
+function bindBack() {
+   $('#back').off().on('click',function () {
+       parent.$('.layui-layer-close').click();
+   })
+}
 /** 绑定查询*/
 function bindSearch() {
     $('#search').off('click').on('click',function () {
@@ -164,6 +172,9 @@ function renderSelectedTree(tree,data,elem,idTarget){
  * @returns zTreeObj 返回树初始化后对象
  */
 function renderSimpleCheckboxZTree(zTreeObj , data, treeId) {
+    if(data.length < 1 ){
+        $('#' + treeId).html('暂无数据!');
+    }
     var setting = {
         view: {
             dblClickExpand: false,
@@ -187,6 +198,7 @@ function renderSimpleCheckboxZTree(zTreeObj , data, treeId) {
     var zNodes = data;
     var t = $("#"+ treeId);
     zTreeObj = $.fn.zTree.init(t, setting, zNodes);
+    zTreeObj.expandAll(true);
     return zTreeObj;
 }
 

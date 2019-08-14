@@ -12,7 +12,9 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.WebUtils;
 import top.buukle.common.call.FuzzyResponse;
 import top.buukle.common.call.PageResponse;
+import top.buukle.security.entity.User;
 import top.buukle.security.entity.vo.BaseQuery;
+import top.buukle.security.plugin.util.SessionUtil;
 import top.buukle.security.service.BaseService;
 import top.buukle.util.JsonUtil;
 
@@ -45,6 +47,7 @@ public class SecurityController {
         String applicationName = env.getProperty("spring.application.name");
         String nameSuffix = applicationName.split("-")[1];
         modelAndView.addObject("nameSuffix",nameSuffix);
+        modelAndView.addObject("user",SessionUtil.getUser(request, response));
         modelAndView.setViewName("home");
         return modelAndView;
     }

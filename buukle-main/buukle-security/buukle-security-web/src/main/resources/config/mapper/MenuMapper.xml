@@ -546,13 +546,13 @@
     `user_role_relation` ur,
     `role_menu_button_relation` rmb,
     `menu` m
-    WHERE ur.`user_id` = "111"
+    WHERE ur.`user_id` = #{userId}
     AND rmb.`role_id` = ur.`role_id`
     AND r.`status` = 3
     AND rmb.`menu_id` = m.`id`
     AND m.`status` = 3
   </select>
   <select id="getRoleMenuListByRoleId" resultMap="BaseResultMap">
-    select * from menu m , role_menu_button_relation rmb  where rmb.role_id = #{roleId} and m.application_id = #{applicationId} and m.status = 3
+    select m.* from menu m , role_menu_button_relation rmb  where rmb.role_id = #{roleId} AND rmb.`menu_id` =m.`id` and m.application_id = #{applicationId} and m.status = 3
   </select>
 </mapper>

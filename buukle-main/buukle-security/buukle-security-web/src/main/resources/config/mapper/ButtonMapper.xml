@@ -538,6 +538,6 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="getRoleButtonListByRoleId" resultMap="BaseResultMap">
-    select * from button b , role_menu_button_relation rmb  where rmb.role_id = #{roleId} and b.application_id = #{applicationId} and b.status = 3
+    select b.* from button b , role_menu_button_relation rmb  where rmb.role_id = #{roleId} and rmb.`button_id` = b.`id` and b.application_id = #{applicationId} and b.status = 3
   </select>
 </mapper>

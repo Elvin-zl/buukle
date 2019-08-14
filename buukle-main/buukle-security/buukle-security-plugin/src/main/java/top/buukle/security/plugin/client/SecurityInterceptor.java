@@ -104,18 +104,17 @@ public class SecurityInterceptor implements HandlerInterceptor {
     private boolean permission(HttpServletRequest request, HttpServletResponse response) throws ExecutionException, IOException {
         AppResourceResponse appResourceResponse = SecurityInterceptorCache.get();
         String uri = request.getRequestURI().replace("//", "/");
-        if(null == appResourceResponse ||
-                CollectionUtils.isEmpty(appResourceResponse.getRegisteredResourceList()) ||
-                !appResourceResponse.getRegisteredResourceList().contains(uri)
-                ){
-            this.writeNoticePage(response,SecurityInterceptorConstants.NO_PERM_RETURN_HTML_TEMPLATE.replace("noPerm",SecurityExceptionEnum.APP_NO_REG.getMsg()));
-            return false;
+        // 注册验证
+        if(SecurityInterceptorConstants.OPEN_REGS_TRUE.equals(env.getProperty("security.openRegs")) ){
+            if( null == appResourceResponse ||
+                    CollectionUtils.isEmpty(appResourceResponse.getRegisteredResourceList()) ||
+                    !appResourceResponse.getRegisteredResourceList().contains(uri)
+                    ){
+                this.writeNoticePage(response,SecurityInterceptorConstants.NO_PERM_RETURN_HTML_TEMPLATE.replace("noPerm",SecurityExceptionEnum.APP_NO_REG.getMsg()));
+                return false;
+            }
         }
-        if(CollectionUtils.isEmpty(appResourceResponse.getPermResourceList()) ||
-                !appResourceResponse.getPermResourceList().contains(uri)){
-            this.writeNoticePage(response,SecurityInterceptorConstants.NO_PERM_RETURN_HTML_TEMPLATE.replace("noPerm",SecurityExceptionEnum.APP_NO_SRC.getMsg()));
-            return false;
-        }
+        // 授权验证
         List<String> list = (List<String>) SessionUtil.get(request,SessionUtil.USER_URL_LIST_KEY);
         if(CollectionUtils.isEmpty(list) || !list.contains(uri)){
             this.writeNoticePage(response,SecurityInterceptorConstants.NO_PERM_RETURN_HTML_TEMPLATE.replace("noPerm",SecurityExceptionEnum.USER_NO_PERM.getMsg()));

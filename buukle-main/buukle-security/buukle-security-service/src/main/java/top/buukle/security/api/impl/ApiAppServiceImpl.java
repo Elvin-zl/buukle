@@ -68,29 +68,6 @@ public class ApiAppServiceImpl implements ApiAppService {
             }
         }
         appResourceResponse.setRegisteredResourceList(registeredResourceList);
-        // 查询应用授权资源
-        List<String> permResourceList = new ArrayList<>();
-        MenuExample menuExample = new MenuExample();
-        MenuExample.Criteria menuCriteria = menuExample.createCriteria();
-        menuCriteria.andApplicationIdEqualTo(applications.get(0).getId());
-        menuCriteria.andStatusEqualTo(StatusConstants.OPEN);
-        List<Menu> menus = menuMapper.selectByExample(menuExample);
-        if(!CollectionUtils.isEmpty(menus)){
-            for (Menu menu: menus) {
-                permResourceList.add(menu.getUrl());
-            }
-        }
-        ButtonExample buttonExample = new ButtonExample();
-        ButtonExample.Criteria buttonCriteria = buttonExample.createCriteria();
-        buttonCriteria.andApplicationIdEqualTo(applications.get(0).getId());
-        buttonCriteria.andStatusEqualTo(StatusConstants.OPEN);
-        List<Button> buttons = buttonMapper.selectByExample(buttonExample);
-        if(!CollectionUtils.isEmpty(buttons)){
-            for (Button button: buttons) {
-                permResourceList.add(button.getUrl());
-            }
-        }
-        appResourceResponse.setPermResourceList(permResourceList);
         return appResourceResponse;
     }
 }

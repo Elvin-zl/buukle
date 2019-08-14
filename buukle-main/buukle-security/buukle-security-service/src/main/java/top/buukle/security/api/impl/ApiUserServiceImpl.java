@@ -13,6 +13,7 @@ import top.buukle.security.dao.*;
 import top.buukle.security.entity.*;
 import top.buukle.security.entity.vo.MenuTreeNode;
 import top.buukle.security.plugin.util.SessionUtil;
+import top.buukle.security.service.constants.MenuEnums;
 import top.buukle.util.StringUtil;
 
 import javax.servlet.http.HttpServletRequest;
@@ -59,6 +60,12 @@ public class ApiUserServiceImpl implements ApiUserService{
             throw new CommonException(BaseReturnEnum.LOGIN_FAILED_PARAM_WRONG);
         }
         User userInfo = users.get(0);
+        // 缓存用户信息
+        User user1 = new User();
+        user1.setId(userInfo.getId());
+        user1.setGmtLastLogin(new Date());
+        userMapper.updateByPrimaryKeySelective(user1);
+        SessionUtil.cacheUser(userInfo,request,response);
         // 查询用户拥有菜单资源目录
         List<Menu> menuList = menuMapper.getUserMenuListByUserId(userInfo.getUserId());
         // 初始化菜单根节点
@@ -79,12 +86,6 @@ public class ApiUserServiceImpl implements ApiUserService{
             // 缓存用户所有资源url清单
             SessionUtil.cache(request,SessionUtil.USER_URL_LIST_KEY,this.assUserMenuUrlList(menuList,buttonList));
         }
-        // 缓存用户信息
-        User user1 = new User();
-        user1.setId(userInfo.getId());
-        user1.setGmtLastLogin(new Date());
-        userMapper.updateByPrimaryKeySelective(user1);
-        SessionUtil.cacheUser(userInfo,request,response);
         return new CommonResponse.Builder().buildSuccess();
     }
 
@@ -122,7 +123,7 @@ public class ApiUserServiceImpl implements ApiUserService{
         ButtonExample buttonExample = new ButtonExample();
         ButtonExample.Criteria criteria = buttonExample.createCriteria();
         criteria.andMenuIdIn(menuIdList);
-        criteria.andStatusEqualTo(StatusConstants.OPEN);
+        criteria.andStatusEqualTo(MenuEnums.status.PUBLISED.value());
         List<Button> buttons = buttonMapper.selectByExample(buttonExample);
         return CollectionUtils.isEmpty(buttons) ? new ArrayList<>() : buttons;
     }

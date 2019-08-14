@@ -4,6 +4,7 @@
 	<tr>
 		<th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose"></th>
 		<th class="hidden-xs">按钮名称</th>
+		<th class="hidden-xs">url</th>
 		<th class="hidden-xs">创建者</th>
 		<th class="hidden-xs">创建时间</th>
 		<th class="hidden-xs">更新者</th>
@@ -16,6 +17,7 @@
 		<tr th:each="buttonRecord:${response?.body?.list}">
 			<td><input type="checkbox" name="batchCheckBox" lay-skin="primary" th:attr="data-id = ${buttonRecord?.id}"  /></td>
 			<td th:text="${buttonRecord?.name}" class="hidden-xs"></td>
+			<td th:text="${buttonRecord?.url}" class="hidden-xs"></td>
 			<td th:text="${buttonRecord?.creator}" class="hidden-xs"></td>
 			<td th:text="${#dates.format(buttonRecord?.gmtCreated,'yyyy-MM-dd HH:mm:ss')}" class="hidden-xs"></td>
 			<td th:text="${buttonRecord?.modifier}" class="hidden-xs"></td>

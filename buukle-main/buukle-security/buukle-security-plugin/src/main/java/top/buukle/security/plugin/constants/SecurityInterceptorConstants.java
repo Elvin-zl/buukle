@@ -15,6 +15,8 @@ public class SecurityInterceptorConstants {
     public static final String OPEN_AUTH_TRUE = "1";
     /** 开启授权*/
     public static final String OPEN_PERM_TRUE = "1";
+    /** 开启接口注册*/
+    public static final String OPEN_REGS_TRUE = "1";
     /** 认证失败提示页*/
     public static final String NO_AUTH_RETURN_HTML_TEMPLATE =
             "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n" +
