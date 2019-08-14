@@ -76,5 +76,5 @@ public interface MenuMapper {
 
     List<Menu> getUserMenuListByUserId(String userId);
 
-    List<Menu> getRoleMenuListByRoleId(@Param("roleId") Integer roleId);
+    List<Menu> getRoleMenuListByRoleId(@Param("roleId") Integer roleId, @Param("applicationId")Integer applicationId);
 }

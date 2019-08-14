@@ -73,4 +73,6 @@ public interface ButtonMapper {
      * @mbg.generated Tue Aug 06 21:36:38 CST 2019
      */
     int updateByPrimaryKey(Button record);
+
+    List<Button> getRoleButtonListByRoleId(@Param("roleId") Integer roleId, @Param("applicationId")Integer applicationId);
 }

@@ -75,7 +75,8 @@
         function bindSaveOrEdit() {
             $('#saveOrEdit').off().on('click',function () {
 				$('#ids').val(getZTreeSelected(roleMenuTree));
-                var obj = $(this);
+                alert($('#ids').val());
+				var obj = $(this);
                 banThis(obj,"保存中..");
                 $.ajax({
 					url:obj.attr('data-url'),

@@ -12,10 +12,7 @@ import top.buukle.common.call.PageResponse;
 import top.buukle.common.call.vo.FuzzyVo;
 import top.buukle.common.status.StatusConstants;
 
-import top.buukle.security.dao.ApplicationMapper;
-import top.buukle.security.dao.MenuMapper;
-import top.buukle.security .dao.RoleMapper;
-import top.buukle.security .dao.CommonMapper;
+import top.buukle.security.dao.*;
 import top.buukle.security.entity.*;
 import top.buukle.security.entity.vo.*;
 import top.buukle.security .plugin.util.SessionUtil;
@@ -31,10 +28,7 @@ import top.buukle.util.StringUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
 * @author elvin
@@ -51,6 +45,12 @@ public class RoleServiceImpl implements RoleService{
     private MenuMapper menuMapper;
     @Autowired
     private CommonMapper commonMapper;
+    @Autowired
+    private ButtonMapper buttonMapper;
+    @Autowired
+    private RoleMenuButtonRelationMapper roleMenuButtonRelationMapper;
+    @Autowired
+    private RoleMenuButtonRelationLogsMapper relationLogsMapper;
 
     /**
      * 分页获取列表
@@ -227,7 +227,7 @@ public class RoleServiceImpl implements RoleService{
     }
 
     /**
-     * @description 获取角色在其应用下的菜单树
+     * @description 获取角色在其应用下的资源列表
      * @param id
      * @param request
      * @return top.buukle.common.call.PageResponse
@@ -236,24 +236,163 @@ public class RoleServiceImpl implements RoleService{
      */
     @Override
     public PageResponse getRoleMenuTree(Integer id, HttpServletRequest request) {
-        // 查询角色
+        // 查询操作角色
         Role role = roleMapper.selectByPrimaryKey(id);
-        // 查询应用下的菜单树
+        // 查询应用所有菜单
         MenuExample menuExample = new MenuExample();
         MenuExample.Criteria criteria = menuExample.createCriteria();
         criteria.andApplicationIdEqualTo(role.getApplicationId());
-        List<Menu> menus = menuMapper.selectByExample(menuExample);
-        List<MenuTreeResult> menuTreeResultList = new ArrayList<>();
-        // 查询角色所拥有的菜单
-        List<Menu> roleMenu = menuMapper.getRoleMenuListByRoleId(id);
-        if(!CollectionUtils.isEmpty(menus)){
-            for (Menu menu: menus) {
-                MenuTreeResult menuTreeResult = new MenuTreeResult();
-
-//                menuTreeResultList.add();
+        List<Menu> appMenus = menuMapper.selectByExample(menuExample);
+        // 查询应用所有按钮
+        ButtonExample buttonExample = new ButtonExample();
+        ButtonExample.Criteria buttonExampleCriteria = buttonExample.createCriteria();
+        buttonExampleCriteria.andApplicationIdEqualTo(role.getApplicationId());
+        List<Button> appButtons = buttonMapper.selectByExample(buttonExample);
+        // 查询应用下角色拥有的菜单
+        List<Menu> roleMenus = menuMapper.getRoleMenuListByRoleId(id,role.getApplicationId());
+        List<Integer> roleMenuIds = new ArrayList<>();
+        if(!CollectionUtils.isEmpty(roleMenus)){
+            for (Menu roleMenu: roleMenus) {
+                roleMenuIds.add(roleMenu.getId());
             }
         }
-        return null;
+        // 查询应用下角色拥有的按钮
+        List<Button> roleButtons = buttonMapper.getRoleButtonListByRoleId(id,role.getApplicationId());
+        List<Integer> roleButtonIds = new ArrayList<>();
+        if(!CollectionUtils.isEmpty(roleButtons)){
+            for (Button roleButton: roleButtons) {
+                roleButtonIds.add(roleButton.getId());
+            }
+        }
+        // 组装该角色应用下的菜单树
+        List<ZtreeNode> roleResources = new ArrayList<>();
+        if(!CollectionUtils.isEmpty(appMenus)){
+            for (Menu appMenu: appMenus) {
+                ZtreeNode roleResource = new ZtreeNode();
+                roleResource.setId(appMenu.getId());
+                roleResource.setPid(appMenu.getPid());
+                roleResource.setName(appMenu.getName());
+                roleResource.setChecked(roleMenuIds.contains(appMenu.getId()));
+                roleResources.add(roleResource);
+            }
+        }
+        // 组装该角色应用下的按钮树
+        if(!CollectionUtils.isEmpty(appButtons)){
+            for (Button appButton: appButtons) {
+                ZtreeNode roleResource = new ZtreeNode();
+                roleResource.setId(appButton.getId()* -1);
+                roleResource.setPid(appButton.getMenuId());
+                roleResource.setName(appButton.getName() + " (按钮) ");
+                roleResource.setChecked(roleButtonIds.contains(appButton.getId()));
+                roleResources.add(roleResource);
+            }
+        }
+        return new PageResponse.Builder().build(roleResources,0,0,0);
+    }
+    /**
+     * @description 设置角色菜单按钮关系
+     * @param ids   菜单按钮id集合 , 其中负值是按钮id
+     * @param id    角色id
+     * @param request
+     * @param response
+     * @return top.buukle.common.call.PageResponse
+     * @Author zhanglei1102
+     * @Date 2019/8/14
+     */
+    @Override
+    public CommonResponse roleMenuSet(String ids, Integer id, HttpServletRequest request, HttpServletResponse response) {
+        User operator = SessionUtil.getOperator(request, response);
+        // 查询操作角色
+        Role role = roleMapper.selectByPrimaryKey(id);
+        // 查询应用下角色拥有的菜单
+        List<Menu> roleMenus = menuMapper.getRoleMenuListByRoleId(id,role.getApplicationId());
+        List<Integer> roleMenuIds = new ArrayList<>();
+        if(!CollectionUtils.isEmpty(roleMenus)){
+            for (Menu roleMenu: roleMenus) {
+                roleMenuIds.add(roleMenu.getId());
+                // 删除现有的菜单关系(包括了按钮)
+                RoleMenuButtonRelationExample relationExample = new RoleMenuButtonRelationExample();
+                RoleMenuButtonRelationExample.Criteria criteria = relationExample.createCriteria();
+                criteria.andMenuIdEqualTo(roleMenu.getId());
+                roleMenuButtonRelationMapper.deleteByExample(relationExample);
+            }
+        }
+        // 查询应用下角色拥有的按钮
+        List<Button> roleButtons = buttonMapper.getRoleButtonListByRoleId(id,role.getApplicationId());
+        List<Integer> roleButtonIds = new ArrayList<>();
+        if(!CollectionUtils.isEmpty(roleButtons)){
+            for (Button roleButton: roleButtons) {
+                roleButtonIds.add(roleButton.getId());
+            }
+        }
+        // 记录日志
+        RoleMenuButtonRelationLogs roleMenuButtonRelationLogs = new RoleMenuButtonRelationLogs();
+        roleMenuButtonRelationLogs.setRoleId(id);
+        roleMenuButtonRelationLogs.setMenuIdCollections(JsonUtil.toJSONString(roleMenuIds));
+        roleMenuButtonRelationLogs.setButtonIdCollections(JsonUtil.toJSONString(roleButtonIds));
+        roleMenuButtonRelationLogs.setCreator(operator.getUsername());
+        roleMenuButtonRelationLogs.setCreatorCode(operator.getUserId());
+        roleMenuButtonRelationLogs.setGmtCreated(new Date());
+        relationLogsMapper.insert(roleMenuButtonRelationLogs);
+        // 记录新的关系记录
+        if(StringUtil.isNotEmpty(ids)){
+            String[] menuAndButtonIds = ids.split(",");
+            if(menuAndButtonIds.length < 1){
+                return new CommonResponse.Builder().buildSuccess();
+            }
+            // 要设置的菜单id集合
+            List<Integer> menuIds = new ArrayList<>();
+            // 要设置的按钮id集合
+            List<Integer> buttonIds = new ArrayList<>();
+            for (String idStr : menuAndButtonIds) {
+                int idTemp = Integer.parseInt(idStr);
+                if(idTemp>0){
+                    menuIds.add(idTemp);
+                }else{
+                    buttonIds.add(idTemp * -1);
+                }
+            }
+            if(!CollectionUtils.isEmpty(menuIds)){
+                // 记录角色,菜单关系
+                for (Integer menuId : menuIds) {
+                    RoleMenuButtonRelation roleMenuButtonRelation = new RoleMenuButtonRelation();
+                    roleMenuButtonRelation.setCreator(operator.getUsername());
+                    roleMenuButtonRelation.setGmtCreated(new Date());
+                    roleMenuButtonRelation.setCreatorCode(operator.getUserId());
+                    roleMenuButtonRelation.setMenuId(menuId);
+                    roleMenuButtonRelation.setRoleId(id);
+                    roleMenuButtonRelationMapper.insert(roleMenuButtonRelation);
+                }
+                // 记录角色,按钮关系
+                if(!CollectionUtils.isEmpty(buttonIds)){
+                    // 查询应用所有按钮
+                    ButtonExample buttonExample = new ButtonExample();
+                    ButtonExample.Criteria buttonExampleCriteria = buttonExample.createCriteria();
+                    buttonExampleCriteria.andApplicationIdEqualTo(role.getApplicationId());
+                    List<Button> appButtons = buttonMapper.selectByExample(buttonExample);
+                    if(CollectionUtils.isEmpty(appButtons)){
+                        throw new SystemException(SystemReturnEnum.ROLE_SET_MENU_WRONG_BTN_LIST_NOT_EXIST);
+                    }
+                    for (Button button: appButtons) {
+                        if(buttonIds.contains(button.getId())){
+                            if(menuIds.contains(button.getMenuId())){
+                                RoleMenuButtonRelation roleMenuButtonRelation = new RoleMenuButtonRelation();
+                                roleMenuButtonRelation.setCreator(operator.getUsername());
+                                roleMenuButtonRelation.setGmtCreated(new Date());
+                                roleMenuButtonRelation.setCreatorCode(operator.getUserId());
+                                roleMenuButtonRelation.setMenuId(button.getMenuId());
+                                roleMenuButtonRelation.setButtonId(button.getId());
+                                roleMenuButtonRelation.setRoleId(id);
+                                roleMenuButtonRelationMapper.insert(roleMenuButtonRelation);
+                            }else{
+                                throw new SystemException(SystemReturnEnum.ROLE_SET_MENU_WRONG_MENU_BTN_NOT_MATCH);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return new CommonResponse.Builder().buildSuccess();
     }
 
     /**

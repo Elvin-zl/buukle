@@ -7,25 +7,25 @@ import java.util.List;
 public class RoleMenuButtonRelationLogsExample {
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     protected String orderByClause;
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     protected boolean distinct;
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     protected List<Criteria> oredCriteria;
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public RoleMenuButtonRelationLogsExample() {
         oredCriteria = new ArrayList<Criteria>();
@@ -33,7 +33,7 @@ public class RoleMenuButtonRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -41,7 +41,7 @@ public class RoleMenuButtonRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -49,7 +49,7 @@ public class RoleMenuButtonRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -57,7 +57,7 @@ public class RoleMenuButtonRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public boolean isDistinct() {
         return distinct;
@@ -65,7 +65,7 @@ public class RoleMenuButtonRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -73,7 +73,7 @@ public class RoleMenuButtonRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -81,7 +81,7 @@ public class RoleMenuButtonRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -91,7 +91,7 @@ public class RoleMenuButtonRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public RoleMenuButtonRelationLogsExample orderBy(String orderByClause) {
         this.setOrderByClause(orderByClause);
@@ -100,7 +100,7 @@ public class RoleMenuButtonRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public RoleMenuButtonRelationLogsExample orderBy(String ... orderByClauses) {
         StringBuffer sb = new StringBuffer();
@@ -116,7 +116,7 @@ public class RoleMenuButtonRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -128,7 +128,7 @@ public class RoleMenuButtonRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria(this);
@@ -137,7 +137,7 @@ public class RoleMenuButtonRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public void clear() {
         oredCriteria.clear();
@@ -147,7 +147,7 @@ public class RoleMenuButtonRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public static Criteria newAndCreateCriteria() {
         RoleMenuButtonRelationLogsExample example = new RoleMenuButtonRelationLogsExample();
@@ -156,7 +156,7 @@ public class RoleMenuButtonRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -329,52 +329,62 @@ public class RoleMenuButtonRelationLogsExample {
             return (Criteria) this;
         }
 
-        public Criteria andMenuIdCollectionsEqualTo(Integer value) {
+        public Criteria andMenuIdCollectionsEqualTo(String value) {
             addCriterion("menu_id_collections =", value, "menuIdCollections");
             return (Criteria) this;
         }
 
-        public Criteria andMenuIdCollectionsNotEqualTo(Integer value) {
+        public Criteria andMenuIdCollectionsNotEqualTo(String value) {
             addCriterion("menu_id_collections <>", value, "menuIdCollections");
             return (Criteria) this;
         }
 
-        public Criteria andMenuIdCollectionsGreaterThan(Integer value) {
+        public Criteria andMenuIdCollectionsGreaterThan(String value) {
             addCriterion("menu_id_collections >", value, "menuIdCollections");
             return (Criteria) this;
         }
 
-        public Criteria andMenuIdCollectionsGreaterThanOrEqualTo(Integer value) {
+        public Criteria andMenuIdCollectionsGreaterThanOrEqualTo(String value) {
             addCriterion("menu_id_collections >=", value, "menuIdCollections");
             return (Criteria) this;
         }
 
-        public Criteria andMenuIdCollectionsLessThan(Integer value) {
+        public Criteria andMenuIdCollectionsLessThan(String value) {
             addCriterion("menu_id_collections <", value, "menuIdCollections");
             return (Criteria) this;
         }
 
-        public Criteria andMenuIdCollectionsLessThanOrEqualTo(Integer value) {
+        public Criteria andMenuIdCollectionsLessThanOrEqualTo(String value) {
             addCriterion("menu_id_collections <=", value, "menuIdCollections");
             return (Criteria) this;
         }
 
-        public Criteria andMenuIdCollectionsIn(List<Integer> values) {
+        public Criteria andMenuIdCollectionsLike(String value) {
+            addCriterion("menu_id_collections like", value, "menuIdCollections");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuIdCollectionsNotLike(String value) {
+            addCriterion("menu_id_collections not like", value, "menuIdCollections");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuIdCollectionsIn(List<String> values) {
             addCriterion("menu_id_collections in", values, "menuIdCollections");
             return (Criteria) this;
         }
 
-        public Criteria andMenuIdCollectionsNotIn(List<Integer> values) {
+        public Criteria andMenuIdCollectionsNotIn(List<String> values) {
             addCriterion("menu_id_collections not in", values, "menuIdCollections");
             return (Criteria) this;
         }
 
-        public Criteria andMenuIdCollectionsBetween(Integer value1, Integer value2) {
+        public Criteria andMenuIdCollectionsBetween(String value1, String value2) {
             addCriterion("menu_id_collections between", value1, value2, "menuIdCollections");
             return (Criteria) this;
         }
 
-        public Criteria andMenuIdCollectionsNotBetween(Integer value1, Integer value2) {
+        public Criteria andMenuIdCollectionsNotBetween(String value1, String value2) {
             addCriterion("menu_id_collections not between", value1, value2, "menuIdCollections");
             return (Criteria) this;
         }
@@ -389,52 +399,62 @@ public class RoleMenuButtonRelationLogsExample {
             return (Criteria) this;
         }
 
-        public Criteria andButtonIdCollectionsEqualTo(Integer value) {
+        public Criteria andButtonIdCollectionsEqualTo(String value) {
             addCriterion("button_id_collections =", value, "buttonIdCollections");
             return (Criteria) this;
         }
 
-        public Criteria andButtonIdCollectionsNotEqualTo(Integer value) {
+        public Criteria andButtonIdCollectionsNotEqualTo(String value) {
             addCriterion("button_id_collections <>", value, "buttonIdCollections");
             return (Criteria) this;
         }
 
-        public Criteria andButtonIdCollectionsGreaterThan(Integer value) {
+        public Criteria andButtonIdCollectionsGreaterThan(String value) {
             addCriterion("button_id_collections >", value, "buttonIdCollections");
             return (Criteria) this;
         }
 
-        public Criteria andButtonIdCollectionsGreaterThanOrEqualTo(Integer value) {
+        public Criteria andButtonIdCollectionsGreaterThanOrEqualTo(String value) {
             addCriterion("button_id_collections >=", value, "buttonIdCollections");
             return (Criteria) this;
         }
 
-        public Criteria andButtonIdCollectionsLessThan(Integer value) {
+        public Criteria andButtonIdCollectionsLessThan(String value) {
             addCriterion("button_id_collections <", value, "buttonIdCollections");
             return (Criteria) this;
         }
 
-        public Criteria andButtonIdCollectionsLessThanOrEqualTo(Integer value) {
+        public Criteria andButtonIdCollectionsLessThanOrEqualTo(String value) {
             addCriterion("button_id_collections <=", value, "buttonIdCollections");
             return (Criteria) this;
         }
 
-        public Criteria andButtonIdCollectionsIn(List<Integer> values) {
+        public Criteria andButtonIdCollectionsLike(String value) {
+            addCriterion("button_id_collections like", value, "buttonIdCollections");
+            return (Criteria) this;
+        }
+
+        public Criteria andButtonIdCollectionsNotLike(String value) {
+            addCriterion("button_id_collections not like", value, "buttonIdCollections");
+            return (Criteria) this;
+        }
+
+        public Criteria andButtonIdCollectionsIn(List<String> values) {
             addCriterion("button_id_collections in", values, "buttonIdCollections");
             return (Criteria) this;
         }
 
-        public Criteria andButtonIdCollectionsNotIn(List<Integer> values) {
+        public Criteria andButtonIdCollectionsNotIn(List<String> values) {
             addCriterion("button_id_collections not in", values, "buttonIdCollections");
             return (Criteria) this;
         }
 
-        public Criteria andButtonIdCollectionsBetween(Integer value1, Integer value2) {
+        public Criteria andButtonIdCollectionsBetween(String value1, String value2) {
             addCriterion("button_id_collections between", value1, value2, "buttonIdCollections");
             return (Criteria) this;
         }
 
-        public Criteria andButtonIdCollectionsNotBetween(Integer value1, Integer value2) {
+        public Criteria andButtonIdCollectionsNotBetween(String value1, String value2) {
             addCriterion("button_id_collections not between", value1, value2, "buttonIdCollections");
             return (Criteria) this;
         }
@@ -1389,6 +1409,16 @@ public class RoleMenuButtonRelationLogsExample {
             return (Criteria) this;
         }
 
+        public Criteria andMenuIdCollectionsLikeInsensitive(String value) {
+            addCriterion("upper(menu_id_collections) like", value.toUpperCase(), "menuIdCollections");
+            return (Criteria) this;
+        }
+
+        public Criteria andButtonIdCollectionsLikeInsensitive(String value) {
+            addCriterion("upper(button_id_collections) like", value.toUpperCase(), "buttonIdCollections");
+            return (Criteria) this;
+        }
+
         public Criteria andDescriptionLikeInsensitive(String value) {
             addCriterion("upper(description) like", value.toUpperCase(), "description");
             return (Criteria) this;
@@ -1447,18 +1477,18 @@ public class RoleMenuButtonRelationLogsExample {
 
     /**
      *
-     * @mbg.generated do_not_delete_during_merge Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated do_not_delete_during_merge Wed Aug 14 17:12:45 CST 2019
      */
     public static class Criteria extends GeneratedCriteria {
         /**
          *
-         * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+         * @mbg.generated Wed Aug 14 17:12:45 CST 2019
          */
         private RoleMenuButtonRelationLogsExample example;
 
         /**
          *
-         * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+         * @mbg.generated Wed Aug 14 17:12:45 CST 2019
          */
         protected Criteria(RoleMenuButtonRelationLogsExample example) {
             super();
@@ -1467,7 +1497,7 @@ public class RoleMenuButtonRelationLogsExample {
 
         /**
          *
-         * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+         * @mbg.generated Wed Aug 14 17:12:45 CST 2019
          */
         public RoleMenuButtonRelationLogsExample example() {
             return this.example;
@@ -1475,7 +1505,7 @@ public class RoleMenuButtonRelationLogsExample {
 
         /**
          *
-         * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+         * @mbg.generated Wed Aug 14 17:12:45 CST 2019
          */
         public Criteria andIf(boolean ifAdd, ICriteriaAdd add) {
             if (ifAdd) {
@@ -1487,7 +1517,7 @@ public class RoleMenuButtonRelationLogsExample {
         public interface ICriteriaAdd {
             /**
              *
-             * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+             * @mbg.generated Wed Aug 14 17:12:45 CST 2019
              */
             Criteria add(Criteria add);
         }
@@ -1495,7 +1525,7 @@ public class RoleMenuButtonRelationLogsExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public static class Criterion {
         private String condition;

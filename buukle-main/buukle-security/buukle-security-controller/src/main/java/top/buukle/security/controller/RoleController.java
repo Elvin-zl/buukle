@@ -93,4 +93,19 @@ public class RoleController {
         return roleService.getRoleMenuTree(id,request);
     }
 
+    /**
+     * @description 设置角色菜单按钮
+     * @param ids
+     * @param id
+     * @param request
+     * @return top.buukle.common.call.PageResponse
+     * @Author zhanglei1102
+     * @Date 2019/8/14
+     */
+    @RequestMapping("/roleMenuSet")
+    @ResponseBody
+    public CommonResponse roleMenuSet(String ids,Integer id,HttpServletRequest request,HttpServletResponse response) throws Exception {
+        return roleService.roleMenuSet(ids,id,request,response);
+    }
+
 }

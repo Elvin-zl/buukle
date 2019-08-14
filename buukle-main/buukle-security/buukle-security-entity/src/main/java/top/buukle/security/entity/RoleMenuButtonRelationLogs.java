@@ -15,7 +15,7 @@ public class RoleMenuButtonRelationLogs implements Serializable {
      * 主键id
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     private Integer id;
 
@@ -23,7 +23,7 @@ public class RoleMenuButtonRelationLogs implements Serializable {
      * 角色id
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     private Integer roleId;
 
@@ -31,71 +31,71 @@ public class RoleMenuButtonRelationLogs implements Serializable {
      * 菜单id集合
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
-    private Integer menuIdCollections;
+    private String menuIdCollections;
 
     /**
      * 按钮id集合
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
-    private Integer buttonIdCollections;
+    private String buttonIdCollections;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     private String description;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     private String remark;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     private Date gmtCreated;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     private String creator;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     private String creatorCode;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     private Date gmtModified;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     private String modifier;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     private String modifierCode;
 
@@ -103,57 +103,57 @@ public class RoleMenuButtonRelationLogs implements Serializable {
      * 状态
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     private Integer status;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     private String bak01;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     private String bak02;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     private String bak03;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     private String bak04;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     private String bak05;
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     private static final long serialVersionUID = 1L;
 
     /**
-     * This method returns the value of the database column buukle-security..role_menu_button_relation_logs.id
+     * This method returns the value of the database column buukle-security-new..role_menu_button_relation_logs.id
      *
-     * @return the value of buukle-security..role_menu_button_relation_logs.id
+     * @return the value of buukle-security-new..role_menu_button_relation_logs.id
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public Integer getId() {
         return id;
@@ -161,7 +161,7 @@ public class RoleMenuButtonRelationLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public RoleMenuButtonRelationLogs withId(Integer id) {
         this.setId(id);
@@ -169,22 +169,22 @@ public class RoleMenuButtonRelationLogs implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..role_menu_button_relation_logs.id
+     * This method sets the value of the database column buukle-security-new..role_menu_button_relation_logs.id
      *
-     * @param id the value for buukle-security..role_menu_button_relation_logs.id
+     * @param id the value for buukle-security-new..role_menu_button_relation_logs.id
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public void setId(Integer id) {
         this.id = id;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..role_menu_button_relation_logs.role_id
+     * This method returns the value of the database column buukle-security-new..role_menu_button_relation_logs.role_id
      *
-     * @return the value of buukle-security..role_menu_button_relation_logs.role_id
+     * @return the value of buukle-security-new..role_menu_button_relation_logs.role_id
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public Integer getRoleId() {
         return roleId;
@@ -192,7 +192,7 @@ public class RoleMenuButtonRelationLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public RoleMenuButtonRelationLogs withRoleId(Integer roleId) {
         this.setRoleId(roleId);
@@ -200,84 +200,84 @@ public class RoleMenuButtonRelationLogs implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..role_menu_button_relation_logs.role_id
+     * This method sets the value of the database column buukle-security-new..role_menu_button_relation_logs.role_id
      *
-     * @param roleId the value for buukle-security..role_menu_button_relation_logs.role_id
+     * @param roleId the value for buukle-security-new..role_menu_button_relation_logs.role_id
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public void setRoleId(Integer roleId) {
         this.roleId = roleId;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..role_menu_button_relation_logs.menu_id_collections
+     * This method returns the value of the database column buukle-security-new..role_menu_button_relation_logs.menu_id_collections
      *
-     * @return the value of buukle-security..role_menu_button_relation_logs.menu_id_collections
+     * @return the value of buukle-security-new..role_menu_button_relation_logs.menu_id_collections
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
-    public Integer getMenuIdCollections() {
+    public String getMenuIdCollections() {
         return menuIdCollections;
     }
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
-    public RoleMenuButtonRelationLogs withMenuIdCollections(Integer menuIdCollections) {
+    public RoleMenuButtonRelationLogs withMenuIdCollections(String menuIdCollections) {
         this.setMenuIdCollections(menuIdCollections);
         return this;
     }
 
     /**
-     * This method sets the value of the database column buukle-security..role_menu_button_relation_logs.menu_id_collections
+     * This method sets the value of the database column buukle-security-new..role_menu_button_relation_logs.menu_id_collections
      *
-     * @param menuIdCollections the value for buukle-security..role_menu_button_relation_logs.menu_id_collections
+     * @param menuIdCollections the value for buukle-security-new..role_menu_button_relation_logs.menu_id_collections
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
-    public void setMenuIdCollections(Integer menuIdCollections) {
-        this.menuIdCollections = menuIdCollections;
+    public void setMenuIdCollections(String menuIdCollections) {
+        this.menuIdCollections = menuIdCollections == null ? null : menuIdCollections.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..role_menu_button_relation_logs.button_id_collections
+     * This method returns the value of the database column buukle-security-new..role_menu_button_relation_logs.button_id_collections
      *
-     * @return the value of buukle-security..role_menu_button_relation_logs.button_id_collections
+     * @return the value of buukle-security-new..role_menu_button_relation_logs.button_id_collections
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
-    public Integer getButtonIdCollections() {
+    public String getButtonIdCollections() {
         return buttonIdCollections;
     }
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
-    public RoleMenuButtonRelationLogs withButtonIdCollections(Integer buttonIdCollections) {
+    public RoleMenuButtonRelationLogs withButtonIdCollections(String buttonIdCollections) {
         this.setButtonIdCollections(buttonIdCollections);
         return this;
     }
 
     /**
-     * This method sets the value of the database column buukle-security..role_menu_button_relation_logs.button_id_collections
+     * This method sets the value of the database column buukle-security-new..role_menu_button_relation_logs.button_id_collections
      *
-     * @param buttonIdCollections the value for buukle-security..role_menu_button_relation_logs.button_id_collections
+     * @param buttonIdCollections the value for buukle-security-new..role_menu_button_relation_logs.button_id_collections
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
-    public void setButtonIdCollections(Integer buttonIdCollections) {
-        this.buttonIdCollections = buttonIdCollections;
+    public void setButtonIdCollections(String buttonIdCollections) {
+        this.buttonIdCollections = buttonIdCollections == null ? null : buttonIdCollections.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..role_menu_button_relation_logs.description
+     * This method returns the value of the database column buukle-security-new..role_menu_button_relation_logs.description
      *
-     * @return the value of buukle-security..role_menu_button_relation_logs.description
+     * @return the value of buukle-security-new..role_menu_button_relation_logs.description
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public String getDescription() {
         return description;
@@ -285,7 +285,7 @@ public class RoleMenuButtonRelationLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public RoleMenuButtonRelationLogs withDescription(String description) {
         this.setDescription(description);
@@ -293,22 +293,22 @@ public class RoleMenuButtonRelationLogs implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..role_menu_button_relation_logs.description
+     * This method sets the value of the database column buukle-security-new..role_menu_button_relation_logs.description
      *
-     * @param description the value for buukle-security..role_menu_button_relation_logs.description
+     * @param description the value for buukle-security-new..role_menu_button_relation_logs.description
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public void setDescription(String description) {
         this.description = description == null ? null : description.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..role_menu_button_relation_logs.remark
+     * This method returns the value of the database column buukle-security-new..role_menu_button_relation_logs.remark
      *
-     * @return the value of buukle-security..role_menu_button_relation_logs.remark
+     * @return the value of buukle-security-new..role_menu_button_relation_logs.remark
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public String getRemark() {
         return remark;
@@ -316,7 +316,7 @@ public class RoleMenuButtonRelationLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public RoleMenuButtonRelationLogs withRemark(String remark) {
         this.setRemark(remark);
@@ -324,22 +324,22 @@ public class RoleMenuButtonRelationLogs implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..role_menu_button_relation_logs.remark
+     * This method sets the value of the database column buukle-security-new..role_menu_button_relation_logs.remark
      *
-     * @param remark the value for buukle-security..role_menu_button_relation_logs.remark
+     * @param remark the value for buukle-security-new..role_menu_button_relation_logs.remark
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..role_menu_button_relation_logs.gmt_created
+     * This method returns the value of the database column buukle-security-new..role_menu_button_relation_logs.gmt_created
      *
-     * @return the value of buukle-security..role_menu_button_relation_logs.gmt_created
+     * @return the value of buukle-security-new..role_menu_button_relation_logs.gmt_created
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public Date getGmtCreated() {
         return gmtCreated;
@@ -347,7 +347,7 @@ public class RoleMenuButtonRelationLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public RoleMenuButtonRelationLogs withGmtCreated(Date gmtCreated) {
         this.setGmtCreated(gmtCreated);
@@ -355,22 +355,22 @@ public class RoleMenuButtonRelationLogs implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..role_menu_button_relation_logs.gmt_created
+     * This method sets the value of the database column buukle-security-new..role_menu_button_relation_logs.gmt_created
      *
-     * @param gmtCreated the value for buukle-security..role_menu_button_relation_logs.gmt_created
+     * @param gmtCreated the value for buukle-security-new..role_menu_button_relation_logs.gmt_created
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public void setGmtCreated(Date gmtCreated) {
         this.gmtCreated = gmtCreated;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..role_menu_button_relation_logs.creator
+     * This method returns the value of the database column buukle-security-new..role_menu_button_relation_logs.creator
      *
-     * @return the value of buukle-security..role_menu_button_relation_logs.creator
+     * @return the value of buukle-security-new..role_menu_button_relation_logs.creator
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public String getCreator() {
         return creator;
@@ -378,7 +378,7 @@ public class RoleMenuButtonRelationLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public RoleMenuButtonRelationLogs withCreator(String creator) {
         this.setCreator(creator);
@@ -386,22 +386,22 @@ public class RoleMenuButtonRelationLogs implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..role_menu_button_relation_logs.creator
+     * This method sets the value of the database column buukle-security-new..role_menu_button_relation_logs.creator
      *
-     * @param creator the value for buukle-security..role_menu_button_relation_logs.creator
+     * @param creator the value for buukle-security-new..role_menu_button_relation_logs.creator
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public void setCreator(String creator) {
         this.creator = creator == null ? null : creator.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..role_menu_button_relation_logs.creator_code
+     * This method returns the value of the database column buukle-security-new..role_menu_button_relation_logs.creator_code
      *
-     * @return the value of buukle-security..role_menu_button_relation_logs.creator_code
+     * @return the value of buukle-security-new..role_menu_button_relation_logs.creator_code
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public String getCreatorCode() {
         return creatorCode;
@@ -409,7 +409,7 @@ public class RoleMenuButtonRelationLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public RoleMenuButtonRelationLogs withCreatorCode(String creatorCode) {
         this.setCreatorCode(creatorCode);
@@ -417,22 +417,22 @@ public class RoleMenuButtonRelationLogs implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..role_menu_button_relation_logs.creator_code
+     * This method sets the value of the database column buukle-security-new..role_menu_button_relation_logs.creator_code
      *
-     * @param creatorCode the value for buukle-security..role_menu_button_relation_logs.creator_code
+     * @param creatorCode the value for buukle-security-new..role_menu_button_relation_logs.creator_code
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public void setCreatorCode(String creatorCode) {
         this.creatorCode = creatorCode == null ? null : creatorCode.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..role_menu_button_relation_logs.gmt_modified
+     * This method returns the value of the database column buukle-security-new..role_menu_button_relation_logs.gmt_modified
      *
-     * @return the value of buukle-security..role_menu_button_relation_logs.gmt_modified
+     * @return the value of buukle-security-new..role_menu_button_relation_logs.gmt_modified
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public Date getGmtModified() {
         return gmtModified;
@@ -440,7 +440,7 @@ public class RoleMenuButtonRelationLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public RoleMenuButtonRelationLogs withGmtModified(Date gmtModified) {
         this.setGmtModified(gmtModified);
@@ -448,22 +448,22 @@ public class RoleMenuButtonRelationLogs implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..role_menu_button_relation_logs.gmt_modified
+     * This method sets the value of the database column buukle-security-new..role_menu_button_relation_logs.gmt_modified
      *
-     * @param gmtModified the value for buukle-security..role_menu_button_relation_logs.gmt_modified
+     * @param gmtModified the value for buukle-security-new..role_menu_button_relation_logs.gmt_modified
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public void setGmtModified(Date gmtModified) {
         this.gmtModified = gmtModified;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..role_menu_button_relation_logs.modifier
+     * This method returns the value of the database column buukle-security-new..role_menu_button_relation_logs.modifier
      *
-     * @return the value of buukle-security..role_menu_button_relation_logs.modifier
+     * @return the value of buukle-security-new..role_menu_button_relation_logs.modifier
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public String getModifier() {
         return modifier;
@@ -471,7 +471,7 @@ public class RoleMenuButtonRelationLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public RoleMenuButtonRelationLogs withModifier(String modifier) {
         this.setModifier(modifier);
@@ -479,22 +479,22 @@ public class RoleMenuButtonRelationLogs implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..role_menu_button_relation_logs.modifier
+     * This method sets the value of the database column buukle-security-new..role_menu_button_relation_logs.modifier
      *
-     * @param modifier the value for buukle-security..role_menu_button_relation_logs.modifier
+     * @param modifier the value for buukle-security-new..role_menu_button_relation_logs.modifier
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public void setModifier(String modifier) {
         this.modifier = modifier == null ? null : modifier.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..role_menu_button_relation_logs.modifier_code
+     * This method returns the value of the database column buukle-security-new..role_menu_button_relation_logs.modifier_code
      *
-     * @return the value of buukle-security..role_menu_button_relation_logs.modifier_code
+     * @return the value of buukle-security-new..role_menu_button_relation_logs.modifier_code
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public String getModifierCode() {
         return modifierCode;
@@ -502,7 +502,7 @@ public class RoleMenuButtonRelationLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public RoleMenuButtonRelationLogs withModifierCode(String modifierCode) {
         this.setModifierCode(modifierCode);
@@ -510,22 +510,22 @@ public class RoleMenuButtonRelationLogs implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..role_menu_button_relation_logs.modifier_code
+     * This method sets the value of the database column buukle-security-new..role_menu_button_relation_logs.modifier_code
      *
-     * @param modifierCode the value for buukle-security..role_menu_button_relation_logs.modifier_code
+     * @param modifierCode the value for buukle-security-new..role_menu_button_relation_logs.modifier_code
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public void setModifierCode(String modifierCode) {
         this.modifierCode = modifierCode == null ? null : modifierCode.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..role_menu_button_relation_logs.status
+     * This method returns the value of the database column buukle-security-new..role_menu_button_relation_logs.status
      *
-     * @return the value of buukle-security..role_menu_button_relation_logs.status
+     * @return the value of buukle-security-new..role_menu_button_relation_logs.status
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public Integer getStatus() {
         return status;
@@ -533,7 +533,7 @@ public class RoleMenuButtonRelationLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public RoleMenuButtonRelationLogs withStatus(Integer status) {
         this.setStatus(status);
@@ -541,22 +541,22 @@ public class RoleMenuButtonRelationLogs implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..role_menu_button_relation_logs.status
+     * This method sets the value of the database column buukle-security-new..role_menu_button_relation_logs.status
      *
-     * @param status the value for buukle-security..role_menu_button_relation_logs.status
+     * @param status the value for buukle-security-new..role_menu_button_relation_logs.status
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public void setStatus(Integer status) {
         this.status = status;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..role_menu_button_relation_logs.bak01
+     * This method returns the value of the database column buukle-security-new..role_menu_button_relation_logs.bak01
      *
-     * @return the value of buukle-security..role_menu_button_relation_logs.bak01
+     * @return the value of buukle-security-new..role_menu_button_relation_logs.bak01
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public String getBak01() {
         return bak01;
@@ -564,7 +564,7 @@ public class RoleMenuButtonRelationLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public RoleMenuButtonRelationLogs withBak01(String bak01) {
         this.setBak01(bak01);
@@ -572,22 +572,22 @@ public class RoleMenuButtonRelationLogs implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..role_menu_button_relation_logs.bak01
+     * This method sets the value of the database column buukle-security-new..role_menu_button_relation_logs.bak01
      *
-     * @param bak01 the value for buukle-security..role_menu_button_relation_logs.bak01
+     * @param bak01 the value for buukle-security-new..role_menu_button_relation_logs.bak01
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public void setBak01(String bak01) {
         this.bak01 = bak01 == null ? null : bak01.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..role_menu_button_relation_logs.bak02
+     * This method returns the value of the database column buukle-security-new..role_menu_button_relation_logs.bak02
      *
-     * @return the value of buukle-security..role_menu_button_relation_logs.bak02
+     * @return the value of buukle-security-new..role_menu_button_relation_logs.bak02
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public String getBak02() {
         return bak02;
@@ -595,7 +595,7 @@ public class RoleMenuButtonRelationLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public RoleMenuButtonRelationLogs withBak02(String bak02) {
         this.setBak02(bak02);
@@ -603,22 +603,22 @@ public class RoleMenuButtonRelationLogs implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..role_menu_button_relation_logs.bak02
+     * This method sets the value of the database column buukle-security-new..role_menu_button_relation_logs.bak02
      *
-     * @param bak02 the value for buukle-security..role_menu_button_relation_logs.bak02
+     * @param bak02 the value for buukle-security-new..role_menu_button_relation_logs.bak02
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public void setBak02(String bak02) {
         this.bak02 = bak02 == null ? null : bak02.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..role_menu_button_relation_logs.bak03
+     * This method returns the value of the database column buukle-security-new..role_menu_button_relation_logs.bak03
      *
-     * @return the value of buukle-security..role_menu_button_relation_logs.bak03
+     * @return the value of buukle-security-new..role_menu_button_relation_logs.bak03
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public String getBak03() {
         return bak03;
@@ -626,7 +626,7 @@ public class RoleMenuButtonRelationLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public RoleMenuButtonRelationLogs withBak03(String bak03) {
         this.setBak03(bak03);
@@ -634,22 +634,22 @@ public class RoleMenuButtonRelationLogs implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..role_menu_button_relation_logs.bak03
+     * This method sets the value of the database column buukle-security-new..role_menu_button_relation_logs.bak03
      *
-     * @param bak03 the value for buukle-security..role_menu_button_relation_logs.bak03
+     * @param bak03 the value for buukle-security-new..role_menu_button_relation_logs.bak03
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public void setBak03(String bak03) {
         this.bak03 = bak03 == null ? null : bak03.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..role_menu_button_relation_logs.bak04
+     * This method returns the value of the database column buukle-security-new..role_menu_button_relation_logs.bak04
      *
-     * @return the value of buukle-security..role_menu_button_relation_logs.bak04
+     * @return the value of buukle-security-new..role_menu_button_relation_logs.bak04
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public String getBak04() {
         return bak04;
@@ -657,7 +657,7 @@ public class RoleMenuButtonRelationLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public RoleMenuButtonRelationLogs withBak04(String bak04) {
         this.setBak04(bak04);
@@ -665,22 +665,22 @@ public class RoleMenuButtonRelationLogs implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..role_menu_button_relation_logs.bak04
+     * This method sets the value of the database column buukle-security-new..role_menu_button_relation_logs.bak04
      *
-     * @param bak04 the value for buukle-security..role_menu_button_relation_logs.bak04
+     * @param bak04 the value for buukle-security-new..role_menu_button_relation_logs.bak04
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public void setBak04(String bak04) {
         this.bak04 = bak04 == null ? null : bak04.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..role_menu_button_relation_logs.bak05
+     * This method returns the value of the database column buukle-security-new..role_menu_button_relation_logs.bak05
      *
-     * @return the value of buukle-security..role_menu_button_relation_logs.bak05
+     * @return the value of buukle-security-new..role_menu_button_relation_logs.bak05
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public String getBak05() {
         return bak05;
@@ -688,7 +688,7 @@ public class RoleMenuButtonRelationLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public RoleMenuButtonRelationLogs withBak05(String bak05) {
         this.setBak05(bak05);
@@ -696,11 +696,11 @@ public class RoleMenuButtonRelationLogs implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..role_menu_button_relation_logs.bak05
+     * This method sets the value of the database column buukle-security-new..role_menu_button_relation_logs.bak05
      *
-     * @param bak05 the value for buukle-security..role_menu_button_relation_logs.bak05
+     * @param bak05 the value for buukle-security-new..role_menu_button_relation_logs.bak05
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     public void setBak05(String bak05) {
         this.bak05 = bak05 == null ? null : bak05.trim();
@@ -708,7 +708,7 @@ public class RoleMenuButtonRelationLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     @Override
     public String toString() {
@@ -740,7 +740,7 @@ public class RoleMenuButtonRelationLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     @Override
     public boolean equals(Object that) {
@@ -776,7 +776,7 @@ public class RoleMenuButtonRelationLogs implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:55 CST 2019
+     * @mbg.generated Wed Aug 14 17:12:45 CST 2019
      */
     @Override
     public int hashCode() {

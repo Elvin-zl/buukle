@@ -30,7 +30,7 @@ spring:
       enabled: true
   ##datasource
   datasource:
-    url: jdbc:mysql://localhost:3654/buukle-security?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://39.107.78.160:3654/buukle-security-new?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
     password: A987654321b/
     driver-class-name: com.mysql.cj.jdbc.Driver

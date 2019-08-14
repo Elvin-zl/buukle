@@ -34,6 +34,8 @@ public enum SystemReturnEnum {
     ROLE_SAVE_OR_EDIT_APPID_NULL("F","040001","保存或更新角色失败,所属应用id为空!"),
     ROLE_SAVE_OR_EDIT_PID_NULL("F","040002","保存或更新角色失败,上级角色id为空!"),
     ROLE_SAVE_OR_EDIT_NAME_NULL("F","040003","保存或更新角色失败,角色名称为空!"),
+    ROLE_SET_MENU_WRONG_BTN_LIST_NOT_EXIST("F","040004","角色设置菜单失败,应用按钮目录异常!"),
+    ROLE_SET_MENU_WRONG_MENU_BTN_NOT_MATCH("F","040005","角色设置菜单失败,菜单和按钮关系不正确!"),
 
     /*--menu 返回码{05}{**}{**}*/
     MENU_SAVE_OR_EDIT_APPID_NULL("F","050001","保存或更新菜单失败,所属应用id为空!"),
