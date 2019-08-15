@@ -59,15 +59,15 @@ public class RoleController {
      * @Author elvin
      * @Date 2019/8/9
      */
-    @RequestMapping("/getRoleTree/{applicationId}")
+    @RequestMapping("/getRoleTree")
     @ResponseBody
-    public PageResponse getRoleTree(@PathVariable("applicationId") Integer applicationId, HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public PageResponse getRoleTree(Integer applicationId, HttpServletRequest request, HttpServletResponse response) throws Exception {
         return roleService.getRoleTree(applicationId,request,response);
     }
 
     /**
      * @description 获取用户角色树
-     * @param applicationCode
+     * @param applicationId
      * @param userId
      * @return top.buukle.common.call.PageResponse
      * @Author zhanglei1102
@@ -75,8 +75,8 @@ public class RoleController {
      */
     @RequestMapping("/getAppUserRole")
     @ResponseBody
-    public PageResponse getAppUserRole(String applicationCode,String userId,HttpServletRequest request) throws Exception {
-        return roleService.getAppUserRole(applicationCode,userId,request);
+    public PageResponse getAppUserRole(Integer applicationId,String userId,HttpServletRequest request) throws Exception {
+        return roleService.getAppUserRole(applicationId,userId,request);
     }
 
     /**

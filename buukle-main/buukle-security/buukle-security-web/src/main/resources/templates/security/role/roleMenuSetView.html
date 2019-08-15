@@ -25,7 +25,7 @@
 			<div class="layui-form-item">
 				<span> 选择资源 : </span>
 				<div id="choseMenu" style="margin-top: 23px;    margin-top: 23px;  height: 342px; overflow: auto; background-color: #4c786c2e;">
-					<ul id="tree" class="ztree buukle-zTree"></ul>
+					<ul data-url="/role/getRoleMenuTree" id="tree" class="ztree buukle-zTree"></ul>
 				</div>
 			</div>
 		</div>
@@ -62,7 +62,7 @@
 		/** 加载角色菜单树*/
 		function loadMenuTree() {
 			$.ajax({
-				url:"/role/getRoleMenuTree",
+				url:$('#tree').attr('data-url'),
 				method:"post",
 				dataType:"json",
 				data:{"id" : $('#id').val()},

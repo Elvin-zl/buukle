@@ -13,42 +13,37 @@
 		<div class="main-layout" id='main-layout'>
 			<!--侧边栏-->
 			<div class="main-layout-side buukle-them">
-				<div class="m-logo buukle-them" style="border-bottom: solid 1px #c7cad11a;">
-				</div>
+				<div class="m-logo buukle-them" style="border-bottom: solid 1px #c7cad11a;"> </div>
 				<ul class="layui-nav layui-nav-tree" lay-filter="leftNav">
-				  <li class="layui-nav-item">
-				    <a href="javascript:;"><i class="iconfont">&#xe60a;</i>资源管理</a>
-				    <dl class="layui-nav-child">
-						<dd><a href="javascript:;" th:attr="data-url = '/'+${nameSuffix} + '/application/applicationHome'"  data-id='1' data-text="应用列表"><span class="l-line"></span>应用列表</a></dd>
-						<dd><a href="javascript:;" th:attr="data-url = '/'+${nameSuffix} + '/role/roleHome'" data-id='2' data-text="角色列表"><span class="l-line"></span>角色列表</a></dd>
-						<dd><a href="javascript:;" th:attr="data-url = '/'+${nameSuffix} + '/menu/menuHome'" data-id='3' data-text="菜单列表"><span class="l-line"></span>菜单列表</a></dd>
-						<dd><a href="javascript:;" th:attr="data-url = '/'+${nameSuffix} + '/button/buttonHome'" data-id='4' data-text="按钮列表"><span class="l-line"></span>按钮列表</a></dd>
-					</dl>
-				  </li>
-				  <li class="layui-nav-item">
-				  	  <a href="javascript:;"><i class="iconfont">&#xe607;</i>用户管理</a>
-				  	  <dl class="layui-nav-child">
-				  	  	<dd><a href="javascript:;" data-url="/security/user/userHome" data-id='5' data-text="用户列表"><span class="l-line"></span>用户列表</a></dd>
-				  	  </dl>
-				  </li>
-					<!--<li class="layui-nav-item">
-						<a href="javascript:;"><i class="iconfont">&#xe607;</i>商品管理</a>
-						<dl class="layui-nav-child">
-							<dd><a href="javascript:;" data-url="/security/item/itemHome" data-id='8' data-text="商品列表"><span class="l-line"></span>商品列表</a></dd>
-						</dl>
-					</li>-->
-				  <li class="layui-nav-item">
-					<a href="javascript:;" data-url="/security/userCenter/userInfo" data-id='6' data-text="个人信息"><i class="iconfont">&#xe606;</i>个人信息</a>
-				  </li>
-				  <li class="layui-nav-item">
-				  	<a href="javascript:;" data-url="/security/settings/system" data-id='7' data-text="系统设置"><i class="iconfont">&#xe60b;</i>系统设置</a>
-				  </li>
+					<th:block th:fragment="renderMenuTree(menuList)">
+						<th:block th:each="menu : ${menuList}">
+							<li class="layui-nav-item">
+								<a href="javascript:;" th:attr="data-url=${menu.url},data-id=${menu.id},data-text=${menu.name}">
+									<i class="iconfont" th:utext="${menu.icon}"></i>
+									<span th:text="${menu.name}" th:attr="data-text=${menu.name}"></span>
+								</a>
+								<th:block th:unless="${#lists.isEmpty(menu.subMenuList)}">
+									<dl class="layui-nav-child">
+										<th:block th:each="subMenu : ${menu.subMenuList}">
+											<dd>
+												<a href="javascript:;" th:attr="data-url=${subMenu.url},data-id=${subMenu.id},data-text=${subMenu.name}" >
+													<span class="l-line" th:text="${subMenu.icon}"></span>
+													<span th:text="${subMenu.name}" th:attr="data-text=${subMenu.name}"></span>
+												</a>
+											</dd>
+										</th:block>
+									</dl>
+								</th:block>
+							</li>
+						</th:block>
+					</th:block>
 				</ul>
 			</div>
 			<!--右侧内容-->
 			<div class="main-layout-container">
 				<!--头部-->
 				<div class="main-layout-header buukle-them">
+					<!--隐藏左侧菜单-->
 					<div class="menu-btn" id="hideBtn">
 						<a href="javascript:;">
 							<span class="iconfont buukle-them-switch">&#xe60e;</span>
@@ -61,7 +56,7 @@
 						  </a>
 					  </li>
 					  <li class="layui-nav-item">
-					    <a href="javascript:;" data-url="/security/userCenter/userInfo" th:text="${user?.username}" data-id='5' data-text="个人信息"></a>
+					    <a href="javascript:;" th:text="${user?.username}"></a>
 					  </li>
 					  <li class="layui-nav-item"><a href="/logout">登出</a></li>
 					</ul>
@@ -71,7 +66,7 @@
 					<!--tab 切换-->
 					<div class="layui-tab layui-tab-brief main-layout-tab" lay-filter="tab" lay-allowClose="true">
 					  <ul class="layui-tab-title">
-					    <li class="layui-this welcome">buukle-控制台</li>
+					    <li class="layui-this welcome">控制台</li>
 					  </ul>
 					  <div class="layui-tab-content">
 					    <div class="layui-tab-item layui-show" style="background: #f5f5f5;">

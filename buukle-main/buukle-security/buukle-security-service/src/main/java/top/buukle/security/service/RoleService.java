@@ -17,7 +17,7 @@ public interface RoleService extends BaseService{
 
     PageResponse getRoleTree(Integer applicationId, HttpServletRequest request, HttpServletResponse response);
 
-    PageResponse getAppUserRole(String applicationCode, String userId, HttpServletRequest request);
+    PageResponse getAppUserRole(Integer applicationId, String userId, HttpServletRequest request);
 
     PageResponse getRoleMenuTree(Integer id, HttpServletRequest request);
 

@@ -18,9 +18,7 @@ import top.buukle.util.StringUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
 * @author elvin
@@ -38,6 +36,8 @@ public class ApiUserServiceImpl implements ApiUserService{
     private RoleMapper roleMapper;
     @Autowired
     private ButtonMapper buttonMapper;
+    @Autowired
+    private ApplicationMapper applicationMapper;
 
     /**
      * @description 内部登陆
@@ -68,15 +68,36 @@ public class ApiUserServiceImpl implements ApiUserService{
         SessionUtil.cacheUser(userInfo,request,response);
         // 查询用户拥有菜单资源目录
         List<Menu> menuList = menuMapper.getUserMenuListByUserId(userInfo.getUserId());
-        // 初始化菜单根节点
-        MenuTreeNode rootNode = new MenuTreeNode();
-        rootNode.setName("根目录");
-        rootNode.setId(0);
+
         if(!CollectionUtils.isEmpty(menuList)){
-            // 组装用户菜单树
-            this.assUserMenuTree(rootNode,menuList);
-            // 缓存用户菜单树
-            SessionUtil.cache(request,SessionUtil.USER_MENU_TREE_KEY,rootNode);
+            List<Menu> menuDisplay = new ArrayList<>();
+            // 筛选可见菜单
+            for (Menu menu: menuList) {
+                // 菜单类型 && 菜单可见 && 排序
+                if(MenuEnums.type.MENU.value().equals(menu.getType()) && MenuEnums.display.DISPLAY_BLOCK.value().equals(menu.getDisplay()) && menu.getOrderNo() != null){
+                    menuDisplay.add(menu);
+                }
+            }
+            // 组装用户每个应用的可见菜单
+            MenuExample menuExample = new MenuExample();
+            MenuExample.Criteria menuExampleCriteria = menuExample.createCriteria();
+            menuExampleCriteria.andPidEqualTo(0);
+            List<Menu> menus = menuMapper.selectByExample(menuExample);
+            Map<String,MenuTreeNode> userApplicationMenuDisplayed = new HashMap<>();
+            if(!CollectionUtils.isEmpty(menus)){
+                for (Menu menu: menus) {
+                    if(menu.getPid().equals(0)){ //
+                        MenuTreeNode rootNodeDisplay = new MenuTreeNode();
+                        BeanUtils.copyProperties(menu,rootNodeDisplay);
+                        Application application = applicationMapper.selectByPrimaryKey(menu.getApplicationId());
+                        // 组装应用下用户可见菜单树
+                        this.assUserMenuTree(rootNodeDisplay,menuDisplay);
+                        userApplicationMenuDisplayed.put(application == null ? "" : application.getCode(),rootNodeDisplay);
+                    }
+                }
+            }
+            // 缓存用户可见菜单数组
+            SessionUtil.cache(request,SessionUtil.USER_MENU_TREE_KEY,userApplicationMenuDisplayed);
             // 缓存用户角色目录
             SessionUtil.cache(request,SessionUtil.USER_ROLE_LIST_KEY,roleMapper.selectUserRoles(userInfo.getUserId()));
             // 查询用户按钮目录

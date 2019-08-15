@@ -28,7 +28,7 @@
 								</div>
 								<dl class="layui-anim layui-anim-upbit">
 									<dd>
-										<ul data-subTree="roleTree" id="applicationTree"></ul>
+										<ul data-url="/application/getApplicationTree" data-subTree="roleTree" id="applicationTree"></ul>
 									</dd>
 								</dl>
 							</div>
@@ -43,7 +43,7 @@
 								</div>
 								<dl class="layui-anim layui-anim-upbit">
 									<dd>
-										<ul id="roleTree"></ul>
+										<ul data-url="/role/getRoleTree" id="roleTree"></ul>
 									</dd>
 								</dl>
 							</div>
@@ -102,9 +102,10 @@
 					return;
 				}
                 $.ajax({
-                    url:'/role/getRoleTree/' + $('#applicationId').val(),
+                    url:$('#roleTree').attr('data-url'),
                     method:'post',
                     dataType:'json',
+					data:{"applicationId": $('#applicationId').val()},
                     async:false,
                     success:function (data) {
                         if(data.status="S"){
@@ -119,7 +120,7 @@
 		/** 绑定应用选择*/
         function bindApplicationClick(tree) {
         	$.ajax({
-				url:'/application/getApplicationTree',
+				url: $('#applicationTree').attr('data-url'),
 				method:'post',
 				dataType:'json',
 				async:true,

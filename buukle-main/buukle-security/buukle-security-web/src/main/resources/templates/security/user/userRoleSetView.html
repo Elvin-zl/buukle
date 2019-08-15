@@ -10,10 +10,6 @@
 		<link rel="stylesheet" type="text/css" href="/static/security/css/admin.css"/>
 		<link rel="stylesheet" type="text/css" href="/static/security/select2/select2.min.css" />
 		<link rel="stylesheet" type="text/css" href="/static/security/plugin/ztree/css/zTreeStyle.css" />
-		<style>
-			/*排除掉layui自带的下拉框 以支持select2*/
-			#conditions .layui-unselect{display: none ;-webkit-user-select:none;-ms-user-select:none;-moz-user-select:none}
-		</style>
 	</head>
 	<body>
 	<!--表单-->
@@ -25,10 +21,21 @@
 		<div class="layui-tab">
 			<div id="conditions" class="layui-tab-item layui-show">
 				<div class="layui-form-item">
-					<span> 应用编码 ：</span>
-					<select class="fuzzy clearAble" id="applicationCode" data-url="/security/application/fuzzy/search" name="applicationCode" data-minimum="5" data-isIdVisual="0" data-fieldName="code" style="width: 200px;height: 10px">
-						<option value="">请输入应用编码</option>
-					</select>
+					<label class="layui-form-label">选择应用：</label>
+					<div class="layui-input-inline">
+						<div class="layui-unselect layui-form-select downpanel">
+							<div class="layui-select-title">
+								<span style="padding-top: 10px;" id="applicationId-span" class="layui-input layui-unselect" ></span>
+								<input type="hidden" id="applicationId" name="applicationId">
+								<i class="layui-edge"></i>
+							</div>
+							<dl class="layui-anim layui-anim-upbit">
+								<dd>
+									<ul data-url="/application/getApplicationTree" data-subTree="roleTree" id="applicationTree"></ul>
+								</dd>
+							</dl>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -36,8 +43,8 @@
 		<div class="layui-tab-item layui-show" style="height: 393px; margin-top: 29px;">
 			<div class="layui-form-item">
 				<span> 选择角色 : <span id="choseRoleNotice" style="color:red">（请先选择应用~）</span></span>
-				<div id="choseRole" style="margin-top: 23px;">
-					<ul id="tree" class="ztree buukle-zTree"></ul>
+				<div id="choseRole" style="margin-top: 20px;overflow: auto; height: 273px; background-color: #4c786c2e;">
+					<ul id="tree" data-url="/role/getAppUserRole" class="ztree buukle-zTree"></ul>
 				</div>
 			</div>
 		</div>
@@ -64,22 +71,37 @@
 	<script>
 		layui.use(['jquery', 'layer','dialog','form','tree', 'util'], function() {
 			layer = layui.layer, $ = layui.jquery, dialog = layui.dialog, tree = layui.tree,util = layui.util;
-			// 加载模糊搜索
-			loadFuzzySearch();
+			// 绑定应用选择
+			bindApplicationClick(tree);
 			// 绑定change事件,加载应用所有角色树
 			bindApplicationCodeChange();
 			// 绑定提交按钮
 			bindSaveOrEdit();
 		});
+		/** 绑定应用选择*/
+		function bindApplicationClick(tree) {
+			$.ajax({
+				url: $('#applicationTree').attr('data-url'),
+				method:'post',
+				dataType:'json',
+				async:true,
+				success:function (data) {
+					if(data.status="S"){
+						renderSelectedTree(tree,data,"#applicationTree",'applicationId');
+					}else{
+						layer.msg(data.head.msg);
+					}
+				}
+			})
+		}
 		var userRoleTree;
 		/**  绑定change事件,加载应用所有角色树*/
 		function bindApplicationCodeChange() {
-			$('#applicationCode').off().on('change',function () {
-				var applicationCode = $(this).val();
+			$("#applicationId-span").bind('DOMNodeInserted', function (e) {
 				$.ajax({
-					url : "/role/getAppUserRole",
+					url : $('#tree').attr('data-url'),
 					method : "post",
-					data : {"applicationCode" :applicationCode,"userId" : $('#userId').val()},
+					data : {"applicationId" :$('#applicationId').val(),"userId" : $('#userId').val()},
 					dataType : "json",
 					success:function (data) {
 						if(data.head.status == 'S'){
@@ -95,7 +117,7 @@
 						}
 					}
 				})
-			})
+			});
 		}
 		/** 绑定提交*/
         function bindSaveOrEdit() {

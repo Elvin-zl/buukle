@@ -191,7 +191,7 @@ public class RoleServiceImpl implements RoleService{
 
     /**
      * @description 获取用户在该app下的角色
-     * @param applicationCode
+     * @param applicationId
      * @param userId
      * @param request
      * @return top.buukle.common.call.PageResponse
@@ -199,11 +199,11 @@ public class RoleServiceImpl implements RoleService{
      * @Date 2019/8/12
      */
     @Override
-    public PageResponse getAppUserRole(String applicationCode, String userId, HttpServletRequest request) {
+    public PageResponse getAppUserRole(Integer applicationId, String userId, HttpServletRequest request) {
         // 查询应用
         ApplicationExample applicationExample = new ApplicationExample();
         ApplicationExample.Criteria applicationCriteria = applicationExample.createCriteria();
-        applicationCriteria.andCodeEqualTo(applicationCode);
+        applicationCriteria.andIdEqualTo(applicationId);
         List<Application> applications = applicationMapper.selectByExample(applicationExample);
         if(CollectionUtils.isEmpty(applications) || applications.size() > 1 ){
             throw new SystemException(SystemReturnEnum.USER_SET_USER_ROLE_PRE_APP_CODE_WRONG);

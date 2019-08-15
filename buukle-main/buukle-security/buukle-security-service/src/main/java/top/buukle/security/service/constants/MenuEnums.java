@@ -30,4 +30,44 @@ public class MenuEnums {
             return status;
         }
     }
+    public enum display {
+
+        DISPLAY_NONE(0,"不展示"),
+        DISPLAY_BLOCK(1,"展示"),
+        ;
+
+        private Integer code;
+        private String description;
+
+        display(int code, String description) {
+            this.description = description;
+            this.code = code;
+        }
+        public String getDescription() {
+            return description;
+        }
+        public Integer value() {
+            return code;
+        }
+    }
+    public enum type {
+
+        MENU(1,"菜单"),
+        COMPONENT(0,"组件"),
+        ;
+
+        private Integer code;
+        private String description;
+
+        type(int code, String description) {
+            this.description = description;
+            this.code = code;
+        }
+        public String getDescription() {
+            return description;
+        }
+        public Integer value() {
+            return code;
+        }
+    }
 }

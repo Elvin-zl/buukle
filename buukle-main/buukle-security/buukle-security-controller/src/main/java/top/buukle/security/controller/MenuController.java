@@ -59,9 +59,9 @@ public class MenuController {
      * @Author elvin
      * @Date 2019/8/10
      */
-    @RequestMapping("/getMenuTree/{applicationId}")
+    @RequestMapping("/getMenuTree")
     @ResponseBody
-    public PageResponse getMenuTree(@PathVariable("applicationId") Integer applicationId, HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public PageResponse getMenuTree(Integer applicationId, HttpServletRequest request, HttpServletResponse response) throws Exception {
         return menuService.getMenuTree(applicationId,request,response);
     }
 }

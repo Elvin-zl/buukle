@@ -14,6 +14,7 @@ import top.buukle.common.call.FuzzyResponse;
 import top.buukle.common.call.PageResponse;
 import top.buukle.security.entity.User;
 import top.buukle.security.entity.vo.BaseQuery;
+import top.buukle.security.entity.vo.MenuTreeNode;
 import top.buukle.security.plugin.util.SessionUtil;
 import top.buukle.security.service.BaseService;
 import top.buukle.util.JsonUtil;
@@ -23,6 +24,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Map;
 
 /**
  * @Author: elvin
@@ -48,6 +50,8 @@ public class SecurityController {
         String nameSuffix = applicationName.split("-")[1];
         modelAndView.addObject("nameSuffix",nameSuffix);
         modelAndView.addObject("user",SessionUtil.getUser(request, response));
+        MenuTreeNode menuTreeNode = ((Map<String, MenuTreeNode>) SessionUtil.get(request, SessionUtil.USER_MENU_TREE_KEY)).get(applicationName);
+        modelAndView.addObject("menuList",menuTreeNode == null ? new MenuTreeNode() : menuTreeNode.getSubMenuList());
         modelAndView.setViewName("home");
         return modelAndView;
     }

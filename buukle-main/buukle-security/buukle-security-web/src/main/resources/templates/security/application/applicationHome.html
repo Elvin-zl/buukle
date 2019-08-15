@@ -21,18 +21,22 @@
 				<!--查询表单-->
 				<form id="searchForm" class="layui-form" action="">
 					<div class="layui-form-item">
-						<div class="layui-inline">
-							<span> 应用编码 ：</span>
-							<select class="fuzzy clearAble" data-url="/security/application/fuzzy/search" name="code" data-minimum="5" data-isIdVisual="0" data-fieldName="code" style="width: 200px;height: 10px">
-								<option value="">请输入应用编码</option>
-							</select>
-						</div>
-						<div class="layui-inline">
-							<span> 应用名称 ：</span>
-							<select class="fuzzy clearAble" data-url="/security/application/fuzzy/search" name="name" data-minimum="5" data-isIdVisual="0" data-fieldName="name" style="width: 200px;height: 10px">
-								<option value="">请输入应用名</option>
-							</select>
-						</div>
+						<hp url="/security/application/fuzzy/search">
+							<div class="layui-inline">
+								<span> 应用编码 ：</span>
+								<select class="fuzzy clearAble" data-url="/security/application/fuzzy/search" name="code" data-minimum="5" data-isIdVisual="0" data-fieldName="code" style="width: 200px;height: 10px">
+									<option value="">请输入应用编码</option>
+								</select>
+							</div>
+						</hp>
+						<hp url="/security/application/fuzzy/search">
+							<div class="layui-inline">
+								<span> 应用名称 ：</span>
+								<select class="fuzzy clearAble" data-url="/security/application/fuzzy/search" name="name" data-minimum="5" data-isIdVisual="0" data-fieldName="name" style="width: 200px;height: 10px">
+									<option value="">请输入应用名</option>
+								</select>
+							</div>
+						</hp>
 						<div class="layui-inline">
 							<span> 状态 ：</span>
 							<select class="clearAble multiSelect"  data-multiHolder="请输入状态" data-multiField="states" style="width: 200px;height: 10px" multiple="multiple">
@@ -44,8 +48,12 @@
 							</select>
 						</div>
 						<div class="layui-inline tool-btn">
-							<button class="layui-btn layui-btn-sm layui-btn-normal addBtn" data-url="/security/application/applicationCrudView"><i class="layui-icon">&#xe654;</i></button>
-							<button class="layui-btn layui-btn-sm layui-btn-danger delBtn" data-url="/security/application/applicationBatchDeleteJson"><i class="layui-icon">&#xe640;</i></button>
+							<hp url="/security/application/applicationCrudView">
+								<button class="layui-btn layui-btn-sm layui-btn-normal addBtn" data-url="/security/application/applicationCrudView"><i class="layui-icon">&#xe654;</i></button>
+							</hp>
+							<hp url="/security/application/applicationBatchDeleteJson">
+								<button class="layui-btn layui-btn-sm layui-btn-danger delBtn" data-url="/security/application/applicationBatchDeleteJson"><i class="layui-icon">&#xe640;</i></button>
+							</hp>
 							<div class="layui-btn layui-btn-sm layui-btn-normal" data-title='搜索'  id="search">搜索</div>
 							<div class="layui-btn layui-btn-sm layui-btn-default" data-title='清空' id="clear">清空</div>
 						</div>

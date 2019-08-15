@@ -7,25 +7,25 @@ import java.util.List;
 public class MenuExample {
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
     protected String orderByClause;
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
     protected boolean distinct;
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
     protected List<Criteria> oredCriteria;
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
     public MenuExample() {
         oredCriteria = new ArrayList<Criteria>();
@@ -33,7 +33,7 @@ public class MenuExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -41,7 +41,7 @@ public class MenuExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -49,7 +49,7 @@ public class MenuExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -57,7 +57,7 @@ public class MenuExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
     public boolean isDistinct() {
         return distinct;
@@ -65,7 +65,7 @@ public class MenuExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -73,7 +73,7 @@ public class MenuExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -81,7 +81,7 @@ public class MenuExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -91,7 +91,7 @@ public class MenuExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
     public MenuExample orderBy(String orderByClause) {
         this.setOrderByClause(orderByClause);
@@ -100,7 +100,7 @@ public class MenuExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
     public MenuExample orderBy(String ... orderByClauses) {
         StringBuffer sb = new StringBuffer();
@@ -116,7 +116,7 @@ public class MenuExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -128,7 +128,7 @@ public class MenuExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria(this);
@@ -137,7 +137,7 @@ public class MenuExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
     public void clear() {
         oredCriteria.clear();
@@ -147,7 +147,7 @@ public class MenuExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
     public static Criteria newAndCreateCriteria() {
         MenuExample example = new MenuExample();
@@ -156,7 +156,7 @@ public class MenuExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -786,6 +786,186 @@ public class MenuExample {
 
         public Criteria andIconNotBetween(String value1, String value2) {
             addCriterion("icon not between", value1, value2, "icon");
+            return (Criteria) this;
+        }
+
+        public Criteria andDisplayIsNull() {
+            addCriterion("display is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDisplayIsNotNull() {
+            addCriterion("display is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDisplayEqualTo(Integer value) {
+            addCriterion("display =", value, "display");
+            return (Criteria) this;
+        }
+
+        public Criteria andDisplayNotEqualTo(Integer value) {
+            addCriterion("display <>", value, "display");
+            return (Criteria) this;
+        }
+
+        public Criteria andDisplayGreaterThan(Integer value) {
+            addCriterion("display >", value, "display");
+            return (Criteria) this;
+        }
+
+        public Criteria andDisplayGreaterThanOrEqualTo(Integer value) {
+            addCriterion("display >=", value, "display");
+            return (Criteria) this;
+        }
+
+        public Criteria andDisplayLessThan(Integer value) {
+            addCriterion("display <", value, "display");
+            return (Criteria) this;
+        }
+
+        public Criteria andDisplayLessThanOrEqualTo(Integer value) {
+            addCriterion("display <=", value, "display");
+            return (Criteria) this;
+        }
+
+        public Criteria andDisplayIn(List<Integer> values) {
+            addCriterion("display in", values, "display");
+            return (Criteria) this;
+        }
+
+        public Criteria andDisplayNotIn(List<Integer> values) {
+            addCriterion("display not in", values, "display");
+            return (Criteria) this;
+        }
+
+        public Criteria andDisplayBetween(Integer value1, Integer value2) {
+            addCriterion("display between", value1, value2, "display");
+            return (Criteria) this;
+        }
+
+        public Criteria andDisplayNotBetween(Integer value1, Integer value2) {
+            addCriterion("display not between", value1, value2, "display");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderNoIsNull() {
+            addCriterion("order_no is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderNoIsNotNull() {
+            addCriterion("order_no is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderNoEqualTo(Integer value) {
+            addCriterion("order_no =", value, "orderNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderNoNotEqualTo(Integer value) {
+            addCriterion("order_no <>", value, "orderNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderNoGreaterThan(Integer value) {
+            addCriterion("order_no >", value, "orderNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderNoGreaterThanOrEqualTo(Integer value) {
+            addCriterion("order_no >=", value, "orderNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderNoLessThan(Integer value) {
+            addCriterion("order_no <", value, "orderNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderNoLessThanOrEqualTo(Integer value) {
+            addCriterion("order_no <=", value, "orderNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderNoIn(List<Integer> values) {
+            addCriterion("order_no in", values, "orderNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderNoNotIn(List<Integer> values) {
+            addCriterion("order_no not in", values, "orderNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderNoBetween(Integer value1, Integer value2) {
+            addCriterion("order_no between", value1, value2, "orderNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderNoNotBetween(Integer value1, Integer value2) {
+            addCriterion("order_no not between", value1, value2, "orderNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeIsNull() {
+            addCriterion("type is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeIsNotNull() {
+            addCriterion("type is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeEqualTo(Integer value) {
+            addCriterion("type =", value, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeNotEqualTo(Integer value) {
+            addCriterion("type <>", value, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeGreaterThan(Integer value) {
+            addCriterion("type >", value, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("type >=", value, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeLessThan(Integer value) {
+            addCriterion("type <", value, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeLessThanOrEqualTo(Integer value) {
+            addCriterion("type <=", value, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeIn(List<Integer> values) {
+            addCriterion("type in", values, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeNotIn(List<Integer> values) {
+            addCriterion("type not in", values, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeBetween(Integer value1, Integer value2) {
+            addCriterion("type between", value1, value2, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeNotBetween(Integer value1, Integer value2) {
+            addCriterion("type not between", value1, value2, "type");
             return (Criteria) this;
         }
 
@@ -1822,18 +2002,18 @@ public class MenuExample {
 
     /**
      *
-     * @mbg.generated do_not_delete_during_merge Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated do_not_delete_during_merge Thu Aug 15 14:43:20 CST 2019
      */
     public static class Criteria extends GeneratedCriteria {
         /**
          *
-         * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+         * @mbg.generated Thu Aug 15 14:43:20 CST 2019
          */
         private MenuExample example;
 
         /**
          *
-         * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+         * @mbg.generated Thu Aug 15 14:43:20 CST 2019
          */
         protected Criteria(MenuExample example) {
             super();
@@ -1842,7 +2022,7 @@ public class MenuExample {
 
         /**
          *
-         * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+         * @mbg.generated Thu Aug 15 14:43:20 CST 2019
          */
         public MenuExample example() {
             return this.example;
@@ -1850,7 +2030,7 @@ public class MenuExample {
 
         /**
          *
-         * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+         * @mbg.generated Thu Aug 15 14:43:20 CST 2019
          */
         public Criteria andIf(boolean ifAdd, ICriteriaAdd add) {
             if (ifAdd) {
@@ -1862,7 +2042,7 @@ public class MenuExample {
         public interface ICriteriaAdd {
             /**
              *
-             * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+             * @mbg.generated Thu Aug 15 14:43:20 CST 2019
              */
             Criteria add(Criteria add);
         }
@@ -1870,7 +2050,7 @@ public class MenuExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
     public static class Criterion {
         private String condition;

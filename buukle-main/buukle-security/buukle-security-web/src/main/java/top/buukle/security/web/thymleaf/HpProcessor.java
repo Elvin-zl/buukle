@@ -46,16 +46,18 @@ public class HpProcessor extends AbstractElementTagProcessor {
 		HttpServletRequest request = webEngineContext.getRequest();
 		List<String> usrUrls = (List<String>)SessionUtil.get(request, SessionUtil.USER_URL_LIST_KEY);
 		// 有or无权限处理
-		if (!CollectionUtils.isEmpty(usrUrls) && usrUrls.contains(tag.getAttributeValue("url"))) {
+		if (!CollectionUtils.isEmpty(usrUrls) && (usrUrls.contains(tag.getAttributeValue("url")) || usrUrls.contains(tag.getAttributeValue("data-url"))) ) {
 			structureHandler.removeTags();
 		} else {
 			structureHandler.removeElement();
 		}
 		// 修改or新增处理
-		if(!StringUtil.isEmpty(tag.getAttributeValue("hpType")) && tag.getAttributeValue("hpType").equals("editOrAdd") && StringUtil.isEmpty(tag.getAttributeValue("recordId"))){
-			structureHandler.removeTags();
-		}else{
-			structureHandler.removeElement();
+		if(!StringUtil.isEmpty(tag.getAttributeValue("hpType"))){
+			if(tag.getAttributeValue("hpType").equals("editOrAdd") && StringUtil.isEmpty(tag.getAttributeValue("recordId"))){
+				structureHandler.removeTags();
+			}else{
+				structureHandler.removeElement();
+			}
 		}
 	}
  

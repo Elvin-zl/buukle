@@ -10,67 +10,67 @@ import top.buukle.security.entity.MenuExample;
 public interface MenuMapper {
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
     long countByExample(MenuExample example);
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
     int deleteByExample(MenuExample example);
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
     int deleteByPrimaryKey(Integer id);
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
     int insert(Menu record);
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
     int insertSelective(Menu record);
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
     List<Menu> selectByExample(MenuExample example);
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
     Menu selectByPrimaryKey(Integer id);
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
     int updateByExampleSelective(@Param("record") Menu record, @Param("example") MenuExample example);
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
     int updateByExample(@Param("record") Menu record, @Param("example") MenuExample example);
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
     int updateByPrimaryKeySelective(Menu record);
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:47 CST 2019
+     * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
     int updateByPrimaryKey(Menu record);
 
