@@ -99,9 +99,10 @@ public class ApiUserServiceImpl implements ApiUserService{
             // 缓存用户可见菜单数组
             SessionUtil.cache(request,SessionUtil.USER_MENU_TREE_KEY,userApplicationMenuDisplayed);
             // 缓存用户角色目录
-            SessionUtil.cache(request,SessionUtil.USER_ROLE_LIST_KEY,roleMapper.selectUserRoles(userInfo.getUserId()));
+            List<Role> userRoles = roleMapper.selectUserRoles(userInfo.getUserId());
+            SessionUtil.cache(request,SessionUtil.USER_ROLE_LIST_KEY,userRoles);
             // 查询用户按钮目录
-            List<Button> buttonList = this.getUserButtonList(menuList);
+            List<Button> buttonList = this.getUserButtonList(userRoles);
             // 缓存用户按钮目录
             SessionUtil.cache(request,SessionUtil.USER_BUTTON_LIST_KEY,buttonList);
             // 缓存用户所有资源url清单
@@ -131,21 +132,20 @@ public class ApiUserServiceImpl implements ApiUserService{
 
     /**
      * @description 组装用户按钮目录
-     * @param menuList
+     * @param userRoles
      * @return java.util.List<top.buukle.security.entity.Button>
      * @Author elvin
      * @Date 2019/8/3
      */
-    private List<Button> getUserButtonList(List<Menu> menuList) {
-        List<Integer> menuIdList = new ArrayList<>();
-        for (Menu menu: menuList) {
-            menuIdList.add(menu.getId());
+    private List<Button> getUserButtonList(List<Role> userRoles) {
+        List<Button> buttons = null;
+        if(!CollectionUtils.isEmpty(userRoles)){
+            List<Integer> roleIds=new ArrayList<>();
+            for (Role role: userRoles) {
+                roleIds.add(role.getId());
+            }
+            buttons = buttonMapper.getUserButtonList(roleIds);
         }
-        ButtonExample buttonExample = new ButtonExample();
-        ButtonExample.Criteria criteria = buttonExample.createCriteria();
-        criteria.andMenuIdIn(menuIdList);
-        criteria.andStatusEqualTo(MenuEnums.status.PUBLISED.value());
-        List<Button> buttons = buttonMapper.selectByExample(buttonExample);
         return CollectionUtils.isEmpty(buttons) ? new ArrayList<>() : buttons;
     }
 

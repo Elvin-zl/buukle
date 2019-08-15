@@ -62,7 +62,7 @@ public class UserController {
      */
     @RequestMapping("/userRoleSet")
     @ResponseBody
-    public CommonResponse userRoleSet(String applicationCode,String ids, UserQuery query, HttpServletRequest request, HttpServletResponse response) throws Exception {
-        return userService.userRoleSet(applicationCode,ids,query,request,response);
+    public CommonResponse userRoleSet(Integer applicationId,String ids, UserQuery query, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        return userService.userRoleSet(applicationId,ids,query,request,response);
     }
 }

@@ -540,4 +540,17 @@
   <select id="getRoleButtonListByRoleId" resultMap="BaseResultMap">
     select b.* from button b , role_menu_button_relation rmb  where rmb.role_id = #{roleId} and rmb.`button_id` = b.`id` and b.application_id = #{applicationId} and b.status = 3
   </select>
+  <select id="getUserButtonList" parameterType="java.util.List" resultMap="BaseResultMap">
+    SELECT
+        b.*
+    FROM
+        button b,
+        role_menu_button_relation rmb
+    WHERE
+        rmb.role_id in
+          <foreach item="roleId" collection="roleIds" separator="," open="(" close=")" index="">
+            #{roleId, jdbcType=INTEGER}
+          </foreach>
+        and rmb.`button_id` = b.`id` and b.status = 3
+  </select>
 </mapper>

@@ -160,7 +160,7 @@ public class UserServiceImpl implements UserService{
 
     /**
      * @description 设置用户角色
-     * @param applicationCode
+     * @param applicationId
      * @param ids
      * @param query
      * @param request
@@ -170,11 +170,11 @@ public class UserServiceImpl implements UserService{
      * @Date 2019/8/13
      */
     @Override
-    public CommonResponse userRoleSet(String applicationCode, String ids, UserQuery query, HttpServletRequest request, HttpServletResponse response) {
+    public CommonResponse userRoleSet(Integer applicationId, String ids, UserQuery query, HttpServletRequest request, HttpServletResponse response) {
         // 查询应用
         ApplicationExample applicationExample = new ApplicationExample();
         ApplicationExample.Criteria applicationCriteria = applicationExample.createCriteria();
-        applicationCriteria.andCodeEqualTo(applicationCode);
+        applicationCriteria.andIdEqualTo(applicationId);
         List<Application> applications = applicationMapper.selectByExample(applicationExample);
         if(CollectionUtils.isEmpty(applications) || applications.size() > 1 ){
             throw new SystemException(SystemReturnEnum.USER_SET_USER_ROLE_PRE_APP_CODE_WRONG);

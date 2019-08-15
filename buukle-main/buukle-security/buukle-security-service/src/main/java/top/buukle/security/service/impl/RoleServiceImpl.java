@@ -314,6 +314,7 @@ public class RoleServiceImpl implements RoleService{
                 RoleMenuButtonRelationExample relationExample = new RoleMenuButtonRelationExample();
                 RoleMenuButtonRelationExample.Criteria criteria = relationExample.createCriteria();
                 criteria.andMenuIdEqualTo(roleMenu.getId());
+                criteria.andRoleIdEqualTo(id);
                 roleMenuButtonRelationMapper.deleteByExample(relationExample);
             }
         }

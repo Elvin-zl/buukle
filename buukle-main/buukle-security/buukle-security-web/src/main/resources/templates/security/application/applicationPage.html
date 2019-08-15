@@ -32,8 +32,12 @@
 			</td>
 			<td>
 				<div class="layui-inline">
-					<div class="layui-btn layui-btn-sm layui-btn-normal editBtn" th:attr="data-id = ${applicationRecord?.id}" data-url="/security/application/applicationCrudView"><i class="layui-icon">&#xe642;</i></div>
-					<div class="layui-btn layui-btn-sm layui-btn-danger delOneBtn" th:attr="data-id = ${applicationRecord?.id}" data-url="/security/application/applicationCrudJson"><i class="layui-icon">&#xe640;</i></div>
+					<hp url="/security/application/applicationCrudView">
+						<div class="layui-btn layui-btn-sm layui-btn-normal editBtn" th:attr="data-id = ${applicationRecord?.id}" data-url="/security/application/applicationCrudView"><i class="layui-icon">&#xe642;</i></div>
+					</hp>
+					<hp url="/security/application/applicationCrudJson">
+						<div class="layui-btn layui-btn-sm layui-btn-danger delOneBtn" th:attr="data-id = ${applicationRecord?.id}" data-url="/security/application/applicationCrudJson"><i class="layui-icon">&#xe640;</i></div>
+					</hp>
 				</div>
 			</td>
 		</tr>

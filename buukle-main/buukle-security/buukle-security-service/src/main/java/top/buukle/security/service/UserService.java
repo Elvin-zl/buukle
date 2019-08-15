@@ -14,5 +14,5 @@ public interface UserService extends BaseService{
 
     CommonResponse saveOrEdit(UserQuery query, HttpServletRequest request, HttpServletResponse response);
 
-    CommonResponse userRoleSet(String applicationCode, String ids, UserQuery query, HttpServletRequest request, HttpServletResponse response);
+    CommonResponse userRoleSet(Integer applicationId, String ids, UserQuery query, HttpServletRequest request, HttpServletResponse response);
 }

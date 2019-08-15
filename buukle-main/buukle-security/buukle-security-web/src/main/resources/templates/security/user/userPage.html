@@ -36,9 +36,15 @@
 			</td>
 			<td>
 				<div class="layui-inline">
-					<div class="layui-btn layui-btn-sm layui-btn-normal editBtn" th:attr="data-id = ${user?.id} , data-userId = ${user?.userId}" data-url="/security/user/userCrudView"><i class="layui-icon">&#xe642;</i></div>
-					<div class="layui-btn layui-btn-sm layui-btn-danger delOneBtn" th:attr="data-id = ${user?.id} , data-userId = ${user?.userId}" data-url="/security/user/userCrudJson"><i class="layui-icon">&#xe640;</i></div>
-					<div class="layui-btn layui-btn-sm layui-btn-normal setUserRoleBtn" th:attr="data-username = ${user?.username} ,data-id = ${user?.id} , data-userId = ${user?.userId}" data-url="/security/user/userRoleSetView"><i class="layui-icon">&#xe613;</i></div>
+					<hp url="/security/user/userCrudView">
+						<div class="layui-btn layui-btn-sm layui-btn-normal editBtn" th:attr="data-id = ${user?.id} , data-userId = ${user?.userId}" data-url="/security/user/userCrudView"><i class="layui-icon">&#xe642;</i></div>
+					</hp>
+					<hp url="/security/user/userCrudJson">
+						<div class="layui-btn layui-btn-sm layui-btn-danger delOneBtn" th:attr="data-id = ${user?.id} , data-userId = ${user?.userId}" data-url="/security/user/userCrudJson"><i class="layui-icon">&#xe640;</i></div>
+					</hp>
+					<hp url="/security/user/userRoleSetView">
+						<div class="layui-btn layui-btn-sm layui-btn-normal setUserRoleBtn" th:attr="data-username = ${user?.username} ,data-id = ${user?.id} , data-userId = ${user?.userId}" data-url="/security/user/userRoleSetView"><i class="layui-icon">&#xe613;</i></div>
+					</hp>
 				</div>
 			</td>
 		</tr>

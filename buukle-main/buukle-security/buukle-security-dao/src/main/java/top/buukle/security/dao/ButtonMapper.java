@@ -75,4 +75,6 @@ public interface ButtonMapper {
     int updateByPrimaryKey(Button record);
 
     List<Button> getRoleButtonListByRoleId(@Param("roleId") Integer roleId, @Param("applicationId")Integer applicationId);
+
+    List<Button> getUserButtonList(@Param("roleIds") List<Integer> roleIds);
 }
