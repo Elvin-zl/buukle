@@ -21,7 +21,7 @@
 				<!--查询表单-->
 				<form id="searchForm" class="layui-form" action="">
 					<div class="layui-form-item">
-						<hp url="/security/menu/fuzzy/search">
+						<hp url="/security/user/fuzzy/search">
 							<div class="layui-inline">
 								<span> UID ：</span>
 								<select class="fuzzy clearAble" data-url="/security/user/fuzzy/search" name="userId" data-minimum="5" data-isIdVisual="0" data-fieldName="user_id" style="width: 200px;height: 10px">
@@ -29,15 +29,15 @@
 								</select>
 							</div>
 						</hp>
-						<hp url="/security/menu/fuzzy/search">
+						<hp url="/security/user/fuzzy/search">
 							<div class="layui-inline">
 								<span> 账号 ：</span>
-								<select class="fuzzy clearAble" data-url="/security/user/fuzzy/search" name="username" data-minimum="5" data-isIdVisual="0" data-fieldName="username" style="width: 200px;height: 10px">
+								<select class="fuzzy clearAble" data-url="/security/user/fuzzy/search" name="username" data-minimum="2" data-isIdVisual="0" data-fieldName="username" style="width: 200px;height: 10px">
 									<option value="">请输入账号</option>
 								</select>
 							</div>
 						</hp>
-						<hp url="/security/menu/fuzzy/search">
+						<hp url="/security/user/fuzzy/search">
 							<div class="layui-inline">
 								<span> 中文名 ：</span>
 								<select class="fuzzy clearAble" data-url="/security/user/fuzzy/search" name="nameCn" data-minimum="2"  data-isIdVisual="1" data-fieldName="name_cn" style="width: 200px;height: 10px">
