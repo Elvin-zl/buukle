@@ -601,6 +601,6 @@
     order by m.order_no ASC
   </select>
   <select id="getRoleMenuListByRoleId" resultMap="BaseResultMap">
-    select m.* from menu m , role_menu_button_relation rmb  where rmb.role_id = #{roleId} AND rmb.`menu_id` =m.`id` and m.application_id = #{applicationId} and m.status = 3
+    select distinct m.* from menu m , role_menu_button_relation rmb  where rmb.role_id = #{roleId} AND rmb.`menu_id` =m.`id` and m.application_id = #{applicationId} and m.status = 3
   </select>
 </mapper>

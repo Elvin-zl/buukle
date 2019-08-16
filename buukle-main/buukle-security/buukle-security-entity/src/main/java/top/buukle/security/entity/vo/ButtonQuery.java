@@ -18,6 +18,8 @@ public class ButtonQuery extends Button implements BaseQuery{
     private String endTime;
     /** 状态*/
     private String states;
+    /** 应用名*/
+    private String applicationName;
 
     public String getStates() {
         if("null".equals(states)){
@@ -63,5 +65,13 @@ public class ButtonQuery extends Button implements BaseQuery{
 
     public void setEndTime(String endTime) {
         this.endTime = endTime;
+    }
+
+    public String getApplicationName() {
+        return applicationName;
+    }
+
+    public void setApplicationName(String applicationName) {
+        this.applicationName = applicationName;
     }
 }

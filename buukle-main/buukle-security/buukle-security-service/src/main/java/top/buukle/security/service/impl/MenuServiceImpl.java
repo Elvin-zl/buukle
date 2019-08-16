@@ -63,6 +63,11 @@ public class MenuServiceImpl implements MenuService{
         PageHelper.startPage(((MenuQuery)query).getPage(),((MenuQuery)query).getPageSize());
         List<Menu> list = menuMapper.selectByExample(this.assExampleForList(((MenuQuery)query)));
         PageInfo<Menu> pageInfo = new PageInfo<>(list);
+        Application application;
+        for (Menu menu: list) {
+            application = applicationMapper.selectByPrimaryKey(menu.getApplicationId());
+            menu.setApplicationName(application == null ? "" : application.getName());
+        }
         return new PageResponse.Builder().build(list,pageInfo.getPageNum(),pageInfo.getPageSize(),pageInfo.getTotal());
     }
 

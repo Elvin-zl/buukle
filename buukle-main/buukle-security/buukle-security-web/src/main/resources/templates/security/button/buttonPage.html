@@ -3,6 +3,7 @@
 	<thead>
 	<tr>
 		<th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose"></th>
+		<th class="hidden-xs">所属应用</th>
 		<th class="hidden-xs">按钮名称</th>
 		<th class="hidden-xs">url</th>
 		<th class="hidden-xs">创建者</th>
@@ -16,6 +17,7 @@
 	<tbody id="tbody-button">
 		<tr th:each="buttonRecord:${response?.body?.list}">
 			<td><input type="checkbox" name="batchCheckBox" lay-skin="primary" th:attr="data-id = ${buttonRecord?.id}"  /></td>
+			<td th:text="${buttonRecord?.applicationName}" class="hidden-xs"></td>
 			<td th:text="${buttonRecord?.name}" class="hidden-xs"></td>
 			<td th:text="${buttonRecord?.url}" class="hidden-xs"></td>
 			<td th:text="${buttonRecord?.creator}" class="hidden-xs"></td>

@@ -63,7 +63,16 @@ public class ButtonServiceImpl implements ButtonService{
         PageHelper.startPage(((ButtonQuery)query).getPage(),((ButtonQuery)query).getPageSize());
         List<Button> list = buttonMapper.selectByExample(this.assExampleForList(((ButtonQuery)query)));
         PageInfo<Button> pageInfo = new PageInfo<>(list);
-        return new PageResponse.Builder().build(list,pageInfo.getPageNum(),pageInfo.getPageSize(),pageInfo.getTotal());
+        Application application;
+        List<ButtonQuery> buttonQueryList = new ArrayList<>();
+        for (Button button: list) {
+            ButtonQuery buttonQuery = new ButtonQuery();
+            BeanUtils.copyProperties(button,buttonQuery);
+            application = applicationMapper.selectByPrimaryKey(button.getApplicationId());
+            buttonQuery.setApplicationName(application == null ? "" : application.getName());
+            buttonQueryList.add(buttonQuery);
+        }
+        return new PageResponse.Builder().build(buttonQueryList,pageInfo.getPageNum(),pageInfo.getPageSize(),pageInfo.getTotal());
     }
 
     /**

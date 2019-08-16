@@ -17,6 +17,7 @@ import top.buukle.security.entity.*;
 import top.buukle.security.entity.vo.*;
 import top.buukle.security .plugin.util.SessionUtil;
 import top.buukle.security .service.RoleService;
+import top.buukle.security.service.constants.MenuEnums;
 import top.buukle.security .service.constants.SystemReturnEnum;
 import top.buukle.security .service.constants.RoleEnums;
 import top.buukle.security .service.exception.SystemException;
@@ -61,6 +62,11 @@ public class RoleServiceImpl implements RoleService{
     public PageResponse getPage(BaseQuery query) {
         PageHelper.startPage(((RoleQuery)query).getPage(),((RoleQuery)query).getPageSize());
         List<Role> list = roleMapper.selectByExample(this.assExampleForList(((RoleQuery)query)));
+        Application application;
+        for (Role role: list) {
+            application = applicationMapper.selectByPrimaryKey(role.getApplicationId());
+            role.setApplicationName(application == null ? "" : application.getName());
+        }
         PageInfo<Role> pageInfo = new PageInfo<>(list);
         return new PageResponse.Builder().build(list,pageInfo.getPageNum(),pageInfo.getPageSize(),pageInfo.getTotal());
     }
@@ -271,7 +277,10 @@ public class RoleServiceImpl implements RoleService{
                 ZtreeNode roleResource = new ZtreeNode();
                 roleResource.setId(appMenu.getId());
                 roleResource.setPid(appMenu.getPid());
-                roleResource.setName(appMenu.getName());
+                roleResource.setName(appMenu.getName() +
+                        (MenuEnums.type.MENU.value().equals(appMenu.getType()) ?
+                                (MenuEnums.display.DISPLAY_BLOCK.value().equals(appMenu.getDisplay()) ?  " (菜单[展示]) " : " (菜单[不展示]) "  )
+                                : " (组件) "));
                 roleResource.setChecked(roleMenuIds.contains(appMenu.getId()));
                 roleResources.add(roleResource);
             }
@@ -306,6 +315,8 @@ public class RoleServiceImpl implements RoleService{
         Role role = roleMapper.selectByPrimaryKey(id);
         // 查询应用下角色拥有的菜单
         List<Menu> roleMenus = menuMapper.getRoleMenuListByRoleId(id,role.getApplicationId());
+        // 查询应用下角色拥有的按钮
+        List<Button> roleButtons = buttonMapper.getRoleButtonListByRoleId(id,role.getApplicationId());
         List<Integer> roleMenuIds = new ArrayList<>();
         if(!CollectionUtils.isEmpty(roleMenus)){
             for (Menu roleMenu: roleMenus) {
@@ -318,8 +329,6 @@ public class RoleServiceImpl implements RoleService{
                 roleMenuButtonRelationMapper.deleteByExample(relationExample);
             }
         }
-        // 查询应用下角色拥有的按钮
-        List<Button> roleButtons = buttonMapper.getRoleButtonListByRoleId(id,role.getApplicationId());
         List<Integer> roleButtonIds = new ArrayList<>();
         if(!CollectionUtils.isEmpty(roleButtons)){
             for (Button roleButton: roleButtons) {
@@ -341,13 +350,13 @@ public class RoleServiceImpl implements RoleService{
             if(menuAndButtonIds.length < 1){
                 return new CommonResponse.Builder().buildSuccess();
             }
-            // 要设置的菜单id集合
+            // 要设置的菜单&组件id集合
             List<Integer> menuIds = new ArrayList<>();
             // 要设置的按钮id集合
             List<Integer> buttonIds = new ArrayList<>();
             for (String idStr : menuAndButtonIds) {
                 int idTemp = Integer.parseInt(idStr);
-                if(idTemp>0){
+                if(idTemp > 0){
                     menuIds.add(idTemp);
                 }else{
                     buttonIds.add(idTemp * -1);
