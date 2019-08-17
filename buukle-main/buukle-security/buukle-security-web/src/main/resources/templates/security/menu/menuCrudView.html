@@ -17,14 +17,14 @@
 		<div class="layui-tab">
 			<div class="layui-tab-content">
 				<div class="layui-tab-item layui-show">
-					<input type="hidden" id="applicationId" th:attr="value = ${record?.applicationId}" name="applicationId">
 					<hp th:attr="recordId = ${record?.id}" hpType="displayForAdd">
 						<div class="layui-form-item">
 							<label class="layui-form-label">所属应用：</label>
 							<div class="layui-input-inline">
 								<div class="layui-unselect layui-form-select downpanel">
 									<div class="layui-select-title">
-										<span style="padding-top: 10px;" class="layui-input layui-unselect" th:text="${record?.applicationCode} == '' ? '选择应用' : ${record?.applicationCode}" ></span>
+										<span style="padding-top: 10px;"  class="layui-input layui-unselect" th:text="${record?.applicationCode} == '' ? '选择应用' : ${record?.applicationCode}" ></span>
+										<input type="hidden" id="applicationId" th:attr="value = ${record?.applicationId}" name="applicationId">
 										<i class="layui-edge"></i>
 									</div>
 									<dl class="layui-anim layui-anim-upbit">
@@ -41,6 +41,7 @@
 							<label class="layui-form-label">所属应用：</label>
 							<div class="layui-input-inline">
 								<span style="padding-top: 10px;" class="layui-input buukle-disabled" th:text="${record?.applicationCode}" ></span>
+								<input type="hidden" th:attr="value = ${record?.applicationId}" name="applicationId">
 							</div>
 						</div>
 					</hp>
@@ -141,7 +142,7 @@
         /** 绑定上级选择*/
         function bindPidClick(tree) {
             $('#superMenu').off().on('click',function () {
-                if($('#applicationId').val() == 0){
+                if( $("input:hidden[name='applicationId']").val() == 0){
                     layer.msg('请先选择所属应用!');
                     return;
                 }
@@ -149,7 +150,7 @@
                     url:$('#menuTree').attr('data-url'),
                     method:'post',
                     dataType:'json',
-					data:{"applicationId":$('#applicationId').val()},
+					data:{"applicationId":$("input:hidden[name='applicationId']").val()},
                     async:false,
                     success:function (data) {
                         if(data.head.status=="S"){

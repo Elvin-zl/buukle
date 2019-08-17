@@ -51,16 +51,17 @@
 					</div>
 					<ul class="layui-nav" lay-filter="rightNav">
 					  <li class="layui-nav-item">
-						  <a href="javascript:;" data-url="/security/message/messageList" data-id='4' data-text="消息中心">
+						  <a href="javascript:;" data-url="/security/message/messageList" data-id='53' data-text="消息管理">
 							  <i class="layui-icon">&#xe611;</i>
 						  </a>
 					  </li>
-					  <li class="layui-nav-item">
-					    <a href="javascript:;" th:text="${user?.username}"></a>
-						  <input type="hidden" data-type="UID" th:attr="value=${user?.userId}"/>
+					  <li class="layui-nav-item layui-this">
+					      <a href="javascript:;" th:attr="data-url = ${welcome.url},data-id=${welcome.id},data-text=${welcome.name}" th:text="${welcome.name}">
+						  </a>
 					  </li>
 					  <li class="layui-nav-item">
-					    <a href="javascript:;" th:text="${role?.roleName}"></a>
+					    <a href="javascript:;" data-url="/security/userCenter/userInfo" data-id='54' data-text="个人中心"  th:text="${user?.username} + ' ( ' +${role?.roleName}+ ' ) '"></a>
+						  <input type="hidden" data-type="UID" th:attr="value=${user?.userId}"/>
 					  </li>
 					  <li class="layui-nav-item"><a href="/logout">登出</a></li>
 					</ul>
