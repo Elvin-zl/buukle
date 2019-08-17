@@ -2,8 +2,8 @@ package top.buukle.security .service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import org.springframework.util.CollectionUtils;
@@ -14,7 +14,9 @@ import top.buukle.security.entity.*;
 import top.buukle.security.entity.vo.BaseQuery;
 import top.buukle.security .entity.vo.UserQuery;
 import top.buukle.security.plugin.util.SessionUtil;
+import top.buukle.security.service.RoleService;
 import top.buukle.security .service.UserService;
+import top.buukle.security.service.constants.RoleEnums;
 import top.buukle.security.service.constants.SystemConstants;
 import top.buukle.security .service.constants.UserEnums;
 import top.buukle.security .service.constants.SystemReturnEnum;
@@ -30,10 +32,7 @@ import top.buukle.util.StringUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
 * @author elvin
@@ -49,11 +48,15 @@ public class UserServiceImpl implements UserService{
     @Autowired
     private RoleMapper roleMapper;
     @Autowired
+    private RoleService roleService;
+    @Autowired
     private UserRoleRelationMapper userRoleRelationMapper;
     @Autowired
     private UserRoleRelationLogsMapper userRoleRelationLogsMapper;
     @Autowired
     private CommonMapper commonMapper;
+    @Autowired
+    private Environment env;
 
     /**
      * 分页获取列表
@@ -77,6 +80,10 @@ public class UserServiceImpl implements UserService{
      */
     @Override
     public CommonResponse delete(Integer id, HttpServletRequest request, HttpServletResponse response) {
+        User user = userMapper.selectByPrimaryKey(id);
+        if(user != null){
+            this.validatePerm(request,user);
+        }
         if(userMapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(id, UserEnums.status.DELETED.value(),request,response)) != 1){
             throw new SystemException(SystemReturnEnum.DELETE_INFO_EXCEPTION);
         }
@@ -103,13 +110,15 @@ public class UserServiceImpl implements UserService{
         UserExample userExample = new UserExample();
         UserExample.Criteria criteria = userExample.createCriteria();
         criteria.andIdIn(idList);
+        List<User> users = userMapper.selectByExample(userExample);
+        for (User userToDel: users) {
+            this.validatePerm(request,userToDel);
+        }
         User user = new User();
-
         User operator = SessionUtil. getOperator(request, response);
         user.setGmtModified(new Date());
         user.setModifier(operator.getUsername());
         user.setModifierCode(operator.getUserId());
-
         user.setStatus(UserEnums.status.DELETED.value());
         userMapper.updateByExampleSelective(user,userExample);
         return new CommonResponse.Builder().buildSuccess();
@@ -123,12 +132,57 @@ public class UserServiceImpl implements UserService{
      * @Date 2019/8/4
      */
     @Override
-    public User selectByPrimaryKey(Integer id) {
+    public User selectByPrimaryKeyForCrud(HttpServletRequest httpServletRequest, Integer id) {
         if(id == null){
             return new User();
         }
         User user = userMapper.selectByPrimaryKey(id);
+        if(user!=null){
+            this.validatePerm(httpServletRequest,user);
+        }
         return user == null ? new User() : user;
+    }
+
+    /**
+     * @description 验证有无操作权限
+     * @param
+     * @param httpServletRequest
+     *@param user @return void
+     * @Author elvin
+     * @Date 2019/8/18
+     */
+    private void validatePerm(HttpServletRequest httpServletRequest, User user) {
+        if(UserEnums.superManager.SYSTEM_MANAGER.value().equals(user.getSuperManager())){
+            throw new SystemException(SystemReturnEnum.OPERATE_INFO_SYSTEM_PROTECT_EXCEPTION);
+        }
+        // 查询应用
+        ApplicationExample applicationExample = new ApplicationExample();
+        ApplicationExample.Criteria criteria = applicationExample.createCriteria();
+        criteria.andCodeEqualTo(env.getProperty("spring.application.name"));
+        List<Application> applications = applicationMapper.selectByExample(applicationExample);
+        if(CollectionUtils.isEmpty(applications) || applications.size() != 1){
+            throw new SystemException(SystemReturnEnum.USER_SAVE_OR_EDIT_APP_NOT_EXIST);
+        }
+        // 获取操作者在app的角色映射
+        Map<String, Role> operatorRoleMap = (Map<String, Role>) SessionUtil.get(httpServletRequest, SessionUtil.USER_ROLE_MAP_KEY);
+        Role operatorRoleInCurrentApp = operatorRoleMap.get(applications.get(0).getCode());
+        if(operatorRoleInCurrentApp == null){
+            throw new SystemException(SystemReturnEnum.USER_SET_USER_ROLE_NO_ROLE);
+        }
+        // 查询app角色列表
+        RoleExample roleExample = new RoleExample();
+        RoleExample.Criteria appCriteria = roleExample.createCriteria();
+        appCriteria.andStatusEqualTo(RoleEnums.status.PUBLISED.value());
+        appCriteria.andApplicationIdEqualTo(applications.get(0).getId());
+        List<Role> appRoles = roleMapper.selectByExample(roleExample);
+        // 获取操作者下辖角色列表
+        List<Integer> operatorSubRoleIds = new ArrayList<>();
+        roleService.getUserSubRoles(operatorSubRoleIds,operatorRoleInCurrentApp,appRoles);
+        // 获取被操作用户的角色
+        Role userRole = roleService.getUserRole(user.getUserId(),applications.get(0).getId());
+        if(!operatorSubRoleIds.contains(userRole.getId())){
+            throw new SystemException(SystemReturnEnum.USER_SAVE_OR_EDIT_NO_PERM);
+        }
     }
 
     /**
@@ -149,6 +203,7 @@ public class UserServiceImpl implements UserService{
         }
         // 更新
         else{
+            this.validatePerm(request,query);
             // 去除禁止更新的项
             query.setUsername(null);
             query.setPassword(null);
@@ -171,6 +226,11 @@ public class UserServiceImpl implements UserService{
      */
     @Override
     public CommonResponse userRoleSet(Integer applicationId, String ids, UserQuery query, HttpServletRequest request, HttpServletResponse response) {
+        this.validatePerm(request,query);
+        String[] roleIds = ids.split(",");
+        if(roleIds.length > 1){
+            throw new SystemException(SystemReturnEnum.USER_SET_USER_ROLE_ROLE_ID_MULTI);
+        }
         // 查询应用
         ApplicationExample applicationExample = new ApplicationExample();
         ApplicationExample.Criteria applicationCriteria = applicationExample.createCriteria();

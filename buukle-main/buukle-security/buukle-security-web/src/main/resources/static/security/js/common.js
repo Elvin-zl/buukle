@@ -63,7 +63,7 @@ function bindDelBitch() {
                     success : function (data) {
                         if(data.head.status=='S'){
                             layer.msg('删除成功!');
-                            $('#refresh').click();
+                            reLoad();
                         }else{
                             layer.msg(data.head.msg);
                         }
@@ -147,7 +147,6 @@ function renderSelectedTree(tree,data,elem,idTarget){
             $("input:hidden[name="+idTarget+"]").val(obj.data.id);
             $("input:hidden[name="+idTarget+"]").prev().html(obj.data.title);
         }
-
     });
     $(elem).parent().parent().parent().off().on("click", ".layui-select-title", function (e) {
         $(".layui-form-select").not($(this).parents(".layui-form-select")).removeClass("layui-form-selected");
@@ -174,6 +173,7 @@ function renderSelectedTree(tree,data,elem,idTarget){
 function renderSimpleCheckboxZTree(zTreeObj , data, treeId) {
     if(data.length < 1 ){
         $('#' + treeId).html('暂无数据!');
+        return;
     }
     var setting = {
         view: {
@@ -182,6 +182,58 @@ function renderSimpleCheckboxZTree(zTreeObj , data, treeId) {
             selectedMulti: false
         },
         check: {
+        },
+        data: {
+            simpleData: {
+                enable:true,
+                idKey: "id",
+                pIdKey: "pid",
+                rootPId: ""
+            }
+        }
+    };
+    setting.check.enable = true;
+    /**
+     *
+     * 父子关联:
+     *
+     *     Y 属性定义 checkbox 被勾选后的情况；
+     *     N 属性定义 checkbox 取消勾选后的情况；
+     *     "p" 表示操作会影响父级节点；
+     *     "s" 表示操作会影响子级节点。
+     */
+    // setting.check.chkboxType = { "Y" : "s", "N" : "s" };
+    // 父子不关联
+    setting.check.chkboxType = { "Y" : '', "N" : '' };
+    var zNodes = data;
+    var t = $("#"+ treeId);
+    zTreeObj = $.fn.zTree.init(t, setting, zNodes);
+    zTreeObj.expandAll(true);
+    return zTreeObj;
+}
+/**
+ * 渲染简单的单选框树
+ * @param zTreeObj   接收树初始化前对象
+ * @param data       节点数据
+ * @param treeId     渲染树的载体id
+ * @returns zTreeObj 返回树初始化后对象
+ */
+function renderSimpleRadioZTree(zTreeObj , data, treeId) {
+    if(data.length < 1 ){
+        $('#' + treeId).html('暂无数据!');
+    }
+    var setting = {
+        view: {
+            dblClickExpand: false,
+            showLine: true,
+            selectedMulti: false
+        },
+        check: {
+            enable: true, //是否显示radio/checkbox
+            autoCheckTrigger: false,
+            chkStyle: "radio",//值为checkbox或者radio表示
+            radioType:"all",
+            chkboxType: {"Y": "", "N": ""}//表示父子节点的联动效果，不联动
         },
         data: {
             simpleData: {
@@ -205,9 +257,15 @@ function renderSimpleCheckboxZTree(zTreeObj , data, treeId) {
 /*获取zTree选中id值*/
 function getZTreeSelected(setModuleZTreeObj) {
     var ids ='';
-    var nodes = setModuleZTreeObj.getCheckedNodes(true);
-    for(var i=0;i<nodes.length;i++){
-        ids = ids + nodes[i].id + ',';
+    try{
+        var nodes = setModuleZTreeObj.getCheckedNodes(true);
+        for(var i=0;i<nodes.length;i++){
+            ids = ids + nodes[i].id + ',';
+        }
+    }catch(error){
+        layer.msg("没有可选择的数据!");
+        throw new Error("没有可选择的数据!");
+        return;
     }
     return ids;
 }

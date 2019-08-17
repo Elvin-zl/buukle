@@ -27,7 +27,7 @@ import java.io.IOException;
  * @since 1.0.0
  */
 @Controller
-public class Logout {
+public class LogoutController {
 
     @Autowired
     private Environment env;

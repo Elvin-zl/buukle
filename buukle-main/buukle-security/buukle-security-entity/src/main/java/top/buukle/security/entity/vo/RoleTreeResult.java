@@ -22,6 +22,7 @@ public class RoleTreeResult extends Role{
 
     private boolean checked;
     private String name;
+    private boolean nocheck;
 
     public boolean isChecked() {
         return checked;
@@ -37,5 +38,13 @@ public class RoleTreeResult extends Role{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public boolean isNocheck() {
+        return nocheck;
+    }
+
+    public void setNocheck(boolean nocheck) {
+        this.nocheck = nocheck;
     }
 }

@@ -116,7 +116,7 @@ public class UserRoleRelationLogsServiceImpl implements UserRoleRelationLogsServ
      * @Date 2019/8/4
      */
     @Override
-    public UserRoleRelationLogs selectByPrimaryKey(Integer id) {
+    public UserRoleRelationLogs selectByPrimaryKeyForCrud(HttpServletRequest httpServletRequest, Integer id) {
         if(id == null){
             return new UserRoleRelationLogs();
         }

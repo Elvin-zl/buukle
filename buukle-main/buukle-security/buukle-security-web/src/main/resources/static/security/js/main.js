@@ -80,9 +80,11 @@ layui.use(['layer', 'form', 'element', 'jquery', 'dialog'], function() {
 	hideBtn.on('click', function() {
 		if(!mainLayout.hasClass('hide-side')) {
 			mainLayout.addClass('hide-side');
+			$(this).find('span').html('&#xe66b;')
 		} else {
-			mainLayout.removeClass('hide-side');
-		}
+            mainLayout.removeClass('hide-side');
+            $(this).find('span').html('&#xe668;')
+        }
 	});
 	//遮罩点击隐藏
 	mainMask.on('click', function() {

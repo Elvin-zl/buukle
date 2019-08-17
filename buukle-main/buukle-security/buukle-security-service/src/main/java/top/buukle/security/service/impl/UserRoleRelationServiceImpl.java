@@ -116,7 +116,7 @@ public class UserRoleRelationServiceImpl implements UserRoleRelationService{
      * @Date 2019/8/4
      */
     @Override
-    public UserRoleRelation selectByPrimaryKey(Integer id) {
+    public UserRoleRelation selectByPrimaryKeyForCrud(HttpServletRequest httpServletRequest, Integer id) {
         if(id == null){
             return new UserRoleRelation();
         }

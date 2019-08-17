@@ -22,9 +22,18 @@ public class SelectTreeNodeResult {
 
     private String title;
     private Integer id;
+    private boolean disabled;
     private boolean checked;
     private boolean spread;
     private List<SelectTreeNodeResult> children;
+
+    public boolean isDisabled() {
+        return disabled;
+    }
+
+    public void setDisabled(boolean disabled) {
+        this.disabled = disabled;
+    }
 
     public String getTitle() {
         return title;

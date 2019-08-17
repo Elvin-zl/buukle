@@ -3,26 +3,22 @@ package top.buukle.security.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.util.WebUtils;
 import top.buukle.common.call.FuzzyResponse;
-import top.buukle.common.call.PageResponse;
-import top.buukle.security.entity.User;
-import top.buukle.security.entity.vo.BaseQuery;
+import top.buukle.security.entity.Role;
 import top.buukle.security.entity.vo.MenuTreeNode;
 import top.buukle.security.plugin.util.SessionUtil;
 import top.buukle.security.service.BaseService;
 import top.buukle.util.JsonUtil;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Map;
 
@@ -50,8 +46,12 @@ public class SecurityController {
         String nameSuffix = applicationName.split("-")[1];
         modelAndView.addObject("nameSuffix",nameSuffix);
         modelAndView.addObject("user",SessionUtil.getUser(request, response));
+        // 返回菜单树的引用
         MenuTreeNode menuTreeNode = ((Map<String, MenuTreeNode>) SessionUtil.get(request, SessionUtil.USER_MENU_TREE_KEY)).get(applicationName);
         modelAndView.addObject("menuList",menuTreeNode == null ? new MenuTreeNode() : menuTreeNode.getSubMenuList());
+        modelAndView.addObject("welcome",menuTreeNode == null ? new MenuTreeNode() : (CollectionUtils.isEmpty(menuTreeNode.getSubMenuList()) ? new MenuTreeNode() : menuTreeNode.getSubMenuList().get(0)));
+        // 返回角色引用
+        modelAndView.addObject("role",((Map<String,Role>)SessionUtil.get(request,SessionUtil.USER_ROLE_MAP_KEY)).get(applicationName));
         modelAndView.setViewName("home");
         return modelAndView;
     }
@@ -75,7 +75,7 @@ public class SecurityController {
         // 增改页面
         if(operationAndViewName.endsWith("CrudView") || operationAndViewName.endsWith("SetView")){
             webApplicationContext = WebApplicationContextUtils.getWebApplicationContext(request.getServletContext());
-            o = ((BaseService) webApplicationContext.getBean(entity + "Service")).selectByPrimaryKey(id);
+            o = ((BaseService) webApplicationContext.getBean(entity + "Service")).selectByPrimaryKeyForCrud(request,id);
         }
         // 删除结果
         if(operationAndViewName.endsWith("CrudJson")){

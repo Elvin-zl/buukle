@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 import top.buukle.common.call.CommonResponse;
 import top.buukle.common.call.FuzzyResponse;
 import top.buukle.common.call.PageResponse;
@@ -12,9 +13,8 @@ import top.buukle.common.status.StatusConstants;
 
 import top.buukle.security .dao.ApplicationMapper;
 import top.buukle.security .dao.CommonMapper;
-import top.buukle.security .entity.User;
-import top.buukle.security .entity.Application;
-import top.buukle.security .entity.ApplicationExample;
+import top.buukle.security.dao.UserMapper;
+import top.buukle.security.entity.*;
 import top.buukle.security .entity.vo.BaseQuery;
 import top.buukle.security .entity.vo.ApplicationQuery;
 import top.buukle.security.entity.vo.SelectTreeNodeResult;
@@ -22,6 +22,7 @@ import top.buukle.security .plugin.util.SessionUtil;
 import top.buukle.security .service.ApplicationService;
 import top.buukle.security .service.constants.SystemReturnEnum;
 import top.buukle.security .service.constants.ApplicationEnums;
+import top.buukle.security.service.constants.UserEnums;
 import top.buukle.security .service.exception.SystemException;
 import top.buukle.security .service.util.ConvertHumpUtil;
 import top.buukle.util.DateUtil;
@@ -31,10 +32,7 @@ import top.buukle.util.StringUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
 * @author elvin
@@ -45,6 +43,9 @@ public class ApplicationServiceImpl implements ApplicationService{
 
     @Autowired
     private ApplicationMapper applicationMapper;
+
+    @Autowired
+    private UserMapper userMapper;
 
     @Autowired
     private CommonMapper commonMapper;
@@ -71,10 +72,40 @@ public class ApplicationServiceImpl implements ApplicationService{
      */
     @Override
     public CommonResponse delete(Integer id, HttpServletRequest request, HttpServletResponse response) {
+        // 校验操作权限
+        this.validatePerm(request,applicationMapper.selectByPrimaryKey(id));
         if(applicationMapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(id, ApplicationEnums.status.DELETED.value(),request,response)) != 1){
             throw new SystemException(SystemReturnEnum.DELETE_INFO_EXCEPTION);
         }
         return new CommonResponse.Builder().buildSuccess();
+    }
+
+    /**
+     * @description 校验操作权限
+     * @param request
+     * @param application
+     * @return void
+     * @Author elvin
+     * @Date 2019/8/18
+     */
+    private void validatePerm(HttpServletRequest request, Application application) {
+        // 查询当前用户角色
+        Map<String,Role> roleMap = (Map<String,Role>)SessionUtil.get(request, SessionUtil.USER_ROLE_MAP_KEY);
+        if(application != null){
+            UserExample userExample = new UserExample();
+            userExample.createCriteria().andUserIdEqualTo(application.getCreatorCode());
+            List<User> users = userMapper.selectByExample(userExample);
+            if(CollectionUtils.isEmpty(users) || users.size()!=1){
+                throw new SystemException(SystemReturnEnum.APPLICATION_SAVE_OR_EDIT_NO_CREATOR);
+            }
+            if(UserEnums.superManager.SYSTEM_MANAGER.value().equals(users.get(0).getSuperManager())){
+                throw new SystemException(SystemReturnEnum.OPERATE_INFO_SYSTEM_PROTECT_EXCEPTION);
+            }
+            Role role = roleMap.get(application.getCode());
+            if(role == null || !role.getPid().equals(0)){
+                throw new SystemException(SystemReturnEnum.APPLICATION_SAVE_OR_EDIT_NO_PERM);
+            }
+        }
     }
 
     /**
@@ -97,8 +128,12 @@ public class ApplicationServiceImpl implements ApplicationService{
         ApplicationExample applicationExample = new ApplicationExample();
         ApplicationExample.Criteria criteria = applicationExample.createCriteria();
         criteria.andIdIn(idList);
+        List<Application> applications = applicationMapper.selectByExample(applicationExample);
+        for (Application application: applications) {
+            // 校验操作权限
+            this.validatePerm(request,application);
+        }
         Application application = new Application();
-
         User operator = SessionUtil. getOperator(request, response);
         application.setGmtModified(new Date());
         application.setModifier(operator.getUsername());
@@ -117,11 +152,13 @@ public class ApplicationServiceImpl implements ApplicationService{
      * @Date 2019/8/4
      */
     @Override
-    public Application selectByPrimaryKey(Integer id) {
+    public Application selectByPrimaryKeyForCrud(HttpServletRequest httpServletRequest, Integer id) {
         if(id == null){
             return new Application();
         }
         Application application = applicationMapper.selectByPrimaryKey(id);
+        // 校验操作权限
+        this.validatePerm(httpServletRequest,application);
         return application == null ? new Application() : application;
     }
 
@@ -143,6 +180,8 @@ public class ApplicationServiceImpl implements ApplicationService{
         }
         // 更新
         else{
+            // 校验操作权限
+            this.validatePerm(request,applicationMapper.selectByPrimaryKey(query.getId()));
             this.update(query,request,response);
         }
         return new CommonResponse.Builder().buildSuccess();

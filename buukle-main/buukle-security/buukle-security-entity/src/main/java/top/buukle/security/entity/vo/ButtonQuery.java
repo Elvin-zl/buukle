@@ -20,6 +20,8 @@ public class ButtonQuery extends Button implements BaseQuery{
     private String states;
     /** 应用名*/
     private String applicationName;
+    /** 应用编码*/
+    private String applicationCode;
 
     public String getStates() {
         if("null".equals(states)){
@@ -73,5 +75,13 @@ public class ButtonQuery extends Button implements BaseQuery{
 
     public void setApplicationName(String applicationName) {
         this.applicationName = applicationName;
+    }
+
+    public String getApplicationCode() {
+        return applicationCode;
+    }
+
+    public void setApplicationCode(String applicationCode) {
+        this.applicationCode = applicationCode;
     }
 }

@@ -19,9 +19,18 @@ package top.buukle.security.entity.vo;
 public class ZtreeNode {
 
     private boolean checked;
+    private boolean nocheck;
     private String name;
     private Integer id;
     private Integer pid;
+
+    public boolean isNocheck() {
+        return nocheck;
+    }
+
+    public void setNocheck(boolean nocheck) {
+        this.nocheck = nocheck;
+    }
 
     public boolean isChecked() {
         return checked;

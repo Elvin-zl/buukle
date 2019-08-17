@@ -17,7 +17,7 @@
 	<tbody id="tbody-button">
 		<tr th:each="buttonRecord:${response?.body?.list}">
 			<td><input type="checkbox" name="batchCheckBox" lay-skin="primary" th:attr="data-id = ${buttonRecord?.id}"  /></td>
-			<td th:text="${buttonRecord?.applicationName}" class="hidden-xs"></td>
+			<td th:text="${buttonRecord?.applicationCode}" class="hidden-xs"></td>
 			<td th:text="${buttonRecord?.name}" class="hidden-xs"></td>
 			<td th:text="${buttonRecord?.url}" class="hidden-xs"></td>
 			<td th:text="${buttonRecord?.creator}" class="hidden-xs"></td>

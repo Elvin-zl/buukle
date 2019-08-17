@@ -6,8 +6,6 @@ layui.use(['laypage','layer'], function() {
     loadFuzzySearch();
     // 绑定清空
     bindClear();
-    // 绑定刷新
-    bindRefresh();
     // 加载第一页
     loadPage(1,true);
 });
@@ -108,6 +106,7 @@ function bindDel(dialog) {
                     success : function (data) {
                         if(data.head.status=='S'){
                             layer.msg('删除成功!');
+                            reLoad();
                             $('#refresh').click();
                         }else{
                             layer.msg(data.head.msg);
@@ -148,11 +147,9 @@ function bindGo() {
     })
 }
 /** 绑定刷新*/
-function bindRefresh() {
-    $('#refresh').off().on('click',function () {
-        loadPage($('#page').val());
-        doPage();
-    })
+function reLoad() {
+    loadPage($('#page').val());
+    doPage();
 }
 /** 初始化静态多选下拉框*/
 function loadMulti() {

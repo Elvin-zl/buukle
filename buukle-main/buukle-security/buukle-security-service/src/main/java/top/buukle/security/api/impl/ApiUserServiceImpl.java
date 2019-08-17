@@ -7,7 +7,6 @@ import org.springframework.util.CollectionUtils;
 import top.buukle.common.call.CommonResponse;
 import top.buukle.common.call.code.BaseReturnEnum;
 import top.buukle.common.exception.CommonException;
-import top.buukle.common.status.StatusConstants;
 import top.buukle.security.api.ApiUserService;
 import top.buukle.security.dao.*;
 import top.buukle.security.entity.*;
@@ -100,16 +99,32 @@ public class ApiUserServiceImpl implements ApiUserService{
             SessionUtil.cache(request,SessionUtil.USER_MENU_TREE_KEY,userApplicationMenuDisplayed);
             // 缓存用户角色目录
             List<Role> userRoles = roleMapper.selectUserRoles(userInfo.getUserId());
-            SessionUtil.cache(request,SessionUtil.USER_ROLE_LIST_KEY,userRoles);
-            // 查询用户按钮目录
-            List<Button> buttonList = this.getUserButtonList(userRoles);
-            // 缓存用户按钮目录
-            SessionUtil.cache(request,SessionUtil.USER_BUTTON_LIST_KEY,buttonList);
+            SessionUtil.cache(request,SessionUtil.USER_ROLE_MAP_KEY,this.assUserRoleMap(userRoles));
             // 缓存用户所有资源url清单
-            SessionUtil.cache(request,SessionUtil.USER_URL_LIST_KEY,this.assUserMenuUrlList(menuList,buttonList));
+            SessionUtil.cache(request,SessionUtil.USER_URL_LIST_KEY,this.assUserMenuUrlList(menuList,this.getUserButtonList(userRoles)));
         }
         return new CommonResponse.Builder().buildSuccess();
     }
+
+    /**
+     * @description 组装用户的应用,角色映射目录
+     * @param userRoles
+     * @return java.util.Map<java.lang.String,top.buukle.security.entity.Role>
+     * @Author elvin
+     * @Date 2019/8/17
+     */
+    private Map<String,Role> assUserRoleMap(List<Role> userRoles) {
+        Map<String,Role> map = new HashMap<>();
+        Application application;
+        for (Role role: userRoles) {
+            application = applicationMapper.selectByPrimaryKey(role.getApplicationId());
+            if(application != null){
+                map.put(application.getCode(),role);
+            }
+        }
+        return map;
+    }
+
 
     /**
      * @description 组装用户所有资源url清单

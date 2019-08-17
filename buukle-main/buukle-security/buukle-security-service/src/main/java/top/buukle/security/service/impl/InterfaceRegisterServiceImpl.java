@@ -116,7 +116,7 @@ public class InterfaceRegisterServiceImpl implements InterfaceRegisterService{
      * @Date 2019/8/4
      */
     @Override
-    public InterfaceRegister selectByPrimaryKey(Integer id) {
+    public InterfaceRegister selectByPrimaryKeyForCrud(HttpServletRequest httpServletRequest, Integer id) {
         if(id == null){
             return new InterfaceRegister();
         }

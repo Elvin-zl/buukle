@@ -116,7 +116,7 @@ public class RoleMenuButtonRelationLogsServiceImpl implements RoleMenuButtonRela
      * @Date 2019/8/4
      */
     @Override
-    public RoleMenuButtonRelationLogs selectByPrimaryKey(Integer id) {
+    public RoleMenuButtonRelationLogs selectByPrimaryKeyForCrud(HttpServletRequest httpServletRequest, Integer id) {
         if(id == null){
             return new RoleMenuButtonRelationLogs();
         }

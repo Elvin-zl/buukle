@@ -1,4 +1,4 @@
-package top.buukle.security.web.thymleaf;
+package top.buukle.security.plugin.thymleafDialect;
  
 import javax.servlet.http.HttpServletRequest;
 
@@ -53,12 +53,22 @@ public class HpProcessor extends AbstractElementTagProcessor {
 		}
 		// 修改or新增处理
 		if(!StringUtil.isEmpty(tag.getAttributeValue("hpType"))){
-			if(tag.getAttributeValue("hpType").equals("editOrAdd") && StringUtil.isEmpty(tag.getAttributeValue("recordId"))){
-				structureHandler.removeTags();
-			}else{
-				structureHandler.removeElement();
+			// 只在新增时候展示
+			if(tag.getAttributeValue("hpType").equals("displayForAdd")){
+				if(StringUtil.isEmpty(tag.getAttributeValue("recordId"))){
+					structureHandler.removeTags();
+				}else{
+					structureHandler.removeElement();
+				}
+			}
+			// 只在修改的时候展示
+			else if(tag.getAttributeValue("hpType").equals("displayForEdit")){
+				if(StringUtil.isEmpty(tag.getAttributeValue("recordId"))){
+					structureHandler.removeElement();
+				}else{
+					structureHandler.removeTags();
+				}
 			}
 		}
 	}
- 
 }

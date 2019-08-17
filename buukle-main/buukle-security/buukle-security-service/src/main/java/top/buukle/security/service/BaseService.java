@@ -17,7 +17,7 @@ import java.util.List;
  */
 public interface BaseService {
 
-    Object selectByPrimaryKey(Integer id) ;
+    Object selectByPrimaryKeyForCrud(HttpServletRequest request, Integer id) ;
 
     PageResponse getPage(BaseQuery query) ;
 

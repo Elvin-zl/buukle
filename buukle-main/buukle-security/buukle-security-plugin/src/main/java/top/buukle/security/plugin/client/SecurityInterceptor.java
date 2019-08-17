@@ -10,6 +10,7 @@ import top.buukle.security.entity.User;
 import top.buukle.security.plugin.cache.SecurityInterceptorCache;
 import top.buukle.security.plugin.constants.SecurityInterceptorConstants;
 import top.buukle.security.plugin.enums.SecurityExceptionEnum;
+import top.buukle.security.plugin.exception.SecurityPluginException;
 import top.buukle.security.plugin.invoker.SecurityInterceptorInvoker;
 import top.buukle.security.plugin.util.CookieUtil;
 import top.buukle.security.plugin.util.SessionUtil;
@@ -117,7 +118,11 @@ public class SecurityInterceptor implements HandlerInterceptor {
         // 授权验证
         List<String> list = (List<String>) SessionUtil.get(request,SessionUtil.USER_URL_LIST_KEY);
         if(CollectionUtils.isEmpty(list) || !list.contains(uri)){
-            this.writeNoticePage(response,SecurityInterceptorConstants.NO_PERM_RETURN_HTML_TEMPLATE.replace("noPerm",SecurityExceptionEnum.USER_NO_PERM.getMsg()));
+            if("XMLHttpRequest".equals(request.getHeader("X-Requested-With"))){
+                throw new SecurityPluginException(SecurityExceptionEnum.USER_NO_PERM);
+            }else{
+                this.writeNoticePage(response,SecurityInterceptorConstants.NO_PERM_RETURN_HTML_TEMPLATE.replace("noPerm",SecurityExceptionEnum.USER_NO_PERM.getMsg()));
+            }
             return false;
         }
         return true;

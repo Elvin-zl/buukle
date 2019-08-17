@@ -16,7 +16,7 @@
 	<tbody id="tbody-role">
 		<tr th:each="roleRecord:${response?.body?.list}">
 			<td><input type="checkbox" name="batchCheckBox" lay-skin="primary" th:attr="data-id = ${roleRecord?.id}"  /></td>
-			<td th:text="${roleRecord?.applicationName}" class="hidden-xs"></td>
+			<td th:text="${roleRecord?.applicationCode}" class="hidden-xs"></td>
 			<td th:text="${roleRecord?.roleName}" class="hidden-xs"></td>
 			<td th:text="${roleRecord?.creator}" class="hidden-xs"></td>
 			<td th:text="${#dates.format(roleRecord?.gmtCreated,'yyyy-MM-dd HH:mm:ss')}" class="hidden-xs"></td>

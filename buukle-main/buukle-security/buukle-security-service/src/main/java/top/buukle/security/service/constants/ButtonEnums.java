@@ -30,4 +30,23 @@ public class ButtonEnums {
             return status;
         }
     }
+    public enum systemFlag {
+
+        SYSTEM_PROTECTED(1,"系统保护数据"),
+        ;
+
+        private Integer systemFlag;
+        private String description;
+
+        systemFlag(int systemFlag, String description) {
+            this.description = description;
+            this.systemFlag = systemFlag;
+        }
+        public String getDescription() {
+            return description;
+        }
+        public Integer value() {
+            return systemFlag;
+        }
+    }
 }

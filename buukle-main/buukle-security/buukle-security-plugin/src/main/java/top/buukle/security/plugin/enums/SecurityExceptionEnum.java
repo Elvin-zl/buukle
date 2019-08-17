@@ -10,7 +10,7 @@ public enum SecurityExceptionEnum {
 
     SYSTEM_OUT_OF_TIME(SecurityExceptionEnumType.VIEW.type(),"SYSTEM_OUT_OF_TIME","登录超时!","/outOfTime"),
     NO_AUTH(SecurityExceptionEnumType.VIEW.type(),"NO_AUTH","用户未认证或认证已超时!","/noAuth"),
-    USER_NO_PERM(SecurityExceptionEnumType.VIEW.type(),"USER_NO_PERM","没有权限!","/noPerm"),
+    USER_NO_PERM(SecurityExceptionEnumType.VIEW.type(),"USER_NO_PERM","没有该资源(菜单/组件)权限,请联系管理员添加权限!","/noPerm"),
     APP_NO_REG(SecurityExceptionEnumType.VIEW.type(),"APP_NO_REG", "目标接口未注册,请联系应用管理员!","/noPerm"),
     APP_NO_SRC(SecurityExceptionEnumType.VIEW.type(),"APP_NO_SRC", "目标接口未配置,请联系应用管理员!","/noPerm"),
     LOAD_EXCEPTION(SecurityExceptionEnumType.JSON.type(),"LOAD_EXCEPTION" ,"加载security资源目录时,调用security-api接口异常,请稍后重试!" ,"");

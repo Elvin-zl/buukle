@@ -63,12 +63,17 @@ public class RoleServiceImpl implements RoleService{
         PageHelper.startPage(((RoleQuery)query).getPage(),((RoleQuery)query).getPageSize());
         List<Role> list = roleMapper.selectByExample(this.assExampleForList(((RoleQuery)query)));
         Application application;
+        List<RoleQuery> roleQueryList = new ArrayList<>();
         for (Role role: list) {
             application = applicationMapper.selectByPrimaryKey(role.getApplicationId());
             role.setApplicationName(application == null ? "" : application.getName());
+            RoleQuery roleQuery = new RoleQuery();
+            BeanUtils.copyProperties(role,roleQuery);
+            roleQuery.setApplicationCode(application == null ? "" : application.getCode());
+            roleQueryList.add(roleQuery);
         }
         PageInfo<Role> pageInfo = new PageInfo<>(list);
-        return new PageResponse.Builder().build(list,pageInfo.getPageNum(),pageInfo.getPageSize(),pageInfo.getTotal());
+        return new PageResponse.Builder().build(roleQueryList,pageInfo.getPageNum(),pageInfo.getPageSize(),pageInfo.getTotal());
     }
 
     /**
@@ -80,6 +85,12 @@ public class RoleServiceImpl implements RoleService{
      */
     @Override
     public CommonResponse delete(Integer id, HttpServletRequest request, HttpServletResponse response) {
+        Role role = roleMapper.selectByPrimaryKey(id);
+        if(role!=null){
+            Application application = applicationMapper.selectByPrimaryKey(role.getApplicationId());
+            // 校验操作权限
+            this.validatePerm(request,application,id);
+        }
         if(roleMapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(id, RoleEnums.status.DELETED.value(),request,response)) != 1){
             throw new SystemException(SystemReturnEnum.DELETE_INFO_EXCEPTION);
         }
@@ -106,13 +117,17 @@ public class RoleServiceImpl implements RoleService{
         RoleExample roleExample = new RoleExample();
         RoleExample.Criteria criteria = roleExample.createCriteria();
         criteria.andIdIn(idList);
+        List<Role> roles = roleMapper.selectByExample(roleExample);
+        for (Role roleToDel: roles) {
+            Application application = applicationMapper.selectByPrimaryKey(roleToDel.getApplicationId());
+            // 校验操作权限
+            this.validatePerm(request,application,roleToDel.getId());
+        }
         Role role = new Role();
-
         User operator = SessionUtil. getOperator(request, response);
         role.setGmtModified(new Date());
         role.setModifier(operator.getUsername());
         role.setModifierCode(operator.getUserId());
-
         role.setStatus(RoleEnums.status.DELETED.value());
         roleMapper.updateByExampleSelective(role,roleExample);
         return new CommonResponse.Builder().buildSuccess();
@@ -126,25 +141,62 @@ public class RoleServiceImpl implements RoleService{
      * @Date 2019/8/4
      */
     @Override
-    public RoleCrudModelVo selectByPrimaryKey(Integer id) {
+    public RoleCrudModelVo selectByPrimaryKeyForCrud(HttpServletRequest httpServletRequest, Integer id) {
         if(id == null){
             return new RoleCrudModelVo();
         }
+        // 查询角色
         Role role = roleMapper.selectByPrimaryKey(id);
         RoleCrudModelVo vo = null;
         if(role != null){
             vo = new RoleCrudModelVo();
             BeanUtils.copyProperties(role,vo);
             Application application = applicationMapper.selectByPrimaryKey(vo.getApplicationId());
+            // 校验权限
+            this.validatePerm(httpServletRequest,application,id);
             vo.setApplicationCode(application.getCode());
             if(vo.getPid()!=0){
                 Role superRole = roleMapper.selectByPrimaryKey(vo.getPid());
                 vo.setSuperName(superRole.getRoleName());
             }else{
-                vo.setSuperName("root");
+                vo.setSuperName(application.getCode());
             }
         }
         return role == null ? new RoleCrudModelVo() : vo;
+    }
+
+    /**
+     * @description 校验是否有操作权限
+     * @param httpServletRequest
+     * @param application
+     * @param id
+     * @return void
+     * @Author elvin
+     * @Date 2019/8/18
+     */
+    private void validatePerm(HttpServletRequest httpServletRequest, Application application, Integer id) {
+        Role role = roleMapper.selectByPrimaryKey(id);
+        if(role != null && RoleEnums.systemFlag.SYSTEM_PROTECTED.value().equals(role.getSystemFlag())){
+            throw new SystemException(SystemReturnEnum.OPERATE_INFO_SYSTEM_PROTECT_EXCEPTION);
+        }
+        // 获取操作者在app的角色映射
+        Map<String, Role> operatorRoleMap = (Map<String, Role>) SessionUtil.get(httpServletRequest, SessionUtil.USER_ROLE_MAP_KEY);
+        Role operatorRoleInCurrentApp = operatorRoleMap.get(application.getCode());
+        if(operatorRoleInCurrentApp == null){
+            throw new SystemException(SystemReturnEnum.USER_SET_USER_ROLE_NO_ROLE);
+        }
+        // 查询app角色列表
+        RoleExample roleExample = new RoleExample();
+        RoleExample.Criteria appCriteria = roleExample.createCriteria();
+        appCriteria.andStatusEqualTo(RoleEnums.status.PUBLISED.value());
+        appCriteria.andApplicationIdEqualTo(application.getId());
+        List<Role> appRoles = roleMapper.selectByExample(roleExample);
+        // 获取操作者下辖角色列表
+        List<Integer> operatorSubRoleIds = new ArrayList<>();
+        this.getUserSubRoles(operatorSubRoleIds,operatorRoleInCurrentApp,appRoles);
+        if(!operatorSubRoleIds.contains(id)){
+            throw new SystemException(SystemReturnEnum.ROLE_SET_MENU_WRONG_ROLE_NO_LEVEL);
+        }
     }
 
     /**
@@ -165,6 +217,12 @@ public class RoleServiceImpl implements RoleService{
         }
         // 更新
         else{
+            Role roleToDel = roleMapper.selectByPrimaryKey(query.getId());
+            if(roleToDel!=null){
+                Application application = applicationMapper.selectByPrimaryKey(roleToDel.getApplicationId());
+                // 校验操作权限
+                this.validatePerm(request,application,roleToDel.getId());
+            }
             this.update(query,request,response);
         }
         return new CommonResponse.Builder().buildSuccess();
@@ -180,6 +238,25 @@ public class RoleServiceImpl implements RoleService{
      */
     @Override
     public PageResponse getRoleTree(Integer applicationId, HttpServletRequest request, HttpServletResponse response) {
+        Application application = applicationMapper.selectByPrimaryKey(applicationId);
+        if(null == application){
+            return new PageResponse.Builder().build(new ArrayList<SelectTreeNodeResult>(),0,0,0);
+        }
+        // 获取操作者在app的角色映射
+        Map<String, Role> operatorRoleMap = (Map<String, Role>) SessionUtil.get(request, SessionUtil.USER_ROLE_MAP_KEY);
+        Role operatorRoleInCurrentApp = operatorRoleMap.get(application.getCode());
+        if(operatorRoleInCurrentApp == null){
+            throw new SystemException(SystemReturnEnum.USER_SET_USER_ROLE_NO_ROLE);
+        }
+        // 查询app角色列表
+        RoleExample roleExample = new RoleExample();
+        RoleExample.Criteria appCriteria = roleExample.createCriteria();
+        appCriteria.andStatusEqualTo(RoleEnums.status.PUBLISED.value());
+        appCriteria.andApplicationIdEqualTo(application.getId());
+        List<Role> appRoles = roleMapper.selectByExample(roleExample);
+        // 获取操作者下辖角色列表
+        List<Integer> operatorSubRoleIds = new ArrayList<>();
+        this.getUserSubRoles(operatorSubRoleIds,operatorRoleInCurrentApp,appRoles);
         RoleExample applicationExample = new RoleExample();
         RoleExample.Criteria criteria = applicationExample.createCriteria();
         criteria.andStatusEqualTo(RoleEnums.status.PUBLISED.value());
@@ -187,11 +264,11 @@ public class RoleServiceImpl implements RoleService{
         List<Role> roles = roleMapper.selectByExample(applicationExample);
         SelectTreeNodeResult rootNode = new SelectTreeNodeResult();
         rootNode.setId(0);
-        rootNode.setTitle("root");
+        rootNode.setTitle(application.getCode());
         rootNode.setSpread(true);
         List<SelectTreeNodeResult> nodes = new ArrayList<>();
         nodes.add(rootNode);
-        this.findChildren(rootNode,roles);
+        this.findChildren(rootNode,roles,operatorSubRoleIds);
         return new PageResponse.Builder().build(nodes,0,0,0);
     }
 
@@ -214,22 +291,58 @@ public class RoleServiceImpl implements RoleService{
         if(CollectionUtils.isEmpty(applications) || applications.size() > 1 ){
             throw new SystemException(SystemReturnEnum.USER_SET_USER_ROLE_PRE_APP_CODE_WRONG);
         }
-        // 查询用户在app拥有的角色列表
+        // 查询被操作用户在app拥有的角色列表
         List<Role> userRoles = roleMapper.getUserRoleWithAppId(userId,applications.get(0).getId());
+        // 获取操作者在app的角色映射
+        Map<String, Role> operatorRoleMap = (Map<String, Role>) SessionUtil.get(request, SessionUtil.USER_ROLE_MAP_KEY);
+        Role operatorRoleInCurrentApp = operatorRoleMap.get(applications.get(0).getCode());
+        if(operatorRoleInCurrentApp == null){
+            throw new SystemException(SystemReturnEnum.USER_SET_USER_ROLE_NO_ROLE);
+        }
         // 查询app角色列表
         RoleExample roleExample = new RoleExample();
         RoleExample.Criteria criteria = roleExample.createCriteria();
         criteria.andStatusEqualTo(RoleEnums.status.PUBLISED.value());
         criteria.andApplicationIdEqualTo(applications.get(0).getId());
         List<Role> appRoles = roleMapper.selectByExample(roleExample);
+        // 获取操作者下辖角色列表
+        List<Integer> operatorSubRoleIds = new ArrayList<>();
+        this.getUserSubRoles(operatorSubRoleIds,operatorRoleInCurrentApp,appRoles);
+        // 判定操作者有无操作权限
+        if(!CollectionUtils.isEmpty(userRoles) && !operatorSubRoleIds.contains(userRoles.get(0).getId())){
+            throw new SystemException(SystemReturnEnum.USER_SET_USER_ROLE_NO_LEVEL);
+        }
         List<RoleTreeResult> roleTree = new ArrayList<>();
         for (Role role: appRoles) {
             RoleTreeResult roleTreeResult = new RoleTreeResult();
             BeanUtils.copyProperties(role,roleTreeResult);
-            roleTreeResult.setChecked(!CollectionUtils.isEmpty(userRoles) && userRoles.contains(role));
+            // 屏蔽操作者不具有的高级角色
+            roleTreeResult.setNocheck(!operatorSubRoleIds.contains(role.getId()));
+            // 设置被操作用户当前选中角色
+            roleTreeResult.setChecked((!CollectionUtils.isEmpty(userRoles)) && userRoles.contains(role));
             roleTree.add(roleTreeResult);
         }
         return new PageResponse.Builder().build(roleTree, 0, 0, 0);
+    }
+
+    /**
+     * @description 获取用户下辖角色列表
+     * @param userSubRoleIds
+     * @param operatorRole
+     * @param appRoles
+     * @return void
+     * @Author elvin
+     * @Date 2019/8/17
+     */
+    @Override
+    public void getUserSubRoles(List<Integer> userSubRoleIds, Role operatorRole, List<Role> appRoles) {
+        userSubRoleIds.add(operatorRole.getId());
+        // 获取用户下辖角色列表
+        for (Role appRole: appRoles) {
+            if(appRole.getPid().equals(operatorRole.getId())){
+                this.getUserSubRoles(userSubRoleIds,appRole,appRoles);
+            }
+        }
     }
 
     /**
@@ -242,8 +355,36 @@ public class RoleServiceImpl implements RoleService{
      */
     @Override
     public PageResponse getRoleMenuTree(Integer id, HttpServletRequest request) {
-        // 查询操作角色
+        // 查询被操作角色
         Role role = roleMapper.selectByPrimaryKey(id);
+        // 查询应用
+        ApplicationExample applicationExample = new ApplicationExample();
+        ApplicationExample.Criteria applicationCriteria = applicationExample.createCriteria();
+        applicationCriteria.andIdEqualTo(role.getApplicationId());
+        List<Application> applications = applicationMapper.selectByExample(applicationExample);
+        if(CollectionUtils.isEmpty(applications) || applications.size() > 1 ){
+            throw new SystemException(SystemReturnEnum.USER_SET_USER_ROLE_PRE_APP_CODE_WRONG);
+        }
+        // 查询app角色列表
+        RoleExample roleExample = new RoleExample();
+        RoleExample.Criteria roleExampleCriteria = roleExample.createCriteria();
+        roleExampleCriteria.andStatusEqualTo(RoleEnums.status.PUBLISED.value());
+        roleExampleCriteria.andApplicationIdEqualTo(applications.get(0).getId());
+        List<Role> appRoles = roleMapper.selectByExample(roleExample);
+        // 获取操作者在app的角色映射
+        Map<String, Role> operatorRoleMap = (Map<String, Role>) SessionUtil.get(request, SessionUtil.USER_ROLE_MAP_KEY);
+        Role operatorRoleInCurrentApp = operatorRoleMap.get(applications.get(0).getCode());
+        if(operatorRoleInCurrentApp == null){
+            throw new SystemException(SystemReturnEnum.USER_SET_USER_ROLE_NO_ROLE);
+        }
+        // 获取操作者下辖角色列表
+        List<Integer> operatorSubRoleIds = new ArrayList<>();
+        this.getUserSubRoles(operatorSubRoleIds,operatorRoleInCurrentApp,appRoles);
+        if(!operatorSubRoleIds.contains(id)){
+            throw new SystemException(SystemReturnEnum.ROLE_SET_MENU_WRONG_ROLE_NO_LEVEL);
+        }
+        // 获取操作者下辖资源列表
+        List<String> operatorSubResource = (List<String> )SessionUtil.get(request, SessionUtil.USER_URL_LIST_KEY);
         // 查询应用所有菜单
         MenuExample menuExample = new MenuExample();
         MenuExample.Criteria criteria = menuExample.createCriteria();
@@ -276,6 +417,7 @@ public class RoleServiceImpl implements RoleService{
             for (Menu appMenu: appMenus) {
                 ZtreeNode roleResource = new ZtreeNode();
                 roleResource.setId(appMenu.getId());
+                roleResource.setNocheck(!operatorSubResource.contains(appMenu.getUrl()));
                 roleResource.setPid(appMenu.getPid());
                 roleResource.setName(appMenu.getName() +
                         (MenuEnums.type.MENU.value().equals(appMenu.getType()) ?
@@ -290,6 +432,7 @@ public class RoleServiceImpl implements RoleService{
             for (Button appButton: appButtons) {
                 ZtreeNode roleResource = new ZtreeNode();
                 roleResource.setId(appButton.getId()* -1);
+                roleResource.setNocheck(!operatorSubResource.contains(appButton.getUrl()));
                 roleResource.setPid(appButton.getMenuId());
                 roleResource.setName(appButton.getName() + " (按钮) ");
                 roleResource.setChecked(roleButtonIds.contains(appButton.getId()));
@@ -406,23 +549,39 @@ public class RoleServiceImpl implements RoleService{
     }
 
     /**
+     * @description 获取应用下的用户角色
+     * @param userId
+     * @param applicationId
+     * @return top.buukle.security.entity.Role
+     * @Author elvin
+     * @Date 2019/8/17
+     */
+    @Override
+    public Role getUserRole(String userId, Integer applicationId) {
+        List<Role> roles = roleMapper.getUserRoleWithAppId(userId, applicationId);
+        return CollectionUtils.isEmpty(roles) ? new Role() : roles.get(0);
+    }
+
+    /**
      * @description 寻找子节点
      * @param node
      * @param roles
+     * @param operatorSubRoleIds
      * @return void
      * @Author elvin
      * @Date 2019/8/9
      */
-    private void findChildren(SelectTreeNodeResult node, List<Role> roles) {
+    private void findChildren(SelectTreeNodeResult node, List<Role> roles, List<Integer> operatorSubRoleIds) {
         List<SelectTreeNodeResult> nodes = new ArrayList<>();
         for (Role role: roles) {
             if(role.getPid().equals(node.getId())){
                 SelectTreeNodeResult nodeNew = new SelectTreeNodeResult();
+                nodeNew.setDisabled(!operatorSubRoleIds.contains(role.getId()));
                 nodeNew.setId(role.getId());
                 nodeNew.setTitle(role.getRoleName());
                 nodeNew.setSpread(true);
                 nodes.add(nodeNew);
-                this.findChildren(nodeNew,roles);
+                this.findChildren(nodeNew,roles, operatorSubRoleIds);
             }
         }
         node.setChildren(nodes);

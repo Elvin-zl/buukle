@@ -16,6 +16,7 @@ public enum SystemReturnEnum {
     /*--security系统级别*/
     /** 删除异常 */
     DELETE_INFO_EXCEPTION("F","010000","删除失败!更新状态异常!"),
+    OPERATE_INFO_SYSTEM_PROTECT_EXCEPTION("F","010001","操作失败,系统保护数据禁止操作!"),
 
     /*--api 返回码{02}{**}{**}*/
     APP_RESOURCE_EXCEPTION("F","020000","应用获取资源列表异常,应用不存在!"),
@@ -29,6 +30,11 @@ public enum SystemReturnEnum {
     USER_SAVE_OR_EDIT_TWO_PED_NOT_SAME("F","030005","保存或更新用户失败,确认密码与密码不一致!"),
     USER_SAVE_OR_EDIT_USERNAME_EXIST("F","030006","保存或更新用户失败,用户名已存在!"),
     USER_SET_USER_ROLE_PRE_APP_CODE_WRONG("F","030007","准备分配角色失败,该应用code信息有误或不存在!"),
+    USER_SET_USER_ROLE_ROLE_ID_MULTI("F","030008","分配角色失败,用户在一个应用内禁止设置多个角色!"),
+    USER_SET_USER_ROLE_NO_LEVEL("F","030009","该用户当前角色不支持您操作!"),
+    USER_SET_USER_ROLE_NO_ROLE("F","030010","您该应用下没有角色信息!"),
+    USER_SAVE_OR_EDIT_APP_NOT_EXIST("F","030011","应用信息异常!"),
+    USER_SAVE_OR_EDIT_NO_PERM("F","030012","您当前角色不支持操作此用户或其中一个!"),
 
     /*--role 返回码{04}{**}{**}*/
     ROLE_SAVE_OR_EDIT_APPID_NULL("F","040001","保存或更新角色失败,所属应用id为空!"),
@@ -36,17 +42,24 @@ public enum SystemReturnEnum {
     ROLE_SAVE_OR_EDIT_NAME_NULL("F","040003","保存或更新角色失败,角色名称为空!"),
     ROLE_SET_MENU_WRONG_BTN_LIST_NOT_EXIST("F","040004","角色设置菜单失败,应用按钮目录异常!"),
     ROLE_SET_MENU_WRONG_MENU_BTN_NOT_MATCH("F","040005","角色设置菜单失败,菜单和按钮关系不正确!"),
+    ROLE_SET_MENU_WRONG_ROLE_NO_LEVEL("F","030006","您当前角色不支持操作此角色或其中一个!"),
 
     /*--menu 返回码{05}{**}{**}*/
     MENU_SAVE_OR_EDIT_APPID_NULL("F","050001","保存或更新菜单失败,所属应用id为空!"),
     MENU_SAVE_OR_EDIT_PID_NULL("F","050002","保存或更新菜单失败,上级菜单为空!"),
     MENU_SAVE_OR_EDIT_NAME_NULL("F","050003","保存或更新菜单失败,菜单名称为空!"),
+    MENU_SAVE_OR_EDIT_NO_PERM("F","050004","您当前角色不支持操作此菜单或其中一个!"),
 
 
     /*--button 返回码{06}{**}{**}*/
     BUTTON_SAVE_OR_EDIT_APPID_NULL("F","060001","保存或更新按钮失败,所属应用id为空!"),
     BUTTON_SAVE_OR_EDIT_MENUID_NULL("F","060002","保存或更新按钮失败,所属菜单为空!"),
     BUTTON_SAVE_OR_EDIT_NAME_NULL("F","060003","保存或更新按钮失败,按钮名称为空!"),
+    BUTTON_SAVE_OR_EDIT_NO_PERM("F","060004","您当前角色不支持操作此按钮或其中一个!"),
+
+    /*--application 返回码{07}{**}{**}*/
+    APPLICATION_SAVE_OR_EDIT_NO_PERM("F","070001","您当前角色不支持操作此应用或其中一个!"),
+    APPLICATION_SAVE_OR_EDIT_NO_CREATOR("F","070002","操作失败,该记录创建信息有误!"),
     ;
 
     private String status;

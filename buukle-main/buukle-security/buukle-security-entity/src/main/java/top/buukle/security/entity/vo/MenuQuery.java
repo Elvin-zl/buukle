@@ -18,6 +18,16 @@ public class MenuQuery extends Menu implements BaseQuery{
     private String endTime;
     /** 状态*/
     private String states;
+    /** 应用编码*/
+    private String applicationCode;
+
+    public String getApplicationCode() {
+        return applicationCode;
+    }
+
+    public void setApplicationCode(String applicationCode) {
+        this.applicationCode = applicationCode;
+    }
 
     public String getStates() {
         if("null".equals(states)){

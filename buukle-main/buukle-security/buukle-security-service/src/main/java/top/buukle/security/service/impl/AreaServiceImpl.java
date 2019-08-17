@@ -116,7 +116,7 @@ public class AreaServiceImpl implements AreaService{
      * @Date 2019/8/4
      */
     @Override
-    public Area selectByPrimaryKey(Integer id) {
+    public Area selectByPrimaryKeyForCrud(HttpServletRequest httpServletRequest, Integer id) {
         if(id == null){
             return new Area();
         }

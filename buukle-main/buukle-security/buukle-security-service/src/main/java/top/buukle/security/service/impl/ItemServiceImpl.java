@@ -118,7 +118,7 @@ public class ItemServiceImpl implements ItemService{
      * @Date 2019/8/4
      */
     @Override
-    public Item selectByPrimaryKey(Integer id) {
+    public Item selectByPrimaryKeyForCrud(HttpServletRequest httpServletRequest, Integer id) {
         if(id == null){
             return new Item();
         }

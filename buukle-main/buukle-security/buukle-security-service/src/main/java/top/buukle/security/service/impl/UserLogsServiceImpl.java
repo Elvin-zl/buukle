@@ -116,7 +116,7 @@ public class UserLogsServiceImpl implements UserLogsService{
      * @Date 2019/8/4
      */
     @Override
-    public UserLogs selectByPrimaryKey(Integer id) {
+    public UserLogs selectByPrimaryKeyForCrud(HttpServletRequest httpServletRequest, Integer id) {
         if(id == null){
             return new UserLogs();
         }

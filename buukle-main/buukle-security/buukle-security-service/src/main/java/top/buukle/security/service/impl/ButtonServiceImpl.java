@@ -70,6 +70,7 @@ public class ButtonServiceImpl implements ButtonService{
             BeanUtils.copyProperties(button,buttonQuery);
             application = applicationMapper.selectByPrimaryKey(button.getApplicationId());
             buttonQuery.setApplicationName(application == null ? "" : application.getName());
+            buttonQuery.setApplicationCode(application == null ? "" : application.getCode());
             buttonQueryList.add(buttonQuery);
         }
         return new PageResponse.Builder().build(buttonQueryList,pageInfo.getPageNum(),pageInfo.getPageSize(),pageInfo.getTotal());
@@ -84,6 +85,11 @@ public class ButtonServiceImpl implements ButtonService{
      */
     @Override
     public CommonResponse delete(Integer id, HttpServletRequest request, HttpServletResponse response) {
+        Button button = buttonMapper.selectByPrimaryKey(id);
+        if(button!=null){
+            // 校验操作权限
+            this.validatePerm(request,button);
+        }
         if(buttonMapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(id, ButtonEnums.status.DELETED.value(),request,response)) != 1){
             throw new SystemException(SystemReturnEnum.DELETE_INFO_EXCEPTION);
         }
@@ -110,13 +116,16 @@ public class ButtonServiceImpl implements ButtonService{
         ButtonExample buttonExample = new ButtonExample();
         ButtonExample.Criteria criteria = buttonExample.createCriteria();
         criteria.andIdIn(idList);
+        List<Button> buttons = buttonMapper.selectByExample(buttonExample);
+        for (Button buttonToDel: buttons) {
+            // 校验操作权限
+            this.validatePerm(request,buttonToDel);
+        }
         Button button = new Button();
-
         User operator = SessionUtil. getOperator(request, response);
         button.setGmtModified(new Date());
         button.setModifier(operator.getUsername());
         button.setModifierCode(operator.getUserId());
-
         button.setStatus(ButtonEnums.status.DELETED.value());
         buttonMapper.updateByExampleSelective(button,buttonExample);
         return new CommonResponse.Builder().buildSuccess();
@@ -130,13 +139,15 @@ public class ButtonServiceImpl implements ButtonService{
      * @Date 2019/8/4
      */
     @Override
-    public ButtonCrudModelVo selectByPrimaryKey(Integer id) {
+    public ButtonCrudModelVo selectByPrimaryKeyForCrud(HttpServletRequest httpServletRequest, Integer id) {
         if(id == null){
             return new ButtonCrudModelVo();
         }
         Button button = buttonMapper.selectByPrimaryKey(id);
         ButtonCrudModelVo vo = null;
         if(button != null){
+            // 校验操作权限
+            this.validatePerm(httpServletRequest,button);
             vo = new ButtonCrudModelVo();
             BeanUtils.copyProperties(button,vo);
             Application application = applicationMapper.selectByPrimaryKey(vo.getApplicationId());
@@ -149,6 +160,25 @@ public class ButtonServiceImpl implements ButtonService{
             }
         }
         return button == null ? new ButtonCrudModelVo() : vo;
+    }
+
+    /**
+     * @description 校验操作权限
+     * @param httpServletRequest
+     * @param button
+     * @return void
+     * @Author elvin
+     * @Date 2019/8/18
+     */
+    private void validatePerm(HttpServletRequest httpServletRequest, Button button) {
+        if(ButtonEnums.systemFlag.SYSTEM_PROTECTED.value().equals(button.getSystemFlag())){
+            throw new SystemException(SystemReturnEnum.OPERATE_INFO_SYSTEM_PROTECT_EXCEPTION);
+        }
+        // 获取操作者下辖资源列表
+        List<String> operatorSubResource = (List<String> )SessionUtil.get(httpServletRequest, SessionUtil.USER_URL_LIST_KEY);
+        if(!operatorSubResource.contains(button.getUrl())){
+            throw new SystemException(SystemReturnEnum.BUTTON_SAVE_OR_EDIT_NO_PERM);
+        }
     }
 
     /**
@@ -169,6 +199,11 @@ public class ButtonServiceImpl implements ButtonService{
         }
         // 更新
         else{
+            Button button = buttonMapper.selectByPrimaryKey(query.getId());
+            if(button!=null){
+                // 校验操作权限
+                this.validatePerm(request,button);
+            }
             this.update(query,request,response);
         }
         return new CommonResponse.Builder().buildSuccess();

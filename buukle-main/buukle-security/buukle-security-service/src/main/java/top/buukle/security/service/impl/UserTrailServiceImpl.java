@@ -116,7 +116,7 @@ public class UserTrailServiceImpl implements UserTrailService{
      * @Date 2019/8/4
      */
     @Override
-    public UserTrail selectByPrimaryKey(Integer id) {
+    public UserTrail selectByPrimaryKeyForCrud(HttpServletRequest httpServletRequest, Integer id) {
         if(id == null){
             return new UserTrail();
         }

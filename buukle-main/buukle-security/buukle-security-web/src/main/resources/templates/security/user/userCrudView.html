@@ -36,7 +36,7 @@
 							<input type="text"  name="nameEn" th:attr="value = ${record?.nameEn}" placeholder="请输入英文名" autocomplete="off" class="layui-input">
 						</div>
 					</div>
-					<hp th:attr="recordId = ${record?.userId}" hpType="editOrAdd">
+					<hp th:attr="recordId = ${record?.userId}" hpType="displayForAdd">
 						<div class="layui-form-item">
 							<label class="layui-form-label">密码：</label>
 							<div class="layui-input-block">
@@ -66,13 +66,6 @@
 						<div class="layui-input-block">
 							<input type="radio" name="loginStrategy" th:field="*{record.loginStrategy}" value="0" title="跟随系统" checked>
 							<input type="radio" name="loginStrategy" th:field="*{record.loginStrategy}" value="1"  title="一周">
-						</div>
-					</div>
-					<div class="layui-form-item">
-						<label class="layui-form-label">是否超管：</label>
-						<div class="layui-input-block">
-							<input type="radio" name="loginStrategy" th:field="*{record.superManager}" value="0" title="否" checked>
-							<input type="radio" name="loginStrategy" th:field="*{record.superManager}" value="1"  title="是">
 						</div>
 					</div>
 				</div>

@@ -17,40 +17,56 @@
 		<div class="layui-tab">
 			<div class="layui-tab-content">
 				<div class="layui-tab-item layui-show">
-					<div class="layui-form-item">
-						<label class="layui-form-label">所属应用：</label>
-						<div class="layui-input-inline">
-							<div class="layui-unselect layui-form-select downpanel">
-								<div class="layui-select-title">
-									<span style="padding-top: 10px;"  class="layui-input layui-unselect" th:text="${record?.applicationCode} == '' ? '选择应用' : ${record?.applicationCode}" ></span>
-									<input type="hidden" id="applicationId" th:attr="value = ${record?.applicationId}" name="applicationId">
-									<i class="layui-edge"></i>
+					<hp th:attr="recordId = ${record?.id}" hpType="displayForAdd">
+						<div class="layui-form-item">
+							<label class="layui-form-label">所属应用：</label>
+							<div class="layui-input-inline">
+								<div class="layui-unselect layui-form-select downpanel">
+									<div class="layui-select-title">
+										<span style="padding-top: 10px;"  class="layui-input layui-unselect" th:text="${record?.applicationCode} == '' ? '选择应用' : ${record?.applicationCode}" ></span>
+										<input type="hidden" id="applicationId" th:attr="value = ${record?.applicationId}" name="applicationId">
+										<i class="layui-edge"></i>
+									</div>
+									<dl class="layui-anim layui-anim-upbit">
+										<dd>
+											<ul data-url='/application/getApplicationTree' data-subTree="menuTree" id="applicationTree"></ul>
+										</dd>
+									</dl>
 								</div>
-								<dl class="layui-anim layui-anim-upbit">
-									<dd>
-										<ul data-url='/application/getApplicationTree' data-subTree="menuTree" id="applicationTree"></ul>
-									</dd>
-								</dl>
 							</div>
 						</div>
-					</div>
-					<div class="layui-form-item">
-						<label class="layui-form-label">所属菜单：</label>
-						<div class="layui-input-inline">
-							<div class="layui-unselect layui-form-select downpanel">
-								<div   id="superMenu" class="layui-select-title">
-									<span style="padding-top: 10px;" id="menuTreeSpan" class="layui-input layui-unselect" th:text="${record?.superName} == '' ? '选择菜单' : ${record?.superName}" ></span>
-									<input id="menuTreeInput" type="hidden" th:attr="value = ${record?.menuId}" name="menuId">
-									<i class="layui-edge"></i>
+						<div class="layui-form-item">
+							<label class="layui-form-label">所属菜单：</label>
+							<div class="layui-input-inline">
+								<div class="layui-unselect layui-form-select downpanel">
+									<div   id="superMenu" class="layui-select-title">
+										<span style="padding-top: 10px;" id="menuTreeSpan" class="layui-input layui-unselect" th:text="${record?.superName} == '' ? '选择菜单' : ${record?.superName}" ></span>
+										<input id="menuTreeInput" type="hidden" th:attr="value = ${record?.menuId}" name="menuId">
+										<i class="layui-edge"></i>
+									</div>
+									<dl class="layui-anim layui-anim-upbit">
+										<dd>
+											<ul data-url="/menu/getMenuTree" id="menuTree"></ul>
+										</dd>
+									</dl>
 								</div>
-								<dl class="layui-anim layui-anim-upbit">
-									<dd>
-										<ul data-url="/menu/getMenuTree" id="menuTree"></ul>
-									</dd>
-								</dl>
 							</div>
 						</div>
-					</div>
+					</hp>
+					<hp th:attr="recordId = ${record?.id}" hpType="displayForEdit">
+						<div class="layui-form-item">
+							<label class="layui-form-label">所属应用：</label>
+							<div class="layui-input-inline">
+								<span style="padding-top: 10px;"  class="layui-input buukle-disabled" th:text="${record?.applicationCode}" ></span>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">所属菜单：</label>
+							<div class="layui-input-inline">
+								<span style="padding-top: 10px;"  class="layui-input buukle-disabled" th:text="${record?.superName}" ></span>
+							</div>
+						</div>
+					</hp>
 					<div class="layui-form-item">
 						<label class="layui-form-label">按钮名称：</label>
 						<div class="layui-input-block">
@@ -116,7 +132,7 @@
 					data:{"applicationId":$('#applicationId').val()},
                     async:false,
                     success:function (data) {
-                        if(data.status="S"){
+                        if(data.head.status=="S"){
                             renderSelectedTree(tree,data,"#menuTree",'menuId');
                         }else{
                             layer.msg(data.head.msg);
@@ -133,7 +149,7 @@
                 dataType:'json',
                 async:true,
                 success:function (data) {
-                    if(data.status="S"){
+                    if(data.head.status=="S"){
                         renderSelectedTree(tree,data,"#applicationTree",'applicationId');
                     }else{
                         layer.msg(data.head.msg);

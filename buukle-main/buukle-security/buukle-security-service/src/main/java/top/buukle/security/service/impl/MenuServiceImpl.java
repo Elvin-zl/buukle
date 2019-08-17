@@ -64,11 +64,16 @@ public class MenuServiceImpl implements MenuService{
         List<Menu> list = menuMapper.selectByExample(this.assExampleForList(((MenuQuery)query)));
         PageInfo<Menu> pageInfo = new PageInfo<>(list);
         Application application;
+        List<MenuQuery> menuQueries = new ArrayList<>();
         for (Menu menu: list) {
             application = applicationMapper.selectByPrimaryKey(menu.getApplicationId());
             menu.setApplicationName(application == null ? "" : application.getName());
+            MenuQuery menuQuery = new MenuQuery();
+            BeanUtils.copyProperties(menu,menuQuery);
+            menuQuery.setApplicationCode(application == null ? "" : application.getCode());
+            menuQueries.add(menuQuery);
         }
-        return new PageResponse.Builder().build(list,pageInfo.getPageNum(),pageInfo.getPageSize(),pageInfo.getTotal());
+        return new PageResponse.Builder().build(menuQueries,pageInfo.getPageNum(),pageInfo.getPageSize(),pageInfo.getTotal());
     }
 
     /**
@@ -80,6 +85,10 @@ public class MenuServiceImpl implements MenuService{
      */
     @Override
     public CommonResponse delete(Integer id, HttpServletRequest request, HttpServletResponse response) {
+        Menu menu = menuMapper.selectByPrimaryKey(id);
+        if(menu!=null){
+            this.validatePerm(request,menu);
+        }
         if(menuMapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(id, MenuEnums.status.DELETED.value(),request,response)) != 1){
             throw new SystemException(SystemReturnEnum.DELETE_INFO_EXCEPTION);
         }
@@ -106,13 +115,16 @@ public class MenuServiceImpl implements MenuService{
         MenuExample menuExample = new MenuExample();
         MenuExample.Criteria criteria = menuExample.createCriteria();
         criteria.andIdIn(idList);
+        List<Menu> menus = menuMapper.selectByExample(menuExample);
+        for (Menu menuToDel: menus) {
+            // 校验操作权限
+            this.validatePerm(request,menuToDel);
+        }
         Menu menu = new Menu();
-
         User operator = SessionUtil. getOperator(request, response);
         menu.setGmtModified(new Date());
         menu.setModifier(operator.getUsername());
         menu.setModifierCode(operator.getUserId());
-
         menu.setStatus(MenuEnums.status.DELETED.value());
         menuMapper.updateByExampleSelective(menu,menuExample);
         return new CommonResponse.Builder().buildSuccess();
@@ -126,13 +138,15 @@ public class MenuServiceImpl implements MenuService{
      * @Date 2019/8/4
      */
     @Override
-    public MenuCrudModelVo selectByPrimaryKey(Integer id) {
+    public MenuCrudModelVo selectByPrimaryKeyForCrud(HttpServletRequest request, Integer id) {
         if(id == null){
             return new MenuCrudModelVo();
         }
         Menu menu = menuMapper.selectByPrimaryKey(id);
         MenuCrudModelVo vo = new MenuCrudModelVo();
         if(menu != null){
+            // 校验操作权限
+            this.validatePerm(request,menu);
             vo = new MenuCrudModelVo();
             BeanUtils.copyProperties(menu,vo);
             Application application = applicationMapper.selectByPrimaryKey(vo.getApplicationId());
@@ -141,10 +155,29 @@ public class MenuServiceImpl implements MenuService{
                 Menu superMenu = menuMapper.selectByPrimaryKey(vo.getPid());
                 vo.setSuperName(superMenu.getName());
             }else{
-                vo.setSuperName("root");
+                vo.setSuperName(application.getCode());
             }
         }
         return menu == null ? new MenuCrudModelVo() : vo;
+    }
+
+    /**
+     * @description 校验操作权限
+     * @param request
+     * @param menu
+     * @return void
+     * @Author elvin
+     * @Date 2019/8/18
+     */
+    private void validatePerm(HttpServletRequest request, Menu menu) {
+        if(MenuEnums.systemFlag.SYSTEM_PROTECTED.value().equals(menu.getSystemFlag())){
+            throw new SystemException(SystemReturnEnum.OPERATE_INFO_SYSTEM_PROTECT_EXCEPTION);
+        }
+        // 获取操作者下辖资源列表
+        List<String> operatorSubResource = (List<String> )SessionUtil.get(request, SessionUtil.USER_URL_LIST_KEY);
+        if(!operatorSubResource.contains(menu.getUrl())){
+            throw new SystemException(SystemReturnEnum.MENU_SAVE_OR_EDIT_NO_PERM);
+        }
     }
 
     /**
@@ -165,6 +198,10 @@ public class MenuServiceImpl implements MenuService{
         }
         // 更新
         else{
+            Menu menuToDel = menuMapper.selectByPrimaryKey(query.getId());
+            if(menuToDel!=null){
+                this.validatePerm(request,menuToDel);
+            }
             this.update(query,request,response);
         }
         return new CommonResponse.Builder().buildSuccess();
@@ -181,18 +218,30 @@ public class MenuServiceImpl implements MenuService{
      */
     @Override
     public PageResponse getMenuTree(Integer applicationId, HttpServletRequest request, HttpServletResponse response) {
+        Application application = applicationMapper.selectByPrimaryKey(applicationId);
+        if(null == application){
+            return new PageResponse.Builder().build(new ArrayList<SelectTreeNodeResult>(),0,0,0);
+        }
         MenuExample applicationExample = new MenuExample();
         MenuExample.Criteria criteria = applicationExample.createCriteria();
         criteria.andStatusEqualTo(MenuEnums.status.PUBLISED.value());
         criteria.andApplicationIdEqualTo(applicationId);
         List<Menu> menus = menuMapper.selectByExample(applicationExample);
+        List<Menu> displayMenus = new ArrayList<>();
+        for (Menu menu: menus) {
+            if( menu.getPid().equals(0)|| (MenuEnums.type.MENU.value().equals(menu.getType()) && MenuEnums.display.DISPLAY_BLOCK.value().equals(menu.getDisplay()))){
+                displayMenus.add(menu);
+            }
+        }
         SelectTreeNodeResult rootNode = new SelectTreeNodeResult();
         rootNode.setId(0);
-        rootNode.setTitle("root");
+        rootNode.setTitle(application.getCode());
         rootNode.setSpread(true);
         List<SelectTreeNodeResult> nodes = new ArrayList<>();
         nodes.add(rootNode);
-        this.findChildren(rootNode,menus);
+        // 获取操作者下辖资源列表
+        List<String> operatorSubResource = (List<String> )SessionUtil.get(request, SessionUtil.USER_URL_LIST_KEY);
+        this.findChildren(rootNode,displayMenus,operatorSubResource);
         return new PageResponse.Builder().build(nodes,0,0,0);
     }
 
@@ -200,20 +249,22 @@ public class MenuServiceImpl implements MenuService{
      * @description 寻找子节点
      * @param node
      * @param menus
+     * @param operatorSubResource
      * @return void
      * @Author elvin
      * @Date 2019/8/9
      */
-    private void findChildren(SelectTreeNodeResult node, List<Menu> menus) {
+    private void findChildren(SelectTreeNodeResult node, List<Menu> menus, List<String> operatorSubResource) {
         List<SelectTreeNodeResult> nodes = new ArrayList<>();
         for (Menu menu: menus) {
             if(menu.getPid().equals(node.getId())){
                 SelectTreeNodeResult nodeNew = new SelectTreeNodeResult();
                 nodeNew.setId(menu.getId());
                 nodeNew.setTitle(menu.getName());
+                nodeNew.setDisabled(!operatorSubResource.contains(menu.getUrl()));
                 nodeNew.setSpread(true);
                 nodes.add(nodeNew);
-                this.findChildren(nodeNew,menus);
+                this.findChildren(nodeNew,menus, operatorSubResource);
             }
         }
         node.setChildren(nodes);

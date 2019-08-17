@@ -116,7 +116,7 @@ public class InterfaceRegisterLogsServiceImpl implements InterfaceRegisterLogsSe
      * @Date 2019/8/4
      */
     @Override
-    public InterfaceRegisterLogs selectByPrimaryKey(Integer id) {
+    public InterfaceRegisterLogs selectByPrimaryKeyForCrud(HttpServletRequest httpServletRequest, Integer id) {
         if(id == null){
             return new InterfaceRegisterLogs();
         }

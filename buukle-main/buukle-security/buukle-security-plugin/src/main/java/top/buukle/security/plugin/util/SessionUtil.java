@@ -30,8 +30,7 @@ import javax.servlet.http.HttpSession;
 public class SessionUtil {
 
     public static final String USER_MENU_TREE_KEY = "USER_MENU_TREE_KEY";
-    public static final String USER_BUTTON_LIST_KEY = "USER_BUTTON_LIST_KEY";
-    public static final String USER_ROLE_LIST_KEY = "USER_ROLE_LIST_KEY";
+    public static final String USER_ROLE_MAP_KEY = "USER_ROLE_MAP_KEY";
     public static final String USER_URL_LIST_KEY = "USER_URL_LIST_KEY";
 
     /**
@@ -132,6 +131,7 @@ public class SessionUtil {
      * @Date 2019/8/15
      */
     public static void logout(HttpServletRequest request, HttpServletResponse response) {
+        CookieUtil.delUserCookie(response,SecurityInterceptorConstants.LOGIN_COOKIE_DOMAIN);
         HttpSession session = request.getSession(false);
         if(session!=null){
             session.invalidate();

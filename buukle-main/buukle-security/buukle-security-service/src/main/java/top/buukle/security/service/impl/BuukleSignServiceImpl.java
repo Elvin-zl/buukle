@@ -116,7 +116,7 @@ public class BuukleSignServiceImpl implements BuukleSignService{
      * @Date 2019/8/4
      */
     @Override
-    public BuukleSign selectByPrimaryKey(Integer id) {
+    public BuukleSign selectByPrimaryKeyForCrud(HttpServletRequest httpServletRequest, Integer id) {
         if(id == null){
             return new BuukleSign();
         }
