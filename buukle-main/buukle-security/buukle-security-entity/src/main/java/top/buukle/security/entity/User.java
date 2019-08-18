@@ -15,14 +15,14 @@ public class User implements Serializable {
      * 主键id
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private Integer id;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private String userId;
 
@@ -30,7 +30,7 @@ public class User implements Serializable {
      * 区域id
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private Integer areaId;
 
@@ -38,49 +38,49 @@ public class User implements Serializable {
      * 区域管理员 0 不是 1 是
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private Integer areaAdmin;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private String username;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private String password;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private String nameCn;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private String fullNameCn;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private String nameEn;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private String fullNameEn;
 
@@ -88,7 +88,7 @@ public class User implements Serializable {
      * 赞数
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private Integer praise;
 
@@ -96,14 +96,14 @@ public class User implements Serializable {
      * 粉丝数量
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private Integer fans;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private String email;
 
@@ -111,7 +111,7 @@ public class User implements Serializable {
      * 手机号
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private Integer phone;
 
@@ -119,21 +119,21 @@ public class User implements Serializable {
      * 性别 : 0 女 1 男
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private Integer sex;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private Integer age;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private String sign;
 
@@ -141,21 +141,21 @@ public class User implements Serializable {
      * 登录策略 1: 一周 0:系统默认时间
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private Integer loginStrategy;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private String headUrl;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private String theme;
 
@@ -163,14 +163,14 @@ public class User implements Serializable {
      * 主题id
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private Integer themeId;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private String description;
 
@@ -178,64 +178,71 @@ public class User implements Serializable {
      * 是否是超管
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private Integer superManager;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private String remark;
 
     /**
-     * 最近登陆时间
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private Date gmtLastLogin;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private Date gmtCreated;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private String creator;
 
     /**
+     * 创建者的角色id
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
+     */
+    private Integer creatorRoleId;
+
+    /**
+     *
+     *
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private String creatorCode;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private Date gmtModified;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private String modifier;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private String modifierCode;
 
@@ -243,57 +250,65 @@ public class User implements Serializable {
      * 状态
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private Integer status;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private String bak01;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private String bak02;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private String bak03;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private String bak04;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private String bak05;
 
     /**
+     * 应用id
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     *
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
+     */
+    private Integer applicationId;
+
+    /**
+     *
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     private static final long serialVersionUID = 1L;
 
     /**
-     * This method returns the value of the database column buukle-security..user.id
+     * This method returns the value of the database column buukle-security-new..user.id
      *
-     * @return the value of buukle-security..user.id
+     * @return the value of buukle-security-new..user.id
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public Integer getId() {
         return id;
@@ -301,7 +316,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withId(Integer id) {
         this.setId(id);
@@ -309,22 +324,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.id
+     * This method sets the value of the database column buukle-security-new..user.id
      *
-     * @param id the value for buukle-security..user.id
+     * @param id the value for buukle-security-new..user.id
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setId(Integer id) {
         this.id = id;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.user_id
+     * This method returns the value of the database column buukle-security-new..user.user_id
      *
-     * @return the value of buukle-security..user.user_id
+     * @return the value of buukle-security-new..user.user_id
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public String getUserId() {
         return userId;
@@ -332,7 +347,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withUserId(String userId) {
         this.setUserId(userId);
@@ -340,22 +355,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.user_id
+     * This method sets the value of the database column buukle-security-new..user.user_id
      *
-     * @param userId the value for buukle-security..user.user_id
+     * @param userId the value for buukle-security-new..user.user_id
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setUserId(String userId) {
         this.userId = userId == null ? null : userId.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.area_id
+     * This method returns the value of the database column buukle-security-new..user.area_id
      *
-     * @return the value of buukle-security..user.area_id
+     * @return the value of buukle-security-new..user.area_id
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public Integer getAreaId() {
         return areaId;
@@ -363,7 +378,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withAreaId(Integer areaId) {
         this.setAreaId(areaId);
@@ -371,22 +386,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.area_id
+     * This method sets the value of the database column buukle-security-new..user.area_id
      *
-     * @param areaId the value for buukle-security..user.area_id
+     * @param areaId the value for buukle-security-new..user.area_id
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setAreaId(Integer areaId) {
         this.areaId = areaId;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.area_admin
+     * This method returns the value of the database column buukle-security-new..user.area_admin
      *
-     * @return the value of buukle-security..user.area_admin
+     * @return the value of buukle-security-new..user.area_admin
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public Integer getAreaAdmin() {
         return areaAdmin;
@@ -394,7 +409,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withAreaAdmin(Integer areaAdmin) {
         this.setAreaAdmin(areaAdmin);
@@ -402,22 +417,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.area_admin
+     * This method sets the value of the database column buukle-security-new..user.area_admin
      *
-     * @param areaAdmin the value for buukle-security..user.area_admin
+     * @param areaAdmin the value for buukle-security-new..user.area_admin
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setAreaAdmin(Integer areaAdmin) {
         this.areaAdmin = areaAdmin;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.username
+     * This method returns the value of the database column buukle-security-new..user.username
      *
-     * @return the value of buukle-security..user.username
+     * @return the value of buukle-security-new..user.username
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public String getUsername() {
         return username;
@@ -425,7 +440,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withUsername(String username) {
         this.setUsername(username);
@@ -433,22 +448,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.username
+     * This method sets the value of the database column buukle-security-new..user.username
      *
-     * @param username the value for buukle-security..user.username
+     * @param username the value for buukle-security-new..user.username
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setUsername(String username) {
         this.username = username == null ? null : username.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.password
+     * This method returns the value of the database column buukle-security-new..user.password
      *
-     * @return the value of buukle-security..user.password
+     * @return the value of buukle-security-new..user.password
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public String getPassword() {
         return password;
@@ -456,7 +471,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withPassword(String password) {
         this.setPassword(password);
@@ -464,22 +479,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.password
+     * This method sets the value of the database column buukle-security-new..user.password
      *
-     * @param password the value for buukle-security..user.password
+     * @param password the value for buukle-security-new..user.password
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setPassword(String password) {
         this.password = password == null ? null : password.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.name_cn
+     * This method returns the value of the database column buukle-security-new..user.name_cn
      *
-     * @return the value of buukle-security..user.name_cn
+     * @return the value of buukle-security-new..user.name_cn
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public String getNameCn() {
         return nameCn;
@@ -487,7 +502,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withNameCn(String nameCn) {
         this.setNameCn(nameCn);
@@ -495,22 +510,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.name_cn
+     * This method sets the value of the database column buukle-security-new..user.name_cn
      *
-     * @param nameCn the value for buukle-security..user.name_cn
+     * @param nameCn the value for buukle-security-new..user.name_cn
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setNameCn(String nameCn) {
         this.nameCn = nameCn == null ? null : nameCn.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.full_name_cn
+     * This method returns the value of the database column buukle-security-new..user.full_name_cn
      *
-     * @return the value of buukle-security..user.full_name_cn
+     * @return the value of buukle-security-new..user.full_name_cn
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public String getFullNameCn() {
         return fullNameCn;
@@ -518,7 +533,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withFullNameCn(String fullNameCn) {
         this.setFullNameCn(fullNameCn);
@@ -526,22 +541,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.full_name_cn
+     * This method sets the value of the database column buukle-security-new..user.full_name_cn
      *
-     * @param fullNameCn the value for buukle-security..user.full_name_cn
+     * @param fullNameCn the value for buukle-security-new..user.full_name_cn
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setFullNameCn(String fullNameCn) {
         this.fullNameCn = fullNameCn == null ? null : fullNameCn.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.name_en
+     * This method returns the value of the database column buukle-security-new..user.name_en
      *
-     * @return the value of buukle-security..user.name_en
+     * @return the value of buukle-security-new..user.name_en
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public String getNameEn() {
         return nameEn;
@@ -549,7 +564,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withNameEn(String nameEn) {
         this.setNameEn(nameEn);
@@ -557,22 +572,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.name_en
+     * This method sets the value of the database column buukle-security-new..user.name_en
      *
-     * @param nameEn the value for buukle-security..user.name_en
+     * @param nameEn the value for buukle-security-new..user.name_en
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setNameEn(String nameEn) {
         this.nameEn = nameEn == null ? null : nameEn.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.full_name_en
+     * This method returns the value of the database column buukle-security-new..user.full_name_en
      *
-     * @return the value of buukle-security..user.full_name_en
+     * @return the value of buukle-security-new..user.full_name_en
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public String getFullNameEn() {
         return fullNameEn;
@@ -580,7 +595,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withFullNameEn(String fullNameEn) {
         this.setFullNameEn(fullNameEn);
@@ -588,22 +603,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.full_name_en
+     * This method sets the value of the database column buukle-security-new..user.full_name_en
      *
-     * @param fullNameEn the value for buukle-security..user.full_name_en
+     * @param fullNameEn the value for buukle-security-new..user.full_name_en
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setFullNameEn(String fullNameEn) {
         this.fullNameEn = fullNameEn == null ? null : fullNameEn.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.praise
+     * This method returns the value of the database column buukle-security-new..user.praise
      *
-     * @return the value of buukle-security..user.praise
+     * @return the value of buukle-security-new..user.praise
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public Integer getPraise() {
         return praise;
@@ -611,7 +626,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withPraise(Integer praise) {
         this.setPraise(praise);
@@ -619,22 +634,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.praise
+     * This method sets the value of the database column buukle-security-new..user.praise
      *
-     * @param praise the value for buukle-security..user.praise
+     * @param praise the value for buukle-security-new..user.praise
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setPraise(Integer praise) {
         this.praise = praise;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.fans
+     * This method returns the value of the database column buukle-security-new..user.fans
      *
-     * @return the value of buukle-security..user.fans
+     * @return the value of buukle-security-new..user.fans
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public Integer getFans() {
         return fans;
@@ -642,7 +657,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withFans(Integer fans) {
         this.setFans(fans);
@@ -650,22 +665,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.fans
+     * This method sets the value of the database column buukle-security-new..user.fans
      *
-     * @param fans the value for buukle-security..user.fans
+     * @param fans the value for buukle-security-new..user.fans
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setFans(Integer fans) {
         this.fans = fans;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.email
+     * This method returns the value of the database column buukle-security-new..user.email
      *
-     * @return the value of buukle-security..user.email
+     * @return the value of buukle-security-new..user.email
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public String getEmail() {
         return email;
@@ -673,7 +688,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withEmail(String email) {
         this.setEmail(email);
@@ -681,22 +696,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.email
+     * This method sets the value of the database column buukle-security-new..user.email
      *
-     * @param email the value for buukle-security..user.email
+     * @param email the value for buukle-security-new..user.email
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setEmail(String email) {
         this.email = email == null ? null : email.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.phone
+     * This method returns the value of the database column buukle-security-new..user.phone
      *
-     * @return the value of buukle-security..user.phone
+     * @return the value of buukle-security-new..user.phone
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public Integer getPhone() {
         return phone;
@@ -704,7 +719,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withPhone(Integer phone) {
         this.setPhone(phone);
@@ -712,22 +727,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.phone
+     * This method sets the value of the database column buukle-security-new..user.phone
      *
-     * @param phone the value for buukle-security..user.phone
+     * @param phone the value for buukle-security-new..user.phone
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setPhone(Integer phone) {
         this.phone = phone;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.sex
+     * This method returns the value of the database column buukle-security-new..user.sex
      *
-     * @return the value of buukle-security..user.sex
+     * @return the value of buukle-security-new..user.sex
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public Integer getSex() {
         return sex;
@@ -735,7 +750,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withSex(Integer sex) {
         this.setSex(sex);
@@ -743,22 +758,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.sex
+     * This method sets the value of the database column buukle-security-new..user.sex
      *
-     * @param sex the value for buukle-security..user.sex
+     * @param sex the value for buukle-security-new..user.sex
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setSex(Integer sex) {
         this.sex = sex;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.age
+     * This method returns the value of the database column buukle-security-new..user.age
      *
-     * @return the value of buukle-security..user.age
+     * @return the value of buukle-security-new..user.age
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public Integer getAge() {
         return age;
@@ -766,7 +781,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withAge(Integer age) {
         this.setAge(age);
@@ -774,22 +789,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.age
+     * This method sets the value of the database column buukle-security-new..user.age
      *
-     * @param age the value for buukle-security..user.age
+     * @param age the value for buukle-security-new..user.age
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setAge(Integer age) {
         this.age = age;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.sign
+     * This method returns the value of the database column buukle-security-new..user.sign
      *
-     * @return the value of buukle-security..user.sign
+     * @return the value of buukle-security-new..user.sign
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public String getSign() {
         return sign;
@@ -797,7 +812,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withSign(String sign) {
         this.setSign(sign);
@@ -805,22 +820,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.sign
+     * This method sets the value of the database column buukle-security-new..user.sign
      *
-     * @param sign the value for buukle-security..user.sign
+     * @param sign the value for buukle-security-new..user.sign
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setSign(String sign) {
         this.sign = sign == null ? null : sign.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.login_strategy
+     * This method returns the value of the database column buukle-security-new..user.login_strategy
      *
-     * @return the value of buukle-security..user.login_strategy
+     * @return the value of buukle-security-new..user.login_strategy
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public Integer getLoginStrategy() {
         return loginStrategy;
@@ -828,7 +843,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withLoginStrategy(Integer loginStrategy) {
         this.setLoginStrategy(loginStrategy);
@@ -836,22 +851,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.login_strategy
+     * This method sets the value of the database column buukle-security-new..user.login_strategy
      *
-     * @param loginStrategy the value for buukle-security..user.login_strategy
+     * @param loginStrategy the value for buukle-security-new..user.login_strategy
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setLoginStrategy(Integer loginStrategy) {
         this.loginStrategy = loginStrategy;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.head_url
+     * This method returns the value of the database column buukle-security-new..user.head_url
      *
-     * @return the value of buukle-security..user.head_url
+     * @return the value of buukle-security-new..user.head_url
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public String getHeadUrl() {
         return headUrl;
@@ -859,7 +874,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withHeadUrl(String headUrl) {
         this.setHeadUrl(headUrl);
@@ -867,22 +882,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.head_url
+     * This method sets the value of the database column buukle-security-new..user.head_url
      *
-     * @param headUrl the value for buukle-security..user.head_url
+     * @param headUrl the value for buukle-security-new..user.head_url
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setHeadUrl(String headUrl) {
         this.headUrl = headUrl == null ? null : headUrl.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.theme
+     * This method returns the value of the database column buukle-security-new..user.theme
      *
-     * @return the value of buukle-security..user.theme
+     * @return the value of buukle-security-new..user.theme
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public String getTheme() {
         return theme;
@@ -890,7 +905,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withTheme(String theme) {
         this.setTheme(theme);
@@ -898,22 +913,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.theme
+     * This method sets the value of the database column buukle-security-new..user.theme
      *
-     * @param theme the value for buukle-security..user.theme
+     * @param theme the value for buukle-security-new..user.theme
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setTheme(String theme) {
         this.theme = theme == null ? null : theme.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.theme_id
+     * This method returns the value of the database column buukle-security-new..user.theme_id
      *
-     * @return the value of buukle-security..user.theme_id
+     * @return the value of buukle-security-new..user.theme_id
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public Integer getThemeId() {
         return themeId;
@@ -921,7 +936,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withThemeId(Integer themeId) {
         this.setThemeId(themeId);
@@ -929,22 +944,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.theme_id
+     * This method sets the value of the database column buukle-security-new..user.theme_id
      *
-     * @param themeId the value for buukle-security..user.theme_id
+     * @param themeId the value for buukle-security-new..user.theme_id
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setThemeId(Integer themeId) {
         this.themeId = themeId;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.description
+     * This method returns the value of the database column buukle-security-new..user.description
      *
-     * @return the value of buukle-security..user.description
+     * @return the value of buukle-security-new..user.description
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public String getDescription() {
         return description;
@@ -952,7 +967,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withDescription(String description) {
         this.setDescription(description);
@@ -960,22 +975,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.description
+     * This method sets the value of the database column buukle-security-new..user.description
      *
-     * @param description the value for buukle-security..user.description
+     * @param description the value for buukle-security-new..user.description
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setDescription(String description) {
         this.description = description == null ? null : description.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.super_manager
+     * This method returns the value of the database column buukle-security-new..user.super_manager
      *
-     * @return the value of buukle-security..user.super_manager
+     * @return the value of buukle-security-new..user.super_manager
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public Integer getSuperManager() {
         return superManager;
@@ -983,7 +998,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withSuperManager(Integer superManager) {
         this.setSuperManager(superManager);
@@ -991,22 +1006,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.super_manager
+     * This method sets the value of the database column buukle-security-new..user.super_manager
      *
-     * @param superManager the value for buukle-security..user.super_manager
+     * @param superManager the value for buukle-security-new..user.super_manager
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setSuperManager(Integer superManager) {
         this.superManager = superManager;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.remark
+     * This method returns the value of the database column buukle-security-new..user.remark
      *
-     * @return the value of buukle-security..user.remark
+     * @return the value of buukle-security-new..user.remark
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public String getRemark() {
         return remark;
@@ -1014,7 +1029,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withRemark(String remark) {
         this.setRemark(remark);
@@ -1022,22 +1037,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.remark
+     * This method sets the value of the database column buukle-security-new..user.remark
      *
-     * @param remark the value for buukle-security..user.remark
+     * @param remark the value for buukle-security-new..user.remark
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.gmt_last_login
+     * This method returns the value of the database column buukle-security-new..user.gmt_last_login
      *
-     * @return the value of buukle-security..user.gmt_last_login
+     * @return the value of buukle-security-new..user.gmt_last_login
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public Date getGmtLastLogin() {
         return gmtLastLogin;
@@ -1045,7 +1060,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withGmtLastLogin(Date gmtLastLogin) {
         this.setGmtLastLogin(gmtLastLogin);
@@ -1053,22 +1068,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.gmt_last_login
+     * This method sets the value of the database column buukle-security-new..user.gmt_last_login
      *
-     * @param gmtLastLogin the value for buukle-security..user.gmt_last_login
+     * @param gmtLastLogin the value for buukle-security-new..user.gmt_last_login
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setGmtLastLogin(Date gmtLastLogin) {
         this.gmtLastLogin = gmtLastLogin;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.gmt_created
+     * This method returns the value of the database column buukle-security-new..user.gmt_created
      *
-     * @return the value of buukle-security..user.gmt_created
+     * @return the value of buukle-security-new..user.gmt_created
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public Date getGmtCreated() {
         return gmtCreated;
@@ -1076,7 +1091,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withGmtCreated(Date gmtCreated) {
         this.setGmtCreated(gmtCreated);
@@ -1084,22 +1099,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.gmt_created
+     * This method sets the value of the database column buukle-security-new..user.gmt_created
      *
-     * @param gmtCreated the value for buukle-security..user.gmt_created
+     * @param gmtCreated the value for buukle-security-new..user.gmt_created
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setGmtCreated(Date gmtCreated) {
         this.gmtCreated = gmtCreated;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.creator
+     * This method returns the value of the database column buukle-security-new..user.creator
      *
-     * @return the value of buukle-security..user.creator
+     * @return the value of buukle-security-new..user.creator
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public String getCreator() {
         return creator;
@@ -1107,7 +1122,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withCreator(String creator) {
         this.setCreator(creator);
@@ -1115,22 +1130,53 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.creator
+     * This method sets the value of the database column buukle-security-new..user.creator
      *
-     * @param creator the value for buukle-security..user.creator
+     * @param creator the value for buukle-security-new..user.creator
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setCreator(String creator) {
         this.creator = creator == null ? null : creator.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.creator_code
+     * This method returns the value of the database column buukle-security-new..user.creator_role_id
      *
-     * @return the value of buukle-security..user.creator_code
+     * @return the value of buukle-security-new..user.creator_role_id
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
+     */
+    public Integer getCreatorRoleId() {
+        return creatorRoleId;
+    }
+
+    /**
+     *
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
+     */
+    public User withCreatorRoleId(Integer creatorRoleId) {
+        this.setCreatorRoleId(creatorRoleId);
+        return this;
+    }
+
+    /**
+     * This method sets the value of the database column buukle-security-new..user.creator_role_id
+     *
+     * @param creatorRoleId the value for buukle-security-new..user.creator_role_id
+     *
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
+     */
+    public void setCreatorRoleId(Integer creatorRoleId) {
+        this.creatorRoleId = creatorRoleId;
+    }
+
+    /**
+     * This method returns the value of the database column buukle-security-new..user.creator_code
+     *
+     * @return the value of buukle-security-new..user.creator_code
+     *
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public String getCreatorCode() {
         return creatorCode;
@@ -1138,7 +1184,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withCreatorCode(String creatorCode) {
         this.setCreatorCode(creatorCode);
@@ -1146,22 +1192,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.creator_code
+     * This method sets the value of the database column buukle-security-new..user.creator_code
      *
-     * @param creatorCode the value for buukle-security..user.creator_code
+     * @param creatorCode the value for buukle-security-new..user.creator_code
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setCreatorCode(String creatorCode) {
         this.creatorCode = creatorCode == null ? null : creatorCode.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.gmt_modified
+     * This method returns the value of the database column buukle-security-new..user.gmt_modified
      *
-     * @return the value of buukle-security..user.gmt_modified
+     * @return the value of buukle-security-new..user.gmt_modified
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public Date getGmtModified() {
         return gmtModified;
@@ -1169,7 +1215,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withGmtModified(Date gmtModified) {
         this.setGmtModified(gmtModified);
@@ -1177,22 +1223,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.gmt_modified
+     * This method sets the value of the database column buukle-security-new..user.gmt_modified
      *
-     * @param gmtModified the value for buukle-security..user.gmt_modified
+     * @param gmtModified the value for buukle-security-new..user.gmt_modified
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setGmtModified(Date gmtModified) {
         this.gmtModified = gmtModified;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.modifier
+     * This method returns the value of the database column buukle-security-new..user.modifier
      *
-     * @return the value of buukle-security..user.modifier
+     * @return the value of buukle-security-new..user.modifier
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public String getModifier() {
         return modifier;
@@ -1200,7 +1246,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withModifier(String modifier) {
         this.setModifier(modifier);
@@ -1208,22 +1254,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.modifier
+     * This method sets the value of the database column buukle-security-new..user.modifier
      *
-     * @param modifier the value for buukle-security..user.modifier
+     * @param modifier the value for buukle-security-new..user.modifier
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setModifier(String modifier) {
         this.modifier = modifier == null ? null : modifier.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.modifier_code
+     * This method returns the value of the database column buukle-security-new..user.modifier_code
      *
-     * @return the value of buukle-security..user.modifier_code
+     * @return the value of buukle-security-new..user.modifier_code
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public String getModifierCode() {
         return modifierCode;
@@ -1231,7 +1277,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withModifierCode(String modifierCode) {
         this.setModifierCode(modifierCode);
@@ -1239,22 +1285,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.modifier_code
+     * This method sets the value of the database column buukle-security-new..user.modifier_code
      *
-     * @param modifierCode the value for buukle-security..user.modifier_code
+     * @param modifierCode the value for buukle-security-new..user.modifier_code
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setModifierCode(String modifierCode) {
         this.modifierCode = modifierCode == null ? null : modifierCode.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.status
+     * This method returns the value of the database column buukle-security-new..user.status
      *
-     * @return the value of buukle-security..user.status
+     * @return the value of buukle-security-new..user.status
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public Integer getStatus() {
         return status;
@@ -1262,7 +1308,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withStatus(Integer status) {
         this.setStatus(status);
@@ -1270,22 +1316,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.status
+     * This method sets the value of the database column buukle-security-new..user.status
      *
-     * @param status the value for buukle-security..user.status
+     * @param status the value for buukle-security-new..user.status
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setStatus(Integer status) {
         this.status = status;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.bak01
+     * This method returns the value of the database column buukle-security-new..user.bak01
      *
-     * @return the value of buukle-security..user.bak01
+     * @return the value of buukle-security-new..user.bak01
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public String getBak01() {
         return bak01;
@@ -1293,7 +1339,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withBak01(String bak01) {
         this.setBak01(bak01);
@@ -1301,22 +1347,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.bak01
+     * This method sets the value of the database column buukle-security-new..user.bak01
      *
-     * @param bak01 the value for buukle-security..user.bak01
+     * @param bak01 the value for buukle-security-new..user.bak01
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setBak01(String bak01) {
         this.bak01 = bak01 == null ? null : bak01.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.bak02
+     * This method returns the value of the database column buukle-security-new..user.bak02
      *
-     * @return the value of buukle-security..user.bak02
+     * @return the value of buukle-security-new..user.bak02
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public String getBak02() {
         return bak02;
@@ -1324,7 +1370,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withBak02(String bak02) {
         this.setBak02(bak02);
@@ -1332,22 +1378,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.bak02
+     * This method sets the value of the database column buukle-security-new..user.bak02
      *
-     * @param bak02 the value for buukle-security..user.bak02
+     * @param bak02 the value for buukle-security-new..user.bak02
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setBak02(String bak02) {
         this.bak02 = bak02 == null ? null : bak02.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.bak03
+     * This method returns the value of the database column buukle-security-new..user.bak03
      *
-     * @return the value of buukle-security..user.bak03
+     * @return the value of buukle-security-new..user.bak03
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public String getBak03() {
         return bak03;
@@ -1355,7 +1401,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withBak03(String bak03) {
         this.setBak03(bak03);
@@ -1363,22 +1409,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.bak03
+     * This method sets the value of the database column buukle-security-new..user.bak03
      *
-     * @param bak03 the value for buukle-security..user.bak03
+     * @param bak03 the value for buukle-security-new..user.bak03
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setBak03(String bak03) {
         this.bak03 = bak03 == null ? null : bak03.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.bak04
+     * This method returns the value of the database column buukle-security-new..user.bak04
      *
-     * @return the value of buukle-security..user.bak04
+     * @return the value of buukle-security-new..user.bak04
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public String getBak04() {
         return bak04;
@@ -1386,7 +1432,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withBak04(String bak04) {
         this.setBak04(bak04);
@@ -1394,22 +1440,22 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.bak04
+     * This method sets the value of the database column buukle-security-new..user.bak04
      *
-     * @param bak04 the value for buukle-security..user.bak04
+     * @param bak04 the value for buukle-security-new..user.bak04
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setBak04(String bak04) {
         this.bak04 = bak04 == null ? null : bak04.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user.bak05
+     * This method returns the value of the database column buukle-security-new..user.bak05
      *
-     * @return the value of buukle-security..user.bak05
+     * @return the value of buukle-security-new..user.bak05
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public String getBak05() {
         return bak05;
@@ -1417,7 +1463,7 @@ public class User implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public User withBak05(String bak05) {
         this.setBak05(bak05);
@@ -1425,19 +1471,50 @@ public class User implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user.bak05
+     * This method sets the value of the database column buukle-security-new..user.bak05
      *
-     * @param bak05 the value for buukle-security..user.bak05
+     * @param bak05 the value for buukle-security-new..user.bak05
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     public void setBak05(String bak05) {
         this.bak05 = bak05 == null ? null : bak05.trim();
     }
 
     /**
+     * This method returns the value of the database column buukle-security-new..user.application_id
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @return the value of buukle-security-new..user.application_id
+     *
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
+     */
+    public Integer getApplicationId() {
+        return applicationId;
+    }
+
+    /**
+     *
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
+     */
+    public User withApplicationId(Integer applicationId) {
+        this.setApplicationId(applicationId);
+        return this;
+    }
+
+    /**
+     * This method sets the value of the database column buukle-security-new..user.application_id
+     *
+     * @param applicationId the value for buukle-security-new..user.application_id
+     *
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
+     */
+    public void setApplicationId(Integer applicationId) {
+        this.applicationId = applicationId;
+    }
+
+    /**
+     *
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     @Override
     public String toString() {
@@ -1472,6 +1549,7 @@ public class User implements Serializable {
         sb.append(", gmtLastLogin=").append(gmtLastLogin);
         sb.append(", gmtCreated=").append(gmtCreated);
         sb.append(", creator=").append(creator);
+        sb.append(", creatorRoleId=").append(creatorRoleId);
         sb.append(", creatorCode=").append(creatorCode);
         sb.append(", gmtModified=").append(gmtModified);
         sb.append(", modifier=").append(modifier);
@@ -1482,13 +1560,14 @@ public class User implements Serializable {
         sb.append(", bak03=").append(bak03);
         sb.append(", bak04=").append(bak04);
         sb.append(", bak05=").append(bak05);
+        sb.append(", applicationId=").append(applicationId);
         sb.append("]");
         return sb.toString();
     }
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     @Override
     public boolean equals(Object that) {
@@ -1529,6 +1608,7 @@ public class User implements Serializable {
             && (this.getGmtLastLogin() == null ? other.getGmtLastLogin() == null : this.getGmtLastLogin().equals(other.getGmtLastLogin()))
             && (this.getGmtCreated() == null ? other.getGmtCreated() == null : this.getGmtCreated().equals(other.getGmtCreated()))
             && (this.getCreator() == null ? other.getCreator() == null : this.getCreator().equals(other.getCreator()))
+            && (this.getCreatorRoleId() == null ? other.getCreatorRoleId() == null : this.getCreatorRoleId().equals(other.getCreatorRoleId()))
             && (this.getCreatorCode() == null ? other.getCreatorCode() == null : this.getCreatorCode().equals(other.getCreatorCode()))
             && (this.getGmtModified() == null ? other.getGmtModified() == null : this.getGmtModified().equals(other.getGmtModified()))
             && (this.getModifier() == null ? other.getModifier() == null : this.getModifier().equals(other.getModifier()))
@@ -1538,12 +1618,13 @@ public class User implements Serializable {
             && (this.getBak02() == null ? other.getBak02() == null : this.getBak02().equals(other.getBak02()))
             && (this.getBak03() == null ? other.getBak03() == null : this.getBak03().equals(other.getBak03()))
             && (this.getBak04() == null ? other.getBak04() == null : this.getBak04().equals(other.getBak04()))
-            && (this.getBak05() == null ? other.getBak05() == null : this.getBak05().equals(other.getBak05()));
+            && (this.getBak05() == null ? other.getBak05() == null : this.getBak05().equals(other.getBak05()))
+            && (this.getApplicationId() == null ? other.getApplicationId() == null : this.getApplicationId().equals(other.getApplicationId()));
     }
 
     /**
      *
-     * @mbg.generated Tue Aug 06 17:36:57 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:10 CST 2019
      */
     @Override
     public int hashCode() {
@@ -1576,6 +1657,7 @@ public class User implements Serializable {
         result = prime * result + ((getGmtLastLogin() == null) ? 0 : getGmtLastLogin().hashCode());
         result = prime * result + ((getGmtCreated() == null) ? 0 : getGmtCreated().hashCode());
         result = prime * result + ((getCreator() == null) ? 0 : getCreator().hashCode());
+        result = prime * result + ((getCreatorRoleId() == null) ? 0 : getCreatorRoleId().hashCode());
         result = prime * result + ((getCreatorCode() == null) ? 0 : getCreatorCode().hashCode());
         result = prime * result + ((getGmtModified() == null) ? 0 : getGmtModified().hashCode());
         result = prime * result + ((getModifier() == null) ? 0 : getModifier().hashCode());
@@ -1586,6 +1668,7 @@ public class User implements Serializable {
         result = prime * result + ((getBak03() == null) ? 0 : getBak03().hashCode());
         result = prime * result + ((getBak04() == null) ? 0 : getBak04().hashCode());
         result = prime * result + ((getBak05() == null) ? 0 : getBak05().hashCode());
+        result = prime * result + ((getApplicationId() == null) ? 0 : getApplicationId().hashCode());
         return result;
     }
 }

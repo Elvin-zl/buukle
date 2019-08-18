@@ -8,11 +8,12 @@
  * <author>          <time>          <version>          <desc>
  * 作者姓名           修改时间           版本号              描述
  */
-package top.buukle.security.plugin.thymleafDialect;
+package top.buukle.security.plugin.configure;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import top.buukle.security.plugin.thymleafDialect.HpDialect;
 
 /**
  * @description 〈〉

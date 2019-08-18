@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 import top.buukle.common.call.CommonResponse;
 import top.buukle.common.call.FuzzyResponse;
@@ -52,6 +53,9 @@ public class MenuServiceImpl implements MenuService{
 
     @Autowired
     private CommonMapper commonMapper;
+
+    @Autowired
+    private Environment env;
 
     /**
      * 分页获取列表
@@ -194,6 +198,7 @@ public class MenuServiceImpl implements MenuService{
         validateParamForSaveOrEdit(query);
         // 新增
         if(query.getId() == null){
+            query.setCreatorRoleId(SessionUtil.getUserRoleId(request,env.getProperty("spring.application.name")).getId());
             this.save(query,request,response);
         }
         // 更新

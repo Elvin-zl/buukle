@@ -11,15 +11,19 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.servlet.ModelAndView;
 import top.buukle.common.call.FuzzyResponse;
+import top.buukle.security.entity.Menu;
 import top.buukle.security.entity.Role;
 import top.buukle.security.entity.vo.MenuTreeNode;
 import top.buukle.security.plugin.util.SessionUtil;
 import top.buukle.security.service.BaseService;
+import top.buukle.security.service.constants.MenuEnums;
 import top.buukle.util.JsonUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -46,15 +50,52 @@ public class SecurityController {
         String nameSuffix = applicationName.split("-")[1];
         modelAndView.addObject("nameSuffix",nameSuffix);
         modelAndView.addObject("user",SessionUtil.getUser(request, response));
-        // 返回菜单树的引用
         MenuTreeNode menuTreeNode = ((Map<String, MenuTreeNode>) SessionUtil.get(request, SessionUtil.USER_MENU_TREE_KEY)).get(applicationName);
-        modelAndView.addObject("menuList",menuTreeNode == null ? new MenuTreeNode() : menuTreeNode.getSubMenuList());
-        modelAndView.addObject("welcome",menuTreeNode == null ? new MenuTreeNode() : (CollectionUtils.isEmpty(menuTreeNode.getSubMenuList()) ? new MenuTreeNode() : menuTreeNode.getSubMenuList().get(0)));
+        // 返回左侧菜单树的引用
+        modelAndView.addObject("menuList",menuTreeNode == null ? new ArrayList<MenuTreeNode>() : menuTreeNode.getSubMenuList());
+        // 返回首页引用
+        modelAndView.addObject("welcome",menuTreeNode == null ? new ArrayList<MenuTreeNode>() : menuTreeNode.getSubMenuList().get(0));
+        // 返回顶部菜单树的引用
+        modelAndView.addObject("topMenuList",menuTreeNode == null ? new ArrayList<MenuTreeNode>() : this.getTopMenuList(menuTreeNode.getSubMenuList()));
         // 返回角色引用
         modelAndView.addObject("role",((Map<String,Role>)SessionUtil.get(request,SessionUtil.USER_ROLE_MAP_KEY)).get(applicationName));
         modelAndView.setViewName("home");
         return modelAndView;
     }
+
+    /**
+     * @description 获取顶部菜单列表
+     * @param subMenuList
+     * @return java.util.List<top.buukle.security.entity.Menu>
+     * @Author elvin
+     * @Date 2019/8/18
+     */
+    private List<MenuTreeNode> getTopMenuList(List<MenuTreeNode> subMenuList) {
+        List<MenuTreeNode> topMenuList = new ArrayList<>();
+        this.getTopMenuList(topMenuList,subMenuList);
+        return topMenuList;
+    }
+
+    /**
+     * @description 获取顶部菜单列表
+     * @param topMenuList
+     * @param subMenuList
+     * @return void
+     * @Author elvin
+     * @Date 2019/8/18
+     */
+    private void getTopMenuList(List<MenuTreeNode> topMenuList, List<MenuTreeNode> subMenuList) {
+        for (MenuTreeNode menuTreeNode: subMenuList) {
+            if(MenuEnums.display.DISPLAY_BLOCK.value().equals(menuTreeNode.getDisplay()) && MenuEnums.positionType.LEFT_AND_TOP.value().equals(menuTreeNode.getPositionType())){
+                topMenuList.add(menuTreeNode);
+            }
+            if(!CollectionUtils.isEmpty(menuTreeNode.getSubMenuList())){
+                this.getTopMenuList(topMenuList,menuTreeNode.getSubMenuList());
+            }
+
+        }
+    }
+
     /**
      * security 子页面控制器
      * @param entity

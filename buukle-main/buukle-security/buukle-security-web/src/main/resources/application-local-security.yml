@@ -9,6 +9,8 @@ security:
   openAuth: 1
   ### security.openPerm 是否开启授权 : 1,开启 (默认不开启)
   openPerm: 1
+  ### security.openIsol 是否开启数据隔离 : 1,开启 (默认不开启)
+  openIsol: 1
   ### security.openRegs 是否开启接口注册 : 1,开启 (默认不开启)
   openRegs: 0
   passport:

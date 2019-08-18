@@ -3,7 +3,7 @@
 <mapper namespace="top.buukle.security.dao.MenuMapper">
   <resultMap id="BaseResultMap" type="top.buukle.security.entity.Menu">
     <!--
-      WARNING - @mbg.generated  This element was generated on Thu Aug 15 14:43:20 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Sun Aug 18 22:59:20 CST 2019. by MyBatis Generator, do not modify.
     -->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="system_flag" jdbcType="INTEGER" property="systemFlag" />
@@ -11,9 +11,11 @@
     <result column="application_id" jdbcType="INTEGER" property="applicationId" />
     <result column="application_name" jdbcType="VARCHAR" property="applicationName" />
     <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="alias_name" jdbcType="VARCHAR" property="aliasName" />
     <result column="url" jdbcType="VARCHAR" property="url" />
     <result column="page_url" jdbcType="VARCHAR" property="pageUrl" />
     <result column="icon" jdbcType="VARCHAR" property="icon" />
+    <result column="position_type" jdbcType="INTEGER" property="positionType" />
     <result column="display" jdbcType="INTEGER" property="display" />
     <result column="order_no" jdbcType="INTEGER" property="orderNo" />
     <result column="type" jdbcType="INTEGER" property="type" />
@@ -21,6 +23,7 @@
     <result column="remark" jdbcType="VARCHAR" property="remark" />
     <result column="gmt_created" jdbcType="TIMESTAMP" property="gmtCreated" />
     <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="creator_role_id" jdbcType="INTEGER" property="creatorRoleId" />
     <result column="creator_code" jdbcType="VARCHAR" property="creatorCode" />
     <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
     <result column="modifier" jdbcType="VARCHAR" property="modifier" />
@@ -34,7 +37,7 @@
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--
-      WARNING - @mbg.generated  This element was generated on Thu Aug 15 14:43:20 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Sun Aug 18 22:59:20 CST 2019. by MyBatis Generator, do not modify.
     -->
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -66,7 +69,7 @@
   </sql>
   <sql id="Update_By_Example_Where_Clause">
     <!--
-      WARNING - @mbg.generated  This element was generated on Thu Aug 15 14:43:20 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Sun Aug 18 22:59:20 CST 2019. by MyBatis Generator, do not modify.
     -->
     <where>
       <foreach collection="example.oredCriteria" item="criteria" separator="or">
@@ -98,15 +101,16 @@
   </sql>
   <sql id="Base_Column_List">
     <!--
-      WARNING - @mbg.generated  This element was generated on Thu Aug 15 14:43:20 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Sun Aug 18 22:59:20 CST 2019. by MyBatis Generator, do not modify.
     -->
-    id, system_flag, pid, application_id, application_name, name, url, page_url, icon, 
-    display, order_no, type, description, remark, gmt_created, creator, creator_code, 
-    gmt_modified, modifier, modifier_code, status, bak01, bak02, bak03, bak04, bak05
+    id, system_flag, pid, application_id, application_name, name, alias_name, url, page_url, 
+    icon, position_type, display, order_no, type, description, remark, gmt_created, creator, 
+    creator_role_id, creator_code, gmt_modified, modifier, modifier_code, status, bak01, 
+    bak02, bak03, bak04, bak05
   </sql>
   <select id="selectByExample" parameterType="top.buukle.security.entity.MenuExample" resultMap="BaseResultMap">
     <!--
-      WARNING - @mbg.generated  This element was generated on Thu Aug 15 14:43:20 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Sun Aug 18 22:59:20 CST 2019. by MyBatis Generator, do not modify.
     -->
     select
     <if test="distinct">
@@ -123,7 +127,7 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--
-      WARNING - @mbg.generated  This element was generated on Thu Aug 15 14:43:20 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Sun Aug 18 22:59:20 CST 2019. by MyBatis Generator, do not modify.
     -->
     select 
     <include refid="Base_Column_List" />
@@ -132,14 +136,14 @@
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--
-      WARNING - @mbg.generated  This element was generated on Thu Aug 15 14:43:20 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Sun Aug 18 22:59:20 CST 2019. by MyBatis Generator, do not modify.
     -->
     delete from menu
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="top.buukle.security.entity.MenuExample">
     <!--
-      WARNING - @mbg.generated  This element was generated on Thu Aug 15 14:43:20 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Sun Aug 18 22:59:20 CST 2019. by MyBatis Generator, do not modify.
     -->
     delete from menu
     <if test="_parameter != null">
@@ -148,30 +152,32 @@
   </delete>
   <insert id="insert" parameterType="top.buukle.security.entity.Menu">
     <!--
-      WARNING - @mbg.generated  This element was generated on Thu Aug 15 14:43:20 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Sun Aug 18 22:59:20 CST 2019. by MyBatis Generator, do not modify.
     -->
     insert into menu (id, system_flag, pid, 
       application_id, application_name, name, 
-      url, page_url, icon, 
-      display, order_no, type, 
-      description, remark, gmt_created, 
-      creator, creator_code, gmt_modified, 
+      alias_name, url, page_url, 
+      icon, position_type, display, 
+      order_no, type, description, 
+      remark, gmt_created, creator, 
+      creator_role_id, creator_code, gmt_modified, 
       modifier, modifier_code, status, 
       bak01, bak02, bak03, 
       bak04, bak05)
     values (#{id,jdbcType=INTEGER}, #{systemFlag,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, 
       #{applicationId,jdbcType=INTEGER}, #{applicationName,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
-      #{url,jdbcType=VARCHAR}, #{pageUrl,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR}, 
-      #{display,jdbcType=INTEGER}, #{orderNo,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, 
-      #{description,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, 
-      #{creator,jdbcType=VARCHAR}, #{creatorCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{aliasName,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{pageUrl,jdbcType=VARCHAR}, 
+      #{icon,jdbcType=VARCHAR}, #{positionType,jdbcType=INTEGER}, #{display,jdbcType=INTEGER}, 
+      #{orderNo,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, #{description,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, 
+      #{creatorRoleId,jdbcType=INTEGER}, #{creatorCode,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}, 
       #{modifier,jdbcType=VARCHAR}, #{modifierCode,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
       #{bak01,jdbcType=VARCHAR}, #{bak02,jdbcType=VARCHAR}, #{bak03,jdbcType=VARCHAR}, 
       #{bak04,jdbcType=VARCHAR}, #{bak05,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="top.buukle.security.entity.Menu">
     <!--
-      WARNING - @mbg.generated  This element was generated on Thu Aug 15 14:43:20 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Sun Aug 18 22:59:20 CST 2019. by MyBatis Generator, do not modify.
     -->
     insert into menu
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -193,6 +199,9 @@
       <if test="name != null">
         name,
       </if>
+      <if test="aliasName != null">
+        alias_name,
+      </if>
       <if test="url != null">
         url,
       </if>
@@ -201,6 +210,9 @@
       </if>
       <if test="icon != null">
         icon,
+      </if>
+      <if test="positionType != null">
+        position_type,
       </if>
       <if test="display != null">
         display,
@@ -222,6 +234,9 @@
       </if>
       <if test="creator != null">
         creator,
+      </if>
+      <if test="creatorRoleId != null">
+        creator_role_id,
       </if>
       <if test="creatorCode != null">
         creator_code,
@@ -273,6 +288,9 @@
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
       </if>
+      <if test="aliasName != null">
+        #{aliasName,jdbcType=VARCHAR},
+      </if>
       <if test="url != null">
         #{url,jdbcType=VARCHAR},
       </if>
@@ -281,6 +299,9 @@
       </if>
       <if test="icon != null">
         #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="positionType != null">
+        #{positionType,jdbcType=INTEGER},
       </if>
       <if test="display != null">
         #{display,jdbcType=INTEGER},
@@ -302,6 +323,9 @@
       </if>
       <if test="creator != null">
         #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorRoleId != null">
+        #{creatorRoleId,jdbcType=INTEGER},
       </if>
       <if test="creatorCode != null">
         #{creatorCode,jdbcType=VARCHAR},
@@ -337,7 +361,7 @@
   </insert>
   <select id="countByExample" parameterType="top.buukle.security.entity.MenuExample" resultType="java.lang.Long">
     <!--
-      WARNING - @mbg.generated  This element was generated on Thu Aug 15 14:43:20 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Sun Aug 18 22:59:20 CST 2019. by MyBatis Generator, do not modify.
     -->
     select count(*) from menu
     <if test="_parameter != null">
@@ -346,7 +370,7 @@
   </select>
   <update id="updateByExampleSelective" parameterType="map">
     <!--
-      WARNING - @mbg.generated  This element was generated on Thu Aug 15 14:43:20 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Sun Aug 18 22:59:20 CST 2019. by MyBatis Generator, do not modify.
     -->
     update menu
     <set>
@@ -368,6 +392,9 @@
       <if test="record.name != null">
         name = #{record.name,jdbcType=VARCHAR},
       </if>
+      <if test="record.aliasName != null">
+        alias_name = #{record.aliasName,jdbcType=VARCHAR},
+      </if>
       <if test="record.url != null">
         url = #{record.url,jdbcType=VARCHAR},
       </if>
@@ -376,6 +403,9 @@
       </if>
       <if test="record.icon != null">
         icon = #{record.icon,jdbcType=VARCHAR},
+      </if>
+      <if test="record.positionType != null">
+        position_type = #{record.positionType,jdbcType=INTEGER},
       </if>
       <if test="record.display != null">
         display = #{record.display,jdbcType=INTEGER},
@@ -397,6 +427,9 @@
       </if>
       <if test="record.creator != null">
         creator = #{record.creator,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creatorRoleId != null">
+        creator_role_id = #{record.creatorRoleId,jdbcType=INTEGER},
       </if>
       <if test="record.creatorCode != null">
         creator_code = #{record.creatorCode,jdbcType=VARCHAR},
@@ -435,7 +468,7 @@
   </update>
   <update id="updateByExample" parameterType="map">
     <!--
-      WARNING - @mbg.generated  This element was generated on Thu Aug 15 14:43:20 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Sun Aug 18 22:59:20 CST 2019. by MyBatis Generator, do not modify.
     -->
     update menu
     set id = #{record.id,jdbcType=INTEGER},
@@ -444,9 +477,11 @@
       application_id = #{record.applicationId,jdbcType=INTEGER},
       application_name = #{record.applicationName,jdbcType=VARCHAR},
       name = #{record.name,jdbcType=VARCHAR},
+      alias_name = #{record.aliasName,jdbcType=VARCHAR},
       url = #{record.url,jdbcType=VARCHAR},
       page_url = #{record.pageUrl,jdbcType=VARCHAR},
       icon = #{record.icon,jdbcType=VARCHAR},
+      position_type = #{record.positionType,jdbcType=INTEGER},
       display = #{record.display,jdbcType=INTEGER},
       order_no = #{record.orderNo,jdbcType=INTEGER},
       type = #{record.type,jdbcType=INTEGER},
@@ -454,6 +489,7 @@
       remark = #{record.remark,jdbcType=VARCHAR},
       gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
       creator = #{record.creator,jdbcType=VARCHAR},
+      creator_role_id = #{record.creatorRoleId,jdbcType=INTEGER},
       creator_code = #{record.creatorCode,jdbcType=VARCHAR},
       gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
       modifier = #{record.modifier,jdbcType=VARCHAR},
@@ -470,7 +506,7 @@
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="top.buukle.security.entity.Menu">
     <!--
-      WARNING - @mbg.generated  This element was generated on Thu Aug 15 14:43:20 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Sun Aug 18 22:59:20 CST 2019. by MyBatis Generator, do not modify.
     -->
     update menu
     <set>
@@ -489,6 +525,9 @@
       <if test="name != null">
         name = #{name,jdbcType=VARCHAR},
       </if>
+      <if test="aliasName != null">
+        alias_name = #{aliasName,jdbcType=VARCHAR},
+      </if>
       <if test="url != null">
         url = #{url,jdbcType=VARCHAR},
       </if>
@@ -497,6 +536,9 @@
       </if>
       <if test="icon != null">
         icon = #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="positionType != null">
+        position_type = #{positionType,jdbcType=INTEGER},
       </if>
       <if test="display != null">
         display = #{display,jdbcType=INTEGER},
@@ -518,6 +560,9 @@
       </if>
       <if test="creator != null">
         creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorRoleId != null">
+        creator_role_id = #{creatorRoleId,jdbcType=INTEGER},
       </if>
       <if test="creatorCode != null">
         creator_code = #{creatorCode,jdbcType=VARCHAR},
@@ -554,7 +599,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="top.buukle.security.entity.Menu">
     <!--
-      WARNING - @mbg.generated  This element was generated on Thu Aug 15 14:43:20 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Sun Aug 18 22:59:20 CST 2019. by MyBatis Generator, do not modify.
     -->
     update menu
     set system_flag = #{systemFlag,jdbcType=INTEGER},
@@ -562,9 +607,11 @@
       application_id = #{applicationId,jdbcType=INTEGER},
       application_name = #{applicationName,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},
+      alias_name = #{aliasName,jdbcType=VARCHAR},
       url = #{url,jdbcType=VARCHAR},
       page_url = #{pageUrl,jdbcType=VARCHAR},
       icon = #{icon,jdbcType=VARCHAR},
+      position_type = #{positionType,jdbcType=INTEGER},
       display = #{display,jdbcType=INTEGER},
       order_no = #{orderNo,jdbcType=INTEGER},
       type = #{type,jdbcType=INTEGER},
@@ -572,6 +619,7 @@
       remark = #{remark,jdbcType=VARCHAR},
       gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
       creator = #{creator,jdbcType=VARCHAR},
+      creator_role_id = #{creatorRoleId,jdbcType=INTEGER},
       creator_code = #{creatorCode,jdbcType=VARCHAR},
       gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
       modifier = #{modifier,jdbcType=VARCHAR},

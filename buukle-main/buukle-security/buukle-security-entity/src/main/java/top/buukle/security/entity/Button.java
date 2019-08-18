@@ -14,7 +14,7 @@ public class Button implements Serializable {
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     private Integer id;
 
@@ -22,7 +22,7 @@ public class Button implements Serializable {
      * 是否是系统守护 0 : 否 1: 是
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     private Integer systemFlag;
 
@@ -30,7 +30,7 @@ public class Button implements Serializable {
      * 所属应用id
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     private Integer applicationId;
 
@@ -38,21 +38,21 @@ public class Button implements Serializable {
      * 所属菜单id
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     private Integer menuId;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     private String url;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     private String name;
 
@@ -60,7 +60,7 @@ public class Button implements Serializable {
      * 操作类型 0:添加 1删除 2:修改 3:详情 4: 申请启用 5:审核 6;启/停用 7:分配设置)
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     private Integer operationType;
 
@@ -68,7 +68,7 @@ public class Button implements Serializable {
      * 按钮响应类型  0:confirm(确认框) 1:frame(弹层) 2: frame(弹层,取后台数据) 3:加载其他页面 4: 带页面查询表单条件访问后台
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     private Integer responseType;
 
@@ -76,63 +76,71 @@ public class Button implements Serializable {
      * 按钮分布级别  0:页面级别 1: 列表级别
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     private Integer layoutLevel;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     private String description;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     private String remark;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     private Date gmtCreated;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     private String creator;
 
     /**
+     * 创建者的角色id
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
+     */
+    private Integer creatorRoleId;
+
+    /**
+     *
+     *
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     private String creatorCode;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     private Date gmtModified;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     private String modifier;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     private String modifierCode;
 
@@ -140,57 +148,57 @@ public class Button implements Serializable {
      * 状态
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     private Integer status;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     private String bak01;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     private String bak02;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     private String bak03;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     private String bak04;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     private String bak05;
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     private static final long serialVersionUID = 1L;
 
     /**
-     * This method returns the value of the database column buukle-security..button.id
+     * This method returns the value of the database column buukle-security-new..button.id
      *
-     * @return the value of buukle-security..button.id
+     * @return the value of buukle-security-new..button.id
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Integer getId() {
         return id;
@@ -198,7 +206,7 @@ public class Button implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Button withId(Integer id) {
         this.setId(id);
@@ -206,22 +214,22 @@ public class Button implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..button.id
+     * This method sets the value of the database column buukle-security-new..button.id
      *
-     * @param id the value for buukle-security..button.id
+     * @param id the value for buukle-security-new..button.id
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public void setId(Integer id) {
         this.id = id;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..button.system_flag
+     * This method returns the value of the database column buukle-security-new..button.system_flag
      *
-     * @return the value of buukle-security..button.system_flag
+     * @return the value of buukle-security-new..button.system_flag
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Integer getSystemFlag() {
         return systemFlag;
@@ -229,7 +237,7 @@ public class Button implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Button withSystemFlag(Integer systemFlag) {
         this.setSystemFlag(systemFlag);
@@ -237,22 +245,22 @@ public class Button implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..button.system_flag
+     * This method sets the value of the database column buukle-security-new..button.system_flag
      *
-     * @param systemFlag the value for buukle-security..button.system_flag
+     * @param systemFlag the value for buukle-security-new..button.system_flag
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public void setSystemFlag(Integer systemFlag) {
         this.systemFlag = systemFlag;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..button.application_id
+     * This method returns the value of the database column buukle-security-new..button.application_id
      *
-     * @return the value of buukle-security..button.application_id
+     * @return the value of buukle-security-new..button.application_id
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Integer getApplicationId() {
         return applicationId;
@@ -260,7 +268,7 @@ public class Button implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Button withApplicationId(Integer applicationId) {
         this.setApplicationId(applicationId);
@@ -268,22 +276,22 @@ public class Button implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..button.application_id
+     * This method sets the value of the database column buukle-security-new..button.application_id
      *
-     * @param applicationId the value for buukle-security..button.application_id
+     * @param applicationId the value for buukle-security-new..button.application_id
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public void setApplicationId(Integer applicationId) {
         this.applicationId = applicationId;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..button.menu_id
+     * This method returns the value of the database column buukle-security-new..button.menu_id
      *
-     * @return the value of buukle-security..button.menu_id
+     * @return the value of buukle-security-new..button.menu_id
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Integer getMenuId() {
         return menuId;
@@ -291,7 +299,7 @@ public class Button implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Button withMenuId(Integer menuId) {
         this.setMenuId(menuId);
@@ -299,22 +307,22 @@ public class Button implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..button.menu_id
+     * This method sets the value of the database column buukle-security-new..button.menu_id
      *
-     * @param menuId the value for buukle-security..button.menu_id
+     * @param menuId the value for buukle-security-new..button.menu_id
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public void setMenuId(Integer menuId) {
         this.menuId = menuId;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..button.url
+     * This method returns the value of the database column buukle-security-new..button.url
      *
-     * @return the value of buukle-security..button.url
+     * @return the value of buukle-security-new..button.url
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public String getUrl() {
         return url;
@@ -322,7 +330,7 @@ public class Button implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Button withUrl(String url) {
         this.setUrl(url);
@@ -330,22 +338,22 @@ public class Button implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..button.url
+     * This method sets the value of the database column buukle-security-new..button.url
      *
-     * @param url the value for buukle-security..button.url
+     * @param url the value for buukle-security-new..button.url
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public void setUrl(String url) {
         this.url = url == null ? null : url.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..button.name
+     * This method returns the value of the database column buukle-security-new..button.name
      *
-     * @return the value of buukle-security..button.name
+     * @return the value of buukle-security-new..button.name
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public String getName() {
         return name;
@@ -353,7 +361,7 @@ public class Button implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Button withName(String name) {
         this.setName(name);
@@ -361,22 +369,22 @@ public class Button implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..button.name
+     * This method sets the value of the database column buukle-security-new..button.name
      *
-     * @param name the value for buukle-security..button.name
+     * @param name the value for buukle-security-new..button.name
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..button.operation_type
+     * This method returns the value of the database column buukle-security-new..button.operation_type
      *
-     * @return the value of buukle-security..button.operation_type
+     * @return the value of buukle-security-new..button.operation_type
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Integer getOperationType() {
         return operationType;
@@ -384,7 +392,7 @@ public class Button implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Button withOperationType(Integer operationType) {
         this.setOperationType(operationType);
@@ -392,22 +400,22 @@ public class Button implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..button.operation_type
+     * This method sets the value of the database column buukle-security-new..button.operation_type
      *
-     * @param operationType the value for buukle-security..button.operation_type
+     * @param operationType the value for buukle-security-new..button.operation_type
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public void setOperationType(Integer operationType) {
         this.operationType = operationType;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..button.response_type
+     * This method returns the value of the database column buukle-security-new..button.response_type
      *
-     * @return the value of buukle-security..button.response_type
+     * @return the value of buukle-security-new..button.response_type
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Integer getResponseType() {
         return responseType;
@@ -415,7 +423,7 @@ public class Button implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Button withResponseType(Integer responseType) {
         this.setResponseType(responseType);
@@ -423,22 +431,22 @@ public class Button implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..button.response_type
+     * This method sets the value of the database column buukle-security-new..button.response_type
      *
-     * @param responseType the value for buukle-security..button.response_type
+     * @param responseType the value for buukle-security-new..button.response_type
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public void setResponseType(Integer responseType) {
         this.responseType = responseType;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..button.layout_level
+     * This method returns the value of the database column buukle-security-new..button.layout_level
      *
-     * @return the value of buukle-security..button.layout_level
+     * @return the value of buukle-security-new..button.layout_level
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Integer getLayoutLevel() {
         return layoutLevel;
@@ -446,7 +454,7 @@ public class Button implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Button withLayoutLevel(Integer layoutLevel) {
         this.setLayoutLevel(layoutLevel);
@@ -454,22 +462,22 @@ public class Button implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..button.layout_level
+     * This method sets the value of the database column buukle-security-new..button.layout_level
      *
-     * @param layoutLevel the value for buukle-security..button.layout_level
+     * @param layoutLevel the value for buukle-security-new..button.layout_level
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public void setLayoutLevel(Integer layoutLevel) {
         this.layoutLevel = layoutLevel;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..button.description
+     * This method returns the value of the database column buukle-security-new..button.description
      *
-     * @return the value of buukle-security..button.description
+     * @return the value of buukle-security-new..button.description
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public String getDescription() {
         return description;
@@ -477,7 +485,7 @@ public class Button implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Button withDescription(String description) {
         this.setDescription(description);
@@ -485,22 +493,22 @@ public class Button implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..button.description
+     * This method sets the value of the database column buukle-security-new..button.description
      *
-     * @param description the value for buukle-security..button.description
+     * @param description the value for buukle-security-new..button.description
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public void setDescription(String description) {
         this.description = description == null ? null : description.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..button.remark
+     * This method returns the value of the database column buukle-security-new..button.remark
      *
-     * @return the value of buukle-security..button.remark
+     * @return the value of buukle-security-new..button.remark
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public String getRemark() {
         return remark;
@@ -508,7 +516,7 @@ public class Button implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Button withRemark(String remark) {
         this.setRemark(remark);
@@ -516,22 +524,22 @@ public class Button implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..button.remark
+     * This method sets the value of the database column buukle-security-new..button.remark
      *
-     * @param remark the value for buukle-security..button.remark
+     * @param remark the value for buukle-security-new..button.remark
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..button.gmt_created
+     * This method returns the value of the database column buukle-security-new..button.gmt_created
      *
-     * @return the value of buukle-security..button.gmt_created
+     * @return the value of buukle-security-new..button.gmt_created
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Date getGmtCreated() {
         return gmtCreated;
@@ -539,7 +547,7 @@ public class Button implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Button withGmtCreated(Date gmtCreated) {
         this.setGmtCreated(gmtCreated);
@@ -547,22 +555,22 @@ public class Button implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..button.gmt_created
+     * This method sets the value of the database column buukle-security-new..button.gmt_created
      *
-     * @param gmtCreated the value for buukle-security..button.gmt_created
+     * @param gmtCreated the value for buukle-security-new..button.gmt_created
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public void setGmtCreated(Date gmtCreated) {
         this.gmtCreated = gmtCreated;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..button.creator
+     * This method returns the value of the database column buukle-security-new..button.creator
      *
-     * @return the value of buukle-security..button.creator
+     * @return the value of buukle-security-new..button.creator
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public String getCreator() {
         return creator;
@@ -570,7 +578,7 @@ public class Button implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Button withCreator(String creator) {
         this.setCreator(creator);
@@ -578,22 +586,53 @@ public class Button implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..button.creator
+     * This method sets the value of the database column buukle-security-new..button.creator
      *
-     * @param creator the value for buukle-security..button.creator
+     * @param creator the value for buukle-security-new..button.creator
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public void setCreator(String creator) {
         this.creator = creator == null ? null : creator.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..button.creator_code
+     * This method returns the value of the database column buukle-security-new..button.creator_role_id
      *
-     * @return the value of buukle-security..button.creator_code
+     * @return the value of buukle-security-new..button.creator_role_id
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
+     */
+    public Integer getCreatorRoleId() {
+        return creatorRoleId;
+    }
+
+    /**
+     *
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
+     */
+    public Button withCreatorRoleId(Integer creatorRoleId) {
+        this.setCreatorRoleId(creatorRoleId);
+        return this;
+    }
+
+    /**
+     * This method sets the value of the database column buukle-security-new..button.creator_role_id
+     *
+     * @param creatorRoleId the value for buukle-security-new..button.creator_role_id
+     *
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
+     */
+    public void setCreatorRoleId(Integer creatorRoleId) {
+        this.creatorRoleId = creatorRoleId;
+    }
+
+    /**
+     * This method returns the value of the database column buukle-security-new..button.creator_code
+     *
+     * @return the value of buukle-security-new..button.creator_code
+     *
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public String getCreatorCode() {
         return creatorCode;
@@ -601,7 +640,7 @@ public class Button implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Button withCreatorCode(String creatorCode) {
         this.setCreatorCode(creatorCode);
@@ -609,22 +648,22 @@ public class Button implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..button.creator_code
+     * This method sets the value of the database column buukle-security-new..button.creator_code
      *
-     * @param creatorCode the value for buukle-security..button.creator_code
+     * @param creatorCode the value for buukle-security-new..button.creator_code
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public void setCreatorCode(String creatorCode) {
         this.creatorCode = creatorCode == null ? null : creatorCode.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..button.gmt_modified
+     * This method returns the value of the database column buukle-security-new..button.gmt_modified
      *
-     * @return the value of buukle-security..button.gmt_modified
+     * @return the value of buukle-security-new..button.gmt_modified
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Date getGmtModified() {
         return gmtModified;
@@ -632,7 +671,7 @@ public class Button implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Button withGmtModified(Date gmtModified) {
         this.setGmtModified(gmtModified);
@@ -640,22 +679,22 @@ public class Button implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..button.gmt_modified
+     * This method sets the value of the database column buukle-security-new..button.gmt_modified
      *
-     * @param gmtModified the value for buukle-security..button.gmt_modified
+     * @param gmtModified the value for buukle-security-new..button.gmt_modified
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public void setGmtModified(Date gmtModified) {
         this.gmtModified = gmtModified;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..button.modifier
+     * This method returns the value of the database column buukle-security-new..button.modifier
      *
-     * @return the value of buukle-security..button.modifier
+     * @return the value of buukle-security-new..button.modifier
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public String getModifier() {
         return modifier;
@@ -663,7 +702,7 @@ public class Button implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Button withModifier(String modifier) {
         this.setModifier(modifier);
@@ -671,22 +710,22 @@ public class Button implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..button.modifier
+     * This method sets the value of the database column buukle-security-new..button.modifier
      *
-     * @param modifier the value for buukle-security..button.modifier
+     * @param modifier the value for buukle-security-new..button.modifier
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public void setModifier(String modifier) {
         this.modifier = modifier == null ? null : modifier.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..button.modifier_code
+     * This method returns the value of the database column buukle-security-new..button.modifier_code
      *
-     * @return the value of buukle-security..button.modifier_code
+     * @return the value of buukle-security-new..button.modifier_code
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public String getModifierCode() {
         return modifierCode;
@@ -694,7 +733,7 @@ public class Button implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Button withModifierCode(String modifierCode) {
         this.setModifierCode(modifierCode);
@@ -702,22 +741,22 @@ public class Button implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..button.modifier_code
+     * This method sets the value of the database column buukle-security-new..button.modifier_code
      *
-     * @param modifierCode the value for buukle-security..button.modifier_code
+     * @param modifierCode the value for buukle-security-new..button.modifier_code
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public void setModifierCode(String modifierCode) {
         this.modifierCode = modifierCode == null ? null : modifierCode.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..button.status
+     * This method returns the value of the database column buukle-security-new..button.status
      *
-     * @return the value of buukle-security..button.status
+     * @return the value of buukle-security-new..button.status
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Integer getStatus() {
         return status;
@@ -725,7 +764,7 @@ public class Button implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Button withStatus(Integer status) {
         this.setStatus(status);
@@ -733,22 +772,22 @@ public class Button implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..button.status
+     * This method sets the value of the database column buukle-security-new..button.status
      *
-     * @param status the value for buukle-security..button.status
+     * @param status the value for buukle-security-new..button.status
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public void setStatus(Integer status) {
         this.status = status;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..button.bak01
+     * This method returns the value of the database column buukle-security-new..button.bak01
      *
-     * @return the value of buukle-security..button.bak01
+     * @return the value of buukle-security-new..button.bak01
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public String getBak01() {
         return bak01;
@@ -756,7 +795,7 @@ public class Button implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Button withBak01(String bak01) {
         this.setBak01(bak01);
@@ -764,22 +803,22 @@ public class Button implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..button.bak01
+     * This method sets the value of the database column buukle-security-new..button.bak01
      *
-     * @param bak01 the value for buukle-security..button.bak01
+     * @param bak01 the value for buukle-security-new..button.bak01
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public void setBak01(String bak01) {
         this.bak01 = bak01 == null ? null : bak01.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..button.bak02
+     * This method returns the value of the database column buukle-security-new..button.bak02
      *
-     * @return the value of buukle-security..button.bak02
+     * @return the value of buukle-security-new..button.bak02
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public String getBak02() {
         return bak02;
@@ -787,7 +826,7 @@ public class Button implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Button withBak02(String bak02) {
         this.setBak02(bak02);
@@ -795,22 +834,22 @@ public class Button implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..button.bak02
+     * This method sets the value of the database column buukle-security-new..button.bak02
      *
-     * @param bak02 the value for buukle-security..button.bak02
+     * @param bak02 the value for buukle-security-new..button.bak02
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public void setBak02(String bak02) {
         this.bak02 = bak02 == null ? null : bak02.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..button.bak03
+     * This method returns the value of the database column buukle-security-new..button.bak03
      *
-     * @return the value of buukle-security..button.bak03
+     * @return the value of buukle-security-new..button.bak03
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public String getBak03() {
         return bak03;
@@ -818,7 +857,7 @@ public class Button implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Button withBak03(String bak03) {
         this.setBak03(bak03);
@@ -826,22 +865,22 @@ public class Button implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..button.bak03
+     * This method sets the value of the database column buukle-security-new..button.bak03
      *
-     * @param bak03 the value for buukle-security..button.bak03
+     * @param bak03 the value for buukle-security-new..button.bak03
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public void setBak03(String bak03) {
         this.bak03 = bak03 == null ? null : bak03.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..button.bak04
+     * This method returns the value of the database column buukle-security-new..button.bak04
      *
-     * @return the value of buukle-security..button.bak04
+     * @return the value of buukle-security-new..button.bak04
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public String getBak04() {
         return bak04;
@@ -849,7 +888,7 @@ public class Button implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Button withBak04(String bak04) {
         this.setBak04(bak04);
@@ -857,22 +896,22 @@ public class Button implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..button.bak04
+     * This method sets the value of the database column buukle-security-new..button.bak04
      *
-     * @param bak04 the value for buukle-security..button.bak04
+     * @param bak04 the value for buukle-security-new..button.bak04
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public void setBak04(String bak04) {
         this.bak04 = bak04 == null ? null : bak04.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..button.bak05
+     * This method returns the value of the database column buukle-security-new..button.bak05
      *
-     * @return the value of buukle-security..button.bak05
+     * @return the value of buukle-security-new..button.bak05
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public String getBak05() {
         return bak05;
@@ -880,7 +919,7 @@ public class Button implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public Button withBak05(String bak05) {
         this.setBak05(bak05);
@@ -888,11 +927,11 @@ public class Button implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..button.bak05
+     * This method sets the value of the database column buukle-security-new..button.bak05
      *
-     * @param bak05 the value for buukle-security..button.bak05
+     * @param bak05 the value for buukle-security-new..button.bak05
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     public void setBak05(String bak05) {
         this.bak05 = bak05 == null ? null : bak05.trim();
@@ -900,7 +939,7 @@ public class Button implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     @Override
     public String toString() {
@@ -921,6 +960,7 @@ public class Button implements Serializable {
         sb.append(", remark=").append(remark);
         sb.append(", gmtCreated=").append(gmtCreated);
         sb.append(", creator=").append(creator);
+        sb.append(", creatorRoleId=").append(creatorRoleId);
         sb.append(", creatorCode=").append(creatorCode);
         sb.append(", gmtModified=").append(gmtModified);
         sb.append(", modifier=").append(modifier);
@@ -937,7 +977,7 @@ public class Button implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     @Override
     public boolean equals(Object that) {
@@ -964,6 +1004,7 @@ public class Button implements Serializable {
             && (this.getRemark() == null ? other.getRemark() == null : this.getRemark().equals(other.getRemark()))
             && (this.getGmtCreated() == null ? other.getGmtCreated() == null : this.getGmtCreated().equals(other.getGmtCreated()))
             && (this.getCreator() == null ? other.getCreator() == null : this.getCreator().equals(other.getCreator()))
+            && (this.getCreatorRoleId() == null ? other.getCreatorRoleId() == null : this.getCreatorRoleId().equals(other.getCreatorRoleId()))
             && (this.getCreatorCode() == null ? other.getCreatorCode() == null : this.getCreatorCode().equals(other.getCreatorCode()))
             && (this.getGmtModified() == null ? other.getGmtModified() == null : this.getGmtModified().equals(other.getGmtModified()))
             && (this.getModifier() == null ? other.getModifier() == null : this.getModifier().equals(other.getModifier()))
@@ -978,7 +1019,7 @@ public class Button implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:36:38 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:11 CST 2019
      */
     @Override
     public int hashCode() {
@@ -997,6 +1038,7 @@ public class Button implements Serializable {
         result = prime * result + ((getRemark() == null) ? 0 : getRemark().hashCode());
         result = prime * result + ((getGmtCreated() == null) ? 0 : getGmtCreated().hashCode());
         result = prime * result + ((getCreator() == null) ? 0 : getCreator().hashCode());
+        result = prime * result + ((getCreatorRoleId() == null) ? 0 : getCreatorRoleId().hashCode());
         result = prime * result + ((getCreatorCode() == null) ? 0 : getCreatorCode().hashCode());
         result = prime * result + ((getGmtModified() == null) ? 0 : getGmtModified().hashCode());
         result = prime * result + ((getModifier() == null) ? 0 : getModifier().hashCode());

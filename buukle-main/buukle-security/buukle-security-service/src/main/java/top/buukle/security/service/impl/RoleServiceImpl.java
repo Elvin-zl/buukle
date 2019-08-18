@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import top.buukle.common.call.CommonResponse;
@@ -40,6 +41,8 @@ public class RoleServiceImpl implements RoleService{
 
     @Autowired
     private RoleMapper roleMapper;
+    @Autowired
+    private Environment env;
     @Autowired
     private ApplicationMapper applicationMapper;
     @Autowired
@@ -674,7 +677,7 @@ public class RoleServiceImpl implements RoleService{
         query.setGmtModified(new Date());
         query.setModifier(operator.getUsername());
         query.setModifierCode(operator.getUserId());
-
+        query.setCreatorRoleId(SessionUtil.getUserRoleId(request,env.getProperty("spring.application.name")).getId());
         return query;
     }
 

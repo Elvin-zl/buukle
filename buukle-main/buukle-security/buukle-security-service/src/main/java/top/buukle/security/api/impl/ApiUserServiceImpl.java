@@ -13,6 +13,7 @@ import top.buukle.security.entity.*;
 import top.buukle.security.entity.vo.MenuTreeNode;
 import top.buukle.security.plugin.util.SessionUtil;
 import top.buukle.security.service.constants.MenuEnums;
+import top.buukle.security.service.constants.RoleEnums;
 import top.buukle.util.StringUtil;
 
 import javax.servlet.http.HttpServletRequest;
@@ -50,11 +51,7 @@ public class ApiUserServiceImpl implements ApiUserService{
     @Override
     public CommonResponse innerLogin(User user, HttpServletRequest request, HttpServletResponse response) {
         this.validationParam(user);
-        UserExample example = new UserExample();
-        UserExample.Criteria criteria = example.createCriteria();
-        criteria.andUsernameEqualTo(user.getUsername());
-        criteria.andPasswordEqualTo(user.getPassword());
-        List<User> users = userMapper.selectByExample(example);
+        List<User> users = userMapper.selectByUsernamePwd(user.getUsername(),user.getPassword());
         if(CollectionUtils.isEmpty(users) || users.size() != 1){
             throw new CommonException(BaseReturnEnum.LOGIN_FAILED_PARAM_WRONG);
         }
@@ -100,10 +97,61 @@ public class ApiUserServiceImpl implements ApiUserService{
             // 缓存用户角色目录
             List<Role> userRoles = roleMapper.selectUserRoles(userInfo.getUserId());
             SessionUtil.cache(request,SessionUtil.USER_ROLE_MAP_KEY,this.assUserRoleMap(userRoles));
+            RoleExample roleExample = new RoleExample();
+            RoleExample.Criteria roleExampleCriteria = roleExample.createCriteria();
+            roleExampleCriteria.andStatusEqualTo(RoleEnums.status.PUBLISED.value());
+            // 查询所有角色
+            List<Role> allRoles = roleMapper.selectByExample(roleExample);
+            // 缓存用户下辖角色映射
+            SessionUtil.cache(request,SessionUtil.USER_ROLE_SUB_MAP_KEY,this.assUserSubRoleMap(userRoles,allRoles));
             // 缓存用户所有资源url清单
             SessionUtil.cache(request,SessionUtil.USER_URL_LIST_KEY,this.assUserMenuUrlList(menuList,this.getUserButtonList(userRoles)));
         }
         return new CommonResponse.Builder().buildSuccess();
+    }
+
+    /**
+     * @description 组装用户的应用,下辖角色映射目录
+     * @param allRoles
+     *@param userRoles  @return java.lang.Object
+     * @Author elvin
+     * @Date 2019/8/19
+     */
+    private Map<String,List<Role>> assUserSubRoleMap(List<Role>  userRoles, List<Role> allRoles) {
+        Map<String,List<Role>> map = new HashMap<>();
+        Application application;
+        for (Role allRole: allRoles) {
+            application = applicationMapper.selectByPrimaryKey(allRole.getApplicationId());
+            if(application != null){
+                List<Role> subRoleList = new ArrayList<>();
+                for (Role userRole: userRoles) {
+                    if(userRole.getApplicationId().equals(application.getId())){
+                        this.getUserSubRoleWithApplicationCode(subRoleList,userRole,allRoles);
+                    }
+                    break;
+                }
+                map.put(application.getCode(),subRoleList);
+            }
+        }
+        return map;
+    }
+
+    /**
+     * @description 获取用户下辖角色
+     * @param subRoleList
+     * @param userRole
+     * @param allRoles
+     * @return void
+     * @Author elvin
+     * @Date 2019/8/19
+     */
+    private void getUserSubRoleWithApplicationCode(List<Role> subRoleList, Role userRole, List<Role> allRoles) {
+        subRoleList.add(userRole);
+        for (Role role: allRoles) {
+            if(role.getPid().equals(userRole.getId())){
+                getUserSubRoleWithApplicationCode(subRoleList,role,allRoles);
+            }
+        }
     }
 
     /**

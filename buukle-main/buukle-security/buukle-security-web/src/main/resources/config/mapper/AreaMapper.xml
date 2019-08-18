@@ -3,7 +3,7 @@
 <mapper namespace="top.buukle.security.dao.AreaMapper">
   <resultMap id="BaseResultMap" type="top.buukle.security.entity.Area">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:34 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Sun Aug 18 22:53:08 CST 2019. by MyBatis Generator, do not modify.
     -->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="pid" jdbcType="INTEGER" property="pid" />
@@ -25,7 +25,7 @@
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:34 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Sun Aug 18 22:53:08 CST 2019. by MyBatis Generator, do not modify.
     -->
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -57,7 +57,7 @@
   </sql>
   <sql id="Update_By_Example_Where_Clause">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:34 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Sun Aug 18 22:53:08 CST 2019. by MyBatis Generator, do not modify.
     -->
     <where>
       <foreach collection="example.oredCriteria" item="criteria" separator="or">
@@ -89,14 +89,14 @@
   </sql>
   <sql id="Base_Column_List">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:34 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Sun Aug 18 22:53:08 CST 2019. by MyBatis Generator, do not modify.
     -->
     id, pid, name, description, remark, gmt_created, creator, creator_code, gmt_modified, 
     modifier, modifier_code, status, bak01, bak02, bak03, bak04, bak05
   </sql>
   <select id="selectByExample" parameterType="top.buukle.security.entity.AreaExample" resultMap="BaseResultMap">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:34 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Sun Aug 18 22:53:08 CST 2019. by MyBatis Generator, do not modify.
     -->
     select
     <if test="distinct">
@@ -113,7 +113,7 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:34 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Sun Aug 18 22:53:08 CST 2019. by MyBatis Generator, do not modify.
     -->
     select 
     <include refid="Base_Column_List" />
@@ -122,14 +122,14 @@
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:34 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Sun Aug 18 22:53:08 CST 2019. by MyBatis Generator, do not modify.
     -->
     delete from area
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="top.buukle.security.entity.AreaExample">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:34 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Sun Aug 18 22:53:08 CST 2019. by MyBatis Generator, do not modify.
     -->
     delete from area
     <if test="_parameter != null">
@@ -138,7 +138,7 @@
   </delete>
   <insert id="insert" parameterType="top.buukle.security.entity.Area">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:34 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Sun Aug 18 22:53:08 CST 2019. by MyBatis Generator, do not modify.
     -->
     insert into area (id, pid, name, 
       description, remark, gmt_created, 
@@ -155,7 +155,7 @@
   </insert>
   <insert id="insertSelective" parameterType="top.buukle.security.entity.Area">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:34 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Sun Aug 18 22:53:08 CST 2019. by MyBatis Generator, do not modify.
     -->
     insert into area
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -267,7 +267,7 @@
   </insert>
   <select id="countByExample" parameterType="top.buukle.security.entity.AreaExample" resultType="java.lang.Long">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:34 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Sun Aug 18 22:53:08 CST 2019. by MyBatis Generator, do not modify.
     -->
     select count(*) from area
     <if test="_parameter != null">
@@ -276,7 +276,7 @@
   </select>
   <update id="updateByExampleSelective" parameterType="map">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:34 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Sun Aug 18 22:53:08 CST 2019. by MyBatis Generator, do not modify.
     -->
     update area
     <set>
@@ -338,7 +338,7 @@
   </update>
   <update id="updateByExample" parameterType="map">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:34 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Sun Aug 18 22:53:08 CST 2019. by MyBatis Generator, do not modify.
     -->
     update area
     set id = #{record.id,jdbcType=INTEGER},
@@ -364,7 +364,7 @@
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="top.buukle.security.entity.Area">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:34 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Sun Aug 18 22:53:08 CST 2019. by MyBatis Generator, do not modify.
     -->
     update area
     <set>
@@ -421,7 +421,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="top.buukle.security.entity.Area">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 06 21:36:34 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Sun Aug 18 22:53:08 CST 2019. by MyBatis Generator, do not modify.
     -->
     update area
     set pid = #{pid,jdbcType=INTEGER},

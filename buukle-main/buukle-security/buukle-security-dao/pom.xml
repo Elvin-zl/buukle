@@ -17,6 +17,17 @@
     <dependencies>
         <dependency>
             <groupId>top.buukle</groupId>
+            <artifactId>buukle-security-plugin</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>top.buukle</groupId>
+                    <artifactId>buukle-security-entity</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>top.buukle</groupId>
             <artifactId>buukle-security-entity</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
@@ -34,7 +45,7 @@
         </dependency>
         <dependency>
             <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <artifactId>pagehelper</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

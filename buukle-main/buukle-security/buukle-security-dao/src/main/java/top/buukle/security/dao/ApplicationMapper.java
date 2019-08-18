@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import top.buukle.security.entity.Application;
 import top.buukle.security.entity.ApplicationExample;
+import top.buukle.security.plugin.annotation.DataIsolationAnnotation;
 
 @Mapper
 public interface ApplicationMapper {
@@ -42,6 +43,7 @@ public interface ApplicationMapper {
      *
      * @mbg.generated Tue Aug 06 21:36:30 CST 2019
      */
+    @DataIsolationAnnotation(tableName="application")
     List<Application> selectByExample(ApplicationExample example);
 
     /**

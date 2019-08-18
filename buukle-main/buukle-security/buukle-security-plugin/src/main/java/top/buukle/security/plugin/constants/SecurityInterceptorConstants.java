@@ -15,6 +15,8 @@ public class SecurityInterceptorConstants {
     public static final String OPEN_AUTH_TRUE = "1";
     /** 开启授权*/
     public static final String OPEN_PERM_TRUE = "1";
+    /** 开启数据隔离*/
+    public static final String OPEN_ISOL_TRUE = "1";
     /** 开启接口注册*/
     public static final String OPEN_REGS_TRUE = "1";
     /** 认证失败提示页*/

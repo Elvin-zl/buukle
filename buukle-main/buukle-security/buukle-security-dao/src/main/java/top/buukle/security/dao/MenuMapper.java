@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import top.buukle.security.entity.Menu;
 import top.buukle.security.entity.MenuExample;
+import top.buukle.security.plugin.annotation.DataIsolationAnnotation;
 
 @Mapper
 public interface MenuMapper {
@@ -42,6 +43,7 @@ public interface MenuMapper {
      *
      * @mbg.generated Thu Aug 15 14:43:20 CST 2019
      */
+    @DataIsolationAnnotation(tableName="menu")
     List<Menu> selectByExample(MenuExample example);
 
     /**

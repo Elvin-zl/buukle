@@ -15,14 +15,22 @@ public class UserRoleRelation implements Serializable {
      * 主键id
      *
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     private Integer id;
 
     /**
+     * 应用id
      *
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
+     */
+    private Integer applicationId;
+
+    /**
+     *
+     *
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     private String userId;
 
@@ -30,63 +38,71 @@ public class UserRoleRelation implements Serializable {
      * 角色id
      *
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     private Integer roleId;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     private String description;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     private String remark;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     private Date gmtCreated;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     private String creator;
 
     /**
+     * 创建者的角色id
      *
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
+     */
+    private Integer creatorRoleId;
+
+    /**
+     *
+     *
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     private String creatorCode;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     private Date gmtModified;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     private String modifier;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     private String modifierCode;
 
@@ -94,57 +110,57 @@ public class UserRoleRelation implements Serializable {
      * 状态
      *
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     private Integer status;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     private String bak01;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     private String bak02;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     private String bak03;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     private String bak04;
 
     /**
      *
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     private String bak05;
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     private static final long serialVersionUID = 1L;
 
     /**
-     * This method returns the value of the database column buukle-security..user_role_relation.id
+     * This method returns the value of the database column buukle-security-new..user_role_relation.id
      *
-     * @return the value of buukle-security..user_role_relation.id
+     * @return the value of buukle-security-new..user_role_relation.id
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public Integer getId() {
         return id;
@@ -152,7 +168,7 @@ public class UserRoleRelation implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public UserRoleRelation withId(Integer id) {
         this.setId(id);
@@ -160,22 +176,53 @@ public class UserRoleRelation implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user_role_relation.id
+     * This method sets the value of the database column buukle-security-new..user_role_relation.id
      *
-     * @param id the value for buukle-security..user_role_relation.id
+     * @param id the value for buukle-security-new..user_role_relation.id
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public void setId(Integer id) {
         this.id = id;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user_role_relation.user_id
+     * This method returns the value of the database column buukle-security-new..user_role_relation.application_id
      *
-     * @return the value of buukle-security..user_role_relation.user_id
+     * @return the value of buukle-security-new..user_role_relation.application_id
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
+     */
+    public Integer getApplicationId() {
+        return applicationId;
+    }
+
+    /**
+     *
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
+     */
+    public UserRoleRelation withApplicationId(Integer applicationId) {
+        this.setApplicationId(applicationId);
+        return this;
+    }
+
+    /**
+     * This method sets the value of the database column buukle-security-new..user_role_relation.application_id
+     *
+     * @param applicationId the value for buukle-security-new..user_role_relation.application_id
+     *
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
+     */
+    public void setApplicationId(Integer applicationId) {
+        this.applicationId = applicationId;
+    }
+
+    /**
+     * This method returns the value of the database column buukle-security-new..user_role_relation.user_id
+     *
+     * @return the value of buukle-security-new..user_role_relation.user_id
+     *
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public String getUserId() {
         return userId;
@@ -183,7 +230,7 @@ public class UserRoleRelation implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public UserRoleRelation withUserId(String userId) {
         this.setUserId(userId);
@@ -191,22 +238,22 @@ public class UserRoleRelation implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user_role_relation.user_id
+     * This method sets the value of the database column buukle-security-new..user_role_relation.user_id
      *
-     * @param userId the value for buukle-security..user_role_relation.user_id
+     * @param userId the value for buukle-security-new..user_role_relation.user_id
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public void setUserId(String userId) {
         this.userId = userId == null ? null : userId.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user_role_relation.role_id
+     * This method returns the value of the database column buukle-security-new..user_role_relation.role_id
      *
-     * @return the value of buukle-security..user_role_relation.role_id
+     * @return the value of buukle-security-new..user_role_relation.role_id
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public Integer getRoleId() {
         return roleId;
@@ -214,7 +261,7 @@ public class UserRoleRelation implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public UserRoleRelation withRoleId(Integer roleId) {
         this.setRoleId(roleId);
@@ -222,22 +269,22 @@ public class UserRoleRelation implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user_role_relation.role_id
+     * This method sets the value of the database column buukle-security-new..user_role_relation.role_id
      *
-     * @param roleId the value for buukle-security..user_role_relation.role_id
+     * @param roleId the value for buukle-security-new..user_role_relation.role_id
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public void setRoleId(Integer roleId) {
         this.roleId = roleId;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user_role_relation.description
+     * This method returns the value of the database column buukle-security-new..user_role_relation.description
      *
-     * @return the value of buukle-security..user_role_relation.description
+     * @return the value of buukle-security-new..user_role_relation.description
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public String getDescription() {
         return description;
@@ -245,7 +292,7 @@ public class UserRoleRelation implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public UserRoleRelation withDescription(String description) {
         this.setDescription(description);
@@ -253,22 +300,22 @@ public class UserRoleRelation implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user_role_relation.description
+     * This method sets the value of the database column buukle-security-new..user_role_relation.description
      *
-     * @param description the value for buukle-security..user_role_relation.description
+     * @param description the value for buukle-security-new..user_role_relation.description
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public void setDescription(String description) {
         this.description = description == null ? null : description.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user_role_relation.remark
+     * This method returns the value of the database column buukle-security-new..user_role_relation.remark
      *
-     * @return the value of buukle-security..user_role_relation.remark
+     * @return the value of buukle-security-new..user_role_relation.remark
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public String getRemark() {
         return remark;
@@ -276,7 +323,7 @@ public class UserRoleRelation implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public UserRoleRelation withRemark(String remark) {
         this.setRemark(remark);
@@ -284,22 +331,22 @@ public class UserRoleRelation implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user_role_relation.remark
+     * This method sets the value of the database column buukle-security-new..user_role_relation.remark
      *
-     * @param remark the value for buukle-security..user_role_relation.remark
+     * @param remark the value for buukle-security-new..user_role_relation.remark
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user_role_relation.gmt_created
+     * This method returns the value of the database column buukle-security-new..user_role_relation.gmt_created
      *
-     * @return the value of buukle-security..user_role_relation.gmt_created
+     * @return the value of buukle-security-new..user_role_relation.gmt_created
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public Date getGmtCreated() {
         return gmtCreated;
@@ -307,7 +354,7 @@ public class UserRoleRelation implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public UserRoleRelation withGmtCreated(Date gmtCreated) {
         this.setGmtCreated(gmtCreated);
@@ -315,22 +362,22 @@ public class UserRoleRelation implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user_role_relation.gmt_created
+     * This method sets the value of the database column buukle-security-new..user_role_relation.gmt_created
      *
-     * @param gmtCreated the value for buukle-security..user_role_relation.gmt_created
+     * @param gmtCreated the value for buukle-security-new..user_role_relation.gmt_created
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public void setGmtCreated(Date gmtCreated) {
         this.gmtCreated = gmtCreated;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user_role_relation.creator
+     * This method returns the value of the database column buukle-security-new..user_role_relation.creator
      *
-     * @return the value of buukle-security..user_role_relation.creator
+     * @return the value of buukle-security-new..user_role_relation.creator
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public String getCreator() {
         return creator;
@@ -338,7 +385,7 @@ public class UserRoleRelation implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public UserRoleRelation withCreator(String creator) {
         this.setCreator(creator);
@@ -346,22 +393,53 @@ public class UserRoleRelation implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user_role_relation.creator
+     * This method sets the value of the database column buukle-security-new..user_role_relation.creator
      *
-     * @param creator the value for buukle-security..user_role_relation.creator
+     * @param creator the value for buukle-security-new..user_role_relation.creator
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public void setCreator(String creator) {
         this.creator = creator == null ? null : creator.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user_role_relation.creator_code
+     * This method returns the value of the database column buukle-security-new..user_role_relation.creator_role_id
      *
-     * @return the value of buukle-security..user_role_relation.creator_code
+     * @return the value of buukle-security-new..user_role_relation.creator_role_id
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
+     */
+    public Integer getCreatorRoleId() {
+        return creatorRoleId;
+    }
+
+    /**
+     *
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
+     */
+    public UserRoleRelation withCreatorRoleId(Integer creatorRoleId) {
+        this.setCreatorRoleId(creatorRoleId);
+        return this;
+    }
+
+    /**
+     * This method sets the value of the database column buukle-security-new..user_role_relation.creator_role_id
+     *
+     * @param creatorRoleId the value for buukle-security-new..user_role_relation.creator_role_id
+     *
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
+     */
+    public void setCreatorRoleId(Integer creatorRoleId) {
+        this.creatorRoleId = creatorRoleId;
+    }
+
+    /**
+     * This method returns the value of the database column buukle-security-new..user_role_relation.creator_code
+     *
+     * @return the value of buukle-security-new..user_role_relation.creator_code
+     *
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public String getCreatorCode() {
         return creatorCode;
@@ -369,7 +447,7 @@ public class UserRoleRelation implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public UserRoleRelation withCreatorCode(String creatorCode) {
         this.setCreatorCode(creatorCode);
@@ -377,22 +455,22 @@ public class UserRoleRelation implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user_role_relation.creator_code
+     * This method sets the value of the database column buukle-security-new..user_role_relation.creator_code
      *
-     * @param creatorCode the value for buukle-security..user_role_relation.creator_code
+     * @param creatorCode the value for buukle-security-new..user_role_relation.creator_code
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public void setCreatorCode(String creatorCode) {
         this.creatorCode = creatorCode == null ? null : creatorCode.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user_role_relation.gmt_modified
+     * This method returns the value of the database column buukle-security-new..user_role_relation.gmt_modified
      *
-     * @return the value of buukle-security..user_role_relation.gmt_modified
+     * @return the value of buukle-security-new..user_role_relation.gmt_modified
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public Date getGmtModified() {
         return gmtModified;
@@ -400,7 +478,7 @@ public class UserRoleRelation implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public UserRoleRelation withGmtModified(Date gmtModified) {
         this.setGmtModified(gmtModified);
@@ -408,22 +486,22 @@ public class UserRoleRelation implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user_role_relation.gmt_modified
+     * This method sets the value of the database column buukle-security-new..user_role_relation.gmt_modified
      *
-     * @param gmtModified the value for buukle-security..user_role_relation.gmt_modified
+     * @param gmtModified the value for buukle-security-new..user_role_relation.gmt_modified
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public void setGmtModified(Date gmtModified) {
         this.gmtModified = gmtModified;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user_role_relation.modifier
+     * This method returns the value of the database column buukle-security-new..user_role_relation.modifier
      *
-     * @return the value of buukle-security..user_role_relation.modifier
+     * @return the value of buukle-security-new..user_role_relation.modifier
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public String getModifier() {
         return modifier;
@@ -431,7 +509,7 @@ public class UserRoleRelation implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public UserRoleRelation withModifier(String modifier) {
         this.setModifier(modifier);
@@ -439,22 +517,22 @@ public class UserRoleRelation implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user_role_relation.modifier
+     * This method sets the value of the database column buukle-security-new..user_role_relation.modifier
      *
-     * @param modifier the value for buukle-security..user_role_relation.modifier
+     * @param modifier the value for buukle-security-new..user_role_relation.modifier
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public void setModifier(String modifier) {
         this.modifier = modifier == null ? null : modifier.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user_role_relation.modifier_code
+     * This method returns the value of the database column buukle-security-new..user_role_relation.modifier_code
      *
-     * @return the value of buukle-security..user_role_relation.modifier_code
+     * @return the value of buukle-security-new..user_role_relation.modifier_code
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public String getModifierCode() {
         return modifierCode;
@@ -462,7 +540,7 @@ public class UserRoleRelation implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public UserRoleRelation withModifierCode(String modifierCode) {
         this.setModifierCode(modifierCode);
@@ -470,22 +548,22 @@ public class UserRoleRelation implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user_role_relation.modifier_code
+     * This method sets the value of the database column buukle-security-new..user_role_relation.modifier_code
      *
-     * @param modifierCode the value for buukle-security..user_role_relation.modifier_code
+     * @param modifierCode the value for buukle-security-new..user_role_relation.modifier_code
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public void setModifierCode(String modifierCode) {
         this.modifierCode = modifierCode == null ? null : modifierCode.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user_role_relation.status
+     * This method returns the value of the database column buukle-security-new..user_role_relation.status
      *
-     * @return the value of buukle-security..user_role_relation.status
+     * @return the value of buukle-security-new..user_role_relation.status
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public Integer getStatus() {
         return status;
@@ -493,7 +571,7 @@ public class UserRoleRelation implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public UserRoleRelation withStatus(Integer status) {
         this.setStatus(status);
@@ -501,22 +579,22 @@ public class UserRoleRelation implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user_role_relation.status
+     * This method sets the value of the database column buukle-security-new..user_role_relation.status
      *
-     * @param status the value for buukle-security..user_role_relation.status
+     * @param status the value for buukle-security-new..user_role_relation.status
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public void setStatus(Integer status) {
         this.status = status;
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user_role_relation.bak01
+     * This method returns the value of the database column buukle-security-new..user_role_relation.bak01
      *
-     * @return the value of buukle-security..user_role_relation.bak01
+     * @return the value of buukle-security-new..user_role_relation.bak01
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public String getBak01() {
         return bak01;
@@ -524,7 +602,7 @@ public class UserRoleRelation implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public UserRoleRelation withBak01(String bak01) {
         this.setBak01(bak01);
@@ -532,22 +610,22 @@ public class UserRoleRelation implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user_role_relation.bak01
+     * This method sets the value of the database column buukle-security-new..user_role_relation.bak01
      *
-     * @param bak01 the value for buukle-security..user_role_relation.bak01
+     * @param bak01 the value for buukle-security-new..user_role_relation.bak01
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public void setBak01(String bak01) {
         this.bak01 = bak01 == null ? null : bak01.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user_role_relation.bak02
+     * This method returns the value of the database column buukle-security-new..user_role_relation.bak02
      *
-     * @return the value of buukle-security..user_role_relation.bak02
+     * @return the value of buukle-security-new..user_role_relation.bak02
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public String getBak02() {
         return bak02;
@@ -555,7 +633,7 @@ public class UserRoleRelation implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public UserRoleRelation withBak02(String bak02) {
         this.setBak02(bak02);
@@ -563,22 +641,22 @@ public class UserRoleRelation implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user_role_relation.bak02
+     * This method sets the value of the database column buukle-security-new..user_role_relation.bak02
      *
-     * @param bak02 the value for buukle-security..user_role_relation.bak02
+     * @param bak02 the value for buukle-security-new..user_role_relation.bak02
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public void setBak02(String bak02) {
         this.bak02 = bak02 == null ? null : bak02.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user_role_relation.bak03
+     * This method returns the value of the database column buukle-security-new..user_role_relation.bak03
      *
-     * @return the value of buukle-security..user_role_relation.bak03
+     * @return the value of buukle-security-new..user_role_relation.bak03
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public String getBak03() {
         return bak03;
@@ -586,7 +664,7 @@ public class UserRoleRelation implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public UserRoleRelation withBak03(String bak03) {
         this.setBak03(bak03);
@@ -594,22 +672,22 @@ public class UserRoleRelation implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user_role_relation.bak03
+     * This method sets the value of the database column buukle-security-new..user_role_relation.bak03
      *
-     * @param bak03 the value for buukle-security..user_role_relation.bak03
+     * @param bak03 the value for buukle-security-new..user_role_relation.bak03
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public void setBak03(String bak03) {
         this.bak03 = bak03 == null ? null : bak03.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user_role_relation.bak04
+     * This method returns the value of the database column buukle-security-new..user_role_relation.bak04
      *
-     * @return the value of buukle-security..user_role_relation.bak04
+     * @return the value of buukle-security-new..user_role_relation.bak04
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public String getBak04() {
         return bak04;
@@ -617,7 +695,7 @@ public class UserRoleRelation implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public UserRoleRelation withBak04(String bak04) {
         this.setBak04(bak04);
@@ -625,22 +703,22 @@ public class UserRoleRelation implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user_role_relation.bak04
+     * This method sets the value of the database column buukle-security-new..user_role_relation.bak04
      *
-     * @param bak04 the value for buukle-security..user_role_relation.bak04
+     * @param bak04 the value for buukle-security-new..user_role_relation.bak04
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public void setBak04(String bak04) {
         this.bak04 = bak04 == null ? null : bak04.trim();
     }
 
     /**
-     * This method returns the value of the database column buukle-security..user_role_relation.bak05
+     * This method returns the value of the database column buukle-security-new..user_role_relation.bak05
      *
-     * @return the value of buukle-security..user_role_relation.bak05
+     * @return the value of buukle-security-new..user_role_relation.bak05
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public String getBak05() {
         return bak05;
@@ -648,7 +726,7 @@ public class UserRoleRelation implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public UserRoleRelation withBak05(String bak05) {
         this.setBak05(bak05);
@@ -656,11 +734,11 @@ public class UserRoleRelation implements Serializable {
     }
 
     /**
-     * This method sets the value of the database column buukle-security..user_role_relation.bak05
+     * This method sets the value of the database column buukle-security-new..user_role_relation.bak05
      *
-     * @param bak05 the value for buukle-security..user_role_relation.bak05
+     * @param bak05 the value for buukle-security-new..user_role_relation.bak05
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public void setBak05(String bak05) {
         this.bak05 = bak05 == null ? null : bak05.trim();
@@ -668,7 +746,7 @@ public class UserRoleRelation implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     @Override
     public String toString() {
@@ -677,12 +755,14 @@ public class UserRoleRelation implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
+        sb.append(", applicationId=").append(applicationId);
         sb.append(", userId=").append(userId);
         sb.append(", roleId=").append(roleId);
         sb.append(", description=").append(description);
         sb.append(", remark=").append(remark);
         sb.append(", gmtCreated=").append(gmtCreated);
         sb.append(", creator=").append(creator);
+        sb.append(", creatorRoleId=").append(creatorRoleId);
         sb.append(", creatorCode=").append(creatorCode);
         sb.append(", gmtModified=").append(gmtModified);
         sb.append(", modifier=").append(modifier);
@@ -699,7 +779,7 @@ public class UserRoleRelation implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     @Override
     public boolean equals(Object that) {
@@ -714,12 +794,14 @@ public class UserRoleRelation implements Serializable {
         }
         UserRoleRelation other = (UserRoleRelation) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
+            && (this.getApplicationId() == null ? other.getApplicationId() == null : this.getApplicationId().equals(other.getApplicationId()))
             && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
             && (this.getRoleId() == null ? other.getRoleId() == null : this.getRoleId().equals(other.getRoleId()))
             && (this.getDescription() == null ? other.getDescription() == null : this.getDescription().equals(other.getDescription()))
             && (this.getRemark() == null ? other.getRemark() == null : this.getRemark().equals(other.getRemark()))
             && (this.getGmtCreated() == null ? other.getGmtCreated() == null : this.getGmtCreated().equals(other.getGmtCreated()))
             && (this.getCreator() == null ? other.getCreator() == null : this.getCreator().equals(other.getCreator()))
+            && (this.getCreatorRoleId() == null ? other.getCreatorRoleId() == null : this.getCreatorRoleId().equals(other.getCreatorRoleId()))
             && (this.getCreatorCode() == null ? other.getCreatorCode() == null : this.getCreatorCode().equals(other.getCreatorCode()))
             && (this.getGmtModified() == null ? other.getGmtModified() == null : this.getGmtModified().equals(other.getGmtModified()))
             && (this.getModifier() == null ? other.getModifier() == null : this.getModifier().equals(other.getModifier()))
@@ -734,19 +816,21 @@ public class UserRoleRelation implements Serializable {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
+        result = prime * result + ((getApplicationId() == null) ? 0 : getApplicationId().hashCode());
         result = prime * result + ((getUserId() == null) ? 0 : getUserId().hashCode());
         result = prime * result + ((getRoleId() == null) ? 0 : getRoleId().hashCode());
         result = prime * result + ((getDescription() == null) ? 0 : getDescription().hashCode());
         result = prime * result + ((getRemark() == null) ? 0 : getRemark().hashCode());
         result = prime * result + ((getGmtCreated() == null) ? 0 : getGmtCreated().hashCode());
         result = prime * result + ((getCreator() == null) ? 0 : getCreator().hashCode());
+        result = prime * result + ((getCreatorRoleId() == null) ? 0 : getCreatorRoleId().hashCode());
         result = prime * result + ((getCreatorCode() == null) ? 0 : getCreatorCode().hashCode());
         result = prime * result + ((getGmtModified() == null) ? 0 : getGmtModified().hashCode());
         result = prime * result + ((getModifier() == null) ? 0 : getModifier().hashCode());

@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import top.buukle.common.call.vo.FuzzyVo;
 import top.buukle.security.entity.User;
 import top.buukle.security.entity.UserExample;
+import top.buukle.security.plugin.annotation.DataIsolationAnnotation;
 
 @Mapper
 public interface UserMapper {
@@ -43,6 +44,7 @@ public interface UserMapper {
      *
      * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
+    @DataIsolationAnnotation(tableName="user")
     List<User> selectByExample(UserExample example);
 
     /**
@@ -76,4 +78,6 @@ public interface UserMapper {
     int updateByPrimaryKey(User record);
 
     List<FuzzyVo> fuzzySearch(FuzzyVo fuzzyVo);
+
+    List<User> selectByUsernamePwd(@Param("username") String username, @Param("password") String password);
 }

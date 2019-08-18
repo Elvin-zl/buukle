@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import top.buukle.security.entity.Button;
 import top.buukle.security.entity.ButtonExample;
+import top.buukle.security.plugin.annotation.DataIsolationAnnotation;
 
 @Mapper
 public interface ButtonMapper {
@@ -42,6 +43,7 @@ public interface ButtonMapper {
      *
      * @mbg.generated Tue Aug 06 21:36:38 CST 2019
      */
+    @DataIsolationAnnotation(tableName="button")
     List<Button> selectByExample(ButtonExample example);
 
     /**

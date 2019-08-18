@@ -50,17 +50,20 @@
 						</a>
 					</div>
 					<ul class="layui-nav" lay-filter="rightNav">
+						<th:block th:each="topMenu : ${topMenuList}">
+							<!--有别名显示别名-->
+							<li th:if="${topMenu.aliasName} == ''" class="layui-nav-item">
+								<a href="javascript:;" th:attr="data-url=${topMenu.url},data-id=${topMenu.id},data-text=${topMenu.name}">
+									<i class="iconfont" th:utext="${topMenu.icon}"></i>
+								</a>
+							</li>
+							<!--没有别名显示icon-->
+							<li th:if="${topMenu.aliasName} != ''" class="layui-nav-item">
+								<a href="javascript:;" th:attr="data-url=${topMenu.url},data-id=${topMenu.id},data-text=${topMenu.name}"  th:text="${topMenu.name}"> </a>
+							</li>
+						</th:block>
 					  <li class="layui-nav-item">
-						  <a href="javascript:;" data-url="/security/message/messageList" data-id='53' data-text="消息管理">
-							  <i class="layui-icon">&#xe611;</i>
-						  </a>
-					  </li>
-					  <li class="layui-nav-item layui-this">
-					      <a href="javascript:;" th:attr="data-url = ${welcome.url},data-id=${welcome.id},data-text=${welcome.name}" th:text="${welcome.name}">
-						  </a>
-					  </li>
-					  <li class="layui-nav-item">
-					    <a href="javascript:;" data-url="/security/userCenter/userInfo" data-id='54' data-text="个人中心"  th:text="${user?.username} + ' ( ' +${role?.roleName}+ ' ) '"></a>
+					    <a href="javascript:;" th:text="${user?.username} + ' ( ' +${role?.roleName}+ ' ) '"></a>
 						  <input type="hidden" data-type="UID" th:attr="value=${user?.userId}"/>
 					  </li>
 					  <li class="layui-nav-item"><a href="/logout">登出</a></li>

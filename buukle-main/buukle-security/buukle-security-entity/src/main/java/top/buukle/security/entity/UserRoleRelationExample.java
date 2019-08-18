@@ -7,25 +7,25 @@ import java.util.List;
 public class UserRoleRelationExample {
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     protected String orderByClause;
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     protected boolean distinct;
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     protected List<Criteria> oredCriteria;
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public UserRoleRelationExample() {
         oredCriteria = new ArrayList<Criteria>();
@@ -33,7 +33,7 @@ public class UserRoleRelationExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -41,7 +41,7 @@ public class UserRoleRelationExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -49,7 +49,7 @@ public class UserRoleRelationExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -57,7 +57,7 @@ public class UserRoleRelationExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public boolean isDistinct() {
         return distinct;
@@ -65,7 +65,7 @@ public class UserRoleRelationExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -73,7 +73,7 @@ public class UserRoleRelationExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -81,7 +81,7 @@ public class UserRoleRelationExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -91,7 +91,7 @@ public class UserRoleRelationExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public UserRoleRelationExample orderBy(String orderByClause) {
         this.setOrderByClause(orderByClause);
@@ -100,7 +100,7 @@ public class UserRoleRelationExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public UserRoleRelationExample orderBy(String ... orderByClauses) {
         StringBuffer sb = new StringBuffer();
@@ -116,7 +116,7 @@ public class UserRoleRelationExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -128,7 +128,7 @@ public class UserRoleRelationExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria(this);
@@ -137,7 +137,7 @@ public class UserRoleRelationExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public void clear() {
         oredCriteria.clear();
@@ -147,7 +147,7 @@ public class UserRoleRelationExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public static Criteria newAndCreateCriteria() {
         UserRoleRelationExample example = new UserRoleRelationExample();
@@ -156,7 +156,7 @@ public class UserRoleRelationExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -256,6 +256,66 @@ public class UserRoleRelationExample {
 
         public Criteria andIdNotBetween(Integer value1, Integer value2) {
             addCriterion("id not between", value1, value2, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationIdIsNull() {
+            addCriterion("application_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationIdIsNotNull() {
+            addCriterion("application_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationIdEqualTo(Integer value) {
+            addCriterion("application_id =", value, "applicationId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationIdNotEqualTo(Integer value) {
+            addCriterion("application_id <>", value, "applicationId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationIdGreaterThan(Integer value) {
+            addCriterion("application_id >", value, "applicationId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("application_id >=", value, "applicationId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationIdLessThan(Integer value) {
+            addCriterion("application_id <", value, "applicationId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationIdLessThanOrEqualTo(Integer value) {
+            addCriterion("application_id <=", value, "applicationId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationIdIn(List<Integer> values) {
+            addCriterion("application_id in", values, "applicationId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationIdNotIn(List<Integer> values) {
+            addCriterion("application_id not in", values, "applicationId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationIdBetween(Integer value1, Integer value2) {
+            addCriterion("application_id between", value1, value2, "applicationId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("application_id not between", value1, value2, "applicationId");
             return (Criteria) this;
         }
 
@@ -656,6 +716,66 @@ public class UserRoleRelationExample {
 
         public Criteria andCreatorNotBetween(String value1, String value2) {
             addCriterion("creator not between", value1, value2, "creator");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatorRoleIdIsNull() {
+            addCriterion("creator_role_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatorRoleIdIsNotNull() {
+            addCriterion("creator_role_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatorRoleIdEqualTo(Integer value) {
+            addCriterion("creator_role_id =", value, "creatorRoleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatorRoleIdNotEqualTo(Integer value) {
+            addCriterion("creator_role_id <>", value, "creatorRoleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatorRoleIdGreaterThan(Integer value) {
+            addCriterion("creator_role_id >", value, "creatorRoleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatorRoleIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("creator_role_id >=", value, "creatorRoleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatorRoleIdLessThan(Integer value) {
+            addCriterion("creator_role_id <", value, "creatorRoleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatorRoleIdLessThanOrEqualTo(Integer value) {
+            addCriterion("creator_role_id <=", value, "creatorRoleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatorRoleIdIn(List<Integer> values) {
+            addCriterion("creator_role_id in", values, "creatorRoleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatorRoleIdNotIn(List<Integer> values) {
+            addCriterion("creator_role_id not in", values, "creatorRoleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatorRoleIdBetween(Integer value1, Integer value2) {
+            addCriterion("creator_role_id between", value1, value2, "creatorRoleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatorRoleIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("creator_role_id not between", value1, value2, "creatorRoleId");
             return (Criteria) this;
         }
 
@@ -1402,18 +1522,18 @@ public class UserRoleRelationExample {
 
     /**
      *
-     * @mbg.generated do_not_delete_during_merge Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated do_not_delete_during_merge Sun Aug 18 22:53:13 CST 2019
      */
     public static class Criteria extends GeneratedCriteria {
         /**
          *
-         * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+         * @mbg.generated Sun Aug 18 22:53:13 CST 2019
          */
         private UserRoleRelationExample example;
 
         /**
          *
-         * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+         * @mbg.generated Sun Aug 18 22:53:13 CST 2019
          */
         protected Criteria(UserRoleRelationExample example) {
             super();
@@ -1422,7 +1542,7 @@ public class UserRoleRelationExample {
 
         /**
          *
-         * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+         * @mbg.generated Sun Aug 18 22:53:13 CST 2019
          */
         public UserRoleRelationExample example() {
             return this.example;
@@ -1430,7 +1550,7 @@ public class UserRoleRelationExample {
 
         /**
          *
-         * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+         * @mbg.generated Sun Aug 18 22:53:13 CST 2019
          */
         public Criteria andIf(boolean ifAdd, ICriteriaAdd add) {
             if (ifAdd) {
@@ -1442,7 +1562,7 @@ public class UserRoleRelationExample {
         public interface ICriteriaAdd {
             /**
              *
-             * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+             * @mbg.generated Sun Aug 18 22:53:13 CST 2019
              */
             Criteria add(Criteria add);
         }
@@ -1450,7 +1570,7 @@ public class UserRoleRelationExample {
 
     /**
      *
-     * @mbg.generated Tue Aug 06 21:37:00 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:13 CST 2019
      */
     public static class Criterion {
         private String condition;

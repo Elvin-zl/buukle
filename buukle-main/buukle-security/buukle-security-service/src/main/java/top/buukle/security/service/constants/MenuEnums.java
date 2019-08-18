@@ -89,4 +89,24 @@ public class MenuEnums {
             return code;
         }
     }
+    public enum positionType {
+
+        LEFT_AND_TOP(1,"左侧和顶部"),
+        LEFT_ONLY(0,"仅左侧"),
+        ;
+
+        private Integer code;
+        private String description;
+
+        positionType(int code, String description) {
+            this.description = description;
+            this.code = code;
+        }
+        public String getDescription() {
+            return description;
+        }
+        public Integer value() {
+            return code;
+        }
+    }
 }

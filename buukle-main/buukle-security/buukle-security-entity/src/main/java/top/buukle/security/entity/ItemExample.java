@@ -7,25 +7,25 @@ import java.util.List;
 public class ItemExample {
     /**
      *
-     * @mbg.generated Wed Aug 07 11:06:51 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:14 CST 2019
      */
     protected String orderByClause;
 
     /**
      *
-     * @mbg.generated Wed Aug 07 11:06:51 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:14 CST 2019
      */
     protected boolean distinct;
 
     /**
      *
-     * @mbg.generated Wed Aug 07 11:06:51 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:14 CST 2019
      */
     protected List<Criteria> oredCriteria;
 
     /**
      *
-     * @mbg.generated Wed Aug 07 11:06:51 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:14 CST 2019
      */
     public ItemExample() {
         oredCriteria = new ArrayList<Criteria>();
@@ -33,7 +33,7 @@ public class ItemExample {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 11:06:51 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:14 CST 2019
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -41,7 +41,7 @@ public class ItemExample {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 11:06:51 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:14 CST 2019
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -49,7 +49,7 @@ public class ItemExample {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 11:06:51 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:14 CST 2019
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -57,7 +57,7 @@ public class ItemExample {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 11:06:51 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:14 CST 2019
      */
     public boolean isDistinct() {
         return distinct;
@@ -65,7 +65,7 @@ public class ItemExample {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 11:06:51 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:14 CST 2019
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -73,7 +73,7 @@ public class ItemExample {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 11:06:51 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:14 CST 2019
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -81,7 +81,7 @@ public class ItemExample {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 11:06:51 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:14 CST 2019
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -91,7 +91,7 @@ public class ItemExample {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 11:06:51 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:14 CST 2019
      */
     public ItemExample orderBy(String orderByClause) {
         this.setOrderByClause(orderByClause);
@@ -100,7 +100,7 @@ public class ItemExample {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 11:06:51 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:14 CST 2019
      */
     public ItemExample orderBy(String ... orderByClauses) {
         StringBuffer sb = new StringBuffer();
@@ -116,7 +116,7 @@ public class ItemExample {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 11:06:51 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:14 CST 2019
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -128,7 +128,7 @@ public class ItemExample {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 11:06:51 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:14 CST 2019
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria(this);
@@ -137,7 +137,7 @@ public class ItemExample {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 11:06:51 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:14 CST 2019
      */
     public void clear() {
         oredCriteria.clear();
@@ -147,7 +147,7 @@ public class ItemExample {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 11:06:51 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:14 CST 2019
      */
     public static Criteria newAndCreateCriteria() {
         ItemExample example = new ItemExample();
@@ -156,7 +156,7 @@ public class ItemExample {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 11:06:51 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:14 CST 2019
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -2632,18 +2632,18 @@ public class ItemExample {
 
     /**
      *
-     * @mbg.generated do_not_delete_during_merge Wed Aug 07 11:06:51 CST 2019
+     * @mbg.generated do_not_delete_during_merge Sun Aug 18 22:53:14 CST 2019
      */
     public static class Criteria extends GeneratedCriteria {
         /**
          *
-         * @mbg.generated Wed Aug 07 11:06:51 CST 2019
+         * @mbg.generated Sun Aug 18 22:53:14 CST 2019
          */
         private ItemExample example;
 
         /**
          *
-         * @mbg.generated Wed Aug 07 11:06:51 CST 2019
+         * @mbg.generated Sun Aug 18 22:53:14 CST 2019
          */
         protected Criteria(ItemExample example) {
             super();
@@ -2652,7 +2652,7 @@ public class ItemExample {
 
         /**
          *
-         * @mbg.generated Wed Aug 07 11:06:51 CST 2019
+         * @mbg.generated Sun Aug 18 22:53:14 CST 2019
          */
         public ItemExample example() {
             return this.example;
@@ -2660,7 +2660,7 @@ public class ItemExample {
 
         /**
          *
-         * @mbg.generated Wed Aug 07 11:06:51 CST 2019
+         * @mbg.generated Sun Aug 18 22:53:14 CST 2019
          */
         public Criteria andIf(boolean ifAdd, ICriteriaAdd add) {
             if (ifAdd) {
@@ -2672,7 +2672,7 @@ public class ItemExample {
         public interface ICriteriaAdd {
             /**
              *
-             * @mbg.generated Wed Aug 07 11:06:51 CST 2019
+             * @mbg.generated Sun Aug 18 22:53:14 CST 2019
              */
             Criteria add(Criteria add);
         }
@@ -2680,7 +2680,7 @@ public class ItemExample {
 
     /**
      *
-     * @mbg.generated Wed Aug 07 11:06:51 CST 2019
+     * @mbg.generated Sun Aug 18 22:53:14 CST 2019
      */
     public static class Criterion {
         private String condition;

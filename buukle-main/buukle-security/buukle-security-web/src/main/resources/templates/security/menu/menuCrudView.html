@@ -77,6 +77,19 @@
 						</div>
 					</div>
 					<div class="layui-form-item">
+						<label class="layui-form-label">展示位置：</label>
+						<div class="layui-input-block">
+							<input type="radio" name="positionType" th:field="*{record.positionType}" value="0" title="仅左侧" checked>
+							<input type="radio" name="positionType" th:field="*{record.positionType}" value="1"  title="左侧+顶部">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">顶部别名：</label>
+						<div class="layui-input-block">
+							<input type="text"  name="aliasName" th:attr="value = ${record?.aliasName}" placeholder="顶部别名" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-form-item">
 						<label class="layui-form-label">图标：</label>
 						<div class="layui-input-block">
 							<input type="text"  name="icon" th:attr="value = ${record?.icon}" placeholder="图标" autocomplete="off" class="layui-input">

@@ -10,6 +10,7 @@
  */
 package top.buukle.security.plugin.util;
 
+import top.buukle.security.entity.Role;
 import top.buukle.security.entity.User;
 import top.buukle.security.plugin.constants.SecurityInterceptorConstants;
 import top.buukle.security.plugin.enums.SecurityExceptionEnum;
@@ -20,6 +21,7 @@ import top.buukle.util.StringUtil;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.Map;
 
 /**
  * @description 〈session 工具类〉
@@ -31,6 +33,7 @@ public class SessionUtil {
 
     public static final String USER_MENU_TREE_KEY = "USER_MENU_TREE_KEY";
     public static final String USER_ROLE_MAP_KEY = "USER_ROLE_MAP_KEY";
+    public static final String USER_ROLE_SUB_MAP_KEY = "USER_ROLE_SUB_MAP_KEY";
     public static final String USER_URL_LIST_KEY = "USER_URL_LIST_KEY";
 
     /**
@@ -136,5 +139,22 @@ public class SessionUtil {
         if(session!=null){
             session.invalidate();
         }
+    }
+
+    /**
+     * @description 获取指定应用下当前用户的角色
+     * @param request
+     * @param applicationCode
+     * @return top.buukle.security.entity.Role
+     * @Author elvin
+     * @Date 2019/8/19
+     */
+    public static Role getUserRoleId(HttpServletRequest request, String applicationCode) {
+        Map<String, Role> roleMap = (Map<String, Role>) SessionUtil.get(request, SessionUtil.USER_ROLE_MAP_KEY);
+        Role role = roleMap.get(applicationCode);
+        if(role == null){
+            throw new SecurityPluginException(SecurityExceptionEnum.USER_NO_ROLE);
+        }
+        return role;
     }
 }

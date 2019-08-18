@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import top.buukle.security.entity.Role;
 import top.buukle.security.entity.RoleExample;
+import top.buukle.security.plugin.annotation.DataIsolationAnnotation;
 
 @Mapper
 public interface RoleMapper {
@@ -42,6 +43,7 @@ public interface RoleMapper {
      *
      * @mbg.generated Thu Aug 08 11:42:39 CST 2019
      */
+    @DataIsolationAnnotation(tableName="role")
     List<Role> selectByExample(RoleExample example);
 
     /**
