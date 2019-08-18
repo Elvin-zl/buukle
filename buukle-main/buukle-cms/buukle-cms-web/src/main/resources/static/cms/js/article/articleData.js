@@ -1,6 +1,6 @@
 layui.use(['form', 'jquery', 'laydate', 'layer', 'laypage', 'dialog',   'element'], function() {
     var laypage = layui.laypage,
-        form = layui.form(), layer = layui.layer,
+        form = layui.form, layer = layui.layer,
         $ = layui.jquery, dialog = layui.dialog;
     //分页
     laypage({

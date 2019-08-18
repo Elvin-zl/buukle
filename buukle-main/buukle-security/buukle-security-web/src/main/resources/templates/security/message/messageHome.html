@@ -13,57 +13,49 @@
 	<div class="wrap-container email-wrap clearfix">
 		<div class="row">
 			<div class="email-edge col-lg-2">
-				<button class="layui-btn layui-btn-normal email-write-btn" id="write-email-btn">写信</button>
-				<dl class="email-folder">
-					<dt>文件夹</dt>
-					<dd>
-						<a href="javascript:;" data-url="email-list.html"><i class="iconfont">&#xe639;</i>收件箱<button class="layui-btn  layui-btn-danger layui-btn-xs f-r">12</button></a>
-					</dd>
-					<dd>
-						<a href="javascript:;" data-url="email-list.html"><i class="iconfont">&#xe603;</i>发信</a>
-					</dd>
-					<dd>
-						<a href="javascript:;" data-url="email-list.html"><i class="iconfont">&#xe602;</i>草稿<button class="layui-btn layui-btn-warm layui-btn-xs f-r">2</button></a>
-					</dd>
-					<dd>
-						<a href="javascript:;" data-url="email-list.html"><i class="layui-icon">&#xe640;</i>垃圾箱</a>
-					</dd>
-				</dl>
+				<button class="layui-btn layui-btn-normal email-write-btn" id="write-email-btn">新建消息</button>
 				<dl class="email-classify">
-					<dt>分类</dt>
+					<dt>业务类型</dt>
 					<dd>
-						<a href="javascript:;"><i class="layui-icon icon-blue">&#xe617;</i>工作</a>
+						<a href="javascript:;"><i class="layui-icon icon-blue">&#xe617;</i>系统公告</a>
 					</dd>
 					<dd>
-						<a href="javascript:;"><i class="layui-icon icon-green">&#xe617;</i>文档</a>
+						<a href="javascript:;"><i class="layui-icon icon-green">&#xe617;</i>消费通知</a>
 					</dd>
 					<dd>
-						<a href="javascript:;"><i class="layui-icon icon-wran">&#xe617;</i>社交</a>
+						<a href="javascript:;"><i class="layui-icon icon-wran">&#xe617;</i>私信</a>
 					</dd>
 					<dd>
-						<a href="javascript:;"><i class="layui-icon icon-red">&#xe617;</i>广告</a>
+						<a href="javascript:;"><i class="layui-icon icon-red">&#xe617;</i>审核动态</a>
 					</dd>
 					<dd>
-						<a href="javascript:;"><i class="layui-icon icon-gray">&#xe617;</i>客户端</a>
+						<a href="javascript:;"><i class="layui-icon icon-gray">&#xe617;</i>关注</a>
+					</dd>
+					<dd>
+						<a href="javascript:;"><i class="layui-icon icon-gray">&#xe617;</i>点赞</a>
+					</dd>
+					<dd>
+						<a href="javascript:;"><i class="layui-icon icon-gray">&#xe617;</i>评论</a>
+					</dd>
+					<dd>
+						<a href="javascript:;"><i class="layui-icon icon-gray">&#xe617;</i>收藏</a>
 					</dd>
 				</dl>
+				<button class="layui-btn layui-btn-normal email-write-btn" id="bizTypeEdit">业务类型设置</button>
 				<dl class="email-label">
-					<dt>标签</dt>
+					<dt>消息服务类型</dt>
 					<dd>
-						<button class="layui-btn layui-btn-primary layui-btn-sm">朋友</button>
-						<button class="layui-btn layui-btn-primary layui-btn-sm">工作</button>
-						<button class="layui-btn layui-btn-primary layui-btn-sm">孩子</button>
-						<button class="layui-btn layui-btn-primary layui-btn-sm">关系</button>
-						<button class="layui-btn layui-btn-primary layui-btn-sm">家庭</button>
-						<button class="layui-btn layui-btn-primary layui-btn-sm">电影</button>
+						<button class="layui-btn layui-btn-primary layui-btn-sm">微信</button>
+						<button class="layui-btn layui-btn-primary layui-btn-sm">邮件</button>
+						<button class="layui-btn layui-btn-primary layui-btn-sm">短信</button>
+						<button class="layui-btn layui-btn-primary layui-btn-sm">站内</button>
 					</dd>
-					
 				</dl>
 			</div>
 			<div class="col-lg-10">
 				<div class="email-content">
 					<div class="email-content-title layui-form">
-						<span class="write-title">收件箱 (16)</span>
+						<span class="write-title">消息批次列表</span>
 					</div>
 					<div class="email-tool-btn clearfix">
 						<div class="col-lg-6 email-tool-btn-left">
@@ -180,7 +172,7 @@
 	<script src="/static/security/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 	<script>
 		layui.use(['form', 'laypage', 'jquery','layer'], function() {
-				var form = layui.form(),
+				var form = layui.form,
 					layer = layui.layer,
 					laypage = layui.laypage,
 					$ = layui.jquery;
@@ -188,7 +180,7 @@
 				var iframeObj = $(window.frameElement).attr('name');	
 				
 				$('#write-email-btn').on('click',function(){
-					parent.page("写邮件", '/security/email/emailAdd', iframeObj, w = "700px", h = "600px");
+					parent.page("写邮件", '/security/message/messageCrudView', iframeObj, w = "700px", h = "600px");
 				})
 				//列表
 				$('.email-folder').on('click','a',function(){
