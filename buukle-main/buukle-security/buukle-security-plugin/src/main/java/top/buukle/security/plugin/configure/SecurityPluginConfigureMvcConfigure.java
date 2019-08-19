@@ -22,7 +22,7 @@ import top.buukle.security.plugin.thymleafDialect.HpDialect;
  * @since 1.0.0
  */
 @Configuration
-public class MvcConfigure implements WebMvcConfigurer {
+public class SecurityPluginConfigureMvcConfigure implements WebMvcConfigurer {
     /**
      * @description 配置自定义方言处理器
      * @param

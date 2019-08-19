@@ -33,22 +33,4 @@ public class SecurityApplication {
             }
         }
     }
-
-    /**
-     * @description 配置共享session 的domain,cookie
-     * @param
-     * @return org.springframework.session.web.http.CookieSerializer
-     * @Author elvin
-     * @Date 2019/7/30
-     */
-    @Bean
-    public CookieSerializer cookieSerializer() {
-        DefaultCookieSerializer defaultCookieSerializer = new DefaultCookieSerializer();
-        defaultCookieSerializer.setUseBase64Encoding(false);
-        defaultCookieSerializer.setUseHttpOnlyCookie(true);
-        defaultCookieSerializer.setCookieName(SecurityInterceptorConstants.LOGIN_COOKIE_NAME);
-        defaultCookieSerializer.setDomainName(SecurityInterceptorConstants.LOGIN_COOKIE_DOMAIN);
-        defaultCookieSerializer.setCookiePath("/");
-        return defaultCookieSerializer;
-    }
 }

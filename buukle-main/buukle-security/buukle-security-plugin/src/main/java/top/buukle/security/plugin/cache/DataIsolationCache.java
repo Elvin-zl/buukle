@@ -4,7 +4,7 @@ package top.buukle.security.plugin.cache;
  * 数据分离 : mybatis的mapper接口方法上注解的值的缓存vo
  * @author elvin
  */
-public class DataIsolationCacheVo {
+public class DataIsolationCache {
 
 	private String tableName;
 	

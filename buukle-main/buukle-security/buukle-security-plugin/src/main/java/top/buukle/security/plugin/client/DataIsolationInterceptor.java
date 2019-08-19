@@ -7,8 +7,6 @@ import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 
-import com.github.pagehelper.PageInterceptor;
-import com.github.pagehelper.QueryInterceptor;
 import org.apache.commons.lang.StringUtils;
 import org.apache.ibatis.cache.CacheKey;
 import org.apache.ibatis.executor.Executor;
@@ -19,11 +17,9 @@ import org.apache.ibatis.mapping.SqlSource;
 import org.apache.ibatis.plugin.*;
 import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.RowBounds;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
-import org.springframework.stereotype.Component;
 import top.buukle.security.plugin.annotation.DataIsolationAnnotation;
-import top.buukle.security.plugin.cache.DataIsolationCacheVo;
+import top.buukle.security.plugin.cache.DataIsolationCache;
 import top.buukle.security.plugin.constants.SecurityInterceptorConstants;
 import top.buukle.security.plugin.util.DataIsolationSqlUtil;
 import top.buukle.util.StringUtil;
@@ -79,7 +75,7 @@ public class DataIsolationInterceptor implements Interceptor {
 	static int PARAMETER_INDEX = 1;
 
 	/** 本地缓存MAP==> key : mappedStatement的id属性值; value : 该id所映射的mapper方法上注解值 */
-	private final static ConcurrentHashMap<String, DataIsolationCacheVo> MAPPER_ID_ANNOTATION_CACHE_MAP = new ConcurrentHashMap<>();
+	private final static ConcurrentHashMap<String, DataIsolationCache> MAPPER_ID_ANNOTATION_CACHE_MAP = new ConcurrentHashMap<>();
 
 	@Override
 	public Object intercept(Invocation invocation) throws Throwable {
@@ -146,7 +142,7 @@ public class DataIsolationInterceptor implements Interceptor {
 				if (method.isAnnotationPresent(DataIsolationAnnotation.class) && methodName.equals(method.getName())) {
 					if (originalSql.matches(SQL_SELECT) || Pattern.matches(SQL_COUNT, originalSql)) {
 						// 此处直接new ,缓存后会被...CACHE_MAP 一直引用,下次不再执行反射和循环,空间换时间吧
-						DataIsolationCacheVo sCacheVo = new DataIsolationCacheVo();
+						DataIsolationCache sCacheVo = new DataIsolationCache();
 						sCacheVo.setRoleFieldName(method.getAnnotation(DataIsolationAnnotation.class).roleFieldName());
 						sCacheVo.setQueryDimension(method.getAnnotation(DataIsolationAnnotation.class).queryDimension());
 						sCacheVo.setTableName(method.getAnnotation(DataIsolationAnnotation.class).tableName());
@@ -173,7 +169,7 @@ public class DataIsolationInterceptor implements Interceptor {
 	 * @param method 
 	 * @throws Exception
 	 */
-	private String matchSql(String sql, Method method,DataIsolationCacheVo vo) throws Exception {
+	private String matchSql(String sql, Method method, DataIsolationCache vo) throws Exception {
 		if(null != method){
 			String matchSql = DataIsolationSqlUtil.matchSql(env.getProperty("spring.application.name"),sql,
 					method.getAnnotation(DataIsolationAnnotation.class).tableName(),

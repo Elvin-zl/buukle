@@ -7,6 +7,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 import top.buukle.common.call.AppResourceResponse;
 import top.buukle.security.entity.User;
+import top.buukle.security.plugin.cache.SecuritySessionContext;
 import top.buukle.security.plugin.cache.SecurityInterceptorCache;
 import top.buukle.security.plugin.constants.SecurityInterceptorConstants;
 import top.buukle.security.plugin.enums.SecurityExceptionEnum;
@@ -35,11 +36,15 @@ public class SecurityInterceptor implements HandlerInterceptor {
     private Environment env;
     @Autowired
     private SecurityInterceptorInvoker invoker;
+    @Autowired
+    private SecuritySessionContext securitySessionContext;
 
     @PostConstruct
     private void beforeInit() throws ExecutionException {
         // 加载app资源列表
         SecurityInterceptorCache.loadAppResourceCache(invoker,env.getProperty("spring.application.name"));
+        // 加载用户名和session的映射
+        securitySessionContext.init();
     }
 
     /**

@@ -44,7 +44,7 @@ public interface UserMapper {
      *
      * @mbg.generated Tue Aug 06 17:36:57 CST 2019
      */
-    @DataIsolationAnnotation(tableName="user")
+    @DataIsolationAnnotation(tableName="user",roleFieldName = "creator_role_id",queryDimension = DataIsolationAnnotation.DIMENSION_ROLE)
     List<User> selectByExample(UserExample example);
 
     /**

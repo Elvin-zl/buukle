@@ -35,6 +35,8 @@ public class SessionUtil {
     public static final String USER_ROLE_MAP_KEY = "USER_ROLE_MAP_KEY";
     public static final String USER_ROLE_SUB_MAP_KEY = "USER_ROLE_SUB_MAP_KEY";
     public static final String USER_URL_LIST_KEY = "USER_URL_LIST_KEY";
+    public static final String USER_ID_SESSION_MAP_HASH_KEY = "USER_ID_SESSION_MAP_HASH_KEY";
+    public static final String USER_SESSION_KEY = "USER_SESSION_KEY";
 
     /**
      * @description 缓存session用户信息
@@ -45,12 +47,12 @@ public class SessionUtil {
      * @Author elvin
      * @Date 2019/8/3
      */
-    public static void cacheUser(User user, HttpServletRequest request, HttpServletResponse response) {
-
+    public static HttpSession cacheUser(User user, HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession(true);
         String cookieValue = session.getId();
         CookieUtil.writeUserCookie(cookieValue,response,SecurityInterceptorConstants.LOGIN_COOKIE_DOMAIN, user.getLoginStrategy() ==null ? NumberUtil.INTEGER_ONE_MINUTES_SECOND * 3 : NumberUtil.INTEGER_ONE_WEEK_SECOND);
-        session.setAttribute(cookieValue,user);
+        session.setAttribute(USER_SESSION_KEY,user);
+        return session;
     }
 
     /**
@@ -66,7 +68,7 @@ public class SessionUtil {
         if(session != null){
             String userCookie = CookieUtil.getUserCookie(request);
             if(StringUtil.isNotEmpty(userCookie)){
-                User user = (User) session.getAttribute(userCookie);
+                User user = (User) session.getAttribute(USER_SESSION_KEY);
                 if(null == user){
                     CookieUtil.delUserCookie(response, SecurityInterceptorConstants.LOGIN_COOKIE_DOMAIN);
                     // 超时

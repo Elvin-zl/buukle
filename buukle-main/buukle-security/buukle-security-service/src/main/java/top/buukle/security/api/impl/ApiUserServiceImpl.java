@@ -2,6 +2,7 @@ package top.buukle.security.api.impl;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import top.buukle.common.call.CommonResponse;
@@ -18,6 +19,7 @@ import top.buukle.util.StringUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.*;
 
 /**
@@ -38,6 +40,8 @@ public class ApiUserServiceImpl implements ApiUserService{
     private ButtonMapper buttonMapper;
     @Autowired
     private ApplicationMapper applicationMapper;
+    @Autowired
+    private StringRedisTemplate stringRedisTemplate;
 
     /**
      * @description 内部登陆
@@ -61,7 +65,9 @@ public class ApiUserServiceImpl implements ApiUserService{
         user1.setId(userInfo.getId());
         user1.setGmtLastLogin(new Date());
         userMapper.updateByPrimaryKeySelective(user1);
-        SessionUtil.cacheUser(userInfo,request,response);
+        // 剔除已经在线的会话
+        // 创建新的会话
+        SessionUtil.cacheUser(userInfo, request, response);
         // 查询用户拥有菜单资源目录
         List<Menu> menuList = menuMapper.getUserMenuListByUserId(userInfo.getUserId());
 
