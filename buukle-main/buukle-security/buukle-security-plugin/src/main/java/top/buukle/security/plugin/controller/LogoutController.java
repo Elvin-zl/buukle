@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import top.buukle.security.plugin.cache.SecuritySessionContext;
 import top.buukle.security.plugin.util.SessionUtil;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,9 +32,13 @@ public class LogoutController {
 
     @Autowired
     private Environment env;
+    @Autowired
+    private SecuritySessionContext sessionContext;
+
 
     @RequestMapping("/logout")
     public void logout(HttpServletRequest request , HttpServletResponse response) throws IOException {
+        sessionContext.removeFromSessionContext(SessionUtil.getUser(request,response).getUserId());
         SessionUtil.logout(request,response);
         response.sendRedirect(env.getProperty("security.passport.host"));
     }

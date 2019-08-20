@@ -19,6 +19,8 @@ public class SecurityInterceptorConstants {
     public static final String OPEN_ISOL_TRUE = "1";
     /** 开启接口注册*/
     public static final String OPEN_REGS_TRUE = "1";
+    /** 未认证模板*/
+    public static final String BUUKLE_NO_AUTH_CONTENT_TEMPLATE = "BUUKLE_NO_PERM_CONTENT_TEMP";
     /** 认证失败提示页*/
     public static final String NO_AUTH_RETURN_HTML_TEMPLATE =
             "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n" +
@@ -44,7 +46,7 @@ public class SecurityInterceptorConstants {
                     "  </div>\n" +
                     "  <div id=\"win\" >\n" +
                     "  \t<h2>buukle提示</h2>\n" +
-                    "\t<div style='font-family : \"等线\"; margin-top: 13%; font-family: \"等线\"; padding: 6px 34px;'>布壳儿:用户未认证或认证已超时!\n" +
+                    "\t<div style='font-family : \"等线\"; margin-top: 13%; font-family: \"等线\"; padding: 6px 34px;'>" + BUUKLE_NO_AUTH_CONTENT_TEMPLATE + "\n" +
                     "\t<a id='jumpTo' onclick=\"jumpTo()\" href= 'javascript:;'> 点击跳转登录页面   </a>    <span style='color:red' id='seconds'>5</span>秒后将自动跳转...\n" +
                     "</div>\n" +
                     "  </div>\n" +

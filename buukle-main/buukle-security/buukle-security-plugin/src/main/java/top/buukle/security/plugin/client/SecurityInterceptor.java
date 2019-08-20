@@ -7,8 +7,8 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 import top.buukle.common.call.AppResourceResponse;
 import top.buukle.security.entity.User;
-import top.buukle.security.plugin.cache.SecuritySessionContext;
 import top.buukle.security.plugin.cache.SecurityInterceptorCache;
+import top.buukle.security.plugin.cache.SecuritySessionContext;
 import top.buukle.security.plugin.constants.SecurityInterceptorConstants;
 import top.buukle.security.plugin.enums.SecurityExceptionEnum;
 import top.buukle.security.plugin.exception.SecurityPluginException;
@@ -16,6 +16,7 @@ import top.buukle.security.plugin.invoker.SecurityInterceptorInvoker;
 import top.buukle.security.plugin.util.CookieUtil;
 import top.buukle.security.plugin.util.SessionUtil;
 import top.buukle.util.NumberUtil;
+import top.buukle.util.StringUtil;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
@@ -37,14 +38,12 @@ public class SecurityInterceptor implements HandlerInterceptor {
     @Autowired
     private SecurityInterceptorInvoker invoker;
     @Autowired
-    private SecuritySessionContext securitySessionContext;
+    private SecuritySessionContext sessionContext;
 
     @PostConstruct
     private void beforeInit() throws ExecutionException {
         // 加载app资源列表
         SecurityInterceptorCache.loadAppResourceCache(invoker,env.getProperty("spring.application.name"));
-        // 加载用户名和session的映射
-        securitySessionContext.init();
     }
 
     /**
@@ -73,13 +72,22 @@ public class SecurityInterceptor implements HandlerInterceptor {
      * @Date 2019/8/2
      */
     private boolean authentic(HttpServletRequest request, HttpServletResponse response) throws ExecutionException, IOException {
-        User user = SessionUtil.getUser(request, response);
-        if(null == user){
-            this.writeNoticePage(response,SecurityInterceptorConstants.NO_AUTH_RETURN_HTML_TEMPLATE.replace("security.passport.host",env.getProperty("security.passport.host")));
+        if(StringUtil.isEmpty(CookieUtil.getUserCookie(request))){
+            this.writeNoticePage(response,SecurityInterceptorConstants.NO_AUTH_RETURN_HTML_TEMPLATE.replace(SecurityInterceptorConstants.BUUKLE_NO_AUTH_CONTENT_TEMPLATE,"未登录!").replace("security.passport.host",env.getProperty("security.passport.host")));
             return false;
         }
+        User user = SessionUtil.getUser(request, response);
+        if(null == user){
+            CookieUtil.delUserCookie(response,SecurityInterceptorConstants.LOGIN_COOKIE_DOMAIN);
+            this.writeNoticePage(response,SecurityInterceptorConstants.NO_AUTH_RETURN_HTML_TEMPLATE.replace(SecurityInterceptorConstants.BUUKLE_NO_AUTH_CONTENT_TEMPLATE,"该账户已在其他设备登录!").replace("security.passport.host",env.getProperty("security.passport.host")));
+            return false;
+        }
+        // 更新用户活跃域
+        sessionContext.registerInSessionContext(request,user.getUserId(),user.getLoginStrategy() ==null ? NumberUtil.INTEGER_ONE_MINUTES_SECOND * 3 : NumberUtil.INTEGER_ONE_WEEK_SECOND);
         // 刷新cookie超时时间
         CookieUtil.refreshCookie(request,response,user.getLoginStrategy() ==null ? NumberUtil.INTEGER_ONE_MINUTES_SECOND * 3 : NumberUtil.INTEGER_ONE_WEEK_SECOND);
+        // 刷新session超时时间
+        sessionContext.refreshDDL(user.getUserId(),user.getLoginStrategy() ==null ? NumberUtil.INTEGER_ONE_MINUTES_SECOND * 3 : NumberUtil.INTEGER_ONE_WEEK_SECOND);
         return true;
     }
 

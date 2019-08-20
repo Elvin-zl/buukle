@@ -41,7 +41,7 @@ spring:
     host: 39.105.74.47
     port: 4376
     password: zxcvbnmKO),.
-    timeout: 3000
+    timeout: 604800
     jedis:
       pool:
         max-idle: 100

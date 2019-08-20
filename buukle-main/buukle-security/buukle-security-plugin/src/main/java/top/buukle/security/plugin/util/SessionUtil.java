@@ -31,15 +31,21 @@ import java.util.Map;
  */
 public class SessionUtil {
 
+    /**  【当前用户】 拥有菜单信息在session中的key*/
     public static final String USER_MENU_TREE_KEY = "USER_MENU_TREE_KEY";
+    /**  【当前用户】 拥有角色信息在session中的key*/
     public static final String USER_ROLE_MAP_KEY = "USER_ROLE_MAP_KEY";
+    /**  【当前用户】 下辖角色信息在session中的key*/
     public static final String USER_ROLE_SUB_MAP_KEY = "USER_ROLE_SUB_MAP_KEY";
+    /**  【当前用户】 下拥有url信息在session中的key*/
     public static final String USER_URL_LIST_KEY = "USER_URL_LIST_KEY";
-    public static final String USER_ID_SESSION_MAP_HASH_KEY = "USER_ID_SESSION_MAP_HASH_KEY";
+    /**  【当前用户】 信息在session中的key*/
     public static final String USER_SESSION_KEY = "USER_SESSION_KEY";
+    /** sessionContext的key*/
+    public static final String SECURITY_SESSION_CONTEXT_KEY_PREFIX = "SECURITY_SESSION_CONTEXT_KEY_PREFIX:";
 
     /**
-     * @description 缓存session用户信息
+     * @description 缓存session 【当前用户】 信息
      * @param user
      * @param request
      * @param response
@@ -56,7 +62,7 @@ public class SessionUtil {
     }
 
     /**
-     * @description 获取session用户信息
+     * @description 获取session 【当前用户】 信息
      * @param request
      * @param response
      * @return top.buukle.security.entity.User
@@ -68,7 +74,12 @@ public class SessionUtil {
         if(session != null){
             String userCookie = CookieUtil.getUserCookie(request);
             if(StringUtil.isNotEmpty(userCookie)){
-                User user = (User) session.getAttribute(USER_SESSION_KEY);
+                User user;
+                try{
+                    user = (User) session.getAttribute(USER_SESSION_KEY);
+                }catch(Exception e){
+                    throw new SecurityPluginException(SecurityExceptionEnum.USER_NO_PERM_OTHER_LOGIN);
+                }
                 if(null == user){
                     CookieUtil.delUserCookie(response, SecurityInterceptorConstants.LOGIN_COOKIE_DOMAIN);
                     // 超时
@@ -80,7 +91,7 @@ public class SessionUtil {
         return null;
     }
     /**
-     * @description 获取session用户信息
+     * @description 获取session 【当前用户】 信息
      * @param request
      * @param response
      * @return top.buukle.security.entity.User
@@ -144,7 +155,7 @@ public class SessionUtil {
     }
 
     /**
-     * @description 获取指定应用下当前用户的角色
+     * @description 获取指定应用下 【当前用户】 的角色
      * @param request
      * @param applicationCode
      * @return top.buukle.security.entity.Role
@@ -159,4 +170,6 @@ public class SessionUtil {
         }
         return role;
     }
+
+    
 }

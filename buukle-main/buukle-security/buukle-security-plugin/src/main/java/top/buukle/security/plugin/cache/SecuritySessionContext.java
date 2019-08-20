@@ -5,12 +5,12 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 import top.buukle.security.entity.User;
 import top.buukle.security.plugin.util.SessionUtil;
+import top.buukle.util.NumberUtil;
+import top.buukle.util.StringUtil;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.TimeUnit;
+
 /**
  * @description session 引用缓存
  * @Author zhanglei1102
@@ -19,29 +19,57 @@ import java.util.concurrent.ConcurrentHashMap;
 @Component
 public class SecuritySessionContext {
 
+    private static final String SPRING_SESSION_KEY_PREFIX = "spring:session:sessions:";
+    private static final String SPRING_SESSION_KEY_EXPIRE_PREFIX = "spring:session:sessions:expires:";
+
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
-    private static ConcurrentHashMap<String,HttpSession> USER_ID_SESSION_MAP = new ConcurrentHashMap();
-
-    public static void RegisterSession(HttpServletRequest request, HttpServletResponse response) {
-        USER_ID_SESSION_MAP.put(SessionUtil.getOperator(request,response).getUserId(), request.getSession(false));
+    /**
+     * @description 失效【指定用户】session
+     * @param userId
+     * @return void
+     * @Author elvin
+     * @Date 2019/8/21
+     */
+    public void deleteSession(String userId) {
+        stringRedisTemplate.delete(SPRING_SESSION_KEY_PREFIX + stringRedisTemplate.opsForValue().get(SessionUtil.SECURITY_SESSION_CONTEXT_KEY_PREFIX+userId));
     }
 
-    public static void removeSession(HttpServletRequest request, HttpServletResponse response) {
-        USER_ID_SESSION_MAP.remove(SessionUtil.getOperator(request,response).getUserId());
+
+    /**
+     * @description 刷新【指定用户】session 过期时间
+     *@param userId
+     * @param expire   @return void
+     * @Author elvin
+     * @Date 2019/8/21
+     */
+    public void refreshDDL( String userId, int expire) {
+        stringRedisTemplate.expire(SPRING_SESSION_KEY_PREFIX + stringRedisTemplate.opsForValue().get(SessionUtil.SECURITY_SESSION_CONTEXT_KEY_PREFIX+userId),expire,TimeUnit.SECONDS);
+        stringRedisTemplate.expire(SPRING_SESSION_KEY_EXPIRE_PREFIX + stringRedisTemplate.opsForValue().get(SessionUtil.SECURITY_SESSION_CONTEXT_KEY_PREFIX+userId),expire,TimeUnit.SECONDS);
     }
 
-    public static HttpSession getSession(String userId) {
-        return USER_ID_SESSION_MAP.get(userId);
+    /**
+     * @description 将 【指定用户】userId 和 sessionId 绑定
+     * @param request
+     * @param userId
+     * @return void
+     * @Author elvin
+     * @Date 2019/8/21
+     */
+    public void registerInSessionContext(HttpServletRequest request, String userId,Integer expire) {
+        stringRedisTemplate.opsForValue().set(SessionUtil.SECURITY_SESSION_CONTEXT_KEY_PREFIX + userId, request.getSession().getId());
+        stringRedisTemplate.expire(SessionUtil.SECURITY_SESSION_CONTEXT_KEY_PREFIX + userId, expire, TimeUnit.SECONDS);
+    }
+    /**
+     * @description 将 【指定用户】userId 和 sessionId 解绑
+     * @param userId
+     * @return void
+     * @Author elvin
+     * @Date 2019/8/21
+     */
+    public void removeFromSessionContext(String userId) {
+        stringRedisTemplate.delete(SessionUtil.SECURITY_SESSION_CONTEXT_KEY_PREFIX + userId);
     }
 
-    // 初始化userId session 映射
-    public void init() {
-        List<Object> hashList = stringRedisTemplate.opsForHash().values("spring:session:sessions:*");
-        for (Object obj: hashList) {
-            HttpSession httpSession = (HttpSession) obj;
-            USER_ID_SESSION_MAP.put(((User) httpSession.getAttribute(SessionUtil.USER_SESSION_KEY)).getUserId(),httpSession);
-        }
-    }
 }

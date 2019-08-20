@@ -51,7 +51,7 @@ spring:
   session:
     store-type: redis
     ### Session 过期时间，单位s
-    timeout: 600
+    timeout: 604800
     redis:
       ### Sessions 刷新模式
       flush-mode: ON_SAVE
