@@ -303,6 +303,14 @@ public class User implements Serializable {
      */
     private static final long serialVersionUID = 1L;
 
+    public User(String userId) {
+        this.userId = userId;
+
+    }
+    public User() {
+
+    }
+
     /**
      * This method returns the value of the database column buukle-security-new..user.id
      *

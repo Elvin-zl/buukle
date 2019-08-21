@@ -1,21 +1,17 @@
 package top.buukle.security.web.exception;
 
-import org.springframework.web.servlet.ModelAndView;
 import top.buukle.common.call.CommonResponse;
 import top.buukle.common.exception.CommonException;
-import top.buukle.common.exception.ViewException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import top.buukle.security.plugin.constants.SecurityInterceptorConstants;
-import top.buukle.security.plugin.enums.SecurityExceptionEnum;
 import top.buukle.security.plugin.exception.SecurityPluginException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * @Author elvin

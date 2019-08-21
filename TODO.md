@@ -10,7 +10,7 @@
 ````
 ### 组件资源管理 ( done )
 ### vm模板的定制,生成security所需各层代码 (done_half )
-### session 监听内部功能的实现 ( todo )
+### session 监听内部功能的实现 ( done_half )
 ````
 统计在线人数 ,缓存用户名和sessionID 的关系映射,为以后单独操作用户的session做准备
 ````

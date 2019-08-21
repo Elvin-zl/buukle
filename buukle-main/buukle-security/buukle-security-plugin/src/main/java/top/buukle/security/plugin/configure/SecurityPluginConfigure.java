@@ -7,10 +7,13 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
+import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.session.web.http.CookieSerializer;
 import org.springframework.session.web.http.DefaultCookieSerializer;
 import top.buukle.security.plugin.client.DataIsolationInterceptor;
 import top.buukle.security.plugin.constants.SecurityInterceptorConstants;
+import top.buukle.util.log.BaseLogger;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
@@ -19,6 +22,7 @@ import java.util.Properties;
 @Configuration
 public class SecurityPluginConfigure {
 
+    private static final BaseLogger LOGGER = BaseLogger.getLogger(SecurityPluginConfigure.class);
     @Autowired
     private List<SqlSessionFactory> sqlSessionFactoryList;
     @Autowired
@@ -60,4 +64,14 @@ public class SecurityPluginConfigure {
         defaultCookieSerializer.setCookiePath("/");
         return defaultCookieSerializer;
     }
+    @Bean("springSessionDefaultRedisSerializer")
+    public RedisSerializer<Object> defaultRedisSerializer(){
+        LOGGER.debug("自定义Redis Session序列化加载成功");
+        return valueSerializer();
+    }
+
+    private RedisSerializer<Object> valueSerializer() {
+        return new GenericJackson2JsonRedisSerializer();
+    }
+
 }

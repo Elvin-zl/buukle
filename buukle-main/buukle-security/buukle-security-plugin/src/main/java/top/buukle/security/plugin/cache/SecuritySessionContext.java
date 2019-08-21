@@ -2,12 +2,13 @@ package top.buukle.security.plugin.cache;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
 import org.springframework.stereotype.Component;
+import top.buukle.security.entity.User;
 import top.buukle.security.plugin.util.SessionUtil;
+import top.buukle.util.JsonUtil;
+import top.buukle.util.StringUtil;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -21,11 +22,12 @@ public class SecuritySessionContext {
     private static final String SPRING_SESSION_KEY_PREFIX = "spring:session:sessions:";
     private static final String SPRING_SESSION_KEY_EXPIRE_PREFIX = "spring:session:sessions:expires:";
     public static final String SESSION_ATTR_PREFIX = "sessionAttr:";
+    private static final String SERIALIZE_PREFIX = "{" ;
+    private static final String USER_CLASS = "{\"@class\": \""+ User.class.getName() +"\",";
 
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
-    private JdkSerializationRedisSerializer jdkSerializationRedisSerializer = new JdkSerializationRedisSerializer();
     /**
      * @description 失效【指定用户】session
      * @param userId
@@ -38,21 +40,18 @@ public class SecuritySessionContext {
     }
 
     /**
-     * @description 踢掉【指定用户】
+     * @description 操作【指定用户】
      * @param userId
      * @return void
-     * @Author elvin
+     * @Author elvin  User.class.getName()
      * @Date 2019/8/21
      */
-    public void setUserSessionOperate(String userId,String v) {
-        stringRedisTemplate.opsForHash().put(SPRING_SESSION_KEY_PREFIX + stringRedisTemplate.opsForValue().get(SessionUtil.SECURITY_SESSION_CONTEXT_KEY_PREFIX+userId),
-                SESSION_ATTR_PREFIX + SessionUtil.USER_SESSION_OPERATED_KEY,
-                v);
-    }
-
-    public String getUserSessionOperate(String userId) {
-        return (String) stringRedisTemplate.opsForHash().get(SPRING_SESSION_KEY_PREFIX + stringRedisTemplate.opsForValue().get(SessionUtil.SECURITY_SESSION_CONTEXT_KEY_PREFIX+userId),
-                SESSION_ATTR_PREFIX + SessionUtil.USER_SESSION_OPERATED_KEY);
+    public void setUserSessionOperate(String userId,User user) {
+        String oldSid = stringRedisTemplate.opsForValue().get(SessionUtil.SECURITY_SESSION_CONTEXT_KEY_PREFIX + userId);
+        String replace = JsonUtil.toJSONString(user).replace(SERIALIZE_PREFIX, USER_CLASS);
+        if(!StringUtil.isEmpty(oldSid)){
+            stringRedisTemplate.opsForHash().put(SPRING_SESSION_KEY_PREFIX + oldSid, SESSION_ATTR_PREFIX + SessionUtil.USER_SESSION_KEY, replace);
+        }
     }
 
     /**

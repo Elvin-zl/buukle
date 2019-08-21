@@ -33,6 +33,7 @@ import java.util.concurrent.ExecutionException;
  */
 public class SecurityInterceptor implements HandlerInterceptor {
 
+    private static final String SECURITY_PASSPORT_HOST = "security.passport.host";
     @Autowired
     private Environment env;
     @Autowired
@@ -72,19 +73,28 @@ public class SecurityInterceptor implements HandlerInterceptor {
      * @Date 2019/8/2
      */
     private boolean authentic(HttpServletRequest request, HttpServletResponse response) throws ExecutionException, IOException {
+        // 未登录
         if(StringUtil.isEmpty(CookieUtil.getUserCookie(request))){
-            this.writeNoticePage(response,SecurityInterceptorConstants.NO_AUTH_RETURN_HTML_TEMPLATE.replace(SecurityInterceptorConstants.BUUKLE_NO_AUTH_CONTENT_TEMPLATE,"未登录!").replace("security.passport.host",env.getProperty("security.passport.host")));
+            this.writeNoticePage(response,SecurityInterceptorConstants.NO_AUTH_RETURN_HTML_TEMPLATE.replace(SecurityInterceptorConstants.BUUKLE_NO_AUTH_CONTENT_TEMPLATE,"未登录!").replace(SECURITY_PASSPORT_HOST,env.getProperty(SECURITY_PASSPORT_HOST)));
             return false;
         }
         User user = SessionUtil.getUser(request, response);
+        // 登录超时
         if(null == user){
             CookieUtil.delUserCookie(response,SecurityInterceptorConstants.LOGIN_COOKIE_DOMAIN);
-            this.writeNoticePage(response,SecurityInterceptorConstants.NO_AUTH_RETURN_HTML_TEMPLATE.replace(SecurityInterceptorConstants.BUUKLE_NO_AUTH_CONTENT_TEMPLATE,"登录超时!").replace("security.passport.host",env.getProperty("security.passport.host")));
+            this.writeNoticePage(response,SecurityInterceptorConstants.NO_AUTH_RETURN_HTML_TEMPLATE.replace(SecurityInterceptorConstants.BUUKLE_NO_AUTH_CONTENT_TEMPLATE,"登录超时!").replace(SECURITY_PASSPORT_HOST,env.getProperty(SECURITY_PASSPORT_HOST)));
             return false;
         }
-        if(sessionContext.getUserSessionOperate(user.getUserId()).equals(SessionUtil.UserSessionOperate.KICK_OUT.value())){
+        // 登录已经被挤掉
+        if(user.getUserId().equals(SessionUtil.UserSessionOperate.KICK_OUT.value())){
             CookieUtil.delUserCookie(response,SecurityInterceptorConstants.LOGIN_COOKIE_DOMAIN);
-            this.writeNoticePage(response,SecurityInterceptorConstants.NO_AUTH_RETURN_HTML_TEMPLATE.replace(SecurityInterceptorConstants.BUUKLE_NO_AUTH_CONTENT_TEMPLATE,"该账户已在其他设备登录!").replace("security.passport.host",env.getProperty("security.passport.host")));
+            this.writeNoticePage(response,SecurityInterceptorConstants.NO_AUTH_RETURN_HTML_TEMPLATE.replace(SecurityInterceptorConstants.BUUKLE_NO_AUTH_CONTENT_TEMPLATE,SessionUtil.UserSessionOperate.KICK_OUT.getDesc()).replace(SECURITY_PASSPORT_HOST,env.getProperty(SECURITY_PASSPORT_HOST)));
+            return false;
+        }
+        // 权限改变
+        if(user.getUserId().equals(SessionUtil.UserSessionOperate.PERM_CHANGE.value())){
+            CookieUtil.delUserCookie(response,SecurityInterceptorConstants.LOGIN_COOKIE_DOMAIN);
+            this.writeNoticePage(response,SecurityInterceptorConstants.NO_AUTH_RETURN_HTML_TEMPLATE.replace(SecurityInterceptorConstants.BUUKLE_NO_AUTH_CONTENT_TEMPLATE,SessionUtil.UserSessionOperate.PERM_CHANGE.getDesc()).replace("security.passport.host",env.getProperty("security.passport.host")));
             return false;
         }
         // 更新用户活跃域

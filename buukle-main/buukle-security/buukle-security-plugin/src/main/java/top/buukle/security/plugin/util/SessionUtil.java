@@ -32,8 +32,8 @@ import java.util.Map;
 public class SessionUtil {
 
     public enum UserSessionOperate{
-        KICK_OUT("0","已在其他设备登录!"),
-        PERM_OUT("1","权限信息发生改变!"),
+        KICK_OUT("0","该账户已在其他设备登录!如非本人操作,请尽快修改密码或锁定账户!"),
+        PERM_CHANGE("1","权限信息发生改变,请重新登陆!"),
         ;
         private String code;
         private String desc;
