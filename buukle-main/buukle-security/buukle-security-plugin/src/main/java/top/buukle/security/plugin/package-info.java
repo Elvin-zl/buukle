@@ -1,7 +1,8 @@
 /**
+ *                                                                                      -- updated by elvin 2019-8-21 10:26:49
  * (1) INTRODUCE <br>
  *  A plugin witch is based on spring-boot-starter-web ,spring-session,feign-client,buukle-security <br>
- *  We can use it to single-sign-on ,url-authentication ,data-isolation , next we will tell you how to use it in START UP .<br>
+ *  We can use it to single-sign-on ,url-authentication ,data-isolation . here I will tell you how to use it in START UP .<br>
  * (2) START UP <br>
  *  ① yml-configure : application-local-security.yml it's content is like : <br>
  *      ## security-plugin

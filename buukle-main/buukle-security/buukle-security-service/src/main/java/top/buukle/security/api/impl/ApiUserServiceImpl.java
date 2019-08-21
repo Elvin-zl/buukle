@@ -15,6 +15,7 @@ import top.buukle.security.plugin.cache.SecuritySessionContext;
 import top.buukle.security.plugin.util.SessionUtil;
 import top.buukle.security.service.constants.MenuEnums;
 import top.buukle.security.service.constants.RoleEnums;
+import top.buukle.util.NumberUtil;
 import top.buukle.util.StringUtil;
 
 import javax.servlet.http.HttpServletRequest;
@@ -64,10 +65,12 @@ public class ApiUserServiceImpl implements ApiUserService{
         user1.setId(userInfo.getId());
         user1.setGmtLastLogin(new Date());
         userMapper.updateByPrimaryKeySelective(user1);
-        // 剔除已经在线的会话
-        sessionContext.deleteSession(userInfo.getUserId());
         // 创建新的会话
         SessionUtil.cacheUser(userInfo, request, response);
+        // 更新用户活跃域
+        sessionContext.registerInSessionContext(request,userInfo.getUserId(),user.getLoginStrategy() ==null ? NumberUtil.INTEGER_ONE_MINUTES_SECOND * 3 : NumberUtil.INTEGER_ONE_WEEK_SECOND);
+        // 剔除已经在线的会话
+        sessionContext.setUserSessionOperate(userInfo.getUserId(),SessionUtil.UserSessionOperate.KICK_OUT.value());
         // 查询用户拥有菜单资源目录
         List<Menu> menuList = menuMapper.getUserMenuListByUserId(userInfo.getUserId());
 

@@ -31,6 +31,38 @@ import java.util.Map;
  */
 public class SessionUtil {
 
+    public enum UserSessionOperate{
+        KICK_OUT("0","已在其他设备登录!"),
+        PERM_OUT("1","权限信息发生改变!"),
+        ;
+        private String code;
+        private String desc;
+
+        public String getCode() {
+            return code;
+        }
+        public String value() {
+            return code;
+        }
+
+        public void setCode(String code) {
+            this.code = code;
+        }
+
+        public String getDesc() {
+            return desc;
+        }
+
+        public void setDesc(String desc) {
+            this.desc = desc;
+        }
+
+        UserSessionOperate(String code, String desc) {
+            this.code = code;
+            this.desc = desc;
+        }
+    }
+
     /**  【当前用户】 拥有菜单信息在session中的key*/
     public static final String USER_MENU_TREE_KEY = "USER_MENU_TREE_KEY";
     /**  【当前用户】 拥有角色信息在session中的key*/
@@ -43,6 +75,7 @@ public class SessionUtil {
     public static final String USER_SESSION_KEY = "USER_SESSION_KEY";
     /** sessionContext的key*/
     public static final String SECURITY_SESSION_CONTEXT_KEY_PREFIX = "SECURITY_SESSION_CONTEXT_KEY_PREFIX:";
+    public static final String USER_SESSION_OPERATED_KEY = "USER_SESSION_OPERATED_KEY";
 
     /**
      * @description 缓存session 【当前用户】 信息
@@ -74,9 +107,16 @@ public class SessionUtil {
         if(session != null){
             String userCookie = CookieUtil.getUserCookie(request);
             if(StringUtil.isNotEmpty(userCookie)){
-                User user;
+                User user = null;
                 try{
-                    user = (User) session.getAttribute(USER_SESSION_KEY);
+                    Object obj = session.getAttribute(USER_SESSION_KEY);
+                    if(obj instanceof String){
+                        user = new User();
+                        user.setUserId((String) obj);
+                    }
+                    if(obj instanceof User){
+                        user = (User) session.getAttribute(USER_SESSION_KEY);
+                    }
                 }catch(Exception e){
                     throw new SecurityPluginException(SecurityExceptionEnum.USER_NO_PERM_OTHER_LOGIN);
                 }

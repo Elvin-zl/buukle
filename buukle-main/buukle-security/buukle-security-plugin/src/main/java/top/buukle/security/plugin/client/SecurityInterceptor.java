@@ -79,15 +79,20 @@ public class SecurityInterceptor implements HandlerInterceptor {
         User user = SessionUtil.getUser(request, response);
         if(null == user){
             CookieUtil.delUserCookie(response,SecurityInterceptorConstants.LOGIN_COOKIE_DOMAIN);
+            this.writeNoticePage(response,SecurityInterceptorConstants.NO_AUTH_RETURN_HTML_TEMPLATE.replace(SecurityInterceptorConstants.BUUKLE_NO_AUTH_CONTENT_TEMPLATE,"登录超时!").replace("security.passport.host",env.getProperty("security.passport.host")));
+            return false;
+        }
+        if(sessionContext.getUserSessionOperate(user.getUserId()).equals(SessionUtil.UserSessionOperate.KICK_OUT.value())){
+            CookieUtil.delUserCookie(response,SecurityInterceptorConstants.LOGIN_COOKIE_DOMAIN);
             this.writeNoticePage(response,SecurityInterceptorConstants.NO_AUTH_RETURN_HTML_TEMPLATE.replace(SecurityInterceptorConstants.BUUKLE_NO_AUTH_CONTENT_TEMPLATE,"该账户已在其他设备登录!").replace("security.passport.host",env.getProperty("security.passport.host")));
             return false;
         }
         // 更新用户活跃域
         sessionContext.registerInSessionContext(request,user.getUserId(),user.getLoginStrategy() ==null ? NumberUtil.INTEGER_ONE_MINUTES_SECOND * 3 : NumberUtil.INTEGER_ONE_WEEK_SECOND);
         // 刷新cookie超时时间
-        CookieUtil.refreshCookie(request,response,user.getLoginStrategy() ==null ? NumberUtil.INTEGER_ONE_MINUTES_SECOND * 3 : NumberUtil.INTEGER_ONE_WEEK_SECOND);
+        CookieUtil.refreshCookie(request,response,user.getLoginStrategy() ==null ? NumberUtil.INTEGER_ONE_MINUTES_SECOND * 5 : NumberUtil.INTEGER_ONE_WEEK_SECOND);
         // 刷新session超时时间
-        sessionContext.refreshDDL(user.getUserId(),user.getLoginStrategy() ==null ? NumberUtil.INTEGER_ONE_MINUTES_SECOND * 3 : NumberUtil.INTEGER_ONE_WEEK_SECOND);
+        sessionContext.refreshDDL(user.getUserId(),user.getLoginStrategy() ==null ? NumberUtil.INTEGER_ONE_MINUTES_SECOND * 6 : NumberUtil.INTEGER_ONE_WEEK_SECOND);
         return true;
     }
 
