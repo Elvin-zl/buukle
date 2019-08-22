@@ -18,4 +18,6 @@ public interface ApiUserService {
 
 
     CommonResponse innerLogin(User user, HttpServletRequest request, HttpServletResponse response);
+
+    void sessionUserResource(HttpServletRequest request, User userInfo, boolean isUpdate);
 }

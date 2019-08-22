@@ -79,7 +79,6 @@ public class SessionUtil {
     public static final String USER_SESSION_KEY = "USER_SESSION_KEY";
     /** sessionContext的key*/
     public static final String SECURITY_SESSION_CONTEXT_KEY_PREFIX = "SECURITY_SESSION_CONTEXT_KEY_PREFIX:";
-    public static final String USER_SESSION_OPERATED_KEY = "USER_SESSION_OPERATED_KEY";
 
     /**
      * @description 缓存session 【当前用户】 信息

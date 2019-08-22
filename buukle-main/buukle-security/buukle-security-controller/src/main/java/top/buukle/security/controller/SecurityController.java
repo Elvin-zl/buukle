@@ -54,7 +54,7 @@ public class SecurityController {
         // 返回左侧菜单树的引用
         modelAndView.addObject("menuList",menuTreeNode == null ? new ArrayList<MenuTreeNode>() : menuTreeNode.getSubMenuList());
         // 返回首页引用
-        modelAndView.addObject("welcome",menuTreeNode == null ? new ArrayList<MenuTreeNode>() : menuTreeNode.getSubMenuList().get(0));
+        modelAndView.addObject("welcome",menuTreeNode == null ? new MenuTreeNode() : menuTreeNode.getSubMenuList().get(0));
         // 返回顶部菜单树的引用
         modelAndView.addObject("topMenuList",menuTreeNode == null ? new ArrayList<MenuTreeNode>() : this.getTopMenuList(menuTreeNode.getSubMenuList()));
         // 返回角色引用

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import top.buukle.common.call.vo.FuzzyVo;
 import top.buukle.common.status.StatusConstants;
+import top.buukle.security.api.ApiUserService;
 import top.buukle.security.dao.*;
 import top.buukle.security.entity.*;
 import top.buukle.security.entity.vo.BaseQuery;
@@ -55,6 +56,8 @@ public class UserServiceImpl implements UserService{
     private UserRoleRelationLogsMapper userRoleRelationLogsMapper;
     @Autowired
     private CommonMapper commonMapper;
+    @Autowired
+    private ApiUserService apiUserService;
     @Autowired
     private Environment env;
 
@@ -276,6 +279,8 @@ public class UserServiceImpl implements UserService{
         userRoleRelationLogs.setUserId(query.getUserId());
         // 记录日志
         userRoleRelationLogsMapper.insert(userRoleRelationLogs);
+        // 刷新session
+        apiUserService.sessionUserResource(null,query,true);
         return new CommonResponse.Builder().buildSuccess();
     }
 

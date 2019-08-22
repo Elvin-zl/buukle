@@ -15,7 +15,6 @@ import top.buukle.security.plugin.cache.SecuritySessionContext;
 import top.buukle.security.plugin.util.SessionUtil;
 import top.buukle.security.service.constants.MenuEnums;
 import top.buukle.security.service.constants.RoleEnums;
-import top.buukle.util.NumberUtil;
 import top.buukle.util.StringUtil;
 
 import javax.servlet.http.HttpServletRequest;
@@ -66,13 +65,30 @@ public class ApiUserServiceImpl implements ApiUserService{
         user1.setGmtLastLogin(new Date());
         userMapper.updateByPrimaryKeySelective(user1);
         // 剔除已经在线的会话
-        sessionContext.setUserSessionOperate(userInfo.getUserId(),new User(SessionUtil.UserSessionOperate.KICK_OUT.value()),SessionUtil.getUserExpire(userInfo));
+        sessionContext.kickOutUser(userInfo.getUserId(),new User(SessionUtil.UserSessionOperate.KICK_OUT.value()),SessionUtil.getUserExpire(userInfo));
         // 创建新的会话
         SessionUtil.cacheUser(userInfo, request, response);
+        // 更新用户活跃域
+        sessionContext.registerInSessionContext(request,userInfo.getUserId(),SessionUtil.getUserExpire(user));
+        // 缓存用户信息
+        this.sessionUserResource(request,userInfo,false);
+        return new CommonResponse.Builder().buildSuccess();
+    }
+
+    /**
+     * @description 缓存用户信息
+     * @param request
+     * @param userInfo
+     * @param isUpdate
+     * @return void
+     * @Author elvin
+     * @Date 2019/8/23
+     */
+    @Override
+    public void sessionUserResource(HttpServletRequest request, User userInfo, boolean isUpdate) {
         // 查询用户拥有菜单资源目录
         List<Menu> menuList = menuMapper.getUserMenuListByUserId(userInfo.getUserId());
-
-        if(!CollectionUtils.isEmpty(menuList)){
+        if(!CollectionUtils.isEmpty(menuList) || isUpdate){
             List<Menu> menuDisplay = new ArrayList<>();
             // 筛选可见菜单
             for (Menu menu: menuList) {
@@ -89,7 +105,7 @@ public class ApiUserServiceImpl implements ApiUserService{
             Map<String,MenuTreeNode> userApplicationMenuDisplayed = new HashMap<>();
             if(!CollectionUtils.isEmpty(menus)){
                 for (Menu menu: menus) {
-                    if(menu.getPid().equals(0)){ //
+                    if(menu.getPid().equals(0)){
                         MenuTreeNode rootNodeDisplay = new MenuTreeNode();
                         BeanUtils.copyProperties(menu,rootNodeDisplay);
                         Application application = applicationMapper.selectByPrimaryKey(menu.getApplicationId());
@@ -99,22 +115,36 @@ public class ApiUserServiceImpl implements ApiUserService{
                     }
                 }
             }
-            // 缓存用户可见菜单数组
-            SessionUtil.cache(request,SessionUtil.USER_MENU_TREE_KEY,userApplicationMenuDisplayed);
-            // 缓存用户角色目录
+
             List<Role> userRoles = roleMapper.selectUserRoles(userInfo.getUserId());
-            SessionUtil.cache(request,SessionUtil.USER_ROLE_MAP_KEY,this.assUserRoleMap(userRoles));
+
             RoleExample roleExample = new RoleExample();
             RoleExample.Criteria roleExampleCriteria = roleExample.createCriteria();
             roleExampleCriteria.andStatusEqualTo(RoleEnums.status.PUBLISED.value());
             // 查询所有角色
             List<Role> allRoles = roleMapper.selectByExample(roleExample);
-            // 缓存用户下辖角色映射
-            SessionUtil.cache(request,SessionUtil.USER_ROLE_SUB_MAP_KEY,this.assUserSubRoleMap(userRoles,allRoles));
-            // 缓存用户所有资源url清单
-            SessionUtil.cache(request,SessionUtil.USER_URL_LIST_KEY,this.assUserMenuUrlList(menuList,this.getUserButtonList(userRoles)));
+            if(isUpdate){
+                // 刷新用户角色目录
+                sessionContext.refreshSession(userInfo.getUserId(),SessionUtil.USER_MENU_TREE_KEY,userApplicationMenuDisplayed,SessionUtil.getUserExpire(userInfo));
+                // 刷新用户可见菜单数组
+                sessionContext.refreshSession(userInfo.getUserId(),SessionUtil.USER_ROLE_MAP_KEY,this.assUserRoleMap(userRoles),SessionUtil.getUserExpire(userInfo));
+                // 刷新用户下辖角色映射
+                sessionContext.refreshSession(userInfo.getUserId(),SessionUtil.USER_ROLE_SUB_MAP_KEY,this.assUserSubRoleMap(userRoles,allRoles),SessionUtil.getUserExpire(userInfo));
+                // 刷新用户所有资源url清单
+                sessionContext.refreshSession(userInfo.getUserId(),SessionUtil.USER_URL_LIST_KEY,this.assUserMenuUrlList(menuList,this.getUserButtonList(userRoles)),SessionUtil.getUserExpire(userInfo));
+            }else{
+                // 刷新用户角色目录
+                SessionUtil.cache(request,SessionUtil.USER_MENU_TREE_KEY,userApplicationMenuDisplayed);
+                // 刷新用户可见菜单数组
+                SessionUtil.cache(request,SessionUtil.USER_ROLE_MAP_KEY,this.assUserRoleMap(userRoles));
+                // 刷新用户下辖角色映射
+                SessionUtil.cache(request,SessionUtil.USER_ROLE_SUB_MAP_KEY,this.assUserSubRoleMap(userRoles,allRoles));
+                // 刷新用户所有资源url清单
+                SessionUtil.cache(request,SessionUtil.USER_URL_LIST_KEY,this.assUserMenuUrlList(menuList,this.getUserButtonList(userRoles)));
+            }
+
+
         }
-        return new CommonResponse.Builder().buildSuccess();
     }
 
     /**

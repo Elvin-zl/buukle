@@ -1,6 +1,7 @@
 package top.buukle.security.plugin.configure;
 
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.alibaba.fastjson.support.spring.GenericFastJsonRedisSerializer;
 import com.github.pagehelper.PageInterceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,6 +75,6 @@ public class SecurityPluginConfigure {
     }
 
     private RedisSerializer<Object> valueSerializer() {
-        return new GenericJackson2JsonRedisSerializer();
+        return new GenericFastJsonRedisSerializer();
     }
 }
