@@ -86,8 +86,8 @@
 			</div>
 			<div class="main-mask"> </div>
 		</div>
-		<script src="/static/security/layui/layui.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/static/security/js/common.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/static/security/js/main.js" type="text/javascript" charset="utf-8"></script>
+		<script th:src="@{'/static/'+${nameSuffix} + '/layui/layui.js'}" type="text/javascript" charset="utf-8"></script>
+		<script th:src="@{'/static/'+${nameSuffix} + '/js/common.js'}"  type="text/javascript" charset="utf-8"></script>
+		<script th:src="@{'/static/'+${nameSuffix} + '/js/main.js'}" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>

@@ -64,10 +64,9 @@ public class ApiUserServiceImpl implements ApiUserService{
         User user1 = new User();
         user1.setId(userInfo.getId());
         user1.setGmtLastLogin(new Date());
-        userMapper.updateByPrimaryKeySelective(user1); //
-
+        userMapper.updateByPrimaryKeySelective(user1);
         // 剔除已经在线的会话
-        sessionContext.setUserSessionOperate(userInfo.getUserId(),new User(SessionUtil.UserSessionOperate.KICK_OUT.value()));
+        sessionContext.setUserSessionOperate(userInfo.getUserId(),new User(SessionUtil.UserSessionOperate.KICK_OUT.value()),SessionUtil.getUserExpire(userInfo));
         // 创建新的会话
         SessionUtil.cacheUser(userInfo, request, response);
         // 查询用户拥有菜单资源目录

@@ -37,17 +37,19 @@
 									</div>
 								</a>
 							</li>
-							<li class="col-sm-12 col-md-4 col-xs-12">
-								<a href="javascript:;" class="clearfix">
-									<div class="icon-bg bg-green f-l">
-										<span class="iconfont">&#xe605;</span>
-									</div>
-									<div class="right-text-con">
-										<p class="name">评论数</p>
-										<p><span class="color-green">221</span>数据<span class="iconfont">&#xe6af;</span></p>
-									</div>
-								</a>
-							</li>
+							<hp url="/getOnlineCount">
+								<li class="col-sm-12 col-md-4 col-xs-12">
+									<a href="javascript:;" class="clearfix">
+										<div class="icon-bg bg-green f-l">
+											<span class="iconfont">&#xe605;</span>
+										</div>
+										<div class="right-text-con">
+											<p class="name">实时在线人数</p>
+											<p><span id="onlineNum" data-url="/getOnlineCount" class="color-green">-</span>数据<span class="iconfont">&#xe6af;</span></p>
+										</div>
+									</a>
+								</li>
+							</hp>
 						</ul>
 					</div>
 					<!--图表-->
@@ -161,6 +163,26 @@
 		</div>
 		<script src="/static/security/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 		<script src="/static/security/lib/echarts/echarts.js"></script>
+		<hp url="/getOnlineCount">
+			<script>
+				layui.use(['layer','jquery'], function() {
+					var layer = layui.layer;
+					var $ = layui.jquery;
+					$.ajax({
+						url:$('#onlineNum').attr('data-url'),
+						method:"post",
+						dataType:"json",
+						success:function (data) {
+							if(data.head.status == 'S'){
+								$('#onlineNum').html(data.head.msg);
+							}else{
+								layer.msg("接口 : /getOnlineCount " + data.head.msg);
+							}
+						}
+					})
+				})
+			</script>
+		</hp>
 		<script type="text/javascript">
 			layui.use(['layer','jquery'], function(){
 				var layer 	= layui.layer;

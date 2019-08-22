@@ -2,17 +2,23 @@ package top.buukle.security.plugin.cache;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.stereotype.Component;
+import top.buukle.common.call.CommonResponse;
 import top.buukle.security.entity.User;
 import top.buukle.security.plugin.util.SessionUtil;
 import top.buukle.util.JsonUtil;
 import top.buukle.util.StringUtil;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @description session 引用缓存
+ * @description session 实时在线session操作
  * @Author zhanglei1102
  * @Date 2019/8/19
  */
@@ -24,7 +30,6 @@ public class SecuritySessionContext {
     public static final String SESSION_ATTR_PREFIX = "sessionAttr:";
     private static final String SERIALIZE_PREFIX = "{" ;
     private static final String USER_CLASS = "{\"@class\": \""+ User.class.getName() +"\",";
-
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
@@ -38,7 +43,6 @@ public class SecuritySessionContext {
     public void deleteSession(String userId) {
         stringRedisTemplate.delete(SPRING_SESSION_KEY_PREFIX + stringRedisTemplate.opsForValue().get(SessionUtil.SECURITY_SESSION_CONTEXT_KEY_PREFIX+userId));
     }
-
     /**
      * @description 操作【指定用户】
      * @param userId
@@ -46,14 +50,14 @@ public class SecuritySessionContext {
      * @Author elvin  User.class.getName()
      * @Date 2019/8/21
      */
-    public void setUserSessionOperate(String userId,User user) {
+    public void setUserSessionOperate(String userId,User user,int expire ) {
         String oldSid = stringRedisTemplate.opsForValue().get(SessionUtil.SECURITY_SESSION_CONTEXT_KEY_PREFIX + userId);
         String replace = JsonUtil.toJSONString(user).replace(SERIALIZE_PREFIX, USER_CLASS);
         if(!StringUtil.isEmpty(oldSid)){
             stringRedisTemplate.opsForHash().put(SPRING_SESSION_KEY_PREFIX + oldSid, SESSION_ATTR_PREFIX + SessionUtil.USER_SESSION_KEY, replace);
+            stringRedisTemplate.expire(SPRING_SESSION_KEY_PREFIX + oldSid,expire,TimeUnit.SECONDS);
         }
     }
-
     /**
      * @description 刷新【指定用户】session 过期时间
      *@param userId
@@ -65,7 +69,6 @@ public class SecuritySessionContext {
         stringRedisTemplate.expire(SPRING_SESSION_KEY_PREFIX + stringRedisTemplate.opsForValue().get(SessionUtil.SECURITY_SESSION_CONTEXT_KEY_PREFIX+userId),expire,TimeUnit.SECONDS);
         stringRedisTemplate.expire(SPRING_SESSION_KEY_EXPIRE_PREFIX + stringRedisTemplate.opsForValue().get(SessionUtil.SECURITY_SESSION_CONTEXT_KEY_PREFIX+userId),expire,TimeUnit.SECONDS);
     }
-
     /**
      * @description 将 【指定用户】userId 和 sessionId 绑定
      * @param request
@@ -88,6 +91,16 @@ public class SecuritySessionContext {
     public void removeFromSessionContext(String userId) {
         stringRedisTemplate.delete(SessionUtil.SECURITY_SESSION_CONTEXT_KEY_PREFIX + userId);
     }
-
+    /**
+     * @description 统计实时在线人数
+     * @return int
+     * @Author zhanglei1102
+     * @Date 2019/8/22
+     */
+    public CommonResponse countSessionContext() {
+        CommonResponse commonResponse = new CommonResponse.Builder().buildSuccess();
+        commonResponse.getHead().setMsg(stringRedisTemplate.keys(SessionUtil.SECURITY_SESSION_CONTEXT_KEY_PREFIX + "*").size()+StringUtil.EMPTY);
+        return  commonResponse;
+    }
 
 }

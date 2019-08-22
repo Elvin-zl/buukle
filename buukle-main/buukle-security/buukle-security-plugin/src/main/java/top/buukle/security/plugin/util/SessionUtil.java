@@ -31,6 +31,10 @@ import java.util.Map;
  */
 public class SessionUtil {
 
+    public static int getUserExpire(User userInfo) {
+        return userInfo.getLoginStrategy() ==null ?NumberUtil.INTEGER_ONE_MINUTES_SECOND * 6 : NumberUtil.INTEGER_ONE_WEEK_SECOND;
+    }
+
     public enum UserSessionOperate{
         KICK_OUT("0","该账户已在其他设备登录!如非本人操作,请尽快修改密码或锁定账户!"),
         PERM_CHANGE("1","权限信息发生改变,请重新登陆!"),

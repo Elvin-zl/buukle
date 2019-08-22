@@ -26,7 +26,6 @@ public class CmsController {
     @RequestMapping("/{parent}/{target}")
     public ModelAndView cms(HttpServletRequest request, @PathVariable("parent") String parent , @PathVariable("target")  String target, ModelAndView modelAndView) {
         HttpSession session = request.getSession();
-        Object system = session.getAttribute("system");
         modelAndView.setViewName("/" + parent + "/" + target);
         return modelAndView;
     }

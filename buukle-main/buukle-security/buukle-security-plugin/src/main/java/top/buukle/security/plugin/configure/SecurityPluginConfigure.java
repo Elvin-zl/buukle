@@ -1,5 +1,6 @@
 package top.buukle.security.plugin.configure;
 
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.github.pagehelper.PageInterceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +12,10 @@ import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSeriali
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.session.web.http.CookieSerializer;
 import org.springframework.session.web.http.DefaultCookieSerializer;
+import top.buukle.security.entity.User;
 import top.buukle.security.plugin.client.DataIsolationInterceptor;
 import top.buukle.security.plugin.constants.SecurityInterceptorConstants;
+import top.buukle.util.JsonUtil;
 import top.buukle.util.log.BaseLogger;
 
 import javax.annotation.PostConstruct;
@@ -73,5 +76,4 @@ public class SecurityPluginConfigure {
     private RedisSerializer<Object> valueSerializer() {
         return new GenericJackson2JsonRedisSerializer();
     }
-
 }

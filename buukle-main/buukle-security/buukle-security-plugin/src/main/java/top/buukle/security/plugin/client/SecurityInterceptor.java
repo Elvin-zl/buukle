@@ -98,11 +98,11 @@ public class SecurityInterceptor implements HandlerInterceptor {
             return false;
         }
         // 更新用户活跃域
-        sessionContext.registerInSessionContext(request,user.getUserId(),user.getLoginStrategy() ==null ? NumberUtil.INTEGER_ONE_MINUTES_SECOND * 3 : NumberUtil.INTEGER_ONE_WEEK_SECOND);
+        sessionContext.registerInSessionContext(request,user.getUserId(),SessionUtil.getUserExpire(user));
         // 刷新cookie超时时间
-        CookieUtil.refreshCookie(request,response,user.getLoginStrategy() ==null ? NumberUtil.INTEGER_ONE_MINUTES_SECOND * 5 : NumberUtil.INTEGER_ONE_WEEK_SECOND);
+        CookieUtil.refreshCookie(request,response,SessionUtil.getUserExpire(user));
         // 刷新session超时时间
-        sessionContext.refreshDDL(user.getUserId(),user.getLoginStrategy() ==null ? NumberUtil.INTEGER_ONE_MINUTES_SECOND * 6 : NumberUtil.INTEGER_ONE_WEEK_SECOND);
+        sessionContext.refreshDDL(user.getUserId(),SessionUtil.getUserExpire(user));
         return true;
     }
 
