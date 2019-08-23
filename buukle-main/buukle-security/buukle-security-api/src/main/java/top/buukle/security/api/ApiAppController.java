@@ -25,7 +25,7 @@ import top.buukle.common.call.CommonRequest;
  */
 @Controller
 @RequestMapping("/api/app/")
-public class AppAppController {
+public class ApiAppController {
 
     @Autowired
     private ApiAppService appResourceService;

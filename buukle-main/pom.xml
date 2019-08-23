@@ -46,6 +46,8 @@
         <commons.fileupload>1.3.2</commons.fileupload>
         <commons.configuration>1.10</commons.configuration>
         <com.google.guava>23.2-jre</com.google.guava>
+        <org.apache.curator>4.0.1</org.apache.curator>
+        <org.apache.zookeeper>3.4.10</org.apache.zookeeper>
     </properties>
 
     <dependencyManagement>
@@ -61,6 +63,26 @@
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis.springboot.starter}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-framework</artifactId>
+                <version>${org.apache.curator}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-client</artifactId>
+                <version>${org.apache.curator}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-recipes</artifactId>
+                <version>${org.apache.curator}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>${org.apache.zookeeper}</version>
             </dependency>
             <dependency>
                 <groupId>mysql</groupId>

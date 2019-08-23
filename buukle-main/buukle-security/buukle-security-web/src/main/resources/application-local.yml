@@ -51,11 +51,15 @@ spring:
     store-type: redis
     ### Session 过期时间，单位s
     timeout: 604800
-
     redis:
       ### Sessions 刷新模式
       flush-mode: ON_SAVE
       namespace:  BUUKLE_SESSIONS
+  ## zookeeper
+  zk:
+    host: 39.105.74.47:2181
+    baseSleepTimeMs: 1000
+    zkMaxRetries: 3
 ##clould注册中心 eureka 配置
 eureka:
   instance:

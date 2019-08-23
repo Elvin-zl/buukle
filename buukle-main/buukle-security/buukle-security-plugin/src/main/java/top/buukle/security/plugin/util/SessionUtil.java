@@ -32,7 +32,7 @@ import java.util.Map;
 public class SessionUtil {
 
     public static int getUserExpire(User userInfo) {
-        return userInfo.getLoginStrategy() ==null ?NumberUtil.INTEGER_ONE_MINUTES_SECOND * 6 : NumberUtil.INTEGER_ONE_WEEK_SECOND;
+        return (userInfo.getLoginStrategy() == null || userInfo.getLoginStrategy() == 0)  ? NumberUtil.INTEGER_ONE_MINUTES_SECOND * 6 : NumberUtil.INTEGER_ONE_WEEK_SECOND;
     }
 
     public enum UserSessionOperate{
