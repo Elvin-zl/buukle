@@ -41,18 +41,19 @@
 						</div>
 						<div class="layui-inline tool-btn">
 							<hp url="/security/${table.entityNameFirstLowerCase}/${table.entityNameFirstLowerCase}CrudView">
-								<button class="layui-btn layui-btn-small layui-btn-normal addBtn" data-url="/security/${table.entityNameFirstLowerCase}/${table.entityNameFirstLowerCase}CrudView"><i class="layui-icon">&#xe654;</i></button>
+								<button class="layui-btn layui-btn-sm layui-btn-normal addBtn" data-url="/security/${table.entityNameFirstLowerCase}/${table.entityNameFirstLowerCase}CrudView"><i class="layui-icon">&#xe654;</i></button>
 							</hp>
 							<hp url="/security/${table.entityNameFirstLowerCase}/${table.entityNameFirstLowerCase}BatchDeleteJson">
-								<button class="layui-btn layui-btn-small layui-btn-danger delBtn" data-url="/security/${table.entityNameFirstLowerCase}/${table.entityNameFirstLowerCase}BatchDeleteJson"><i class="layui-icon">&#xe640;</i></button>
+								<button class="layui-btn layui-btn-sm layui-btn-danger delBtn" data-url="/security/${table.entityNameFirstLowerCase}/${table.entityNameFirstLowerCase}BatchDeleteJson"><i class="layui-icon">&#xe640;</i></button>
 							</hp>
-							<div class="layui-btn layui-btn-small layui-btn-normal" data-title='搜索'  id="search">搜索</div>
-							<div class="layui-btn layui-btn-small layui-btn-default" data-title='清空' id="clear">清空</div>
+							<div class="layui-btn layui-btn-sm layui-btn-normal" data-title='搜索'  id="search">搜索</div>
+							<div class="layui-btn layui-btn-sm layui-btn-default" data-title='清空' id="clear">清空</div>
 						</div>
 					</div>
 				</form>
 				<!--查询列表-->
 				<div class="layui-form" id="table-list" data-url="/${table.entityNameFirstLowerCase}/${table.entityNameFirstLowerCase}Page"> </div>
+                <div id="pageBar" class="page-wrap"> </div>
 			</div>
 			<!--遮罩-->
 			<div id="shadow">

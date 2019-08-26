@@ -10,67 +10,67 @@ import top.buukle.security.entity.WorkerJobExample;
 public interface WorkerJobMapper {
     /**
      *
-     * @mbg.generated Tue Aug 27 00:18:03 CST 2019
+     * @mbg.generated Tue Aug 27 01:14:40 CST 2019
      */
     long countByExample(WorkerJobExample example);
 
     /**
      *
-     * @mbg.generated Tue Aug 27 00:18:03 CST 2019
+     * @mbg.generated Tue Aug 27 01:14:40 CST 2019
      */
     int deleteByExample(WorkerJobExample example);
 
     /**
      *
-     * @mbg.generated Tue Aug 27 00:18:03 CST 2019
+     * @mbg.generated Tue Aug 27 01:14:40 CST 2019
      */
     int deleteByPrimaryKey(Integer id);
 
     /**
      *
-     * @mbg.generated Tue Aug 27 00:18:03 CST 2019
+     * @mbg.generated Tue Aug 27 01:14:40 CST 2019
      */
     int insert(WorkerJob record);
 
     /**
      *
-     * @mbg.generated Tue Aug 27 00:18:03 CST 2019
+     * @mbg.generated Tue Aug 27 01:14:40 CST 2019
      */
     int insertSelective(WorkerJob record);
 
     /**
      *
-     * @mbg.generated Tue Aug 27 00:18:03 CST 2019
+     * @mbg.generated Tue Aug 27 01:14:40 CST 2019
      */
     List<WorkerJob> selectByExample(WorkerJobExample example);
 
     /**
      *
-     * @mbg.generated Tue Aug 27 00:18:03 CST 2019
+     * @mbg.generated Tue Aug 27 01:14:40 CST 2019
      */
     WorkerJob selectByPrimaryKey(Integer id);
 
     /**
      *
-     * @mbg.generated Tue Aug 27 00:18:03 CST 2019
+     * @mbg.generated Tue Aug 27 01:14:40 CST 2019
      */
     int updateByExampleSelective(@Param("record") WorkerJob record, @Param("example") WorkerJobExample example);
 
     /**
      *
-     * @mbg.generated Tue Aug 27 00:18:03 CST 2019
+     * @mbg.generated Tue Aug 27 01:14:40 CST 2019
      */
     int updateByExample(@Param("record") WorkerJob record, @Param("example") WorkerJobExample example);
 
     /**
      *
-     * @mbg.generated Tue Aug 27 00:18:03 CST 2019
+     * @mbg.generated Tue Aug 27 01:14:40 CST 2019
      */
     int updateByPrimaryKeySelective(WorkerJob record);
 
     /**
      *
-     * @mbg.generated Tue Aug 27 00:18:03 CST 2019
+     * @mbg.generated Tue Aug 27 01:14:40 CST 2019
      */
     int updateByPrimaryKey(WorkerJob record);
 }

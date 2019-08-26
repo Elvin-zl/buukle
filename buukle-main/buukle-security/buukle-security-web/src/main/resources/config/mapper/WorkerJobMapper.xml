@@ -3,7 +3,7 @@
 <mapper namespace="top.buukle.security.dao.WorkerJobMapper">
   <resultMap id="BaseResultMap" type="top.buukle.security.entity.WorkerJob">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 27 00:18:03 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 27 01:14:40 CST 2019. by MyBatis Generator, do not modify.
     -->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="type" jdbcType="INTEGER" property="type" />
@@ -36,7 +36,7 @@
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 27 00:18:03 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 27 01:14:40 CST 2019. by MyBatis Generator, do not modify.
     -->
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -68,7 +68,7 @@
   </sql>
   <sql id="Update_By_Example_Where_Clause">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 27 00:18:03 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 27 01:14:40 CST 2019. by MyBatis Generator, do not modify.
     -->
     <where>
       <foreach collection="example.oredCriteria" item="criteria" separator="or">
@@ -100,7 +100,7 @@
   </sql>
   <sql id="Base_Column_List">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 27 00:18:03 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 27 01:14:40 CST 2019. by MyBatis Generator, do not modify.
     -->
     id, type, description, bean_reference_name, method, params, cron_expression, lock_status, 
     result_msg, execute_type, ip_group, time_out, fail_strategy, retry_count, remark, 
@@ -109,7 +109,7 @@
   </sql>
   <select id="selectByExample" parameterType="top.buukle.security.entity.WorkerJobExample" resultMap="BaseResultMap">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 27 00:18:03 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 27 01:14:40 CST 2019. by MyBatis Generator, do not modify.
     -->
     select
     <if test="distinct">
@@ -126,7 +126,7 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 27 00:18:03 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 27 01:14:40 CST 2019. by MyBatis Generator, do not modify.
     -->
     select 
     <include refid="Base_Column_List" />
@@ -135,14 +135,14 @@
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 27 00:18:03 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 27 01:14:40 CST 2019. by MyBatis Generator, do not modify.
     -->
     delete from worker_job
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="top.buukle.security.entity.WorkerJobExample">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 27 00:18:03 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 27 01:14:40 CST 2019. by MyBatis Generator, do not modify.
     -->
     delete from worker_job
     <if test="_parameter != null">
@@ -151,7 +151,7 @@
   </delete>
   <insert id="insert" parameterType="top.buukle.security.entity.WorkerJob">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 27 00:18:03 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 27 01:14:40 CST 2019. by MyBatis Generator, do not modify.
     -->
     insert into worker_job (id, type, description, 
       bean_reference_name, method, params, 
@@ -176,7 +176,7 @@
   </insert>
   <insert id="insertSelective" parameterType="top.buukle.security.entity.WorkerJob">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 27 00:18:03 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 27 01:14:40 CST 2019. by MyBatis Generator, do not modify.
     -->
     insert into worker_job
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -354,7 +354,7 @@
   </insert>
   <select id="countByExample" parameterType="top.buukle.security.entity.WorkerJobExample" resultType="java.lang.Long">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 27 00:18:03 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 27 01:14:40 CST 2019. by MyBatis Generator, do not modify.
     -->
     select count(*) from worker_job
     <if test="_parameter != null">
@@ -363,7 +363,7 @@
   </select>
   <update id="updateByExampleSelective" parameterType="map">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 27 00:18:03 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 27 01:14:40 CST 2019. by MyBatis Generator, do not modify.
     -->
     update worker_job
     <set>
@@ -458,7 +458,7 @@
   </update>
   <update id="updateByExample" parameterType="map">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 27 00:18:03 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 27 01:14:40 CST 2019. by MyBatis Generator, do not modify.
     -->
     update worker_job
     set id = #{record.id,jdbcType=INTEGER},
@@ -495,7 +495,7 @@
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="top.buukle.security.entity.WorkerJob">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 27 00:18:03 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 27 01:14:40 CST 2019. by MyBatis Generator, do not modify.
     -->
     update worker_job
     <set>
@@ -585,7 +585,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="top.buukle.security.entity.WorkerJob">
     <!--
-      WARNING - @mbg.generated  This element was generated on Tue Aug 27 00:18:03 CST 2019. by MyBatis Generator, do not modify.
+      WARNING - @mbg.generated  This element was generated on Tue Aug 27 01:14:40 CST 2019. by MyBatis Generator, do not modify.
     -->
     update worker_job
     set type = #{type,jdbcType=INTEGER},

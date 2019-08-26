@@ -13,14 +13,14 @@
 	<!--表单-->
 	<form class="layui-form column-content-detail" id="roleMenuButtonRelationLogsCrudForm">
 		<!--hidden area-->
-		<input type="hidden" name="id" th:attr="value = *@forDoller@*{record?.id}" />
+		<input type="hidden" name="id" th:attr="value = ${record?.id}" />
 		<div class="layui-tab">
 			<div class="layui-tab-content">
 				<div class="layui-tab-item layui-show">
 					<div class="layui-form-item">
 						<label class="layui-form-label">备注：</label>
 						<div class="layui-input-block">
-							<input type="text"  name="remark" th:attr="value = *@forDoller@*{record?.remark}" placeholder="remark" autocomplete="off" class="layui-input">
+							<input type="text"  name="remark" th:attr="value = ${record?.remark}" placeholder="remark" autocomplete="off" class="layui-input">
 						</div>
 					</div>
 				</div>

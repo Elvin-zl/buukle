@@ -10,67 +10,67 @@ import top.buukle.security.entity.WorkerTaskLogsExample;
 public interface WorkerTaskLogsMapper {
     /**
      *
-     * @mbg.generated Tue Aug 27 00:14:04 CST 2019
+     * @mbg.generated Tue Aug 27 01:14:50 CST 2019
      */
     long countByExample(WorkerTaskLogsExample example);
 
     /**
      *
-     * @mbg.generated Tue Aug 27 00:14:04 CST 2019
+     * @mbg.generated Tue Aug 27 01:14:50 CST 2019
      */
     int deleteByExample(WorkerTaskLogsExample example);
 
     /**
      *
-     * @mbg.generated Tue Aug 27 00:14:04 CST 2019
+     * @mbg.generated Tue Aug 27 01:14:50 CST 2019
      */
     int deleteByPrimaryKey(Integer id);
 
     /**
      *
-     * @mbg.generated Tue Aug 27 00:14:04 CST 2019
+     * @mbg.generated Tue Aug 27 01:14:50 CST 2019
      */
     int insert(WorkerTaskLogs record);
 
     /**
      *
-     * @mbg.generated Tue Aug 27 00:14:04 CST 2019
+     * @mbg.generated Tue Aug 27 01:14:50 CST 2019
      */
     int insertSelective(WorkerTaskLogs record);
 
     /**
      *
-     * @mbg.generated Tue Aug 27 00:14:04 CST 2019
+     * @mbg.generated Tue Aug 27 01:14:50 CST 2019
      */
     List<WorkerTaskLogs> selectByExample(WorkerTaskLogsExample example);
 
     /**
      *
-     * @mbg.generated Tue Aug 27 00:14:04 CST 2019
+     * @mbg.generated Tue Aug 27 01:14:50 CST 2019
      */
     WorkerTaskLogs selectByPrimaryKey(Integer id);
 
     /**
      *
-     * @mbg.generated Tue Aug 27 00:14:04 CST 2019
+     * @mbg.generated Tue Aug 27 01:14:50 CST 2019
      */
     int updateByExampleSelective(@Param("record") WorkerTaskLogs record, @Param("example") WorkerTaskLogsExample example);
 
     /**
      *
-     * @mbg.generated Tue Aug 27 00:14:04 CST 2019
+     * @mbg.generated Tue Aug 27 01:14:50 CST 2019
      */
     int updateByExample(@Param("record") WorkerTaskLogs record, @Param("example") WorkerTaskLogsExample example);
 
     /**
      *
-     * @mbg.generated Tue Aug 27 00:14:04 CST 2019
+     * @mbg.generated Tue Aug 27 01:14:50 CST 2019
      */
     int updateByPrimaryKeySelective(WorkerTaskLogs record);
 
     /**
      *
-     * @mbg.generated Tue Aug 27 00:14:04 CST 2019
+     * @mbg.generated Tue Aug 27 01:14:50 CST 2019
      */
     int updateByPrimaryKey(WorkerTaskLogs record);
 }

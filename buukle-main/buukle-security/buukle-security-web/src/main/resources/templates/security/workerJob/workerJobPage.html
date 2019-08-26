@@ -13,20 +13,20 @@
 			<td><input type="checkbox" name="batchCheckBox" lay-skin="primary" th:attr="data-id = ${workerJobRecord?.id}"  /></td>
 			<td th:text="${workerJobRecord?.id}" class="hidden-xs"></td>
 			<td th:switch="${workerJobRecord?.status}">
-				<button th:case="0" class="layui-btn layui-btn-mini layui-btn-danger" > 初始化</button>
-				<button th:case="1" class="layui-btn layui-btn-mini layui-btn-normal" > 处理中</button>
-				<button th:case="2" class="layui-btn layui-btn-mini layui-btn-default"> 审核不通过</button>
-				<button th:case="3" class="layui-btn layui-btn-mini layui-btn-default"> 审核通过</button>
-				<button th:case="4" class="layui-btn layui-btn-mini layui-btn-default"> 已被封禁</button>
-				<button th:case="*" class="layui-btn layui-btn-mini layui-btn-unknown"> 未知</button>
+				<button th:case="0" class="layui-btn layui-btn-xs layui-btn-danger" > 初始化</button>
+				<button th:case="1" class="layui-btn layui-btn-xs layui-btn-normal" > 处理中</button>
+				<button th:case="2" class="layui-btn layui-btn-xs layui-btn-default"> 审核不通过</button>
+				<button th:case="3" class="layui-btn layui-btn-xs layui-btn-default"> 审核通过</button>
+				<button th:case="4" class="layui-btn layui-btn-xs layui-btn-default"> 已被封禁</button>
+				<button th:case="*" class="layui-btn layui-btn-xs layui-btn-unknown"> 未知</button>
 			</td>
 			<td>
 				<div class="layui-inline">
 					<hp url="/security/workerJob/workerJobCrudView">
-						<div class="layui-btn layui-btn-small layui-btn-normal editBtn" th:attr="data-id = ${workerJobRecord?.id}" data-url="/security/workerJob/workerJobCrudView"><i class="layui-icon">&#xe642;</i></div>
+						<div class="layui-btn layui-btn-sm layui-btn-normal editBtn" th:attr="data-id = ${workerJobRecord?.id}" data-url="/security/workerJob/workerJobCrudView"><i class="layui-icon">&#xe642;</i></div>
 					</hp>
 					<hp url="/security/workerJob/workerJobCrudJson">
-						<div class="layui-btn layui-btn-small layui-btn-danger delOneBtn" th:attr="data-id = ${workerJobRecord?.id}" data-url="/security/workerJob/workerJobCrudJson"><i class="layui-icon">&#xe640;</i></div>
+						<div class="layui-btn layui-btn-sm layui-btn-danger delOneBtn" th:attr="data-id = ${workerJobRecord?.id}" data-url="/security/workerJob/workerJobCrudJson"><i class="layui-icon">&#xe640;</i></div>
                     </hp>
 				</div>
 			</td>
@@ -36,6 +36,5 @@
 	<input type="hidden" id="totalPage" th:attr="value=${response?.body.totalPage}" />
 	<input type="hidden" id="total" th:attr="value=${response?.body.total}" />
 </table>
-<div id="pageBar" class="page-wrap"> </div>
 
 

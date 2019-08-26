@@ -1,5 +1,6 @@
 layui.use(['laypage','layer'], function() {
     laypage = layui.laypage;
+    layer = layui.layer;
     // 初始化静态多选下拉框
     loadMulti();
     // 初始化动态异步模糊搜索下拉框
@@ -39,10 +40,26 @@ function loadPage(page,initPageBar) {
     }
     $('#table-list').load($('#table-list').attr('data-url'),$('#searchForm').serialize() + "&page=" +  page + params,function (responseTxt,statusTxt,xhr) {
         if(statusTxt=="success"){
-            // 初始化页面脚本
-            initCommonPage();
-            // 隐藏遮罩
-            hidediv();
+            if(responseTxt.indexOf("{") == 0){
+                var data = eval('(' + responseTxt + ')');
+                $('#table-list').html('');
+                // 隐藏遮罩
+                hidediv();
+                layer.confirm(data.head.msg,{
+                    btn: ['确定'],
+                    title:"提示",
+                    cancel: function(){
+                        return false;
+                    }
+                }, function(){
+                    window.close();
+                });
+            }else{
+                // 初始化页面脚本
+                initCommonPage();
+                // 隐藏遮罩
+                hidediv();
+            }
         }else{
             $('#table-list').html('<span>出现异常 ! Error: '+ xhr.status +' </span>');
             $('#pageBar').hide();

@@ -9,10 +9,10 @@
 	</tr>
 	</thead>
 	<tbody id="tbody-userRoleRelationLogs">
-		<tr th:each="userRoleRelationLogsRecord:*@forDoller@*{response?.body?.list}">
-			<td><input type="checkbox" name="batchCheckBox" lay-skin="primary" th:attr="data-id = *@forDoller@*{userRoleRelationLogsRecord?.id}"  /></td>
-			<td th:text="*@forDoller@*{userRoleRelationLogsRecord?.id}" class="hidden-xs"></td>
-			<td th:switch="*@forDoller@*{userRoleRelationLogsRecord?.status}">
+		<tr th:each="userRoleRelationLogsRecord:${response?.body?.list}">
+			<td><input type="checkbox" name="batchCheckBox" lay-skin="primary" th:attr="data-id = ${userRoleRelationLogsRecord?.id}"  /></td>
+			<td th:text="${userRoleRelationLogsRecord?.id}" class="hidden-xs"></td>
+			<td th:switch="${userRoleRelationLogsRecord?.status}">
 				<button th:case="0" class="layui-btn layui-btn-mini layui-btn-danger" > 初始化</button>
 				<button th:case="1" class="layui-btn layui-btn-mini layui-btn-normal" > 处理中</button>
 				<button th:case="2" class="layui-btn layui-btn-mini layui-btn-default"> 审核不通过</button>
@@ -22,15 +22,15 @@
 			</td>
 			<td>
 				<div class="layui-inline">
-					<div class="layui-btn layui-btn-small layui-btn-normal editBtn" th:attr="data-id = *@forDoller@*{userRoleRelationLogsRecord?.id}" data-url="/security/userRoleRelationLogs/userRoleRelationLogsCrudView"><i class="layui-icon">&#xe642;</i></div>
-					<div class="layui-btn layui-btn-small layui-btn-danger delOneBtn" th:attr="data-id = *@forDoller@*{userRoleRelationLogsRecord?.id}" data-url="/security/userRoleRelationLogs/userRoleRelationLogsCrudJson"><i class="layui-icon">&#xe640;</i></div>
+					<div class="layui-btn layui-btn-small layui-btn-normal editBtn" th:attr="data-id = ${userRoleRelationLogsRecord?.id}" data-url="/security/userRoleRelationLogs/userRoleRelationLogsCrudView"><i class="layui-icon">&#xe642;</i></div>
+					<div class="layui-btn layui-btn-small layui-btn-danger delOneBtn" th:attr="data-id = ${userRoleRelationLogsRecord?.id}" data-url="/security/userRoleRelationLogs/userRoleRelationLogsCrudJson"><i class="layui-icon">&#xe640;</i></div>
 				</div>
 			</td>
 		</tr>
 	</tbody>
-	<input type="hidden" id="page" th:attr="value=*@forDoller@*{response?.body.pageNo}" />
-	<input type="hidden" id="totalPage" th:attr="value=*@forDoller@*{response?.body.totalPage}" />
-	<input type="hidden" id="total" th:attr="value=*@forDoller@*{response?.body.total}" />
+	<input type="hidden" id="page" th:attr="value=${response?.body.pageNo}" />
+	<input type="hidden" id="totalPage" th:attr="value=${response?.body.totalPage}" />
+	<input type="hidden" id="total" th:attr="value=${response?.body.total}" />
 </table>
 <div id="pageBar" class="page-wrap"> </div>
 
