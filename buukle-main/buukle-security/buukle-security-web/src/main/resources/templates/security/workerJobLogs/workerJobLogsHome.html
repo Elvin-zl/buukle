@@ -21,12 +21,14 @@
 				<!--查询表单-->
 				<form id="searchForm" class="layui-form" action="">
 					<div class="layui-form-item">
-						<div class="layui-inline">
-							<span> ID ：</span>
-							<select class="fuzzy clearAble" data-url="/security/workerJobLogs/fuzzy/search" name="id" data-minimum="5" data-isIdVisual="0" data-fieldName="id" style="width: 200px;height: 10px">
-								<option value="">请输入ID</option>
-							</select>
-						</div>
+						<hp url="/security/workerJobLogs/fuzzy/search">
+							<div class="layui-inline">
+								<span> ID ：</span>
+								<select class="fuzzy clearAble" data-url="/security/workerJobLogs/fuzzy/search" name="id" data-minimum="5" data-isIdVisual="0" data-fieldName="id" style="width: 200px;height: 10px">
+									<option value="">请输入ID</option>
+								</select>
+							</div>
+						</hp>
 						<div class="layui-inline">
 							<span> 状态 ：</span>
 							<select class="clearAble multiSelect"  data-multiHolder="请输入状态" data-multiField="states" style="width: 200px;height: 10px" multiple="multiple">
@@ -38,8 +40,12 @@
 							</select>
 						</div>
 						<div class="layui-inline tool-btn">
-							<button class="layui-btn layui-btn-small layui-btn-normal addBtn" data-url="/security/workerJobLogs/workerJobLogsCrudView"><i class="layui-icon">&#xe654;</i></button>
-							<button class="layui-btn layui-btn-small layui-btn-danger delBtn" data-url="/security/workerJobLogs/workerJobLogsBatchDeleteJson"><i class="layui-icon">&#xe640;</i></button>
+							<hp url="/security/workerJobLogs/workerJobLogsCrudView">
+								<button class="layui-btn layui-btn-small layui-btn-normal addBtn" data-url="/security/workerJobLogs/workerJobLogsCrudView"><i class="layui-icon">&#xe654;</i></button>
+							</hp>
+							<hp url="/security/workerJobLogs/workerJobLogsBatchDeleteJson">
+								<button class="layui-btn layui-btn-small layui-btn-danger delBtn" data-url="/security/workerJobLogs/workerJobLogsBatchDeleteJson"><i class="layui-icon">&#xe640;</i></button>
+							</hp>
 							<div class="layui-btn layui-btn-small layui-btn-normal" data-title='搜索'  id="search">搜索</div>
 							<div class="layui-btn layui-btn-small layui-btn-default" data-title='清空' id="clear">清空</div>
 						</div>

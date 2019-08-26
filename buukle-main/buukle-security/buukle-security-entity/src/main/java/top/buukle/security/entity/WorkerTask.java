@@ -15,7 +15,7 @@ public class WorkerTask implements Serializable {
      * 作业id
      *
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     private Integer id;
 
@@ -23,35 +23,35 @@ public class WorkerTask implements Serializable {
      * 作业类型
      *
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     private Integer type;
 
     /**
      *
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     private String description;
 
     /**
      *
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     private String beanReferenceName;
 
     /**
      *
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     private String method;
 
     /**
      *
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     private String params;
 
@@ -59,21 +59,21 @@ public class WorkerTask implements Serializable {
      * 结果状态(0 未锁定,1 锁定中)
      *
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     private Byte lockStatus;
 
     /**
      *
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     private String resultMsg;
 
     /**
      *
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     private String ipGroup;
 
@@ -81,14 +81,14 @@ public class WorkerTask implements Serializable {
      * 超时
      *
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     private Integer timeOut;
 
     /**
      *
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     private String failStrategy;
 
@@ -96,28 +96,28 @@ public class WorkerTask implements Serializable {
      * 重试次数
      *
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     private Integer retryCount;
 
     /**
      *
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     private String remark;
 
     /**
      *
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     private Date gmtCreated;
 
     /**
      *
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     private String creator;
 
@@ -125,35 +125,35 @@ public class WorkerTask implements Serializable {
      * 创建者的角色id
      *
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     private Integer creatorRoleId;
 
     /**
      *
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     private String creatorCode;
 
     /**
      *
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     private Date gmtModified;
 
     /**
      *
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     private String modifier;
 
     /**
      *
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     private String modifierCode;
 
@@ -161,48 +161,48 @@ public class WorkerTask implements Serializable {
      * 任务状态
      *
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     private Integer status;
 
     /**
      *
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     private String bak01;
 
     /**
      *
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     private String bak02;
 
     /**
      *
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     private String bak03;
 
     /**
      *
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     private String bak04;
 
     /**
      *
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     private String bak05;
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     private static final long serialVersionUID = 1L;
 
@@ -211,7 +211,7 @@ public class WorkerTask implements Serializable {
      *
      * @return the value of buukle-security-new..worker_task.id
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public Integer getId() {
         return id;
@@ -219,7 +219,7 @@ public class WorkerTask implements Serializable {
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public WorkerTask withId(Integer id) {
         this.setId(id);
@@ -231,7 +231,7 @@ public class WorkerTask implements Serializable {
      *
      * @param id the value for buukle-security-new..worker_task.id
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public void setId(Integer id) {
         this.id = id;
@@ -242,7 +242,7 @@ public class WorkerTask implements Serializable {
      *
      * @return the value of buukle-security-new..worker_task.type
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public Integer getType() {
         return type;
@@ -250,7 +250,7 @@ public class WorkerTask implements Serializable {
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public WorkerTask withType(Integer type) {
         this.setType(type);
@@ -262,7 +262,7 @@ public class WorkerTask implements Serializable {
      *
      * @param type the value for buukle-security-new..worker_task.type
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public void setType(Integer type) {
         this.type = type;
@@ -273,7 +273,7 @@ public class WorkerTask implements Serializable {
      *
      * @return the value of buukle-security-new..worker_task.description
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public String getDescription() {
         return description;
@@ -281,7 +281,7 @@ public class WorkerTask implements Serializable {
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public WorkerTask withDescription(String description) {
         this.setDescription(description);
@@ -293,7 +293,7 @@ public class WorkerTask implements Serializable {
      *
      * @param description the value for buukle-security-new..worker_task.description
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public void setDescription(String description) {
         this.description = description == null ? null : description.trim();
@@ -304,7 +304,7 @@ public class WorkerTask implements Serializable {
      *
      * @return the value of buukle-security-new..worker_task.bean_reference_name
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public String getBeanReferenceName() {
         return beanReferenceName;
@@ -312,7 +312,7 @@ public class WorkerTask implements Serializable {
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public WorkerTask withBeanReferenceName(String beanReferenceName) {
         this.setBeanReferenceName(beanReferenceName);
@@ -324,7 +324,7 @@ public class WorkerTask implements Serializable {
      *
      * @param beanReferenceName the value for buukle-security-new..worker_task.bean_reference_name
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public void setBeanReferenceName(String beanReferenceName) {
         this.beanReferenceName = beanReferenceName == null ? null : beanReferenceName.trim();
@@ -335,7 +335,7 @@ public class WorkerTask implements Serializable {
      *
      * @return the value of buukle-security-new..worker_task.method
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public String getMethod() {
         return method;
@@ -343,7 +343,7 @@ public class WorkerTask implements Serializable {
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public WorkerTask withMethod(String method) {
         this.setMethod(method);
@@ -355,7 +355,7 @@ public class WorkerTask implements Serializable {
      *
      * @param method the value for buukle-security-new..worker_task.method
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public void setMethod(String method) {
         this.method = method == null ? null : method.trim();
@@ -366,7 +366,7 @@ public class WorkerTask implements Serializable {
      *
      * @return the value of buukle-security-new..worker_task.params
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public String getParams() {
         return params;
@@ -374,7 +374,7 @@ public class WorkerTask implements Serializable {
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public WorkerTask withParams(String params) {
         this.setParams(params);
@@ -386,7 +386,7 @@ public class WorkerTask implements Serializable {
      *
      * @param params the value for buukle-security-new..worker_task.params
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public void setParams(String params) {
         this.params = params == null ? null : params.trim();
@@ -397,7 +397,7 @@ public class WorkerTask implements Serializable {
      *
      * @return the value of buukle-security-new..worker_task.lock_status
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public Byte getLockStatus() {
         return lockStatus;
@@ -405,7 +405,7 @@ public class WorkerTask implements Serializable {
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public WorkerTask withLockStatus(Byte lockStatus) {
         this.setLockStatus(lockStatus);
@@ -417,7 +417,7 @@ public class WorkerTask implements Serializable {
      *
      * @param lockStatus the value for buukle-security-new..worker_task.lock_status
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public void setLockStatus(Byte lockStatus) {
         this.lockStatus = lockStatus;
@@ -428,7 +428,7 @@ public class WorkerTask implements Serializable {
      *
      * @return the value of buukle-security-new..worker_task.result_msg
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public String getResultMsg() {
         return resultMsg;
@@ -436,7 +436,7 @@ public class WorkerTask implements Serializable {
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public WorkerTask withResultMsg(String resultMsg) {
         this.setResultMsg(resultMsg);
@@ -448,7 +448,7 @@ public class WorkerTask implements Serializable {
      *
      * @param resultMsg the value for buukle-security-new..worker_task.result_msg
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public void setResultMsg(String resultMsg) {
         this.resultMsg = resultMsg == null ? null : resultMsg.trim();
@@ -459,7 +459,7 @@ public class WorkerTask implements Serializable {
      *
      * @return the value of buukle-security-new..worker_task.ip_group
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public String getIpGroup() {
         return ipGroup;
@@ -467,7 +467,7 @@ public class WorkerTask implements Serializable {
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public WorkerTask withIpGroup(String ipGroup) {
         this.setIpGroup(ipGroup);
@@ -479,7 +479,7 @@ public class WorkerTask implements Serializable {
      *
      * @param ipGroup the value for buukle-security-new..worker_task.ip_group
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public void setIpGroup(String ipGroup) {
         this.ipGroup = ipGroup == null ? null : ipGroup.trim();
@@ -490,7 +490,7 @@ public class WorkerTask implements Serializable {
      *
      * @return the value of buukle-security-new..worker_task.time_out
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public Integer getTimeOut() {
         return timeOut;
@@ -498,7 +498,7 @@ public class WorkerTask implements Serializable {
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public WorkerTask withTimeOut(Integer timeOut) {
         this.setTimeOut(timeOut);
@@ -510,7 +510,7 @@ public class WorkerTask implements Serializable {
      *
      * @param timeOut the value for buukle-security-new..worker_task.time_out
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public void setTimeOut(Integer timeOut) {
         this.timeOut = timeOut;
@@ -521,7 +521,7 @@ public class WorkerTask implements Serializable {
      *
      * @return the value of buukle-security-new..worker_task.fail_strategy
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public String getFailStrategy() {
         return failStrategy;
@@ -529,7 +529,7 @@ public class WorkerTask implements Serializable {
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public WorkerTask withFailStrategy(String failStrategy) {
         this.setFailStrategy(failStrategy);
@@ -541,7 +541,7 @@ public class WorkerTask implements Serializable {
      *
      * @param failStrategy the value for buukle-security-new..worker_task.fail_strategy
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public void setFailStrategy(String failStrategy) {
         this.failStrategy = failStrategy == null ? null : failStrategy.trim();
@@ -552,7 +552,7 @@ public class WorkerTask implements Serializable {
      *
      * @return the value of buukle-security-new..worker_task.retry_count
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public Integer getRetryCount() {
         return retryCount;
@@ -560,7 +560,7 @@ public class WorkerTask implements Serializable {
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public WorkerTask withRetryCount(Integer retryCount) {
         this.setRetryCount(retryCount);
@@ -572,7 +572,7 @@ public class WorkerTask implements Serializable {
      *
      * @param retryCount the value for buukle-security-new..worker_task.retry_count
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public void setRetryCount(Integer retryCount) {
         this.retryCount = retryCount;
@@ -583,7 +583,7 @@ public class WorkerTask implements Serializable {
      *
      * @return the value of buukle-security-new..worker_task.remark
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public String getRemark() {
         return remark;
@@ -591,7 +591,7 @@ public class WorkerTask implements Serializable {
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public WorkerTask withRemark(String remark) {
         this.setRemark(remark);
@@ -603,7 +603,7 @@ public class WorkerTask implements Serializable {
      *
      * @param remark the value for buukle-security-new..worker_task.remark
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
@@ -614,7 +614,7 @@ public class WorkerTask implements Serializable {
      *
      * @return the value of buukle-security-new..worker_task.gmt_created
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public Date getGmtCreated() {
         return gmtCreated;
@@ -622,7 +622,7 @@ public class WorkerTask implements Serializable {
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public WorkerTask withGmtCreated(Date gmtCreated) {
         this.setGmtCreated(gmtCreated);
@@ -634,7 +634,7 @@ public class WorkerTask implements Serializable {
      *
      * @param gmtCreated the value for buukle-security-new..worker_task.gmt_created
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public void setGmtCreated(Date gmtCreated) {
         this.gmtCreated = gmtCreated;
@@ -645,7 +645,7 @@ public class WorkerTask implements Serializable {
      *
      * @return the value of buukle-security-new..worker_task.creator
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public String getCreator() {
         return creator;
@@ -653,7 +653,7 @@ public class WorkerTask implements Serializable {
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public WorkerTask withCreator(String creator) {
         this.setCreator(creator);
@@ -665,7 +665,7 @@ public class WorkerTask implements Serializable {
      *
      * @param creator the value for buukle-security-new..worker_task.creator
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public void setCreator(String creator) {
         this.creator = creator == null ? null : creator.trim();
@@ -676,7 +676,7 @@ public class WorkerTask implements Serializable {
      *
      * @return the value of buukle-security-new..worker_task.creator_role_id
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public Integer getCreatorRoleId() {
         return creatorRoleId;
@@ -684,7 +684,7 @@ public class WorkerTask implements Serializable {
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public WorkerTask withCreatorRoleId(Integer creatorRoleId) {
         this.setCreatorRoleId(creatorRoleId);
@@ -696,7 +696,7 @@ public class WorkerTask implements Serializable {
      *
      * @param creatorRoleId the value for buukle-security-new..worker_task.creator_role_id
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public void setCreatorRoleId(Integer creatorRoleId) {
         this.creatorRoleId = creatorRoleId;
@@ -707,7 +707,7 @@ public class WorkerTask implements Serializable {
      *
      * @return the value of buukle-security-new..worker_task.creator_code
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public String getCreatorCode() {
         return creatorCode;
@@ -715,7 +715,7 @@ public class WorkerTask implements Serializable {
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public WorkerTask withCreatorCode(String creatorCode) {
         this.setCreatorCode(creatorCode);
@@ -727,7 +727,7 @@ public class WorkerTask implements Serializable {
      *
      * @param creatorCode the value for buukle-security-new..worker_task.creator_code
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public void setCreatorCode(String creatorCode) {
         this.creatorCode = creatorCode == null ? null : creatorCode.trim();
@@ -738,7 +738,7 @@ public class WorkerTask implements Serializable {
      *
      * @return the value of buukle-security-new..worker_task.gmt_modified
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public Date getGmtModified() {
         return gmtModified;
@@ -746,7 +746,7 @@ public class WorkerTask implements Serializable {
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public WorkerTask withGmtModified(Date gmtModified) {
         this.setGmtModified(gmtModified);
@@ -758,7 +758,7 @@ public class WorkerTask implements Serializable {
      *
      * @param gmtModified the value for buukle-security-new..worker_task.gmt_modified
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public void setGmtModified(Date gmtModified) {
         this.gmtModified = gmtModified;
@@ -769,7 +769,7 @@ public class WorkerTask implements Serializable {
      *
      * @return the value of buukle-security-new..worker_task.modifier
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public String getModifier() {
         return modifier;
@@ -777,7 +777,7 @@ public class WorkerTask implements Serializable {
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public WorkerTask withModifier(String modifier) {
         this.setModifier(modifier);
@@ -789,7 +789,7 @@ public class WorkerTask implements Serializable {
      *
      * @param modifier the value for buukle-security-new..worker_task.modifier
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public void setModifier(String modifier) {
         this.modifier = modifier == null ? null : modifier.trim();
@@ -800,7 +800,7 @@ public class WorkerTask implements Serializable {
      *
      * @return the value of buukle-security-new..worker_task.modifier_code
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public String getModifierCode() {
         return modifierCode;
@@ -808,7 +808,7 @@ public class WorkerTask implements Serializable {
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public WorkerTask withModifierCode(String modifierCode) {
         this.setModifierCode(modifierCode);
@@ -820,7 +820,7 @@ public class WorkerTask implements Serializable {
      *
      * @param modifierCode the value for buukle-security-new..worker_task.modifier_code
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public void setModifierCode(String modifierCode) {
         this.modifierCode = modifierCode == null ? null : modifierCode.trim();
@@ -831,7 +831,7 @@ public class WorkerTask implements Serializable {
      *
      * @return the value of buukle-security-new..worker_task.status
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public Integer getStatus() {
         return status;
@@ -839,7 +839,7 @@ public class WorkerTask implements Serializable {
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public WorkerTask withStatus(Integer status) {
         this.setStatus(status);
@@ -851,7 +851,7 @@ public class WorkerTask implements Serializable {
      *
      * @param status the value for buukle-security-new..worker_task.status
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public void setStatus(Integer status) {
         this.status = status;
@@ -862,7 +862,7 @@ public class WorkerTask implements Serializable {
      *
      * @return the value of buukle-security-new..worker_task.bak01
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public String getBak01() {
         return bak01;
@@ -870,7 +870,7 @@ public class WorkerTask implements Serializable {
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public WorkerTask withBak01(String bak01) {
         this.setBak01(bak01);
@@ -882,7 +882,7 @@ public class WorkerTask implements Serializable {
      *
      * @param bak01 the value for buukle-security-new..worker_task.bak01
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public void setBak01(String bak01) {
         this.bak01 = bak01 == null ? null : bak01.trim();
@@ -893,7 +893,7 @@ public class WorkerTask implements Serializable {
      *
      * @return the value of buukle-security-new..worker_task.bak02
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public String getBak02() {
         return bak02;
@@ -901,7 +901,7 @@ public class WorkerTask implements Serializable {
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public WorkerTask withBak02(String bak02) {
         this.setBak02(bak02);
@@ -913,7 +913,7 @@ public class WorkerTask implements Serializable {
      *
      * @param bak02 the value for buukle-security-new..worker_task.bak02
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public void setBak02(String bak02) {
         this.bak02 = bak02 == null ? null : bak02.trim();
@@ -924,7 +924,7 @@ public class WorkerTask implements Serializable {
      *
      * @return the value of buukle-security-new..worker_task.bak03
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public String getBak03() {
         return bak03;
@@ -932,7 +932,7 @@ public class WorkerTask implements Serializable {
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public WorkerTask withBak03(String bak03) {
         this.setBak03(bak03);
@@ -944,7 +944,7 @@ public class WorkerTask implements Serializable {
      *
      * @param bak03 the value for buukle-security-new..worker_task.bak03
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public void setBak03(String bak03) {
         this.bak03 = bak03 == null ? null : bak03.trim();
@@ -955,7 +955,7 @@ public class WorkerTask implements Serializable {
      *
      * @return the value of buukle-security-new..worker_task.bak04
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public String getBak04() {
         return bak04;
@@ -963,7 +963,7 @@ public class WorkerTask implements Serializable {
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public WorkerTask withBak04(String bak04) {
         this.setBak04(bak04);
@@ -975,7 +975,7 @@ public class WorkerTask implements Serializable {
      *
      * @param bak04 the value for buukle-security-new..worker_task.bak04
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public void setBak04(String bak04) {
         this.bak04 = bak04 == null ? null : bak04.trim();
@@ -986,7 +986,7 @@ public class WorkerTask implements Serializable {
      *
      * @return the value of buukle-security-new..worker_task.bak05
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public String getBak05() {
         return bak05;
@@ -994,7 +994,7 @@ public class WorkerTask implements Serializable {
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public WorkerTask withBak05(String bak05) {
         this.setBak05(bak05);
@@ -1006,7 +1006,7 @@ public class WorkerTask implements Serializable {
      *
      * @param bak05 the value for buukle-security-new..worker_task.bak05
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     public void setBak05(String bak05) {
         this.bak05 = bak05 == null ? null : bak05.trim();
@@ -1014,7 +1014,7 @@ public class WorkerTask implements Serializable {
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     @Override
     public String toString() {
@@ -1054,7 +1054,7 @@ public class WorkerTask implements Serializable {
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     @Override
     public boolean equals(Object that) {
@@ -1098,7 +1098,7 @@ public class WorkerTask implements Serializable {
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     @Override
     public int hashCode() {

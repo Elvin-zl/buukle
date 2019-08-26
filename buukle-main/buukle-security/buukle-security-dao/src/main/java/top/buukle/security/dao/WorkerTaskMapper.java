@@ -10,67 +10,67 @@ import top.buukle.security.entity.WorkerTaskExample;
 public interface WorkerTaskMapper {
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     long countByExample(WorkerTaskExample example);
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     int deleteByExample(WorkerTaskExample example);
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     int deleteByPrimaryKey(Integer id);
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     int insert(WorkerTask record);
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     int insertSelective(WorkerTask record);
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     List<WorkerTask> selectByExample(WorkerTaskExample example);
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     WorkerTask selectByPrimaryKey(Integer id);
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     int updateByExampleSelective(@Param("record") WorkerTask record, @Param("example") WorkerTaskExample example);
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     int updateByExample(@Param("record") WorkerTask record, @Param("example") WorkerTaskExample example);
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     int updateByPrimaryKeySelective(WorkerTask record);
 
     /**
      *
-     * @mbg.generated Mon Aug 26 22:32:59 CST 2019
+     * @mbg.generated Tue Aug 27 00:14:01 CST 2019
      */
     int updateByPrimaryKey(WorkerTask record);
 }

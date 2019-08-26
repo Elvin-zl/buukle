@@ -22,8 +22,12 @@
 			</td>
 			<td>
 				<div class="layui-inline">
-					<div class="layui-btn layui-btn-small layui-btn-normal editBtn" th:attr="data-id = *@forDoller@*{${table.entityNameFirstLowerCase}Record?.id}" data-url="/security/${table.entityNameFirstLowerCase}/${table.entityNameFirstLowerCase}CrudView"><i class="layui-icon">&#xe642;</i></div>
-					<div class="layui-btn layui-btn-small layui-btn-danger delOneBtn" th:attr="data-id = *@forDoller@*{${table.entityNameFirstLowerCase}Record?.id}" data-url="/security/${table.entityNameFirstLowerCase}/${table.entityNameFirstLowerCase}CrudJson"><i class="layui-icon">&#xe640;</i></div>
+					<hp url="/security/${table.entityNameFirstLowerCase}/${table.entityNameFirstLowerCase}CrudView">
+						<div class="layui-btn layui-btn-small layui-btn-normal editBtn" th:attr="data-id = *@forDoller@*{${table.entityNameFirstLowerCase}Record?.id}" data-url="/security/${table.entityNameFirstLowerCase}/${table.entityNameFirstLowerCase}CrudView"><i class="layui-icon">&#xe642;</i></div>
+					</hp>
+					<hp url="/security/${table.entityNameFirstLowerCase}/${table.entityNameFirstLowerCase}CrudJson">
+						<div class="layui-btn layui-btn-small layui-btn-danger delOneBtn" th:attr="data-id = *@forDoller@*{${table.entityNameFirstLowerCase}Record?.id}" data-url="/security/${table.entityNameFirstLowerCase}/${table.entityNameFirstLowerCase}CrudJson"><i class="layui-icon">&#xe640;</i></div>
+                    </hp>
 				</div>
 			</td>
 		</tr>
@@ -33,5 +37,5 @@
 	<input type="hidden" id="total" th:attr="value=*@forDoller@*{response?.body.total}" />
 </table>
 <div id="pageBar" class="page-wrap"> </div>
-<script src="/static/security/js/commonPage.js" type="text/javascript" charset="utf-8"></script>
+
 
