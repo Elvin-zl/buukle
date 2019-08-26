@@ -3,9 +3,6 @@ package top.buukle.security.plugin.cache;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
-import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
-import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.stereotype.Component;
 import top.buukle.common.call.CommonResponse;
 import top.buukle.security.entity.User;
@@ -14,8 +11,6 @@ import top.buukle.util.JsonUtil;
 import top.buukle.util.StringUtil;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -29,7 +24,6 @@ public class SecuritySessionContext<T> {
     private static final String SPRING_SESSION_KEY_PREFIX = "spring:session:sessions:";
     private static final String SPRING_SESSION_KEY_EXPIRE_PREFIX = "spring:session:sessions:expires:";
     public static final String SESSION_ATTR_PREFIX = "sessionAttr:";
-    private static final String SERIALIZE_PREFIX = "{" ;
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
