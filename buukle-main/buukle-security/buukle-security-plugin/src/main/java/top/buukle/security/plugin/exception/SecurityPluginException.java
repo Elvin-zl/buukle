@@ -23,28 +23,33 @@ public class SecurityPluginException extends CommonException {
 
 
     /** 类型*/
-    private String type;
+    private String status;
     /** 响应码*/
     private String code;
     /** 信息*/
     private String msg;
-    /** url*/
-    private String callBackUrl;
 
     public SecurityPluginException(SecurityExceptionEnum securityExceptionEnum) {
-        super(securityExceptionEnum.getType(),securityExceptionEnum.getCode(),securityExceptionEnum.getMsg());
-        this.type=securityExceptionEnum.getType();
+        super(securityExceptionEnum.getStatus(),securityExceptionEnum.getCode(),securityExceptionEnum.getMsg());
+        this.status=securityExceptionEnum.getStatus();
         this.code=securityExceptionEnum.getCode();
         this.msg=securityExceptionEnum.getMsg();
-        this.callBackUrl=securityExceptionEnum.getCallBackUrl();
+    }
+    public SecurityPluginException(SecurityExceptionEnum securityExceptionEnum,String msg) {
+        super(securityExceptionEnum.getStatus(),securityExceptionEnum.getCode(),msg);
+        this.status=securityExceptionEnum.getStatus();
+        this.code=securityExceptionEnum.getCode();
+        this.msg=msg;
     }
 
-    public String getType() {
-        return type;
+    @Override
+    public String getStatus() {
+        return status;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    @Override
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getCode() {
@@ -63,11 +68,4 @@ public class SecurityPluginException extends CommonException {
         this.msg = msg;
     }
 
-    public String getCallBackUrl() {
-        return callBackUrl;
-    }
-
-    public void setCallBackUrl(String callBackUrl) {
-        this.callBackUrl = callBackUrl;
-    }
 }

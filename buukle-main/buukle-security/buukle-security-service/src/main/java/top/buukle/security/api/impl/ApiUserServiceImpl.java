@@ -5,13 +5,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import top.buukle.common.call.CommonResponse;
-import top.buukle.common.call.code.BaseReturnEnum;
-import top.buukle.common.exception.CommonException;
 import top.buukle.security.api.ApiUserService;
 import top.buukle.security.dao.*;
 import top.buukle.security.entity.*;
 import top.buukle.security.entity.vo.MenuTreeNode;
 import top.buukle.security.plugin.cache.SecuritySessionContext;
+import top.buukle.security.plugin.enums.SecurityExceptionEnum;
+import top.buukle.security.plugin.exception.SecurityPluginException;
 import top.buukle.security.plugin.util.SessionUtil;
 import top.buukle.security.service.constants.MenuEnums;
 import top.buukle.security.service.constants.RoleEnums;
@@ -56,7 +56,7 @@ public class ApiUserServiceImpl implements ApiUserService{
         this.validationParam(user);
         List<User> users = userMapper.selectByUsernamePwd(user.getUsername(),user.getPassword());
         if(CollectionUtils.isEmpty(users) || users.size() != 1){
-            throw new CommonException(BaseReturnEnum.LOGIN_FAILED_PARAM_WRONG);
+            throw new SecurityPluginException(SecurityExceptionEnum.LOGIN_WRONG_USER_NULL);
         }
         User userInfo = users.get(0);
         // 缓存用户信息
@@ -65,7 +65,7 @@ public class ApiUserServiceImpl implements ApiUserService{
         user1.setGmtLastLogin(new Date());
         userMapper.updateByPrimaryKeySelective(user1);
         // 剔除已经在线的会话
-        sessionContext.kickOutUser(userInfo.getUserId(),new User(SessionUtil.UserSessionOperate.KICK_OUT.value()),SessionUtil.getUserExpire(userInfo));
+        sessionContext.kickOutUser(userInfo.getUserId(),new User(SecurityExceptionEnum.AUTH_WRONG_COOKIE_OTHER.getCode()),SessionUtil.getUserExpire(userInfo));
         // 创建新的会话
         SessionUtil.cacheUser(userInfo, request, response);
         // 更新用户活跃域
@@ -279,10 +279,10 @@ public class ApiUserServiceImpl implements ApiUserService{
      */
     private void validationParam(User user) {
         if(null == user){
-            throw new CommonException(BaseReturnEnum.LOGIN_FAILED);
+            throw new SecurityPluginException(SecurityExceptionEnum.LOGIN_WRONG_PARAM_EXCEPTION);
         }
         if(StringUtil.isEmpty(user.getUsername()) || StringUtil.isEmpty(user.getPassword())){
-            throw new CommonException(BaseReturnEnum.LOGIN_FAILED_PARAM_NULL);
+            throw new SecurityPluginException(SecurityExceptionEnum.LOGIN_WRONG_PARAM_EXCEPTION,"用户名或密码不能为空！");
         }
     }
 }

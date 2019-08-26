@@ -7,36 +7,38 @@ package top.buukle.security.plugin.enums;
  */
 public enum SecurityExceptionEnum {
 
+    SECURITY_PLUGIN_EXCEPTION("F","020001","布壳儿权限中心系统异常!"),
+    SECURITY_PLUGIN_LOAD_EXCEPTION("F","020002" ,"加载security资源目录时,调用security-api接口异常,请稍后重试!" ),
+    AUTH_WRONG_NO_COOKIE("F", "020003","未登录!"),
+    AUTH_WRONG_COOKIE_OTHER("F", "020004","该账户已在其他设备登录!如非本人操作,请尽快修改密码或锁定账户!"),
+    AUTH_WRONG_OUT_OF_TIME("F", "020005","认证超时!"),
+    AUTH_WRONG_NO_PERM("F","020006","您没有该资源权限!"),
+    AUTH_WRONG_NO_ROLE("F","020007","您在当前应用下没有角色!"),
+    AUTH_WRONG_OTHER_LOGIN("F","020008","该账户已经在其他设备登录!"),
+    AUTH_WRONG_APP_NO_REG("F","020009", "目标接口未注册,请联系应用管理员!"),
+    AUTH_WRONG_APP_NO_SRC("F","020010", "目标接口未配置,请联系应用管理员!"),
+    AUTH_WRONG_DATA_ISOLATION_NO_ROLE_SUBS("F","020011" ,"您在当前应用下没有角色!"),
+    LOGIN_WRONG_PARAM_EXCEPTION("F","020012" ,"参数异常！"),
+    LOGIN_WRONG_USER_NULL("F","020013" ,"用户名或密码错误!"),
 
-    SYSTEM_OUT_OF_TIME(SecurityExceptionEnumType.VIEW.type(),"SYSTEM_OUT_OF_TIME","登录超时!","/outOfTime"),
-    NO_AUTH(SecurityExceptionEnumType.VIEW.type(),"NO_AUTH","用户未认证或认证已超时!","/noAuth"),
-    USER_NO_PERM(SecurityExceptionEnumType.VIEW.type(),"USER_NO_PERM","没有该资源(菜单/组件)权限!","/noPerm"),
-    USER_NO_ROLE(SecurityExceptionEnumType.VIEW.type(),"USER_NO_ROLE","用户在当前应用下没有角色!","/noPerm"),
-    USER_NO_PERM_OTHER_LOGIN(SecurityExceptionEnumType.VIEW.type(),"USER_NO_PERM_OTHER_LOGIN","该账户已经在其他设备登录!","/noPerm"),
-    APP_NO_REG(SecurityExceptionEnumType.VIEW.type(),"APP_NO_REG", "目标接口未注册,请联系应用管理员!","/noPerm"),
-    APP_NO_SRC(SecurityExceptionEnumType.VIEW.type(),"APP_NO_SRC", "目标接口未配置,请联系应用管理员!","/noPerm"),
-    LOAD_EXCEPTION(SecurityExceptionEnumType.JSON.type(),"LOAD_EXCEPTION" ,"加载security资源目录时,调用security-api接口异常,请稍后重试!" ,""),
-    DATA_ISOLATION_NO_ROLE_SUBS(SecurityExceptionEnumType.JSON.type(),"LOAD_EXCEPTION" ,"失败!该用户在当前应用下没有角色!" ,"");
+    ;
 
-    private String type;
+    private String status;
     private String code;
     private String msg;
-    private String callBackUrl;
 
-    SecurityExceptionEnum(String type, String code, String msg,String callBackUrl) {
-        this.type = type;
+    SecurityExceptionEnum(String status, String code, String msg) {
+        this.status = status;
         this.code = code;
         this.msg = msg;
-        this.callBackUrl = callBackUrl;
-
     }
 
-    public String getType() {
-        return type;
+    public String getStatus() {
+        return status;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getCode() {
@@ -55,11 +57,4 @@ public enum SecurityExceptionEnum {
         this.msg = msg;
     }
 
-    public String getCallBackUrl() {
-        return callBackUrl;
-    }
-
-    public void setCallBackUrl(String callBackUrl) {
-        this.callBackUrl = callBackUrl;
-    }
 }

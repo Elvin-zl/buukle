@@ -74,9 +74,9 @@ public class ResponseHead extends Head {
         }
         public ResponseHead buildFailed(Exception exception) {
             ResponseHead responseHead = new ResponseHead();
-            responseHead.setStatus(BaseReturnEnum.EXCEPTION.getStatus());
-            responseHead.setCode(BaseReturnEnum.EXCEPTION.getCode());
-            responseHead.setMsg(BaseReturnEnum.EXCEPTION.getMsg());
+            responseHead.setStatus(BaseReturnEnum.FAILED.getStatus());
+            responseHead.setCode(BaseReturnEnum.FAILED.getCode());
+            responseHead.setMsg(BaseReturnEnum.FAILED.getMsg());
             responseHead.setOperationTime(new Date());
             return responseHead;
         }

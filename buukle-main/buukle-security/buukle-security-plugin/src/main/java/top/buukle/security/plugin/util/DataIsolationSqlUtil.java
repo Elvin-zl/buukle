@@ -67,7 +67,7 @@ public class DataIsolationSqlUtil {
         List<Role> userSubRoles = userSubRolesMap.get(applicationCode);
 		// 没有所辖角色信息
 		if (CollectionUtils.isEmpty(userSubRoles)) {
-		    throw new SecurityPluginException(SecurityExceptionEnum.DATA_ISOLATION_NO_ROLE_SUBS);
+		    throw new SecurityPluginException(SecurityExceptionEnum.AUTH_WRONG_DATA_ISOLATION_NO_ROLE_SUBS);
 		}
 		LOGGER.info("所辖角色信息 : userSubRoles : {}", JsonUtil.toJSONString(userSubRoles));
 		// 角色维度

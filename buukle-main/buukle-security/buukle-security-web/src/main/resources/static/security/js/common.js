@@ -13,9 +13,38 @@ layui.use(['form', 'jquery', 'laydate', 'layer', 'laypage', 'dialog',   'element
     bindDelBitch();
     // 绑定查询
     bindSearch();
+    // 绑定浏览器tab切换事件
+    bindTabSwitch();
 
 });
 
+/** 绑定浏览器tab切换事件*/
+function bindTabSwitch() {
+    document.addEventListener('visibilitychange',function(){
+        if(document.visibilityState=='hidden') {
+
+        }else {
+            $.ajax({
+                url:"/visibilitychange",
+                method:"POST",
+                dataType:"json",
+                success:function (data) {
+                    if(
+                        // 未登录
+                        data.head.code == "020003" ||
+                        // 挤掉
+                        data.head.code == "020004" ||
+                        // 超时
+                        data.head.code == "020005"){
+                        layer.confirm(data.head.msg,{btn: ['确定', '取消'],title:"提示"}, function(){
+                            top.window.location.href = top.window.location.href;
+                        });
+                    }
+                }
+            })
+        }
+    })
+}
 /** 绑定取消*/
 function bindBack() {
    $('#back').off().on('click',function () {

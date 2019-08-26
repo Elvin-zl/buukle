@@ -40,6 +40,14 @@ public class CommonException extends RuntimeException {
         this.msg = msg;
     }
 
+
+    public CommonException(BaseReturnEnum baseReturnEnum, String code, String msg) {
+        super(msg);
+        this.status = baseReturnEnum.getStatus();
+        this.code = code;
+        this.msg = msg;
+    }
+
     public String getStatus() {
         return status;
     }

@@ -61,7 +61,7 @@ public class SecurityInterceptorCache {
                              applicationResource = invoker.getApplicationResource(commonRequest);
                         }catch (Exception e){
                             e.printStackTrace();
-                            throw new SecurityPluginException(SecurityExceptionEnum.LOAD_EXCEPTION);
+                            throw new SecurityPluginException(SecurityExceptionEnum.SECURITY_PLUGIN_LOAD_EXCEPTION);
                         }
                         LOGGER.info("应用 : {} 加载security资源目录(注册&权控)完成,耗时:{} ms",applicationName,System.currentTimeMillis() - startTime);
                         LOGGER.debug("应用 : {} security资源目录(注册&权控) : {}",applicationName,JsonUtil.toJSONString(applicationResource));

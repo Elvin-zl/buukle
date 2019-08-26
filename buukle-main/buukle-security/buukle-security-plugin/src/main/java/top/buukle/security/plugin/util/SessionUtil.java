@@ -17,7 +17,6 @@ import top.buukle.security.plugin.enums.SecurityExceptionEnum;
 import top.buukle.security.plugin.exception.SecurityPluginException;
 import top.buukle.util.NumberUtil;
 import top.buukle.util.StringUtil;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -33,38 +32,6 @@ public class SessionUtil {
 
     public static int getUserExpire(User userInfo) {
         return (userInfo.getLoginStrategy() == null || userInfo.getLoginStrategy() == 0)  ? NumberUtil.INTEGER_ONE_MINUTES_SECOND * 6 : NumberUtil.INTEGER_ONE_WEEK_SECOND;
-    }
-
-    public enum UserSessionOperate{
-        KICK_OUT("0","该账户已在其他设备登录!如非本人操作,请尽快修改密码或锁定账户!"),
-        PERM_CHANGE("1","权限信息发生改变,请重新登陆!"),
-        ;
-        private String code;
-        private String desc;
-
-        public String getCode() {
-            return code;
-        }
-        public String value() {
-            return code;
-        }
-
-        public void setCode(String code) {
-            this.code = code;
-        }
-
-        public String getDesc() {
-            return desc;
-        }
-
-        public void setDesc(String desc) {
-            this.desc = desc;
-        }
-
-        UserSessionOperate(String code, String desc) {
-            this.code = code;
-            this.desc = desc;
-        }
     }
 
     /**  【当前用户】 拥有菜单信息在session中的key*/
@@ -121,12 +88,12 @@ public class SessionUtil {
                         user = (User) session.getAttribute(USER_SESSION_KEY);
                     }
                 }catch(Exception e){
-                    throw new SecurityPluginException(SecurityExceptionEnum.USER_NO_PERM_OTHER_LOGIN);
+                    throw new SecurityPluginException(SecurityExceptionEnum.AUTH_WRONG_OTHER_LOGIN);
                 }
                 if(null == user){
                     CookieUtil.delUserCookie(response, SecurityInterceptorConstants.LOGIN_COOKIE_DOMAIN);
                     // 超时
-                    throw new SecurityPluginException(SecurityExceptionEnum.SYSTEM_OUT_OF_TIME);
+                    throw new SecurityPluginException(SecurityExceptionEnum.AUTH_WRONG_OUT_OF_TIME);
                 }
                 return user;
             }
@@ -144,7 +111,7 @@ public class SessionUtil {
     public static User getOperator(HttpServletRequest request, HttpServletResponse response) {
         User user = getUser(request, response);
         if(user == null){
-            throw new SecurityPluginException(SecurityExceptionEnum.SYSTEM_OUT_OF_TIME);
+            throw new SecurityPluginException(SecurityExceptionEnum.AUTH_WRONG_OUT_OF_TIME);
         }
         return user;
     }
@@ -209,10 +176,8 @@ public class SessionUtil {
         Map<String, Role> roleMap = (Map<String, Role>) SessionUtil.get(request, SessionUtil.USER_ROLE_MAP_KEY);
         Role role = roleMap.get(applicationCode);
         if(role == null){
-            throw new SecurityPluginException(SecurityExceptionEnum.USER_NO_ROLE);
+            throw new SecurityPluginException(SecurityExceptionEnum.AUTH_WRONG_NO_ROLE);
         }
         return role;
     }
-
-    
 }
