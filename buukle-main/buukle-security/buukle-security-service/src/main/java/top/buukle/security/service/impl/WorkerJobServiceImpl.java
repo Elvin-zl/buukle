@@ -1,4 +1,4 @@
-package $!table.get("basePackage") .service.impl;
+package top.buukle.security .service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -9,19 +9,19 @@ import top.buukle.common.call.FuzzyResponse;
 import top.buukle.common.call.PageResponse;
 import top.buukle.common.call.vo.FuzzyVo;
 import top.buukle.common.status.StatusConstants;
-import $!table.get("basePackage") .dao.CommonMapper;
-import $!table.get("basePackage") .dao.${table.entityName}Mapper;
-import $!table.get("basePackage") .entity.User;
-import $!table.get("basePackage") .entity.${table.entityName};
-import $!table.get("basePackage") .entity.${table.entityName}Example;
-import $!table.get("basePackage") .entity.vo.BaseQuery;
-import $!table.get("basePackage") .entity.vo.${table.entityName}Query;
-import $!table.get("basePackage") .plugin.util.SessionUtil;
-import $!table.get("basePackage") .service.${table.entityName}Service;
-import $!table.get("basePackage") .service.constants.SystemReturnEnum;
-import $!table.get("basePackage") .service.constants.${table.entityName}Enums;
-import $!table.get("basePackage") .service.exception.SystemException;
-import $!table.get("basePackage") .service.util.ConvertHumpUtil;
+import top.buukle.security .dao.CommonMapper;
+import top.buukle.security .dao.WorkerJobMapper;
+import top.buukle.security .entity.User;
+import top.buukle.security .entity.WorkerJob;
+import top.buukle.security .entity.WorkerJobExample;
+import top.buukle.security .entity.vo.BaseQuery;
+import top.buukle.security .entity.vo.WorkerJobQuery;
+import top.buukle.security .plugin.util.SessionUtil;
+import top.buukle.security .service.WorkerJobService;
+import top.buukle.security .service.constants.SystemReturnEnum;
+import top.buukle.security .service.constants.WorkerJobEnums;
+import top.buukle.security .service.exception.SystemException;
+import top.buukle.security .service.util.ConvertHumpUtil;
 import top.buukle.util.DateUtil;
 import top.buukle.util.JsonUtil;
 import top.buukle.util.StringUtil;
@@ -35,13 +35,13 @@ import java.util.List;
 
 /**
 * @author elvin
-* @description ${table.entityName}Service实现类
+* @description WorkerJobService实现类
 */
-@Service("${table.entityLowerCamel}Service")
-public class ${table.entityName}ServiceImpl implements ${table.entityName}Service{
+@Service("workerJobService")
+public class WorkerJobServiceImpl implements WorkerJobService{
 
     @Autowired
-    private ${table.entityName}Mapper ${table.entityLowerCamel}Mapper;
+    private WorkerJobMapper workerJobMapper;
 
     @Autowired
     private CommonMapper commonMapper;
@@ -53,9 +53,9 @@ public class ${table.entityName}ServiceImpl implements ${table.entityName}Servic
      */
     @Override
     public PageResponse getPage(BaseQuery query) {
-        PageHelper.startPage(((${table.entityName}Query)query).getPage(),((${table.entityName}Query)query).getPageSize());
-        List<${table.entityName}> list = ${table.entityLowerCamel}Mapper.selectByExample(this.assExampleForList(((${table.entityName}Query)query)));
-        PageInfo<${table.entityName}> pageInfo = new PageInfo<>(list);
+        PageHelper.startPage(((WorkerJobQuery)query).getPage(),((WorkerJobQuery)query).getPageSize());
+        List<WorkerJob> list = workerJobMapper.selectByExample(this.assExampleForList(((WorkerJobQuery)query)));
+        PageInfo<WorkerJob> pageInfo = new PageInfo<>(list);
         return new PageResponse.Builder().build(list,pageInfo.getPageNum(),pageInfo.getPageSize(),pageInfo.getTotal());
     }
 
@@ -68,7 +68,7 @@ public class ${table.entityName}ServiceImpl implements ${table.entityName}Servic
      */
     @Override
     public CommonResponse delete(Integer id, HttpServletRequest request, HttpServletResponse response) {
-        if(${table.entityLowerCamel}Mapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(id, ${table.entityName}Enums.status.DELETED.value(),request,response)) != 1){
+        if(workerJobMapper.updateByPrimaryKeySelective(this.assQueryForUpdateStatus(id, WorkerJobEnums.status.DELETED.value(),request,response)) != 1){
             throw new SystemException(SystemReturnEnum.DELETE_INFO_EXCEPTION);
         }
         return new CommonResponse.Builder().buildSuccess();
@@ -91,35 +91,35 @@ public class ${table.entityName}ServiceImpl implements ${table.entityName}Servic
             throw new SystemException(SystemReturnEnum.USER_BATCH_DELETE_IDS_NULL);
         }
         List<Integer> idList = JsonUtil.parseArray(JsonUtil.toJSONString(Arrays.asList(split)), Integer.class);
-        ${table.entityName}Example ${table.entityLowerCamel}Example = new ${table.entityName}Example();
-        ${table.entityName}Example.Criteria criteria = ${table.entityLowerCamel}Example.createCriteria();
+        WorkerJobExample workerJobExample = new WorkerJobExample();
+        WorkerJobExample.Criteria criteria = workerJobExample.createCriteria();
         criteria.andIdIn(idList);
-        ${table.entityName} ${table.entityLowerCamel} = new ${table.entityName}();
+        WorkerJob workerJob = new WorkerJob();
 
         User operator = SessionUtil. getOperator(request, response);
-        ${table.entityLowerCamel}.setGmtModified(new Date());
-        ${table.entityLowerCamel}.setModifier(operator.getUsername());
-        ${table.entityLowerCamel}.setModifierCode(operator.getUserId());
+        workerJob.setGmtModified(new Date());
+        workerJob.setModifier(operator.getUsername());
+        workerJob.setModifierCode(operator.getUserId());
 
-        ${table.entityLowerCamel}.setStatus(${table.entityName}Enums.status.DELETED.value());
-        ${table.entityLowerCamel}Mapper.updateByExampleSelective(${table.entityLowerCamel},${table.entityLowerCamel}Example);
+        workerJob.setStatus(WorkerJobEnums.status.DELETED.value());
+        workerJobMapper.updateByExampleSelective(workerJob,workerJobExample);
         return new CommonResponse.Builder().buildSuccess();
     }
 
     /**
      * @description 根据id查询
      * @param id
-     * @return top.$!table.get("basePackage") .entity.${table.entityName}
+     * @return top.top.buukle.security .entity.WorkerJob
      * @Author elvin
      * @Date 2019/8/4
      */
     @Override
-    public ${table.entityName} selectByPrimaryKeyForCrud(HttpServletRequest httpServletRequest, Integer id) {
+    public WorkerJob selectByPrimaryKeyForCrud(HttpServletRequest httpServletRequest, Integer id) {
         if(id == null){
-            return new ${table.entityName}();
+            return new WorkerJob();
         }
-        ${table.entityName} ${table.entityLowerCamel} = ${table.entityLowerCamel}Mapper.selectByPrimaryKey(id);
-        return ${table.entityLowerCamel} == null ? new ${table.entityName}() : ${table.entityLowerCamel};
+        WorkerJob workerJob = workerJobMapper.selectByPrimaryKey(id);
+        return workerJob == null ? new WorkerJob() : workerJob;
     }
 
     /**
@@ -132,7 +132,7 @@ public class ${table.entityName}ServiceImpl implements ${table.entityName}Servic
      * @Date 2019/8/5
      */
     @Override
-    public CommonResponse saveOrEdit(${table.entityName}Query query, HttpServletRequest request, HttpServletResponse response) {
+    public CommonResponse saveOrEdit(WorkerJobQuery query, HttpServletRequest request, HttpServletResponse response) {
         validateParamForSaveOrEdit(query);
         // 新增
         if(query.getId() == null){
@@ -156,7 +156,7 @@ public class ${table.entityName}ServiceImpl implements ${table.entityName}Servic
         FuzzyVo fuzzyVo = new FuzzyVo();
         fuzzyVo.setText(text);
         fuzzyVo.setFieldName(fieldName);
-        fuzzyVo.setTableName(ConvertHumpUtil.humpToLine("${table.entityName}"));
+        fuzzyVo.setTableName(ConvertHumpUtil.humpToLine("WorkerJob"));
         return new FuzzyResponse.Builder().build(commonMapper.fuzzySearch(fuzzyVo));
     }
 
@@ -170,7 +170,7 @@ public class ${table.entityName}ServiceImpl implements ${table.entityName}Servic
     @Override
     public CommonResponse save(BaseQuery query, HttpServletRequest request, HttpServletResponse response) {
 
-        ${table.entityLowerCamel}Mapper.insert(this.assQueryForInsert((${table.entityName}Query)query,request,response));
+        workerJobMapper.insert(this.assQueryForInsert((WorkerJobQuery)query,request,response));
         return new CommonResponse.Builder().buildSuccess();
     }
 
@@ -183,16 +183,16 @@ public class ${table.entityName}ServiceImpl implements ${table.entityName}Servic
      */
     @Override
     public CommonResponse update(BaseQuery query, HttpServletRequest request, HttpServletResponse response) {
-        ${table.entityName}Query ${table.entityLowerCamel}Query = ((${table.entityName}Query)query);
+        WorkerJobQuery workerJobQuery = ((WorkerJobQuery)query);
 
-        ${table.entityName}Example example = new ${table.entityName}Example();
-        ${table.entityName}Example.Criteria criteria = example.createCriteria();
-        criteria.andIdEqualTo(${table.entityLowerCamel}Query.getId());
+        WorkerJobExample example = new WorkerJobExample();
+        WorkerJobExample.Criteria criteria = example.createCriteria();
+        criteria.andIdEqualTo(workerJobQuery.getId());
         User operator = SessionUtil. getOperator(request, response);
-        ${table.entityLowerCamel}Query.setGmtModified(new Date());
-        ${table.entityLowerCamel}Query.setModifier(operator.getUsername());
-        ${table.entityLowerCamel}Query.setModifierCode(operator.getUserId());
-        ${table.entityLowerCamel}Mapper.updateByExampleSelective(${table.entityLowerCamel}Query,example);
+        workerJobQuery.setGmtModified(new Date());
+        workerJobQuery.setModifier(operator.getUsername());
+        workerJobQuery.setModifierCode(operator.getUserId());
+        workerJobMapper.updateByExampleSelective(workerJobQuery,example);
         return new CommonResponse.Builder().buildSuccess();
     }
 
@@ -203,7 +203,7 @@ public class ${table.entityName}ServiceImpl implements ${table.entityName}Servic
      * @Author elvin
      * @Date 2019/8/5
      */
-    private void validateParamForSaveOrEdit(${table.entityName}Query query) {
+    private void validateParamForSaveOrEdit(WorkerJobQuery query) {
         // TODO
     }
 
@@ -214,9 +214,9 @@ public class ${table.entityName}ServiceImpl implements ${table.entityName}Servic
      * @param response
      * @return
      */
-    private ${table.entityName} assQueryForInsert(${table.entityName}Query query, HttpServletRequest request, HttpServletResponse response) {
+    private WorkerJob assQueryForInsert(WorkerJobQuery query, HttpServletRequest request, HttpServletResponse response) {
         this.validateParamForSaveOrEdit(query);
-        query.setStatus(${table.entityName}Enums.status.INIT.value());
+        query.setStatus(WorkerJobEnums.status.INIT.value());
         query.setGmtCreated(new Date());
         User operator = SessionUtil.getOperator(request, response);
         query.setCreator(operator.getUsername());
@@ -236,8 +236,8 @@ public class ${table.entityName}ServiceImpl implements ${table.entityName}Servic
      * @param response
      * @return
      */
-    private ${table.entityName} assQueryForUpdateStatus(Integer id, Integer status, HttpServletRequest request, HttpServletResponse response) {
-        ${table.entityName}Query infoQuery = new ${table.entityName}Query();
+    private WorkerJob assQueryForUpdateStatus(Integer id, Integer status, HttpServletRequest request, HttpServletResponse response) {
+        WorkerJobQuery infoQuery = new WorkerJobQuery();
         User operator = SessionUtil. getOperator(request, response);
         infoQuery.setId(id);
         infoQuery.setStatus(status);
@@ -252,9 +252,9 @@ public class ${table.entityName}ServiceImpl implements ${table.entityName}Servic
      * @param query
      * @return
      */
-    private ${table.entityName}Example assExampleForList(${table.entityName}Query query) {
-        ${table.entityName}Example example = new ${table.entityName}Example();
-        ${table.entityName}Example.Criteria criteria = example.createCriteria();
+    private WorkerJobExample assExampleForList(WorkerJobQuery query) {
+        WorkerJobExample example = new WorkerJobExample();
+        WorkerJobExample.Criteria criteria = example.createCriteria();
         if(StringUtil.isNotEmpty(query.getStartTime())){
             criteria.andGmtCreatedGreaterThanOrEqualTo(DateUtil.parse(query.getStartTime()));
         }
