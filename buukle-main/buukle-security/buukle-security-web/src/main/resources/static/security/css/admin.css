@@ -2176,3 +2176,12 @@ body{
 .buukle-disabled{
   color: #a99c9c !important;
 }
+.buukle-add-body{
+  font-size: 13px !important;
+}
+.require {
+  color: #ff0000cf;
+}
+.error {
+  color: #ff0000cf;
+}

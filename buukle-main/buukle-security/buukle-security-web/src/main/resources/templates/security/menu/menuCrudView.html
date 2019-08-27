@@ -9,7 +9,7 @@
 		<link rel="stylesheet" type="text/css" href="/static/security/layui/css/layui.css"/>
 		<link rel="stylesheet" type="text/css" href="/static/security/css/admin.css"/>
 	</head>
-	<body>
+	<body class="buukle-add-body">
 	<!--表单-->
 	<form class="layui-form column-content-detail" id="menuCrudForm">
 		<!--hidden area-->
@@ -63,14 +63,20 @@
 						</div>
 					</div>
 					<div class="layui-form-item">
-						<label class="layui-form-label">类型：</label>
+						<label class="layui-form-label">
+							<i class="require">*</i>
+							类型：
+						</label>
 						<div class="layui-input-block">
 							<input type="radio" name="type" th:field="*{record.type}" value="1" title="菜单" checked>
 							<input type="radio" name="type" th:field="*{record.type}" value="0"  title="组件">
 						</div>
 					</div>
 					<div class="layui-form-item">
-						<label class="layui-form-label">是否展示：</label>
+						<label class="layui-form-label">
+							<i class="require">*</i>
+							是否展示：
+						</label>
 						<div class="layui-input-block">
 							<input type="radio" name="display" th:field="*{record.display}" value="1" title="是" checked>
 							<input type="radio" name="display" th:field="*{record.display}" value="0"  title="否">
@@ -96,13 +102,18 @@
 						</div>
 					</div>
 					<div class="layui-form-item">
-						<label class="layui-form-label">排序号：</label>
+						<label class="layui-form-label">
+							排序号：
+						</label>
 						<div class="layui-input-block">
 							<input type="text"  name="orderNo" th:attr="value = ${record?.orderNo}" placeholder="排序号" autocomplete="off" class="layui-input">
 						</div>
 					</div>
 					<div class="layui-form-item">
-						<label class="layui-form-label">名称：</label>
+						<label class="layui-form-label">
+							<i class="require">*</i>
+							名称：
+						</label>
 						<div class="layui-input-block">
 							<input type="text"  name="name" th:attr="value = ${record?.name}" placeholder="名称" autocomplete="off" class="layui-input">
 						</div>
@@ -141,6 +152,8 @@
 	</form>
 	<script src="/static/security/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/static/security/js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/static/security/plugin/jquery/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/static/security/js/jqueryValidate/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
 	<script>
 		layui.use(['jquery', 'layer','dialog','tree'], function() {
 			layer = layui.layer, $ = layui.jquery, dialog = layui.dialog, tree = layui.tree;
@@ -193,9 +206,26 @@
         }
 		/** 绑定提交*/
         function bindSaveOrEdit() {
+			var  validateLoin = $("#menuCrudForm").validate({
+				rules:{
+					type:{required:true},
+					display:{required:true},
+					name:{required:true,minlength: 2},
+				},
+				messages:{
+					type:"请正确输入类型",
+					display:"请选择是否展示",
+					name:"请正确输入名称",
+				}
+			});
             $('#saveOrEdit').off().on('click',function () {
                 var obj = $(this);
                 banThis(obj,"保存中..");
+				if(!validateLoin.form()){
+					layer.msg("请按规则完成表单填写!");
+					releaseThis(obj,"提交");
+					return;
+				}
                 $.ajax({
 					url:obj.attr('data-url'),
 					method:"post",

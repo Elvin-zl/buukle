@@ -9,7 +9,7 @@
 		<link rel="stylesheet" type="text/css" href="/static/security/layui/css/layui.css"/>
 		<link rel="stylesheet" type="text/css" href="/static/security/css/admin.css"/>
 	</head>
-	<body>
+	<body class="buukle-add-body">
 	<!--表单-->
 	<form class="layui-form column-content-detail" id="workerJobCrudForm">
 		<!--hidden area-->
@@ -17,6 +17,91 @@
 		<div class="layui-tab">
 			<div class="layui-tab-content">
 				<div class="layui-tab-item layui-show">
+					<div class="layui-form-item">
+						<label class="layui-form-label">
+							<i class="require">*</i>
+							任务名称：
+						</label>
+						<div class="layui-input-block">
+							<input type="text"  name="description" th:attr="value = ${record?.description}" placeholder="请输入任务名称" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">
+							<i class="require">*</i>
+							执行类型：
+						</label>
+						<div class="layui-input-block">
+							<select name="executeType">
+								<option th:field="*{record.executeType}" value="0">单机执行</option>
+								<option th:field="*{record.executeType}" value="1">集群分片</option>
+							</select>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">
+							<i class="require">*</i>
+							全包名：
+						</label>
+						<div class="layui-input-block">
+							<input type="text"  name="beanReferenceName" th:attr="value = ${record?.beanReferenceName}" placeholder="" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">
+							接口参数：
+						</label>
+						<div class="layui-input-block">
+							<input type="text"  name="params" th:attr="value = ${record?.params}" placeholder="" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">
+							<i class="require">*</i>
+							表达式：
+						</label>
+						<div class="layui-input-block">
+							<input type="text"  name="cronExpression" th:attr="value = ${record?.cronExpression}" placeholder="" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">
+							<i class="require">*</i>
+							超时时间：
+						</label>
+						<div class="layui-input-block">
+							<input type="text"  name="timeOut" th:attr="value = ${record?.timeOut}" placeholder="" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">
+							<i class="require">*</i>
+							ip组：
+						</label>
+						<div class="layui-input-block">
+							<input type="text"  name="ipGroup" th:attr="value = ${record?.ipGroup}" placeholder="请输入IP,多个时用逗号分隔" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">
+							<i class="require">*</i>
+							失败策略：
+						</label>
+						<div class="layui-input-block">
+							<select name="failStrategy">
+								<option th:field="*{record.failStrategy}" value="0">直接失败</option>
+								<option th:field="*{record.failStrategy}" value="1">再次重试</option>
+							</select>
+						</div>
+					</div>
+					<hp th:attr="recordId = ${record?.id}" hpType="displayForEdit">
+						<div class="layui-form-item">
+							<label class="layui-form-label">重试次数：</label>
+							<div class="layui-input-block">
+								<input type="text" disabled th:attr="value = ${record?.retryCount}" placeholder="0" autocomplete="off" class="layui-input">
+							</div>
+						</div>
+					</hp>
 					<div class="layui-form-item">
 						<label class="layui-form-label">备注：</label>
 						<div class="layui-input-block">
@@ -34,21 +119,46 @@
 					<div id="saveOrEdit" class="layui-btn layui-btn-normal">提交</div>
 				</hp>
 				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+				<div id="back" class="layui-btn layui-btn-primary">取消</div>
 			</div>
 		</div>
 	</form>
 	<script src="/static/security/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/static/security/js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/static/security/plugin/jquery/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/static/security/js/jqueryValidate/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
 	<script>
 		layui.use(['jquery', 'layer','dialog'], function() {
 			layer = layui.layer, $ = layui.jquery, dialog = layui.dialog;
-            bindSaveOrEdit();
+			// 绑定提交
+			bindSaveOrEdit();
 		});
 		/** 绑定提交*/
         function bindSaveOrEdit() {
-            $('#saveOrEdit').off().on('click',function () {
-                var obj = $(this);
+			var  validateLoin = $("#workerJobCrudForm").validate({
+					rules:{
+					description:{required:true,minlength: 4},
+					beanReferenceName:"required",
+					cronExpression:"required",
+					timeOut:{required:true,digits:true},
+					ipGroup:{required:true},
+				},
+				messages:{
+					description:"请正确输入任务名(4位以上)",
+					beanReferenceName:"请正确输入接口路径名",
+					cronExpression:"请正确输入cron表达式",
+					timeOut:"请正确输入超时时间(正整数)",
+					ipGroup:"请正确输入ip分组",
+				}
+			});
+        	$('#saveOrEdit').off().on('click',function () {
+            	var obj = $(this);
                 banThis(obj,"保存中..");
+				if(!validateLoin.form()){
+					layer.msg("请按规则完成表单填写!");
+					releaseThis(obj,"提交");
+					return;
+				}
                 $.ajax({
 					url:"/workerJob/saveOrEdit",
 					method:"post",

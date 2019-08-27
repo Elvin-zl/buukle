@@ -3,7 +3,15 @@
 	<thead>
 	<tr>
 		<th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose"></th>
-		<th class="hidden-xs">ID</th>
+		<th class="hidden-xs">任务名称</th>
+		<th class="hidden-xs">全包名</th>
+		<th class="hidden-xs">执行类型</th>
+		<th class="hidden-xs">失败策略</th>
+		<th class="hidden-xs">重试次数</th>
+		<th class="hidden-xs">创建者</th>
+		<th class="hidden-xs">创建时间</th>
+		<th class="hidden-xs">修改者</th>
+		<th class="hidden-xs">修改时间</th>
 		<th class="hidden-xs">状态</th>
 		<th>操作</th>
 	</tr>
@@ -11,7 +19,15 @@
 	<tbody id="tbody-workerJob">
 		<tr th:each="workerJobRecord:${response?.body?.list}">
 			<td><input type="checkbox" name="batchCheckBox" lay-skin="primary" th:attr="data-id = ${workerJobRecord?.id}"  /></td>
-			<td th:text="${workerJobRecord?.id}" class="hidden-xs"></td>
+			<td th:text="${workerJobRecord?.description}" class="hidden-xs"></td>
+			<td th:text="${workerJobRecord?.beanReferenceName}" class="hidden-xs"></td>
+			<td th:text="${workerJobRecord?.executeType == 0 ? '单机执行' : '集群分片'}" class="hidden-xs"></td>
+			<td th:text="${workerJobRecord?.failStrategy == '0' ? '直接失败' : '再次重试'}" class="hidden-xs"></td>
+			<td th:text="${workerJobRecord?.retryCount}" class="hidden-xs"></td>
+			<td th:text="${workerJobRecord?.creator}" class="hidden-xs"></td>
+			<td th:text="${#dates.format(workerJobRecord?.gmtCreated,'yyyy-MM-dd HH:mm:ss')}" class="hidden-xs"></td>
+			<td th:text="${workerJobRecord?.modifier}" class="hidden-xs"></td>
+			<td th:text="${#dates.format(workerJobRecord?.gmtModified,'yyyy-MM-dd HH:mm:ss')}" class="hidden-xs"></td>
 			<td th:switch="${workerJobRecord?.status}">
 				<button th:case="0" class="layui-btn layui-btn-xs layui-btn-danger" > 初始化</button>
 				<button th:case="1" class="layui-btn layui-btn-xs layui-btn-normal" > 处理中</button>
