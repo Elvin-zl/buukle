@@ -1,0 +1,84 @@
+## server
+server:
+  port: 80
+
+## spring
+spring:
+  ## 应用
+  application:
+    name: buukle-gates
+  ## 数据源
+  datasource:
+    url: jdbc:mysql://localhost:3654/buukle-gates?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: A987654321b/
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  ## 网关
+  cloud:
+    gates:
+      ## 设置注册中心可见
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        ## 网关路由到 static 服务
+        - id: static
+          uri: lb://BUUKLE-WWW
+          predicates:
+            - Host=tstatic.buukle.top
+         ## 网关路由到 www 服务
+        - id: www
+          uri: lb://BUUKLE-WWW
+          predicates:
+            - Host=twww.buukle.top
+         ## 网关路由到 timeline 服务 (暂时与www在同一项目开发)
+        - id: timeline
+          uri: lb://BUUKLE-WWW
+          ## uri: lb://BUUKLE-TIMELINE
+          predicates:
+            - Host=timeline.buukle.top
+         ## 网关路由到 cms 服务
+        - id: cms
+          uri: lb://BUUKLE-CMS
+          predicates:
+            - Host=tcms.buukle.top
+         ## 网关路由到 security 服务
+        - id: security
+          uri: lb://BUUKLE-SECURITY
+          predicates:
+            - Host=tsecurity.buukle.top
+         ## 网关路由到 passport 服务
+        - id: passport
+          uri: lb://BUUKLE-SECURITY
+          predicates:
+            - Host=tpassport.buukle.top
+  #redis
+  redis:
+    database: 5
+    host: 39.105.74.47
+    port: 4376
+    jedis:
+      pool:
+        max-active: 100
+        max-idle: 100
+        max-wait: -1
+        min-idle: 10
+    timeout: 3000
+## 注册中心
+eureka:
+  instance:
+    hostname: 127.0.0.1
+    prefer-ip-address: true
+    serverport: 9090
+  client:
+    serviceUrl:
+       defaultZone: http://${eureka.instance.hostname}:${eureka.instance.serverport}/eureka/
+
+##mybatis
+mybatis:
+  mapper-locations: classpath*:/config/mapper/*.xml
+  type-aliases-package: top.buukle.cloud.gates.entity
+## 日志
+logging:
+  config: classpath:config/spring/springBoot-logbak-local.xml

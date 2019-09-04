@@ -1,0 +1,74 @@
+##服务配置
+server:
+  port: 9191
+  tomcat:
+    max-threads: 800
+    uri-encoding: utf-8
+##日志配置
+logging:
+  config: classpath:config/spring/springBoot-logbak-prod.xml
+##spring生态配置
+spring:
+  ##引入
+  profiles:
+    include: prod-security
+  ##应用名
+  application:
+      name: buukle-srs
+  ##thymeleaf
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/srs/
+    suffix: .html
+    encoding: UTF-8
+    mode: HTML5
+  ##http编码
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+  #datasource
+  datasource:
+    url: jdbc:mysql://39.107.78.160:3654/buukle-srs?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: A987654321b/
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  ##redis
+  redis:
+    database: 6
+    host: 39.105.74.47
+    port: 4376
+    password: zxcvbnmKO),.
+    timeout: 604800
+    jedis:
+      pool:
+        max-idle: 100
+        min-idle: 1
+        max-wait: 20
+  ## session 共享
+  session:
+    store-type: redis
+    ### Session 过期时间，单位s
+    timeout: 600
+    redis:
+      ### Sessions 刷新模式
+      flush-mode: ON_SAVE
+      namespace:  BUUKLE_SESSIONS
+#clould注册中心 eureka 配置
+eureka:
+  instance:
+    hostname: 39.105.74.47
+    prefer-ip-address: true
+    serverport: 9090
+  client:
+    serviceUrl:
+       defaultZone: http://${eureka.instance.hostname}:${eureka.instance.serverport}/eureka/
+##mybatis
+mybatis:
+  mapper-locations: classpath*:/config/mapper/*.xml
+  type-aliases-package: top.buukle.srs.entity
+##===============================================================================================================================
+
+

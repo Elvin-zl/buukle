@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="renderer" content="webkit">
+  		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>buukle-布壳儿权限管理系统</title>
+		<link rel="stylesheet" type="text/css" th:href="@{'/static/'+${nameSuffix} + '/layui/css/layui.css'}" />
+		<link rel="stylesheet" type="text/css" th:href="@{'/static/'+${nameSuffix} + '/css/admin.css'}"/>
+	</head>
+	<body>
+		<div class="main-layout" id='main-layout'>
+			<!--侧边栏-->
+			<div class="main-layout-side buukle-them">
+				<div class="m-logo buukle-them" style="border-bottom: solid 1px #c7cad11a;"> </div>
+				<ul class="layui-nav layui-nav-tree" lay-filter="leftNav">
+					<th:block th:fragment="renderMenuTree(menuList)">
+						<th:block th:each="menu : ${menuList}">
+							<li class="layui-nav-item">
+								<a href="javascript:;" th:attr="data-url=${menu.url},data-id=${menu.id},data-text=${menu.name}">
+									<i class="iconfont" th:utext="${menu.icon}"></i>
+									<span th:text="${menu.name}" th:attr="data-text=${menu.name}"></span>
+								</a>
+								<th:block th:unless="${#lists.isEmpty(menu.subMenuList)}">
+									<dl class="layui-nav-child">
+										<th:block th:each="subMenu : ${menu.subMenuList}">
+											<dd>
+												<a href="javascript:;" th:attr="data-url=${subMenu.url},data-id=${subMenu.id},data-text=${subMenu.name}" >
+													<i class="iconfont" style="font-size: 13px;" th:utext="${subMenu.icon}=='' ? '&#xe607;' : ${subMenu.icon}"></i>
+													<span th:text="${subMenu.name}" th:attr="data-text=${subMenu.name}"></span>
+												</a>
+											</dd>
+										</th:block>
+									</dl>
+								</th:block>
+							</li>
+						</th:block>
+					</th:block>
+				</ul>
+			</div>
+			<!--右侧内容-->
+			<div class="main-layout-container">
+				<!--头部-->
+				<div class="main-layout-header buukle-them">
+					<!--隐藏左侧菜单-->
+					<div class="menu-btn" id="hideBtn">
+						<a href="javascript:;">
+							<span class="iconfont buukle-them-switch">&#xe668;</span>
+						</a>
+					</div>
+					<ul class="layui-nav" lay-filter="rightNav">
+						<th:block th:each="topMenu : ${topMenuList}">
+							<!--有别名显示别名-->
+							<li th:if="${topMenu.aliasName} == ''" class="layui-nav-item">
+								<a href="javascript:;" th:attr="data-url=${topMenu.url},data-id=${topMenu.id},data-text=${topMenu.name}">
+									<i class="iconfont" th:utext="${topMenu.icon}"></i>
+								</a>
+							</li>
+							<!--没有别名显示icon-->
+							<li th:if="${topMenu.aliasName} != ''" class="layui-nav-item">
+								<a href="javascript:;" th:attr="data-url=${topMenu.url},data-id=${topMenu.id},data-text=${topMenu.name}"  th:text="${topMenu.name}"> </a>
+							</li>
+						</th:block>
+					  <li class="layui-nav-item">
+					    <a href="javascript:;" th:text="${user?.username} + ' ( ' +${role?.roleName}+ ' ) '"></a>
+						  <input type="hidden" data-type="UID" th:attr="value=${user?.userId}"/>
+					  </li>
+					  <li class="layui-nav-item"><a href="/logout">登出</a></li>
+					</ul>
+				</div>
+				<!--主体内容 welcome-->
+				<div class="main-layout-body">
+					<!--tab 切换-->
+					<div class="layui-tab layui-tab-brief main-layout-tab" lay-filter="tab" lay-allowClose="true">
+					  <ul class="layui-tab-title">
+					    <li class="layui-this welcome" th:attr="lay-id=${welcome.id}" th:text="${welcome.name}"></li>
+					  </ul>
+					  <div class="layui-tab-content">
+					    <div class="layui-tab-item layui-show" style="background: #f5f5f5;">
+					    	<iframe th:attr="src = ${welcome.url}"  width="100%" height="100%" name="iframe" scrolling="auto" class="iframe" framborder="0"></iframe>
+					    </div>
+					  </div>
+					</div>
+				</div>
+			</div>
+			<div class="main-mask"> </div>
+		</div>
+		<script th:src="@{'/static/'+${nameSuffix} + '/layui/layui.js'}" type="text/javascript" charset="utf-8"></script>
+		<script th:src="@{'/static/'+${nameSuffix} + '/js/common.js'}"  type="text/javascript" charset="utf-8"></script>
+		<script th:src="@{'/static/'+${nameSuffix} + '/js/main.js'}" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

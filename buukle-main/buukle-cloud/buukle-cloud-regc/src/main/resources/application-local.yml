@@ -1,0 +1,30 @@
+##server 配置
+server:
+  port: 9090
+
+##spring配置
+spring:
+  application:
+    name: buukle-regc
+  #datasource
+  datasource:
+    url: jdbc:mysql://localhost:3654/buukle-eureka?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: A987654321b/
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+##注册中心配置
+eureka:
+  instance:
+    hostname: 127.0.0.1
+    prefer-ip-address: true
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+##日志配置
+logging:
+  config: classpath:config/spring/springBoot-logbak-local.xml

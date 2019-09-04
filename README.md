@@ -29,7 +29,7 @@ springBoot[2.1.1.RELEASE]  +spring-cloud + mybatis[1.3.1]
 ````
 ## 2 项目架构
 
-### 2.1 sms(security_manager_system) (alias : 天兵)
+### 2.1 security(security_manager_system) (alias : 天兵)
 ````
 权限管理 : 
     用户角色管理,角色资源管理,统一登录认证,会话的统计与管理(如 : session 统计在线人数),数据隔离,等功能.
@@ -45,7 +45,7 @@ springBoot[2.1.1.RELEASE]  +spring-cloud + mybatis[1.3.1]
 内容管理系统:
     运营人员使用,主要包括文章的审核,评论的审核,商品的审核,等.
 ````
-### 2.3 dsc(data_search_center) (alias : 海浪)
+### 2.3 drc(data_retrieve_center) (alias : 海浪)
 ````
 数据检索中心:
     基于elsearch,为其他应用提供检索服务;

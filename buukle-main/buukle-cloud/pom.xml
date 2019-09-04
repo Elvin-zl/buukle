@@ -15,8 +15,8 @@
     </parent>
 
     <modules>
-        <module>buukle-cloud-register</module>
-        <module>buukle-cloud-gateway</module>
+        <module>buukle-cloud-regc</module>
+        <module>buukle-cloud-gates</module>
     </modules>
 
 </project>

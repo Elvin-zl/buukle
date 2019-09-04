@@ -1,0 +1,16 @@
+## security-plugin 相关配置
+security:
+  server:
+    ### security.server.name ,调用security的服务名称
+    name: buukle-security
+    ### security.server.appResourceURI ,调用security的服务appResource资源的URI
+    appResourceURI: /api/app/getAppResource
+  ### security.openAuth 是否开启认证 : 1,开启 (默认不开启)
+  openAuth: 1
+  ### security.openAuth 是否开启授权 : 1,开启 (默认不开启)
+  openperm: 1
+  ### security.openRegs 是否开启接口注册 : 1,开启 (默认不开启)
+  openRegs: 1
+  passport:
+    ### security.passport.host 登机牌中心host配置 "?" 之前是跳转认证失败后跳转的登录中心, 之后是完成登陆后的回跳url
+    host: http://passport.buukle.top/static/login.html?returnUrl=http://srs.buukle.top/security/home

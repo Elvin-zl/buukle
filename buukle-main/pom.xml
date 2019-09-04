@@ -23,6 +23,10 @@
         <module>buukle-security</module>
         <module>buukle-www</module>
         <module>buukle-util</module>
+        <module>buukle-drc</module>
+        <module>buukle-srs</module>
+        <module>buukle-pc</module>
+        <module>buukle-tc</module>
     </modules>
 
     <properties>
