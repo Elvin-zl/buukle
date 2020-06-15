@@ -42,7 +42,7 @@
         <fastjson>1.2.47</fastjson>
         <javax.mail>1.4.7</javax.mail>
         <commons.lang>2.6</commons.lang>
-        <commons.collections>3.2.1</commons.collections>
+        <commons.collections>3.2.2</commons.collections>
         <commons.io>2.4</commons.io>
         <commons.codec>1.10</commons.codec>
         <commons.httpclient>3.1</commons.httpclient>
